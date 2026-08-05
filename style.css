@@ -1,0 +1,531 @@
+/* ===========================================================
+   Pixelmon · Mascota Virtual estilo Tamagotchi
+   =========================================================== */
+
+:root {
+  --device: #7ec8a8;
+  --device-dark: #4fa584;
+  --screen-bg: #cfe8b8;
+  --screen-bg2: #b9dda0;
+  --ink: #2b3a2f;
+  --btn: #f4d35e;
+  --btn-dark: #d9b23f;
+  --danger: #e26d5c;
+  --good: #6ab04c;
+  --hunger: #f0932b;
+  --happy: #f6c744;
+  --energy: #7ed6df;
+  --clean: #74b9ff;
+  --health: #eb4d4b;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 12px;
+  background:
+    radial-gradient(circle at 20% 20%, #5c6bc0 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, #ec407a 0%, transparent 40%),
+    linear-gradient(135deg, #2c3e50, #1a1a2e);
+  color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ---------- Dispositivo ---------- */
+.device {
+  width: 340px;
+  max-width: 92vw;
+  background: linear-gradient(160deg, var(--device), var(--device-dark));
+  border-radius: 46% 46% 40% 40% / 30% 30% 30% 30%;
+  padding: 26px 24px 22px;
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.45),
+    inset 0 4px 8px rgba(255,255,255,.4),
+    inset 0 -10px 20px rgba(0,0,0,.2);
+  position: relative;
+  transition: transform .15s ease;
+}
+.device.shake { animation: shake .4s; }
+
+.brand {
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,.85);
+  text-shadow: 0 1px 1px rgba(0,0,0,.25);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* ---------- Pantalla ---------- */
+.screen {
+  position: relative;
+  background: linear-gradient(180deg, var(--screen-bg), var(--screen-bg2));
+  border-radius: 18px;
+  padding: 10px 12px 12px;
+  box-shadow:
+    inset 0 0 0 4px #3c5a44,
+    inset 0 0 24px rgba(0,0,0,.15);
+  overflow: hidden;
+}
+.screen-glow {
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,.35), transparent 40%);
+  pointer-events: none;
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink);
+  opacity: .8;
+  padding: 0 2px 4px;
+}
+
+/* ---------- Escenario ---------- */
+.stage {
+  position: relative;
+  height: 150px;
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, transparent 60%, rgba(90,140,80,.35) 60%);
+  overflow: hidden;
+}
+.stage.night { filter: brightness(.7) saturate(.8); }
+
+.weather { position: absolute; inset: 0; pointer-events: none; }
+
+.pet-wrapper {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 100px;
+}
+
+.shadow {
+  position: absolute;
+  bottom: 2px; left: 50%;
+  width: 62px; height: 12px;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,.18);
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: shadowPulse 2.4s ease-in-out infinite;
+}
+
+/* ---------- La mascota (pixel/blob) ---------- */
+.pet {
+  position: absolute;
+  bottom: 6px; left: 50%;
+  transform: translateX(-50%);
+  width: 76px; height: 78px;
+  animation: idle 2.4s ease-in-out infinite;
+  transition: filter .3s;
+}
+.pet .body {
+  position: absolute;
+  bottom: 8px; left: 50%;
+  transform: translateX(-50%);
+  width: 72px; height: 60px;
+  background: radial-gradient(circle at 35% 30%, #ffe08a, #f7b733 70%, #e59400);
+  border: 3px solid #2b3a2f;
+  border-radius: 50% 50% 46% 46% / 55% 55% 45% 45%;
+  z-index: 2;
+}
+
+/* orejas */
+.ear {
+  position: absolute;
+  top: 2px;
+  width: 22px; height: 26px;
+  background: radial-gradient(circle at 40% 30%, #ffe08a, #f7b733);
+  border: 3px solid #2b3a2f;
+  border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+  z-index: 1;
+}
+.ear-left  { left: 8px;  transform: rotate(-18deg); transform-origin: bottom right; }
+.ear-right { right: 8px; transform: rotate(18deg);  transform-origin: bottom left; }
+.pet.happy .ear-left  { animation: earWiggleL .6s ease-in-out infinite; }
+.pet.happy .ear-right { animation: earWiggleR .6s ease-in-out infinite; }
+
+/* ojos */
+.eye {
+  position: absolute;
+  top: 16px;
+  width: 15px; height: 17px;
+  background: #fff;
+  border: 2px solid #2b3a2f;
+  border-radius: 50%;
+  z-index: 3;
+  overflow: hidden;
+}
+.eye-left  { left: 16px; }
+.eye-right { right: 16px; }
+.pupil {
+  position: absolute;
+  top: 4px; left: 4px;
+  width: 6px; height: 6px;
+  background: #2b3a2f;
+  border-radius: 50%;
+  animation: look 4s ease-in-out infinite;
+}
+/* Parpadeo */
+.pet .eye { animation: blink 5s infinite; }
+
+/* mejillas */
+.cheek {
+  position: absolute;
+  top: 30px;
+  width: 12px; height: 8px;
+  background: rgba(255,120,120,.7);
+  border-radius: 50%;
+  z-index: 3;
+}
+.cheek-left  { left: 8px; }
+.cheek-right { right: 8px; }
+
+/* boca */
+.mouth {
+  position: absolute;
+  bottom: 12px; left: 50%;
+  transform: translateX(-50%);
+  width: 18px; height: 9px;
+  border: 2.5px solid #2b3a2f;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  z-index: 3;
+  transition: all .25s;
+}
+/* variantes de humor */
+.pet.sad   .mouth { border: 2.5px solid #2b3a2f; border-bottom: none;
+  border-radius: 12px 12px 0 0; height: 7px; }
+.pet.sick  .mouth { width: 10px; height: 10px; border-radius: 50%;
+  border: 2.5px solid #2b3a2f; }
+.pet.sleep .mouth { width: 10px; height: 5px; border-radius: 0 0 8px 8px; }
+.pet.dead  .mouth { width: 14px; height: 8px; border-radius: 8px; }
+
+/* pies */
+.feet {
+  position: absolute;
+  bottom: 0;
+  width: 18px; height: 12px;
+  background: radial-gradient(circle at 40% 30%, #ffe08a, #e59400);
+  border: 3px solid #2b3a2f;
+  border-radius: 40% 40% 50% 50%;
+  z-index: 1;
+}
+.feet-left  { left: 14px; }
+.feet-right { right: 14px; }
+
+/* Estados globales del cuerpo */
+.pet.sick  .body { filter: hue-rotate(60deg) saturate(.6) brightness(.95); }
+.pet.sick  { animation: idleSick 1.4s ease-in-out infinite; }
+.pet.dead  { animation: none; filter: grayscale(1) brightness(.7); }
+.pet.dead  .pupil { display: none; }
+.pet.dead  .eye::before,
+.pet.dead  .eye::after {
+  content: ""; position: absolute; top: 6px; left: 2px;
+  width: 10px; height: 2px; background: #2b3a2f; border-radius: 2px;
+}
+.pet.dead  .eye::before { transform: rotate(45deg); }
+.pet.dead  .eye::after  { transform: rotate(-45deg); }
+.pet.sleep { animation: sleepBreath 3s ease-in-out infinite; }
+.pet.sleep .eye { height: 3px; top: 24px; background: #2b3a2f; }
+.pet.sleep .pupil { display: none; }
+.pet.eating { animation: chew .3s ease-in-out infinite; }
+.pet.playing { animation: bounce .5s ease-in-out infinite; }
+
+/* ---------- Props (comida, pelota, zzz) ---------- */
+.prop {
+  position: absolute;
+  font-size: 26px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+.prop.food  { animation: foodDrop 1s ease forwards; top: 20%; }
+.prop.ball  { animation: ballBounce 1s ease infinite; }
+.prop.zzz   { opacity: 1; top: 6px; left: 62%; animation: zzzFloat 2.4s ease-in-out infinite; font-size: 20px; }
+.prop.bubble{ animation: bubbleUp 1.2s ease forwards; }
+.prop.pill  { animation: foodDrop 1s ease forwards; top: 20%; }
+
+/* ---------- Emote flotante ---------- */
+.emote {
+  position: absolute;
+  top: -6px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  opacity: 0;
+  z-index: 5;
+}
+.emote.show { animation: emotePop 1.2s ease forwards; }
+
+/* ---------- Suciedad ---------- */
+.dirt-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  transition: opacity .4s;
+  opacity: 0;
+}
+
+/* ---------- Estadísticas ---------- */
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 8px;
+  padding: 2px;
+}
+.stat { display: flex; align-items: center; gap: 6px; }
+.stat-icon { font-size: 13px; width: 18px; text-align: center; }
+.bar {
+  flex: 1;
+  height: 10px;
+  background: rgba(43,58,47,.18);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
+}
+.fill {
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  transition: width .5s ease, background .5s ease;
+}
+.fill-hunger { background: var(--hunger); }
+.fill-happy  { background: var(--happy); }
+.fill-energy { background: var(--energy); }
+.fill-clean  { background: var(--clean); }
+.fill-health { background: var(--health); }
+.fill.low    { background: var(--danger) !important; animation: pulseBar 1s infinite; }
+
+/* ---------- Mensaje ---------- */
+.message {
+  margin-top: 8px;
+  min-height: 30px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  background: rgba(255,255,255,.35);
+  border-radius: 8px;
+  padding: 6px 8px;
+  line-height: 1.3;
+}
+
+/* ---------- Botones ---------- */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 18px;
+}
+.btn {
+  flex: 1;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffe58a, var(--btn) 60%, var(--btn-dark));
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 var(--btn-dark), 0 6px 10px rgba(0,0,0,.3);
+  position: relative;
+  transition: transform .08s, box-shadow .08s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--btn-dark); }
+.btn:disabled { opacity: .4; cursor: not-allowed; filter: grayscale(.5); }
+.btn::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: -18px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255,255,255,.9);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.footer-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+.mini-btn {
+  background: rgba(0,0,0,.18);
+  color: rgba(255,255,255,.9);
+  border: none;
+  border-radius: 12px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .15s;
+}
+.mini-btn:hover { background: rgba(0,0,0,.3); }
+
+.hint {
+  color: rgba(255,255,255,.7);
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 320px;
+}
+
+/* ---------- Overlay ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,20,.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  backdrop-filter: blur(4px);
+}
+.overlay.hidden { display: none; }
+.overlay-card {
+  background: linear-gradient(160deg, #fff, #f0f0f0);
+  border-radius: 20px;
+  padding: 28px 26px;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.5);
+  animation: popIn .35s ease;
+}
+.overlay-emoji { font-size: 54px; margin-bottom: 8px; }
+.overlay-card h2 { color: #2b3a2f; font-size: 20px; margin-bottom: 8px; }
+.overlay-card p { color: #666; font-size: 13px; margin-bottom: 18px; line-height: 1.4; }
+.btn-big {
+  background: linear-gradient(160deg, #6ab04c, #4a8a34);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(74,138,52,.5);
+  transition: transform .1s;
+}
+.btn-big:active { transform: scale(.95); }
+
+/* ---------- Animaciones ---------- */
+@keyframes idle {
+  0%,100% { transform: translateX(-50%) translateY(0) scale(1,1); }
+  50%     { transform: translateX(-50%) translateY(-4px) scale(1.02,.98); }
+}
+@keyframes idleSick {
+  0%,100% { transform: translateX(-50%) rotate(-2deg); }
+  50%     { transform: translateX(-50%) rotate(2deg); }
+}
+@keyframes sleepBreath {
+  0%,100% { transform: translateX(-50%) scale(1,1); }
+  50%     { transform: translateX(-50%) scale(1.03,.96); }
+}
+@keyframes chew {
+  0%,100% { transform: translateX(-50%) scaleY(1); }
+  50%     { transform: translateX(-50%) scaleY(.9); }
+}
+@keyframes bounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%     { transform: translateX(-50%) translateY(-16px); }
+}
+@keyframes blink {
+  0%,92%,100% { transform: scaleY(1); }
+  95%   { transform: scaleY(.1); }
+}
+@keyframes look {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+}
+@keyframes earWiggleL {
+  0%,100% { transform: rotate(-18deg); }
+  50%     { transform: rotate(-28deg); }
+}
+@keyframes earWiggleR {
+  0%,100% { transform: rotate(18deg); }
+  50%     { transform: rotate(28deg); }
+}
+@keyframes shadowPulse {
+  0%,100% { transform: translateX(-50%) scale(1); opacity: .18; }
+  50%     { transform: translateX(-50%) scale(.85); opacity: .12; }
+}
+@keyframes emotePop {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(4px) scale(.6); }
+  30%  { opacity: 1; transform: translateX(-50%) translateY(-6px) scale(1.1); }
+  80%  { opacity: 1; transform: translateX(-50%) translateY(-14px) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-24px) scale(.9); }
+}
+@keyframes foodDrop {
+  0%   { opacity: 0; transform: translate(-50%,-30px) scale(.5); }
+  30%  { opacity: 1; transform: translate(-50%,0) scale(1); }
+  70%  { opacity: 1; transform: translate(-50%,10px) scale(1); }
+  100% { opacity: 0; transform: translate(-50%,30px) scale(.3); }
+}
+@keyframes ballBounce {
+  0%,100% { transform: translate(-50%,0) rotate(0); }
+  50%     { transform: translate(-50%,-24px) rotate(180deg); }
+}
+@keyframes zzzFloat {
+  0%   { opacity: 0; transform: translateY(0) scale(.8); }
+  40%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-22px) scale(1.2); }
+}
+@keyframes bubbleUp {
+  0%   { opacity: 0; transform: translate(-50%,20px) scale(.4); }
+  40%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%,-30px) scale(1.3); }
+}
+@keyframes pulseBar {
+  0%,100% { opacity: 1; }
+  50%     { opacity: .5; }
+}
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20% { transform: translateX(-6px) rotate(-1deg); }
+  40% { transform: translateX(6px) rotate(1deg); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+@keyframes popIn {
+  0%   { transform: scale(.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Estrellas nocturnas / lluvia se generan por JS con estas clases */
+.star {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: .8;
+  animation: twinkle 2s infinite;
+}
+@keyframes twinkle { 0%,100% { opacity: .2; } 50% { opacity: .9; } }
+
+.reduced-motion * { animation: none !important; }

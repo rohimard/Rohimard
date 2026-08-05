@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Pixelmon · Mascota Virtual</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="scene">
+    <!-- Carcasa del dispositivo estilo Tamagotchi -->
+    <div class="device" id="device">
+      <div class="brand">PIXELMON</div>
+
+      <!-- Pantalla -->
+      <div class="screen" id="screen">
+        <div class="screen-glow"></div>
+
+        <!-- Barra superior de estado -->
+        <div class="status-bar">
+          <span id="petName" class="pet-name">Momo</span>
+          <span id="petAge" class="pet-age">Edad: 0d</span>
+        </div>
+
+        <!-- Zona de la mascota -->
+        <div class="stage" id="stage">
+          <div class="weather" id="weather"></div>
+
+          <div class="pet-wrapper" id="petWrapper">
+            <!-- La mascota se dibuja con CSS -->
+            <div class="pet" id="pet">
+              <div class="ear ear-left"></div>
+              <div class="ear ear-right"></div>
+              <div class="body">
+                <div class="eye eye-left"><span class="pupil"></span></div>
+                <div class="eye eye-right"><span class="pupil"></span></div>
+                <div class="cheek cheek-left"></div>
+                <div class="cheek cheek-right"></div>
+                <div class="mouth" id="mouth"></div>
+              </div>
+              <div class="feet feet-left"></div>
+              <div class="feet feet-right"></div>
+            </div>
+
+            <div class="shadow"></div>
+
+            <!-- Emojis flotantes reactivos -->
+            <div class="emote" id="emote"></div>
+            <!-- Elemento decorativo: comida / pelota / zzz, etc. -->
+            <div class="prop" id="prop"></div>
+          </div>
+
+          <!-- Suciedad -->
+          <div class="dirt-layer" id="dirtLayer"></div>
+        </div>
+
+        <!-- Barras de estadísticas -->
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-icon">🍔</span>
+            <div class="bar"><div class="fill fill-hunger" id="barHunger"></div></div>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">😊</span>
+            <div class="bar"><div class="fill fill-happy" id="barHappy"></div></div>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">⚡</span>
+            <div class="bar"><div class="fill fill-energy" id="barEnergy"></div></div>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">🧼</span>
+            <div class="bar"><div class="fill fill-clean" id="barClean"></div></div>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">❤️</span>
+            <div class="bar"><div class="fill fill-health" id="barHealth"></div></div>
+          </div>
+        </div>
+
+        <!-- Mensaje de estado -->
+        <div class="message" id="message">¡Hola! Soy tu nueva mascota 🐣</div>
+      </div>
+
+      <!-- Botones físicos -->
+      <div class="buttons">
+        <button class="btn" id="btnFeed"    data-tip="Alimentar">🍔</button>
+        <button class="btn" id="btnPlay"    data-tip="Jugar">🎾</button>
+        <button class="btn" id="btnSleep"   data-tip="Dormir">💤</button>
+        <button class="btn" id="btnClean"   data-tip="Limpiar">🧼</button>
+        <button class="btn" id="btnHeal"    data-tip="Curar">💊</button>
+      </div>
+
+      <div class="footer-controls">
+        <button class="mini-btn" id="btnReset" title="Reiniciar mascota">↺ Reiniciar</button>
+        <span class="mute-wrap">
+          <button class="mini-btn" id="btnMute" title="Silenciar sonido">🔊</button>
+        </span>
+      </div>
+    </div>
+
+    <p class="hint">Cuida a tu mascota: aliméntala, juega, deja que duerma y mantenla limpia.<br>Si descuidas sus necesidades, su salud bajará…</p>
+  </div>
+
+  <!-- Overlay de muerte / renacer -->
+  <div class="overlay hidden" id="overlay">
+    <div class="overlay-card">
+      <div class="overlay-emoji" id="overlayEmoji">💀</div>
+      <h2 id="overlayTitle">Tu mascota se fue…</h2>
+      <p id="overlaySub">Vivió una buena vida. ¿Quieres empezar de nuevo?</p>
+      <button class="btn-big" id="btnRestart">Adoptar una nueva 🥚</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
