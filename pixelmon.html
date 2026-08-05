@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Pixelmon · Mascota Virtual</title>
+  <style>
+/* ===========================================================
+   Pixelmon · Mascota Virtual estilo Tamagotchi
+   =========================================================== */
+
+:root {
+  --device: #7ec8a8;
+  --device-dark: #4fa584;
+  --screen-bg: #cfe8b8;
+  --screen-bg2: #b9dda0;
+  --ink: #2b3a2f;
+  --btn: #f4d35e;
+  --btn-dark: #d9b23f;
+  --danger: #e26d5c;
+  --good: #6ab04c;
+  --hunger: #f0932b;
+  --happy: #f6c744;
+  --energy: #7ed6df;
+  --clean: #74b9ff;
+  --health: #eb4d4b;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 12px;
+  background:
+    radial-gradient(circle at 20% 20%, #5c6bc0 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, #ec407a 0%, transparent 40%),
+    linear-gradient(135deg, #2c3e50, #1a1a2e);
+  color: var(--ink);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.scene {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ---------- Dispositivo ---------- */
+.device {
+  width: 340px;
+  max-width: 92vw;
+  background: linear-gradient(160deg, var(--device), var(--device-dark));
+  border-radius: 46% 46% 40% 40% / 30% 30% 30% 30%;
+  padding: 26px 24px 22px;
+  box-shadow:
+    0 20px 40px rgba(0,0,0,.45),
+    inset 0 4px 8px rgba(255,255,255,.4),
+    inset 0 -10px 20px rgba(0,0,0,.2);
+  position: relative;
+  transition: transform .15s ease;
+}
+.device.shake { animation: shake .4s; }
+
+.brand {
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,.85);
+  text-shadow: 0 1px 1px rgba(0,0,0,.25);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+/* ---------- Pantalla ---------- */
+.screen {
+  position: relative;
+  background: linear-gradient(180deg, var(--screen-bg), var(--screen-bg2));
+  border-radius: 18px;
+  padding: 10px 12px 12px;
+  box-shadow:
+    inset 0 0 0 4px #3c5a44,
+    inset 0 0 24px rgba(0,0,0,.15);
+  overflow: hidden;
+}
+.screen-glow {
+  position: absolute; inset: 0;
+  background: linear-gradient(120deg, rgba(255,255,255,.35), transparent 40%);
+  pointer-events: none;
+}
+
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--ink);
+  opacity: .8;
+  padding: 0 2px 4px;
+}
+
+/* ---------- Escenario ---------- */
+.stage {
+  position: relative;
+  height: 150px;
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, transparent 60%, rgba(90,140,80,.35) 60%);
+  overflow: hidden;
+}
+.stage.night { filter: brightness(.7) saturate(.8); }
+
+.weather { position: absolute; inset: 0; pointer-events: none; }
+
+.pet-wrapper {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 100px;
+}
+
+.shadow {
+  position: absolute;
+  bottom: 2px; left: 50%;
+  width: 62px; height: 12px;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,.18);
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: shadowPulse 2.4s ease-in-out infinite;
+}
+
+/* ---------- La mascota (pixel/blob) ---------- */
+.pet {
+  position: absolute;
+  bottom: 6px; left: 50%;
+  transform: translateX(-50%);
+  width: 76px; height: 78px;
+  animation: idle 2.4s ease-in-out infinite;
+  transition: filter .3s;
+}
+.pet .body {
+  position: absolute;
+  bottom: 8px; left: 50%;
+  transform: translateX(-50%);
+  width: 72px; height: 60px;
+  background: radial-gradient(circle at 35% 30%, #ffe08a, #f7b733 70%, #e59400);
+  border: 3px solid #2b3a2f;
+  border-radius: 50% 50% 46% 46% / 55% 55% 45% 45%;
+  z-index: 2;
+}
+
+/* orejas */
+.ear {
+  position: absolute;
+  top: 2px;
+  width: 22px; height: 26px;
+  background: radial-gradient(circle at 40% 30%, #ffe08a, #f7b733);
+  border: 3px solid #2b3a2f;
+  border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+  z-index: 1;
+}
+.ear-left  { left: 8px;  transform: rotate(-18deg); transform-origin: bottom right; }
+.ear-right { right: 8px; transform: rotate(18deg);  transform-origin: bottom left; }
+.pet.happy .ear-left  { animation: earWiggleL .6s ease-in-out infinite; }
+.pet.happy .ear-right { animation: earWiggleR .6s ease-in-out infinite; }
+
+/* ojos */
+.eye {
+  position: absolute;
+  top: 16px;
+  width: 15px; height: 17px;
+  background: #fff;
+  border: 2px solid #2b3a2f;
+  border-radius: 50%;
+  z-index: 3;
+  overflow: hidden;
+}
+.eye-left  { left: 16px; }
+.eye-right { right: 16px; }
+.pupil {
+  position: absolute;
+  top: 4px; left: 4px;
+  width: 6px; height: 6px;
+  background: #2b3a2f;
+  border-radius: 50%;
+  animation: look 4s ease-in-out infinite;
+}
+/* Parpadeo */
+.pet .eye { animation: blink 5s infinite; }
+
+/* mejillas */
+.cheek {
+  position: absolute;
+  top: 30px;
+  width: 12px; height: 8px;
+  background: rgba(255,120,120,.7);
+  border-radius: 50%;
+  z-index: 3;
+}
+.cheek-left  { left: 8px; }
+.cheek-right { right: 8px; }
+
+/* boca */
+.mouth {
+  position: absolute;
+  bottom: 12px; left: 50%;
+  transform: translateX(-50%);
+  width: 18px; height: 9px;
+  border: 2.5px solid #2b3a2f;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  z-index: 3;
+  transition: all .25s;
+}
+/* variantes de humor */
+.pet.sad   .mouth { border: 2.5px solid #2b3a2f; border-bottom: none;
+  border-radius: 12px 12px 0 0; height: 7px; }
+.pet.sick  .mouth { width: 10px; height: 10px; border-radius: 50%;
+  border: 2.5px solid #2b3a2f; }
+.pet.sleep .mouth { width: 10px; height: 5px; border-radius: 0 0 8px 8px; }
+.pet.dead  .mouth { width: 14px; height: 8px; border-radius: 8px; }
+
+/* pies */
+.feet {
+  position: absolute;
+  bottom: 0;
+  width: 18px; height: 12px;
+  background: radial-gradient(circle at 40% 30%, #ffe08a, #e59400);
+  border: 3px solid #2b3a2f;
+  border-radius: 40% 40% 50% 50%;
+  z-index: 1;
+}
+.feet-left  { left: 14px; }
+.feet-right { right: 14px; }
+
+/* Estados globales del cuerpo */
+.pet.sick  .body { filter: hue-rotate(60deg) saturate(.6) brightness(.95); }
+.pet.sick  { animation: idleSick 1.4s ease-in-out infinite; }
+.pet.dead  { animation: none; filter: grayscale(1) brightness(.7); }
+.pet.dead  .pupil { display: none; }
+.pet.dead  .eye::before,
+.pet.dead  .eye::after {
+  content: ""; position: absolute; top: 6px; left: 2px;
+  width: 10px; height: 2px; background: #2b3a2f; border-radius: 2px;
+}
+.pet.dead  .eye::before { transform: rotate(45deg); }
+.pet.dead  .eye::after  { transform: rotate(-45deg); }
+.pet.sleep { animation: sleepBreath 3s ease-in-out infinite; }
+.pet.sleep .eye { height: 3px; top: 24px; background: #2b3a2f; }
+.pet.sleep .pupil { display: none; }
+.pet.eating { animation: chew .3s ease-in-out infinite; }
+.pet.playing { animation: bounce .5s ease-in-out infinite; }
+
+/* ---------- Props (comida, pelota, zzz) ---------- */
+.prop {
+  position: absolute;
+  font-size: 26px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+.prop.food  { animation: foodDrop 1s ease forwards; top: 20%; }
+.prop.ball  { animation: ballBounce 1s ease infinite; }
+.prop.zzz   { opacity: 1; top: 6px; left: 62%; animation: zzzFloat 2.4s ease-in-out infinite; font-size: 20px; }
+.prop.bubble{ animation: bubbleUp 1.2s ease forwards; }
+.prop.pill  { animation: foodDrop 1s ease forwards; top: 20%; }
+
+/* ---------- Emote flotante ---------- */
+.emote {
+  position: absolute;
+  top: -6px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  opacity: 0;
+  z-index: 5;
+}
+.emote.show { animation: emotePop 1.2s ease forwards; }
+
+/* ---------- Suciedad ---------- */
+.dirt-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  transition: opacity .4s;
+  opacity: 0;
+}
+
+/* ---------- Estadísticas ---------- */
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 8px;
+  padding: 2px;
+}
+.stat { display: flex; align-items: center; gap: 6px; }
+.stat-icon { font-size: 13px; width: 18px; text-align: center; }
+.bar {
+  flex: 1;
+  height: 10px;
+  background: rgba(43,58,47,.18);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.2);
+}
+.fill {
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  transition: width .5s ease, background .5s ease;
+}
+.fill-hunger { background: var(--hunger); }
+.fill-happy  { background: var(--happy); }
+.fill-energy { background: var(--energy); }
+.fill-clean  { background: var(--clean); }
+.fill-health { background: var(--health); }
+.fill.low    { background: var(--danger) !important; animation: pulseBar 1s infinite; }
+
+/* ---------- Mensaje ---------- */
+.message {
+  margin-top: 8px;
+  min-height: 30px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  background: rgba(255,255,255,.35);
+  border-radius: 8px;
+  padding: 6px 8px;
+  line-height: 1.3;
+}
+
+/* ---------- Botones ---------- */
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 18px;
+}
+.btn {
+  flex: 1;
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ffe58a, var(--btn) 60%, var(--btn-dark));
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 var(--btn-dark), 0 6px 10px rgba(0,0,0,.3);
+  position: relative;
+  transition: transform .08s, box-shadow .08s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(3px); box-shadow: 0 1px 0 var(--btn-dark); }
+.btn:disabled { opacity: .4; cursor: not-allowed; filter: grayscale(.5); }
+.btn::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: -18px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(255,255,255,.9);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.footer-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+}
+.mini-btn {
+  background: rgba(0,0,0,.18);
+  color: rgba(255,255,255,.9);
+  border: none;
+  border-radius: 12px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .15s;
+}
+.mini-btn:hover { background: rgba(0,0,0,.3); }
+
+.hint {
+  color: rgba(255,255,255,.7);
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 320px;
+}
+
+/* ---------- Overlay ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10,10,20,.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  backdrop-filter: blur(4px);
+}
+.overlay.hidden { display: none; }
+.overlay-card {
+  background: linear-gradient(160deg, #fff, #f0f0f0);
+  border-radius: 20px;
+  padding: 28px 26px;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 0 20px 50px rgba(0,0,0,.5);
+  animation: popIn .35s ease;
+}
+.overlay-emoji { font-size: 54px; margin-bottom: 8px; }
+.overlay-card h2 { color: #2b3a2f; font-size: 20px; margin-bottom: 8px; }
+.overlay-card p { color: #666; font-size: 13px; margin-bottom: 18px; line-height: 1.4; }
+.btn-big {
+  background: linear-gradient(160deg, #6ab04c, #4a8a34);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(74,138,52,.5);
+  transition: transform .1s;
+}
+.btn-big:active { transform: scale(.95); }
+
+/* ---------- Animaciones ---------- */
+@keyframes idle {
+  0%,100% { transform: translateX(-50%) translateY(0) scale(1,1); }
+  50%     { transform: translateX(-50%) translateY(-4px) scale(1.02,.98); }
+}
+@keyframes idleSick {
+  0%,100% { transform: translateX(-50%) rotate(-2deg); }
+  50%     { transform: translateX(-50%) rotate(2deg); }
+}
+@keyframes sleepBreath {
+  0%,100% { transform: translateX(-50%) scale(1,1); }
+  50%     { transform: translateX(-50%) scale(1.03,.96); }
+}
+@keyframes chew {
+  0%,100% { transform: translateX(-50%) scaleY(1); }
+  50%     { transform: translateX(-50%) scaleY(.9); }
+}
+@keyframes bounce {
+  0%,100% { transform: translateX(-50%) translateY(0); }
+  50%     { transform: translateX(-50%) translateY(-16px); }
+}
+@keyframes blink {
+  0%,92%,100% { transform: scaleY(1); }
+  95%   { transform: scaleY(.1); }
+}
+@keyframes look {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(3px); }
+  75% { transform: translateX(-3px); }
+}
+@keyframes earWiggleL {
+  0%,100% { transform: rotate(-18deg); }
+  50%     { transform: rotate(-28deg); }
+}
+@keyframes earWiggleR {
+  0%,100% { transform: rotate(18deg); }
+  50%     { transform: rotate(28deg); }
+}
+@keyframes shadowPulse {
+  0%,100% { transform: translateX(-50%) scale(1); opacity: .18; }
+  50%     { transform: translateX(-50%) scale(.85); opacity: .12; }
+}
+@keyframes emotePop {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(4px) scale(.6); }
+  30%  { opacity: 1; transform: translateX(-50%) translateY(-6px) scale(1.1); }
+  80%  { opacity: 1; transform: translateX(-50%) translateY(-14px) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-24px) scale(.9); }
+}
+@keyframes foodDrop {
+  0%   { opacity: 0; transform: translate(-50%,-30px) scale(.5); }
+  30%  { opacity: 1; transform: translate(-50%,0) scale(1); }
+  70%  { opacity: 1; transform: translate(-50%,10px) scale(1); }
+  100% { opacity: 0; transform: translate(-50%,30px) scale(.3); }
+}
+@keyframes ballBounce {
+  0%,100% { transform: translate(-50%,0) rotate(0); }
+  50%     { transform: translate(-50%,-24px) rotate(180deg); }
+}
+@keyframes zzzFloat {
+  0%   { opacity: 0; transform: translateY(0) scale(.8); }
+  40%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-22px) scale(1.2); }
+}
+@keyframes bubbleUp {
+  0%   { opacity: 0; transform: translate(-50%,20px) scale(.4); }
+  40%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%,-30px) scale(1.3); }
+}
+@keyframes pulseBar {
+  0%,100% { opacity: 1; }
+  50%     { opacity: .5; }
+}
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20% { transform: translateX(-6px) rotate(-1deg); }
+  40% { transform: translateX(6px) rotate(1deg); }
+  60% { transform: translateX(-5px); }
+  80% { transform: translateX(5px); }
+}
+@keyframes popIn {
+  0%   { transform: scale(.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* Estrellas nocturnas / lluvia se generan por JS con estas clases */
+.star {
+  position: absolute;
+  width: 2px; height: 2px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: .8;
+  animation: twinkle 2s infinite;
+}
+@keyframes twinkle { 0%,100% { opacity: .2; } 50% { opacity: .9; } }
+
+.reduced-motion * { animation: none !important; }
+
+</style>
+</head>
+<body>
+  <div class="scene">
+    <!-- Carcasa del dispositivo estilo Tamagotchi -->
+    <div class="device" id="device">
+      <div class="brand">PIXELMON</div>
+
+      <!-- Pantalla -->
+      <div class="screen" id="screen">
+        <div class="screen-glow"></div>
+
+        <!-- Barra superior de estado -->
+        <div class="status-bar">
+          <span id="petName" class="pet-name">Momo</span>
+          <span id="petAge" class="pet-age">Edad: 0d</span>
+        </div>
+
+        <!-- Zona de la mascota -->
+        <div class="stage" id="stage">
+          <div class="weather" id="weather"></div>
+
+          <div class="pet-wrapper" id="petWrapper">
+            <!-- La mascota se dibuja con CSS -->
+            <div class="pet" id="pet">
+              <div class="ear ear-left"></div>
+              <div class="ear ear-right"></div>
+              <div class="body">
+                <div class="eye eye-left"><span class="pupil"></span></div>
+                <div class="eye eye-right"><span class="pupil"></span></div>
+                <div class="cheek cheek-left"></div>
+                <div class="cheek cheek-right"></div>
+                <div class="mouth" id="mouth"></div>
+              </div>
+              <div class="feet feet-left"></div>
+              <div class="feet feet-right"></div>
+            </div>
+
+            <div class="shadow"></div>
+
+            <!-- Emojis flotantes reactivos -->
+            <div class="emote" id="emote"></div>
+            <!-- Elemento decorativo: comida / pelota / zzz, etc. -->
+            <div class="prop" id="prop"></div>
+          </div>
+
+          <!-- Suciedad -->
+          <div class="dirt-layer" id="dirtLayer"></div>
+        </div>
+
+        <!-- Barras de estadísticas -->
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-icon">🍔</span>
+            <div class="bar"><div class="fill fill-hunger" id="barHunger"></div></div>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">😊</span>
+            <div class="bar"><div class="fill fill-happy" id="barHappy"></div></div>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">⚡</span>
+            <div class="bar"><div class="fill fill-energy" id="barEnergy"></div></div>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">🧼</span>
+            <div class="bar"><div class="fill fill-clean" id="barClean"></div></div>
+          </div>
+          <div class="stat">
+            <span class="stat-icon">❤️</span>
+            <div class="bar"><div class="fill fill-health" id="barHealth"></div></div>
+          </div>
+        </div>
+
+        <!-- Mensaje de estado -->
+        <div class="message" id="message">¡Hola! Soy tu nueva mascota 🐣</div>
+      </div>
+
+      <!-- Botones físicos -->
+      <div class="buttons">
+        <button class="btn" id="btnFeed"    data-tip="Alimentar">🍔</button>
+        <button class="btn" id="btnPlay"    data-tip="Jugar">🎾</button>
+        <button class="btn" id="btnSleep"   data-tip="Dormir">💤</button>
+        <button class="btn" id="btnClean"   data-tip="Limpiar">🧼</button>
+        <button class="btn" id="btnHeal"    data-tip="Curar">💊</button>
+      </div>
+
+      <div class="footer-controls">
+        <button class="mini-btn" id="btnReset" title="Reiniciar mascota">↺ Reiniciar</button>
+        <span class="mute-wrap">
+          <button class="mini-btn" id="btnMute" title="Silenciar sonido">🔊</button>
+        </span>
+      </div>
+    </div>
+
+    <p class="hint">Cuida a tu mascota: aliméntala, juega, deja que duerma y mantenla limpia.<br>Si descuidas sus necesidades, su salud bajará…</p>
+  </div>
+
+  <!-- Overlay de muerte / renacer -->
+  <div class="overlay hidden" id="overlay">
+    <div class="overlay-card">
+      <div class="overlay-emoji" id="overlayEmoji">💀</div>
+      <h2 id="overlayTitle">Tu mascota se fue…</h2>
+      <p id="overlaySub">Vivió una buena vida. ¿Quieres empezar de nuevo?</p>
+      <button class="btn-big" id="btnRestart">Adoptar una nueva 🥚</button>
+    </div>
+  </div>
+
+  <script>
+/* ===========================================================
+   Pixelmon · Lógica de la mascota virtual (Tamagotchi)
+   -----------------------------------------------------------
+   - Estadísticas que decaen con el tiempo real
+   - Acciones: alimentar, jugar, dormir, limpiar, curar
+   - Estados de humor, enfermedad, sueño y muerte
+   - Persistencia en localStorage (incluye tiempo offline)
+   - Sonidos simples con WebAudio (sin archivos externos)
+   =========================================================== */
+
+(() => {
+  "use strict";
+
+  const SAVE_KEY = "pixelmon_save_v1";
+
+  // Velocidad de decaimiento por segundo (puntos/seg).
+  // Ajusta estos valores para hacer la mascota más o menos exigente.
+  const DECAY = {
+    hunger: 0.9 / 60,   // ~0.9 por minuto
+    happy:  0.7 / 60,
+    energy: 0.5 / 60,
+    clean:  0.4 / 60,
+  };
+
+  const TICK_MS = 1000;          // frecuencia del bucle principal
+  const MAX = 100;
+  const AGE_PER_DAY = 24 * 60 * 60 * 1000; // ms por "día" de vida
+
+  // ---------- Estado ----------
+  const defaultState = () => ({
+    name: "Momo",
+    born: Date.now(),
+    last: Date.now(),
+    hunger: 80,
+    happy: 80,
+    energy: 80,
+    clean: 90,
+    health: 100,
+    sleeping: false,
+    sick: false,
+    dead: false,
+    poop: 0,        // nivel de suciedad (0-3)
+    muted: false,
+  });
+
+  let state = loadState();
+
+  // ---------- Referencias DOM ----------
+  const $ = (id) => document.getElementById(id);
+  const el = {
+    device: $("device"),
+    screen: $("screen"),
+    stage: $("stage"),
+    pet: $("pet"),
+    petWrapper: $("petWrapper"),
+    mouth: $("mouth"),
+    prop: $("prop"),
+    emote: $("emote"),
+    weather: $("weather"),
+    dirt: $("dirtLayer"),
+    petName: $("petName"),
+    petAge: $("petAge"),
+    message: $("message"),
+    barHunger: $("barHunger"),
+    barHappy: $("barHappy"),
+    barEnergy: $("barEnergy"),
+    barClean: $("barClean"),
+    barHealth: $("barHealth"),
+    overlay: $("overlay"),
+    overlayEmoji: $("overlayEmoji"),
+    overlayTitle: $("overlayTitle"),
+    overlaySub: $("overlaySub"),
+  };
+
+  const buttons = {
+    feed:  $("btnFeed"),
+    play:  $("btnPlay"),
+    sleep: $("btnSleep"),
+    clean: $("btnClean"),
+    heal:  $("btnHeal"),
+  };
+
+  // ---------- Persistencia ----------
+  function loadState() {
+    try {
+      const raw = localStorage.getItem(SAVE_KEY);
+      if (!raw) return defaultState();
+      const s = { ...defaultState(), ...JSON.parse(raw) };
+      return s;
+    } catch (e) {
+      return defaultState();
+    }
+  }
+
+  function save() {
+    state.last = Date.now();
+    try { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  // ---------- Utilidades ----------
+  const clamp = (v) => Math.max(0, Math.min(MAX, v));
+
+  function ageInDays() {
+    return Math.floor((Date.now() - state.born) / AGE_PER_DAY);
+  }
+
+  function lifeStage() {
+    const d = ageInDays();
+    if (d < 1) return "bebé";
+    if (d < 4) return "niño";
+    if (d < 10) return "joven";
+    return "adulto";
+  }
+
+  // ---------- Sonido (WebAudio, sin archivos) ----------
+  let audioCtx = null;
+  function beep(freq = 440, dur = 0.12, type = "square", vol = 0.06) {
+    if (state.muted) return;
+    try {
+      audioCtx = audioCtx || new (window.AudioContext || window.webkitAudioContext)();
+      const o = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      o.type = type;
+      o.frequency.value = freq;
+      g.gain.value = vol;
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start();
+      g.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + dur);
+      o.stop(audioCtx.currentTime + dur);
+    } catch (e) {}
+  }
+  const sfx = {
+    eat:   () => { beep(520, .08); setTimeout(() => beep(660, .08), 90); },
+    play:  () => { beep(660, .08); setTimeout(() => beep(880, .1), 90); },
+    sleep: () => { beep(330, .2, "sine"); },
+    clean: () => { beep(700, .06, "triangle"); setTimeout(() => beep(900, .06, "triangle"), 70); },
+    heal:  () => { beep(600, .1, "sine"); setTimeout(() => beep(800, .12, "sine"), 110); },
+    sad:   () => { beep(300, .18, "sawtooth"); },
+    die:   () => { beep(400, .2, "sawtooth"); setTimeout(() => beep(200, .4, "sawtooth"), 200); },
+  };
+
+  // ---------- Simulación temporal ----------
+  function applyElapsed() {
+    const now = Date.now();
+    let dt = (now - state.last) / 1000; // segundos
+    if (dt < 0) dt = 0;
+    // Tope: si estuvo mucho tiempo cerrado, simula como máximo 12h de decaimiento
+    dt = Math.min(dt, 12 * 3600);
+    state.last = now;
+
+    if (state.dead) return;
+
+    // Mientras duerme, recupera energía y el resto decae más lento
+    if (state.sleeping) {
+      state.energy = clamp(state.energy + (dt * (18 / 60)));
+      state.hunger = clamp(state.hunger - DECAY.hunger * dt * 0.4);
+      state.happy  = clamp(state.happy  - DECAY.happy  * dt * 0.3);
+      state.clean  = clamp(state.clean  - DECAY.clean  * dt * 0.5);
+      if (state.energy >= 100) wakeUp(true);
+    } else {
+      state.hunger = clamp(state.hunger - DECAY.hunger * dt);
+      state.happy  = clamp(state.happy  - DECAY.happy  * dt);
+      state.energy = clamp(state.energy - DECAY.energy * dt);
+      state.clean  = clamp(state.clean  - DECAY.clean  * dt);
+    }
+
+    // Genera suciedad con el tiempo
+    if (Math.random() < dt / 90 && state.poop < 3) {
+      state.poop = Math.min(3, state.poop + 1);
+    }
+
+    updateHealth(dt);
+  }
+
+  function updateHealth(dt) {
+    // La salud baja si hay necesidades críticas
+    let danger = 0;
+    if (state.hunger < 15) danger += 1.5;
+    if (state.happy  < 15) danger += 0.8;
+    if (state.energy < 10) danger += 0.6;
+    if (state.clean  < 15) danger += 0.8;
+    if (state.poop   >= 3) danger += 0.8;
+
+    if (danger > 0) {
+      state.health = clamp(state.health - danger * (dt / 60) * 2);
+    } else if (state.hunger > 55 && state.happy > 55 && state.clean > 40) {
+      // Se recupera lentamente si todo va bien
+      state.health = clamp(state.health + (dt / 60) * 1.5);
+    }
+
+    // Puede enfermar
+    state.sick = state.health < 40 || state.poop >= 3;
+
+    if (state.health <= 0) die();
+  }
+
+  // ---------- Acciones ----------
+  function guard() {
+    return !state.dead;
+  }
+
+  function feed() {
+    if (!guard() || state.sleeping) return nudgeSleeping();
+    if (state.hunger >= 98) { flashMessage("¡Está lleno! 🤢"); showEmote("🤢"); return; }
+    state.hunger = clamp(state.hunger + 28);
+    state.happy  = clamp(state.happy + 4);
+    state.clean  = clamp(state.clean - 3);
+    showProp("food", "🍔");
+    petClass("eating", 900);
+    showEmote("😋");
+    flashMessage("¡Ñam ñam! Gracias 🍔");
+    sfx.eat();
+    save(); render();
+  }
+
+  function play() {
+    if (!guard() || state.sleeping) return nudgeSleeping();
+    if (state.energy < 12) { flashMessage("Está muy cansado para jugar 😴"); showEmote("💤"); return; }
+    state.happy  = clamp(state.happy + 26);
+    state.energy = clamp(state.energy - 14);
+    state.hunger = clamp(state.hunger - 8);
+    showProp("ball", "🎾");
+    petClass("playing", 1000);
+    showEmote("🥳");
+    flashMessage("¡Yupi! Me encanta jugar 🎾");
+    sfx.play();
+    save(); render();
+  }
+
+  function toggleSleep() {
+    if (!guard()) return;
+    if (state.sleeping) { wakeUp(false); return; }
+    state.sleeping = true;
+    showProp("zzz", "💤");
+    showEmote("😴");
+    flashMessage("Zzz… buenas noches 🌙");
+    sfx.sleep();
+    save(); render();
+  }
+
+  function wakeUp(auto) {
+    state.sleeping = false;
+    clearProp();
+    if (auto) { flashMessage("¡Buenos días! Descansé genial ☀️"); showEmote("😃"); }
+    else { flashMessage("Me despertaste 🥱"); showEmote("🥱"); }
+    save(); render();
+  }
+
+  function clean() {
+    if (!guard() || state.sleeping) return nudgeSleeping();
+    if (state.clean >= 98 && state.poop === 0) { flashMessage("¡Ya está limpio! ✨"); showEmote("✨"); return; }
+    state.clean = clamp(state.clean + 40);
+    state.poop = 0;
+    state.happy = clamp(state.happy + 6);
+    showProp("bubble", "🫧");
+    showEmote("✨");
+    flashMessage("¡Qué limpio y fresco! 🧼");
+    sfx.clean();
+    save(); render();
+  }
+
+  function heal() {
+    if (!guard()) return;
+    if (!state.sick && state.health > 60) { flashMessage("¡Está sano! No necesita medicina 💚"); showEmote("💚"); return; }
+    state.health = clamp(state.health + 45);
+    state.sick = false;
+    state.poop = 0;
+    showProp("pill", "💊");
+    showEmote("😌");
+    flashMessage("La medicina ayudó. ¡Me siento mejor! 💊");
+    sfx.heal();
+    save(); render();
+  }
+
+  function nudgeSleeping() {
+    flashMessage("Shhh… está durmiendo 😴 (pulsa 💤 para despertarlo)");
+    showEmote("💤");
+  }
+
+  function die() {
+    if (state.dead) return;
+    state.dead = true;
+    state.sleeping = false;
+    sfx.die();
+    save();
+    render();
+    setTimeout(showDeath, 700);
+  }
+
+  function showDeath() {
+    el.overlayEmoji.textContent = "👼";
+    el.overlayTitle.textContent = `${state.name} nos dejó…`;
+    el.overlaySub.textContent = `Vivió ${ageInDays()} día(s) como ${lifeStage()}. Cuídalo mejor esta vez 💔`;
+    el.overlay.classList.remove("hidden");
+  }
+
+  function restart() {
+    const name = promptName();
+    state = defaultState();
+    state.name = name;
+    el.overlay.classList.add("hidden");
+    save();
+    flashMessage(`¡Hola! Soy ${name} 🥚 Cuídame mucho`);
+    render();
+  }
+
+  function promptName() {
+    let name = "";
+    try {
+      name = (window.prompt("¿Cómo se llamará tu nueva mascota?", "Momo") || "").trim();
+    } catch (e) {}
+    if (!name) name = "Momo";
+    return name.slice(0, 12);
+  }
+
+  function resetGame() {
+    if (!window.confirm("¿Seguro que quieres reiniciar a tu mascota? Se perderá su progreso.")) return;
+    localStorage.removeItem(SAVE_KEY);
+    state = defaultState();
+    state.name = promptName();
+    el.overlay.classList.add("hidden");
+    save();
+    render();
+    flashMessage(`¡Empezamos de nuevo con ${state.name}! 🐣`);
+  }
+
+  // ---------- Efectos visuales ----------
+  let propTimer = null;
+  function showProp(cls, emoji) {
+    clearProp();
+    el.prop.className = "prop " + cls;
+    el.prop.textContent = emoji;
+    if (cls === "zzz") return; // permanece mientras duerme
+    propTimer = setTimeout(clearProp, 1100);
+  }
+  function clearProp() {
+    if (propTimer) { clearTimeout(propTimer); propTimer = null; }
+    el.prop.className = "prop";
+    el.prop.textContent = "";
+  }
+
+  let emoteTimer = null;
+  function showEmote(emoji) {
+    el.emote.textContent = emoji;
+    el.emote.classList.remove("show");
+    // reflow para reiniciar animación
+    void el.emote.offsetWidth;
+    el.emote.classList.add("show");
+    if (emoteTimer) clearTimeout(emoteTimer);
+    emoteTimer = setTimeout(() => el.emote.classList.remove("show"), 1300);
+  }
+
+  function petClass(cls, ms) {
+    el.pet.classList.add(cls);
+    setTimeout(() => el.pet.classList.remove(cls), ms);
+  }
+
+  let msgTimer = null;
+  function flashMessage(text) {
+    el.message.textContent = text;
+    if (msgTimer) clearTimeout(msgTimer);
+    msgTimer = setTimeout(() => { el.message.textContent = ambientMessage(); }, 3500);
+  }
+
+  function ambientMessage() {
+    if (state.dead) return "Adopta una nueva mascota 🥚";
+    if (state.sleeping) return "Zzz… durmiendo 🌙";
+    if (state.sick) return "No me siento bien… ¿me curas? 🤒";
+    if (state.hunger < 20) return "Tengo mucha hambre… 🍔";
+    if (state.clean < 20 || state.poop >= 2) return "Necesito un baño 🛁";
+    if (state.energy < 20) return "Estoy agotado… 😴";
+    if (state.happy < 20) return "Me aburro… ¿jugamos? 🎾";
+    if (state.health > 80 && state.happy > 70) return "¡Estoy feliz contigo! 💖";
+    return "¿Qué hacemos hoy? 😊";
+  }
+
+  // ---------- Render ----------
+  function setBar(node, val) {
+    node.style.width = clamp(val) + "%";
+    node.classList.toggle("low", val < 20);
+  }
+
+  function moodClass() {
+    if (state.dead) return "dead";
+    if (state.sleeping) return "sleep";
+    if (state.sick) return "sick";
+    const avg = (state.hunger + state.happy + state.energy + state.clean) / 4;
+    if (avg < 30 || state.happy < 25) return "sad";
+    if (state.happy > 65 && state.health > 60) return "happy";
+    return "";
+  }
+
+  function render() {
+    // Barras
+    setBar(el.barHunger, state.hunger);
+    setBar(el.barHappy, state.happy);
+    setBar(el.barEnergy, state.energy);
+    setBar(el.barClean, state.clean);
+    setBar(el.barHealth, state.health);
+
+    // Info
+    el.petName.textContent = state.name;
+    el.petAge.textContent = `${ageInDays()}d · ${lifeStage()}`;
+
+    // Humor de la mascota
+    const mood = moodClass();
+    el.pet.className = "pet" + (mood ? " " + mood : "");
+
+    // Tamaño según etapa de vida
+    const stage = lifeStage();
+    const scale = stage === "bebé" ? 0.7 : stage === "niño" ? 0.85 : stage === "joven" ? 0.95 : 1;
+    el.pet.style.transform = `translateX(-50%) scale(${scale})`;
+
+    // Prop de dormir persistente
+    if (state.sleeping && !state.dead) {
+      if (!el.prop.classList.contains("zzz")) showProp("zzz", "💤");
+    } else if (el.prop.classList.contains("zzz")) {
+      clearProp();
+    }
+
+    // Suciedad (caca) visible
+    renderDirt();
+
+    // Modo noche por hora local
+    const hour = new Date().getHours();
+    const night = hour >= 20 || hour < 6;
+    el.stage.classList.toggle("night", night || state.sleeping);
+    renderStars(night || state.sleeping);
+
+    // Botones
+    buttons.heal.disabled = state.dead;
+    buttons.feed.disabled = state.dead;
+    buttons.play.disabled = state.dead;
+    buttons.clean.disabled = state.dead;
+    buttons.sleep.textContent = state.sleeping ? "☀️" : "💤";
+    buttons.sleep.setAttribute("data-tip", state.sleeping ? "Despertar" : "Dormir");
+
+    $("btnMute").textContent = state.muted ? "🔇" : "🔊";
+  }
+
+  function renderDirt() {
+    if (state.dead || state.poop === 0) { el.dirt.style.opacity = "0"; el.dirt.textContent = ""; return; }
+    // Dibuja "caquitas" con emoji posicionadas
+    let html = "";
+    const spots = [ [20, 82], [60, 88], [78, 80] ];
+    for (let i = 0; i < state.poop; i++) {
+      const [x, y] = spots[i];
+      html += `<span style="position:absolute;left:${x}%;top:${y}%;font-size:14px;">💩</span>`;
+    }
+    el.dirt.innerHTML = html;
+    el.dirt.style.opacity = "1";
+  }
+
+  let starsBuilt = false;
+  function renderStars(show) {
+    if (show && !starsBuilt) {
+      let html = "";
+      for (let i = 0; i < 14; i++) {
+        const x = Math.random() * 100;
+        const y = Math.random() * 55;
+        const d = (Math.random() * 2).toFixed(1);
+        html += `<span class="star" style="left:${x}%;top:${y}%;animation-delay:${d}s"></span>`;
+      }
+      el.weather.innerHTML = html;
+      starsBuilt = true;
+    } else if (!show && starsBuilt) {
+      el.weather.innerHTML = "";
+      starsBuilt = false;
+    }
+  }
+
+  // ---------- Bucle principal ----------
+  function tick() {
+    applyElapsed();
+    render();
+
+    // Reacciones automáticas ocasionales
+    if (!state.dead && !state.sleeping && Math.random() < 0.04) {
+      if (state.hunger < 20) { showEmote("🍔"); }
+      else if (state.happy < 20) { showEmote("😢"); sfx.sad(); }
+      else if (state.sick) { showEmote("🤒"); }
+      else if (state.happy > 70) { showEmote("💛"); }
+    }
+  }
+
+  // Guarda al cerrar / cambiar de pestaña
+  function handleVisibility() {
+    if (document.hidden) save();
+    else { applyElapsed(); render(); }
+  }
+
+  // ---------- Enlaces de eventos ----------
+  buttons.feed.addEventListener("click", feed);
+  buttons.play.addEventListener("click", play);
+  buttons.sleep.addEventListener("click", toggleSleep);
+  buttons.clean.addEventListener("click", clean);
+  buttons.heal.addEventListener("click", heal);
+  $("btnReset").addEventListener("click", resetGame);
+  $("btnRestart").addEventListener("click", restart);
+  $("btnMute").addEventListener("click", () => {
+    state.muted = !state.muted;
+    save(); render();
+    if (!state.muted) beep(700, .08);
+  });
+
+  // Al tocar a la mascota, mímala
+  el.petWrapper.addEventListener("click", () => {
+    if (state.dead) return;
+    if (state.sleeping) { nudgeSleeping(); return; }
+    state.happy = clamp(state.happy + 4);
+    showEmote(["💖", "😊", "🥰", "✨"][Math.floor(Math.random() * 4)]);
+    petClass("playing", 500);
+    beep(880, .05, "sine");
+    save();
+  });
+
+  // Atajos de teclado
+  document.addEventListener("keydown", (e) => {
+    const k = e.key.toLowerCase();
+    if (k === "f") feed();
+    else if (k === "p") play();
+    else if (k === "s") toggleSleep();
+    else if (k === "c") clean();
+    else if (k === "h") heal();
+  });
+
+  document.addEventListener("visibilitychange", handleVisibility);
+  window.addEventListener("beforeunload", save);
+
+  // Respeta preferencia de movimiento reducido
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.body.classList.add("reduced-motion");
+  }
+
+  // ---------- Inicio ----------
+  applyElapsed();
+  render();
+  if (state.dead) showDeath();
+  el.message.textContent = ambientMessage();
+  setInterval(tick, TICK_MS);
+})();
+
+</script>
+</body>
+</html>
