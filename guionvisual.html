@@ -262,8 +262,9 @@
       <summary>Fuente de imágenes (opcional)</summary>
       <div class="settings-body">
         <p class="hint">
-          Sin clave, verás <b>placeholders</b> de colores (el análisis y los tiempos funcionan igual).
-          Pega tu clave gratuita de Pexels para ver fotos reales — se guarda solo en tu navegador.
+          Sin clave ya ves <b>fotos reales por palabra clave</b> (gratis, sin registro).
+          Añade tu clave gratuita de Pexels para fotos <b>más curadas</b> y para usar <b>vídeos</b> —
+          se guarda solo en tu navegador.
         </p>
         <input type="password" id="pexkey" placeholder="Pega aquí tu Pexels API key…" autocomplete="off" />
         <p class="hint">Consíguela gratis en <a href="https://www.pexels.com/api/" target="_blank" rel="noopener">pexels.com/api</a>.</p>
@@ -315,6 +316,7 @@ function extractKeywords(text, max = 3) {
   toks.forEach((w, i) => {
     const lw = w.toLowerCase();
     if (lw.length < 3 || STOP.has(lw)) return;
+    if (!/\p{L}/u.test(lw)) return; // ignora cifras sueltas (13.800, 2024…)
     let s = Math.min(lw.length, 10);
     if (i > 0 && /^\p{Lu}/u.test(w)) s += 6;
     scored.set(lw, (scored.get(lw) || 0) + s);
@@ -444,21 +446,31 @@ refreshChip();
 function refreshChip() {
   const c = $("modechip");
   if (pexKey) { c.textContent = "● Pexels"; c.className = "chip live"; }
-  else { c.textContent = "● Modo demo"; c.className = "chip demo"; }
+  else { c.textContent = "● Fotos por keyword"; c.className = "chip demo"; }
 }
 
 async function run() {
   const text = $("script").value.trim();
   if (!text) { boardEl.innerHTML = '<p class="empty">Escribe o pega un guión primero.</p>'; return; }
+  const btn = $("analyze"); const label = btn.textContent; btn.textContent = "Analizando…"; btn.disabled = true;
   mediaType = $("mtype").value;
   const a = analyzeScript(text, { wpm: +$("wpm").value || 150, maxSecondsPerImage: +$("maxsec").value || 3.5 });
-  board = a.slots.map(s => ({ ...s, results: [], chosen: 0, loading: true }));
+  board = a.slots.map(s => ({ ...s, results: [], chosen: 0, loading: true, lock: 1 }));
   renderStats(a); renderBoard();
   $("exports").hidden = board.length === 0;
+  // Lleva la vista al storyboard (en móvil aparece más abajo y parecía "que no pasaba nada").
+  document.querySelector(".board-head")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  btn.textContent = label; btn.disabled = false;
   await fetchAll();
 }
 
 async function fetchAll() {
+  // Sin clave de Pexels no hay que llamar a la API: las miniaturas se cargan
+  // por palabra clave con <img> (sin CORS). Solo con clave usamos fetch.
+  if (!pexKey) {
+    for (const slot of board) { slot.loading = false; updateThumb(slot.index); }
+    return;
+  }
   const cache = new Map();
   await Promise.all(board.map(async slot => {
     const key = mediaType + ":" + slot.query;
@@ -529,10 +541,16 @@ function renderCard(slot) {
   });
   el.querySelector("[data-q]").addEventListener("input", e => { slot.query = e.target.value; });
   el.querySelector("[data-research]").addEventListener("click", async () => {
-    slot.results = await searchStock(slot.query); slot.chosen = 0; updateThumb(slot.index);
+    if (pexKey) { slot.results = await searchStock(slot.query); slot.chosen = 0; }
+    updateThumb(slot.index);
   });
   el.querySelector("[data-next]").addEventListener("click", () => {
-    if (slot.results.length) { slot.chosen = (slot.chosen + 1) % slot.results.length; updateThumb(slot.index); }
+    if (pexKey) {
+      if (slot.results.length) { slot.chosen = (slot.chosen + 1) % slot.results.length; updateThumb(slot.index); }
+    } else {
+      slot.lock = (slot.lock || 1) + 1; // otra foto distinta para la misma búsqueda
+      updateThumb(slot.index);
+    }
   });
   el.querySelector("[data-ai]").addEventListener("click", () => {
     alert("La generación con IA vive en la versión con servidor del proyecto.\n\n" +
@@ -542,20 +560,48 @@ function renderCard(slot) {
   return el;
 }
 
+// Foto real por palabra clave sin clave ni CORS (se carga como <img>).
+function keywordPhotoURL(slot) {
+  const tags = encodeURIComponent(slot.query.replace(/[\s,]+/g, ",").replace(/^,|,$/g, "") || "cinematic");
+  return `https://loremflickr.com/480/270/${tags}?lock=${slot.lock || 1}`;
+}
+
 function updateThumb(i) {
   const slot = board[i], el = $("th-" + i); if (!el) return;
   const tc = `<span class="tc">${formatTime(slot.start)}</span>`;
+  const cr = $("cr-" + i);
   if (slot.loading) { el.innerHTML = `<span class="load">buscando…</span>${tc}`; return; }
-  const chosen = slot.results[slot.chosen], cr = $("cr-" + i);
-  if (chosen) {
-    el.innerHTML = chosen.type === "video"
-      ? `<video src="${chosen.full}" poster="${chosen.thumb}" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>${tc}`
-      : `<img src="${chosen.thumb}" alt="${esc(slot.query)}" loading="lazy" />${tc}`;
-    if (cr) cr.innerHTML = `Pexels · <a href="${chosen.url}" target="_blank" rel="noopener">${esc(chosen.author)}</a>`;
-  } else {
-    el.innerHTML = placeholder(slot.query) + tc;
-    if (cr) cr.textContent = pexKey ? "Sin resultados — prueba otra búsqueda" : "Placeholder (añade tu clave para fotos reales)";
+
+  // --- CON clave de Pexels: resultados curados vía fetch/proxy ---
+  if (pexKey) {
+    const chosen = slot.results[slot.chosen];
+    if (chosen) {
+      el.innerHTML = chosen.type === "video"
+        ? `<video src="${chosen.full}" poster="${chosen.thumb}" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>${tc}`
+        : `<img src="${chosen.thumb}" alt="${esc(slot.query)}" loading="lazy" />${tc}`;
+      if (cr) cr.innerHTML = `Pexels · <a href="${chosen.url}" target="_blank" rel="noopener">${esc(chosen.author)}</a>`;
+    } else {
+      el.innerHTML = placeholder(slot.query) + tc;
+      if (cr) cr.textContent = "Sin resultados — prueba otra búsqueda";
+    }
+    return;
   }
+
+  // --- SIN clave (por defecto): foto por palabra clave con <img>. Si la red
+  // la bloquea (p. ej. en la vista web previa), cae al placeholder de color. ---
+  if (mediaType === "video") {
+    el.innerHTML = placeholder(slot.query) + tc;
+    if (cr) cr.textContent = "Los vídeos necesitan clave de Pexels (arriba, en Fuente de imágenes)";
+    return;
+  }
+  el.innerHTML = "";
+  const img = document.createElement("img");
+  img.alt = slot.query; img.loading = "lazy";
+  img.onerror = () => { el.innerHTML = placeholder(slot.query) + tc; if (cr) cr.textContent = "Vista previa (sin conexión a fotos) — descarga el archivo para verlas"; };
+  img.src = keywordPhotoURL(slot);
+  el.appendChild(img);
+  el.insertAdjacentHTML("beforeend", tc);
+  if (cr) cr.textContent = "Foto por palabra clave · LoremFlickr";
 }
 
 function recompute() {

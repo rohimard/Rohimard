@@ -108,6 +108,7 @@ export function extractKeywords(text, max = 3) {
     const lw = word.toLowerCase();
     if (lw.length < 3) return;
     if (STOPWORDS.has(lw)) return;
+    if (!/\p{L}/u.test(lw)) return; // ignora cifras sueltas (13.800, 2024…)
     let score = Math.min(lw.length, 10); // palabras largas suelen ser concretas
     // Nombre propio: mayúscula inicial pero NO al principio de la frase.
     if (i > 0 && /^\p{Lu}/u.test(word)) score += 6;
