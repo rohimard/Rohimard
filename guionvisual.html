@@ -215,6 +215,19 @@
   .credit a { color: var(--muted); }
 
   footer { text-align: center; color: var(--muted-2); font-size: 11.5px; padding: 0 20px 40px; }
+
+  /* Ventana de exportación (funciona aunque la descarga esté bloqueada) */
+  #ov { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.66); display: none;
+    align-items: center; justify-content: center; z-index: 60; padding: 16px; }
+  #ov.show { display: flex; }
+  .ov-box { background: var(--panel); border: 1px solid var(--line-2); border-radius: 14px;
+    width: min(680px, 100%); max-height: 86vh; display: flex; flex-direction: column; gap: 12px; padding: 16px; box-shadow: var(--shadow); }
+  .ov-head { display: flex; justify-content: space-between; align-items: center; }
+  .ov-head b { font-size: 15px; }
+  #ov-text { width: 100%; flex: 1; min-height: 220px; resize: none; background: var(--bg-2); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 8px; padding: 11px; font-family: var(--font-mono); font-size: 12px; }
+  .ov-actions { display: flex; gap: 10px; }
+  .ov-actions > * { flex: 1; text-decoration: none; text-align: center; display: inline-flex; align-items: center; justify-content: center; }
 </style>
 
 <header>
@@ -622,26 +635,60 @@ function placeholder(q) {
 }
 
 function exportJSON() {
+  if (!board.length) return;
   const data = board.map(s => ({
     index: s.index + 1, start: s.start, end: s.end, duration: s.duration,
     text: s.text, query: s.query, keywords: s.keywords, pause: s.pauseType,
     image: s.results[s.chosen] ? { url: s.results[s.chosen].full, source: s.results[s.chosen].url, author: s.results[s.chosen].author } : null,
   }));
-  dl("storyboard.json", JSON.stringify(data, null, 2), "application/json");
+  showExport("Storyboard · JSON", JSON.stringify(data, null, 2), "application/json", "storyboard.json");
 }
 function exportCSV() {
+  if (!board.length) return;
   const rows = [["n", "inicio", "fin", "duracion", "texto", "query", "imagen_url", "fuente"]];
   for (const s of board) {
     const img = s.results[s.chosen];
     rows.push([s.index + 1, formatTime(s.start), formatTime(s.end), s.duration, s.text, s.query, img?.full || "", img?.url || ""]);
   }
-  dl("storyboard.csv", rows.map(r => r.map(cell).join(",")).join("\n"), "text/csv");
+  showExport("Storyboard · CSV", rows.map(r => r.map(cell).join(",")).join("\n"), "text/csv", "storyboard.csv");
 }
 function cell(v) { const s = String(v ?? ""); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; }
-function dl(name, content, mime) {
-  const a = document.createElement("a");
-  a.href = URL.createObjectURL(new Blob([content], { type: mime }));
-  a.download = name; a.click(); URL.revokeObjectURL(a.href);
+
+// Muestra el contenido en una ventana con "Copiar" (funciona aunque la
+// descarga esté bloqueada, p. ej. en la vista previa o en el móvil).
+function showExport(title, content, mime, filename) {
+  let ov = document.getElementById("ov");
+  if (!ov) {
+    ov = document.createElement("div"); ov.id = "ov";
+    ov.innerHTML =
+      `<div class="ov-box">
+         <div class="ov-head"><b id="ov-title"></b><button class="mini" id="ov-x">Cerrar ✕</button></div>
+         <textarea id="ov-text" readonly spellcheck="false"></textarea>
+         <div class="ov-actions">
+           <button class="btn primary" id="ov-copy">Copiar todo</button>
+           <a class="btn" id="ov-dl">Descargar archivo</a>
+         </div>
+         <p class="hint" id="ov-note"></p>
+       </div>`;
+    document.body.appendChild(ov);
+    ov.addEventListener("click", e => { if (e.target === ov) ov.classList.remove("show"); });
+    document.getElementById("ov-x").onclick = () => ov.classList.remove("show");
+    document.getElementById("ov-copy").onclick = async () => {
+      const t = document.getElementById("ov-text");
+      try { await navigator.clipboard.writeText(t.value); }
+      catch { t.focus(); t.select(); try { document.execCommand("copy"); } catch {} }
+      const b = document.getElementById("ov-copy"); b.textContent = "¡Copiado! ✓";
+      setTimeout(() => (b.textContent = "Copiar todo"), 1400);
+    };
+  }
+  document.getElementById("ov-title").textContent = title;
+  document.getElementById("ov-text").value = content;
+  const a = document.getElementById("ov-dl");
+  try { a.href = URL.createObjectURL(new Blob([content], { type: mime })); a.download = filename; }
+  catch {}
+  document.getElementById("ov-note").textContent =
+    'Si "Descargar" no hace nada (móvil o vista previa), pulsa "Copiar todo" y pégalo en Notas, un correo o tu editor.';
+  ov.classList.add("show");
 }
 function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
 </script>
