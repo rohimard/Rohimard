@@ -1,0 +1,27 @@
+{
+  "name": "guionvisual",
+  "version": "0.1.0",
+  "description": "Convierte un guión narrado en un storyboard de imágenes de stock sincronizadas con la narración, cortando por pausas y puntuación para mantener la retención.",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "keywords": [
+    "guion",
+    "storyboard",
+    "stock",
+    "pexels",
+    "video",
+    "retencion"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
