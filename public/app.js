@@ -18,6 +18,7 @@ Y esa pequeña chispa lo cambió todo. Porque una especie que se pregunta "¿por
 // Estado en memoria: cada slot recuerda los resultados de búsqueda y cuál está elegido.
 let boardState = [];
 let hasKey = false;
+let hasAI = false;
 let mediaType = 'photo';
 
 const $ = (id) => document.getElementById(id);
@@ -31,8 +32,10 @@ async function init() {
   try {
     const cfg = await fetch('/api/config').then((r) => r.json());
     hasKey = Boolean(cfg.hasKey);
+    hasAI = Boolean(cfg.hasAI);
   } catch {
     hasKey = false;
+    hasAI = false;
   }
   const badge = $('mode-badge');
   if (hasKey) {
@@ -100,6 +103,47 @@ async function fetchAllImages() {
   );
 }
 
+// Genera la imagen de un slot con IA. Si no está configurada, lo explica.
+async function generateWithAI(slot, btn) {
+  if (!hasAI) {
+    alert(
+      'La generación con IA todavía no está activada.\n\n' +
+        'Cuando tengas una cuenta (Replicate u OpenAI):\n' +
+        '  1. Abre el archivo .env\n' +
+        '  2. Pon AI_PROVIDER y tu clave\n' +
+        '  3. Reinicia la app (npm start)\n\n' +
+        'Mientras tanto, usa "Buscar" / "Otra" con el stock gratuito.'
+    );
+    return;
+  }
+  const original = btn.textContent;
+  btn.disabled = true;
+  btn.textContent = '✨ generando…';
+  try {
+    const prompt = buildAIPrompt(slot);
+    const data = await fetch(`/api/generate?prompt=${encodeURIComponent(prompt)}`).then((r) => r.json());
+    if (data.image) {
+      slot.results.unshift(data.image); // la imagen de IA pasa a ser la elegida
+      slot.chosen = 0;
+      updateCardThumb(slot.index);
+    } else {
+      alert('No se pudo generar la imagen (' + (data.error || 'error') + ').');
+    }
+  } catch {
+    alert('Error de red al generar la imagen.');
+  } finally {
+    btn.disabled = false;
+    btn.textContent = original;
+  }
+}
+
+// Para IA conviene un prompt descriptivo, no solo keywords: usamos la frase
+// completa + un estilo cinematográfico.
+function buildAIPrompt(slot) {
+  const base = slot.text.replace(/\s+/g, ' ').trim();
+  return `${base} — fotografía cinematográfica, iluminación dramática, gran detalle, formato 16:9`;
+}
+
 async function searchStock(query) {
   if (!hasKey) return []; // modo demo: se usa placeholder
   try {
@@ -159,6 +203,7 @@ function renderCard(slot) {
         <input type="text" value="${escapeHtml(slot.query)}" data-query />
         <button class="mini" data-research>Buscar</button>
         <button class="mini" data-next>Otra</button>
+        <button class="mini ai${hasAI ? '' : ' off'}" data-ai title="Generar con IA">✨ IA</button>
       </div>
       <div class="credit" id="credit-${slot.index}"></div>
     </div>
@@ -190,6 +235,9 @@ function renderCard(slot) {
       updateCardThumb(slot.index);
     }
   });
+
+  // Generar esta imagen con IA (solo si hay proveedor configurado).
+  card.querySelector('[data-ai]').addEventListener('click', (e) => generateWithAI(slot, e.target));
 
   return card;
 }

@@ -89,11 +89,33 @@ npm test
 
 ---
 
+## Generación con IA (opcional, ya preparada)
+
+Cada tarjeta tiene un botón **✨ IA** para generar esa imagen concreta en vez de
+usar stock. Viene **apagado**: si lo pulsas sin configurar nada, te explica cómo
+activarlo. Así el 95 % de las imágenes son gratis (stock) y solo pagas céntimos
+cuando de verdad quieres generar una escena que el stock no tiene.
+
+Para activarlo cuando tengas cuenta en un proveedor, edita `.env`:
+
+```bash
+# Opción barata (recomendada): Flux Schnell, ~$0.003 por imagen
+AI_PROVIDER=replicate
+REPLICATE_API_TOKEN=r8_tu_token   # https://replicate.com/account/api-tokens
+
+# Opción alternativa: DALL·E 3, ~$0.04-0.08 por imagen
+# AI_PROVIDER=openai
+# OPENAI_API_KEY=sk-tu_clave      # https://platform.openai.com/api-keys
+```
+
+Reinicia (`npm start`) y el botón ✨ IA quedará activo. **Aviso de coste:** esta
+herramienta genera muchas imágenes; usar IA en *todas* puede costar varios
+dólares por vídeo. Úsala solo en los slots que lo necesiten.
+
 ## Próximos pasos posibles
 
-- Añadir **IA generativa** como fuente alternativa de imágenes (la arquitectura del proxy ya lo permite).
 - Exportar directamente a formatos de editor (EDL, CapCut, Premiere).
-- Detección de **entidades/emociones** para elegir imágenes con más criterio que las keywords.
+- Detección de **entidades/emociones** para elegir imágenes con más criterio.
 - Renderizado a **vídeo `.mp4`** con transiciones.
 
 ## Licencia

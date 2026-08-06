@@ -210,5 +210,7 @@ textarea:focus { outline: 2px solid var(--accent-2); outline-offset: 0; }
   color: var(--text); border-radius: 6px; padding: 3px 9px; font-size: 12px;
 }
 .mini:hover { background: #262b36; }
+.mini.ai { border-color: #3a2f5a; color: var(--ellipsis); }
+.mini.ai.off { opacity: 0.55; }
 .credit { font-size: 11px; color: var(--muted); }
 .credit a { color: var(--muted); }
