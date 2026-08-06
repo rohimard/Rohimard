@@ -1,0 +1,601 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GuionVisual — del guión al storyboard</title>
+<style>
+  /* ===== Sistema de diseño: sala de edición cinematográfica, tema oscuro ===== */
+  :root {
+    color-scheme: dark;
+    --bg: #0b0d12;
+    --bg-2: #0f121a;
+    --panel: #151925;
+    --panel-2: #1b2030;
+    --line: #262c3d;
+    --line-2: #333c52;
+    --ink: #eceef4;
+    --muted: #8b93a8;
+    --muted-2: #616a80;
+    --amber: #ffb347;       /* acento: la marca del scrubber / punto pleno */
+    --amber-dim: #6b4d1f;
+    --violet: #b98cff;      /* pausa dramática (suspensivos) */
+    --violet-dim: #4a3a6b;
+    --ok: #52d19a;
+    --font-sans: "Helvetica Neue", -apple-system, system-ui, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-mono: "SF Mono", "JetBrains Mono", Menlo, Consolas, "Liberation Mono", monospace;
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(255, 179, 71, 0.06), transparent 60%),
+      var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .card { transition: border-color 0.15s ease; }
+    .btn, .mini { transition: background 0.14s ease, transform 0.05s ease; }
+  }
+
+  /* ===== Cabecera ===== */
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 16px 22px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, rgba(21, 25, 37, 0.9), rgba(11, 13, 18, 0.6));
+    backdrop-filter: blur(6px);
+    position: sticky; top: 0; z-index: 20;
+  }
+  .brand { display: flex; align-items: center; gap: 13px; min-width: 0; }
+  .clap { font-size: 26px; line-height: 1; }
+  .brand h1 {
+    margin: 0; font-size: 18px; font-weight: 800; letter-spacing: -0.02em;
+  }
+  .brand p { margin: 0; font-size: 12px; color: var(--muted); letter-spacing: 0.01em; }
+  .chip {
+    font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em;
+    padding: 6px 11px; border-radius: 999px; border: 1px solid var(--line-2);
+    color: var(--muted); white-space: nowrap; cursor: pointer; background: var(--panel-2);
+  }
+  .chip.live { color: var(--ok); border-color: #1f4a37; }
+  .chip.demo { color: var(--amber); border-color: var(--amber-dim); }
+
+  /* ===== Estructura ===== */
+  main {
+    display: grid; grid-template-columns: minmax(300px, 400px) 1fr;
+    gap: 18px; max-width: 1360px; margin: 0 auto; padding: 18px 22px 70px;
+  }
+  @media (max-width: 880px) { main { grid-template-columns: 1fr; } }
+  .panel {
+    background: var(--panel); border: 1px solid var(--line);
+    border-radius: 14px; padding: 18px; box-shadow: var(--shadow);
+  }
+  .left { position: sticky; top: 86px; align-self: start; }
+  @media (max-width: 880px) { .left { position: static; } }
+
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--muted-2); margin: 0 0 8px;
+  }
+  textarea {
+    width: 100%; min-height: 240px; resize: vertical;
+    background: var(--bg-2); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 10px; padding: 13px;
+    font-family: var(--font-sans); font-size: 14.5px; line-height: 1.55;
+  }
+  textarea:focus { outline: 2px solid var(--amber); outline-offset: 1px; }
+  ::placeholder { color: var(--muted-2); }
+
+  .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0; }
+  .field label {
+    display: block; font-family: var(--font-mono); font-size: 10.5px;
+    letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px;
+  }
+  .field input, .field select {
+    width: 100%; background: var(--bg-2); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px;
+    font-family: var(--font-sans); font-size: 14px;
+  }
+  .field input:focus, .field select:focus { outline: 1.5px solid var(--amber); }
+
+  .actions { display: flex; gap: 10px; }
+  .btn {
+    flex: 1; cursor: pointer; border-radius: 10px; padding: 11px 14px;
+    font-size: 14px; font-weight: 700; border: 1px solid var(--line-2);
+    background: var(--panel-2); color: var(--ink);
+  }
+  .btn:hover { background: #222839; }
+  .btn:active { transform: translateY(1px); }
+  .btn.primary {
+    background: var(--amber); border-color: var(--amber); color: #241a04;
+    box-shadow: 0 4px 18px rgba(255, 179, 71, 0.22);
+  }
+  .btn.primary:hover { background: #ffbe5e; }
+
+  /* Ajustes plegables (clave de Pexels) */
+  details.settings { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 12px; }
+  details.settings summary {
+    cursor: pointer; font-size: 12.5px; color: var(--muted); list-style: none;
+    display: flex; align-items: center; gap: 8px;
+  }
+  details.settings summary::-webkit-details-marker { display: none; }
+  details.settings summary::before { content: "⚙"; }
+  .settings-body { margin-top: 11px; display: flex; flex-direction: column; gap: 8px; }
+  .settings-body input {
+    width: 100%; background: var(--bg-2); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px;
+    font-family: var(--font-mono); font-size: 12.5px;
+  }
+  .hint { font-size: 11.5px; color: var(--muted-2); }
+  .hint a { color: var(--amber); }
+
+  .stats {
+    margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px 16px;
+    font-size: 12.5px; color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px;
+  }
+  .stats b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .stats[hidden] { display: none; }
+
+  /* ===== Storyboard ===== */
+  .board-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; gap: 10px; }
+  .board-head h2 { margin: 0; font-size: 15px; font-weight: 800; letter-spacing: -0.01em; }
+  .exports { display: flex; gap: 8px; }
+  .exports[hidden] { display: none; }
+
+  .board { display: flex; flex-direction: column; gap: 11px; }
+  .empty {
+    color: var(--muted); text-align: center; padding: 54px 20px;
+    border: 1px dashed var(--line-2); border-radius: 12px; font-size: 14px;
+  }
+  .empty strong { color: var(--amber); }
+
+  .card {
+    display: grid; grid-template-columns: 30px 172px 1fr; gap: 13px;
+    background: var(--panel-2); border: 1px solid var(--line);
+    border-radius: 12px; padding: 11px; align-items: start;
+  }
+  @media (max-width: 560px) { .card { grid-template-columns: 22px 1fr; } .card .thumb { grid-column: 2; } }
+  .slug {
+    font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+    color: var(--muted-2); padding-top: 4px; text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .card.pt-ellipsis { border-left: 3px solid var(--violet); }
+  .card.pt-period   { border-left: 3px solid var(--amber); }
+  .card.pt-flow     { border-left: 3px solid var(--line-2); }
+
+  .thumb {
+    position: relative; width: 172px; height: 97px; border-radius: 8px;
+    overflow: hidden; background: #05060a; display: flex; align-items: center; justify-content: center;
+  }
+  @media (max-width: 560px) { .thumb { width: 100%; height: auto; aspect-ratio: 16 / 9; } }
+  .thumb img, .thumb video, .thumb svg { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb .load { color: var(--muted-2); font-size: 11.5px; font-family: var(--font-mono); }
+  .tc {
+    position: absolute; left: 6px; bottom: 6px; font-family: var(--font-mono);
+    font-size: 10.5px; background: rgba(0, 0, 0, 0.66); color: #fff;
+    padding: 2px 7px; border-radius: 5px; letter-spacing: 0.02em;
+  }
+
+  .body { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .meta .dur {
+    font-family: var(--font-mono); font-size: 11.5px; color: var(--muted);
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .meta .dur input {
+    width: 56px; background: var(--bg-2); color: var(--ink); border: 1px solid var(--line);
+    border-radius: 6px; padding: 2px 6px; font-family: var(--font-mono); font-size: 11.5px;
+    text-align: right; font-variant-numeric: tabular-nums;
+  }
+  .tag {
+    font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line-2); color: var(--muted-2);
+  }
+  .tag.ellipsis { color: var(--violet); border-color: var(--violet-dim); }
+  .tag.period { color: var(--amber); border-color: var(--amber-dim); }
+
+  .line { font-size: 14.5px; color: var(--ink); }
+  .q { display: flex; gap: 7px; align-items: center; flex-wrap: wrap; }
+  .q .ico { color: var(--muted-2); font-size: 12px; }
+  .q input {
+    flex: 1; min-width: 120px; background: var(--bg-2); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 6px; padding: 4px 8px;
+    font-size: 12px; font-family: var(--font-mono);
+  }
+  .mini {
+    cursor: pointer; border: 1px solid var(--line-2); background: var(--panel);
+    color: var(--ink); border-radius: 6px; padding: 3px 10px; font-size: 12px; font-weight: 600;
+  }
+  .mini:hover { background: #222839; }
+  .mini.ai { border-color: var(--violet-dim); color: var(--violet); }
+  .credit { font-size: 10.5px; color: var(--muted-2); }
+  .credit a { color: var(--muted); }
+
+  footer { text-align: center; color: var(--muted-2); font-size: 11.5px; padding: 0 20px 40px; }
+</style>
+
+<header>
+  <div class="brand">
+    <span class="clap">🎬</span>
+    <div>
+      <h1>GuionVisual</h1>
+      <p>Del guión a un storyboard de imágenes sincronizadas</p>
+    </div>
+  </div>
+  <button class="chip" id="modechip" title="Toca para configurar la fuente de imágenes">…</button>
+</header>
+
+<main>
+  <!-- ENTRADA -->
+  <section class="panel left">
+    <p class="eyebrow">Tu guión</p>
+    <textarea id="script" spellcheck="false"
+      placeholder="Pega aquí tu guión. Cada frase y cada pausa se convertirá en una o varias imágenes…"></textarea>
+
+    <div class="controls">
+      <div class="field">
+        <label for="wpm">Velocidad · pal/min</label>
+        <input type="number" id="wpm" min="60" max="300" step="5" value="150" />
+      </div>
+      <div class="field">
+        <label for="maxsec">Máx seg / imagen</label>
+        <input type="number" id="maxsec" min="1" max="10" step="0.5" value="3.5" />
+      </div>
+      <div class="field">
+        <label for="mtype">Tipo de stock</label>
+        <select id="mtype"><option value="photo">Fotos</option><option value="video">Vídeos</option></select>
+      </div>
+      <div class="field">
+        <label for="ex">Ejemplo</label>
+        <button class="btn" id="loadex" style="width:100%;font-weight:600">Cargar ejemplo</button>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn primary" id="analyze">Analizar guión</button>
+    </div>
+
+    <details class="settings">
+      <summary>Fuente de imágenes (opcional)</summary>
+      <div class="settings-body">
+        <p class="hint">
+          Sin clave, verás <b>placeholders</b> de colores (el análisis y los tiempos funcionan igual).
+          Pega tu clave gratuita de Pexels para ver fotos reales — se guarda solo en tu navegador.
+        </p>
+        <input type="password" id="pexkey" placeholder="Pega aquí tu Pexels API key…" autocomplete="off" />
+        <p class="hint">Consíguela gratis en <a href="https://www.pexels.com/api/" target="_blank" rel="noopener">pexels.com/api</a>.</p>
+      </div>
+    </details>
+
+    <div class="stats" id="stats" hidden></div>
+  </section>
+
+  <!-- STORYBOARD -->
+  <section class="panel">
+    <div class="board-head">
+      <h2>Storyboard</h2>
+      <div class="exports" id="exports" hidden>
+        <button class="mini" id="ejson">Exportar JSON</button>
+        <button class="mini" id="ecsv">Exportar CSV</button>
+      </div>
+    </div>
+    <div class="board" id="board">
+      <p class="empty">Escribe o pega un guión y pulsa <strong>Analizar guión</strong>.<br />
+        ¿Sin ideas? Pulsa <strong>Cargar ejemplo</strong>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>GuionVisual · funciona sin conexión · las imágenes se buscan en Pexels si añades tu clave</footer>
+
+<script>
+/* =========================================================================
+   MOTOR DE INTERPRETACIÓN  (mismo algoritmo que src/scriptParser.js,
+   aquí en versión sin módulos para que el archivo funcione con doble clic)
+   ========================================================================= */
+const DEFAULTS = {
+  wpm: 150, maxSecondsPerImage: 3.5, minSecondsPerImage: 1.2,
+  pause: { comma: 0.25, semicolon: 0.4, colon: 0.4, period: 0.5, ellipsis: 1.2, paragraph: 0.8 },
+};
+const STOP = new Set(("el la los las un una unos unas lo al del y e o u ni que qué como cómo cuando cuándo donde dónde quien quién cual cuál cuales porque pero sino aunque si sí no ya muy más mas menos tan tanto poco mucho algo nada todo todos toda todas otro otra otros otras mismo misma de en a ante bajo con contra desde entre hacia hasta para por según sin sobre tras durante mediante este esta estos estas ese esa esos esas aquel aquella esto eso aquello mi mis tu tus su sus nuestro nuestra vuestro me te se nos os le les yo tú él ella ellos ellas nosotros vosotros usted ustedes es son era eran fue fueron ser estar está están estaba hay ha han he has había hacer hace hacen puede pueden debe deben va van ir the a an and or but if then else of to in on at by for with about as is are was were be been being this that these those it its he she they we you i me my your his her their our not no yes so than too very can will just from up down out off over under").split(" "));
+const FALLBACK_QUERY = "fondo cinematográfico abstracto";
+const WORD_RE = /[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu;
+
+function normalizeText(t) {
+  return String(t || "").replace(/\r\n?/g, "\n").replace(/\.\.\.+/g, "…")
+    .replace(/[ \t]+/g, " ").replace(/ ?\n ?/g, "\n").replace(/\n{3,}/g, "\n\n").trim();
+}
+function countWords(s) { const m = String(s).match(WORD_RE); return m ? m.length : 0; }
+function extractKeywords(text, max = 3) {
+  const toks = String(text).match(WORD_RE) || [];
+  const scored = new Map();
+  toks.forEach((w, i) => {
+    const lw = w.toLowerCase();
+    if (lw.length < 3 || STOP.has(lw)) return;
+    let s = Math.min(lw.length, 10);
+    if (i > 0 && /^\p{Lu}/u.test(w)) s += 6;
+    scored.set(lw, (scored.get(lw) || 0) + s);
+  });
+  return [...scored.entries()].sort((a, b) => b[1] - a[1]).slice(0, max).map(e => e[0]);
+}
+function buildQuery(text) { const k = extractKeywords(text, 3); return k.length ? k.join(" ") : FALLBACK_QUERY; }
+const SENT_RE = /[^.!?…]+[.!?…]*/gu;
+function pauseTypeOf(term) { return term && term.includes("…") ? "ellipsis" : "period"; }
+function splitSentences(para, opts) {
+  const out = [];
+  for (const raw of para.match(SENT_RE) || []) {
+    const text = raw.trim();
+    if (!text || !countWords(text)) continue;
+    const tm = text.match(/[.!?…]+$/u); const term = tm ? tm[0] : "";
+    const pt = pauseTypeOf(term);
+    let d = (countWords(text) / opts.wpm) * 60;
+    d += (text.match(/,/g) || []).length * opts.pause.comma;
+    d += (text.match(/;/g) || []).length * opts.pause.semicolon;
+    d += (text.match(/:/g) || []).length * opts.pause.colon;
+    d += pt === "ellipsis" ? opts.pause.ellipsis : opts.pause.period;
+    out.push({ text, pauseType: pt, duration: d });
+  }
+  return out;
+}
+function snapToComma(words, ideal, lo, hi) {
+  for (let d = 0; d <= 2; d++) for (const idx of [ideal - d, ideal + d])
+    if (idx > lo && idx < hi && /[,;:]$/.test(words[idx - 1])) return idx;
+  return ideal;
+}
+function splitTextIntoChunks(text, n) {
+  const words = text.trim().split(/\s+/).filter(Boolean);
+  if (n <= 1 || words.length <= n) return [text.trim()];
+  const target = words.length / n, chunks = []; let start = 0;
+  for (let i = 1; i < n; i++) {
+    let cut = Math.round(i * target);
+    cut = Math.max(start + 1, Math.min(cut, words.length - (n - i)));
+    cut = snapToComma(words, cut, start + 1, words.length - (n - i));
+    chunks.push(words.slice(start, cut).join(" ")); start = cut;
+  }
+  chunks.push(words.slice(start).join(" "));
+  return chunks.map(c => c.trim()).filter(Boolean);
+}
+function maxChunkDuration(chunks, total) {
+  const tw = chunks.reduce((s, c) => s + Math.max(1, countWords(c)), 0);
+  let mw = 0; for (const c of chunks) mw = Math.max(mw, Math.max(1, countWords(c)));
+  return (mw / tw) * total;
+}
+function splitForRetention(sentence, opts) {
+  const total = sentence.duration, words = countWords(sentence.text);
+  let n = Math.max(1, Math.ceil(total / opts.maxSecondsPerImage));
+  while (n > 1 && total / n < opts.minSecondsPerImage) n--;
+  if (n === 1) return [makeSlot(sentence.text, total, sentence.pauseType)];
+  let chunks = splitTextIntoChunks(sentence.text, n);
+  while (n < words && maxChunkDuration(chunks, total) > opts.maxSecondsPerImage) {
+    if (total / (n + 1) < opts.minSecondsPerImage) break;
+    n++; chunks = splitTextIntoChunks(sentence.text, n);
+  }
+  const tw = chunks.reduce((s, c) => s + Math.max(1, countWords(c)), 0);
+  return chunks.map((c, i) => {
+    const dur = (Math.max(1, countWords(c)) / tw) * total;
+    return makeSlot(c, dur, i === chunks.length - 1 ? sentence.pauseType : "flow");
+  });
+}
+function makeSlot(text, duration, pauseType) {
+  const clean = text.trim();
+  return { text: clean, duration, keywords: extractKeywords(clean, 3), query: buildQuery(clean), pauseType };
+}
+function analyzeScript(text, options = {}) {
+  const opts = { ...DEFAULTS, ...options, pause: { ...DEFAULTS.pause, ...(options.pause || {}) } };
+  const norm = normalizeText(text);
+  const empty = { slots: [], totalDuration: 0, sentenceCount: 0, imageCount: 0, wordCount: 0 };
+  if (!norm) return empty;
+  const lines = norm.split("\n").map(l => l.trim()).filter(Boolean);
+  const slots = []; let clock = 0, sentenceCount = 0;
+  for (const line of lines) {
+    const sentences = splitSentences(line, opts);
+    sentences.forEach((sent, i) => {
+      sentenceCount++;
+      if (i === sentences.length - 1) sent.duration += opts.pause.paragraph;
+      for (const slot of splitForRetention(sent, opts)) {
+        slot.index = slots.length; slot.start = r2(clock);
+        clock += slot.duration; slot.end = r2(clock); slot.duration = r2(slot.duration);
+        slots.push(slot);
+      }
+    });
+  }
+  return { slots, totalDuration: r2(clock), sentenceCount, imageCount: slots.length, wordCount: countWords(norm) };
+}
+function r2(n) { return Math.round(n * 100) / 100; }
+function formatTime(s) {
+  s = Math.max(0, s); const m = Math.floor(s / 60);
+  return String(m).padStart(2, "0") + ":" + (s - m * 60).toFixed(1).padStart(4, "0");
+}
+
+/* =========================================================================
+   APP
+   ========================================================================= */
+const EXAMPLE = `El universo tiene 13.800 millones de años. Pero durante casi todo ese tiempo... no hubo nadie para contarlo.
+
+Entonces, en un rincón cualquiera de una galaxia cualquiera, apareció algo nuevo: la curiosidad.
+
+Los primeros humanos miraron al cielo. No entendían las estrellas, pero sabían que significaban algo. Contaban historias, dibujaban en cuevas, señalaban la Luna.
+
+Y esa pequeña chispa lo cambió todo. Porque una especie que se pregunta "¿por qué?"... ya no puede detenerse.`;
+
+let board = [], mediaType = "photo";
+let pexKey = "";
+try { pexKey = localStorage.getItem("gv_pexels") || ""; } catch {}
+
+const $ = id => document.getElementById(id);
+const boardEl = $("board");
+
+$("pexkey").value = pexKey;
+$("pexkey").addEventListener("input", e => {
+  pexKey = e.target.value.trim();
+  try { localStorage.setItem("gv_pexels", pexKey); } catch {}
+  refreshChip();
+});
+$("modechip").addEventListener("click", () => $("pexkey").closest("details").open = true);
+$("analyze").addEventListener("click", run);
+$("loadex").addEventListener("click", () => { $("script").value = EXAMPLE; run(); });
+$("ejson").addEventListener("click", exportJSON);
+$("ecsv").addEventListener("click", exportCSV);
+refreshChip();
+
+function refreshChip() {
+  const c = $("modechip");
+  if (pexKey) { c.textContent = "● Pexels"; c.className = "chip live"; }
+  else { c.textContent = "● Modo demo"; c.className = "chip demo"; }
+}
+
+async function run() {
+  const text = $("script").value.trim();
+  if (!text) { boardEl.innerHTML = '<p class="empty">Escribe o pega un guión primero.</p>'; return; }
+  mediaType = $("mtype").value;
+  const a = analyzeScript(text, { wpm: +$("wpm").value || 150, maxSecondsPerImage: +$("maxsec").value || 3.5 });
+  board = a.slots.map(s => ({ ...s, results: [], chosen: 0, loading: true }));
+  renderStats(a); renderBoard();
+  $("exports").hidden = board.length === 0;
+  await fetchAll();
+}
+
+async function fetchAll() {
+  const cache = new Map();
+  await Promise.all(board.map(async slot => {
+    const key = mediaType + ":" + slot.query;
+    let r = cache.get(key);
+    if (!r) { r = await searchStock(slot.query); cache.set(key, r); }
+    slot.results = r; slot.loading = false; updateThumb(slot.index);
+  }));
+}
+
+async function searchStock(query) {
+  if (!pexKey) return [];
+  try {
+    const url = mediaType === "video"
+      ? `https://api.pexels.com/videos/search?query=${encodeURIComponent(query)}&per_page=8&orientation=landscape`
+      : `https://api.pexels.com/v1/search?query=${encodeURIComponent(query)}&per_page=8&orientation=landscape`;
+    const res = await fetch(url, { headers: { Authorization: pexKey } });
+    if (!res.ok) return [];
+    const d = await res.json();
+    return mediaType === "video"
+      ? (d.videos || []).map(v => ({ id: v.id, thumb: v.image, full: (v.video_files.find(f => f.quality === "hd") || v.video_files[0])?.link, url: v.url, author: v.user?.name || "Pexels", type: "video" }))
+      : (d.photos || []).map(p => ({ id: p.id, thumb: p.src?.medium, full: p.src?.large2x || p.src?.large, url: p.url, author: p.photographer || "Pexels", type: "photo" }));
+  } catch { return []; }
+}
+
+function renderStats(a) {
+  const el = $("stats"); el.hidden = false;
+  const rate = (a.imageCount / Math.max(a.totalDuration / 60, 0.01)).toFixed(1);
+  el.innerHTML =
+    `<span><b>${a.imageCount}</b> imágenes</span>` +
+    `<span><b>${a.sentenceCount}</b> frases</span>` +
+    `<span><b>${a.wordCount}</b> palabras</span>` +
+    `<span>Duración <b>${formatTime(a.totalDuration)}</b></span>` +
+    `<span><b>${rate}</b> img/min</span>`;
+}
+
+function renderBoard() {
+  if (!board.length) { boardEl.innerHTML = '<p class="empty">No se detectó texto analizable.</p>'; return; }
+  boardEl.innerHTML = "";
+  for (const slot of board) boardEl.appendChild(renderCard(slot));
+}
+
+function renderCard(slot) {
+  const el = document.createElement("article");
+  el.className = "card pt-" + slot.pauseType;
+  const pauseLabel = { ellipsis: "suspensivos", period: "punto", flow: "continúa" }[slot.pauseType] || "";
+  el.innerHTML =
+    `<div class="slug">${String(slot.index + 1).padStart(2, "0")}</div>
+     <div class="thumb" id="th-${slot.index}"><span class="load">buscando…</span></div>
+     <div class="body">
+       <div class="meta">
+         <span class="dur">dur <input type="number" min="0.3" step="0.1" value="${slot.duration}" data-dur /> s</span>
+         <span class="tag ${slot.pauseType}">${pauseLabel}</span>
+       </div>
+       <div class="line">${esc(slot.text)}</div>
+       <div class="q">
+         <span class="ico">🔎</span>
+         <input type="text" value="${esc(slot.query)}" data-q />
+         <button class="mini" data-research>Buscar</button>
+         <button class="mini" data-next>Otra</button>
+         <button class="mini ai" data-ai title="Generar con IA">✨ IA</button>
+       </div>
+       <div class="credit" id="cr-${slot.index}"></div>
+     </div>`;
+
+  el.querySelector("[data-dur]").addEventListener("change", e => {
+    slot.duration = Math.max(0.3, Math.round((+e.target.value || slot.duration) * 100) / 100);
+    recompute(); renderBoard(); board.forEach(s => updateThumb(s.index));
+  });
+  el.querySelector("[data-q]").addEventListener("input", e => { slot.query = e.target.value; });
+  el.querySelector("[data-research]").addEventListener("click", async () => {
+    slot.results = await searchStock(slot.query); slot.chosen = 0; updateThumb(slot.index);
+  });
+  el.querySelector("[data-next]").addEventListener("click", () => {
+    if (slot.results.length) { slot.chosen = (slot.chosen + 1) % slot.results.length; updateThumb(slot.index); }
+  });
+  el.querySelector("[data-ai]").addEventListener("click", () => {
+    alert("La generación con IA vive en la versión con servidor del proyecto.\n\n" +
+      "Este archivo suelto usa stock gratuito (Pexels) y placeholders, que es lo que necesitas el 95% del tiempo.\n\n" +
+      "Para IA por imagen: descarga el proyecto completo, pon tu clave en .env y ejecuta «npm start». Está todo preparado.");
+  });
+  return el;
+}
+
+function updateThumb(i) {
+  const slot = board[i], el = $("th-" + i); if (!el) return;
+  const tc = `<span class="tc">${formatTime(slot.start)}</span>`;
+  if (slot.loading) { el.innerHTML = `<span class="load">buscando…</span>${tc}`; return; }
+  const chosen = slot.results[slot.chosen], cr = $("cr-" + i);
+  if (chosen) {
+    el.innerHTML = chosen.type === "video"
+      ? `<video src="${chosen.full}" poster="${chosen.thumb}" muted loop playsinline onmouseover="this.play()" onmouseout="this.pause()"></video>${tc}`
+      : `<img src="${chosen.thumb}" alt="${esc(slot.query)}" loading="lazy" />${tc}`;
+    if (cr) cr.innerHTML = `Pexels · <a href="${chosen.url}" target="_blank" rel="noopener">${esc(chosen.author)}</a>`;
+  } else {
+    el.innerHTML = placeholder(slot.query) + tc;
+    if (cr) cr.textContent = pexKey ? "Sin resultados — prueba otra búsqueda" : "Placeholder (añade tu clave para fotos reales)";
+  }
+}
+
+function recompute() {
+  let clock = 0;
+  for (const s of board) { s.start = r2(clock); clock += s.duration; s.end = r2(clock); }
+}
+
+function placeholder(q) {
+  let h = 0; for (let i = 0; i < q.length; i++) h = (h * 31 + q.charCodeAt(i)) % 360;
+  const label = esc(q.slice(0, 22));
+  return `<svg viewBox="0 0 172 97" xmlns="http://www.w3.org/2000/svg">
+    <defs><linearGradient id="g${h}" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="hsl(${h} 48% 30%)"/><stop offset="1" stop-color="hsl(${(h + 40) % 360} 48% 18%)"/>
+    </linearGradient></defs>
+    <rect width="172" height="97" fill="url(#g${h})"/>
+    <text x="86" y="53" fill="rgba(255,255,255,.82)" font-size="9" font-family="sans-serif" text-anchor="middle">${label}</text>
+  </svg>`;
+}
+
+function exportJSON() {
+  const data = board.map(s => ({
+    index: s.index + 1, start: s.start, end: s.end, duration: s.duration,
+    text: s.text, query: s.query, keywords: s.keywords, pause: s.pauseType,
+    image: s.results[s.chosen] ? { url: s.results[s.chosen].full, source: s.results[s.chosen].url, author: s.results[s.chosen].author } : null,
+  }));
+  dl("storyboard.json", JSON.stringify(data, null, 2), "application/json");
+}
+function exportCSV() {
+  const rows = [["n", "inicio", "fin", "duracion", "texto", "query", "imagen_url", "fuente"]];
+  for (const s of board) {
+    const img = s.results[s.chosen];
+    rows.push([s.index + 1, formatTime(s.start), formatTime(s.end), s.duration, s.text, s.query, img?.full || "", img?.url || ""]);
+  }
+  dl("storyboard.csv", rows.map(r => r.map(cell).join(",")).join("\n"), "text/csv");
+}
+function cell(v) { const s = String(v ?? ""); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; }
+function dl(name, content, mime) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([content], { type: mime }));
+  a.download = name; a.click(); URL.revokeObjectURL(a.href);
+}
+function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+</script>
