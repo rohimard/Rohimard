@@ -1,0 +1,10 @@
+# Entorno
+.env
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Salidas generadas por el agente
+salidas/*/
+!salidas/.gitkeep
