@@ -1,11 +1,37 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
-import Sidebar from "@/components/Sidebar";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Pulpo — Gestión de pedidos para ecommerce",
+  title: {
+    default: "CotizaPro — Cotizaciones profesionales en menos de 60 segundos",
+    template: "%s · CotizaPro",
+  },
   description:
-    "Bandeja unificada multicanal, tracking proactivo, devoluciones y automatizaciones para tiendas online.",
+    "Crea cotizaciones y presupuestos profesionales desde tu teléfono, genera un PDF y compártelos con tus clientes. Hecho para electricistas, plomeros, técnicos y trabajadores independientes.",
+  keywords: [
+    "cotizaciones",
+    "presupuestos",
+    "PDF",
+    "electricista",
+    "plomero",
+    "trabajador independiente",
+  ],
+  applicationName: "CotizaPro",
+  authors: [{ name: "CotizaPro" }],
+};
+
+export const viewport: Viewport = {
+  themeColor: "#2456eb",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
@@ -14,15 +40,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es">
-      <body>
-        <div className="flex min-h-screen">
-          <Sidebar />
-          <main className="flex-1 overflow-x-hidden">
-            <div className="mx-auto max-w-6xl px-6 py-8">{children}</div>
-          </main>
-        </div>
-      </body>
+    <html lang="es" className={inter.variable}>
+      <body className="min-h-dvh bg-white">{children}</body>
     </html>
   );
 }

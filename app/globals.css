@@ -3,28 +3,93 @@
 @tailwind utilities;
 
 :root {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
+  --background: #ffffff;
+  --foreground: #0f141c;
 }
 
-body {
-  @apply bg-slate-50 text-slate-800 antialiased;
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-ink-900 antialiased;
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Evita zoom involuntario en inputs de iOS/Android (fuente >= 16px) */
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+
+  ::selection {
+    @apply bg-brand-600/15 text-brand-800;
+  }
 }
 
 @layer components {
-  .card {
-    @apply rounded-xl border border-slate-200 bg-white shadow-sm;
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
   }
-  .badge {
-    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
-  }
+
+  /* Botones */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold
+    transition-all duration-200 focus-visible:outline-none focus-visible:ring-2
+    focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
   }
+
   .btn-primary {
-    @apply btn bg-brand-600 text-white hover:bg-brand-700;
+    @apply btn bg-brand-600 text-white shadow-soft hover:bg-brand-700 active:scale-[0.99];
   }
+
+  .btn-secondary {
+    @apply btn border border-ink-200 bg-white text-ink-800 hover:border-ink-300 hover:bg-ink-50 active:scale-[0.99];
+  }
+
   .btn-ghost {
-    @apply btn border border-slate-200 bg-white text-slate-700 hover:bg-slate-50;
+    @apply btn text-ink-700 hover:bg-ink-100;
   }
+
+  .btn-lg {
+    @apply px-6 py-3.5 text-base;
+  }
+
+  /* Superficies */
+  .card {
+    @apply rounded-2xl border border-ink-200 bg-white shadow-soft;
+  }
+
+  .input-label {
+    @apply mb-1.5 block text-sm font-medium text-ink-700;
+  }
+
+  .input {
+    @apply block w-full rounded-xl border border-ink-200 bg-white px-3.5 py-2.5 text-[15px] text-ink-900
+    placeholder:text-ink-400 transition-colors focus:border-brand-500 focus:outline-none
+    focus:ring-4 focus:ring-brand-500/10;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-3 py-1
+    text-xs font-semibold uppercase tracking-wide text-brand-700;
+  }
+}
+
+/* Fondo con malla suave para secciones hero */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(15, 20, 28, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 20, 28, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
 }

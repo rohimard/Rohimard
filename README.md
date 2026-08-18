@@ -1,78 +1,81 @@
-# 🐙 Pulpo — Gestión de pedidos para ecommerce
+# CotizaPro
 
-Pulpo centraliza los pedidos de una tienda online que vende en **varios canales**
-(Shopify, WooCommerce, Amazon, Mercado Libre, Instagram) en una sola bandeja, y
-ataca los puntos de dolor más caros del día a día de un ecommerce:
+Micro-SaaS para trabajadores independientes y pequeños negocios (electricistas,
+plomeros, técnicos, pintores, fotógrafos, jardineros…) que permite **crear una
+cotización profesional en menos de 60 segundos**, generar un PDF y compartirla
+con el cliente.
 
-| Punto débil del ecommerce | Cómo lo ataca Pulpo |
-|---|---|
-| El pedido vive en 5 sitios y ninguno cuadra | **Bandeja unificada multicanal** con estado real y único |
-| El 30–50% del soporte es «¿dónde está mi pedido?» (WISMO) | **Tracking proactivo**: avisos automáticos por WhatsApp/email + timeline por pedido |
-| Devoluciones manuales y lentas | **Gestión de devoluciones** con flujo de estados |
-| Trabajo manual repetitivo | **Motor de automatizaciones** (reglas SI → ENTONCES) |
-| Falta de visibilidad | **Panel** con KPIs, incidencias y reparto por canal |
+> Flujo del producto: **Crear cotización → Generar PDF → Compartir → Seguimiento**
 
-Este repositorio es un **MVP funcional** con datos de ejemplo realistas y
-persistencia local en fichero (sin dependencias externas), pensado para validar
-el producto y demostrar el flujo completo.
+## Estado: Fase 1 (base sólida)
 
-## Stack
+Esta fase incluye la estructura, el sistema visual y las pantallas base. Los
+datos son de **demostración** y aún no hay persistencia real ni generación de PDF.
 
-- **Next.js 14** (App Router) + **TypeScript**
-- **Tailwind CSS**
-- Persistencia sencilla en JSON (`.data/db.json`) — en producción se
-  reemplazaría por Postgres/Prisma y conectores reales a cada canal.
+- ✅ Landing page (hero, problema, solución, cómo funciona, CTA)
+- ✅ Sistema de diseño (Tailwind + tokens de marca)
+- ✅ Login y registro (`/login`, `/register`) con Supabase Auth + modo demo
+- ✅ Dashboard (`/dashboard`) con estadísticas y últimas cotizaciones
+- ✅ Nueva cotización (`/dashboard/cotizaciones/nueva`) con cálculo en vivo
+- ✅ Responsive (prioridad móvil: 360 / 390 / 412 px, tablet y desktop)
 
-## Arrancar en local
+## Tecnología
+
+- [Next.js 14](https://nextjs.org/) (App Router)
+- TypeScript
+- Tailwind CSS
+- Supabase (Auth) — opcional en Fase 1
+
+## Puesta en marcha
 
 ```bash
 npm install
 npm run dev
-# abre http://localhost:3000
 ```
 
-Para compilar y servir en producción:
+Abre http://localhost:3000
 
-```bash
-npm run build
-npm start
-```
+### Configurar Supabase (opcional)
+
+Sin credenciales, la app corre en **modo demo**: los formularios de login y
+registro te llevan directo al dashboard de ejemplo.
+
+Para activar el login real:
+
+1. Crea un proyecto en [supabase.com](https://supabase.com).
+2. En _Project Settings → API_ copia la **Project URL** y la **anon public key**.
+3. Copia `.env.local.example` a `.env.local` y rellena:
+
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGci...
+   ```
+
+4. Reinicia `npm run dev`.
 
 ## Estructura
 
 ```
 app/
-  page.tsx                 Panel (KPIs, incidencias, canales, recientes)
-  pedidos/                 Bandeja unificada + detalle con timeline y acciones
-  devoluciones/            Gestión de devoluciones
-  automatizaciones/        Reglas SI → ENTONCES (activar/desactivar)
-  api/                     Endpoints que mutan el estado
+  page.tsx                          Landing page
+  login/  register/                 Autenticación
+  dashboard/
+    layout.tsx                      Shell con navegación responsive
+    page.tsx                        Dashboard (stats + cotizaciones demo)
+    cotizaciones/nueva/page.tsx     Formulario de nueva cotización
+components/
+  site/        Navbar, Footer, QuoteMockup
+  auth/        AuthShell, AuthForm
+  dashboard/   DashboardNav, StatCard, EstadoBadge
+  cotizacion/  NuevaCotizacionForm
+  ui/          Logo, icons
 lib/
-  types.ts                 Modelo de dominio
-  seed.ts                  Datos de ejemplo
-  db.ts                    Persistencia
-  automations.ts           Motor de reglas
-  orderFlow.ts             Ciclo de vida logístico del pedido
-  metrics.ts               KPIs del panel
+  demo.ts      Datos de demostración
+  format.ts    Formato de moneda
+  supabase/    Clientes de Supabase (browser/server) + config
 ```
 
-## Qué es demostrable hoy
+## Fuera de alcance en Fase 1
 
-- Ver todos los pedidos filtrando por canal, estado o cliente.
-- Avanzar un pedido por su ciclo logístico; al hacerlo se **disparan las
-  automatizaciones** (asignar transportista, etiquetar, avisar al cliente).
-- Enviar un aviso proactivo al cliente y verlo reflejado en el timeline.
-- Gestionar el ciclo de una devolución (solicitada → aprobada → recibida →
-  reembolsada).
-- Activar/desactivar reglas de automatización.
-
-Reiniciar los datos de demo: `POST /api/reset`.
-
-## Próximos pasos (roadmap)
-
-1. **Conectores reales**: OAuth con Shopify/Woo + APIs de marketplaces.
-2. **Webhooks de transportistas** para actualizar el tracking sin polling.
-3. **Portal de autoservicio de devoluciones** para el cliente final.
-4. **Notificaciones reales** (WhatsApp Business API / email transaccional).
-5. **Sincronización de inventario** para evitar sobreventa.
-6. Autenticación multi-tienda y facturación.
+Stripe/pagos, IA, WhatsApp automático, generación real de PDF, CRM, inventario,
+facturación, contabilidad y automatizaciones. Llegarán en fases posteriores.
