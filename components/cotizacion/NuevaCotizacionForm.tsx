@@ -198,8 +198,9 @@ export function NuevaCotizacionForm() {
                   key={it.id}
                   className="rounded-xl border border-ink-100 bg-ink-50/40 p-3"
                 >
-                  <div className="grid grid-cols-12 items-end gap-2 sm:gap-3">
-                    <div className="col-span-12 sm:col-span-5">
+                  {/* Fila 1: descripción + eliminar */}
+                  <div className="flex items-end gap-2">
+                    <div className="min-w-0 flex-1">
                       <label className="input-label text-xs">
                         Descripción
                       </label>
@@ -212,14 +213,27 @@ export function NuevaCotizacionForm() {
                         placeholder={`Ítem ${index + 1}`}
                       />
                     </div>
-                    <div className="col-span-4 sm:col-span-2">
+                    <button
+                      type="button"
+                      onClick={() => removeItem(it.id)}
+                      disabled={items.length === 1}
+                      className="grid h-[42px] w-10 shrink-0 place-items-center rounded-lg text-ink-400 transition-colors hover:bg-red-50 hover:text-red-600 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-ink-400"
+                      aria-label="Eliminar ítem"
+                    >
+                      <IconTrash width={18} height={18} />
+                    </button>
+                  </div>
+
+                  {/* Fila 2: cantidad · precio · total */}
+                  <div className="mt-2 grid grid-cols-3 gap-2">
+                    <div className="min-w-0">
                       <label className="input-label text-xs">Cant.</label>
                       <input
                         type="number"
                         inputMode="decimal"
                         min={0}
                         step="any"
-                        className="input py-2"
+                        className="input px-2.5 py-2"
                         value={it.cantidad === 0 ? "" : it.cantidad}
                         onChange={(e) =>
                           updateItem(it.id, {
@@ -228,14 +242,14 @@ export function NuevaCotizacionForm() {
                         }
                       />
                     </div>
-                    <div className="col-span-4 sm:col-span-2">
+                    <div className="min-w-0">
                       <label className="input-label text-xs">Precio</label>
                       <input
                         type="number"
                         inputMode="decimal"
                         min={0}
                         step="any"
-                        className="input py-2"
+                        className="input px-2.5 py-2"
                         value={it.precioUnitario === 0 ? "" : it.precioUnitario}
                         onChange={(e) =>
                           updateItem(it.id, {
@@ -244,22 +258,11 @@ export function NuevaCotizacionForm() {
                         }
                       />
                     </div>
-                    <div className="col-span-3 sm:col-span-2">
+                    <div className="min-w-0">
                       <label className="input-label text-xs">Total</label>
-                      <div className="flex h-[42px] items-center rounded-xl bg-white px-3 text-sm font-semibold text-ink-900 ring-1 ring-inset ring-ink-100">
+                      <div className="flex h-[42px] items-center justify-end truncate rounded-xl bg-white px-2.5 text-sm font-semibold text-ink-900 ring-1 ring-inset ring-ink-100">
                         {formatCurrency(itemTotal(it))}
                       </div>
-                    </div>
-                    <div className="col-span-1 flex justify-end">
-                      <button
-                        type="button"
-                        onClick={() => removeItem(it.id)}
-                        disabled={items.length === 1}
-                        className="grid h-[42px] w-9 place-items-center rounded-lg text-ink-400 transition-colors hover:bg-red-50 hover:text-red-600 disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-ink-400"
-                        aria-label="Eliminar ítem"
-                      >
-                        <IconTrash width={17} height={17} />
-                      </button>
                     </div>
                   </div>
                 </div>
