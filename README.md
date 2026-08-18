@@ -7,6 +7,14 @@ con el cliente.
 
 > Flujo del producto: **Crear cotización → Generar PDF → Compartir → Seguimiento**
 
+## Desplegar en 1 clic
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frohimard%2FRohimard%2Ftree%2Fclaude%2Fcotizapro-initial-phase-lk7k6k&project-name=cotizapro&repository-name=cotizapro)
+
+Pulsa el botón, inicia sesión con GitHub y Vercel clona el proyecto y lo publica
+con una URL pública en ~1 minuto. **No necesitas configurar nada** (arranca en
+modo demo). Detalles en [`DEPLOY.md`](./DEPLOY.md).
+
 ## Estado: Fase 1 (base sólida)
 
 Esta fase incluye la estructura, el sistema visual y las pantallas base. Los
