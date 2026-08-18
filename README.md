@@ -15,17 +15,23 @@ Pulsa el botón, inicia sesión con GitHub y Vercel clona el proyecto y lo publi
 con una URL pública en ~1 minuto. **No necesitas configurar nada** (arranca en
 modo demo). Detalles en [`DEPLOY.md`](./DEPLOY.md).
 
-## Estado: Fase 1 (base sólida)
+## Estado: Fase 2 (datos reales y autenticación)
 
-Esta fase incluye la estructura, el sistema visual y las pantallas base. Los
-datos son de **demostración** y aún no hay persistencia real ni generación de PDF.
+La app funciona con **usuarios y datos reales** cuando Supabase está configurado,
+y conserva un **modo demo** como fallback cuando no lo está.
 
 - ✅ Landing page (hero, problema, solución, cómo funciona, CTA)
 - ✅ Sistema de diseño (Tailwind + tokens de marca)
-- ✅ Login y registro (`/login`, `/register`) con Supabase Auth + modo demo
-- ✅ Dashboard (`/dashboard`) con estadísticas y últimas cotizaciones
-- ✅ Nueva cotización (`/dashboard/cotizaciones/nueva`) con cálculo en vivo
+- ✅ **Supabase Auth real** en login y registro (+ modo demo)
+- ✅ **Base de datos PostgreSQL** con RLS (`profiles`, `clients`, `quotes`, `quote_items`)
+- ✅ **Protección de rutas** con middleware (`/dashboard/*` requiere sesión)
+- ✅ Perfil del negocio (`/dashboard/configuracion`)
+- ✅ Clientes: crear, editar, eliminar, buscar (`/dashboard/clientes`)
+- ✅ Cotizaciones reales: crear, guardar, numeración única, listar y ver detalle
+- ✅ Dashboard con estadísticas y cotizaciones **reales** (+ estado vacío)
 - ✅ Responsive (prioridad móvil: 360 / 390 / 412 px, tablet y desktop)
+
+> **Migraciones SQL** en `supabase/migrations/` — ver [`supabase/README.md`](./supabase/README.md).
 
 ## Tecnología
 

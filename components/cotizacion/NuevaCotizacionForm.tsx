@@ -1,10 +1,13 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useTransition } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { clienteDemo, itemsDemo } from "@/lib/demo";
 import { formatCurrency, round2 } from "@/lib/format";
+import { createQuoteAction } from "@/lib/actions/quotes";
 import { IconArrowRight, IconPlus, IconTrash } from "@/components/ui/icons";
+import type { Client } from "@/lib/types";
 
 interface Item {
   id: string;
@@ -20,28 +23,50 @@ function itemTotal(it: Item) {
   return round2((it.cantidad || 0) * (it.precioUnitario || 0));
 }
 
-/** Convierte texto de input numérico a número, tolerando vacío. */
 function toNumber(value: string): number {
   const n = Number.parseFloat(value);
   return Number.isFinite(n) && n >= 0 ? n : 0;
 }
 
-export function NuevaCotizacionForm() {
-  const [cliente, setCliente] = useState({
-    nombre: clienteDemo.nombre,
-    telefono: clienteDemo.telefono,
-    email: clienteDemo.email,
-    direccion: clienteDemo.direccion,
+export function NuevaCotizacionForm({
+  clients,
+  defaultTaxRate,
+  symbol,
+  demo,
+}: {
+  clients: Client[];
+  defaultTaxRate: number;
+  symbol: string;
+  demo: boolean;
+}) {
+  const router = useRouter();
+  const [pending, startTransition] = useTransition();
+  const [error, setError] = useState<string | null>(null);
+
+  // Selección de cliente
+  const [clientMode, setClientMode] = useState<"existing" | "new">(
+    clients.length > 0 ? "existing" : "new",
+  );
+  const [selectedClientId, setSelectedClientId] = useState(
+    clients[0]?.id ?? "",
+  );
+  const [nuevoCliente, setNuevoCliente] = useState({
+    nombre: demo ? clienteDemo.nombre : "",
+    telefono: "",
+    email: "",
+    direccion: "",
   });
-  const [servicio, setServicio] = useState(clienteDemo.servicio);
+
+  const [servicio, setServicio] = useState(demo ? clienteDemo.servicio : "");
 
   const [items, setItems] = useState<Item[]>(() =>
-    itemsDemo.map((it) => ({ id: nextId(), ...it })),
+    demo
+      ? itemsDemo.map((it) => ({ id: nextId(), ...it }))
+      : [{ id: nextId(), descripcion: "", cantidad: 1, precioUnitario: 0 }],
   );
 
-  const [descuento, setDescuento] = useState(0); // monto en $
-  const [impuestoPct, setImpuestoPct] = useState(0); // %
-  const [generado, setGenerado] = useState(false);
+  const [descuento, setDescuento] = useState(0);
+  const [impuestoPct, setImpuestoPct] = useState(defaultTaxRate || 0);
 
   const { subtotal, impuestoMonto, total } = useMemo(() => {
     const sub = round2(items.reduce((sum, it) => sum + itemTotal(it), 0));
@@ -59,105 +84,197 @@ export function NuevaCotizacionForm() {
       prev.map((it) => (it.id === id ? { ...it, ...patch } : it)),
     );
   }
-
   function addItem() {
     setItems((prev) => [
       ...prev,
       { id: nextId(), descripcion: "", cantidad: 1, precioUnitario: 0 },
     ]);
   }
-
   function removeItem(id: string) {
     setItems((prev) => prev.filter((it) => it.id !== id));
   }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setGenerado(true);
-    if (typeof window !== "undefined") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    setError(null);
+
+    // Validación de cliente
+    if (clientMode === "existing" && !selectedClientId) {
+      setError("Selecciona un cliente o crea uno nuevo.");
+      return;
     }
+    if (clientMode === "new" && !nuevoCliente.nombre.trim()) {
+      setError("Escribe el nombre del cliente.");
+      return;
+    }
+    const validItems = items.filter(
+      (it) => it.descripcion.trim() || it.cantidad > 0 || it.precioUnitario > 0,
+    );
+    if (validItems.length === 0) {
+      setError("Agrega al menos un ítem con descripción o precio.");
+      return;
+    }
+
+    startTransition(async () => {
+      const res = await createQuoteAction({
+        clientId: clientMode === "existing" ? selectedClientId : null,
+        newClient:
+          clientMode === "new"
+            ? {
+                name: nuevoCliente.nombre,
+                phone: nuevoCliente.telefono,
+                email: nuevoCliente.email,
+                address: nuevoCliente.direccion,
+              }
+            : null,
+        serviceDescription: servicio,
+        items: validItems.map((it) => ({
+          description: it.descripcion,
+          quantity: it.cantidad,
+          unit_price: it.precioUnitario,
+        })),
+        discount: descuento,
+        taxRate: impuestoPct,
+      });
+
+      if (res.ok) {
+        router.push(`/dashboard/cotizaciones/${res.data.id}`);
+        router.refresh();
+      } else {
+        setError(res.error);
+      }
+    });
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {generado && (
-        <div className="rounded-xl border border-accent-200 bg-accent-50 px-4 py-3 text-sm text-accent-700">
-          <strong className="font-semibold">¡Cotización lista!</strong> En esta
-          fase la generación del PDF aún no está activa — llegará en la Fase 2.
-          El total calculado es {formatCurrency(total)}.
+      {error && (
+        <div className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          {error}
         </div>
       )}
 
       <div className="grid gap-6 lg:grid-cols-3">
-        {/* Columna izquierda: formulario */}
+        {/* Columna izquierda */}
         <div className="space-y-6 lg:col-span-2">
-          {/* Datos del cliente */}
+          {/* Cliente */}
           <section className="card p-5 sm:p-6">
-            <h2 className="text-base font-semibold text-ink-900">
-              Datos del cliente
-            </h2>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              <div>
-                <label htmlFor="c-nombre" className="input-label">
-                  Nombre
-                </label>
-                <input
-                  id="c-nombre"
-                  className="input"
-                  value={cliente.nombre}
-                  onChange={(e) =>
-                    setCliente({ ...cliente, nombre: e.target.value })
-                  }
-                  placeholder="Juan Pérez"
-                />
+            <h2 className="text-base font-semibold text-ink-900">Cliente</h2>
+
+            {clients.length > 0 && (
+              <div className="mt-4 inline-flex rounded-xl bg-ink-100 p-1 text-sm">
+                <button
+                  type="button"
+                  onClick={() => setClientMode("existing")}
+                  className={`rounded-lg px-3 py-1.5 font-medium transition-colors ${
+                    clientMode === "existing"
+                      ? "bg-white text-ink-900 shadow-sm"
+                      : "text-ink-500"
+                  }`}
+                >
+                  Elegir cliente
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setClientMode("new")}
+                  className={`rounded-lg px-3 py-1.5 font-medium transition-colors ${
+                    clientMode === "new"
+                      ? "bg-white text-ink-900 shadow-sm"
+                      : "text-ink-500"
+                  }`}
+                >
+                  Nuevo cliente
+                </button>
               </div>
-              <div>
-                <label htmlFor="c-tel" className="input-label">
-                  Teléfono
+            )}
+
+            {clientMode === "existing" && clients.length > 0 ? (
+              <div className="mt-4">
+                <label htmlFor="cliente" className="input-label">
+                  Cliente
                 </label>
-                <input
-                  id="c-tel"
-                  type="tel"
-                  inputMode="tel"
+                <select
+                  id="cliente"
                   className="input"
-                  value={cliente.telefono}
-                  onChange={(e) =>
-                    setCliente({ ...cliente, telefono: e.target.value })
-                  }
-                  placeholder="+52 55 1234 5678"
-                />
+                  value={selectedClientId}
+                  onChange={(e) => setSelectedClientId(e.target.value)}
+                >
+                  {clients.map((c) => (
+                    <option key={c.id} value={c.id}>
+                      {c.name}
+                    </option>
+                  ))}
+                </select>
               </div>
-              <div>
-                <label htmlFor="c-email" className="input-label">
-                  Email
-                </label>
-                <input
-                  id="c-email"
-                  type="email"
-                  className="input"
-                  value={cliente.email}
-                  onChange={(e) =>
-                    setCliente({ ...cliente, email: e.target.value })
-                  }
-                  placeholder="juan@correo.com"
-                />
+            ) : (
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label htmlFor="c-nombre" className="input-label">
+                    Nombre
+                  </label>
+                  <input
+                    id="c-nombre"
+                    className="input"
+                    value={nuevoCliente.nombre}
+                    onChange={(e) =>
+                      setNuevoCliente({ ...nuevoCliente, nombre: e.target.value })
+                    }
+                    placeholder="Juan Pérez"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="c-tel" className="input-label">
+                    Teléfono
+                  </label>
+                  <input
+                    id="c-tel"
+                    type="tel"
+                    inputMode="tel"
+                    className="input"
+                    value={nuevoCliente.telefono}
+                    onChange={(e) =>
+                      setNuevoCliente({
+                        ...nuevoCliente,
+                        telefono: e.target.value,
+                      })
+                    }
+                    placeholder="+52 55 1234 5678"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="c-email" className="input-label">
+                    Email
+                  </label>
+                  <input
+                    id="c-email"
+                    type="email"
+                    className="input"
+                    value={nuevoCliente.email}
+                    onChange={(e) =>
+                      setNuevoCliente({ ...nuevoCliente, email: e.target.value })
+                    }
+                    placeholder="juan@correo.com"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="c-dir" className="input-label">
+                    Dirección
+                  </label>
+                  <input
+                    id="c-dir"
+                    className="input"
+                    value={nuevoCliente.direccion}
+                    onChange={(e) =>
+                      setNuevoCliente({
+                        ...nuevoCliente,
+                        direccion: e.target.value,
+                      })
+                    }
+                    placeholder="Calle, número, ciudad"
+                  />
+                </div>
               </div>
-              <div>
-                <label htmlFor="c-dir" className="input-label">
-                  Dirección
-                </label>
-                <input
-                  id="c-dir"
-                  className="input"
-                  value={cliente.direccion}
-                  onChange={(e) =>
-                    setCliente({ ...cliente, direccion: e.target.value })
-                  }
-                  placeholder="Calle, número, ciudad"
-                />
-              </div>
-            </div>
+            )}
           </section>
 
           {/* Servicio */}
@@ -178,7 +295,7 @@ export function NuevaCotizacionForm() {
             </div>
           </section>
 
-          {/* Items */}
+          {/* Ítems */}
           <section className="card p-5 sm:p-6">
             <div className="flex items-center justify-between">
               <h2 className="text-base font-semibold text-ink-900">Ítems</h2>
@@ -198,12 +315,9 @@ export function NuevaCotizacionForm() {
                   key={it.id}
                   className="rounded-xl border border-ink-100 bg-ink-50/40 p-3"
                 >
-                  {/* Fila 1: descripción + eliminar */}
                   <div className="flex items-end gap-2">
                     <div className="min-w-0 flex-1">
-                      <label className="input-label text-xs">
-                        Descripción
-                      </label>
+                      <label className="input-label text-xs">Descripción</label>
                       <input
                         className="input py-2"
                         value={it.descripcion}
@@ -224,7 +338,6 @@ export function NuevaCotizacionForm() {
                     </button>
                   </div>
 
-                  {/* Fila 2: cantidad · precio · total */}
                   <div className="mt-2 grid grid-cols-3 gap-2">
                     <div className="min-w-0">
                       <label className="input-label text-xs">Cant.</label>
@@ -261,7 +374,7 @@ export function NuevaCotizacionForm() {
                     <div className="min-w-0">
                       <label className="input-label text-xs">Total</label>
                       <div className="flex h-[42px] items-center justify-end truncate rounded-xl bg-white px-2.5 text-sm font-semibold text-ink-900 ring-1 ring-inset ring-ink-100">
-                        {formatCurrency(itemTotal(it))}
+                        {formatCurrency(itemTotal(it), symbol)}
                       </div>
                     </div>
                   </div>
@@ -271,7 +384,7 @@ export function NuevaCotizacionForm() {
           </section>
         </div>
 
-        {/* Columna derecha: resumen (sticky en desktop) */}
+        {/* Columna derecha: resumen */}
         <div className="lg:col-span-1">
           <div className="card p-5 sm:p-6 lg:sticky lg:top-8">
             <h2 className="text-base font-semibold text-ink-900">Resumen</h2>
@@ -280,7 +393,7 @@ export function NuevaCotizacionForm() {
               <div className="flex items-center justify-between">
                 <dt className="text-ink-500">Subtotal</dt>
                 <dd className="font-medium text-ink-900">
-                  {formatCurrency(subtotal)}
+                  {formatCurrency(subtotal, symbol)}
                 </dd>
               </div>
 
@@ -290,7 +403,7 @@ export function NuevaCotizacionForm() {
                 </label>
                 <div className="relative w-28">
                   <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-sm text-ink-400">
-                    $
+                    {symbol}
                   </span>
                   <input
                     id="descuento"
@@ -298,7 +411,7 @@ export function NuevaCotizacionForm() {
                     inputMode="decimal"
                     min={0}
                     step="any"
-                    className="input py-2 pl-6 text-right"
+                    className="input py-2 pl-7 text-right"
                     value={descuento === 0 ? "" : descuento}
                     onChange={(e) => setDescuento(toNumber(e.target.value))}
                     placeholder="0"
@@ -320,7 +433,7 @@ export function NuevaCotizacionForm() {
                     inputMode="decimal"
                     min={0}
                     step="any"
-                    className="input py-2 pr-6 text-right"
+                    className="input py-2 pr-7 text-right"
                     value={impuestoPct === 0 ? "" : impuestoPct}
                     onChange={(e) => setImpuestoPct(toNumber(e.target.value))}
                     placeholder="0"
@@ -331,7 +444,7 @@ export function NuevaCotizacionForm() {
               {impuestoMonto > 0 && (
                 <div className="flex items-center justify-between text-xs text-ink-400">
                   <dt>Monto de impuestos</dt>
-                  <dd>{formatCurrency(impuestoMonto)}</dd>
+                  <dd>{formatCurrency(impuestoMonto, symbol)}</dd>
                 </div>
               )}
             </dl>
@@ -339,13 +452,17 @@ export function NuevaCotizacionForm() {
             <div className="mt-4 flex items-end justify-between border-t border-ink-100 pt-4">
               <span className="font-semibold text-ink-900">TOTAL</span>
               <span className="text-2xl font-bold tracking-tight text-brand-700">
-                {formatCurrency(total)}
+                {formatCurrency(total, symbol)}
               </span>
             </div>
 
-            <button type="submit" className="btn-primary btn-lg mt-5 w-full">
-              Generar cotización
-              <IconArrowRight width={18} height={18} />
+            <button
+              type="submit"
+              disabled={pending}
+              className="btn-primary btn-lg mt-5 w-full"
+            >
+              {pending ? "Guardando…" : "Generar cotización"}
+              {!pending && <IconArrowRight width={18} height={18} />}
             </button>
             <Link
               href="/dashboard"

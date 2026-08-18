@@ -1,95 +1,178 @@
 /**
- * Datos DEMO para la Fase 1.
- * Se muestran en el dashboard mientras no exista persistencia real.
- * En la Fase 2 se reemplazan por datos de Supabase.
+ * Datos DEMO — se usan ÚNICAMENTE como fallback cuando Supabase no está
+ * configurado. Cuando Supabase está configurado, la app usa exclusivamente
+ * datos reales y nada de esto se muestra.
  */
 
-export type EstadoCotizacion = "pendiente" | "enviada" | "aceptada" | "rechazada";
+import type {
+  Client,
+  DashboardStats,
+  Profile,
+  Quote,
+  QuoteItem,
+  QuoteWithClient,
+} from "@/lib/types";
 
-export interface CotizacionDemo {
-  id: string;
-  folio: string;
-  cliente: string;
-  servicio: string;
-  total: number;
-  estado: EstadoCotizacion;
-  fecha: string; // ISO
-}
-
-export const usuarioDemo = {
-  nombre: "Carlos",
+export const demoProfile: Profile = {
+  id: "demo-user",
+  full_name: "Carlos Ramírez",
+  business_name: "Instalaciones RC",
+  phone: "+52 55 1234 5678",
+  email: "carlos@instalacionesrc.com",
+  address: "Av. Reforma 123, CDMX",
+  logo_url: null,
+  currency: "USD",
+  tax_rate: 0,
+  quote_prefix: "COT-",
+  quote_next_number: 5,
+  created_at: "2026-08-01",
+  updated_at: "2026-08-01",
 };
 
-export const cotizacionesDemo: CotizacionDemo[] = [
+export const demoClients: Client[] = [
   {
-    id: "1",
-    folio: "#0001",
-    cliente: "Juan Pérez",
-    servicio: "Instalación de cámaras",
-    total: 315,
-    estado: "pendiente",
-    fecha: "2026-08-17",
+    id: "c1",
+    user_id: "demo-user",
+    name: "Juan Pérez",
+    phone: "+52 55 9876 5432",
+    email: "juan@correo.com",
+    address: "Calle Falsa 123",
+    created_at: "2026-08-10",
+    updated_at: "2026-08-10",
   },
   {
-    id: "2",
-    folio: "#0002",
-    cliente: "María López",
-    servicio: "Reparación de fuga en cocina",
-    total: 180,
-    estado: "enviada",
-    fecha: "2026-08-16",
+    id: "c2",
+    user_id: "demo-user",
+    name: "María López",
+    phone: "+52 55 5555 1111",
+    email: "maria@correo.com",
+    address: "Av. Central 45",
+    created_at: "2026-08-11",
+    updated_at: "2026-08-11",
   },
   {
-    id: "3",
-    folio: "#0003",
-    cliente: "Ferretería El Tornillo",
-    servicio: "Mantenimiento de aire acondicionado",
-    total: 640,
-    estado: "aceptada",
-    fecha: "2026-08-14",
-  },
-  {
-    id: "4",
-    folio: "#0004",
-    cliente: "Ana Torres",
-    servicio: "Pintura de fachada",
-    total: 950,
-    estado: "aceptada",
-    fecha: "2026-08-12",
+    id: "c3",
+    user_id: "demo-user",
+    name: "Ferretería El Tornillo",
+    phone: "+52 55 4444 2222",
+    email: "ventas@eltornillo.com",
+    address: "Blvd. Industria 900",
+    created_at: "2026-08-12",
+    updated_at: "2026-08-12",
   },
 ];
 
-export interface EstadisticasDemo {
-  creadas: number;
-  enviadas: number;
-  aceptadas: number;
-  totalCotizado: number;
-}
+export const demoQuotes: QuoteWithClient[] = [
+  {
+    id: "q1",
+    user_id: "demo-user",
+    client_id: "c1",
+    client_name: "Juan Pérez",
+    quote_number: "COT-0001",
+    service_description: "Instalación de cámaras de seguridad",
+    subtotal: 315,
+    discount: 0,
+    tax: 0,
+    total: 315,
+    status: "draft",
+    created_at: "2026-08-17",
+    updated_at: "2026-08-17",
+    sent_at: null,
+    viewed_at: null,
+    accepted_at: null,
+    rejected_at: null,
+  },
+  {
+    id: "q2",
+    user_id: "demo-user",
+    client_id: "c2",
+    client_name: "María López",
+    quote_number: "COT-0002",
+    service_description: "Reparación de fuga en cocina",
+    subtotal: 180,
+    discount: 0,
+    tax: 0,
+    total: 180,
+    status: "sent",
+    created_at: "2026-08-16",
+    updated_at: "2026-08-16",
+    sent_at: "2026-08-16",
+    viewed_at: null,
+    accepted_at: null,
+    rejected_at: null,
+  },
+  {
+    id: "q3",
+    user_id: "demo-user",
+    client_id: "c3",
+    client_name: "Ferretería El Tornillo",
+    quote_number: "COT-0003",
+    service_description: "Mantenimiento de aire acondicionado",
+    subtotal: 640,
+    discount: 0,
+    tax: 0,
+    total: 640,
+    status: "accepted",
+    created_at: "2026-08-14",
+    updated_at: "2026-08-14",
+    sent_at: "2026-08-14",
+    viewed_at: "2026-08-14",
+    accepted_at: "2026-08-15",
+    rejected_at: null,
+  },
+];
 
-export const estadisticasDemo: EstadisticasDemo = {
-  creadas: cotizacionesDemo.length,
-  enviadas: cotizacionesDemo.filter((c) => c.estado !== "pendiente").length,
-  aceptadas: cotizacionesDemo.filter((c) => c.estado === "aceptada").length,
-  totalCotizado: cotizacionesDemo.reduce((sum, c) => sum + c.total, 0),
+export const demoQuoteItems: Record<string, QuoteItem[]> = {
+  q1: [
+    {
+      id: "i1",
+      quote_id: "q1",
+      description: "Cámara de seguridad",
+      quantity: 4,
+      unit_price: 45,
+      total: 180,
+      created_at: "2026-08-17",
+    },
+    {
+      id: "i2",
+      quote_id: "q1",
+      description: "Cable",
+      quantity: 50,
+      unit_price: 0.7,
+      total: 35,
+      created_at: "2026-08-17",
+    },
+    {
+      id: "i3",
+      quote_id: "q1",
+      description: "Mano de obra",
+      quantity: 1,
+      unit_price: 100,
+      total: 100,
+      created_at: "2026-08-17",
+    },
+  ],
 };
 
-// Item precargado para la pantalla "Nueva cotización" (datos de demostración).
-export interface ItemDemo {
-  descripcion: string;
-  cantidad: number;
-  precioUnitario: number;
+export function demoStats(): DashboardStats {
+  return {
+    creadas: demoQuotes.length,
+    enviadas: demoQuotes.filter((q) => q.status !== "draft").length,
+    aceptadas: demoQuotes.filter((q) => q.status === "accepted").length,
+    totalCotizado: demoQuotes.reduce((s, q) => s + q.total, 0),
+  };
 }
 
-export const itemsDemo: ItemDemo[] = [
+// Prefill de la pantalla "Nueva cotización" en modo demo.
+export const clienteDemo = {
+  nombre: "Juan Pérez",
+  servicio: "Instalación de cámaras de seguridad",
+};
+
+export const itemsDemo = [
   { descripcion: "Cámara de seguridad", cantidad: 4, precioUnitario: 45 },
   { descripcion: "Cable", cantidad: 50, precioUnitario: 0.7 },
   { descripcion: "Mano de obra", cantidad: 1, precioUnitario: 100 },
 ];
 
-export const clienteDemo = {
-  nombre: "Juan Pérez",
-  telefono: "",
-  email: "",
-  direccion: "",
-  servicio: "Instalación de cámaras de seguridad",
-};
+export type { Quote };

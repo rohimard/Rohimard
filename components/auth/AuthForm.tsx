@@ -9,6 +9,24 @@ import { IconArrowRight } from "@/components/ui/icons";
 
 type Mode = "login" | "register";
 
+/** Traduce los errores de Supabase Auth a mensajes claros en español. */
+function translateAuthError(err: unknown): string {
+  const msg = err instanceof Error ? err.message.toLowerCase() : "";
+  if (msg.includes("invalid login credentials"))
+    return "Correo o contraseña incorrectos.";
+  if (msg.includes("email not confirmed"))
+    return "Confirma tu correo antes de iniciar sesión.";
+  if (msg.includes("user already registered") || msg.includes("already been registered"))
+    return "Ese correo ya tiene una cuenta. Inicia sesión.";
+  if (msg.includes("password should be at least"))
+    return "La contraseña debe tener al menos 6 caracteres.";
+  if (msg.includes("unable to validate email") || msg.includes("invalid email"))
+    return "El correo no es válido.";
+  if (msg.includes("rate limit") || msg.includes("too many"))
+    return "Demasiados intentos. Espera un momento e inténtalo de nuevo.";
+  return "Ocurrió un error. Inténtalo otra vez.";
+}
+
 export function AuthForm({ mode }: { mode: Mode }) {
   const router = useRouter();
   const isRegister = mode === "register";
@@ -37,16 +55,23 @@ export function AuthForm({ mode }: { mode: Mode }) {
     setLoading(true);
     try {
       if (isRegister) {
-        const { error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signUp({
           email,
           password,
-          options: { data: { nombre } },
+          options: { data: { full_name: nombre } },
         });
         if (error) throw error;
-        setNotice(
-          "Cuenta creada. Revisa tu correo si se pide confirmación y luego inicia sesión.",
-        );
-        setLoading(false);
+
+        // Si Supabase pide confirmación de email, no hay sesión todavía.
+        if (data.session) {
+          router.push("/dashboard");
+          router.refresh();
+        } else {
+          setNotice(
+            "Cuenta creada. Revisa tu correo para confirmar tu cuenta y luego inicia sesión.",
+          );
+          setLoading(false);
+        }
         return;
       }
 
@@ -58,9 +83,7 @@ export function AuthForm({ mode }: { mode: Mode }) {
       router.push("/dashboard");
       router.refresh();
     } catch (err) {
-      setError(
-        err instanceof Error ? err.message : "Ocurrió un error. Inténtalo otra vez.",
-      );
+      setError(translateAuthError(err));
       setLoading(false);
     }
   }

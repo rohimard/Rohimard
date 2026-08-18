@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { NuevaCotizacionForm } from "@/components/cotizacion/NuevaCotizacionForm";
+import { getDataContext } from "@/lib/data/context";
+import { getProfile, listClients } from "@/lib/data/queries";
+import { currencySymbol } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "Nueva cotización",
 };
 
-export default function NuevaCotizacionPage() {
+export default async function NuevaCotizacionPage() {
+  const ctx = await getDataContext();
+  const [profile, clients] = await Promise.all([
+    getProfile(ctx),
+    listClients(ctx),
+  ]);
+
   return (
     <div className="space-y-6">
       <div>
@@ -24,7 +33,20 @@ export default function NuevaCotizacionPage() {
         </p>
       </div>
 
-      <NuevaCotizacionForm />
+      {ctx.demo && (
+        <div className="rounded-xl border border-brand-100 bg-brand-50 px-4 py-3 text-sm text-brand-800">
+          <strong className="font-semibold">Modo demo:</strong> los datos están
+          precargados como ejemplo. Configura Supabase para guardar cotizaciones
+          reales.
+        </div>
+      )}
+
+      <NuevaCotizacionForm
+        clients={clients}
+        defaultTaxRate={profile.tax_rate ?? 0}
+        symbol={currencySymbol(profile.currency)}
+        demo={ctx.demo}
+      />
     </div>
   );
 }
