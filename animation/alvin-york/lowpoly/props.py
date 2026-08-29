@@ -10,6 +10,7 @@ import math
 
 import numpy as np
 
+from .math3d import euler
 from .mesh import Mesh, box, cone, cylinder, disc, grid, join, prism, quad, sphere, wedge
 
 # --- paleta de materiales ---------------------------------------------------
@@ -33,15 +34,19 @@ ORO = (0.82, 0.66, 0.24)
 SANGRE = (0.32, 0.11, 0.09)
 
 
+# Reloj de escena. Las figuras lo leen cuando no se les pasa `t`, para no
+# tener que enhebrar el tiempo por las decenas de llamadas de `scenes.py`.
+_RELOJ = 0.0
+
+
+def reloj(t: float) -> None:
+    """Fija el instante que usaran las figuras construidas a continuacion."""
+    global _RELOJ
+    _RELOJ = float(t)
+
+
 def _rng(semilla: int) -> np.random.Generator:
     return np.random.default_rng(semilla)
-
-
-def _miembro(pivote, tam, rx=0.0, rz=0.0, color=CAQUI) -> Mesh:
-    """Caja que cuelga de `pivote` y gira alrededor de el (brazos y piernas)."""
-    m = box(tam, color, center=(0.0, -tam[1] / 2.0, 0.0))
-    m.rotate(rx=rx, rz=rz)
-    return m.translate(pivote)
 
 
 # --- figuras ----------------------------------------------------------------
@@ -67,6 +72,93 @@ def casco(tipo="us", color=None) -> Mesh:
     cupula = sphere(0.155, 8, 4, c, corte=0.62).scale((1.0, 0.95, 1.1))
     visera = disc(0.175, 10, c, y=0.0).scale((1.0, 1.0, 1.15))
     return join(cupula, visera.translate((0, 0.005, 0.01)))
+
+
+def _cadena(pivote, huesos, color, base=None):
+    """Cadena cinematica de huesos colgando de `pivote`.
+
+    `huesos` es una lista de (largo, grosor, rx, rz): cada hueso hereda la
+    rotacion acumulada del anterior, que es lo que permite tener rodilla y codo
+    de verdad. Devuelve las mallas, la posicion del extremo y su orientacion.
+    """
+    p = np.asarray(pivote, float)
+    R = np.eye(3) if base is None else np.asarray(base, float)
+    partes = []
+    for largo, grosor, rx, rz in huesos:
+        R = R @ euler(rx=rx, rz=rz)
+        seg = box((grosor, largo, grosor), color, center=(0.0, -largo / 2.0, 0.0))
+        seg.transform(R)
+        seg.translate(p)
+        partes.append(seg)
+        p = p + R @ np.array([0.0, -largo, 0.0])
+    return partes, p, R
+
+
+def _ciclo(fase):
+    """Angulos de una pierna y su brazo opuesto en un ciclo de marcha.
+
+    Devuelve (muslo, rodilla, hombro, codo). La rodilla solo flexiona hacia
+    atras, que es lo que distingue un paso de un peluche articulado.
+    """
+    th = fase * 2.0 * math.pi
+    muslo = -0.52 * math.sin(th)
+    rodilla = 0.95 * max(0.0, math.sin(th + 2.5)) ** 1.3 + 0.06
+    hombro = 0.42 * math.sin(th)
+    codo = 0.30 + 0.34 * (0.5 + 0.5 * math.sin(th + 1.1))
+    return muslo, rodilla, hombro, codo
+
+
+# Expresiones: (angulo de ceja, alto de ceja, ancho de boca, alto de boca,
+# curva de boca). La curva positiva sonrie, la negativa aflige.
+EXPRESIONES = {
+    "neutro":  (0.00, 0.000, 0.075, 0.016, 0.000),
+    "duro":    (0.42, -0.012, 0.070, 0.014, -0.010),
+    "miedo":   (-0.52, 0.014, 0.055, 0.046, -0.014),
+    "grito":   (0.30, 0.008, 0.070, 0.070, 0.000),
+    "triste":  (-0.34, 0.004, 0.062, 0.018, -0.020),
+    "alegre":  (-0.14, 0.012, 0.095, 0.030, 0.022),
+    "cansado": (-0.20, -0.008, 0.066, 0.020, -0.012),
+}
+
+
+def cara(expresion="neutro", piel=PIEL, ancho=0.21, alto=0.25, fondo=0.21,
+         parpadeo=1.0, mirada=0.0) -> Mesh:
+    """Rasgos sobre la cara frontal (+Z) de la cabeza.
+
+    `parpadeo` 1 = ojo abierto, 0 = cerrado. `mirada` desplaza las pupilas.
+    """
+    ceja_a, ceja_y, boca_w, boca_h, boca_c = EXPRESIONES.get(
+        expresion, EXPRESIONES["neutro"])
+    z = fondo / 2.0 + 0.004
+    piezas = []
+    ojo_x, ojo_y = ancho * 0.23, alto * 0.10
+    blanco = (0.93, 0.92, 0.88)
+    oscuro = (0.10, 0.09, 0.10)
+    ceja_col = (0.20, 0.14, 0.10)
+    for lado in (-1, 1):
+        h_ojo = max(0.010, 0.052 * parpadeo)
+        piezas.append(box((0.056, h_ojo, 0.012), blanco,
+                          center=(lado * ojo_x, ojo_y, z)))
+        if parpadeo > 0.25:
+            piezas.append(box((0.024, h_ojo * 0.78, 0.014), oscuro,
+                              center=(lado * ojo_x + mirada * 0.016, ojo_y, z + 0.004)))
+        ceja = box((0.075, 0.017, 0.012), ceja_col,
+                   center=(0.0, 0.0, 0.0))
+        ceja.rotate(rz=ceja_a * lado)
+        ceja.translate((lado * ojo_x, ojo_y + 0.055 + ceja_y, z + 0.002))
+        piezas.append(ceja)
+    piezas.append(box((0.035, 0.030, 0.026), tuple(c * 0.94 for c in piel),
+                      center=(0.0, ojo_y - 0.052, z + 0.006)))          # nariz
+    boca = box((boca_w, boca_h, 0.012), (0.34, 0.16, 0.15),
+               center=(0.0, 0.0, 0.0))
+    boca.rotate(rz=0.0)
+    boca.translate((0.0, ojo_y - 0.108, z))
+    piezas.append(boca)
+    if abs(boca_c) > 0.004:                                             # comisuras
+        for lado in (-1, 1):
+            piezas.append(box((0.020, 0.014, 0.012), (0.34, 0.16, 0.15),
+                              center=(lado * boca_w * 0.5, ojo_y - 0.108 + boca_c, z)))
+    return join(piezas)
 
 
 def fusil(largo=1.18, bayoneta=False) -> Mesh:
@@ -96,111 +188,182 @@ def soldado(
     arma="fusil",
     semilla=0,
     giro=0.0,
+    t=None,
+    fase=None,
+    expresion=None,
+    detalle=True,
 ) -> Mesh:
-    """Figura humana articulada. `pose` define el momento narrativo."""
+    """Figura humana articulada y animada.
+
+    Piernas y brazos son cadenas con rodilla y codo: sin esas dos
+    articulaciones cualquier pose se lee como un muneco de palo. `t` es el
+    tiempo en segundos y `fase` desincroniza a los miembros de un grupo, para
+    que una tropa no marque el paso como un solo cuerpo.
+    """
+    if t is None:
+        t = _RELOJ
     r = _rng(semilla)
+    if fase is None:
+        fase = r.uniform(0.0, 1.0)
+    manga = tuple(c * 0.84 for c in uniforme)
+    pernera = tuple(c * 0.91 for c in uniforme)
     alto = 1.0 + r.uniform(-0.035, 0.035)
     piel = tuple(np.clip(np.array(PIEL) * r.uniform(0.88, 1.08), 0, 1))
+    if expresion is None:
+        expresion = {"carga": "grito", "apunta": "duro", "dispara": "duro",
+                     "manos_arriba": "miedo", "reza": "triste",
+                     "tumbado": "duro"}.get(pose, "neutro")
     partes = []
 
     if pose == "tumbado":
-        # Prono: cuerpo tendido sobre +Z, cabeza adelante, fusil apoyado.
+        respira = math.sin(t * 1.9 + fase * 6.283) * 0.012
         partes += [
-            box((0.44, 0.24, 0.68), uniforme, center=(0, 0.13, 0.0)),
+            box((0.44, 0.24 + respira, 0.68), uniforme, center=(0, 0.13, 0.0)),
             box((0.17, 0.19, 0.62), uniforme, center=(-0.11, 0.10, -0.62)),
             box((0.17, 0.19, 0.62), uniforme, center=(0.12, 0.10, -0.60)),
             box((0.14, 0.14, 0.24), CUERO, center=(-0.11, 0.08, -0.99)),
             box((0.14, 0.14, 0.24), CUERO, center=(0.12, 0.08, -0.97)),
             box((0.13, 0.13, 0.46), uniforme, center=(-0.20, 0.11, 0.30)),
             box((0.13, 0.13, 0.46), uniforme, center=(0.20, 0.11, 0.30)),
-            box((0.20, 0.20, 0.22), piel, center=(0, 0.22, 0.44)),
-            casco(casco_tipo).place(pos=(0, 0.30, 0.46), rot=(-0.25, 0, 0)),
         ]
+        cabeza = box((0.20, 0.20, 0.22), piel, center=(0, 0.22, 0.44))
+        partes.append(cabeza)
+        if detalle:
+            f = cara(expresion, piel, 0.20, 0.20, 0.22)
+            f.rotate(rx=-0.25).translate((0, 0.225, 0.45))
+            partes.append(f)
+        partes.append(casco(casco_tipo).place(pos=(0, 0.30, 0.46), rot=(-0.25, 0, 0)))
         if arma:
             partes.append(fusil().place(pos=(0.10, 0.22, 0.46), rot=(-0.06, 0, 0)))
-        m = join(partes)
-        return m.rotate(ry=giro)
+        return join(partes).rotate(ry=giro)
 
-    # --- figuras en pie ----------------------------------------------------
-    cadera, hombro = 0.86 * alto, 1.42 * alto
-    inclina = 0.0
-    if pose == "carga":
-        inclina = 0.22
-    elif pose == "apunta":
-        inclina = 0.10
+    # --- proporciones ------------------------------------------------------
+    cadera, hombro = 0.90 * alto, 1.44 * alto
+    l_muslo, l_pierna = 0.44 * alto, 0.37 * alto
+    l_brazo, l_ante = 0.28 * alto, 0.26 * alto
+    g_pierna, g_brazo = 0.165, 0.125
 
-    if pose == "marcha":
-        pa, pb = 0.30, -0.26
-    elif pose == "carga":
-        pa, pb = 0.55, -0.42
+    # --- estado del ciclo --------------------------------------------------
+    anda = pose in ("marcha", "carga")
+    vel = 1.85 if pose == "marcha" else (2.7 if pose == "carga" else 0.0)
+    ciclo = (t * vel + fase) % 1.0
+    respira = math.sin(t * 1.35 + fase * 6.283)
+    balanceo = math.sin(t * 0.62 + fase * 4.1)          # peso de un pie al otro
+
+    if anda:
+        m_i, r_i, h_i, c_i = _ciclo(ciclo)
+        m_d, r_d, h_d, c_d = _ciclo((ciclo + 0.5) % 1.0)
+        bote = abs(math.cos(ciclo * 2 * math.pi)) * 0.035 * alto
+        inclina = 0.30 if pose == "carga" else 0.07
+        giro_torso = 0.10 * math.sin(ciclo * 2 * math.pi)
     else:
-        pa, pb = 0.05, -0.05
-    partes += [
-        _miembro((-0.11, cadera, 0), (0.17, cadera - 0.10, 0.18), rx=pa, color=uniforme),
-        _miembro((0.11, cadera, 0), (0.17, cadera - 0.10, 0.18), rx=pb, color=uniforme),
-    ]
-    for lado, ang in ((-0.11, pa), (0.11, pb)):
-        pie = box((0.16, 0.11, 0.30), CUERO, center=(0, 0.055, 0.03))
-        pie.translate((lado + math.sin(ang) * 0.02, 0.0, math.sin(ang) * (cadera - 0.10)))
-        partes.append(pie)
+        m_i = m_d = 0.03 + balanceo * 0.02
+        r_i = r_d = 0.07
+        h_i = h_d = 0.0
+        c_i = c_d = 0.16
+        bote = respira * 0.006 * alto
+        inclina = 0.10 if pose in ("apunta", "dispara") else 0.02
+        giro_torso = balanceo * 0.03
 
-    torso = box((0.46, hombro - cadera + 0.12, 0.27), uniforme, center=(0, 0, 0))
-    torso.rotate(rx=inclina).translate((0, (cadera + hombro) / 2 + 0.04, 0))
+    base_y = bote
+
+    # --- piernas -----------------------------------------------------------
+    for lado, mus, rod in ((-1, m_i, r_i), (1, m_d, r_d)):
+        segs, pie_p, R = _cadena(
+            (lado * 0.11, cadera + base_y, 0.0),
+            [(l_muslo, g_pierna, mus, 0.0), (l_pierna, g_pierna * 0.88, rod, 0.0)],
+            pernera,
+        )
+        partes += segs
+        bota = box((0.155, 0.10, 0.29), CUERO, center=(0, 0.05, 0.055))
+        bota.rotate(rx=-(mus + rod) * 0.55)
+        partes.append(bota.translate(pie_p))
+
+    # --- torso, cuello y cabeza -------------------------------------------
+    l_torso = hombro - cadera
+    torso = box((0.46, l_torso + 0.10, 0.27), uniforme, center=(0, 0, 0))
+    torso.rotate(rx=inclina, ry=giro_torso)
+    torso.translate((0, (cadera + hombro) / 2 + 0.03 + base_y, 0))
     partes.append(torso)
-    partes.append(
-        box((0.30, 0.10, 0.29), (0.22, 0.20, 0.15), center=(0, cadera + 0.06, 0))
-    )  # cinturon
+    partes.append(box((0.30, 0.10, 0.29), (0.24, 0.21, 0.16),
+                      center=(0, cadera + 0.06 + base_y, 0)))
 
-    cabeza_y = hombro + 0.20
-    dz = math.sin(inclina) * 0.28
-    partes.append(box((0.16, 0.09, 0.16), piel, center=(0, hombro + 0.05, dz * 0.4)))
-    partes.append(box((0.21, 0.25, 0.21), piel, center=(0, cabeza_y, dz)))
-    partes.append(casco(casco_tipo).translate((0, cabeza_y + 0.115, dz)))
+    dz = math.sin(inclina) * (l_torso * 0.55)
+    hy = hombro + base_y - 0.02
+    cuello_y = hombro + base_y + 0.04
+    partes.append(box((0.15, 0.10, 0.15), piel, center=(0, cuello_y, dz * 0.6)))
 
-    hy = hombro - 0.02
+    # La cabeza compensa parte del giro del torso y mira ligeramente alrededor.
+    cabeza_y = cuello_y + 0.145
+    mira = 0.0 if anda else balanceo * 0.16
+    cabeza = box((0.21, 0.25, 0.21), piel, center=(0, 0, 0))
+    cabeza.rotate(ry=mira - giro_torso * 0.5, rx=-inclina * 0.55)
+    cabeza.translate((0, cabeza_y, dz))
+    partes.append(cabeza)
+    if detalle:
+        parpadeo = 0.0 if ((t * 0.9 + fase * 3.3) % 3.4) < 0.13 else 1.0
+        f = cara(expresion, piel, parpadeo=parpadeo, mirada=balanceo * 0.5)
+        f.rotate(ry=mira - giro_torso * 0.5, rx=-inclina * 0.55)
+        f.translate((0, cabeza_y, dz))
+        partes.append(f)
+    casc = casco(casco_tipo)
+    casc.rotate(ry=mira - giro_torso * 0.5, rx=-inclina * 0.55)
+    partes.append(casc.translate((0, cabeza_y + 0.115, dz)))
+
+    # --- brazos ------------------------------------------------------------
+    def brazo(lado, rx_h, rz_h, rx_c):
+        segs, mano, R = _cadena(
+            (lado * 0.255, hy, dz * 0.4),
+            [(l_brazo, g_brazo, rx_h, rz_h), (l_ante, g_brazo * 0.9, rx_c, 0.0)],
+            manga,
+        )
+        return segs, mano
+
     if pose == "manos_arriba":
-        partes += [
-            _miembro((-0.26, hy, 0), (0.13, 0.56, 0.14), rz=-0.55, rx=-2.55, color=uniforme),
-            _miembro((0.26, hy, 0), (0.13, 0.56, 0.14), rz=0.55, rx=-2.55, color=uniforme),
-        ]
+        tembl = math.sin(t * 3.1 + fase * 6.283) * 0.05
+        for lado in (-1, 1):
+            segs, _ = brazo(lado, -2.55 + tembl * lado, 0.52 * lado, -0.45)
+            partes += segs
     elif pose in ("apunta", "dispara"):
-        partes += [
-            _miembro((-0.26, hy, 0), (0.12, 0.50, 0.13), rz=-0.30, rx=-1.35, color=uniforme),
-            _miembro((0.26, hy, 0), (0.12, 0.50, 0.13), rz=0.42, rx=-1.30, color=uniforme),
-        ]
+        sway = math.sin(t * 1.7 + fase * 6.283) * 0.035
+        segs_i, mano_i = brazo(-1, -1.42 + sway, 0.34, -0.62)
+        segs_d, mano_d = brazo(1, -1.30 + sway, -0.30, -0.95)
+        partes += segs_i + segs_d
+        centro = (mano_i + mano_d) / 2.0
         if arma == "pistola":
-            partes.append(pistola().place(pos=(0.06, hy - 0.02, 0.42), rot=(0, 0, 0)))
+            partes.append(pistola().place(pos=tuple(centro + (0, 0.02, 0.04)),
+                                          rot=(sway, 0, 0)))
         elif arma:
-            partes.append(fusil().place(pos=(-0.02, hy + 0.04, 0.30), rot=(0.03, 0, 0.06)))
+            partes.append(fusil().place(pos=tuple(centro + (0, 0.05, 0.10)),
+                                        rot=(0.03 + sway, 0, 0.06)))
     elif pose == "carga":
-        partes += [
-            _miembro((-0.26, hy, 0), (0.12, 0.50, 0.13), rz=-0.35, rx=-1.15, color=uniforme),
-            _miembro((0.26, hy, 0), (0.12, 0.50, 0.13), rz=0.25, rx=-0.75, color=uniforme),
-        ]
+        manos = []
+        for lado, ang in ((-1, -1.25), (1, -0.85)):
+            segs, mano = brazo(lado, ang + h_i * 0.3, 0.20 * lado, -0.75)
+            partes += segs
+            manos.append(mano)
         if arma:
-            partes.append(
-                fusil(bayoneta=True).place(pos=(0.0, hy - 0.06, 0.34), rot=(0.12, 0, 0.10))
-            )
+            centro = (manos[0] + manos[1]) / 2.0
+            partes.append(fusil(bayoneta=True).place(
+                pos=tuple(centro + (0, 0.04, 0.16)), rot=(0.14, 0, 0.10)))
     elif pose == "reza":
-        partes += [
-            _miembro((-0.24, hy, 0), (0.12, 0.48, 0.13), rz=-0.42, rx=-1.05, color=uniforme),
-            _miembro((0.24, hy, 0), (0.12, 0.48, 0.13), rz=0.42, rx=-1.05, color=uniforme),
-        ]
+        segs_i, _ = brazo(-1, -1.05, 0.40, -1.15)
+        segs_d, _ = brazo(1, -1.05, -0.40, -1.15)
+        partes += segs_i + segs_d
     else:
-        balanceo = 0.30 if pose == "marcha" else r.uniform(-0.05, 0.05)
-        partes += [
-            _miembro((-0.26, hy, 0), (0.13, 0.54, 0.14), rz=-0.10, rx=balanceo, color=uniforme),
-            _miembro((0.26, hy, 0), (0.13, 0.54, 0.14), rz=0.10, rx=-balanceo, color=uniforme),
-        ]
+        segs_i, _ = brazo(-1, h_i * 0.9, 0.11, -c_i)
+        segs_d, _ = brazo(1, h_d * 0.9, -0.11, -c_d)
+        partes += segs_i + segs_d
         if arma == "fusil_hombro":
-            partes.append(fusil().place(pos=(0.22, hombro + 0.05, 0.0), rot=(1.15, 0, 0.25)))
+            partes.append(fusil().place(pos=(0.235, hombro + base_y + 0.04, 0.0),
+                                        rot=(1.15, 0, 0.25)))
         elif arma == "fusil":
-            partes.append(fusil().place(pos=(0.26, hy - 0.30, 0.06), rot=(1.45, 0, 0.06)))
+            partes.append(fusil().place(pos=(0.27, hy - 0.34, 0.06), rot=(1.45, 0, 0.06)))
 
     return join(partes).rotate(ry=giro)
 
 
-def caido(uniforme=CAQUI, casco_tipo="us", semilla=0, giro=0.0) -> Mesh:
+def caido(uniforme=CAQUI, casco_tipo="us", semilla=0, giro=0.0, t=None) -> Mesh:
     """Cuerpo abatido en el suelo, sin detalle gore: siluetas y casco caido."""
     r = _rng(semilla)
     partes = [
@@ -218,8 +381,13 @@ def caido(uniforme=CAQUI, casco_tipo="us", semilla=0, giro=0.0) -> Mesh:
 
 
 def multitud(n, pose="firme", uniforme=CAQUI, casco_tipo="us", extension=(6.0, 4.0),
-             semilla=0, arma="fusil", giro=0.0, rejilla=False) -> Mesh:
-    """Grupo de figuras repartidas, con variacion de posicion y orientacion."""
+             semilla=0, arma="fusil", giro=0.0, rejilla=False, t=None,
+             detalle=True, expresion=None) -> Mesh:
+    """Grupo de figuras repartidas, con variacion de posicion y orientacion.
+
+    Cada figura recibe una fase distinta del ciclo: sin eso el grupo entero
+    respira y marca el paso a la vez, que es justo lo que delata el truco.
+    """
     r = _rng(semilla)
     piezas = []
     for i in range(n):
@@ -235,6 +403,7 @@ def multitud(n, pose="firme", uniforme=CAQUI, casco_tipo="us", extension=(6.0, 4
         s = soldado(
             pose=pose, uniforme=uniforme, casco_tipo=casco_tipo, arma=arma,
             semilla=semilla * 97 + i, giro=giro + r.uniform(-0.25, 0.25),
+            t=t, fase=r.uniform(0.0, 1.0), detalle=detalle, expresion=expresion,
         )
         piezas.append(s.translate((x, 0, z)))
     return join(piezas)

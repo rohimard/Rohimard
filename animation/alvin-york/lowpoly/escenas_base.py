@@ -103,16 +103,29 @@ class Plano:
     rotulos: list = field(default_factory=list)
     entra: float = 0.0                   # fundido de entrada (s)
     sale: float = 0.0                    # fundido de salida (s)
+    # Personajes: se reconstruyen cada fotograma porque su pose depende de `t`.
+    # Va al final para no desplazar los argumentos posicionales de las escenas.
+    figuras: object = None               # f(t) -> Mesh | None
 
     _cache: object = field(default=None, repr=False, compare=False)
 
     def geometria(self, t: float):
+        """Decorado cacheado + efectos + personajes reconstruidos cada fotograma.
+
+        Las figuras van aparte del decorado porque su pose depende de `t`: si
+        se construyen una sola vez, la escena entera queda congelada.
+        """
         if self._cache is None and self.estatico is not None:
             self._cache = self.estatico()
-        din = self.animado(t, self.dur) if self.animado is not None else None
-        if self._cache is None:
-            return din
-        return self._cache if din is None else join(self._cache, din)
+        partes = [self._cache]
+        if self.animado is not None:
+            partes.append(self.animado(t, self.dur))
+        if self.figuras is not None:
+            partes.append(self.figuras(t))
+        partes = [x for x in partes if x is not None]
+        if not partes:
+            return None
+        return partes[0] if len(partes) == 1 else join(partes)
 
 
 # --- paletas por tono -------------------------------------------------------

@@ -158,15 +158,18 @@ def _p02():
             cylinder(0.035, 0.75, 5, P.MADERA_CLARA),
             box((0.06, 0.16, 0.22), P.ACERO, center=(0, 0.78, 0.05)),
         ).rotate(rz=0.35).translate((-4.4, 0.35, 4.0))
-        alvin = P.soldado("firme", (0.42, 0.36, 0.26), None, arma=None, semilla=1, giro=0.55)
-        alvin.translate((-4.0, 0.0, 4.2))
-        return join(suelo, casa, establo, campo, cerca, arboles, detalles, hacha, alvin,
+        return join(suelo, casa, establo, campo, cerca, arboles, detalles, hacha,
                     cielo_nubes(8, 32.0, 130.0, -70.0, semilla=2, radio=8.0))
 
     def animado(t, dur):
         return P.humo(0.45, 4, semilla=3, color=(0.72, 0.70, 0.66), alfa=0.35, altura=3.2).translate(
             (-3.3, 3.6 + math.sin(t * 0.5) * 0.15, -0.4)
         )
+
+    def figuras(t):
+        a = P.soldado("firme", (0.42, 0.36, 0.26), None, arma=None, semilla=1,
+                      giro=0.55, t=t, expresion="neutro")
+        return a.translate((-4.0, 0.0, 4.2))
 
     return Plano(
         "02_granja_york", 10.0,
@@ -175,6 +178,7 @@ def _p02():
         [Rotulo("Alvin C. York", ini=0.6, fin=4.6, estilo="titulo",
                 sub="Tercero de once hermanos · herrero y cazador"),
          Rotulo("Fallar un tiro significaba no cenar", ini=6.0, fin=9.6)],
+        figuras=figuras,
     )
 
 
@@ -202,26 +206,29 @@ def _p03():
                  sphere(0.16, 6, 3, (1.0, 0.86, 0.52)).emisivo().translate((0, 2.2, 0))).translate((x, 0, 3.0))
             for x in (-3.4, 3.4)
         ])
-        fieles = join([
-            P.soldado("firme", (0.34, 0.29, 0.26), "sombrero", arma=None, semilla=400 + i,
-                      giro=math.pi).translate((-1.6 + i * 1.1, 0, 2.2 + (i % 2) * 0.7))
-            for i in range(4)
-        ])
-        return join(suelo, capilla, camino, arboles, cerca, farolas, fieles,
+        return join(suelo, capilla, camino, arboles, cerca, farolas,
                     cielo_nubes(6, 30.0, 110.0, -70.0, semilla=3, radio=9.0,
                                 color=(0.98, 0.82, 0.68)))
 
-    def animado(t, dur):
-        u = min(t / dur, 1.0)
-        alvin = P.soldado("firme", (0.30, 0.24, 0.20), "sombrero", arma=None, semilla=5, giro=math.pi)
-        return alvin.translate((0.4, 0, 9.5 - u * 5.4))
+    def figuras(t):
+        u = min(t / 9.0, 1.0)
+        alvin = P.soldado("marcha", (0.30, 0.24, 0.20), "sombrero", arma=None,
+                          semilla=5, giro=math.pi, t=t, fase=0.0, expresion="triste")
+        fieles = join([
+            P.soldado("firme", (0.34, 0.29, 0.26), "sombrero", arma=None,
+                      semilla=400 + i, giro=math.pi, t=t, fase=i * 0.31)
+            .translate((-1.6 + i * 1.1, 0, 2.2 + (i % 2) * 0.7))
+            for i in range(4)
+        ])
+        return join(alvin.translate((0.4, 0, 9.5 - u * 5.4)), fieles)
 
     return Plano(
         "03_conversion", 9.0,
         deriva(dolly((3.5, 3.2, 16.0), (0.4, 2.2, -3.0), (1.2, 2.4, 8.5), (0.2, 2.6, -5.0), fov=(46, 40))),
-        PAL_ATARDECER, construir, animado,
+        PAL_ATARDECER, construir, None,
         [Rotulo("1915", ini=0.8, fin=4.4, estilo="titulo", sub="Entró en una iglesia y salió siendo otro hombre"),
          Rotulo("«No matarás»", ini=5.8, fin=8.7, estilo="cita")],
+        figuras=figuras,
     )
 
 
@@ -323,12 +330,6 @@ def _p06():
             for fila_i in range(4) for col in range(7)
         ])
         mastil = P.bandera(7.0, (0.55, 0.18, 0.20)).translate((0, 0, 12.0))
-        tropa = join(
-            P.multitud(24, "firme", P.CAQUI, "us", (9.0, 4.0), semilla=31, arma="fusil_hombro",
-                       giro=0.0, rejilla=True).translate((0, 0, 16.0)),
-            P.multitud(6, "marcha", P.CAQUI, "us", (7.0, 1.5), semilla=32, arma="fusil_hombro",
-                       giro=1.57).translate((14, 0, 6.0)),
-        )
         vehiculos = join(
             P.camion().translate((-20, 0, 14)).rotate(ry=0.3),
             P.camion((0.28, 0.30, 0.22)).translate((-24, 0, 8)).rotate(ry=-0.2),
@@ -341,11 +342,20 @@ def _p06():
             lambda i: P.pino(8.0, semilla=500 + i, color_hoja=(0.18, 0.26, 0.16)),
             14, (140, 130), None, semilla=23, radio_libre=32,
         )
-        return join(suelo, tiendas, mastil, tropa, vehiculos, cajas, arboles,
+        return join(suelo, tiendas, mastil, vehiculos, cajas, arboles,
                     cielo_nubes(8, 36.0, 150.0, -80.0, semilla=4, radio=10.0))
 
     def animado(t, dur):
         return P.bandera(7.0, (0.55, 0.18, 0.20), ondea=t * 2.4).translate((0, 0, 12.0))
+
+    def figuras(t):
+        return join(
+            P.multitud(24, "firme", P.CAQUI, "us", (9.0, 4.0), semilla=31,
+                       arma="fusil_hombro", giro=0.0, rejilla=True, t=t,
+                       detalle=False).translate((0, 0, 16.0)),
+            P.multitud(6, "marcha", P.CAQUI, "us", (7.0, 1.5), semilla=32,
+                       arma="fusil_hombro", giro=1.57, t=t).translate((14, 0, 6.0)),
+        )
 
     return Plano(
         "06_campamento_gordon", 10.0,
@@ -354,6 +364,7 @@ def _p06():
         PAL_CAMPAMENTO, construir, animado,
         [Rotulo("Campamento Gordon, Georgia", ini=0.8, fin=4.8, estilo="titulo", sub="1917"),
          Rotulo("¿Puede un hombre bueno matar?", ini=6.2, fin=9.7, estilo="cita")],
+        figuras=figuras,
     )
 
 
@@ -374,23 +385,24 @@ def _p07():
         pinos = dispersar(lambda i: P.pino(6.5, semilla=700 + i, color_hoja=(0.12, 0.20, 0.14)),
                           22, (110, 100), H, semilla=29, radio_libre=13, centro_libre=(0, -6))
         cima_y = float(H(np.array(0.0), np.array(-6.0)))
-        alvin = P.soldado("reza", (0.32, 0.28, 0.22), None, arma=None, semilla=7, giro=0.3)
-        alvin.translate((0, cima_y, -6.0))
         piedra = P.roca(0.8, semilla=44, color=(0.40, 0.37, 0.32)).translate((2.6, cima_y - 0.2, -4.2))
-        return join(suelo, rocas, pinos, alvin, piedra,
+        return join(suelo, rocas, pinos, piedra,
                     cielo_nubes(7, 30.0, 120.0, -70.0, semilla=18, radio=10.0,
                                 color=(1.00, 0.82, 0.62)))
 
-    def animado(t, dur):
-        return None
+    def figuras(t):
+        alvin = P.soldado("reza", (0.32, 0.28, 0.22), None, arma=None, semilla=7,
+                          giro=0.3, t=t, fase=0.0, expresion="triste")
+        return alvin.translate((0, CIMA, -6.0))
 
     return Plano(
         "07_la_montana", 8.0,
         grua((4.2, CIMA + 1.2, 7.5), (0.0, CIMA + 1.0, -6.0),
              (5.6, CIMA + 4.2, 11.0), (0.0, CIMA + 0.8, -6.5), fov=(46, 40)),
-        PAL_AMANECER, construir, animado,
+        PAL_AMANECER, construir, None,
         [Rotulo("Dos días solo en la montaña", ini=1.0, fin=5.0, estilo="titulo"),
          Rotulo("Cuando bajó, ya no dudaba", ini=5.8, fin=7.8)],
+        figuras=figuras,
     )
 
 
@@ -404,10 +416,6 @@ def _p08():
         suelo = _suelo(alturas(0.35, 0.06, semilla=11), (0.34, 0.46, 0.22), 120.0, 24,
                        color2=(0.41, 0.48, 0.25), deco=0.8, verde=(0.32, 0.52, 0.20),
                        libre=9.0, semilla=11, radio_deco=54.0)
-        linea = join([
-            P.soldado("tumbado", P.CAQUI, "us", semilla=800 + i).translate((-6.0 + i * 2.6, 0.02, 0))
-            for i in range(5)
-        ])
         blancos = join([
             join(
                 box((0.10, 1.9, 0.10), P.MADERA, center=(0, 0.95, 0)),
@@ -417,8 +425,6 @@ def _p08():
             for i in range(5)
         ])
         terraplen = box((26.0, 2.2, 3.0), (0.34, 0.30, 0.20), center=(0, 1.1, -25.0)).jitter(0.07, 8)
-        instructor = P.soldado("firme", P.CAQUI, "us", arma="fusil", semilla=9, giro=1.5)
-        instructor.translate((3.6, 0, 2.4))
         banderines = join([
             join(cylinder(0.04, 1.3, 4, (0.30, 0.28, 0.24)),
                  quad((0, 1.0, 0), (0.5, 1.05, 0.05), (0.5, 1.3, 0.05), (0, 1.3, 0), (0.72, 0.20, 0.18))
@@ -426,8 +432,7 @@ def _p08():
             for i in range(5)
         ])
         cajas = join([P.caja_municion().translate((6.6, 0, 1.0 + i * 0.45)) for i in range(3)])
-        return join(suelo, linea, blancos, terraplen, instructor, banderines, cajas,
-                    cielo_nubes(7, 34.0, 130.0, -75.0, semilla=6, radio=9.0))
+        return join(suelo, blancos, terraplen, banderines, cajas, cielo_nubes(7, 34.0, 130.0, -75.0, semilla=6, radio=9.0))
 
     def animado(t, dur):
         piezas = []
@@ -436,12 +441,23 @@ def _p08():
                 piezas.append(P.fogonazo(0.45, semilla=i).translate((-6.0 + i * 2.6, 0.32, 0.78)))
         return join(piezas) if piezas else None
 
+    def figuras(t):
+        P.reloj(t)
+        linea = join([
+            P.soldado("tumbado", P.CAQUI, "us", semilla=800 + i).translate((-6.0 + i * 2.6, 0.02, 0))
+            for i in range(5)
+        ])
+        instructor = P.soldado("firme", P.CAQUI, "us", arma="fusil", semilla=9, giro=1.5)
+        instructor.translate((3.6, 0, 2.4))
+        return join(linea, instructor)
+
     return Plano(
         "08_campo_de_tiro", 7.0,
         deriva(dolly((12.0, 2.6, 8.0), (-2.0, 1.0, -6.0), (5.0, 1.9, 4.6), (-3.0, 0.8, -10.0),
                      fov=(48, 40))),
         PAL_CAMPAMENTO, construir, animado,
         [Rotulo("Disparaba mejor que sus instructores", ini=1.2, fin=6.2, estilo="titulo")],
+        figuras=figuras,
     )
 
 
@@ -518,11 +534,7 @@ def _p10():
             lambda i: P.roca(0.6, semilla=1200 + i, color=(0.50, 0.47, 0.42)),
             26, (110, 90), None, semilla=37,
         )
-        tropa = P.multitud(9, "marcha", P.CAQUI, "us", (5.0, 12.0), semilla=39,
-                           arma="fusil_hombro", giro=0.0).translate((-3, 0, 26))
-        return join(suelo, ruinas, muertos, crateres, convoy, escombros, tropa,
-                    cielo_nubes(9, 34.0, 150.0, -80.0, semilla=8, radio=11.0,
-                                color=(0.88, 0.88, 0.86)))
+        return join(suelo, ruinas, muertos, crateres, convoy, escombros, cielo_nubes(9, 34.0, 150.0, -80.0, semilla=8, radio=11.0, color=(0.88, 0.88, 0.86)))
 
     def animado(t, dur):
         cols = []
@@ -533,11 +545,18 @@ def _p10():
             )
         return join(cols)
 
+    def figuras(t):
+        P.reloj(t)
+        tropa = P.multitud(9, "marcha", P.CAQUI, "us", (5.0, 12.0), semilla=39,
+                           arma="fusil_hombro", giro=0.0).translate((-3, 0, 26))
+        return join(tropa)
+
     return Plano(
         "10_francia_devastada", 8.0,
         deriva(dolly((-26, 6.0, 30), (-6, 2.0, 6), (16, 5.4, 28), (4, 1.6, 2), fov=(50, 46))),
         PAL_FRANCIA, construir, animado,
         [Rotulo("Francia", ini=0.8, fin=4.4, estilo="titulo", sub="Pueblos sin techos, campos sin árboles")],
+        figuras=figuras,
     )
 
 
@@ -557,13 +576,6 @@ def _p11():
             P.alambrada(28.0, 13, 1.1, semilla=6).translate((0, 0, -6.5)),
             P.alambrada(24.0, 11, 0.9, semilla=7).translate((2, 0, -10.0)),
         )
-        soldados = join([
-            P.soldado("firme", P.CAQUI, "us", arma="fusil", semilla=1300 + i,
-                      giro=math.pi + (i % 2) * 0.2).translate((-9.0 + i * 3.4, -1.7, -0.5))
-            for i in range(6)
-        ])
-        centinela = P.soldado("apunta", P.CAQUI, "us", arma="fusil", semilla=77, giro=math.pi)
-        centinela.translate((3.0, -0.85, -1.05))
         cajas = join([
             P.caja_municion().translate((-6.0 + i * 5.0, -1.7, 0.7)) for i in range(4)
         ])
@@ -572,7 +584,7 @@ def _p11():
         crateres = dispersar(lambda i: P.crater(2.0, 0.7, semilla=1500 + i),
                              8, (80, 60), None, semilla=43, radio_libre=8)
         luna = sphere(2.2, 10, 6, (0.92, 0.94, 1.0)).emisivo().translate((-26, 34, -60))
-        return join(suelo, zanja, alambre, soldados, centinela, cajas, muertos, crateres, luna)
+        return join(suelo, zanja, alambre, cajas, muertos, crateres, luna)
 
     def animado(t, dur):
         piezas = []
@@ -588,12 +600,24 @@ def _p11():
                 piezas.append(P.fogonazo(1.0, semilla=i).translate((-20 + i * 18, 1.2, -34)))
         return join(piezas)
 
+    def figuras(t):
+        P.reloj(t)
+        soldados = join([
+            P.soldado("firme", P.CAQUI, "us", arma="fusil", semilla=1300 + i,
+                      giro=math.pi + (i % 2) * 0.2).translate((-9.0 + i * 3.4, -1.7, -0.5))
+            for i in range(6)
+        ])
+        centinela = P.soldado("apunta", P.CAQUI, "us", arma="fusil", semilla=77, giro=math.pi)
+        centinela.translate((3.0, -0.85, -1.05))
+        return join(soldados, centinela)
+
     return Plano(
         "11_trincheras_noche", 9.0,
         grua((-9.0, 1.1, 9.0), (0.0, -0.5, -2.0), (-5.5, 5.2, 12.0), (0.0, -0.4, -5.0), fov=(50, 46)),
         PAL_NOCHE, construir, animado,
         [Rotulo("Barro, ratas, gas", ini=1.0, fin=5.0, estilo="titulo"),
          Rotulo("No se parecía a ninguna guerra que le contaran de niño", ini=5.8, fin=8.7)],
+        figuras=figuras,
     )
 
 
@@ -711,33 +735,36 @@ def _p14():
                  cylinder(0.05, 0.09, 6, (0.72, 0.70, 0.64))).translate((-0.6 + i * 0.55, 0.79, 0.5))
             for i in range(4)
         ])
-        rendidos = join([
-            P.soldado("manos_arriba", P.FELDGRAU, "de", arma=None, semilla=2300 + i,
-                      giro=0.25 + i * 0.12).translate((-1.9 + i * 1.25, 0, -1.9))
-            for i in range(5)
-        ])
-        captores = join([
-            P.soldado("apunta", P.CAQUI, "us", arma="fusil", semilla=2400 + i, giro=math.pi + 0.1 * i)
-            .translate((-2.4 + i * 1.7, 0, 4.6))
-            for i in range(4)
-        ])
         armas_sueltas = join([
             P.fusil().place(pos=(-1.4 + i * 0.9, 0.06, -0.4), rot=(1.55, 0.4 * i, 0)) for i in range(4)
         ])
         arboles = dispersar(lambda i: P.arbol_muerto(7.0, semilla=2500 + i),
                             20, (80, 80), None, semilla=57, radio_libre=9)
-        return join(suelo, refugio, campamento, vajilla, rendidos, captores, armas_sueltas, arboles)
+        return join(suelo, refugio, campamento, vajilla, armas_sueltas, arboles)
 
-    def animado(t, dur):
-        return None
+    def figuras(t):
+        rendidos = join([
+            P.soldado("manos_arriba", P.FELDGRAU, "de", arma=None, semilla=2300 + i,
+                      giro=0.25 + i * 0.12, t=t, fase=i * 0.23, expresion="miedo")
+            .translate((-1.9 + i * 1.25, 0, -1.9))
+            for i in range(5)
+        ])
+        captores = join([
+            P.soldado("apunta", P.CAQUI, "us", arma="fusil", semilla=2400 + i,
+                      giro=math.pi + 0.1 * i, t=t, fase=i * 0.37)
+            .translate((-2.4 + i * 1.7, 0, 4.6))
+            for i in range(4)
+        ])
+        return join(rendidos, captores)
 
     return Plano(
         "14_puesto_mando", 9.0,
         orbita((0, 0, 0), radio=(11.5, 9.5), ang=(1.15, 1.95), alt=(4.6, 2.8),
                mira=(0, 1.4, -0.5), fov=(48, 44)),
-        PAL_NIEBLA, construir, animado,
+        PAL_NIEBLA, construir, None,
         [Rotulo("Sorprendieron un puesto de mando alemán", ini=0.9, fin=5.0, estilo="titulo",
                 sub="Se rindieron sin disparar un tiro")],
+        figuras=figuras,
     )
 
 
@@ -804,6 +831,28 @@ def _p16():
         suelo = _suelo(H_ARGONNE, (0.26, 0.37, 0.18), 90.0, 24, color2=(0.32, 0.36, 0.21),
                        deco=1.2, verde=(0.22, 0.34, 0.16), libre=6.0, flores=False,
                        semilla=25, radio_deco=48.0)
+        equipo = join([
+            P.fusil().place(pos=(-3.0 + i * 1.9, 0.06, 0.5 + (i % 2) * 1.4), rot=(1.55, i * 0.8, 0))
+            for i in range(5)
+        ] + [
+            P.casco("us").place(pos=(-2.2 + i * 2.4, 0.04, 3.4), rot=(1.3, i * 1.2, 0)) for i in range(3)
+        ])
+        crateres = dispersar(lambda i: P.crater(1.8, 0.6, semilla=2900 + i), 6, (50, 40), None, semilla=61)
+        fusiles_clavados = join([
+            P.fusil(bayoneta=True).place(pos=(x, 0.30, z), rot=(2.55, a, 0))
+            for x, z, a in ((1.9, 3.4, 0.3), (-3.4, 1.6, 1.1), (4.6, 1.0, -0.6))
+        ])
+        arboles = dispersar(lambda i: P.arbol_muerto(6.5, semilla=3000 + i),
+                            16, (70, 60), None, semilla=63, radio_libre=8)
+        return join(suelo, equipo, crateres, arboles, fusiles_clavados)
+
+    def animado(t, dur):
+        return join(
+            P.humo(1.2, 4, semilla=int(t), color=(0.48, 0.46, 0.42), alfa=0.26, altura=4.5).translate((-6, 0.3, -4)),
+        )
+
+    def figuras(t):
+        P.reloj(t)
         caidos = join([
             P.caido(P.CAQUI, "us", semilla=2700 + i, giro=i * 1.1).translate(
                 (-4.0 + (i % 3) * 3.2, 0.02, -1.5 + (i // 3) * 2.6)
@@ -815,29 +864,10 @@ def _p16():
             .translate((3.4 + i * 1.6, 0.02, 2.2))
             for i in range(3)
         ])
-        equipo = join([
-            P.fusil().place(pos=(-3.0 + i * 1.9, 0.06, 0.5 + (i % 2) * 1.4), rot=(1.55, i * 0.8, 0))
-            for i in range(5)
-        ] + [
-            P.casco("us").place(pos=(-2.2 + i * 2.4, 0.04, 3.4), rot=(1.3, i * 1.2, 0)) for i in range(3)
-        ])
-        crateres = dispersar(lambda i: P.crater(1.8, 0.6, semilla=2900 + i), 6, (50, 40), None, semilla=61)
-        # Un superviviente arrodillado junto a los caidos: da escala y lectura.
         superviviente = P.soldado("reza", P.CAQUI, "us", arma=None, semilla=57, giro=2.4)
+        # Un superviviente arrodillado junto a los caidos: da escala y lectura.
         superviviente.translate((-1.4, 0.0, 4.2))
-        fusiles_clavados = join([
-            P.fusil(bayoneta=True).place(pos=(x, 0.30, z), rot=(2.55, a, 0))
-            for x, z, a in ((1.9, 3.4, 0.3), (-3.4, 1.6, 1.1), (4.6, 1.0, -0.6))
-        ])
-        arboles = dispersar(lambda i: P.arbol_muerto(6.5, semilla=3000 + i),
-                            16, (70, 60), None, semilla=63, radio_libre=8)
-        return join(suelo, caidos, heridos, equipo, crateres, arboles,
-                    superviviente, fusiles_clavados)
-
-    def animado(t, dur):
-        return join(
-            P.humo(1.2, 4, semilla=int(t), color=(0.48, 0.46, 0.42), alfa=0.26, altura=4.5).translate((-6, 0.3, -4)),
-        )
+        return join(caidos, heridos, superviviente)
 
     return Plano(
         "16_seis_muertos", 8.0,
@@ -845,6 +875,7 @@ def _p16():
         PAL_TENSION, construir, animado,
         [Rotulo("6 muertos · 3 heridos", ini=0.8, fin=4.8, estilo="titulo",
                 sub="Todos los sargentos, fuera de combate")],
+        figuras=figuras,
     )
 
 
@@ -858,31 +889,34 @@ def _p17():
         suelo = _suelo(H_ARGONNE, (0.26, 0.38, 0.18), 70.0, 20, color2=(0.32, 0.39, 0.21),
                        deco=1.5, verde=(0.24, 0.40, 0.17), libre=2.2, flores=False,
                        semilla=27, radio_deco=38.0)
-        alvin = P.soldado("firme", P.CAQUI, "us", arma="fusil", semilla=13, giro=0.28)
         tronco = P.arbol_muerto(6.0, semilla=91).translate((1.6, 0, -1.4))
         tocones = join(P.tocon(0.5, 12).translate((-1.9, 0, 0.6)),
                        P.roca(0.7, 14, (0.36, 0.34, 0.30)).translate((2.2, 0, 1.2)))
-        companeros = join([
-            P.soldado("tumbado", P.CAQUI, "us", semilla=3100 + i, giro=2.6 + i * 0.5)
-            .translate((-3.2 - i * 1.5, 0.02, 2.6 + i * 0.8))
-            for i in range(3)
-        ])
         maleza = dispersar(lambda i: P.arbusto(0.7, semilla=3200 + i, color=(0.21, 0.24, 0.15)),
                            10, (30, 30), None, semilla=65, radio_libre=2.5)
         arboles = dispersar(lambda i: P.arbol_muerto(7.0, semilla=3300 + i),
                             14, (60, 55), None, semilla=67, radio_libre=6)
-        return join(suelo, alvin, tronco, tocones, companeros, maleza, arboles)
+        return join(suelo, tronco, tocones, maleza, arboles)
 
-    def animado(t, dur):
-        return None
+    def figuras(t):
+        alvin = P.soldado("firme", P.CAQUI, "us", arma="fusil", semilla=13,
+                          giro=0.28, t=t, fase=0.0, expresion="duro")
+        companeros = join([
+            P.soldado("tumbado", P.CAQUI, "us", semilla=3100 + i, giro=2.6 + i * 0.5,
+                      t=t, fase=i * 0.41, expresion="cansado")
+            .translate((-3.2 - i * 1.5, 0.02, 2.6 + i * 0.8))
+            for i in range(3)
+        ])
+        return join(alvin, companeros)
 
     return Plano(
         "17_york_al_mando", 8.0,
         deriva(dolly((1.6, 2.0, 5.4), (0.0, 1.45, 0.0), (0.9, 1.72, 3.0), (0.0, 1.52, 0.0),
                      fov=(40, 32)), amp=0.010),
-        PAL_TENSION, construir, animado,
+        PAL_TENSION, construir, None,
         [Rotulo("Cabo Alvin York", ini=1.2, fin=5.4, estilo="titulo",
                 sub="De 17 hombres, sólo 8 seguían en pie")],
+        figuras=figuras,
     )
 
 
@@ -898,8 +932,6 @@ def _p18():
                        semilla=29, radio_deco=42.0)
         terraplen = P.berma(4.8, 2.4, 0.55, semilla=15, color=(0.33, 0.29, 0.20),
                             base=lambda x, z: H_COLINA(x, z - 1.2)).translate((0, 0, -1.2))
-        alvin = P.soldado("tumbado", P.CAQUI, "us", semilla=17, giro=math.pi)
-        alvin.translate((0, float(H_COLINA(np.array(0.0), np.array(-0.5))) + 0.48, -0.5))
         munis = join(
             P.caja_municion().translate((1.4, float(H_COLINA(np.array(1.4), np.array(0.4))), 0.4)),
             P.casco("us").place(pos=(-1.5, 0.62, 0.1), rot=(1.2, 0.4, 0)),
@@ -913,7 +945,7 @@ def _p18():
         ])
         bosque = dispersar(lambda i: P.arbol_muerto(7.0, semilla=3400 + i),
                            22, (100, 90), H_COLINA, semilla=69, radio_libre=6)
-        return join(suelo, terraplen, alvin, munis, nidos, bosque)
+        return join(suelo, terraplen, munis, nidos, bosque)
 
     def animado(t, dur):
         piezas = []
@@ -924,12 +956,19 @@ def _p18():
                 piezas.append(P.fogonazo(0.55, semilla=i + int(t * 5)).translate((x, y + 0.7, -16.4)))
         return join(piezas) if piezas else None
 
+    def figuras(t):
+        P.reloj(t)
+        alvin = P.soldado("tumbado", P.CAQUI, "us", semilla=17, giro=math.pi)
+        alvin.translate((0, float(H_COLINA(np.array(0.0), np.array(-0.5))) + 0.48, -0.5))
+        return join(alvin)
+
     return Plano(
         "18_solo_frente_colina", 8.0,
         orbita((0, 0.55, -0.5), radio=(5.0, 4.0), ang=(0.62, 1.48), alt=(2.15, 1.65),
                mira=(0, 0.60, -2.2), fov=(46, 42)),
         PAL_TENSION, construir, animado,
         [Rotulo("A menos de 30 metros. Solo.", ini=1.0, fin=5.6, estilo="titulo")],
+        figuras=figuras,
     )
 
 
@@ -945,8 +984,6 @@ def _p19():
                        semilla=31, radio_deco=40.0)
         terraplen = P.berma(5.3, 2.4, 0.55, semilla=16, color=(0.33, 0.29, 0.20),
                             base=lambda x, z: H_COLINA(x, z + (-1.2))).translate((0, 0, -1.2))
-        alvin = P.soldado("apunta", P.CAQUI, "us", arma="fusil", semilla=17, giro=math.pi)
-        alvin.translate((0, float(H_COLINA(np.array(0.0), np.array(0.35))), 0.35))
         casquillos = join([
             cylinder(0.02, 0.055, 5, (0.72, 0.60, 0.28)).rotate(rz=1.4 + i * 0.3).translate(
                 (0.55 + (i % 4) * 0.16, 0.93, -0.30 + (i // 4) * 0.14)
@@ -961,7 +998,7 @@ def _p19():
             )
             for i in range(3)
         ])
-        return join(suelo, terraplen, alvin, casquillos, bosque, nidos)
+        return join(suelo, terraplen, casquillos, bosque, nidos)
 
     def animado(t, dur):
         piezas = []
@@ -973,6 +1010,12 @@ def _p19():
                                  altura=0.45).translate((0.05, 1.42, 1.0)))
         return join(piezas)
 
+    def figuras(t):
+        P.reloj(t)
+        alvin = P.soldado("apunta", P.CAQUI, "us", arma="fusil", semilla=17, giro=math.pi)
+        alvin.translate((0, float(H_COLINA(np.array(0.0), np.array(0.35))), 0.35))
+        return join(alvin)
+
     return Plano(
         "19_el_cazador", 9.0,
         deriva(dolly((3.0, 1.80, 3.6), (0.0, 1.05, 0.3), (2.1, 1.62, 2.6), (0.0, 1.05, 0.3),
@@ -981,6 +1024,7 @@ def _p19():
         [Rotulo("No lo aprendió en el ejército", ini=0.8, fin=4.8, estilo="titulo",
                 sub="Lo aprendió cazando pavos en Tennessee"),
          Rotulo("Un disparo. Un blanco.", ini=6.0, fin=8.7)],
+        figuras=figuras,
     )
 
 
@@ -1003,13 +1047,11 @@ def _p20():
             P.ametralladora().translate((x, float(H_COLINA(np.array(x), np.array(z))) - 0.6, z + 0.7))
             for x, z in POS[::3]
         ])
-        alvin = P.soldado("apunta", P.CAQUI, "us", arma="fusil", semilla=17, giro=math.pi)
-        alvin.translate((0, float(H_COLINA(np.array(0.0), np.array(1.6))), 1.6))
         terraplen = P.berma(4.8, 2.4, 0.55, semilla=18, color=(0.33, 0.29, 0.20),
                             base=lambda x, z: H_COLINA(x, z + (0.4))).translate((0, 0, 0.4))
         bosque = dispersar(lambda i: P.arbol_muerto(6.5, semilla=3600 + i),
                            20, (95, 85), H_COLINA, semilla=73, radio_libre=7)
-        return join(suelo, zanja, armas, alvin, terraplen, bosque)
+        return join(suelo, zanja, armas, terraplen, bosque)
 
     def animado(t, dur):
         piezas = []
@@ -1032,6 +1074,12 @@ def _p20():
             piezas.append(P.fogonazo(0.32, semilla=int(t)).translate((0.05, 1.42, 2.2)))
         return join(piezas)
 
+    def figuras(t):
+        P.reloj(t)
+        alvin = P.soldado("apunta", P.CAQUI, "us", arma="fusil", semilla=17, giro=math.pi)
+        alvin.translate((0, float(H_COLINA(np.array(0.0), np.array(1.6))), 1.6))
+        return join(alvin)
+
     return Plano(
         "20_truco_del_pavo", 9.0,
         deriva(dolly((-11.0, 9.0, -6.0), (0.0, 4.8, -14.5), (-5.5, 7.4, -8.5), (1.0, 5.0, -15.0),
@@ -1039,6 +1087,7 @@ def _p20():
         PAL_TENSION, construir, animado,
         [Rotulo("Disparaba siempre al de más atrás", ini=0.9, fin=5.4, estilo="titulo",
                 sub="Los de delante no veían caer a nadie")],
+        figuras=figuras,
     )
 
 
@@ -1093,12 +1142,10 @@ def _p22():
                        semilla=33, radio_deco=38.0)
         terraplen = P.berma(4.8, 2.4, 0.55, semilla=20, color=(0.33, 0.29, 0.20),
                             base=lambda x, z: H_COLINA(x, z + (-1.2))).translate((0, 0, -1.2))
-        alvin = P.soldado("apunta", P.CAQUI, "us", arma="pistola", semilla=17, giro=math.pi)
-        alvin.translate((0, 0.0, -0.4))
         fusil_suelo = P.fusil().place(pos=(0.95, 0.06, -0.5), rot=(1.5, 0.4, 0))
         bosque = dispersar(lambda i: P.arbol_muerto(7.0, semilla=3900 + i),
                            14, (70, 65), H_COLINA, semilla=77, radio_libre=6)
-        return join(suelo, terraplen, alvin, fusil_suelo, bosque)
+        return join(suelo, terraplen, fusil_suelo, bosque)
 
     def animado(t, dur):
         piezas = []
@@ -1114,6 +1161,12 @@ def _p22():
                 )
         return join(piezas)
 
+    def figuras(t):
+        P.reloj(t)
+        alvin = P.soldado("apunta", P.CAQUI, "us", arma="pistola", semilla=17, giro=math.pi)
+        alvin.translate((0, 0.0, -0.4))
+        return join(alvin)
+
     return Plano(
         "22_la_pistola", 9.0,
         deriva(temblor(dolly((2.9, 1.95, 3.5), (0.0, 1.25, -0.2), (2.0, 1.70, 2.5), (0.0, 1.28, -0.3),
@@ -1121,6 +1174,7 @@ def _p22():
         PAL_COMBATE, construir, animado,
         [Rotulo("Colt del 45", ini=0.6, fin=4.2, estilo="titulo", sub="De atrás hacia delante. Como a los pavos."),
          Rotulo("Ninguno de los seis llegó hasta él", ini=5.6, fin=8.7)],
+        figuras=figuras,
     )
 
 
@@ -1136,18 +1190,12 @@ def _p23():
                        semilla=35, radio_deco=42.0)
         terraplen = P.berma(4.8, 2.4, 0.55, semilla=21, color=(0.33, 0.29, 0.20),
                             base=lambda x, z: H_COLINA(x, z + (-1.2))).translate((0, 0, -1.2))
-        alvin = P.soldado("tumbado", P.CAQUI, "us", semilla=17, giro=math.pi)
-        alvin.translate((0, float(H_COLINA(np.array(0.0), np.array(-0.5))) + 0.48, -0.5))
-        caidos = join([
-            P.caido(P.FELDGRAU, "de", semilla=4100 + i, giro=0.4 * i).translate((-2.6 + i * 1.1, 0.02, -4.4 + i * 0.4))
-            for i in range(6)
-        ])
         zanja = P.trinchera(18.0, 1.9, 1.2, semilla=23,
             base=lambda x, z, z0=-13.0: H_COLINA(x, z + z0)
         ).translate((0, 0, -13.0))
         bosque = dispersar(lambda i: P.arbol_muerto(7.0, semilla=4200 + i),
                            20, (90, 80), H_COLINA, semilla=79, radio_libre=7)
-        return join(suelo, terraplen, alvin, caidos, zanja, bosque)
+        return join(suelo, terraplen, zanja, bosque)
 
     def animado(t, dur):
         return join(
@@ -1155,12 +1203,23 @@ def _p23():
                    altura=3.5).translate((-1.6, 0.6, -6.0)),
         )
 
+    def figuras(t):
+        P.reloj(t)
+        alvin = P.soldado("tumbado", P.CAQUI, "us", semilla=17, giro=math.pi)
+        caidos = join([
+            P.caido(P.FELDGRAU, "de", semilla=4100 + i, giro=0.4 * i).translate((-2.6 + i * 1.1, 0.02, -4.4 + i * 0.4))
+            for i in range(6)
+        ])
+        alvin.translate((0, float(H_COLINA(np.array(0.0), np.array(-0.5))) + 0.48, -0.5))
+        return join(alvin, caidos)
+
     return Plano(
         "23_el_silencio", 6.0,
         deriva(dolly((1.9, 1.25, 2.8), (0.0, 0.75, -2.5), (4.4, 3.8, 10.0), (0.0, 0.8, -4.5),
                      fov=(44, 48), ease=ease_out)),
         PAL_TENSION, construir, animado,
         [Rotulo("Y entonces, silencio", ini=0.6, fin=5.0, estilo="titulo")],
+        figuras=figuras,
     )
 
 
@@ -1174,15 +1233,6 @@ def _p24():
         suelo = _suelo(H_COLINA, (0.27, 0.41, 0.19), 100.0, 26, color2=(0.34, 0.42, 0.23),
                        deco=1.3, verde=(0.22, 0.34, 0.16), libre=3.0, semilla=41,
                        radio_deco=44.0)
-        vollmer = P.soldado("manos_arriba", (0.30, 0.33, 0.31), "de", arma=None, semilla=31, giro=0.15)
-        vollmer.translate((-0.6, float(H_COLINA(np.array(-0.6), np.array(-5.0))), -5.0))
-        alvin = P.soldado("apunta", P.CAQUI, "us", arma="pistola", semilla=17, giro=math.pi + 0.05)
-        alvin.translate((0.9, 0, 0.6))
-        otros = join([
-            P.soldado("manos_arriba", P.FELDGRAU, "de", arma=None, semilla=4300 + i,
-                      giro=0.1 * i).translate((-3.8 + i * 1.5, float(H_COLINA(np.array(-3.8 + i * 1.5), np.array(-7.5))), -7.5))
-            for i in range(5)
-        ])
         zanja = P.trinchera(20.0, 2.0, 1.3, semilla=27,
             base=lambda x, z, z0=-11.0: H_COLINA(x, z + z0)
         ).translate((0, 0, -11.0))
@@ -1191,10 +1241,23 @@ def _p24():
         ])
         bosque = dispersar(lambda i: P.arbol_muerto(7.0, semilla=4400 + i),
                            18, (85, 80), H_COLINA, semilla=81, radio_libre=8)
-        return join(suelo, vollmer, alvin, otros, zanja, armas, bosque)
+        return join(suelo, zanja, armas, bosque)
 
     def animado(t, dur):
         return None
+
+    def figuras(t):
+        P.reloj(t)
+        vollmer = P.soldado("manos_arriba", (0.30, 0.33, 0.31), "de", arma=None, semilla=31, giro=0.15)
+        alvin = P.soldado("apunta", P.CAQUI, "us", arma="pistola", semilla=17, giro=math.pi + 0.05)
+        otros = join([
+            P.soldado("manos_arriba", P.FELDGRAU, "de", arma=None, semilla=4300 + i,
+                      giro=0.1 * i).translate((-3.8 + i * 1.5, float(H_COLINA(np.array(-3.8 + i * 1.5), np.array(-7.5))), -7.5))
+            for i in range(5)
+        ])
+        vollmer.translate((-0.6, float(H_COLINA(np.array(-0.6), np.array(-5.0))), -5.0))
+        alvin.translate((0.9, 0, 0.6))
+        return join(vollmer, alvin, otros)
 
     return Plano(
         "24_la_rendicion", 10.0,
@@ -1203,6 +1266,7 @@ def _p24():
         PAL_RENDICION, construir, animado,
         [Rotulo("Teniente Paul Vollmer", ini=0.9, fin=5.0, estilo="titulo"),
          Rotulo("«Si dejas de disparar, haré que se rindan todos»", ini=5.8, fin=9.7, estilo="cita")],
+        figuras=figuras,
     )
 
 
@@ -1224,9 +1288,7 @@ def _p25():
         ])
         bosque = dispersar(lambda i: P.arbol_muerto(7.0, semilla=4500 + i),
                            24, (110, 95), H_COLINA, semilla=83, radio_libre=9)
-        alvin = P.soldado("apunta", P.CAQUI, "us", arma="pistola", semilla=17, giro=math.pi)
-        alvin.translate((0, 0, 2.0))
-        return join(suelo, zanjas, bosque, alvin)
+        return join(suelo, zanjas, bosque)
 
     def animado(t, dur):
         piezas = []
@@ -1244,6 +1306,12 @@ def _p25():
             piezas.append(s.translate((x, y, z)))
         return join(piezas) if piezas else None
 
+    def figuras(t):
+        P.reloj(t)
+        alvin = P.soldado("apunta", P.CAQUI, "us", arma="pistola", semilla=17, giro=math.pi)
+        alvin.translate((0, 0, 2.0))
+        return join(alvin)
+
     return Plano(
         "25_salen_trincheras", 9.0,
         grua((-2.0, 9.0, 16.0), (0.0, 1.0, -10.0), (1.0, 22.0, 20.0), (0.0, 1.0, -12.0),
@@ -1251,6 +1319,7 @@ def _p25():
         PAL_RENDICION, construir, animado,
         [Rotulo("Salían de todas las trincheras", ini=1.2, fin=5.6, estilo="titulo",
                 sub="Decenas. Y después, más.")],
+        figuras=figuras,
     )
 
 
@@ -1364,13 +1433,24 @@ def _p28():
         suelo = _suelo(alturas(0.5, 0.05, semilla=25), (0.30, 0.45, 0.20), 120.0, 26,
                        color2=(0.38, 0.47, 0.24), deco=0.9, verde=(0.30, 0.50, 0.20),
                        libre=12.0, semilla=49, radio_deco=60.0)
-        oficial = P.soldado("firme", (0.33, 0.34, 0.24), "us", arma=None, semilla=41, giro=math.pi - 0.3)
-        oficial.translate((-1.8, 0, 1.6))
         tablilla = box((0.28, 0.36, 0.02), (0.80, 0.76, 0.66), center=(0, 0, 0)).place(
             pos=(-1.45, 1.15, 1.95), rot=(1.1, 0.3, 0)
         )
+        campamento = join(
+            P.tienda(3.0, 4.0, 2.2).translate((-11, 0, 4)),
+            P.camion().translate((10, 0, 3)).rotate(ry=-0.4),
+            P.sacos(7, 3.0, 2, semilla=33).translate((6, 0, 6)),
+            P.bandera(5.0, (0.55, 0.18, 0.20)).translate((-8, 0, 8)),
+        )
+        return join(suelo, tablilla, campamento, cielo_nubes(8, 34.0, 130.0, -75.0, semilla=10, radio=10.0))
+
+    def animado(t, dur):
+        return None
+
+    def figuras(t):
+        P.reloj(t)
+        oficial = P.soldado("firme", (0.33, 0.34, 0.24), "us", arma=None, semilla=41, giro=math.pi - 0.3)
         york = P.soldado("firme", P.CAQUI, "us", arma="fusil", semilla=17, giro=0.25)
-        york.translate((1.6, 0, 1.2))
         prisioneros = P.multitud(28, "manos_arriba", P.FELDGRAU, "de", (11.0, 7.0), semilla=95,
                                  arma=None, giro=0.0, rejilla=True).translate((0, 0, -7.0))
         guardias = join([
@@ -1378,17 +1458,9 @@ def _p28():
             .translate((-6.0 + i * 4.0, 0, -2.0))
             for i in range(4)
         ])
-        campamento = join(
-            P.tienda(3.0, 4.0, 2.2).translate((-11, 0, 4)),
-            P.camion().translate((10, 0, 3)).rotate(ry=-0.4),
-            P.sacos(7, 3.0, 2, semilla=33).translate((6, 0, 6)),
-            P.bandera(5.0, (0.55, 0.18, 0.20)).translate((-8, 0, 8)),
-        )
-        return join(suelo, oficial, tablilla, york, prisioneros, guardias, campamento,
-                    cielo_nubes(8, 34.0, 130.0, -75.0, semilla=10, radio=10.0))
-
-    def animado(t, dur):
-        return None
+        oficial.translate((-1.8, 0, 1.6))
+        york.translate((1.6, 0, 1.2))
+        return join(oficial, york, prisioneros, guardias)
 
     return Plano(
         "28_el_recuento", 8.0,
@@ -1396,6 +1468,7 @@ def _p28():
                      fov=(50, 42))),
         PAL_RENDICION, construir, animado,
         [Rotulo("«Cuéntenlos otra vez»", ini=1.0, fin=5.6, estilo="cita")],
+        figuras=figuras,
     )
 
 
@@ -1409,6 +1482,13 @@ def _p29():
         suelo = _suelo(alturas(0.4, 0.05, semilla=26), (0.30, 0.44, 0.20), 140.0, 28,
                        color2=(0.37, 0.46, 0.24), deco=0.8, verde=(0.29, 0.49, 0.20),
                        libre=16.0, semilla=51, radio_deco=64.0)
+        armas = join([
+            P.ametralladora().translate((-8.0 + i * 2.7, 0, 7.0)).rotate(ry=0.2 * i) for i in range(7)
+        ])
+        return join(suelo, armas, cielo_nubes(8, 36.0, 140.0, -80.0, semilla=12, radio=10.0))
+
+    def figuras(t):
+        P.reloj(t)
         prisioneros = P.multitud(60, "manos_arriba", P.FELDGRAU, "de", (17.0, 13.0), semilla=97,
                                  arma=None, giro=0.0, rejilla=True).translate((0, 0, -8.0))
         guardias = join([
@@ -1416,11 +1496,7 @@ def _p29():
             .translate((-9.0 + i * 3.0, 0, 3.5))
             for i in range(7)
         ])
-        armas = join([
-            P.ametralladora().translate((-8.0 + i * 2.7, 0, 7.0)).rotate(ry=0.2 * i) for i in range(7)
-        ])
-        return join(suelo, prisioneros, guardias, armas,
-                    cielo_nubes(8, 36.0, 140.0, -80.0, semilla=12, radio=10.0))
+        return join(prisioneros, guardias)
 
     return Plano(
         "29_ciento_treinta_y_dos", 9.0,
@@ -1429,6 +1505,7 @@ def _p29():
         PAL_RENDICION, construir, None,
         [Rotulo("132", ini=0.8, fin=5.2, estilo="dato", sub="prisioneros capturados"),
          Rotulo("35 ametralladoras silenciadas", ini=6.0, fin=8.7)],
+        figuras=figuras,
     )
 
 
@@ -1491,19 +1568,8 @@ def _p31():
             P.bandera(6.0, (0.58, 0.20, 0.22)).translate((lado * 9.2, 0, -22 + i * 14.0))
             for i in range(4) for lado in (-1, 1)
         ])
-        gentio = join(
-            P.multitud(34, "firme", (0.42, 0.34, 0.32), "sombrero", (10.0, 3.0), semilla=101,
-                       arma=None, giro=1.6).translate((-8.6, 0, -8)),
-            P.multitud(34, "firme", (0.36, 0.33, 0.40), "sombrero", (10.0, 3.0), semilla=103,
-                       arma=None, giro=-1.6).translate((8.6, 0, -8)),
-        )
-        desfile = join([
-            P.soldado("marcha", P.CAQUI, "us", arma="fusil_hombro", semilla=5700 + i, giro=0.0)
-            .translate((-2.4 + (i % 3) * 2.4, 0, 6.0 - (i // 3) * 2.6))
-            for i in range(12)
-        ])
         coche = P.camion((0.24, 0.22, 0.24)).translate((0, 0, 12.0))
-        return join(suelo, calle, edificios, banderas, gentio, desfile, coche)
+        return join(suelo, calle, edificios, banderas, coche)
 
     def animado(t, dur):
         papelitos = []
@@ -1519,6 +1585,21 @@ def _p31():
             )
         return join(papelitos)
 
+    def figuras(t):
+        P.reloj(t)
+        gentio = join(
+            P.multitud(34, "firme", (0.42, 0.34, 0.32), "sombrero", (10.0, 3.0), semilla=101,
+                       arma=None, giro=1.6).translate((-8.6, 0, -8)),
+            P.multitud(34, "firme", (0.36, 0.33, 0.40), "sombrero", (10.0, 3.0), semilla=103,
+                       arma=None, giro=-1.6).translate((8.6, 0, -8)),
+        )
+        desfile = join([
+            P.soldado("marcha", P.CAQUI, "us", arma="fusil_hombro", semilla=5700 + i, giro=0.0)
+            .translate((-2.4 + (i % 3) * 2.4, 0, 6.0 - (i // 3) * 2.6))
+            for i in range(12)
+        ])
+        return join(gentio, desfile)
+
     return Plano(
         "31_el_regreso", 9.0,
         deriva(dolly((-7.0, 4.0, 22.0), (0.0, 3.0, -6.0), (5.0, 6.5, 14.0), (0.0, 2.4, -14.0),
@@ -1526,6 +1607,7 @@ def _p31():
         PAL_REGRESO, construir, animado,
         [Rotulo("Nueva York, 1919", ini=0.9, fin=5.0, estilo="titulo", sub="Rechazó casi todos los contratos"),
          Rotulo("«La guerra no es algo que se pueda vender»", ini=6.0, fin=8.7, estilo="cita")],
+        figuras=figuras,
     )
 
 
@@ -1547,6 +1629,15 @@ def _p32():
         )
         arboles = dispersar(lambda i: P.arbol_frondoso(6.0, semilla=5800 + i, color_hoja=(0.28, 0.40, 0.18)),
                             12, (110, 90), H_GRANJA, semilla=105, radio_libre=14)
+        campo = P.surcos(10, 12.0, 9.0).translate((13.0, 0.05, 4.0))
+        bandera = P.bandera(6.0, (0.55, 0.18, 0.20)).translate((-7.0, 0, -2.0))
+        return join(suelo, edificio, patio, arboles, campo, bandera, cielo_nubes(8, 30.0, 130.0, -70.0, semilla=14, radio=9.0))
+
+    def animado(t, dur):
+        return P.bandera(6.0, (0.55, 0.18, 0.20), ondea=t * 2.0).translate((-7.0, 0, -2.0))
+
+    def figuras(t):
+        P.reloj(t)
         ninos = join([
             P.soldado("firme", (0.30 + (i % 3) * 0.12, 0.28, 0.34), None, arma=None,
                       semilla=5900 + i, giro=0.4 + (i % 4) * 0.35)
@@ -1555,13 +1646,7 @@ def _p32():
         ])
         maestro = P.soldado("firme", (0.28, 0.26, 0.24), "sombrero", arma=None, semilla=43, giro=math.pi)
         maestro.translate((2.8, 0, 3.0))
-        campo = P.surcos(10, 12.0, 9.0).translate((13.0, 0.05, 4.0))
-        bandera = P.bandera(6.0, (0.55, 0.18, 0.20)).translate((-7.0, 0, -2.0))
-        return join(suelo, edificio, patio, arboles, ninos, maestro, campo, bandera,
-                    cielo_nubes(8, 30.0, 130.0, -70.0, semilla=14, radio=9.0))
-
-    def animado(t, dur):
-        return P.bandera(6.0, (0.55, 0.18, 0.20), ondea=t * 2.0).translate((-7.0, 0, -2.0))
+        return join(ninos, maestro)
 
     return Plano(
         "32_la_escuela", 9.0,
@@ -1571,6 +1656,7 @@ def _p32():
         [Rotulo("Instituto Agrícola Alvin C. York", ini=1.0, fin=5.4, estilo="titulo",
                 sub="Fundado con el dinero que sí aceptó"),
          Rotulo("Para que no aprendieran a disparar antes que a leer", ini=6.0, fin=8.7)],
+        figuras=figuras,
     )
 
 
@@ -1589,13 +1675,9 @@ def _p33():
         frondosos = dispersar(lambda i: P.arbol_frondoso(6.5, semilla=6100 + i, color_hoja=(0.30, 0.32, 0.16)),
                               16, (140, 120), H_VALLE, semilla=109, radio_libre=12)
         cima = float(H_VALLE(np.array(0.0), np.array(4.0)))
-        alvin = P.soldado("firme", (0.30, 0.27, 0.23), "sombrero", arma=None, semilla=47, giro=math.pi)
-        alvin.translate((0, cima, 4.0))
         cerca = P.valla(12.0, 11, 1.0).translate((0, cima - 0.1, 6.4))
         roca = P.roca(1.2, 51, (0.36, 0.34, 0.30)).translate((2.4, cima - 0.2, 5.4))
-        return join(suelo, pinos, frondosos, alvin, cerca, roca,
-                    cielo_nubes(8, 34.0, 180.0, -80.0, semilla=16, radio=11.0,
-                                color=(1.00, 0.84, 0.62)))
+        return join(suelo, pinos, frondosos, cerca, roca, cielo_nubes(8, 34.0, 180.0, -80.0, semilla=16, radio=11.0, color=(1.00, 0.84, 0.62)))
 
     def animado(t, dur):
         aves = [
@@ -1606,6 +1688,14 @@ def _p33():
         ]
         return join(aves)
 
+    def figuras(t):
+        P.reloj(t)
+        cima = float(H_VALLE(np.array(0.0), np.array(4.0)))
+        alvin = P.soldado("firme", (0.30, 0.27, 0.23), "sombrero", arma=None,
+                          semilla=47, giro=math.pi, expresion="cansado")
+        alvin.translate((0, cima, 4.0))
+        return join(alvin)
+
     return Plano(
         "33_epilogo", 9.0,
         deriva(dolly((2.2, 3.2, 11.0), (0.0, 2.6, 3.0), (7.0, 9.5, 26.0), (0.0, 2.0, -2.0),
@@ -1613,6 +1703,7 @@ def _p33():
         PAL_DORADO, construir, animado,
         [Rotulo("Pidió no ir a la guerra", ini=1.0, fin=5.2, estilo="titulo",
                 sub="Terminó siendo su soldado más condecorado")],
+        figuras=figuras,
     )
 
 
