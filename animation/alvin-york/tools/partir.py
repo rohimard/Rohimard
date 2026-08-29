@@ -39,6 +39,9 @@ def main() -> int:
     ap.add_argument("--entrada", default="alvin_york_132.mp4")
     ap.add_argument("--partes", type=int, default=3)
     ap.add_argument("--limite", type=float, default=30.0, help="MiB por parte")
+    ap.add_argument("--fps", type=int, default=24)
+    ap.add_argument("--crf", type=int, default=None,
+                    help="recodifica con recuento exacto de fotogramas (union sin repetidos)")
     args = ap.parse_args()
 
     src = SALIDA / args.entrada
@@ -61,15 +64,28 @@ def main() -> int:
     generados = []
     for i in range(args.partes):
         ini, fin = cortes[i], cortes[i + 1]
+        n_frames = round((fin - ini) * args.fps)
         destino = SALIDA / f"{src.stem}_parte{i + 1}de{args.partes}.mp4"
-        cmd = [exe, "-y", "-loglevel", "error", "-ss", f"{ini:.3f}"]
-        if i < args.partes - 1:
-            cmd += ["-to", f"{fin:.3f}"]
-        cmd += ["-i", str(src), "-c", "copy", "-avoid_negative_ts", "make_zero", str(destino)]
+        cmd = [exe, "-y", "-loglevel", "error", "-ss", f"{ini:.3f}", "-i", str(src)]
+        if args.crf is None:
+            # Copia del flujo: rapida y sin perdida, pero el corte arrastra un
+            # par de fotogramas de mas al final de cada parte.
+            if i < args.partes - 1:
+                cmd += ["-t", f"{fin - ini:.3f}"]
+            cmd += ["-c", "copy", "-avoid_negative_ts", "make_zero"]
+        else:
+            # Recodificado con recuento exacto: `-frames:v` garantiza que las
+            # partes suman justo los fotogramas del original, sin repetidos en
+            # las juntas. Es lo que hace falta para unirlas en edicion.
+            cmd += ["-frames:v", str(n_frames),
+                    "-c:v", "libx264", "-preset", "medium", "-crf", str(args.crf),
+                    "-x264-params", "aq-mode=2:aq-strength=0.9",
+                    "-pix_fmt", "yuv420p", "-movflags", "+faststart"]
+        cmd += [str(destino)]
         subprocess.run(cmd, check=True)
         mib = destino.stat().st_size / 1048576
         estado = "OK" if mib <= args.limite else "EXCEDE EL LIMITE"
-        print(f"parte {i + 1}: {ini:6.1f}s -> {fin:6.1f}s  ({fin - ini:5.1f}s)  "
+        print(f"parte {i + 1}: {ini:6.1f}s -> {fin:6.1f}s  ({n_frames} fotogramas)  "
               f"{mib:5.1f} MiB  {estado}")
         generados.append((destino, mib))
 
