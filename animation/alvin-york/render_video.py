@@ -18,7 +18,7 @@ import imageio_ffmpeg
 
 from lowpoly.overlay import dibuja_rotulo, fundido, fundido_plano
 from lowpoly.render import Renderer
-from lowpoly.scenes import DURACION_TOTAL, PLANOS
+from lowpoly.scenes import PLANOS
 
 RAIZ = pathlib.Path(__file__).resolve().parent
 SALIDA = RAIZ / "salida"

@@ -14,7 +14,6 @@ import numpy as np
 from .math3d import ease_in_out, ease_out, lerp, noise1d
 from .mesh import join
 from .render import Camera, Palette
-from .overlay import Rotulo
 
 
 # --- camaras ----------------------------------------------------------------

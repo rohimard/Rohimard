@@ -15,9 +15,9 @@ from .escenas_base import (
     PAL_AMANECER, PAL_ATARDECER, PAL_CAMPAMENTO, PAL_COMBATE, PAL_DORADO,
     PAL_FRANCIA, PAL_GRANJA, PAL_INTERIOR, PAL_MAR, PAL_MEDALLA, PAL_NIEBLA,
     PAL_NOCHE, PAL_REGRESO, PAL_RENDICION, PAL_TENSION,
-    Plano, alturas, deriva, dispersar, dolly, fila, grua, orbita, temblor,
+    Plano, alturas, deriva, dispersar, dolly, grua, orbita, temblor,
 )
-from .math3d import ease_in, ease_in_out, ease_out, noise1d, smoothstep
+from .math3d import ease_in, ease_in_out, ease_out, smoothstep
 from .mesh import box, cylinder, disc, grid, join, quad, sphere
 from .overlay import Rotulo
 
@@ -30,12 +30,17 @@ H_NOCHE = alturas(amp=0.7, escala=0.070, semilla=15)
 
 
 def _colina(cima=(0.0, -14.0), alto=7.0, radio=17.0, base=None):
-    """Ladera con una cima marcada: la colina de las ametralladoras."""
+    """Ladera con una cima marcada: la colina de las ametralladoras.
+
+    Como el resto del terreno, queda a cota 0 en el origen: los planos se
+    escenifican ahi y las figuras se colocan a alturas absolutas.
+    """
+    cero = alto * math.exp(-((math.hypot(cima[0], cima[1]) / radio) ** 2))
 
     def h(x, z):
         y = 0.0 if base is None else base(x, z)
         d = np.sqrt((x - cima[0]) ** 2 + (z - cima[1]) ** 2)
-        return y + alto * np.exp(-((d / radio) ** 2))
+        return y + alto * np.exp(-((d / radio) ** 2)) - cero
 
     return h
 

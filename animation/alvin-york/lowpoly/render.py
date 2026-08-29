@@ -9,12 +9,12 @@ El suavizado se consigue renderizando a 2x y reduciendo con Lanczos.
 from __future__ import annotations
 
 import math
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 import numpy as np
 from PIL import Image, ImageDraw
 
-from .math3d import Vec3, look_at, normalize, v3
+from .math3d import Vec3, look_at, normalize
 
 Z_NEAR = 0.12
 
@@ -58,30 +58,21 @@ class Palette:
         return normalize(np.asarray(self.luz_dir, float))
 
 
-@dataclass
-class Frame:
-    """Un fotograma listo para componer: imagen RGB a resolucion final."""
-
-    img: Image.Image
-    meta: dict = field(default_factory=dict)
-
-
 class Renderer:
     def __init__(self, ancho=1920, alto=1080, ssaa=2):
         self.w, self.h = ancho, alto
         self.ssaa = ssaa
         self.rw, self.rh = ancho * ssaa, alto * ssaa
-        self._cache_cielo: dict = {}
         self._vineta: np.ndarray | None = None
 
     # --- cielo -------------------------------------------------------------
 
     def _cielo(self, pal: Palette, cam: Camera) -> Image.Image:
-        """Degradado vertical + halo solar, generado en baja y ampliado."""
-        clave = (
-            pal.cielo_alto, pal.cielo_bajo, pal.sol, pal.sol_tam,
-            None if pal.sol is None else (round(cam.eye[0], 2), round(cam.eye[1], 2)),
-        )
+        """Degradado vertical + halo solar, generado en baja y ampliado.
+
+        Se rehace en cada fotograma porque el halo depende de la orientacion de
+        la camara; a 320x180 el coste es despreciable frente al rasterizado.
+        """
         lw, lh = 320, 180
         y = np.linspace(0.0, 1.0, lh)[:, None]
         t = y ** 0.85
