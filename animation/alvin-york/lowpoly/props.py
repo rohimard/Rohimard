@@ -14,13 +14,13 @@ from .mesh import Mesh, box, cone, cylinder, disc, grid, join, prism, quad, sphe
 
 # --- paleta de materiales ---------------------------------------------------
 
-CAQUI = (0.35, 0.36, 0.24)          # lana norteamericana
-FELDGRAU = (0.33, 0.36, 0.33)       # gris campo aleman
+CAQUI = (0.46, 0.45, 0.28)          # lana norteamericana
+FELDGRAU = (0.42, 0.47, 0.42)       # gris campo aleman
 PIEL = (0.76, 0.58, 0.45)
-CUERO = (0.24, 0.17, 0.12)
-CASCO_US = (0.29, 0.32, 0.23)
-CASCO_DE = (0.26, 0.28, 0.26)
-MADERA = (0.35, 0.24, 0.16)
+CUERO = (0.32, 0.22, 0.14)
+CASCO_US = (0.38, 0.40, 0.26)
+CASCO_DE = (0.34, 0.37, 0.34)
+MADERA = (0.44, 0.29, 0.18)
 MADERA_CLARA = (0.55, 0.42, 0.28)
 METAL = (0.28, 0.29, 0.31)
 ACERO = (0.42, 0.44, 0.47)
@@ -316,6 +316,38 @@ def crater(radio=2.2, prof=0.7, semilla=0, color=BARRO) -> Mesh:
     v = np.vstack([borde, [[0, -prof, 0]]])
     f = np.array([[seg, (i + 1) % seg, i] for i in range(seg)])
     return Mesh(v, f, color).jitter(0.12, semilla)
+
+
+FLORES = [
+    (0.92, 0.30, 0.34), (0.96, 0.78, 0.24), (0.70, 0.42, 0.86),
+    (0.96, 0.96, 0.92), (0.94, 0.52, 0.20), (0.36, 0.60, 0.94),
+]
+
+
+def flor(alto=0.52, semilla=0, color=None) -> Mesh:
+    """Tallo con corola: el acento de color que rompe el verde del prado."""
+    r = _rng(semilla)
+    c = FLORES[int(r.integers(0, len(FLORES)))] if color is None else color
+    h = alto * r.uniform(0.7, 1.3)
+    tallo = box((0.022, h, 0.022), (0.24, 0.44, 0.18), center=(0, h / 2, 0))
+    corola = join(
+        disc(0.105, 6, c, y=0.0),
+        disc(0.105, 6, c, y=0.0).rotate(rx=1.0),
+        cylinder(0.036, 0.05, 6, (0.99, 0.88, 0.32)),
+    ).translate((0, h, 0))
+    return join(tallo, corola)
+
+
+def mata(radio=0.30, semilla=0, color=(0.26, 0.50, 0.20)) -> Mesh:
+    """Mata baja de hierba: dos o tres conos cruzados."""
+    r = _rng(semilla)
+    piezas = []
+    for _ in range(int(r.integers(2, 4))):
+        c = cone(radio * r.uniform(0.3, 0.5), radio * r.uniform(1.6, 2.8), 4, color)
+        c.rotate(rz=r.uniform(-0.35, 0.35), rx=r.uniform(-0.35, 0.35))
+        c.translate((r.uniform(-0.15, 0.15), 0, r.uniform(-0.15, 0.15)))
+        piezas.append(c)
+    return join(piezas).jitter(0.12, semilla)
 
 
 def hierba_alta(n=40, extension=8.0, semilla=0, color=(0.36, 0.40, 0.20), alto=0.5) -> Mesh:

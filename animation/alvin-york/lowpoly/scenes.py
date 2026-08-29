@@ -7,6 +7,7 @@ sus rotulos. Las duraciones coinciden con las anotadas en `GUION.md`.
 from __future__ import annotations
 
 import math
+from dataclasses import replace
 
 import numpy as np
 
@@ -15,7 +16,8 @@ from .escenas_base import (
     PAL_AMANECER, PAL_ATARDECER, PAL_CAMPAMENTO, PAL_COMBATE, PAL_DORADO,
     PAL_FRANCIA, PAL_GRANJA, PAL_INTERIOR, PAL_MAR, PAL_MEDALLA, PAL_NIEBLA,
     PAL_NOCHE, PAL_REGRESO, PAL_RENDICION, PAL_TENSION,
-    Plano, alturas, deriva, dispersar, dolly, grua, orbita, temblor,
+    Plano, alturas, cielo_nubes, decorado, deriva, dispersar, dolly, grua,
+    orbita, temblor,
 )
 from .math3d import ease_in, ease_in_out, ease_out, smoothstep
 from .mesh import box, cylinder, disc, grid, join, quad, sphere
@@ -23,8 +25,8 @@ from .overlay import Rotulo
 
 # Alturas de terreno reutilizadas entre planos del mismo lugar.
 H_VALLE = alturas(amp=13.0, escala=0.052, semilla=7)
-H_GRANJA = alturas(amp=1.4, escala=0.045, semilla=3)
-H_ARGONNE = alturas(amp=2.2, escala=0.048, semilla=21)
+H_GRANJA = alturas(amp=3.4, escala=0.055, semilla=3)
+H_ARGONNE = alturas(amp=3.2, escala=0.055, semilla=21)
 H_FRENTE = alturas(amp=1.1, escala=0.060, semilla=13)
 H_NOCHE = alturas(amp=0.7, escala=0.070, semilla=15)
 
@@ -45,8 +47,33 @@ def _colina(cima=(0.0, -14.0), alto=7.0, radio=17.0, base=None):
     return h
 
 
-def _suelo(altura, color, ancho=170.0, n=34, centro=(0, 0, 0)):
-    return grid(ancho, ancho, n, n, altura, color, centro).jitter(0.055, 2)
+def _suelo(altura, color, ancho=170.0, n=34, centro=(0, 0, 0), color2=None,
+           deco=0.0, verde=None, libre=0.0, centro_libre=(0.0, 0.0), flores=True,
+           semilla=2, radio_deco=70.0):
+    """Terreno con manchas de color y, opcionalmente, sotobosque encima.
+
+    `color2` tine parte de las caras con una segunda tonalidad para que el suelo
+    no sea una extension de color plano. `deco` reparte matas, flores, arbustos
+    y piedras alrededor del origen, que es donde mira la camara.
+    """
+    g = grid(ancho, ancho, n, n, altura, color, centro)
+    if color2 is not None:
+        cen = g.verts[g.faces].mean(1)
+        k = (
+            0.5 + 0.5 * np.sin(cen[:, 0] * 0.33 + semilla) * np.cos(cen[:, 2] * 0.27 + semilla)
+            + 0.28 * np.sin(cen[:, 0] * 0.9 + cen[:, 2] * 0.7 + semilla * 2)
+        )
+        k = np.clip(k, 0.0, 1.0)[:, None]
+        g.colors = g.colors * (1 - k) + np.asarray(color2, float)[None, :] * k
+    g.jitter(0.13, semilla)
+    if deco <= 0:
+        return g
+    ext = min(ancho * 0.85, radio_deco)
+    return join(g, decorado(
+        ext, altura, semilla=semilla + 40, radio_libre=libre, centro_libre=centro_libre,
+        densidad=deco, verde=verde if verde is not None else (0.26, 0.50, 0.20),
+        con_flores=flores,
+    ))
 
 
 # ===========================================================================
@@ -56,7 +83,8 @@ def _suelo(altura, color, ancho=170.0, n=34, centro=(0, 0, 0)):
 
 def _p01():
     def construir():
-        suelo = _suelo(H_VALLE, (0.34, 0.40, 0.25), 260.0, 54)
+        suelo = _suelo(H_VALLE, (0.26, 0.42, 0.19), 260.0, 54, color2=(0.34, 0.46, 0.22),
+                       deco=1.0, verde=(0.24, 0.48, 0.18), semilla=2, radio_deco=90.0)
         pinos = dispersar(
             lambda i: P.pino(7.5, semilla=i, color_hoja=(0.13, 0.24, 0.16)),
             46, (170, 150), H_VALLE, semilla=11, radio_libre=16,
@@ -104,7 +132,8 @@ def _p01():
 
 def _p02():
     def construir():
-        suelo = _suelo(H_GRANJA, (0.33, 0.38, 0.20), 140.0, 30)
+        suelo = _suelo(H_GRANJA, (0.28, 0.46, 0.19), 140.0, 30, color2=(0.36, 0.52, 0.23),
+                       deco=1.3, verde=(0.28, 0.56, 0.20), libre=6.0, semilla=3, radio_deco=64.0)
         casa = P.cabana(5.0, 4.0, 2.4, semilla=2).translate((-6.0, float(H_GRANJA(np.array(-6.0), np.array(0.0))), 0))
         establo = P.granero(5.0, 6.5, 3.2).translate((9.0, float(H_GRANJA(np.array(9.0), np.array(-4.0))), -4.0))
         campo = P.surcos(12, 13.0, 10.0).translate(
@@ -131,7 +160,8 @@ def _p02():
         ).rotate(rz=0.35).translate((-4.4, 0.35, 4.0))
         alvin = P.soldado("firme", (0.42, 0.36, 0.26), None, arma=None, semilla=1, giro=0.55)
         alvin.translate((-4.0, 0.0, 4.2))
-        return join(suelo, casa, establo, campo, cerca, arboles, detalles, hacha, alvin)
+        return join(suelo, casa, establo, campo, cerca, arboles, detalles, hacha, alvin,
+                    cielo_nubes(8, 32.0, 130.0, -70.0, semilla=2, radio=8.0))
 
     def animado(t, dur):
         return P.humo(0.45, 4, semilla=3, color=(0.72, 0.70, 0.66), alfa=0.35, altura=3.2).translate(
@@ -155,7 +185,8 @@ def _p02():
 
 def _p03():
     def construir():
-        suelo = _suelo(H_GRANJA, (0.24, 0.28, 0.17), 120.0, 26)
+        suelo = _suelo(H_GRANJA, (0.22, 0.34, 0.16), 120.0, 26, color2=(0.26, 0.37, 0.18),
+                       deco=1.1, verde=(0.22, 0.42, 0.17), libre=5.0, semilla=5, radio_deco=56.0)
         capilla = P.iglesia(5.0, 8.0, 3.4, (0.82, 0.78, 0.70)).translate((0, 0, -6))
         camino = join([
             box((2.6, 0.06, 3.0), (0.44, 0.38, 0.30), center=(0, 0.03, 2.0 + i * 3.0))
@@ -172,11 +203,13 @@ def _p03():
             for x in (-3.4, 3.4)
         ])
         fieles = join([
-            P.soldado("firme", (0.22, 0.20, 0.22), "sombrero", arma=None, semilla=400 + i,
+            P.soldado("firme", (0.34, 0.29, 0.26), "sombrero", arma=None, semilla=400 + i,
                       giro=math.pi).translate((-1.6 + i * 1.1, 0, 2.2 + (i % 2) * 0.7))
             for i in range(4)
         ])
-        return join(suelo, capilla, camino, arboles, cerca, farolas, fieles)
+        return join(suelo, capilla, camino, arboles, cerca, farolas, fieles,
+                    cielo_nubes(6, 30.0, 110.0, -70.0, semilla=3, radio=9.0,
+                                color=(0.98, 0.82, 0.68)))
 
     def animado(t, dur):
         u = min(t / dur, 1.0)
@@ -282,7 +315,9 @@ def _p05():
 
 def _p06():
     def construir():
-        suelo = _suelo(alturas(0.5, 0.05, semilla=5), (0.40, 0.37, 0.24), 150.0, 26)
+        suelo = _suelo(alturas(0.5, 0.05, semilla=5), (0.36, 0.44, 0.22), 150.0, 26,
+                       color2=(0.42, 0.48, 0.25), deco=0.7, verde=(0.32, 0.50, 0.20),
+                       libre=26.0, flores=False, semilla=7, radio_deco=72.0)
         tiendas = join([
             P.tienda(3.0, 4.2, 2.3).translate((-16 + col * 5.4, 0, -8 + fila_i * 6.6))
             for fila_i in range(4) for col in range(7)
@@ -306,7 +341,8 @@ def _p06():
             lambda i: P.pino(8.0, semilla=500 + i, color_hoja=(0.18, 0.26, 0.16)),
             14, (140, 130), None, semilla=23, radio_libre=32,
         )
-        return join(suelo, tiendas, mastil, tropa, vehiculos, cajas, arboles)
+        return join(suelo, tiendas, mastil, tropa, vehiculos, cajas, arboles,
+                    cielo_nubes(8, 36.0, 150.0, -80.0, semilla=4, radio=10.0))
 
     def animado(t, dur):
         return P.bandera(7.0, (0.55, 0.18, 0.20), ondea=t * 2.4).translate((0, 0, 12.0))
@@ -328,9 +364,11 @@ def _p06():
 
 def _p07():
     H = _colina((0, -6), 11.0, 15.0, alturas(2.0, 0.04, semilla=9))
+    CIMA = float(H(np.array(0.0), np.array(-6.0)))
 
     def construir():
-        suelo = _suelo(H, (0.24, 0.27, 0.17), 130.0, 30)
+        suelo = _suelo(H, (0.25, 0.39, 0.18), 130.0, 30, color2=(0.34, 0.43, 0.22),
+                       deco=1.0, verde=(0.24, 0.42, 0.18), libre=4.0, semilla=9, radio_deco=60.0)
         rocas = dispersar(lambda i: P.roca(1.1, semilla=600 + i, color=(0.34, 0.32, 0.28)),
                           14, (60, 60), H, semilla=27, radio_libre=6, centro_libre=(0, -6))
         pinos = dispersar(lambda i: P.pino(6.5, semilla=700 + i, color_hoja=(0.12, 0.20, 0.14)),
@@ -339,14 +377,17 @@ def _p07():
         alvin = P.soldado("reza", (0.32, 0.28, 0.22), None, arma=None, semilla=7, giro=0.3)
         alvin.translate((0, cima_y, -6.0))
         piedra = P.roca(0.8, semilla=44, color=(0.40, 0.37, 0.32)).translate((2.6, cima_y - 0.2, -4.2))
-        return join(suelo, rocas, pinos, alvin, piedra)
+        return join(suelo, rocas, pinos, alvin, piedra,
+                    cielo_nubes(7, 30.0, 120.0, -70.0, semilla=18, radio=10.0,
+                                color=(1.00, 0.82, 0.62)))
 
     def animado(t, dur):
         return None
 
     return Plano(
         "07_la_montana", 8.0,
-        grua((4.0, 8.5, 7.0), (0.0, 11.6, -6.0), (5.2, 13.5, 10.5), (0.0, 11.4, -6.5), fov=(42, 36)),
+        grua((4.2, CIMA + 1.2, 7.5), (0.0, CIMA + 1.0, -6.0),
+             (5.6, CIMA + 4.2, 11.0), (0.0, CIMA + 0.8, -6.5), fov=(46, 40)),
         PAL_AMANECER, construir, animado,
         [Rotulo("Dos días solo en la montaña", ini=1.0, fin=5.0, estilo="titulo"),
          Rotulo("Cuando bajó, ya no dudaba", ini=5.8, fin=7.8)],
@@ -360,7 +401,9 @@ def _p07():
 
 def _p08():
     def construir():
-        suelo = _suelo(alturas(0.35, 0.06, semilla=11), (0.38, 0.38, 0.23), 120.0, 24)
+        suelo = _suelo(alturas(0.35, 0.06, semilla=11), (0.34, 0.46, 0.22), 120.0, 24,
+                       color2=(0.41, 0.48, 0.25), deco=0.8, verde=(0.32, 0.52, 0.20),
+                       libre=9.0, semilla=11, radio_deco=54.0)
         linea = join([
             P.soldado("tumbado", P.CAQUI, "us", semilla=800 + i).translate((-6.0 + i * 2.6, 0.02, 0))
             for i in range(5)
@@ -384,7 +427,7 @@ def _p08():
         ])
         cajas = join([P.caja_municion().translate((6.6, 0, 1.0 + i * 0.45)) for i in range(3)])
         return join(suelo, linea, blancos, terraplen, instructor, banderines, cajas,
-                    P.hierba_alta(40, 26, 12, (0.36, 0.38, 0.20), 0.32))
+                    cielo_nubes(7, 34.0, 130.0, -75.0, semilla=6, radio=9.0))
 
     def animado(t, dur):
         piezas = []
@@ -454,7 +497,9 @@ def _p09():
 
 def _p10():
     def construir():
-        suelo = _suelo(H_FRENTE, (0.31, 0.28, 0.20), 150.0, 32)
+        suelo = _suelo(H_FRENTE, (0.34, 0.38, 0.21), 150.0, 32, color2=(0.40, 0.34, 0.22),
+                       deco=0.7, verde=(0.30, 0.38, 0.18), libre=7.0, flores=False,
+                       semilla=13, radio_deco=70.0)
         ruinas = join([
             P.casa_ruina(5.0 + (i % 3), 4.6, 3.4, semilla=900 + i).translate(
                 (-22 + i * 9.0, 0, -8 + (i % 2) * 9.0)
@@ -475,7 +520,9 @@ def _p10():
         )
         tropa = P.multitud(9, "marcha", P.CAQUI, "us", (5.0, 12.0), semilla=39,
                            arma="fusil_hombro", giro=0.0).translate((-3, 0, 26))
-        return join(suelo, ruinas, muertos, crateres, convoy, escombros, tropa)
+        return join(suelo, ruinas, muertos, crateres, convoy, escombros, tropa,
+                    cielo_nubes(9, 34.0, 150.0, -80.0, semilla=8, radio=11.0,
+                                color=(0.88, 0.88, 0.86)))
 
     def animado(t, dur):
         cols = []
@@ -501,7 +548,9 @@ def _p10():
 
 def _p11():
     def construir():
-        suelo = _suelo(H_NOCHE, (0.19, 0.17, 0.13), 110.0, 26)
+        suelo = _suelo(H_NOCHE, (0.24, 0.26, 0.16), 110.0, 26, color2=(0.30, 0.26, 0.17),
+                       deco=0.7, verde=(0.22, 0.28, 0.15), libre=4.0, flores=False,
+                       semilla=15, radio_deco=52.0)
         zanja = P.trinchera(30.0, 2.4, 1.7, semilla=5,
                             base=lambda x, z: H_NOCHE(x, z))
         alambre = join(
@@ -554,10 +603,16 @@ def _p11():
 
 H_COLINA = _colina((0, -20), 7.0, 13.5, H_ARGONNE)
 
+# La niebla del Argonne esta calibrada para camaras a ras de suelo; el plano
+# aereo mira a 40 unidades y con esa densidad saldria en blanco.
+PAL_ARGONNE_AEREO = replace(PAL_NIEBLA, densidad_niebla=0.0075, saturacion=1.05)
+
 
 def _p12():
     def construir():
-        suelo = _suelo(H_COLINA, (0.27, 0.29, 0.21), 170.0, 36)
+        suelo = _suelo(H_COLINA, (0.28, 0.39, 0.19), 170.0, 36, color2=(0.34, 0.40, 0.23),
+                       deco=0.55, verde=(0.26, 0.42, 0.18), libre=8.0, flores=False,
+                       semilla=17, radio_deco=80.0)
         bosque = dispersar(lambda i: P.arbol_muerto(7.5, semilla=1600 + i),
                            60, (150, 130), H_COLINA, semilla=45, radio_libre=10, centro_libre=(0, -20))
         vivos = dispersar(lambda i: P.pino(7.0, semilla=1700 + i, color_hoja=(0.16, 0.22, 0.16)),
@@ -578,7 +633,7 @@ def _p12():
     return Plano(
         "12_bosque_argonne", 10.0,
         dolly((0, 44, 30), (0, 2, -16), (0, 17, 24), (0, 3, -20), fov=(52, 46), ease=ease_in_out),
-        PAL_NIEBLA, construir, animado,
+        PAL_ARGONNE_AEREO, construir, animado,
         [Rotulo("8 de octubre de 1918", ini=1.0, fin=5.2, estilo="titulo", sub="Bosque de Argonne, Francia"),
          Rotulo("35 ametralladoras alemanas esperaban en la colina", ini=6.2, fin=9.7)],
     )
@@ -591,11 +646,17 @@ def _p12():
 
 def _p13():
     def construir():
-        suelo = _suelo(H_ARGONNE, (0.25, 0.27, 0.20), 150.0, 32)
+        # El claro se abre sobre la trayectoria de camara (z de +16 a +8), no
+        # sobre el origen: un arbusto ahi delante tapa medio encuadre.
+        suelo = _suelo(H_ARGONNE, (0.26, 0.38, 0.18), 150.0, 32, color2=(0.32, 0.39, 0.21),
+                       deco=1.2, verde=(0.24, 0.40, 0.17), libre=8.0, centro_libre=(4.0, 11.0),
+                       flores=False, semilla=19, radio_deco=56.0)
         bosque = dispersar(lambda i: P.arbol_muerto(8.0, semilla=1900 + i),
-                           48, (120, 130), H_ARGONNE, semilla=51, radio_libre=5)
+                           48, (120, 130), H_ARGONNE, semilla=51, radio_libre=7,
+                           centro_libre=(4.0, 11.0))
         maleza = dispersar(lambda i: P.arbusto(0.8, semilla=2000 + i, color=(0.22, 0.25, 0.16)),
-                           26, (100, 110), H_ARGONNE, semilla=53, radio_libre=4)
+                           26, (100, 110), H_ARGONNE, semilla=53, radio_libre=9,
+                           centro_libre=(4.0, 11.0))
         troncos = dispersar(lambda i: P.tocon(0.45, semilla=2100 + i), 14, (90, 100), None, semilla=55)
         return join(suelo, bosque, maleza, troncos)
 
@@ -630,7 +691,9 @@ def _p13():
 
 def _p14():
     def construir():
-        suelo = _suelo(alturas(0.6, 0.06, semilla=17), (0.26, 0.28, 0.20), 90.0, 22)
+        suelo = _suelo(alturas(0.6, 0.06, semilla=17), (0.26, 0.39, 0.18), 90.0, 22,
+                       color2=(0.38, 0.46, 0.24), deco=1.2, verde=(0.24, 0.42, 0.18),
+                       libre=6.0, semilla=21, radio_deco=50.0)
         refugio = join(
             P.tienda(3.6, 5.0, 2.5, (0.40, 0.42, 0.34)).translate((-4.5, 0, -3.0)),
             box((3.0, 1.6, 2.4), (0.34, 0.32, 0.26), center=(4.6, 0.8, -4.0)).jitter(0.07, 6),
@@ -685,7 +748,9 @@ def _p14():
 
 def _p15():
     def construir():
-        suelo = _suelo(H_COLINA, (0.24, 0.25, 0.19), 130.0, 30)
+        suelo = _suelo(H_COLINA, (0.26, 0.38, 0.18), 130.0, 30, color2=(0.32, 0.39, 0.21),
+                       deco=0.8, verde=(0.24, 0.40, 0.17), libre=5.0, flores=False,
+                       semilla=23, radio_deco=60.0)
         nidos = join([
             P.nido_ametralladora(semilla=70 + i * 5).translate(
                 (-11.0 + i * 5.6, float(H_COLINA(np.array(-11.0 + i * 5.6), np.array(-17.0))), -17.0)
@@ -736,7 +801,9 @@ def _p15():
 
 def _p16():
     def construir():
-        suelo = _suelo(H_ARGONNE, (0.25, 0.24, 0.18), 90.0, 24)
+        suelo = _suelo(H_ARGONNE, (0.26, 0.37, 0.18), 90.0, 24, color2=(0.32, 0.36, 0.21),
+                       deco=1.2, verde=(0.22, 0.34, 0.16), libre=6.0, flores=False,
+                       semilla=25, radio_deco=48.0)
         caidos = join([
             P.caido(P.CAQUI, "us", semilla=2700 + i, giro=i * 1.1).translate(
                 (-4.0 + (i % 3) * 3.2, 0.02, -1.5 + (i // 3) * 2.6)
@@ -788,7 +855,9 @@ def _p16():
 
 def _p17():
     def construir():
-        suelo = _suelo(H_ARGONNE, (0.24, 0.26, 0.19), 70.0, 20)
+        suelo = _suelo(H_ARGONNE, (0.26, 0.38, 0.18), 70.0, 20, color2=(0.32, 0.39, 0.21),
+                       deco=1.5, verde=(0.24, 0.40, 0.17), libre=2.2, flores=False,
+                       semilla=27, radio_deco=38.0)
         alvin = P.soldado("firme", P.CAQUI, "us", arma="fusil", semilla=13, giro=0.28)
         tronco = P.arbol_muerto(6.0, semilla=91).translate((1.6, 0, -1.4))
         tocones = join(P.tocon(0.5, 12).translate((-1.9, 0, 0.6)),
@@ -824,7 +893,9 @@ def _p17():
 
 def _p18():
     def construir():
-        suelo = _suelo(H_COLINA, (0.25, 0.27, 0.20), 120.0, 30)
+        suelo = _suelo(H_COLINA, (0.26, 0.39, 0.18), 120.0, 30, color2=(0.32, 0.40, 0.22),
+                       deco=1.4, verde=(0.24, 0.42, 0.18), libre=2.6, flores=False,
+                       semilla=29, radio_deco=42.0)
         terraplen = P.berma(4.8, 2.4, 0.55, semilla=15, color=(0.33, 0.29, 0.20),
                             base=lambda x, z: H_COLINA(x, z - 1.2)).translate((0, 0, -1.2))
         alvin = P.soldado("tumbado", P.CAQUI, "us", semilla=17, giro=math.pi)
@@ -869,7 +940,9 @@ def _p18():
 
 def _p19():
     def construir():
-        suelo = _suelo(H_COLINA, (0.25, 0.27, 0.20), 100.0, 26)
+        suelo = _suelo(H_COLINA, (0.26, 0.39, 0.18), 100.0, 26, color2=(0.32, 0.40, 0.22),
+                       deco=1.5, verde=(0.24, 0.42, 0.18), libre=2.4, flores=False,
+                       semilla=31, radio_deco=40.0)
         terraplen = P.berma(5.3, 2.4, 0.55, semilla=16, color=(0.33, 0.29, 0.20),
                             base=lambda x, z: H_COLINA(x, z + (-1.2))).translate((0, 0, -1.2))
         alvin = P.soldado("apunta", P.CAQUI, "us", arma="fusil", semilla=17, giro=math.pi)
@@ -920,7 +993,9 @@ def _p20():
     POS = [(-6.5 + i * 2.2, -14.0 + (i % 2) * 0.6) for i in range(7)]
 
     def construir():
-        suelo = _suelo(H_COLINA, (0.26, 0.28, 0.20), 110.0, 28)
+        suelo = _suelo(H_COLINA, (0.27, 0.39, 0.18), 110.0, 28, color2=(0.33, 0.40, 0.22),
+                       deco=1.0, verde=(0.25, 0.42, 0.18), libre=3.0, flores=False,
+                       semilla=37, radio_deco=50.0)
         zanja = P.trinchera(20.0, 2.0, 1.3, semilla=17,
             base=lambda x, z, z0=-14.0: H_COLINA(x, z + z0)
         ).translate((0, 0, -14.0))
@@ -974,7 +1049,9 @@ def _p20():
 
 def _p21():
     def construir():
-        suelo = _suelo(H_COLINA, (0.25, 0.26, 0.19), 90.0, 24)
+        suelo = _suelo(H_COLINA, (0.26, 0.39, 0.18), 90.0, 24, color2=(0.32, 0.40, 0.21),
+                       deco=1.2, verde=(0.24, 0.41, 0.17), libre=3.5, flores=False,
+                       semilla=39, radio_deco=44.0)
         bosque = dispersar(lambda i: P.arbol_muerto(7.5, semilla=3700 + i),
                            16, (75, 70), H_COLINA, semilla=75, radio_libre=7)
         zanja = P.trinchera(16.0, 1.8, 1.2, semilla=19,
@@ -1011,7 +1088,9 @@ def _p21():
 
 def _p22():
     def construir():
-        suelo = _suelo(H_COLINA, (0.25, 0.27, 0.20), 80.0, 22)
+        suelo = _suelo(H_COLINA, (0.26, 0.39, 0.18), 80.0, 22, color2=(0.32, 0.40, 0.22),
+                       deco=1.5, verde=(0.24, 0.42, 0.18), libre=2.4, flores=False,
+                       semilla=33, radio_deco=38.0)
         terraplen = P.berma(4.8, 2.4, 0.55, semilla=20, color=(0.33, 0.29, 0.20),
                             base=lambda x, z: H_COLINA(x, z + (-1.2))).translate((0, 0, -1.2))
         alvin = P.soldado("apunta", P.CAQUI, "us", arma="pistola", semilla=17, giro=math.pi)
@@ -1052,7 +1131,9 @@ def _p22():
 
 def _p23():
     def construir():
-        suelo = _suelo(H_COLINA, (0.26, 0.28, 0.21), 100.0, 26)
+        suelo = _suelo(H_COLINA, (0.27, 0.40, 0.19), 100.0, 26, color2=(0.33, 0.41, 0.23),
+                       deco=1.4, verde=(0.25, 0.43, 0.18), libre=2.6, flores=False,
+                       semilla=35, radio_deco=42.0)
         terraplen = P.berma(4.8, 2.4, 0.55, semilla=21, color=(0.33, 0.29, 0.20),
                             base=lambda x, z: H_COLINA(x, z + (-1.2))).translate((0, 0, -1.2))
         alvin = P.soldado("tumbado", P.CAQUI, "us", semilla=17, giro=math.pi)
@@ -1090,7 +1171,9 @@ def _p23():
 
 def _p24():
     def construir():
-        suelo = _suelo(H_COLINA, (0.27, 0.29, 0.21), 100.0, 26)
+        suelo = _suelo(H_COLINA, (0.27, 0.41, 0.19), 100.0, 26, color2=(0.34, 0.42, 0.23),
+                       deco=1.3, verde=(0.22, 0.34, 0.16), libre=3.0, semilla=41,
+                       radio_deco=44.0)
         vollmer = P.soldado("manos_arriba", (0.30, 0.33, 0.31), "de", arma=None, semilla=31, giro=0.15)
         vollmer.translate((-0.6, float(H_COLINA(np.array(-0.6), np.array(-5.0))), -5.0))
         alvin = P.soldado("apunta", P.CAQUI, "us", arma="pistola", semilla=17, giro=math.pi + 0.05)
@@ -1130,7 +1213,9 @@ def _p24():
 
 def _p25():
     def construir():
-        suelo = _suelo(H_COLINA, (0.27, 0.29, 0.21), 120.0, 30)
+        suelo = _suelo(H_COLINA, (0.27, 0.41, 0.19), 120.0, 30, color2=(0.34, 0.42, 0.23),
+                       deco=0.9, verde=(0.22, 0.34, 0.16), libre=5.0, semilla=43,
+                       radio_deco=56.0)
         zanjas = join([
             P.trinchera(24.0, 2.0, 1.3, semilla=29 + i,
                 base=lambda x, z, z0=-9.0 - i * 6.0: H_COLINA(x, z + z0)
@@ -1176,7 +1261,9 @@ def _p25():
 
 def _p26():
     def construir():
-        suelo = _suelo(H_ARGONNE, (0.28, 0.30, 0.21), 160.0, 32)
+        suelo = _suelo(H_ARGONNE, (0.28, 0.42, 0.19), 160.0, 32, color2=(0.35, 0.43, 0.23),
+                       deco=1.0, verde=(0.27, 0.46, 0.19), libre=4.0, semilla=45,
+                       radio_deco=60.0)
         camino = join([
             box((3.4, 0.05, 6.0), (0.36, 0.31, 0.23), center=(0, 0.03, -30 + i * 6.0))
             for i in range(12)
@@ -1221,7 +1308,9 @@ def _p26():
 
 def _p27():
     def construir():
-        suelo = _suelo(H_ARGONNE, (0.29, 0.31, 0.22), 200.0, 36)
+        suelo = _suelo(H_ARGONNE, (0.29, 0.43, 0.20), 200.0, 36, color2=(0.36, 0.44, 0.24),
+                       deco=0.7, verde=(0.28, 0.48, 0.20), libre=6.0, semilla=47,
+                       radio_deco=80.0)
         bosque = dispersar(lambda i: P.arbol_muerto(7.5, semilla=5100 + i),
                            46, (180, 150), H_ARGONNE, semilla=89, radio_libre=10)
         pinos = dispersar(lambda i: P.pino(7.0, semilla=5200 + i, color_hoja=(0.17, 0.24, 0.16)),
@@ -1272,7 +1361,9 @@ def _p27():
 
 def _p28():
     def construir():
-        suelo = _suelo(alturas(0.5, 0.05, semilla=25), (0.30, 0.32, 0.22), 120.0, 26)
+        suelo = _suelo(alturas(0.5, 0.05, semilla=25), (0.30, 0.45, 0.20), 120.0, 26,
+                       color2=(0.38, 0.47, 0.24), deco=0.9, verde=(0.30, 0.50, 0.20),
+                       libre=12.0, semilla=49, radio_deco=60.0)
         oficial = P.soldado("firme", (0.33, 0.34, 0.24), "us", arma=None, semilla=41, giro=math.pi - 0.3)
         oficial.translate((-1.8, 0, 1.6))
         tablilla = box((0.28, 0.36, 0.02), (0.80, 0.76, 0.66), center=(0, 0, 0)).place(
@@ -1293,7 +1384,8 @@ def _p28():
             P.sacos(7, 3.0, 2, semilla=33).translate((6, 0, 6)),
             P.bandera(5.0, (0.55, 0.18, 0.20)).translate((-8, 0, 8)),
         )
-        return join(suelo, oficial, tablilla, york, prisioneros, guardias, campamento)
+        return join(suelo, oficial, tablilla, york, prisioneros, guardias, campamento,
+                    cielo_nubes(8, 34.0, 130.0, -75.0, semilla=10, radio=10.0))
 
     def animado(t, dur):
         return None
@@ -1314,7 +1406,9 @@ def _p28():
 
 def _p29():
     def construir():
-        suelo = _suelo(alturas(0.4, 0.05, semilla=26), (0.29, 0.31, 0.21), 140.0, 28)
+        suelo = _suelo(alturas(0.4, 0.05, semilla=26), (0.30, 0.44, 0.20), 140.0, 28,
+                       color2=(0.37, 0.46, 0.24), deco=0.8, verde=(0.29, 0.49, 0.20),
+                       libre=16.0, semilla=51, radio_deco=64.0)
         prisioneros = P.multitud(60, "manos_arriba", P.FELDGRAU, "de", (17.0, 13.0), semilla=97,
                                  arma=None, giro=0.0, rejilla=True).translate((0, 0, -8.0))
         guardias = join([
@@ -1325,7 +1419,8 @@ def _p29():
         armas = join([
             P.ametralladora().translate((-8.0 + i * 2.7, 0, 7.0)).rotate(ry=0.2 * i) for i in range(7)
         ])
-        return join(suelo, prisioneros, guardias, armas)
+        return join(suelo, prisioneros, guardias, armas,
+                    cielo_nubes(8, 36.0, 140.0, -80.0, semilla=12, radio=10.0))
 
     return Plano(
         "29_ciento_treinta_y_dos", 9.0,
@@ -1397,9 +1492,9 @@ def _p31():
             for i in range(4) for lado in (-1, 1)
         ])
         gentio = join(
-            P.multitud(34, "firme", (0.30, 0.26, 0.28), "sombrero", (10.0, 3.0), semilla=101,
+            P.multitud(34, "firme", (0.42, 0.34, 0.32), "sombrero", (10.0, 3.0), semilla=101,
                        arma=None, giro=1.6).translate((-8.6, 0, -8)),
-            P.multitud(34, "firme", (0.26, 0.24, 0.30), "sombrero", (10.0, 3.0), semilla=103,
+            P.multitud(34, "firme", (0.36, 0.33, 0.40), "sombrero", (10.0, 3.0), semilla=103,
                        arma=None, giro=-1.6).translate((8.6, 0, -8)),
         )
         desfile = join([
@@ -1441,7 +1536,9 @@ def _p31():
 
 def _p32():
     def construir():
-        suelo = _suelo(H_GRANJA, (0.33, 0.40, 0.21), 140.0, 28)
+        suelo = _suelo(H_GRANJA, (0.30, 0.48, 0.20), 140.0, 28, color2=(0.38, 0.54, 0.24),
+                       deco=1.3, verde=(0.30, 0.58, 0.21), libre=8.0, semilla=53,
+                       radio_deco=62.0)
         edificio = P.escuela(10.0, 6.0, 3.4).translate((0, 0, -8.0))
         patio = join(
             join([box((1.4, 0.05, 1.4), (0.52, 0.48, 0.40), center=(-4.0 + i * 1.5, 0.03, -1.0))
@@ -1461,7 +1558,7 @@ def _p32():
         campo = P.surcos(10, 12.0, 9.0).translate((13.0, 0.05, 4.0))
         bandera = P.bandera(6.0, (0.55, 0.18, 0.20)).translate((-7.0, 0, -2.0))
         return join(suelo, edificio, patio, arboles, ninos, maestro, campo, bandera,
-                    P.hierba_alta(40, 20, 33, (0.34, 0.44, 0.20), 0.35))
+                    cielo_nubes(8, 30.0, 130.0, -70.0, semilla=14, radio=9.0))
 
     def animado(t, dur):
         return P.bandera(6.0, (0.55, 0.18, 0.20), ondea=t * 2.0).translate((-7.0, 0, -2.0))
@@ -1484,7 +1581,9 @@ def _p32():
 
 def _p33():
     def construir():
-        suelo = _suelo(H_VALLE, (0.28, 0.34, 0.20), 200.0, 36)
+        suelo = _suelo(H_VALLE, (0.27, 0.44, 0.19), 200.0, 36, color2=(0.36, 0.48, 0.23),
+                       deco=1.2, verde=(0.26, 0.50, 0.19), libre=3.0, semilla=55,
+                       radio_deco=64.0)
         pinos = dispersar(lambda i: P.pino(7.5, semilla=6000 + i, color_hoja=(0.15, 0.25, 0.16)),
                           40, (170, 150), H_VALLE, semilla=107, radio_libre=13)
         frondosos = dispersar(lambda i: P.arbol_frondoso(6.5, semilla=6100 + i, color_hoja=(0.30, 0.32, 0.16)),
@@ -1494,7 +1593,9 @@ def _p33():
         alvin.translate((0, cima, 4.0))
         cerca = P.valla(12.0, 11, 1.0).translate((0, cima - 0.1, 6.4))
         roca = P.roca(1.2, 51, (0.36, 0.34, 0.30)).translate((2.4, cima - 0.2, 5.4))
-        return join(suelo, pinos, frondosos, alvin, cerca, roca)
+        return join(suelo, pinos, frondosos, alvin, cerca, roca,
+                    cielo_nubes(8, 34.0, 180.0, -80.0, semilla=16, radio=11.0,
+                                color=(1.00, 0.84, 0.62)))
 
     def animado(t, dur):
         aves = [
@@ -1522,7 +1623,8 @@ def _p33():
 
 def _p34():
     def construir():
-        suelo = _suelo(H_VALLE, (0.27, 0.33, 0.20), 220.0, 38)
+        suelo = _suelo(H_VALLE, (0.27, 0.43, 0.19), 220.0, 38, color2=(0.35, 0.47, 0.23),
+                       deco=0.8, verde=(0.25, 0.49, 0.19), semilla=57, radio_deco=80.0)
         pinos = dispersar(lambda i: P.pino(8.0, semilla=6200 + i, color_hoja=(0.14, 0.23, 0.15)),
                           56, (220, 190), H_VALLE, semilla=111, radio_libre=8)
         nubes = join([

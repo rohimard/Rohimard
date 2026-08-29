@@ -118,123 +118,160 @@ class Plano:
 # --- paletas por tono -------------------------------------------------------
 
 PAL_AMANECER = Palette(
-    cielo_alto=(0.16, 0.22, 0.40), cielo_bajo=(0.96, 0.68, 0.40),
-    luz_dir=(-0.50, 0.30, -0.81), luz_color=(1.25, 0.86, 0.56),
-    amb_cielo=(0.46, 0.42, 0.46), amb_suelo=(0.22, 0.18, 0.16),
-    niebla=(0.86, 0.66, 0.50), densidad_niebla=0.0060,
-    sol=(0.95, 0.55, 0.22), sol_tam=0.46, contraste=1.04, vineta=0.26,
+    cielo_alto=(0.24, 0.34, 0.62), cielo_bajo=(1.00, 0.70, 0.42),
+    luz_dir=(-0.50, 0.28, -0.82), luz_color=(1.22, 0.86, 0.50),
+    amb_cielo=(0.40, 0.44, 0.60), amb_suelo=(0.26, 0.18, 0.14),
+    relleno_dir=(0.60, 0.32, 0.73), relleno_color=(0.16, 0.20, 0.34),
+    borde_color=(0.16, 0.11, 0.05),
+    niebla=(0.96, 0.70, 0.48), densidad_niebla=0.0052,
+    sol=(1.00, 0.60, 0.24), sol_tam=0.46,
+    contraste=1.06, saturacion=1.12, vineta=0.20, grano=0.006,
 )
 
 PAL_GRANJA = Palette(
-    cielo_alto=(0.30, 0.48, 0.72), cielo_bajo=(0.80, 0.86, 0.86),
-    luz_dir=(-0.45, 0.68, -0.58), luz_color=(1.15, 1.05, 0.86),
-    amb_cielo=(0.36, 0.42, 0.50), amb_suelo=(0.18, 0.16, 0.12),
-    niebla=(0.80, 0.85, 0.86), densidad_niebla=0.0045,
-    sol=(0.45, 0.35, 0.16), sol_tam=0.28, contraste=1.05, vineta=0.28,
+    cielo_alto=(0.22, 0.50, 0.86), cielo_bajo=(0.80, 0.92, 1.00),
+    luz_dir=(-0.42, 0.66, -0.62), luz_color=(1.22, 1.11, 0.84),
+    amb_cielo=(0.34, 0.48, 0.64), amb_suelo=(0.28, 0.24, 0.16),
+    relleno_dir=(0.62, 0.30, 0.72), relleno_color=(0.16, 0.22, 0.34),
+    borde_color=(0.10, 0.12, 0.08),
+    niebla=(0.78, 0.90, 1.00), densidad_niebla=0.0038,
+    sol=(0.55, 0.42, 0.18), sol_tam=0.26,
+    contraste=1.06, saturacion=1.12, vineta=0.16, grano=0.005,
 )
 
 PAL_ATARDECER = Palette(
-    cielo_alto=(0.20, 0.20, 0.36), cielo_bajo=(0.88, 0.56, 0.34),
-    luz_dir=(0.62, 0.26, -0.74), luz_color=(1.20, 0.80, 0.52),
-    amb_cielo=(0.42, 0.38, 0.42), amb_suelo=(0.20, 0.17, 0.15),
-    niebla=(0.74, 0.56, 0.44), densidad_niebla=0.0065,
-    sol=(0.80, 0.42, 0.18), sol_tam=0.34, contraste=1.06, vineta=0.34,
+    cielo_alto=(0.20, 0.24, 0.52), cielo_bajo=(1.00, 0.58, 0.34),
+    luz_dir=(0.62, 0.24, -0.75), luz_color=(1.26, 0.79, 0.45),
+    amb_cielo=(0.36, 0.36, 0.52), amb_suelo=(0.26, 0.17, 0.13),
+    relleno_dir=(-0.62, 0.30, 0.72), relleno_color=(0.18, 0.20, 0.36),
+    borde_color=(0.18, 0.11, 0.05),
+    niebla=(0.90, 0.60, 0.44), densidad_niebla=0.0056,
+    sol=(1.00, 0.52, 0.22), sol_tam=0.38,
+    contraste=1.06, saturacion=1.12, vineta=0.22, grano=0.006,
 )
 
 PAL_INTERIOR = Palette(
-    cielo_alto=(0.05, 0.04, 0.04), cielo_bajo=(0.12, 0.09, 0.07),
-    luz_dir=(-0.35, 0.85, 0.38), luz_color=(1.30, 0.98, 0.62),
-    amb_cielo=(0.20, 0.15, 0.11), amb_suelo=(0.07, 0.05, 0.04),
-    niebla=(0.10, 0.08, 0.06), densidad_niebla=0.020,
-    contraste=1.12, vineta=0.52, grano=0.008,
+    cielo_alto=(0.05, 0.05, 0.08), cielo_bajo=(0.16, 0.12, 0.09),
+    luz_dir=(-0.32, 0.82, 0.48), luz_color=(1.43, 1.08, 0.64),
+    amb_cielo=(0.26, 0.22, 0.24), amb_suelo=(0.10, 0.07, 0.06),
+    relleno_dir=(0.70, 0.20, -0.68), relleno_color=(0.12, 0.14, 0.24),
+    borde_color=(0.10, 0.07, 0.03),
+    niebla=(0.10, 0.08, 0.07), densidad_niebla=0.020,
+    contraste=1.10, saturacion=1.12, vineta=0.38, grano=0.008,
 )
 
 PAL_CAMPAMENTO = Palette(
-    cielo_alto=(0.42, 0.52, 0.64), cielo_bajo=(0.78, 0.80, 0.80),
-    luz_dir=(-0.42, 0.66, 0.62), luz_color=(1.08, 1.06, 1.00),
-    amb_cielo=(0.38, 0.42, 0.48), amb_suelo=(0.17, 0.16, 0.14),
-    niebla=(0.78, 0.80, 0.80), densidad_niebla=0.0055,
-    contraste=1.02, saturacion=0.92, vineta=0.28,
+    cielo_alto=(0.26, 0.52, 0.84), cielo_bajo=(0.82, 0.90, 0.98),
+    luz_dir=(-0.42, 0.64, -0.64), luz_color=(1.14, 1.08, 0.89),
+    amb_cielo=(0.34, 0.46, 0.62), amb_suelo=(0.26, 0.24, 0.18),
+    relleno_dir=(0.62, 0.30, 0.72), relleno_color=(0.16, 0.20, 0.32),
+    borde_color=(0.10, 0.11, 0.09),
+    niebla=(0.80, 0.88, 0.98), densidad_niebla=0.0042,
+    contraste=1.04, saturacion=1.12, vineta=0.18, grano=0.005,
 )
 
 PAL_MAR = Palette(
-    cielo_alto=(0.30, 0.38, 0.50), cielo_bajo=(0.68, 0.72, 0.74),
-    luz_dir=(0.40, 0.60, 0.68), luz_color=(1.04, 1.02, 0.98),
-    amb_cielo=(0.36, 0.42, 0.50), amb_suelo=(0.12, 0.16, 0.20),
-    niebla=(0.70, 0.74, 0.76), densidad_niebla=0.0055,
-    contraste=1.04, saturacion=0.80, vineta=0.32,
+    cielo_alto=(0.20, 0.44, 0.78), cielo_bajo=(0.78, 0.88, 0.96),
+    luz_dir=(0.40, 0.58, 0.70), luz_color=(1.16, 1.11, 0.96),
+    amb_cielo=(0.32, 0.48, 0.64), amb_suelo=(0.16, 0.26, 0.36),
+    relleno_dir=(-0.60, 0.28, -0.74), relleno_color=(0.14, 0.22, 0.34),
+    borde_color=(0.12, 0.16, 0.18),
+    niebla=(0.76, 0.86, 0.95), densidad_niebla=0.0044,
+    contraste=1.06, saturacion=1.12, vineta=0.20, grano=0.005,
 )
 
 PAL_FRANCIA = Palette(
-    cielo_alto=(0.44, 0.46, 0.48), cielo_bajo=(0.68, 0.66, 0.62),
-    luz_dir=(-0.36, 0.62, 0.70), luz_color=(1.02, 1.00, 0.94),
-    amb_cielo=(0.36, 0.37, 0.38), amb_suelo=(0.16, 0.15, 0.13),
-    niebla=(0.66, 0.65, 0.62), densidad_niebla=0.0075,
-    contraste=1.04, saturacion=0.62, vineta=0.36,
+    cielo_alto=(0.38, 0.52, 0.70), cielo_bajo=(0.86, 0.84, 0.78),
+    luz_dir=(-0.36, 0.60, -0.72), luz_color=(1.08, 0.99, 0.81),
+    amb_cielo=(0.34, 0.42, 0.58), amb_suelo=(0.26, 0.22, 0.16),
+    relleno_dir=(0.62, 0.28, 0.73), relleno_color=(0.14, 0.18, 0.28),
+    borde_color=(0.12, 0.11, 0.08),
+    niebla=(0.82, 0.80, 0.74), densidad_niebla=0.0060,
+    contraste=1.06, saturacion=1.00, vineta=0.24, grano=0.007,
 )
 
 PAL_NOCHE = Palette(
-    cielo_alto=(0.05, 0.08, 0.17), cielo_bajo=(0.16, 0.22, 0.33),
-    luz_dir=(0.52, 0.56, 0.62), luz_color=(0.46, 0.56, 0.82),
-    amb_cielo=(0.30, 0.36, 0.50), amb_suelo=(0.13, 0.15, 0.20),
-    niebla=(0.13, 0.17, 0.26), densidad_niebla=0.0110,
-    contraste=1.10, saturacion=0.80, vineta=0.42, grano=0.008,
+    cielo_alto=(0.03, 0.07, 0.20), cielo_bajo=(0.14, 0.26, 0.44),
+    luz_dir=(0.50, 0.56, 0.66), luz_color=(0.52, 0.67, 1.01),
+    amb_cielo=(0.24, 0.34, 0.50), amb_suelo=(0.12, 0.14, 0.20),
+    relleno_dir=(-0.60, 0.24, -0.76), relleno_color=(0.20, 0.14, 0.10),
+    borde_color=(0.14, 0.20, 0.34),
+    niebla=(0.14, 0.22, 0.38), densidad_niebla=0.0075,
+    contraste=1.08, saturacion=1.12, vineta=0.30, grano=0.009,
 )
 
 PAL_NIEBLA = Palette(
-    cielo_alto=(0.56, 0.58, 0.56), cielo_bajo=(0.74, 0.74, 0.70),
-    luz_dir=(-0.30, 0.72, 0.62), luz_color=(0.98, 0.98, 0.92),
-    amb_cielo=(0.50, 0.52, 0.50), amb_suelo=(0.22, 0.22, 0.20),
-    niebla=(0.66, 0.68, 0.64), densidad_niebla=0.0072,
-    contraste=1.03, saturacion=0.74, vineta=0.40, grano=0.008,
+    cielo_alto=(0.46, 0.62, 0.76), cielo_bajo=(0.86, 0.88, 0.82),
+    luz_dir=(-0.30, 0.66, -0.68), luz_color=(1.13, 1.04, 0.79),
+    amb_cielo=(0.40, 0.50, 0.66), amb_suelo=(0.26, 0.24, 0.18),
+    relleno_dir=(0.62, 0.30, 0.72), relleno_color=(0.14, 0.18, 0.28),
+    borde_color=(0.14, 0.14, 0.10),
+    niebla=(0.88, 0.90, 0.86), densidad_niebla=0.0235,
+    sol=(0.42, 0.38, 0.22), sol_tam=0.40,
+    contraste=1.05, saturacion=1.02, vineta=0.24, grano=0.008,
 )
 
 PAL_COMBATE = Palette(
-    cielo_alto=(0.40, 0.38, 0.38), cielo_bajo=(0.70, 0.62, 0.50),
-    luz_dir=(-0.42, 0.58, 0.70), luz_color=(1.20, 1.02, 0.78),
-    amb_cielo=(0.42, 0.41, 0.39), amb_suelo=(0.18, 0.16, 0.14),
-    niebla=(0.58, 0.51, 0.42), densidad_niebla=0.020,
-    contraste=1.12, saturacion=0.72, vineta=0.42, grano=0.010,
+    cielo_alto=(0.34, 0.44, 0.60), cielo_bajo=(0.92, 0.76, 0.52),
+    luz_dir=(-0.40, 0.54, -0.74), luz_color=(1.26, 0.97, 0.66),
+    amb_cielo=(0.34, 0.42, 0.58), amb_suelo=(0.26, 0.20, 0.14),
+    relleno_dir=(0.64, 0.28, 0.72), relleno_color=(0.16, 0.18, 0.28),
+    borde_color=(0.20, 0.13, 0.06),
+    niebla=(0.88, 0.74, 0.54), densidad_niebla=0.0125,
+    sol=(0.70, 0.42, 0.18), sol_tam=0.34,
+    contraste=1.10, saturacion=1.08, vineta=0.30, grano=0.010,
 )
 
 PAL_TENSION = Palette(
-    cielo_alto=(0.38, 0.41, 0.45), cielo_bajo=(0.66, 0.64, 0.57),
-    luz_dir=(-0.48, 0.56, 0.68), luz_color=(1.18, 1.02, 0.80),
-    amb_cielo=(0.40, 0.42, 0.44), amb_suelo=(0.17, 0.16, 0.15),
-    niebla=(0.62, 0.60, 0.53), densidad_niebla=0.0095,
-    contraste=1.12, saturacion=0.74, vineta=0.44, grano=0.010,
+    cielo_alto=(0.32, 0.46, 0.68), cielo_bajo=(0.88, 0.82, 0.64),
+    luz_dir=(-0.46, 0.58, 0.68), luz_color=(1.21, 1.02, 0.72),
+    amb_cielo=(0.32, 0.42, 0.58), amb_suelo=(0.26, 0.22, 0.15),
+    relleno_dir=(0.64, 0.26, -0.72), relleno_color=(0.16, 0.20, 0.30),
+    borde_color=(0.16, 0.13, 0.07),
+    niebla=(0.86, 0.80, 0.66), densidad_niebla=0.0105,
+    contraste=1.08, saturacion=1.10, vineta=0.28, grano=0.009,
 )
 
 PAL_RENDICION = Palette(
-    cielo_alto=(0.40, 0.46, 0.52), cielo_bajo=(0.86, 0.80, 0.66),
-    luz_dir=(-0.72, 0.52, 0.46), luz_color=(1.00, 0.92, 0.76),
-    amb_cielo=(0.34, 0.36, 0.39), amb_suelo=(0.15, 0.14, 0.12),
-    niebla=(0.74, 0.71, 0.62), densidad_niebla=0.0075,
-    sol=(0.42, 0.32, 0.14), sol_tam=0.34, contraste=1.06, saturacion=0.76, vineta=0.36,
+    cielo_alto=(0.28, 0.52, 0.84), cielo_bajo=(1.00, 0.90, 0.66),
+    luz_dir=(-0.70, 0.50, 0.51), luz_color=(1.24, 1.08, 0.77),
+    amb_cielo=(0.34, 0.48, 0.64), amb_suelo=(0.26, 0.23, 0.16),
+    relleno_dir=(0.68, 0.28, -0.68), relleno_color=(0.16, 0.20, 0.32),
+    borde_color=(0.18, 0.15, 0.08),
+    niebla=(0.94, 0.86, 0.66), densidad_niebla=0.0050,
+    sol=(0.78, 0.52, 0.20), sol_tam=0.36,
+    contraste=1.06, saturacion=1.12, vineta=0.22, grano=0.006,
 )
 
 PAL_MEDALLA = Palette(
-    cielo_alto=(0.04, 0.04, 0.05), cielo_bajo=(0.10, 0.09, 0.09),
-    luz_dir=(-0.34, 0.76, 0.56), luz_color=(1.42, 1.16, 0.72),
-    amb_cielo=(0.16, 0.14, 0.12), amb_suelo=(0.05, 0.04, 0.04),
-    niebla=(0.08, 0.07, 0.07), densidad_niebla=0.0300,
-    contraste=1.14, vineta=0.56, grano=0.007,
+    cielo_alto=(0.04, 0.05, 0.09), cielo_bajo=(0.14, 0.12, 0.12),
+    luz_dir=(-0.34, 0.76, 0.56), luz_color=(1.60, 1.26, 0.76),
+    amb_cielo=(0.22, 0.20, 0.24), amb_suelo=(0.08, 0.07, 0.07),
+    relleno_dir=(0.72, 0.22, -0.66), relleno_color=(0.14, 0.16, 0.28),
+    borde_color=(0.20, 0.14, 0.05),
+    niebla=(0.09, 0.08, 0.08), densidad_niebla=0.030,
+    contraste=1.10, saturacion=1.12, vineta=0.40, grano=0.007,
 )
 
 PAL_REGRESO = Palette(
-    cielo_alto=(0.34, 0.52, 0.74), cielo_bajo=(0.88, 0.88, 0.84),
-    luz_dir=(-0.44, 0.72, 0.54), luz_color=(1.22, 1.12, 0.94),
-    amb_cielo=(0.40, 0.44, 0.50), amb_suelo=(0.18, 0.17, 0.15),
-    niebla=(0.84, 0.85, 0.82), densidad_niebla=0.0050,
-    contraste=1.04, vineta=0.26,
+    cielo_alto=(0.20, 0.50, 0.88), cielo_bajo=(0.84, 0.94, 1.00),
+    luz_dir=(-0.44, 0.70, -0.56), luz_color=(1.26, 1.16, 0.92),
+    amb_cielo=(0.34, 0.50, 0.66), amb_suelo=(0.28, 0.25, 0.18),
+    relleno_dir=(0.62, 0.30, 0.72), relleno_color=(0.16, 0.22, 0.34),
+    borde_color=(0.12, 0.13, 0.10),
+    niebla=(0.84, 0.92, 1.00), densidad_niebla=0.0036,
+    contraste=1.05, saturacion=1.12, vineta=0.14, grano=0.005,
 )
 
 PAL_DORADO = Palette(
-    cielo_alto=(0.22, 0.32, 0.50), cielo_bajo=(0.96, 0.74, 0.44),
-    luz_dir=(0.62, 0.32, -0.58), luz_color=(1.28, 0.96, 0.62),
-    amb_cielo=(0.46, 0.43, 0.44), amb_suelo=(0.22, 0.18, 0.15),
-    niebla=(0.88, 0.72, 0.52), densidad_niebla=0.0055,
-    sol=(0.82, 0.48, 0.20), sol_tam=0.38, contraste=1.05, vineta=0.32,
+    cielo_alto=(0.20, 0.40, 0.76), cielo_bajo=(1.00, 0.78, 0.44),
+    luz_dir=(0.60, 0.30, -0.74), luz_color=(1.30, 0.97, 0.57),
+    amb_cielo=(0.36, 0.44, 0.60), amb_suelo=(0.28, 0.20, 0.14),
+    relleno_dir=(-0.60, 0.30, 0.74), relleno_color=(0.16, 0.20, 0.34),
+    borde_color=(0.20, 0.14, 0.06),
+    niebla=(0.98, 0.80, 0.54), densidad_niebla=0.0048,
+    sol=(1.00, 0.60, 0.24), sol_tam=0.42,
+    contraste=1.05, saturacion=1.12, vineta=0.18, grano=0.005,
 )
 
 
@@ -287,6 +324,54 @@ def dispersar(generador, n, extension, altura=None, semilla=0, margen=None,
             continue
         y = 0.0 if altura is None else float(altura(np.array(x), np.array(z)))
         piezas.append(generador(len(piezas)).translate((x, y, z)))
+    return join(piezas)
+
+
+def decorado(extension, altura=None, semilla=0, radio_libre=0.0, centro_libre=(0.0, 0.0),
+             densidad=1.0, verde=(0.26, 0.50, 0.20), con_flores=True):
+    """Sotobosque: matas, flores, arbustos y piedras repartidos por la escena.
+
+    Sin esto el terreno queda como una sabana de color plano; la referencia
+    visual pide densidad de detalle en todo el encuadre.
+    """
+    from . import props as P
+
+    ex, ez = extension if isinstance(extension, (tuple, list)) else (extension, extension)
+    area = (ex * ez) / 1000.0
+    piezas = [
+        dispersar(lambda i: P.mata(0.32, semilla=semilla * 7 + i, color=verde),
+                  int(52 * densidad * area), (ex, ez), altura, semilla=semilla + 1,
+                  radio_libre=radio_libre, centro_libre=centro_libre),
+        dispersar(lambda i: P.arbusto(0.55, semilla=semilla * 11 + i,
+                                      color=tuple(c * 0.82 for c in verde)),
+                  int(14 * densidad * area), (ex, ez), altura, semilla=semilla + 2,
+                  radio_libre=radio_libre, centro_libre=centro_libre),
+        dispersar(lambda i: P.roca(0.34, semilla=semilla * 13 + i, color=(0.46, 0.45, 0.42)),
+                  int(8 * densidad * area), (ex, ez), altura, semilla=semilla + 3,
+                  radio_libre=radio_libre, centro_libre=centro_libre),
+    ]
+    if con_flores:
+        piezas.append(
+            dispersar(lambda i: P.flor(0.34, semilla=semilla * 17 + i),
+                      int(64 * densidad * area), (ex, ez), altura, semilla=semilla + 4,
+                      radio_libre=radio_libre, centro_libre=centro_libre)
+        )
+    return join(piezas)
+
+
+def cielo_nubes(n=7, alto=34.0, extension=200.0, fondo=-90.0, semilla=0,
+                color=(0.99, 0.99, 0.97), radio=10.0):
+    """Banco de nubes cumuliformes para los cielos diurnos."""
+    from . import props as P
+
+    rng = np.random.default_rng(semilla)
+    piezas = []
+    for i in range(n):
+        c = P.nube(radio * rng.uniform(0.7, 1.35), semilla=semilla * 3 + i, color=color, alfa=1.0)
+        c.translate((rng.uniform(-extension, extension),
+                     alto + rng.uniform(-6, 10),
+                     fondo + rng.uniform(-45, 25)))
+        piezas.append(c)
     return join(piezas)
 
 

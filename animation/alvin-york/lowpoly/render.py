@@ -44,6 +44,13 @@ class Palette:
     luz_color: tuple = (1.05, 0.98, 0.88)
     amb_cielo: tuple = (0.34, 0.40, 0.50)
     amb_suelo: tuple = (0.16, 0.15, 0.13)
+    # Luz de relleno opuesta a la clave: separa las caras en sombra en vez de
+    # dejarlas en un gris plano. Suele ir fria contra una clave calida.
+    relleno_dir: tuple = (0.55, 0.35, -0.60)
+    relleno_color: tuple = (0.0, 0.0, 0.0)
+    # Realce de silueta en angulos rasantes: da canto a la geometria low-poly.
+    borde_color: tuple = (0.0, 0.0, 0.0)
+    borde_pot: float = 3.0
     niebla: tuple = (0.72, 0.78, 0.82)
     densidad_niebla: float = 0.012
     sol: tuple = None           # color del halo solar; None = sin halo
@@ -56,6 +63,9 @@ class Palette:
 
     def light_dir(self) -> np.ndarray:
         return normalize(np.asarray(self.luz_dir, float))
+
+    def fill_dir(self) -> np.ndarray:
+        return normalize(np.asarray(self.relleno_dir, float))
 
 
 class Renderer:
@@ -127,7 +137,15 @@ class Renderer:
             np.asarray(pal.amb_cielo, float)[None, :] * cielo_f
             + np.asarray(pal.amb_suelo, float)[None, :] * (1 - cielo_f)
         )
-        iluminado = mesh.colors * (ambiente + np.asarray(pal.luz_color, float)[None, :] * difusa)
+        luz = ambiente + np.asarray(pal.luz_color, float)[None, :] * difusa
+        if any(pal.relleno_color):
+            relleno = np.clip(n @ pal.fill_dir(), 0.0, 1.0)[:, None]
+            luz = luz + np.asarray(pal.relleno_color, float)[None, :] * relleno
+        iluminado = mesh.colors * luz
+        if any(pal.borde_color):
+            # `cara` es |N·V| tras voltear la normal: 0 en el canto, 1 de frente.
+            canto = (1.0 - np.abs(cara)) ** pal.borde_pot
+            iluminado = iluminado + np.asarray(pal.borde_color, float)[None, :] * canto[:, None]
         # Las caras emisivas conservan su color base (niebla, fogonazos, luces).
         u = mesh.unlit[:, None]
         col = iluminado * (1.0 - u) + mesh.colors * u

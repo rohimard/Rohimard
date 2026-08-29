@@ -18,6 +18,7 @@ lowpoly/
 tools/
   vista_previa.py        fotogramas sueltos para revisar un plano
   contacto.py            hoja de contactos con los 34 planos
+  partir.py              trocea el MP4 por frontera de plano, sin recodificar
   contar_guion.py        recuento de caracteres del guion
 ```
 
@@ -32,25 +33,31 @@ python3 render_video.py --planos 15 16 17      # sólo esos planos
 
 python3 tools/contacto.py --u 0.5 --rotulos    # revisar los 34 encuadres
 python3 tools/vista_previa.py -p 19 -n 3       # tres momentos del plano 19
+python3 tools/partir.py --partes 3             # trocear para subir o enviar
 ```
 
-Salida por defecto: 1920×1080, 24 fps, H.264. El render completo son 7.008
-fotogramas y tarda del orden de 30-40 minutos en una CPU normal.
+`partir.py` corta por frontera de plano copiando el flujo, sin recodificar, así
+que las partes se unen en edición sin pérdida.
+
+Salida por defecto: 1920×1080, 24 fps, H.264 (CRF 19). El render completo son
+7.008 fotogramas y tarda del orden de una hora en una CPU normal; el decorado
+denso sube los planos a 18.000-30.000 triángulos.
 
 ## Cómo funciona el render
 
 No hay GPU ni motor 3D. El rasterizador es propio y está en `render.py`:
 
 1. Los vértices pasan a espacio de cámara y se recortan contra el plano cercano.
-2. Cada triángulo recibe **un solo color** (sombreado plano): difusa direccional
-   + ambiente hemisférico + niebla exponencial por distancia.
+2. Cada triángulo recibe **un solo color** (sombreado plano): clave direccional
+   cálida + relleno frío opuesto + ambiente hemisférico + realce de canto +
+   niebla exponencial por distancia.
 3. Se ordenan de lejos a cerca y se pintan con `ImageDraw.polygon`, que es
    código C y resulta mucho más rápido que un z-buffer en numpy con esta
    cantidad de polígonos.
 4. Se renderiza al doble de resolución y se reduce con Lanczos (suavizado).
 5. Viñeta y grano, y el fotograma se envía por tubería a ffmpeg.
 
-Un plano típico son 3.000-20.000 triángulos y ~0,2 s por fotograma.
+Un plano típico son 8.000-30.000 triángulos y 0,4-0,9 s por fotograma.
 
 ### Las tres trampas del algoritmo del pintor
 
@@ -67,6 +74,42 @@ en este vídeo. Están resueltos así:
 - **Vistas muy oblicuas**: los insertos de mesa usan cámara casi cenital, donde
   todas las caras del tablero quedan a la misma profundidad y el orden es
   estable.
+
+### El color: clave cálida contra sombra fría
+
+El sombreado plano no tiene medios tonos, así que todo el modelado visual sale
+del color de la luz. El esquema es el de la referencia de estilo:
+
+- **Clave cálida** (`luz_color`, dorada) desde el lado de la cámara.
+- **Relleno frío** (`relleno_color`, azul) desde el lado opuesto, para que las
+  caras en sombra no queden en un gris plano.
+- **Ambiente hemisférico** azul por arriba y terroso por abajo.
+- **Realce de canto** (`borde_color`) en ángulos rasantes, que dibuja la silueta
+  de la geometría low-poly.
+
+Dos límites que hay que respetar al retocarlo:
+
+- **Saturación por encima de ~1,15 vuelve fosforitos los verdes.** El terreno
+  ya sale de una base saturada y la clave la multiplica.
+- **El azul del ambiente no puede exceder mucho al verde.** Sobre un color
+  oscuro el ambiente pesa más que la difusa, y los uniformes caqui viraban a
+  azul marino.
+
+El suelo lleva manchas de color (`color2` en `_suelo`) y jitter alto por cara:
+una extensión de un solo verde se lee como plana por muy buena que sea la luz.
+Y como el sombreado plano no genera contraste en terreno llano, las escenas
+necesitan relieve real para tener luces y sombras.
+
+### Densidad de decorado
+
+`escenas_base.decorado()` reparte matas, flores, arbustos y piedras. El claro
+central (`libre`, `centro_libre`) debe abrirse **sobre la trayectoria de la
+cámara**, no sobre el origen: un arbusto a dos metros del objetivo tapa medio
+encuadre.
+
+La niebla se calibra para cámaras a ras de suelo. Los planos aéreos miran a
+40 unidades o más y con esa densidad salen en blanco, por eso el plano 12 usa
+`PAL_ARGONNE_AEREO`, una variante con menos niebla.
 
 ### Otras decisiones que costaron iteraciones
 

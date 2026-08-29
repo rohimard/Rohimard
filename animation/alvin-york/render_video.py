@@ -31,7 +31,7 @@ def abre_ffmpeg(destino: pathlib.Path, w: int, h: int, fps: int) -> subprocess.P
         "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{w}x{h}", "-r", str(fps),
         "-i", "-",
         "-an",
-        "-c:v", "libx264", "-preset", "medium", "-crf", "21",
+        "-c:v", "libx264", "-preset", "medium", "-crf", "19",
         "-x264-params", "aq-mode=2:aq-strength=0.8",
         "-pix_fmt", "yuv420p", "-movflags", "+faststart",
         str(destino),
