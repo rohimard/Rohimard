@@ -7,6 +7,7 @@ imágenes externas.
 ```
 GUION.md                 guion narrado (4.978 caracteres), un bloque por plano
 render_video.py          renderiza los 34 planos y codifica el MP4
+render_audio.py          genera la banda sonora y la incrusta en el video
 lowpoly/
   math3d.py              vectores, matrices, curvas de interpolación, ruido
   mesh.py                malla low-poly y primitivas (caja, cilindro, cono…)
@@ -15,6 +16,11 @@ lowpoly/
   overlay.py             rótulos con franja oscura y fundidos
   escenas_base.py        cámaras animadas, paletas por tono, utilidades
   scenes.py              los 34 planos, en orden
+audio/
+  sintesis.py            osciladores, envolventes, filtros, reverb
+  banco.py               instrumentos y efectos (fusil, viento, mar, multitud…)
+  partitura.py           que suena en cada plano y en que segundo
+  mezcla.py              linea de tiempo estereo y escritura del WAV
 tools/
   vista_previa.py        fotogramas sueltos para revisar un plano
   contacto.py            hoja de contactos con los 34 planos
@@ -34,6 +40,10 @@ python3 render_video.py --planos 15 16 17      # sólo esos planos
 python3 tools/contacto.py --u 0.5 --rotulos    # revisar los 34 encuadres
 python3 tools/vista_previa.py -p 19 -n 3       # tres momentos del plano 19
 python3 tools/partir.py --partes 3             # trocear para subir o enviar
+
+python3 render_audio.py                        # banda sonora + MP4 con audio
+python3 render_audio.py --solo-wav             # solo salida/banda_sonora.wav
+python3 render_audio.py --guia                 # anade pista guia de voz
 ```
 
 `partir.py` corta por frontera de plano copiando el flujo, sin recodificar, así
@@ -183,9 +193,42 @@ Tipografías: Big Shoulders Bold (rótulos) y Work Sans Bold (subtítulos).
 
 ## Sonido
 
-El vídeo se entrega **sin audio**. El guion de `GUION.md` está pensado para
-locutarse encima; cada bloque corresponde a un plano, así que la voz se puede
-montar plano a plano sin recortar la imagen.
+La banda sonora se sintetiza por código, igual que la imagen: no hay muestras
+ni bibliotecas de audio externas. `audio/sintesis.py` da los osciladores,
+envolventes, filtros, Karplus-Strong y una reverb por convolución con cola
+sintética; `audio/banco.py` construye con eso los instrumentos y los efectos.
+
+`audio/partitura.py` es el guion sonoro. Toma las duraciones reales de
+`scenes.PLANOS`, así que **la música sigue al montaje**: si cambia la duración
+de un plano, las entradas se recolocan solas. Los disparos replican la cadencia
+con la que aparecen los fogonazos en la animación — un tiro cada 1,5 s en «el
+cazador», cada 0,55 s en «la pistola».
+
+El tema es una melodía en modo eólico sobre re, enunciada con cuerda pulsada
+(Karplus-Strong, color de banjo) en Tennessee, ausente durante el combate y
+recuperada entera en el epílogo. La curva dinámica va de −25 dB en la
+introducción a −13 dB en la emboscada, baja en «el silencio» y repunta en los
+132 y en el cierre.
+
+Dos comprobaciones útiles cuando se toca la partitura, porque el resultado no
+se puede oír desde el código:
+
+```bash
+python3 tools/analiza_audio.py    # niveles por plano y espectrograma
+```
+
+Un nivel por debajo de −40 dB sostenido significa que el fondo se ha quedado
+mudo: los ambientes necesitan estar unos 10 dB por debajo de la música, no
+veinte. Y los acordes llevan `cola` para solaparse con el plano siguiente; sin
+ella se oye un hueco en cada corte.
+
+### Narración
+
+**El vídeo se entrega sin voz.** `render_audio.py --guia` puede mezclar una
+pista con espeak-ng, pero es un sintetizador de formantes: sirve para medir
+tiempos en el montaje, no para publicar. El guion de `GUION.md` está partido en
+bloques que corresponden uno a uno con los planos, así que la voz definitiva se
+graba o se genera aparte y se monta plano a plano sin tocar la imagen.
 
 ## Nota histórica
 

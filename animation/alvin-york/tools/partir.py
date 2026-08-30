@@ -80,7 +80,11 @@ def main() -> int:
             cmd += ["-frames:v", str(n_frames),
                     "-c:v", "libx264", "-preset", "medium", "-crf", str(args.crf),
                     "-x264-params", "aq-mode=2:aq-strength=0.9",
-                    "-pix_fmt", "yuv420p", "-movflags", "+faststart"]
+                    "-pix_fmt", "yuv420p", "-movflags", "+faststart",
+                    # El audio se recorta a la duracion exacta del video para
+                    # que las partes no acumulen desfase al unirlas.
+                    "-c:a", "aac", "-b:a", "192k",
+                    "-t", f"{n_frames / args.fps:.4f}"]
         cmd += [str(destino)]
         subprocess.run(cmd, check=True)
         mib = destino.stat().st_size / 1048576
