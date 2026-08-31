@@ -69,6 +69,24 @@ publiquemos: **paquete (título+miniatura) que genere click real → primeros
 3 segundos que cumplen la promesa → contenido que se ve completo → cierre que
 empuja a un siguiente video o suscripción.**
 
+## Cómo aplica todo esto al nicho de historia (a diferencia de un nicho de tendencias)
+
+- El contenido evergreen se beneficia doblemente del sistema de
+  recomendación: un video de historia sigue acumulando impresiones en
+  Suggested/Search meses o años después de publicado, porque la relevancia
+  no caduca. Esto compensa un ritmo de publicación algo menos frenético que
+  un canal de noticias/tendencias.
+- La narrativa inmersiva (segunda persona/presente narrativo) reporta
+  retenciones de **55-70%** en el género — clave porque en videos largos de
+  12-15 min, sostener ese porcentaje es lo que activa la distribución
+  agresiva por Suggested.
+- Los formatos "X datos sobre Y que no sabías" en Shorts son un formato de
+  altísimo volumen de búsqueda dentro de historia — encajan directo con la
+  regla de retención 70%+ en Shorts porque son fáciles de ver completos.
+- La credibilidad importa más que en casi cualquier otro nicho: un error
+  factual señalado en comentarios daña la señal de satisfacción de forma
+  duradera. Verificar fuentes antes de guionizar no es opcional (ver doc 03).
+
 ## Monetización — por qué la urgencia es ahora
 
 Requisitos actuales (2026) del Programa de Partners:
