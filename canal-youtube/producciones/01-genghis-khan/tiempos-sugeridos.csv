@@ -1,0 +1,64 @@
+﻿Plano;Bloque;Entra;Sale;Duracion (s);Escena
+1;GANCHO;0:00;0:07;7;Murallas de Samarcanda
+2;GANCHO;0:07;0:13;6;Vida dentro de la ciudad
+3;GANCHO;0:13;0:19;6;El jinete que decide el fin
+4;GANCHO;0:19;0:23;4;Nadie para contarlo
+5;GANCHO;0:23;0:27;4;Revelación del nombre
+6;DATOS;0:27;0:32;5;El dato que nadie te dijo
+7;DATOS;0:32;0:39;7;37 a 60 millones de muertos
+8;DATOS;0:39;0:43;4;Población mundial siglo XIII
+9;DATOS;0:43;0:48;5;Un solo imperio, unas décadas
+10;DATOS;0:48;0:54;6;El 10% de la humanidad
+11;DATOS;0:54;0:59;5;Una de cada diez personas
+12;DATOS;0:59;1:02;3;En ese momento exacto
+13;DATOS;1:02;1:09;7;Centros más poblados del mundo
+14;DATOS;1:09;1:12;3;Cadáveres en semanas
+15;DATOS;1:12;1:19;7;El Tigris negro de tinta
+16;DATOS;1:19;1:23;4;El Tigris rojo de sangre
+17;DATOS;1:23;1:26;3;Presentación de Merv
+18;DATOS;1:26;1:31;5;Merv: una de las más grandes
+19;DATOS;1:31;1:36;5;Bibliotecas y observatorios de Merv
+20;DATOS;1:36;1:43;7;Un millón de muertos en Merv
+21;DATOS;1:43;1:46;3;Cifra debatida por historiadores
+22;DATOS;1:46;1:52;6;Masacre sin precedentes
+23;DATOS;1:52;1:55;3;Nunca se recuperó
+24;DATOS;1:55;2:00;5;Ruinas de Merv hoy
+25;DATOS;2:00;2:06;6;El imperio al expandirse
+26;DATOS;2:06;2:12;6;24 millones de km2
+27;DATOS;2:12;2:15;3;Más grande que Rusia
+28;DATOS;2:15;2:18;3;Más grande que EEUU, China e India
+29;DATOS;2:18;2:24;6;No fue un saqueo, fue estrategia
+30;DATOS;2:24;2:29;5;Ciudades que se rendían
+31;DATOS;2:29;2:34;5;Ciudades que resistían, borradas
+32;POR_QUE;2:34;2:42;8;La pregunta de las tres razones
+33;POR_QUE;2:42;2:48;6;Razón 1: quién escribió la historia
+34;POR_QUE;2:48;2:55;7;Cronistas al servicio del imperio
+35;POR_QUE;2:55;3:00;5;El abuelo de tu jefe
+36;POR_QUE;3:00;3:04;4;Razón 2: héroe fundador
+37;POR_QUE;3:04;3:10;6;Unió tribus enfrentadas
+38;POR_QUE;3:10;3:14;4;En el mapa del mundo
+39;POR_QUE;3:14;3:17;3;Su cara en los billetes
+40;POR_QUE;3:17;3:22;5;Cuestionarlo es tabú
+41;POR_QUE;3:22;3:27;5;Razón 3: el legado tapa el precio
+42;POR_QUE;3:27;3:34;7;El precio que costó
+43;POR_QUE;3:34;3:40;6;La Ruta de la Seda unificada
+44;POR_QUE;3:40;3:46;6;Ideas y comercio viajando libres
+45;POR_QUE;3:46;3:51;5;La Pax Mongolica
+46;POR_QUE;3:51;3:57;6;Un nombre cómodo para el horror
+47;LEGADO;3:57;4:00;3;Lo que debería inquietarte
+48;LEGADO;4:00;4:06;6;16 millones de hombres hoy
+49;LEGADO;4:06;4:11;5;Su línea genética directa
+50;LEGADO;4:11;4:18;7;0,5% de la humanidad actual
+51;LEGADO;4:18;4:24;6;Huella biológica sin precedentes
+52;LEGADO;4:24;4:32;8;Gran conquistador, edad dorada
+53;LEGADO;4:32;4:35;3;Acuérdate de esto
+54;LEGADO;4:35;4:42;7;Lo que no cabe en el titular
+55;LEGADO;4:42;4:45;3;No te hace cínico
+56;LEGADO;4:45;4:50;5;Más difícil de manipular
+57;CTA;4:50;4:53;3;La idea del canal
+58;CTA;4:53;5:01;8;La historia completa
+59;CTA;5:01;5:06;5;Si te hizo verlo distinto
+60;CTA;5:06;5:13;7;La historia que olvidarías
+61;CTA;5:13;5:20;7;Suscríbete y comparte
+62;CTA;5:20;5:26;6;Promesa final
+63;CTA;5:26;5:29;3;Cierre

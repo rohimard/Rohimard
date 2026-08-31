@@ -1,0 +1,382 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "block": "GANCHO",
+      "cue": "Murallas de Samarcanda",
+      "text": "Es el año 1219. Estás frente a las murallas de Samarcanda, una de las ciudades más ricas del mundo conocido."
+    },
+    {
+      "id": 2,
+      "block": "GANCHO",
+      "cue": "Vida dentro de la ciudad",
+      "text": "Dentro hay bibliotecas, jardines, cientos de miles de personas que llevan siglos construyendo esa vida."
+    },
+    {
+      "id": 3,
+      "block": "GANCHO",
+      "cue": "El jinete que decide el fin",
+      "text": "Fuera, un solo hombre a caballo ha decidido que esa ciudad no va a existir mañana."
+    },
+    {
+      "id": 4,
+      "block": "GANCHO",
+      "cue": "Nadie para contarlo",
+      "text": "En unos días, no va a quedar casi nadie para contarlo."
+    },
+    {
+      "id": 5,
+      "block": "GANCHO",
+      "cue": "Revelación del nombre",
+      "text": "Ese hombre se llamaba Temuyín. Tú lo conoces como Gengis Kan."
+    },
+    {
+      "id": 6,
+      "block": "DATOS",
+      "cue": "El dato que nadie te dijo",
+      "text": "Y aquí va el dato que casi nadie te ha dicho así de claro:"
+    },
+    {
+      "id": 7,
+      "block": "DATOS",
+      "cue": "37 a 60 millones de muertos",
+      "text": "los historiadores calculan que las conquistas de Gengis Kan y sus descendientes mataron a entre 37 y 60 millones de personas."
+    },
+    {
+      "id": 8,
+      "block": "DATOS",
+      "cue": "Población mundial siglo XIII",
+      "text": "En el siglo XIII, la población mundial rondaba los 400 millones."
+    },
+    {
+      "id": 9,
+      "block": "DATOS",
+      "cue": "Un solo imperio, unas décadas",
+      "text": "Eso significa que un solo imperio, en el espacio de unas décadas,"
+    },
+    {
+      "id": 10,
+      "block": "DATOS",
+      "cue": "El 10% de la humanidad",
+      "text": "pudo haber acabado con el 10% de toda la humanidad que existía en ese momento."
+    },
+    {
+      "id": 11,
+      "block": "DATOS",
+      "cue": "Una de cada diez personas",
+      "text": "Piénsalo otra vez. Una de cada diez personas vivas en el planeta."
+    },
+    {
+      "id": 12,
+      "block": "DATOS",
+      "cue": "En ese momento exacto",
+      "text": "No en toda la historia: en ese momento exacto."
+    },
+    {
+      "id": 13,
+      "block": "DATOS",
+      "cue": "Centros más poblados del mundo",
+      "text": "Ciudades enteras como Merv, Bagdad o Kiev pasaron de ser algunos de los centros más poblados del mundo"
+    },
+    {
+      "id": 14,
+      "block": "DATOS",
+      "cue": "Cadáveres en semanas",
+      "text": "a montones de cadáveres en cuestión de semanas."
+    },
+    {
+      "id": 15,
+      "block": "DATOS",
+      "cue": "El Tigris negro de tinta",
+      "text": "En Bagdad, se cuenta que el río Tigris corrió negro por la tinta de los libros quemados de sus bibliotecas,"
+    },
+    {
+      "id": 16,
+      "block": "DATOS",
+      "cue": "El Tigris rojo de sangre",
+      "text": "y rojo por la gente que fue arrojada a él."
+    },
+    {
+      "id": 17,
+      "block": "DATOS",
+      "cue": "Presentación de Merv",
+      "text": "Toma Merv, en la actual Turkmenistán."
+    },
+    {
+      "id": 18,
+      "block": "DATOS",
+      "cue": "Merv: una de las más grandes",
+      "text": "Antes del asedio de 1221, era una de las ciudades más grandes del planeta:"
+    },
+    {
+      "id": 19,
+      "block": "DATOS",
+      "cue": "Bibliotecas y observatorios de Merv",
+      "text": "cientos de miles de habitantes, bibliotecas, observatorios, canales de riego que llevaban siglos funcionando."
+    },
+    {
+      "id": 20,
+      "block": "DATOS",
+      "cue": "Un millón de muertos en Merv",
+      "text": "Después del asedio, algunos cronistas de la época hablan de más de un millón de muertos entre la ciudad y sus alrededores,"
+    },
+    {
+      "id": 21,
+      "block": "DATOS",
+      "cue": "Cifra debatida por historiadores",
+      "text": "una cifra que hoy los historiadores debaten"
+    },
+    {
+      "id": 22,
+      "block": "DATOS",
+      "cue": "Masacre sin precedentes",
+      "text": "pero que nadie discute que fue, como mínimo, una masacre a una escala nunca vista hasta entonces."
+    },
+    {
+      "id": 23,
+      "block": "DATOS",
+      "cue": "Nunca se recuperó",
+      "text": "Nunca se recuperó."
+    },
+    {
+      "id": 24,
+      "block": "DATOS",
+      "cue": "Ruinas de Merv hoy",
+      "text": "Hoy son ruinas de barro en medio del desierto que casi nadie visita."
+    },
+    {
+      "id": 25,
+      "block": "DATOS",
+      "cue": "El imperio al expandirse",
+      "text": "Y el territorio que dejó ese imperio, cuando terminó de expandirse bajo Gengis Kan y sus hijos,"
+    },
+    {
+      "id": 26,
+      "block": "DATOS",
+      "cue": "24 millones de km2",
+      "text": "sigue siendo el mayor imperio continuo de la historia: unos 24 millones de kilómetros cuadrados."
+    },
+    {
+      "id": 27,
+      "block": "DATOS",
+      "cue": "Más grande que Rusia",
+      "text": "Más grande que Rusia."
+    },
+    {
+      "id": 28,
+      "block": "DATOS",
+      "cue": "Más grande que EEUU, China e India",
+      "text": "Más grande que Estados Unidos, China e India juntos."
+    },
+    {
+      "id": 29,
+      "block": "DATOS",
+      "cue": "No fue un saqueo, fue estrategia",
+      "text": "Esto no fue un saqueo que se les fue de las manos. Fue una estrategia."
+    },
+    {
+      "id": 30,
+      "block": "DATOS",
+      "cue": "Ciudades que se rendían",
+      "text": "Deliberada, repetida, casi administrativa: ciudades que se rendían sin luchar solían salvarse."
+    },
+    {
+      "id": 31,
+      "block": "DATOS",
+      "cue": "Ciudades que resistían, borradas",
+      "text": "Ciudades que resistían eran borradas por completo, población incluida, como advertencia para la siguiente."
+    },
+    {
+      "id": 32,
+      "block": "POR_QUE",
+      "cue": "La pregunta de las tres razones",
+      "text": "¿Y por qué, entonces, no hablamos de Gengis Kan como hablamos de otros responsables de matanzas a esa escala? Hay tres razones."
+    },
+    {
+      "id": 33,
+      "block": "POR_QUE",
+      "cue": "Razón 1: quién escribió la historia",
+      "text": "Primera: la historia la escribieron, en su mayoría, los que sobrevivieron dentro de su imperio."
+    },
+    {
+      "id": 34,
+      "block": "POR_QUE",
+      "cue": "Cronistas al servicio del imperio",
+      "text": "Muchos cronistas persas y chinos que documentaron sus conquistas trabajaban, después, para los propios descendientes de Gengis Kan."
+    },
+    {
+      "id": 35,
+      "block": "POR_QUE",
+      "cue": "El abuelo de tu jefe",
+      "text": "No es fácil escribir con honestidad sobre el abuelo de tu jefe."
+    },
+    {
+      "id": 36,
+      "block": "POR_QUE",
+      "cue": "Razón 2: héroe fundador",
+      "text": "Segunda: en Mongolia, Gengis Kan no es una figura oscura."
+    },
+    {
+      "id": 37,
+      "block": "POR_QUE",
+      "cue": "Unió tribus enfrentadas",
+      "text": "Es el padre fundador, el hombre que unió tribus enfrentadas entre sí en una sola nación"
+    },
+    {
+      "id": 38,
+      "block": "POR_QUE",
+      "cue": "En el mapa del mundo",
+      "text": "y la puso en el mapa del mundo para siempre."
+    },
+    {
+      "id": 39,
+      "block": "POR_QUE",
+      "cue": "Su cara en los billetes",
+      "text": "Su cara está en los billetes."
+    },
+    {
+      "id": 40,
+      "block": "POR_QUE",
+      "cue": "Cuestionarlo es tabú",
+      "text": "Cuestionarlo ahí no se vive como historia crítica, se vive casi como un tabú."
+    },
+    {
+      "id": 41,
+      "block": "POR_QUE",
+      "cue": "Razón 3: el legado tapa el precio",
+      "text": "Tercera, y esta es la que más nos afecta a nosotros hoy:"
+    },
+    {
+      "id": 42,
+      "block": "POR_QUE",
+      "cue": "El precio que costó",
+      "text": "el legado que vino después fue tan enorme que fue tapando, poco a poco, el precio que costó."
+    },
+    {
+      "id": 43,
+      "block": "POR_QUE",
+      "cue": "La Ruta de la Seda unificada",
+      "text": "Bajo el imperio mongol se unificó la Ruta de la Seda de punta a punta."
+    },
+    {
+      "id": 44,
+      "block": "POR_QUE",
+      "cue": "Ideas y comercio viajando libres",
+      "text": "Comerciantes, ideas, tecnologías y religiones viajaron con más libertad que nunca antes en la historia conocida."
+    },
+    {
+      "id": 45,
+      "block": "POR_QUE",
+      "cue": "La Pax Mongolica",
+      "text": "A ese periodo lo llamamos, incluso, la Pax Mongolica: la paz mongola."
+    },
+    {
+      "id": 46,
+      "block": "POR_QUE",
+      "cue": "Un nombre cómodo para el horror",
+      "text": "Qué manera tan cómoda de nombrar algo que empezó con decenas de millones de muertos."
+    },
+    {
+      "id": 47,
+      "block": "LEGADO",
+      "cue": "Lo que debería inquietarte",
+      "text": "Y aquí está lo que de verdad debería inquietarte:"
+    },
+    {
+      "id": 48,
+      "block": "LEGADO",
+      "cue": "16 millones de hombres hoy",
+      "text": "se estima que hoy, 800 años después, alrededor de 16 millones de hombres vivos en Asia Central"
+    },
+    {
+      "id": 49,
+      "block": "LEGADO",
+      "cue": "Su línea genética directa",
+      "text": "llevan en su cromosoma Y una línea genética que apunta directamente a él."
+    },
+    {
+      "id": 50,
+      "block": "LEGADO",
+      "cue": "0,5% de la humanidad actual",
+      "text": "Eso es cerca del 0,5% de la población masculina mundial actual descendiendo, muy probablemente, de una sola persona."
+    },
+    {
+      "id": 51,
+      "block": "LEGADO",
+      "cue": "Huella biológica sin precedentes",
+      "text": "Ninguna otra figura histórica conocida ha dejado una huella biológica tan medible en toda la especie humana."
+    },
+    {
+      "id": 52,
+      "block": "LEGADO",
+      "cue": "Gran conquistador, edad dorada",
+      "text": "Así que la próxima vez que alguien te hable de un gran conquistador, o de una edad dorada de intercambio cultural,"
+    },
+    {
+      "id": 53,
+      "block": "LEGADO",
+      "cue": "Acuérdate de esto",
+      "text": "acuérdate de esto:"
+    },
+    {
+      "id": 54,
+      "block": "LEGADO",
+      "cue": "Lo que no cabe en el titular",
+      "text": "Casi siempre, detrás de la palabra imperio, hay un número que alguien decidió no poner en el titular."
+    },
+    {
+      "id": 55,
+      "block": "LEGADO",
+      "cue": "No te hace cínico",
+      "text": "Entender eso no te hace cínico."
+    },
+    {
+      "id": 56,
+      "block": "LEGADO",
+      "cue": "Más difícil de manipular",
+      "text": "Te hace más difícil de manipular con una buena historia bien contada."
+    },
+    {
+      "id": 57,
+      "block": "CTA",
+      "cue": "La idea del canal",
+      "text": "Y esa es exactamente la idea de este canal:"
+    },
+    {
+      "id": 58,
+      "block": "CTA",
+      "cue": "La historia completa",
+      "text": "contarte la historia completa, no la versión que cabe cómoda en un libro de texto de una hora de clase."
+    },
+    {
+      "id": 59,
+      "block": "CTA",
+      "cue": "Si te hizo verlo distinto",
+      "text": "Si esto te ha hecho ver a Gengis Kan de otra forma, quédate,"
+    },
+    {
+      "id": 60,
+      "block": "CTA",
+      "cue": "La historia que olvidarías",
+      "text": "porque la semana que viene te cuento la historia que la mayoría de los imperios preferiría que olvidaras."
+    },
+    {
+      "id": 61,
+      "block": "CTA",
+      "cue": "Suscríbete y comparte",
+      "text": "Suscríbete, y si conoces a alguien a quien también le gusta la historia de verdad, mándale este video."
+    },
+    {
+      "id": 62,
+      "block": "CTA",
+      "cue": "Promesa final",
+      "text": "Te prometo que la próxima vez que oigas la palabra imperio, la vas a escuchar distinto."
+    },
+    {
+      "id": 63,
+      "block": "CTA",
+      "cue": "Cierre",
+      "text": "Nos vemos en el siguiente."
+    }
+  ]
+}
