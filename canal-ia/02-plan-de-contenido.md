@@ -2,20 +2,26 @@
 
 ## Pilares de contenido (rotamos entre estos 5)
 
-1. **Herramientas probadas** — reviews/demos honestas de una herramienta de
-   IA específica, mostrando el resultado real en pantalla.
-2. **Automatización sin código** — cómo conectar IA con n8n/Zapier/Make para
-   eliminar tareas repetitivas.
-3. **Prompts y trucos** — prompts concretos y copiables para un problema
-   concreto (no "100 prompts", sino "el prompt para X").
-4. **Casos de uso por perfil** — "IA para freelancers", "IA para dueños de
-   tienda", "IA para estudiantes" — contenido de micro-nicho (así rankea
-   mejor en el Explorar reorientado a micro-nichos).
-5. **Comparativas y veredictos** — "probé 5 IAs para hacer X, esta ganó" —
-   contenido pilar, más producido, 1 por semana.
+> Actualizado tras afinar el nicho a "IA para pequeños negocios e
+> independientes" (ver `00-estrategia-canal.md`). Cada pilar ataca una
+> función real del negocio, no un tema genérico de IA.
 
-Regla: cada video ataca **una** tarea/herramienta/problema concreto. Nunca
-"todo sobre IA" — eso rankea peor en 2026.
+1. **Cotizaciones y presupuestos** — armar cotizaciones/presupuestos con IA
+   en minutos, plantillas automáticas, seguimiento de pendientes.
+2. **Atención a clientes** — respuestas automáticas por WhatsApp/correo,
+   agendamiento, filtrado de leads con IA.
+3. **Cobros y seguimiento** — recordatorios automáticos, facturas, control
+   de pagos pendientes con IA.
+4. **Reportes e inventario** — generar reportes del negocio, control de
+   stock/materiales, resúmenes automáticos.
+5. **Comparativas y veredictos** — "probé 5 herramientas de IA para
+   [tarea del negocio], esta ganó" — contenido pilar, más producido, 1 por
+   semana, siempre sobre una tarea de negocio concreta (nunca "las mejores
+   IAs de 2026" en general).
+
+Regla: cada video resuelve **una** tarea concreta de un pequeño negocio o
+independiente. Nunca "todo sobre IA" ni "trucos de ChatGPT" genéricos — ese
+contenido está saturado y rankea peor en 2026.
 
 ## Calendario semanal (10+ horas/semana)
 
