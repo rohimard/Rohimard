@@ -21,23 +21,32 @@ publiques en semanas.
 
 ## 2. Descripción del canal ("Acerca de")
 
-Límite de YouTube: 1.000 caracteres. Esta versión ocupa unos 570 y está
+Límite de YouTube: 1.000 caracteres. Esta versión ocupa unos 500 y está
 escrita para dos lectores a la vez: la persona que decide si suscribirse, y
 el buscador de YouTube, que indexa este texto.
 
 ```
 Historias reales que parecen inventadas.
 
-Imperios que borraron ciudades enteras del mapa. Decisiones de una sola persona que cambiaron el mundo. Cifras tan grandes que nadie las pone en el titular.
+Un ritual que Europa ocultó durante mil años. Un objeto de hace veinte siglos que la ciencia todavía no sabe replicar. Una ciudad que desapareció sin dejar un solo cuerpo. Cosas que pasaron de verdad y que cuesta creer que pasaran.
 
 Aquí la historia no se explica: se cuenta. Cada video es un hecho real narrado como se narra un caso de true crime — directo, con datos verificados, sin relleno y en menos de 10 minutos.
 
 Si te gustan los documentales pero no tienes hora y media, este es tu canal.
 
-Temas: imperios, civilizaciones antiguas, misterios sin resolver y los hechos que cambiaron el mundo.
-
 Contacto: TU-CORREO@ejemplo.com
 ```
+
+**Por qué no hay una línea de "Temas: …"**: una lista de temas encasilla el
+canal. La versión anterior decía "imperios, civilizaciones antiguas" — que es
+el tema del **video 1**, no el del canal. Este canal no va de imperios ni de
+antigüedad: va de **hechos reales que cuesta creer**, de cualquier época. Los
+tres ejemplos del segundo párrafo son deliberadamente de tipos y épocas
+distintas (un ritual nórdico, un artefacto griego, una civilización
+desaparecida) para dejar esa amplitud clara sin enumerar nada.
+
+Las palabras clave para el buscador van en su propio campo (sección 4), que
+es donde corresponden — no metidas a presión en el "Acerca de".
 
 Sustituye `TU-CORREO@ejemplo.com`. Usa un correo aparte del personal: va a
 ser público y recibirás propuestas de patrocinio y también spam.
@@ -63,7 +72,7 @@ suscripciones gratis que casi nadie activa.
 Studio → Configuración → Canal → Información básica. Separadas por comas:
 
 ```
-historia, historias reales, documental, documentales en español, imperios, civilizaciones antiguas, misterios de la historia, hechos históricos, historia oscura, curiosidades históricas, imperio mongol, historia narrada
+historia, historias reales, documental, documentales en español, misterios de la historia, hechos históricos, historia oscura, casos reales, curiosidades históricas, historia narrada, misterios sin resolver, historia en español
 ```
 
 ## 5. Ajustes que hay que tocar sí o sí
@@ -133,11 +142,14 @@ de los comentarios en aliados en vez de en detractores.
 
 ### Playlists (crear vacías desde ya)
 
-- Imperios
-- Civilizaciones antiguas
+- Nadie se cree que esto pasara
 - Misterios sin resolver
-- Los hechos que cambiaron el mundo
+- Los que cambiaron el mundo (personajes)
+- Desapariciones y colapsos
 - Shorts
+
+Nombradas por **sensación**, no por época ni por tipo de tema: así ninguna
+playlist encasilla el canal y cualquier video futuro cabe en alguna.
 
 Las playlists ayudan al "session-based recommending": si alguien termina un
 video, YouTube tiene el siguiente listo dentro de la misma lista.
