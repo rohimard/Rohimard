@@ -172,9 +172,10 @@ y ensucian la ficha.
 
 ## 9. Riesgo de monetización que afecta a este canal en concreto
 
-El contenido trata masacres, genocidios y muertes masivas. Eso entra en
+Buena parte de las historias que mejor funcionan en este formato rozan la
+violencia: masacres, rituales, colapsos, muertes masivas. Eso entra en
 territorio de "contenido violento o explícito" para los anunciantes. Cómo
-protegerse sin renunciar al tema:
+protegerse sin renunciar a los temas:
 
 - **Nada de gore en la miniatura ni en los primeros 15 segundos.** Es donde
   el clasificador mira con más peso.
