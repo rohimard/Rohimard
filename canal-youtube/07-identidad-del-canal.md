@@ -1,8 +1,10 @@
-# Identidad del canal — "El Número Que Falta"
+# Identidad del canal — "Historia Incómoda"
 
-Sustituye la propuesta de nombre anterior ("Historia Sin Filtro", demasiado
-genérica). Ver `00-estrategia-canal.md` para el nicho y `05-kit-de-produccion.md`
-para la voz del narrador.
+Nombre definitivo. Sustituye a dos propuestas descartadas: "Historia Sin
+Filtro" (genérica, y además el nombre ya está ocupado) y "El Número Que
+Falta" (no se entiende de qué va el canal al leerlo). Ver
+`00-estrategia-canal.md` para el nicho y `05-kit-de-produccion.md` para la
+voz del narrador.
 
 ## El hueco real (por qué aquí y no en otro sitio)
 
@@ -15,32 +17,43 @@ Cómo está repartido el terreno en historia en español:
 | **Hueco vacío** | **Historia con gramática de true crime / periodismo de investigación** | **Acusación** |
 
 Lo que arrasa en inglés y casi nadie hace en español: un narrador con una
-**tesis y una acusación**, visuales fotorrealistas de cine, estructura
-apretada de 5-7 minutos, y una espina dorsal de "te lo contaron mal".
+**tesis**, visuales fotorrealistas de cine, estructura apretada de 5-7
+minutos, y una historia real que cuesta creer.
 
-El canal no explica historia. **Acusa** — a la versión oficial y a quien la
-repitió sin comprobarla.
+El canal no explica historia. **La cuenta como se cuenta un caso de true
+crime.**
 
-## El nombre y el formato
+## El nombre
 
-**"El Número Que Falta"**, sacado del cierre del propio guión del video 1:
-*"¿Qué número no están poniendo en el titular?"*.
+**"Historia Incómoda"**.
 
-Cada video sigue la misma promesa: **una historia que crees conocer + la
-cifra que le quitaron al titular.**
+Criterio aplicado (después de descartar dos nombres):
 
-Por qué funciona mejor que un nombre temático:
+1. **La palabra "Historia" va dentro.** Se renuncia a ser ingenioso a cambio
+   de que el 100% de la gente sepa qué es el canal en menos de un segundo.
+   Esa fue la razón de descartar "El Número Que Falta".
+2. **La segunda palabra es la emoción, no el tema.** Ahí vive la
+   diferenciación frente a la divulgación didáctica.
+3. **Se puede decir en voz alta** al abrir un video sin que suene raro.
 
-- **Es un formato, no un tema.** Vale para Roma, para la peste negra, para
-  el Titanic o para Hiroshima. No encierra el canal en una época ni en una
-  civilización.
-- **El algoritmo aprende antes qué eres.** El feed de 2026 premia
-  micro-nichos definidos (ver `01-algoritmo-youtube-2026.md`); un formato con
-  nombre se clasifica mucho más rápido que "otro canal de historia".
-- **Convierte el CTA en marca.** Todos los videos cierran igual: *"y este era
-  el número que faltaba"*. A los pocos videos la audiencia lo anticipa.
-- **Obliga al rigor.** Cada video necesita una cifra dura y verificable —
-  exactamente lo que separa este canal de las granjas de curiosidades.
+### Verificación de disponibilidad (hecha el 01/09/2026)
+
+| Nombre | Estado |
+|---|---|
+| **Historia Incómoda** | Libre — no aparece ningún canal con ese nombre |
+| Historia Oscura | Ocupado (@oscurahistoria), y el terreno "oscura/oculta/misterio" está saturado |
+| Nunca Te Lo Contaron | Patrón quemado: existen varios canales de historia con esa fórmula |
+| Historia Sin Censura | Ocupado, y hace exactamente este contenido |
+| Historia Sin Filtro | Ocupado (era mi primera propuesta) |
+
+Riesgo conocido: existe **Historia Incomprendida**, que arranca igual
+("Historia Inc…") y compite en autocompletado. No es descalificante — el
+tráfico inicial viene de browse y Shorts, no de búsquedas por nombre.
+
+Dos matices importantes: en YouTube **el nombre no es único, el handle sí**,
+así que lo que hay que asegurar es **@historiaincomoda**; y la verificación
+por buscador no es prueba definitiva (los canales pequeños no se indexan) —
+la comprobación real es intentar reclamar el handle en YouTube Studio.
 
 **Propuesta de valor (para el "Acerca de"):**
 
@@ -109,9 +122,12 @@ Ejemplo, video 1 (planos ya generados):
 Objetivo de esta cadencia: llegar a 500 suscriptores (se desbloquea **Hype**)
 y a la monetización antes de que la barra suba en febrero de 2027.
 
-## Checklist de nombre
+## Checklist pendiente
 
-- [ ] Verificar disponibilidad de @elnumeroquefalta en YouTube (y si se
-      puede, en Instagram/TikTok).
-- [ ] Alternativas si está ocupado: "La Cifra Que Falta", "El Dato Que
-      Falta", "Falta Un Número".
+- [ ] Reclamar **@historiaincomoda** en YouTube Studio (gratis, por orden de
+      llegada, no hace falta publicar nada para quedárselo). Es el único paso
+      del proyecto con fecha de caducidad.
+- [ ] Si estuviera ocupado: **no** parchear con "oficial" ni con números —
+      eso delata llegada tardía. Mejor buscar otro nombre y verificarlo igual.
+- [ ] Subir logo (`marca/logo-asterisco.png`) y banner (`marca/banner.png`).
+- [ ] Pegar la propuesta de valor de arriba en el "Acerca de".
