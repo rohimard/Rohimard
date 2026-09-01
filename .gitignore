@@ -28,3 +28,6 @@ next-env.d.ts
 
 # runtime data store (regenerated from seed)
 /.data
+
+# artefactos temporales del render de miniaturas
+canal-youtube/producciones/**/_thumb.html

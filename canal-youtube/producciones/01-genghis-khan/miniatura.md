@@ -34,7 +34,29 @@ grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K,
 sin texto en pantalla, 16:9.
 ```
 
-## (b) Cuando generes la imagen, mándamela
+## (b) MONTADA — archivos listos
+
+Imagen base generada y texto montado. Ficheros en esta carpeta:
+
+| Variante | Archivos | Texto |
+|---|---|---|
+| **A (lanzamiento)** | `miniatura.png` / `.jpg` | `10%` / DE LA HUMANIDAD / DESAPARECIÓ |
+| B | `miniatura-b.png` / `.jpg` | `1/10` / DE LA HUMANIDAD / MURIÓ POR ESTO |
+| C | `miniatura-c.png` / `.jpg` | `NADIE` / TE CONTÓ / ESTO DE ÉL |
+
+Base sin texto: `base.jpg`. Configs: `config.json`, `config-b.json`,
+`config-c.json`. Para re-montar cualquiera tras editar su config:
+`node ../../kit-produccion/scripts/render_thumbnail.js config.json`
+
+**Prueba de legibilidad superada**: las tres se leen a 246px de ancho
+(tamaño real de tarjeta en el feed). Previews: `test-feed*.png`, generadas
+con `node ../../kit-produccion/scripts/feed_preview.js miniatura.jpg`.
+
+El emparejamiento título ↔ miniatura está en `seo.md` — importante, porque
+la miniatura A y el título "…borró al 10% de la humanidad" dicen lo mismo y
+no deben usarse juntos.
+
+## (b-bis) Referencia del flujo original
 
 Con la imagen base la monto con `render_thumbnail.js` (fuente Anton,
 amarillo `#FFD400` + caja roja `#E10600`, igual que el kit original) y te

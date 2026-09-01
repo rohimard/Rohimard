@@ -1,0 +1,11 @@
+{
+  "image": "base.jpg",
+  "font": "../../kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura-c",
+  "number": "NADIE",
+  "line1": "TE CONTÓ",
+  "line2": "ESTO DE ÉL",
+  "side": "right",
+  "accent": "#FFD400",
+  "alarm": "#E10600"
+}

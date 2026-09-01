@@ -2,16 +2,31 @@
 
 ## Títulos (2-3 para A/B, <60 caracteres, palabra clave al principio)
 
-1. **"Gengis Kan: el imperio que borró al 10% de la humanidad"** (55 car. —
-   palabra clave al inicio + cifra shock; **recomendado para lanzar**)
-2. **"El hombre que mató al 10% de la humanidad"** (41 car. — más corto y
-   brutal, buena variante B)
-3. **"Por qué nadie llama genocida a Gengis Kan"** (42 car. — identificación
-   y tensión, variante C si las dos primeras no despegan)
+1. **"Por qué nadie llama genocida a Gengis Kan"** (42 car. — tensión y
+   revelación; **recomendado para lanzar**, ver emparejamiento abajo)
+2. **"Gengis Kan: el imperio que borró al 10% de la humanidad"** (55 car. —
+   palabra clave al inicio + cifra shock)
+3. **"El hombre que mató al 10% de la humanidad"** (41 car. — más corto y
+   brutal)
 
-Regla de coherencia (kit): la miniatura muestra el **10%**, así que el
-título ideal aporta el **quién** y el **por qué** — la variante 1 combina
-ambos sin repetir literalmente el texto de la miniatura.
+## Emparejamiento título ↔ miniatura (regla del kit: NUNCA dicen lo mismo)
+
+La miniatura A ya grita el dato (`10% DE LA HUMANIDAD DESAPARECIÓ`), así que
+el título tiene que aportar **el quién y el porqué**, no repetir la cifra:
+
+| Miniatura | Título que la complementa |
+|---|---|
+| **A** — `10%` / DE LA HUMANIDAD / DESAPARECIÓ | Título 1: "Por qué nadie llama genocida a Gengis Kan" |
+| **B** — `1/10` / DE LA HUMANIDAD / MURIÓ POR ESTO | Título 1: "Por qué nadie llama genocida a Gengis Kan" |
+| **C** — `NADIE` / TE CONTÓ / ESTO DE ÉL | Título 2: "Gengis Kan: el imperio que borró al 10% de la humanidad" |
+
+**Combinación de lanzamiento: miniatura A + título 1.** La miniatura pone la
+cifra, el título pone la acusación incómoda. Si a las 48h el CTR no arranca,
+cambiar al par C + título 2 (invierte los papeles: la miniatura promete un
+secreto y el título entrega el dato).
+
+Combinación que hay que evitar: miniatura A + título 2 o 3 — las tres dicen
+"10% de la humanidad" y se anulan entre sí.
 
 ## Descripción
 
