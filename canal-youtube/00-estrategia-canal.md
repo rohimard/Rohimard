@@ -49,7 +49,15 @@ saber y no es cierto. Ese ángulo es más específico y compartible que
 
 ## 2. Nombre del canal
 
-**Propuesta: "Historia Sin Filtro"**
+> **SUSTITUIDO (01/09/2026)**: el nombre y el posicionamiento definitivos
+> están en **`07-identidad-del-canal.md`** — el canal es **"El Número Que
+> Falta"**, un formato repetible ("una historia que crees conocer + la cifra
+> que le quitaron al titular"), no un nombre temático. Ese documento también
+> corrige la recomendación de atacar temas oscuros: para un canal frío toca
+> lo contrario, **tema famoso + ángulo nuevo**. Lo de abajo queda como
+> registro de la propuesta anterior.
+
+**Propuesta anterior: "Historia Sin Filtro"**
 
 - Mantiene el mismo tono directo que veníamos usando: sin mitos, sin
   relleno, sin la versión edulcorada de libro de texto.

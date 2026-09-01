@@ -1,32 +1,41 @@
 # SEO — títulos y descripción
 
-## Títulos (2-3 para A/B, <60 caracteres, palabra clave al principio)
+## Títulos (v2 — reescritos, <60 caracteres)
 
-1. **"Por qué nadie llama genocida a Gengis Kan"** (42 car. — tensión y
-   revelación; **recomendado para lanzar**, ver emparejamiento abajo)
-2. **"Gengis Kan: el imperio que borró al 10% de la humanidad"** (55 car. —
-   palabra clave al inicio + cifra shock)
-3. **"El hombre que mató al 10% de la humanidad"** (41 car. — más corto y
-   brutal)
+**El gancho no es el 10%.** El 10% es el dato más *grande* del video, pero no
+el más *raro*, y además ya está en la miniatura. El dato que nadie más usa es
+la contradicción: Gengis Kan murió en 1227 y Bagdad cayó en 1258, **31 años
+después**. Un muerto que sigue conquistando obliga a hacer clic.
+
+1. **"Gengis Kan llevaba 31 años muerto cuando pasó lo peor"** (53 car. —
+   contradicción + bucle abierto; **recomendado para lanzar**)
+2. **"Gengis Kan llevaba 31 años muerto cuando cayó Bagdad"** (52 car. — más
+   específico, algo menos misterioso)
+3. **"Su imperio tenía una sola regla: rendirse o desaparecer"** (55 car. —
+   sin nombre: la identidad la da la cara de la miniatura)
+4. **"El imperio que borró a 1 de cada 10 personas del mundo"** (54 car. —
+   "1 de cada 10" se visualiza, "10%" no)
+5. **"800 años después, 16 millones aún lo llevan dentro"** (50 car. — ángulo
+   genético, el más intrigante de todos pero el menos reconocible)
+
+Descartados de la v1 y por qué: *"Por qué nadie llama genocida a…"* (los
+títulos que abren con "Por qué" anuncian un ensayo, no prometen revelación),
+*"El hombre que mató al 10%…"* (fórmula gastada + porcentaje abstracto +
+repite la miniatura).
 
 ## Emparejamiento título ↔ miniatura (regla del kit: NUNCA dicen lo mismo)
 
-La miniatura A ya grita el dato (`10% DE LA HUMANIDAD DESAPARECIÓ`), así que
-el título tiene que aportar **el quién y el porqué**, no repetir la cifra:
+| Miniatura | Título que la complementa | Lógica |
+|---|---|---|
+| **A** — `10%` / DE LA HUMANIDAD / DESAPARECIÓ | Título 1 o 2 (los 31 años) | Miniatura = escala · Título = lo imposible |
+| **C** — `NADIE` / TE CONTÓ / ESTO DE ÉL | Título 4 (1 de cada 10) | Miniatura = secreto · Título = la cifra |
+| **B** — `1/10` / … / MURIÓ POR ESTO | Título 1 o 3 | Miniatura = cifra · Título = contradicción o regla |
 
-| Miniatura | Título que la complementa |
-|---|---|
-| **A** — `10%` / DE LA HUMANIDAD / DESAPARECIÓ | Título 1: "Por qué nadie llama genocida a Gengis Kan" |
-| **B** — `1/10` / DE LA HUMANIDAD / MURIÓ POR ESTO | Título 1: "Por qué nadie llama genocida a Gengis Kan" |
-| **C** — `NADIE` / TE CONTÓ / ESTO DE ÉL | Título 2: "Gengis Kan: el imperio que borró al 10% de la humanidad" |
+**Lanzamiento: miniatura A + título 1.** Si a las 48h el CTR no arranca,
+rotar al par **C + título 4** (invierte los papeles).
 
-**Combinación de lanzamiento: miniatura A + título 1.** La miniatura pone la
-cifra, el título pone la acusación incómoda. Si a las 48h el CTR no arranca,
-cambiar al par C + título 2 (invierte los papeles: la miniatura promete un
-secreto y el título entrega el dato).
-
-Combinación que hay que evitar: miniatura A + título 2 o 3 — las tres dicen
-"10% de la humanidad" y se anulan entre sí.
+Combinación a evitar: miniatura A + título 4 — ambas dicen la misma cifra y
+se anulan entre sí.
 
 ## Descripción
 
