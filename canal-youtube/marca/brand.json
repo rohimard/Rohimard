@@ -4,10 +4,10 @@
   "bannerName": "banner",
   "line1": "HISTORIA",
   "line2": "INCÓMODA",
-  "tagline": "TODO LO QUE APRENDISTE TENÍA LETRA PEQUEÑA",
+  "tagline": "HISTORIAS REALES QUE PARECEN INVENTADAS",
   "monogram": "HI",
   "accent": "#FFD400",
   "alarm": "#E10600",
   "ink": "#0B0B0C",
-  "guides": true
+  "guides": false
 }

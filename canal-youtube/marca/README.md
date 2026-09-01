@@ -59,14 +59,18 @@ Se quitó la cadencia de publicación ("MARTES Y VIERNES"): ese hueco vale más
 como gancho de lectura que como información administrativa. Además, un
 horario anunciado y no cumplido resta más de lo que suma.
 
-Dos versiones generadas:
+Tres versiones generadas, todas en registro de **viralidad, no educativo**
+(ver `../07-identidad-del-canal.md`): nada de "aprender", "clase" ni "libro
+de texto`, porque ese lenguaje mete el canal en la casilla de la divulgación
+didáctica.
 
-| Archivo | Frase | Carácter |
+| Archivo | Frase | Registro |
 |---|---|---|
-| `banner.png` | TODO LO QUE APRENDISTE TENÍA LETRA PEQUEÑA | Más provocadora, y **explica el logo**: la letra pequeña es el asterisco |
-| `banner-b.png` | TE ENSEÑARON LA VERSIÓN CORTA | Más corta y directa; se lee entera de un vistazo, que es todo el tiempo que tiene un banner |
+| `banner.png` | HISTORIAS REALES QUE PARECEN INVENTADAS | **Recomendada.** Tensión real/increíble, el mismo motor del true crime |
+| `banner-b.png` | PASÓ DE VERDAD. Y FUE PEOR. | La más oscura y corta; promete intensidad |
+| `banner-c.png` | MÁS BRUTAL QUE CUALQUIER SERIE | Se posiciona contra la ficción, no contra el colegio |
 
-Configs respectivas: `brand.json` y `brand-b.json`.
+Configs: `brand.json`, `brand-b.json`, `brand-c.json`.
 
 ## Detalles técnicos que costaron un par de iteraciones
 

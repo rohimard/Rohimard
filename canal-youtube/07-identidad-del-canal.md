@@ -44,8 +44,33 @@ Por qué funciona mejor que un nombre temático:
 
 **Propuesta de valor (para el "Acerca de"):**
 
-> "Historias que crees conocer, y el número que nadie pone en el titular.
-> Sin mitos, sin clases, sin relleno."
+> "Historias reales que parecen inventadas. Pasó de verdad, y casi nadie lo
+> cuenta entero."
+
+## No somos un canal educativo (corrección de registro, 01/09/2026)
+
+Todo el lenguaje de "aprende", "lo que te enseñaron", "en clase", "libro de
+texto" queda **descartado** en nombre, banner, títulos y guiones. Ese
+registro mete el canal en la casilla de la divulgación didáctica —donde ya
+están Academia Play y compañía— y esa casilla tiene techo.
+
+La regla es: **este canal no compite contra el colegio, compite contra
+Netflix.** El espectador no viene a aprender historia, viene por la misma
+razón por la que ve true crime: una historia real que le cuesta creer.
+
+Traducción práctica:
+
+| Registro educativo (evitar) | Registro de viralidad (usar) |
+|---|---|
+| "Lo que no te contaron en clase" | "Pasó de verdad y es peor de lo que crees" |
+| "Aprende la verdad sobre X" | "Nadie se cree que esto sea real" |
+| "Historia explicada" | "Historias reales que parecen inventadas" |
+| Tono de profesor que corrige | Tono de alguien que te cuenta algo fuerte |
+
+El criterio de selección de temas también cambia: no se elige un tema porque
+sea importante históricamente, se elige porque **tiene un momento que la
+gente querrá contarle a otro**. Si un tema no tiene ese momento, no entra en
+el calendario aunque sea históricamente relevante.
 
 ## Corrección estratégica: famoso, no oscuro
 
