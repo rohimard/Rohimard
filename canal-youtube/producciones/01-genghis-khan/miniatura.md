@@ -49,7 +49,7 @@ imagen real):
   "out": "miniatura",
   "number": "10%",
   "line1": "DE LA HUMANIDAD",
-  "line2": "MURIÓ POR ÉL",
+  "line2": "DESAPARECIÓ",
   "side": "right",
   "accent": "#FFD400",
   "alarm": "#E10600"
@@ -59,9 +59,14 @@ imagen real):
 ## 2-3 variantes de titular para la miniatura (A/B)
 
 1. **Dato/número (lanzar con esta primero)**: `10%` grande en amarillo +
-   `DE LA HUMANIDAD` / `MURIÓ POR ÉL` sobre caja roja.
-2. **Identificación**: `NADIE` grande + `TE CONTÓ` / `ESTO DE ÉL`.
-3. **Emocional/shock**: `1 HOMBRE` grande + `1 DE CADA 10` / `MURIÓ POR ÉL`.
+   `DE LA HUMANIDAD` / `DESAPARECIÓ` sobre caja roja.
+2. **Emocional/shock**: `1 DE CADA 10` grande + `PERSONAS VIVAS` /
+   `MURIÓ POR ESTO`.
+3. **Identificación**: `NADIE` grande + `TE CONTÓ` / `ESTO DE ÉL`.
 
-Si el CTR flojea a las 48h con la variante 1, probar la 3 (más directa,
-menos abstracta que "10%" para quien no ha visto aún el video).
+Si el CTR flojea a las 48h con la variante 1, probar la 2 (más concreta y
+humana que el "10%" abstracto para quien aún no ha visto el video).
+
+**Nota de precisión**: evitar formulaciones tipo "murió por él" en singular
+—atribuyen a Gengis Kan personalmente lo que fueron las conquistas mongolas
+en conjunto, justo la imprecisión que el guión v2 corrige (ver `README.md`).
