@@ -1,0 +1,13 @@
+{
+  "font": "../kit-produccion/assets/Anton-Regular.woff2",
+  "outDir": ".",
+  "line1": "HISTORIA",
+  "line2": "INCÓMODA",
+  "tagline": "LA VERSIÓN QUE NO TE CONTARON EN CLASE",
+  "schedule": "MARTES Y VIERNES",
+  "monogram": "HI",
+  "accent": "#FFD400",
+  "alarm": "#E10600",
+  "ink": "#0B0B0C",
+  "guides": true
+}
