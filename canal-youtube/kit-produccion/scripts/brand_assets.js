@@ -20,7 +20,8 @@
  *   "line1": "HISTORIA",          // banner: first word (white)
  *   "line2": "INCÓMODA",          // banner: second word (accent colour)
  *   "tagline": "LA VERSIÓN QUE NO TE CONTARON EN CLASE",
- *   "schedule": "MARTES Y VIERNES",   // optional, omit to hide
+ *   "subline": "…",                // optional second line under the tagline
+ *   "bannerName": "banner",        // output filename stem for the banner
  *   "monogram": "HI",             // avatar variant "mono"
  *   "accent": "#FFD400",
  *   "alarm":  "#E10600",
@@ -106,7 +107,8 @@ html,body{width:2048px;height:1152px;overflow:hidden;}
 .word{font-size:126px;line-height:1.3;letter-spacing:2px;white-space:nowrap;}
 .word .a{color:#fff;} .word .b2{color:${accent};}
 .rule{width:520px;height:11px;background:${alarm};margin:22px 0 18px;}
-.tag{font-size:29px;color:#fff;letter-spacing:6px;opacity:.92;}
+/* With no second line the tagline carries the banner alone, so it runs bigger. */
+.tag{font-size:${cfg.subline ? 29 : 40}px;color:#fff;letter-spacing:${cfg.subline ? 6 : 5}px;opacity:.95;}
 .sch{margin-top:14px;font-size:22px;letter-spacing:5px;color:${accent};opacity:.85;}
 .guide{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
        width:${SAFE_W}px;height:${SAFE_H}px;border:3px dashed rgba(255,0,0,.9);}
@@ -120,7 +122,7 @@ html,body{width:2048px;height:1152px;overflow:hidden;}
     <div class="word"><span class="a">${cfg.line1 || ''}</span> <span class="b2">${cfg.line2 || ''}</span></div>
     <div class="rule"></div>
     <div class="tag">${cfg.tagline || ''}</div>
-    ${cfg.schedule ? `<div class="sch">${cfg.schedule}</div>` : ''}
+    ${cfg.subline ? `<div class="sch">${cfg.subline}</div>` : ''}
   </div>
   ${guides ? `<div class="guide"></div><div class="glabel">ZONA SEGURA 1235 x 338 — TODO LO DE FUERA SOLO SE VE EN TV</div>` : ''}
 </div>`;
@@ -144,8 +146,9 @@ html,body{width:2048px;height:1152px;overflow:hidden;}
   };
 
   for (const [name, html] of Object.entries(avatars)) await shoot(html, 800, 800, out(name + '.png'));
-  await shoot(bannerHTML(false), 2048, 1152, out('banner.png'));
-  if (cfg.guides) await shoot(bannerHTML(true), 2048, 1152, out('banner-guias.png'));
+  const bn = cfg.bannerName || 'banner';
+  await shoot(bannerHTML(false), 2048, 1152, out(bn + '.png'));
+  if (cfg.guides) await shoot(bannerHTML(true), 2048, 1152, out(bn + '-guias.png'));
 
   await browser.close();
 })().catch(e => { console.error(e.message); process.exit(3); });

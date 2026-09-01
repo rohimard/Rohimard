@@ -53,13 +53,20 @@ lados son relleno intencionado para que en TV/escritorio no se vea vacío.
 Contenido del banner:
 - **HISTORIA INCÓMODA** (blanco + amarillo), en una sola línea
 - Barra roja de remate
-- **LA VERSIÓN QUE NO TE CONTARON EN CLASE**
-- **MARTES Y VIERNES**
+- **Una sola frase gancho**, grande
 
-Sobre la última línea: anunciar la cadencia en el banner funciona porque
-crea expectativa, **pero solo si la cumples**. Si no vas a publicar dos
-veces por semana de forma sostenida, quita `"schedule"` de `brand.json` y
-regenera — un horario incumplido resta más de lo que suma.
+Se quitó la cadencia de publicación ("MARTES Y VIERNES"): ese hueco vale más
+como gancho de lectura que como información administrativa. Además, un
+horario anunciado y no cumplido resta más de lo que suma.
+
+Dos versiones generadas:
+
+| Archivo | Frase | Carácter |
+|---|---|---|
+| `banner.png` | TODO LO QUE APRENDISTE TENÍA LETRA PEQUEÑA | Más provocadora, y **explica el logo**: la letra pequeña es el asterisco |
+| `banner-b.png` | TE ENSEÑARON LA VERSIÓN CORTA | Más corta y directa; se lee entera de un vistazo, que es todo el tiempo que tiene un banner |
+
+Configs respectivas: `brand.json` y `brand-b.json`.
 
 ## Detalles técnicos que costaron un par de iteraciones
 
