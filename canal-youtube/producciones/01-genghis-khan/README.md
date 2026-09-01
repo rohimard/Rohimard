@@ -13,14 +13,19 @@ Entregables de este video, generados con `kit-produccion/` (ver
   Flow/Imagen, uno por escena, formato imagen fija (sin movimiento de
   cámara). Personaje recurrente: guerrero mongol genérico (representación
   histórica, no un retrato de una persona real identificable).
-- `tiempos-sugeridos.md` / `.csv` / `.txt` — hoja de montaje con duración
-  **estimada** (325s / 5:25, calculada a ~155 palabras/min). **Se debe
-  regenerar con la duración real** en cuanto exista el audio de ElevenLabs:
+- `audio.mp3` — narración de ElevenLabs. **5:39.9 (339,93 s)**, medidos con
+  `mp3_duration.js`.
+- `hoja-montaje.md` / `.csv` / `.txt` — hoja de montaje **definitiva,
+  cuadrada al audio real** (340 s, 78 planos, ninguno supera 8s), con las
+  notas de montaje del video: números animados, cortes anclados a la onda,
+  bucle visual de la caja y transiciones. Si se regenera el audio:
   `node ../../kit-produccion/scripts/mp3_duration.js audio.mp3` y luego
-  `node ../../kit-produccion/scripts/timing_sheet.js segments.json <segundos> 3 tiempos-sugeridos`.
-- `miniatura.md` — estrategia, prompt de imagen base y 3 variantes de
-  titular para la miniatura.
-- `seo.md` — títulos A/B, descripción y capítulos.
+  `node ../../kit-produccion/scripts/timing_sheet.js segments.json <segundos> 3 hoja-montaje`.
+- `miniatura.md` + `miniatura.jpg` / `-b` / `-c` — miniatura montada en tres
+  variantes para A/B, sobre `base.jpg`. Previews a tamaño de feed en
+  `test-feed*.png`.
+- `seo.md` — títulos A/B **emparejados con cada miniatura**, descripción y
+  capítulos con los tiempos reales.
 
 ## Precisión histórica (v2 — corregida)
 

@@ -31,3 +31,4 @@ next-env.d.ts
 
 # artefactos temporales del render de miniaturas
 canal-youtube/producciones/**/_thumb.html
+canal-youtube/producciones/**/audio.mp3

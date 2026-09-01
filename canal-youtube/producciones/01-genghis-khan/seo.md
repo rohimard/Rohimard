@@ -44,15 +44,18 @@ historia oficial suavizó todo esto bajo un nombre precioso: Pax Mongolica.
 sin dejar un solo cuerpo. Si te ha volado la cabeza, compártelo con alguien
 que crea que la historia es aburrida.
 
-**Capítulos** (de `tiempos-sugeridos.md`; recuadrar con el audio real):
-- 0:00 El error que cometemos con los imperios
-- 0:44 Samarcanda, 1219
-- 1:15 El sistema: rendirse o desaparecer
-- 1:41 Merv: la ciudad que nunca volvió
-- 2:12 La máquina que siguió sin él
-- 3:10 Las tres razones por las que no se habla de esto
-- 4:03 El rastro que dejó en 16 millones de personas
-- 4:45 Qué número no está en el titular
+**Capítulos** (cuadrados con el audio real de 5:40 — copiar tal cual en la
+descripción, YouTube los convierte en capítulos automáticamente):
+```
+0:00 El error que cometemos con los imperios
+0:47 Samarcanda, 1219
+1:18 El sistema: rendirse o desaparecer
+1:42 Merv, la ciudad que nunca volvió
+2:22 La máquina que siguió sin él
+3:17 Las tres razones por las que no se habla de esto
+4:16 El rastro que dejó en 16 millones de personas
+4:59 Qué número no está en el titular
+```
 
 **Hashtags:** #historia #gengiskan #imperiomongol #historiaantigua #documental
 
