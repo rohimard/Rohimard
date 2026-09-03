@@ -26,13 +26,22 @@ Entregables de este video, generados con `kit-produccion/` (ver
   `test-feed*.png`.
 - `seo.md` — títulos A/B **emparejados con cada miniatura**, descripción y
   capítulos con los tiempos reales.
-- `subtitulos.srt` — 100 subtítulos, máximo 2 líneas de 42 caracteres,
-  cuadrados a los 339,93s reales del audio. Generado con
-  `kit-produccion/scripts/srt_from_script.js`, que modela las pausas de
-  frase y de párrafo en vez de repartir el tiempo a partes iguales.
-  Verificado: sin solapamientos, sin líneas largas, ningún bloque de más de
-  2 líneas. Una palabra está ajustada al audio real ("no necesitaba su
-  creador"), que difiere del guión escrito en una "a".
+- `subtitulos.srt` — 100 subtítulos **anclados a las pausas reales del
+  audio**, no estimados desde el texto. Generado con
+  `kit-produccion/scripts/srt_align.js`, que decodifica el MP3, detecta los
+  silencios del narrador y engancha ahí los finales de frase. 67 de los 100
+  subtítulos caen sobre una pausa medida; entre ancla y ancla el tiempo se
+  reparte por caracteres, así que el desfase no se acumula.
+  Verificado: sin solapamientos, ninguna línea de más de 42 caracteres,
+  ningún bloque de más de 2 líneas, ninguno por debajo de 0,9s.
+
+  Para regenerarlo (requiere `npm install mpg123-decoder`):
+  ```
+  node ../../kit-produccion/scripts/srt_align.js guion.txt audio.mp3 subtitulos.srt
+  ```
+  Después hay que reaplicar una corrección de una palabra: el narrador dice
+  "no necesitaba **su** creador", sin la "a" que sí está en `guion.txt`. Los
+  subtítulos deben decir lo que se oye, no lo que se escribió.
 
 ## Precisión histórica (v2 — corregida)
 
