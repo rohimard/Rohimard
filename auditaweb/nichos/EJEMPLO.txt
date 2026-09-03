@@ -1,0 +1,14 @@
+# Un dominio por línea. Las líneas vacías y las que empiezan por # se ignoran.
+#
+# Reúne 50 webs de un nicho local concreto (Google Maps es la mejor fuente)
+# y lánzalas de golpe:
+#
+#   python prospectar.py nichos/EJEMPLO.txt --nicho "clínicas dentales de Valencia"
+#
+# Salida:
+#   estudio-prospectos.csv  -> a quién escribir, ordenado de peor a mejor
+#   estudio-resumen.txt     -> los datos agregados para el post de LinkedIn
+
+ejemplo-uno.com
+ejemplo-dos.es
+www.ejemplo-tres.com

@@ -64,6 +64,7 @@ app.py               Rutas Flask, integración con Stripe y muro de pago
 auditor.py           Motor de análisis: descarga, parseo y puntuación
 informe.py           Generación del PDF con ReportLab
 almacen.py           Persistencia en JSON (escritura atómica y con cerrojo)
+prospectar.py        Audita una lista de dominios en lote (herramienta de venta)
 templates/           Landing, informe, gracias y errores (Jinja + Bootstrap)
 static/vendor/       Bootstrap 5.3.8 servido en local, sin depender de un CDN
 data/                informes.json y suscriptores.json (lista de espera)
@@ -79,6 +80,20 @@ python tests/prueba_humo.py
 Levanta un servidor local con dos páginas de ejemplo (una mal hecha y otra
 bien hecha), audita ambas y recorre el flujo completo hasta la descarga del
 PDF. No necesita conexión a internet y no toca los datos reales.
+
+## Prospección en lote
+
+Para vender hace falta saber a quién escribir y qué publicar.
+`prospectar.py` audita una lista entera de dominios de una vez:
+
+```bash
+python prospectar.py nichos/dentistas.txt --nicho "clínicas dentales de Valencia"
+```
+
+Genera dos ficheros: `estudio-prospectos.csv` con los negocios ordenados de
+peor a mejor puntuación (a los primeros les escribes) y `estudio-resumen.txt`
+con los datos agregados del nicho (el contenido del post). El plan completo
+está en [`../PROMOCION.md`](../PROMOCION.md).
 
 ## Captura de correos
 
