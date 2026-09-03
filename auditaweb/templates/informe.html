@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block titulo %}Auditoría de {{ a.dominio }} — {{ a.puntuacion }}/100 · {{ marca }}{% endblock %}
+
+{% block contenido %}
+{% set color = 'success' if a.puntuacion >= 75 else 'warning' if a.puntuacion >= 50 else 'danger' %}
+{% set hex = '#16A34A' if a.puntuacion >= 75 else '#D97706' if a.puntuacion >= 50 else '#DC2626' %}
+
+<section class="py-5">
+  <div class="container">
+    <div class="row g-4 align-items-center mb-4">
+      <div class="col-md-auto text-center">
+        <div class="medidor medidor-grande" style="--valor: {{ a.puntuacion }}; --color: {{ hex }};">
+          <span>{{ a.puntuacion }}</span>
+        </div>
+      </div>
+      <div class="col-md">
+        <p class="text-secondary small mb-1">Resultado del análisis</p>
+        <h1 class="h3 fw-bold mb-1">{{ a.dominio }}</h1>
+        <p class="mb-2">
+          <span class="badge text-bg-{{ color }}">{{ a.nivel }}</span>
+          <span class="text-secondary small ms-2">
+            {{ a.resumen.total }} comprobaciones · respondió en {{ a.ms }} ms
+          </span>
+        </p>
+        <div class="d-flex flex-wrap gap-3 small">
+          <span><strong class="text-success">{{ a.resumen.correctos }}</strong> correctos</span>
+          <span><strong class="text-warning">{{ a.resumen.avisos }}</strong> mejorables</span>
+          <span><strong class="text-danger">{{ a.resumen.errores }}</strong> fallos</span>
+        </div>
+      </div>
+      <div class="col-md-auto">
+        <a href="{{ url_for('inicio') }}#analizar" class="btn btn-outline-secondary btn-sm">Analizar otra web</a>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-7">
+        <div class="border rounded-4 bg-white p-4 mb-4">
+          <h2 class="h6 fw-bold mb-3">Puntuación por área</h2>
+          {% for nombre, c in a.categorias.items() %}
+          {% set cc = 'success' if c.puntuacion >= 75 else 'warning' if c.puntuacion >= 50 else 'danger' %}
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <span class="small flex-shrink-0" style="width: 150px">{{ nombre }}</span>
+            <div class="progress flex-grow-1" style="height: 8px">
+              <div class="progress-bar bg-{{ cc }}" style="width: {{ c.puntuacion }}%"></div>
+            </div>
+            <span class="small fw-semibold text-{{ cc }}" style="width: 36px">{{ c.puntuacion }}%</span>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="border rounded-4 bg-white p-4">
+          <h2 class="h6 fw-bold mb-1">Los problemas más graves</h2>
+          <p class="small text-secondary mb-3">Estos son los 3 primeros por impacto. Gratis.</p>
+
+          {% for c in visibles %}
+          <div class="border-start border-3 border-{{ 'danger' if c.estado == 'error' else 'warning' }} ps-3 mb-3">
+            <div class="d-flex align-items-center gap-2 mb-1">
+              <span class="badge text-bg-{{ 'danger' if c.estado == 'error' else 'warning' }}-subtle text-{{ 'danger' if c.estado == 'error' else 'warning' }}-emphasis">
+                {{ 'FALLO' if c.estado == 'error' else 'MEJORABLE' }}
+              </span>
+              <strong class="small">{{ c.titulo }}</strong>
+            </div>
+            <p class="small text-secondary mb-0">{{ c.detalle }}</p>
+          </div>
+          {% else %}
+          <p class="small text-success mb-0">Enhorabuena: no se ha detectado ningún problema.</p>
+          {% endfor %}
+
+          {% if bloqueados %}
+          <div class="bloqueado position-relative border rounded-3 p-3 mt-3">
+            <div class="difuminado">
+              {% for c in a.prioridades[3:8] %}
+              <div class="d-flex gap-2 mb-2">
+                <span class="badge text-bg-secondary">···</span>
+                <span class="small text-secondary">{{ c.titulo }} — problema detectado en tu página</span>
+              </div>
+              {% endfor %}
+            </div>
+            <div class="candado text-center">
+              <div class="fs-4">🔒</div>
+              <strong class="d-block small">Quedan {{ bloqueados }} problemas por ver</strong>
+              <span class="small text-secondary">con la solución concreta de cada uno</span>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="col-lg-5">
+        <div class="border border-primary rounded-4 bg-white p-4 shadow-sm sticky-lg-top" style="top: 88px">
+          {% if registro.pagado %}
+            <span class="badge text-bg-success mb-3">Informe desbloqueado</span>
+            <h2 class="h5 fw-bold">Ya tienes acceso completo</h2>
+            <a href="{{ url_for('descargar', identificador=identificador) }}"
+               class="btn btn-success btn-lg w-100 mt-3">Descargar el PDF</a>
+          {% else %}
+            <h2 class="h5 fw-bold mb-1">Informe completo en PDF</h2>
+            <p class="small text-secondary mb-3">
+              Las {{ a.resumen.total }} comprobaciones con el detalle, el plan de acción
+              ordenado por impacto y cómo se arregla cada punto.
+            </p>
+            <div class="d-flex align-items-baseline gap-2 mb-3">
+              <span class="display-6 fw-bold">{{ moneda_simbolo }}{{ precio }}</span>
+              <span class="small text-secondary">pago único · sin suscripción</span>
+            </div>
+            <ul class="small text-secondary ps-3 mb-4">
+              <li><strong class="text-dark">{{ a.resumen.errores }} fallos</strong> y
+                  <strong class="text-dark">{{ a.resumen.avisos }} mejoras</strong> detalladas</li>
+              <li>Instrucciones concretas, no consejos genéricos</li>
+              <li>PDF con tu dominio, listo para enviar a un cliente</li>
+            </ul>
+
+            {% if modo_demo %}
+            <div class="alert alert-warning small py-2">
+              <strong>Modo demo:</strong> no se cobra nada. Configura <code>STRIPE_SECRET_KEY</code>
+              para activar el cobro real.
+            </div>
+            {% endif %}
+
+            <form action="{{ url_for('comprar', identificador=identificador) }}" method="post">
+              <input type="email" name="email" class="form-control mb-2"
+                     placeholder="tu@correo.com (para enviarte el informe)" autocomplete="email">
+              <button class="btn btn-primary btn-lg w-100">
+                {{ 'Desbloquear (demo)' if modo_demo else 'Desbloquear informe · ' ~ moneda_simbolo ~ precio }}
+              </button>
+            </form>
+            <p class="small text-secondary text-center mt-2 mb-0">
+              {{ 'Pago simulado, no se cobra nada.' if modo_demo else 'Pago seguro con tarjeta a través de Stripe.' }}
+            </p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

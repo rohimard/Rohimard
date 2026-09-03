@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block titulo %}Informe listo — {{ a.dominio }} · {{ marca }}{% endblock %}
+
+{% block contenido %}
+<section class="py-5">
+  <div class="container" style="max-width: 640px">
+    <div class="text-center border rounded-4 bg-white p-5 shadow-sm">
+      <div class="fs-1 mb-2">✅</div>
+      <h1 class="h3 fw-bold mb-2">Tu informe está listo</h1>
+      <p class="text-secondary mb-4">
+        Auditoría completa de <strong>{{ a.dominio }}</strong> —
+        {{ a.resumen.total }} comprobaciones, {{ a.puntuacion }}/100.
+      </p>
+      <a href="{{ url_for('descargar', identificador=identificador) }}"
+         class="btn btn-primary btn-lg px-4">Descargar el PDF</a>
+      <p class="small text-secondary mt-3 mb-0">
+        Guarda este enlace: puedes volver a descargarlo cuando quieras.
+      </p>
+    </div>
+
+    <div class="border rounded-4 bg-white p-4 mt-4">
+      <h2 class="h6 fw-bold mb-2">Por dónde empezar</h2>
+      <ol class="small text-secondary mb-0 ps-3">
+        {% for c in a.prioridades[:3] %}
+        <li class="mb-2"><strong class="text-dark">{{ c.titulo }}</strong> — {{ c.arreglo or c.detalle }}</li>
+        {% endfor %}
+      </ol>
+    </div>
+
+    <div class="text-center mt-4">
+      <a href="{{ url_for('inicio') }}#analizar" class="btn btn-outline-secondary">Analizar otra web</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

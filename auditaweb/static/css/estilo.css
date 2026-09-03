@@ -1,0 +1,100 @@
+:root {
+  --tinta: #0F172A;
+  --marca: #4F46E5;
+}
+
+body {
+  background: #F8FAFC;
+  color: var(--tinta);
+  -webkit-font-smoothing: antialiased;
+}
+
+.navbar-brand { color: var(--tinta); }
+
+.marca-punto {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--marca);
+  margin-right: 8px;
+  vertical-align: baseline;
+}
+
+.hero {
+  background:
+    radial-gradient(1000px 400px at 15% -10%, #EEF2FF 0%, transparent 60%),
+    radial-gradient(800px 400px at 90% 0%, #F0FDF4 0%, transparent 55%);
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--marca);
+  --bs-btn-border-color: var(--marca);
+  --bs-btn-hover-bg: #4338CA;
+  --bs-btn-hover-border-color: #4338CA;
+  --bs-btn-disabled-bg: var(--marca);
+  --bs-btn-disabled-border-color: var(--marca);
+}
+
+.analizador:focus-within {
+  border-color: var(--marca) !important;
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, .12) !important;
+}
+
+/* Medidor circular de puntuacion: anillo con conic-gradient y disco interior
+   blanco que contiene la cifra. */
+.medidor {
+  --valor: 0;
+  --color: var(--marca);
+  --grosor: 9px;
+  width: 104px;
+  height: 104px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(var(--color) calc(var(--valor) * 1%), #E2E8F0 0);
+}
+
+.medidor > span {
+  width: calc(100% - var(--grosor) * 2);
+  height: calc(100% - var(--grosor) * 2);
+  border-radius: 50%;
+  background: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color);
+  line-height: 1;
+}
+
+.medidor-grande {
+  width: 132px;
+  height: 132px;
+  --grosor: 11px;
+}
+
+.medidor-grande > span { font-size: 2.25rem; }
+
+/* Bloque de resultados difuminado tras el muro de pago */
+.difuminado {
+  filter: blur(4px);
+  opacity: .55;
+  user-select: none;
+  pointer-events: none;
+}
+
+.bloqueado { background: #F8FAFC; }
+
+.candado {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(248,250,252,.6), rgba(248,250,252,.95));
+  border-radius: .5rem;
+}
+
+.tarjeta-muestra { transform: rotate(-.6deg); }

@@ -1,0 +1,181 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<section class="hero py-5">
+  <div class="container py-lg-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <span class="badge rounded-pill text-bg-light border mb-3">29 comprobaciones · sin registro</span>
+        <h1 class="display-5 fw-bold lh-sm mb-3">
+          Descubre por qué tu web<br>no aparece en Google
+        </h1>
+        <p class="lead text-secondary mb-4">
+          Pega una dirección y en menos de un minuto tendrás una puntuación sobre 100 y
+          la lista exacta de lo que hay que arreglar. La puntuación es gratis;
+          el informe completo en PDF cuesta {{ moneda_simbolo }}{{ precio }}.
+        </p>
+
+        <form id="analizar" action="{{ url_for('crear_auditoria') }}" method="post"
+              class="analizador p-2 bg-white border rounded-4 shadow-sm" onsubmit="analizando(this)">
+          <div class="d-flex flex-column flex-sm-row gap-2">
+            <input type="text" name="url" required autocomplete="url" spellcheck="false"
+                   class="form-control form-control-lg border-0 shadow-none"
+                   placeholder="tudominio.com">
+            <button class="btn btn-primary btn-lg px-4 text-nowrap" type="submit">
+              <span class="etiqueta">Analizar gratis</span>
+              <span class="spinner-border spinner-border-sm d-none" aria-hidden="true"></span>
+            </button>
+          </div>
+        </form>
+        <p class="small text-secondary mt-2 mb-0">
+          Analizamos solo el HTML público de la página. No instalamos nada ni tocamos tu web.
+        </p>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="tarjeta-muestra bg-white border rounded-4 shadow-sm p-4">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <span class="small text-secondary">informe-ejemplo.pdf</span>
+            <span class="badge text-bg-danger-subtle text-danger-emphasis">Deficiente</span>
+          </div>
+          <div class="d-flex align-items-center gap-4 mb-4">
+            <div class="medidor" style="--valor: 39; --color: #DC2626;">
+              <span>39</span>
+            </div>
+            <div class="small">
+              <div class="d-flex gap-2"><strong class="text-success">7</strong> correctos</div>
+              <div class="d-flex gap-2"><strong class="text-warning">11</strong> mejorables</div>
+              <div class="d-flex gap-2"><strong class="text-danger">11</strong> fallos</div>
+            </div>
+          </div>
+          {% for etiqueta, valor, color in [
+              ('Metadatos', 45, 'danger'), ('Contenido', 29, 'danger'),
+              ('Imágenes', 16, 'danger'), ('Rendimiento', 69, 'warning'),
+              ('Indexación', 44, 'danger')] %}
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <span class="small text-secondary flex-shrink-0" style="width:88px">{{ etiqueta }}</span>
+            <div class="progress flex-grow-1" style="height:8px">
+              <div class="progress-bar bg-{{ color }}" style="width: {{ valor }}%"></div>
+            </div>
+            <span class="small fw-semibold text-{{ color }}" style="width:34px">{{ valor }}%</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-white border-top">
+  <div class="container">
+    <div class="row g-4 text-center">
+      {% for icono, titulo, texto in [
+        ('⚡', 'En menos de un minuto', 'Sin cuentas, sin instalar plugins y sin dar acceso a tu hosting. Pegas la URL y listo.'),
+        ('🎯', 'Ordenado por impacto', 'No te damos 30 avisos sueltos: te decimos cuáles cuestan tráfico de verdad y en qué orden atacarlos.'),
+        ('📄', 'PDF listo para enviar', 'El informe se puede presentar tal cual a un cliente o pasárselo al desarrollador como lista de tareas.')] %}
+      <div class="col-md-4">
+        <div class="fs-2 mb-2">{{ icono }}</div>
+        <h3 class="h6 fw-bold">{{ titulo }}</h3>
+        <p class="small text-secondary mb-0">{{ texto }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <h2 class="h4 fw-bold text-center mb-1">Qué se comprueba</h2>
+    <p class="text-center text-secondary mb-4">29 pruebas técnicas agrupadas en 7 áreas.</p>
+    <div class="row g-3">
+      {% for area, pruebas in [
+        ('Metadatos', 'title, meta description, canonical, idioma, meta robots, favicon'),
+        ('Contenido', 'H1 único, jerarquía de encabezados, volumen de texto, ratio texto/HTML, enlazado interno'),
+        ('Imágenes y accesibilidad', 'texto alternativo, dimensiones (CLS), carga diferida, viewport móvil'),
+        ('Redes sociales', 'Open Graph completo y Twitter Card'),
+        ('Datos estructurados', 'Schema.org en JSON-LD y detección de microdatos antiguos'),
+        ('Rendimiento', 'tiempo de respuesta, peso del HTML, compresión, scripts bloqueantes, hojas de estilo'),
+        ('Indexación y seguridad', 'HTTPS, contenido mixto, robots.txt, sitemap.xml, cabeceras, redirecciones')] %}
+      <div class="col-md-6">
+        <div class="h-100 border rounded-3 p-3 bg-white">
+          <h3 class="h6 fw-bold mb-1">{{ area }}</h3>
+          <p class="small text-secondary mb-0">{{ pruebas }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section id="precios" class="py-5 bg-white border-top">
+  <div class="container">
+    <h2 class="h4 fw-bold text-center mb-4">Precios</h2>
+    <div class="row g-4 justify-content-center">
+      <div class="col-md-4">
+        <div class="h-100 border rounded-4 p-4">
+          <h3 class="h6 text-secondary">Escaneo</h3>
+          <div class="display-6 fw-bold mb-3">Gratis</div>
+          <ul class="small text-secondary ps-3 mb-0">
+            <li>Puntuación global sobre 100</li>
+            <li>Nota de las 7 áreas</li>
+            <li>Los 3 problemas más graves</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="h-100 border border-primary rounded-4 p-4 position-relative shadow-sm">
+          <span class="badge text-bg-primary position-absolute top-0 start-50 translate-middle">Más vendido</span>
+          <h3 class="h6 text-secondary">Informe completo</h3>
+          <div class="display-6 fw-bold mb-3">{{ moneda_simbolo }}{{ precio }}</div>
+          <ul class="small text-secondary ps-3 mb-0">
+            <li>Las 29 comprobaciones con su detalle</li>
+            <li>Plan de acción priorizado por impacto</li>
+            <li>Cómo se arregla cada fallo, paso a paso</li>
+            <li>PDF descargable listo para el cliente</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="h-100 border rounded-4 p-4">
+          <h3 class="h6 text-secondary">Agencia</h3>
+          <div class="display-6 fw-bold mb-3">{{ moneda_simbolo }}99<span class="fs-6 text-secondary">/mes</span></div>
+          <ul class="small text-secondary ps-3 mb-3">
+            <li>Informes ilimitados</li>
+            <li>Marca blanca con tu logo</li>
+            <li>Seguimiento mensual automático</li>
+          </ul>
+          <span class="badge text-bg-light border">En preparación</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lista" class="py-5">
+  <div class="container">
+    <div class="mx-auto text-center" style="max-width: 540px">
+      <h2 class="h4 fw-bold mb-2">Avísame cuando abra el plan Agencia</h2>
+      <p class="text-secondary small mb-4">
+        Informes ilimitados con tu marca. Sin spam: un solo correo cuando esté disponible.
+      </p>
+      <form action="{{ url_for('lista_espera') }}" method="post" class="d-flex flex-column flex-sm-row gap-2">
+        <input type="email" name="email" required class="form-control form-control-lg"
+               placeholder="tu@correo.com" autocomplete="email">
+        <input type="hidden" name="origen" value="landing">
+        <button class="btn btn-dark btn-lg px-4 text-nowrap">Apuntarme</button>
+      </form>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function analizando(formulario) {
+  const boton = formulario.querySelector('button');
+  boton.disabled = true;
+  boton.querySelector('.etiqueta').textContent = 'Analizando…';
+  boton.querySelector('.spinner-border').classList.remove('d-none');
+}
+</script>
+{% endblock %}
