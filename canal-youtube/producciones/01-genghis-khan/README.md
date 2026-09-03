@@ -26,6 +26,13 @@ Entregables de este video, generados con `kit-produccion/` (ver
   `test-feed*.png`.
 - `seo.md` — títulos A/B **emparejados con cada miniatura**, descripción y
   capítulos con los tiempos reales.
+- `subtitulos.srt` — 100 subtítulos, máximo 2 líneas de 42 caracteres,
+  cuadrados a los 339,93s reales del audio. Generado con
+  `kit-produccion/scripts/srt_from_script.js`, que modela las pausas de
+  frase y de párrafo en vez de repartir el tiempo a partes iguales.
+  Verificado: sin solapamientos, sin líneas largas, ningún bloque de más de
+  2 líneas. Una palabra está ajustada al audio real ("no necesitaba su
+  creador"), que difiere del guión escrito en una "a".
 
 ## Precisión histórica (v2 — corregida)
 
