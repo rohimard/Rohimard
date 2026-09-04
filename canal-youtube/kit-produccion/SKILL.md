@@ -64,6 +64,12 @@ debe medir **4.500–5.000 caracteres**; guárdalo en `guion.txt` y verifica el 
 de puntos de código con el one-liner de esa guía, ajustando hasta caer en rango. Entrégalo
 en un bloque copiable, en texto corrido sin markdown (listo para pegar en ElevenLabs).
 
+**Además del guión, entrega `guion-voz.txt`**: el mismo texto adaptado a cómo
+debe sonar (párrafos agrupados para no generar pausas de más, extranjerismos
+reescritos fonéticamente, números en letras). Lee `references/voz-natural.md`.
+El de voz es el que se pega en ElevenLabs; el otro es el que alimenta los
+subtítulos.
+
 Luego el usuario crea el audio en ElevenLabs y lo trae de vuelta. Mientras tanto, ya puedes
 hacer los Pasos 3 (imágenes) y 6 (SEO) desde el guión; los Pasos 1 y 4 (audio y tiempos)
 esperan al audio. Si el usuario quiere avanzar sin audio, ver "Si falta algo".
