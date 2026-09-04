@@ -1,0 +1,400 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "block": "GANCHO",
+      "cue": "Una sensación sin explicar",
+      "text": "Hay una sensación que has tenido y que no sabes explicar. Estás en un sitio nuevo, haciendo algo trivial,"
+    },
+    {
+      "id": 2,
+      "block": "GANCHO",
+      "cue": "Un sitio nuevo, algo trivial",
+      "text": "y de repente algo dentro de ti dice: esto ya lo he vivido."
+    },
+    {
+      "id": 3,
+      "block": "GANCHO",
+      "cue": "Esto ya lo he vivido",
+      "text": "No es un recuerdo, no sabes decir cuándo pasó, pero la certeza es total. Dura un segundo y se va."
+    },
+    {
+      "id": 4,
+      "block": "GANCHO",
+      "cue": "No es un recuerdo",
+      "text": "Durante casi toda la historia solo hubo dos explicaciones."
+    },
+    {
+      "id": 5,
+      "block": "GANCHO",
+      "cue": "La certeza es total",
+      "text": "O estás recordando otra vida, o acabas de ver un trozo del futuro."
+    },
+    {
+      "id": 6,
+      "block": "GANCHO",
+      "cue": "Dura un segundo y se va",
+      "text": "Las dos son falsas, y lo que pasa de verdad ahí dentro es bastante más raro."
+    },
+    {
+      "id": 7,
+      "block": "GANCHO",
+      "cue": "Recordar otra vida",
+      "text": "Antes de contártelo, quédate con un dato, porque vamos a volver a él."
+    },
+    {
+      "id": 8,
+      "block": "GANCHO",
+      "cue": "Ver un trozo del futuro",
+      "text": "Hay personas que no salen nunca de esa sensación. Viven dentro de ella, todo el día. Guarda eso."
+    },
+    {
+      "id": 9,
+      "block": "GANCHO",
+      "cue": "Las dos son falsas",
+      "text": "Montreal, años treinta. Un quirófano, un paciente con el cráneo abierto y el cerebro a la vista."
+    },
+    {
+      "id": 10,
+      "block": "GANCHO",
+      "cue": "Gente que vive dentro",
+      "text": "Y despierto, hablando. No es una tortura. Es cirugía de epilepsia. El cerebro no duele, no tiene receptores del dolor,"
+    },
+    {
+      "id": 11,
+      "block": "MONTREAL",
+      "cue": "Montreal, años treinta",
+      "text": "así que se puede operar con el paciente consciente. Y hace falta que lo esté,"
+    },
+    {
+      "id": 12,
+      "block": "MONTREAL",
+      "cue": "Un quirófano",
+      "text": "porque el cirujano necesita saber qué hace cada milímetro antes de tocarlo. Ese cirujano se llamaba Wilder Penfield."
+    },
+    {
+      "id": 13,
+      "block": "MONTREAL",
+      "cue": "Cráneo abierto, cerebro a la vista",
+      "text": "Su método era ir rozando la superficie del cerebro con un electrodo y preguntar qué sentía el paciente en ese momento."
+    },
+    {
+      "id": 14,
+      "block": "MONTREAL",
+      "cue": "Y despierto, hablando",
+      "text": "Las respuestas empezaron a ser muy extrañas. Uno oía una orquesta. Otro, la voz de su madre llamándole."
+    },
+    {
+      "id": 15,
+      "block": "MONTREAL",
+      "cue": "El cerebro no duele",
+      "text": "Otro volvía a una escena de su infancia con todo el detalle. Y algunos,"
+    },
+    {
+      "id": 16,
+      "block": "MONTREAL",
+      "cue": "Saber qué hace cada milímetro",
+      "text": "al estimular una zona muy concreta del lóbulo temporal, decían exactamente esa frase. Esto ya lo he vivido."
+    },
+    {
+      "id": 17,
+      "block": "MONTREAL",
+      "cue": "Wilder Penfield",
+      "text": "Penfield no estaba despertando recuerdos. Estaba encendiendo la sensación de recordar."
+    },
+    {
+      "id": 18,
+      "block": "MONTREAL",
+      "cue": "El electrodo",
+      "text": "Y eso es una cosa completamente distinta. Porque tu cerebro no guarda la memoria como un video."
+    },
+    {
+      "id": 19,
+      "block": "MONTREAL",
+      "cue": "¿Qué siente ahora?",
+      "text": "Reparte el trabajo en dos. Una parte decide si algo te resulta familiar, y otra va a buscar por qué."
+    },
+    {
+      "id": 20,
+      "block": "EL_ELECTRODO",
+      "cue": "Un paciente oía una orquesta",
+      "text": "Normalmente van juntas y ni te enteras. Ves una cara, sientes que la conoces, y a la vez recuperas de dónde."
+    },
+    {
+      "id": 21,
+      "block": "EL_ELECTRODO",
+      "cue": "La voz de su madre",
+      "text": "El déjà vu es lo que ocurre cuando la primera se dispara y la segunda vuelve vacía. Familiaridad sin archivo."
+    },
+    {
+      "id": 22,
+      "block": "EL_ELECTRODO",
+      "cue": "Una escena de la infancia",
+      "text": "La etiqueta sin el documento. Por eso la sensación es tan difícil de explicar. No estás recordando nada,"
+    },
+    {
+      "id": 23,
+      "block": "EL_ELECTRODO",
+      "cue": "El lóbulo temporal",
+      "text": "estás sintiendo el aviso de un recuerdo que no existe. Y aquí viene lo que casi todo el mundo entiende al revés."
+    },
+    {
+      "id": 24,
+      "block": "EL_ELECTRODO",
+      "cue": "Esto ya lo he vivido",
+      "text": "Que esto se descubriera operando a pacientes con epilepsia no significa que el déjà vu sea epilepsia."
+    },
+    {
+      "id": 25,
+      "block": "DOS_PARTES",
+      "cue": "No recuerdos, la sensación de recordar",
+      "text": "En algunas epilepsias del lóbulo temporal aparece justo antes de una crisis, como un aviso,"
+    },
+    {
+      "id": 26,
+      "block": "DOS_PARTES",
+      "cue": "No es un vídeo",
+      "text": "y por eso esos pacientes fueron la puerta de entrada al hallazgo."
+    },
+    {
+      "id": 27,
+      "block": "DOS_PARTES",
+      "cue": "Una parte decide si es familiar",
+      "text": "Pero el déjà vu de una persona sana no es una crisis, ni un fallo, ni el síntoma de nada."
+    },
+    {
+      "id": 28,
+      "block": "DOS_PARTES",
+      "cue": "Otra va a buscar por qué",
+      "text": "Los datos van justo en la dirección contraria. Es más frecuente cuanto más joven eres, y se va apagando con la edad."
+    },
+    {
+      "id": 29,
+      "block": "DOS_PARTES",
+      "cue": "Normalmente van juntas",
+      "text": "Aparece más en gente que viaja, y en gente que recuerda sus sueños."
+    },
+    {
+      "id": 30,
+      "block": "DOS_PARTES",
+      "cue": "Ves una cara y sabes de qué",
+      "text": "Si fuera deterioro, pasaría exactamente lo contrario."
+    },
+    {
+      "id": 31,
+      "block": "DOS_PARTES",
+      "cue": "La primera se dispara",
+      "text": "De ahí sale la explicación que a mí me parece la más elegante de toda la neurociencia de la memoria."
+    },
+    {
+      "id": 32,
+      "block": "DOS_PARTES",
+      "cue": "La segunda vuelve vacía",
+      "text": "El déjà vu no es tu memoria fallando."
+    },
+    {
+      "id": 33,
+      "block": "DOS_PARTES",
+      "cue": "La etiqueta sin el documento",
+      "text": "Es tu memoria comprobándose a sí misma."
+    },
+    {
+      "id": 34,
+      "block": "DOS_PARTES",
+      "cue": "El aviso de un recuerdo que no existe",
+      "text": "Es el sistema levantando la mano para avisar de que algo no cuadra."
+    },
+    {
+      "id": 35,
+      "block": "NO_ES_EPILEPSIA",
+      "cue": "Lo que se entiende al revés",
+      "text": "Por eso se apaga con los años, cuando ese control se vuelve más flojo."
+    },
+    {
+      "id": 36,
+      "block": "NO_ES_EPILEPSIA",
+      "cue": "No significa que sea epilepsia",
+      "text": "Hoy, además, se puede provocar en laboratorio."
+    },
+    {
+      "id": 37,
+      "block": "NO_ES_EPILEPSIA",
+      "cue": "Justo antes de una crisis",
+      "text": "Montan en realidad virtual una habitación nueva con exactamente la misma distribución que otra que viste antes."
+    },
+    {
+      "id": 38,
+      "block": "NO_ES_EPILEPSIA",
+      "cue": "La puerta de entrada al hallazgo",
+      "text": "Otros muebles, otros colores, misma geometría."
+    },
+    {
+      "id": 39,
+      "block": "NO_ES_EPILEPSIA",
+      "cue": "No es un fallo ni un síntoma",
+      "text": "Y la gente entra y dice: yo he estado aquí."
+    },
+    {
+      "id": 40,
+      "block": "AL_REVES",
+      "cue": "Más frecuente cuanto más joven",
+      "text": "Sin poder decir dónde."
+    },
+    {
+      "id": 41,
+      "block": "AL_REVES",
+      "cue": "Se apaga con la edad",
+      "text": "Ahora sí, volvamos a lo que te pedí que guardaras."
+    },
+    {
+      "id": 42,
+      "block": "AL_REVES",
+      "cue": "Más en gente que viaja",
+      "text": "Existe algo llamado déjà vécu, y no es un déjà vu más largo."
+    },
+    {
+      "id": 43,
+      "block": "AL_REVES",
+      "cue": "Y que recuerda sus sueños",
+      "text": "Es otra cosa."
+    },
+    {
+      "id": 44,
+      "block": "AL_REVES",
+      "cue": "Si fuera deterioro",
+      "text": "Son personas que sienten que ya han vivido absolutamente todo lo que les pasa."
+    },
+    {
+      "id": 45,
+      "block": "AL_REVES",
+      "cue": "Tu memoria comprobándose",
+      "text": "No un instante suelto."
+    },
+    {
+      "id": 46,
+      "block": "AL_REVES",
+      "cue": "El sistema levantando la mano",
+      "text": "Todo."
+    },
+    {
+      "id": 47,
+      "block": "AL_REVES",
+      "cue": "Ese control se vuelve más flojo",
+      "text": "Hay casos descritos de gente que dejó de leer el periódico y de ver la televisión,"
+    },
+    {
+      "id": 48,
+      "block": "LABORATORIO",
+      "cue": "Se puede provocar en laboratorio",
+      "text": "convencida de que ya lo había leído y ya lo había visto."
+    },
+    {
+      "id": 49,
+      "block": "LABORATORIO",
+      "cue": "Misma distribución, otros muebles",
+      "text": "Sus familiares les enseñaban la fecha del periódico."
+    },
+    {
+      "id": 50,
+      "block": "LABORATORIO",
+      "cue": "Yo he estado aquí",
+      "text": "Daba igual."
+    },
+    {
+      "id": 51,
+      "block": "DEJA_VECU",
+      "cue": "Volvamos al dato",
+      "text": "La sensación de haberlo vivido pesaba más que la prueba."
+    },
+    {
+      "id": 52,
+      "block": "DEJA_VECU",
+      "cue": "Déjà vécu",
+      "text": "Piénsalo un segundo."
+    },
+    {
+      "id": 53,
+      "block": "DEJA_VECU",
+      "cue": "Ya han vivido todo",
+      "text": "Tu certeza de que algo es real no viene de la realidad."
+    },
+    {
+      "id": 54,
+      "block": "DEJA_VECU",
+      "cue": "Dejó de leer el periódico",
+      "text": "Viene de una señal que fabrica tu propio cerebro."
+    },
+    {
+      "id": 55,
+      "block": "DEJA_VECU",
+      "cue": "Y de ver la televisión",
+      "text": "Y cuando esa señal se dispara sola, la realidad pierde."
+    },
+    {
+      "id": 56,
+      "block": "DEJA_VECU",
+      "cue": "Le enseñaban la fecha",
+      "text": "Así que la próxima vez que te pase,"
+    },
+    {
+      "id": 57,
+      "block": "DEJA_VECU",
+      "cue": "Pesaba más que la prueba",
+      "text": "no busques la vida anterior ni el trozo de futuro."
+    },
+    {
+      "id": 58,
+      "block": "DEJA_VECU",
+      "cue": "Tu certeza no viene de la realidad",
+      "text": "Lo que acabas de sentir es tu cabeza pillándose a sí misma en un error,"
+    },
+    {
+      "id": 59,
+      "block": "CIERRE",
+      "cue": "Una señal que fabrica tu cerebro",
+      "text": "durante menos de un segundo."
+    },
+    {
+      "id": 60,
+      "block": "CIERRE",
+      "cue": "La realidad pierde",
+      "text": "Y te ha dejado ver, un instante, la máquina por dentro."
+    },
+    {
+      "id": 61,
+      "block": "CIERRE",
+      "cue": "Ni vida anterior ni futuro",
+      "text": "La semana que viene te cuento cómo un solo hombre desobedeció un protocolo y evitó una guerra nuclear."
+    },
+    {
+      "id": 62,
+      "block": "CIERRE",
+      "cue": "Pillándose a sí misma en un error",
+      "text": "Suscríbete."
+    },
+    {
+      "id": 63,
+      "block": "CIERRE",
+      "cue": "Ver la máquina por dentro",
+      "text": "Y si conoces a alguien que crea que el déjà vu es una premonición,"
+    },
+    {
+      "id": 64,
+      "block": "CIERRE",
+      "cue": "Promesa del próximo video",
+      "text": "mándale este video."
+    },
+    {
+      "id": 65,
+      "block": "CIERRE",
+      "cue": "Suscríbete y comparte",
+      "text": "Te prometo una cosa."
+    },
+    {
+      "id": 66,
+      "block": "CIERRE",
+      "cue": "Cierre",
+      "text": "La próxima vez que lo sientas, no lo vas a vivir igual."
+    }
+  ]
+}
