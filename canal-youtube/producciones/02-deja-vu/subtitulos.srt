@@ -1,390 +1,364 @@
 1
-00:00:00,000 --> 00:00:02,800
+00:00:00,000 --> 00:00:03,113
 Hay una sensación que has
 tenido y que no sabes explicar.
 
 2
-00:00:02,820 --> 00:00:06,223
-Estás en un sitio nuevo,
-haciendo algo trivial,
+00:00:03,173 --> 00:00:07,152
+Estás en un sitio nuevo, haciendo algo
+trivial, y de repente algo dentro de
 
 3
-00:00:06,243 --> 00:00:10,160
-y de repente algo dentro de
+00:00:07,212 --> 00:00:09,171
 ti dice: esto ya lo he vivido.
 
 4
-00:00:10,180 --> 00:00:15,240
+00:00:09,231 --> 00:00:13,209
 No es un recuerdo, no sabes decir
 cuándo pasó, pero la certeza es total.
 
 5
-00:00:15,260 --> 00:00:16,639
-Dura un segundo y se va.
+00:00:13,269 --> 00:00:17,440
+Dura un segundo y se va. Durante
+casi toda la historia solo hubo dos
 
 6
-00:00:16,659 --> 00:00:20,320
-Durante casi toda la historia
-solo hubo dos explicaciones.
+00:00:17,500 --> 00:00:21,503
+explicaciones. O estás recordando otra
+vida, o acabas de ver un trozo del
 
 7
-00:00:20,340 --> 00:00:22,620
-O estás recordando otra vida, o
-acabas de ver un trozo del futuro.
+00:00:21,562 --> 00:00:26,190
+futuro. Las dos son falsas, y lo que
+pasa de verdad ahí dentro es bastante
 
 8
-00:00:22,640 --> 00:00:28,640
-Las dos son falsas, y lo que pasa de
-verdad ahí dentro es bastante más raro.
+00:00:26,250 --> 00:00:31,094
+más raro. Antes de contártelo, quédate
+con un dato, porque vamos a volver a
 
 9
-00:00:29,440 --> 00:00:33,640
-Antes de contártelo, quédate con un
-dato, porque vamos a volver a él.
+00:00:31,154 --> 00:00:34,940
+él. Hay personas que no
+salen nunca de esa sensación.
 
 10
-00:00:33,660 --> 00:00:37,460
-Hay personas que no salen
-nunca de esa sensación.
+00:00:35,000 --> 00:00:37,632
+Viven dentro de ella, todo el día.
 
 11
-00:00:37,480 --> 00:00:40,040
-Viven dentro de ella,
-todo el día. Guarda eso.
+00:00:37,692 --> 00:00:39,555
+Guarda eso. Montreal, años treinta.
 
 12
-00:00:40,060 --> 00:00:41,240
-Montreal, años treinta.
-
-13
-00:00:41,260 --> 00:00:46,180
+00:00:39,615 --> 00:00:44,940
 Un quirófano, un paciente con el
 cráneo abierto y el cerebro a la vista.
 
+13
+00:00:45,000 --> 00:00:47,857
+Y despierto, hablando. No es una tortura.
+
 14
-00:00:46,200 --> 00:00:48,420
-Y despierto, hablando.
+00:00:47,917 --> 00:00:53,273
+Es cirugía de epilepsia. El cerebro no
+duele, no tiene receptores del dolor,
 
 15
-00:00:48,440 --> 00:00:50,460
-No es una tortura. Es
-cirugía de epilepsia.
-
-16
-00:00:50,480 --> 00:00:54,100
-El cerebro no duele, no
-tiene receptores del dolor,
-
-17
-00:00:54,120 --> 00:00:57,740
+00:00:53,333 --> 00:00:57,023
 así que se puede operar
 con el paciente consciente.
 
-18
-00:00:57,760 --> 00:01:02,126
+16
+00:00:57,083 --> 00:01:02,372
 Y hace falta que lo esté, porque el
 cirujano necesita saber qué hace cada
 
-19
-00:01:02,146 --> 00:01:03,880
-milímetro antes de tocarlo.
+17
+00:01:02,432 --> 00:01:06,426
+milímetro antes de tocarlo. Ese
+cirujano se llamaba Wilder Penfield.
 
-20
-00:01:03,900 --> 00:01:06,780
-Ese cirujano se llamaba Wilder Penfield.
-
-21
-00:01:06,800 --> 00:01:11,387
+18
+00:01:06,486 --> 00:01:11,697
 Su método era ir rozando la superficie
 del cerebro con un electrodo y
 
-22
-00:01:11,407 --> 00:01:14,700
+19
+00:01:11,757 --> 00:01:14,940
 preguntar qué sentía el
 paciente en ese momento.
 
-23
-00:01:14,720 --> 00:01:18,040
+20
+00:01:15,000 --> 00:01:17,703
 Las respuestas empezaron
 a ser muy extrañas.
 
-24
-00:01:18,060 --> 00:01:20,620
+21
+00:01:17,763 --> 00:01:22,045
 Uno oía una orquesta. Otro,
 la voz de su madre llamándole.
 
-25
-00:01:20,640 --> 00:01:26,640
+22
+00:01:22,105 --> 00:01:26,782
 Otro volvía a una escena de su
 infancia con todo el detalle.
 
-26
-00:01:27,040 --> 00:01:30,674
-Y algunos, al estimular una zona
-muy concreta del lóbulo temporal,
+23
+00:01:26,842 --> 00:01:31,607
+Y algunos, al estimular una zona muy
+concreta del lóbulo temporal, decían
 
-27
-00:01:30,694 --> 00:01:33,480
-decían exactamente esa
-frase. Esto ya lo he vivido.
+24
+00:01:31,667 --> 00:01:34,940
+exactamente esa frase.
+Esto ya lo he vivido.
 
-28
-00:01:33,500 --> 00:01:35,260
+25
+00:01:35,000 --> 00:01:37,023
 Penfield no estaba despertando recuerdos.
 
-29
-00:01:35,280 --> 00:01:37,760
+26
+00:01:37,083 --> 00:01:39,523
 Estaba encendiendo la
 sensación de recordar.
 
-30
-00:01:37,780 --> 00:01:41,659
+27
+00:01:39,583 --> 00:01:42,440
 Y eso es una cosa completamente distinta.
 
-31
-00:01:41,679 --> 00:01:46,560
+28
+00:01:42,500 --> 00:01:46,335
 Porque tu cerebro no guarda
 la memoria como un video.
 
-32
-00:01:46,580 --> 00:01:48,249
-Reparte el trabajo en dos.
+29
+00:01:46,395 --> 00:01:51,219
+Reparte el trabajo en dos. Una parte
+decide si algo te resulta familiar, y
 
-33
-00:01:48,269 --> 00:01:52,780
-Una parte decide si algo te resulta
-familiar, y otra va a buscar por qué.
+30
+00:01:51,279 --> 00:01:55,754
+otra va a buscar por qué. Normalmente
+van juntas y ni te enteras.
 
-34
-00:01:52,800 --> 00:01:55,740
-Normalmente van juntas y ni te enteras.
-
-35
-00:01:55,760 --> 00:01:58,840
+31
+00:01:55,814 --> 00:02:01,094
 Ves una cara, sientes que la conoces,
 y a la vez recuperas de dónde.
 
-36
-00:01:58,860 --> 00:02:03,847
+32
+00:02:01,154 --> 00:02:07,248
 El déjà vu es lo que ocurre cuando la
 primera se dispara y la segunda vuelve
 
-37
-00:02:03,867 --> 00:02:08,280
+33
+00:02:07,308 --> 00:02:08,786
 vacía. Familiaridad sin archivo.
+
+34
+00:02:08,846 --> 00:02:10,709
 La etiqueta sin el documento.
 
-38
-00:02:08,300 --> 00:02:10,860
+35
+00:02:10,769 --> 00:02:14,940
 Por eso la sensación es
 tan difícil de explicar.
 
-39
-00:02:10,880 --> 00:02:15,480
+36
+00:02:15,000 --> 00:02:19,475
 No estás recordando nada, estás
 sintiendo el aviso de un recuerdo que no
 
-40
-00:02:15,500 --> 00:02:16,380
-existe.
+37
+00:02:19,535 --> 00:02:24,010
+existe. Y aquí viene lo que casi
+todo el mundo entiende al revés.
 
-41
-00:02:16,400 --> 00:02:19,860
-Y aquí viene lo que casi todo
-el mundo entiende al revés.
-
-42
-00:02:19,880 --> 00:02:24,996
+38
+00:02:24,070 --> 00:02:28,196
 Que esto se descubriera operando a
 pacientes con epilepsia no significa que
 
+39
+00:02:28,256 --> 00:02:32,273
+el déjà vu sea epilepsia. En algunas
+epilepsias del lóbulo temporal aparece
+
+40
+00:02:32,333 --> 00:02:37,273
+justo antes de una crisis, como un
+aviso, y por eso esos pacientes fueron la
+
+41
+00:02:37,333 --> 00:02:38,940
+puerta de entrada al hallazgo.
+
+42
+00:02:39,000 --> 00:02:44,790
+Pero el déjà vu de una persona sana
+no es una crisis, ni un fallo, ni el
+
 43
-00:02:25,016 --> 00:02:26,682
-el déjà vu sea epilepsia.
+00:02:44,850 --> 00:02:48,964
+síntoma de nada. Los datos van
+justo en la dirección contraria.
 
 44
-00:02:26,702 --> 00:02:31,898
-En algunas epilepsias del lóbulo temporal
-aparece justo antes de una crisis,
-
-45
-00:02:31,918 --> 00:02:36,472
-como un aviso, y por eso esos pacientes
-fueron la puerta de entrada al
-
-46
-00:02:36,492 --> 00:02:37,372
-hallazgo.
-
-47
-00:02:37,392 --> 00:02:41,546
-Pero el déjà vu de una persona
-sana no es una crisis, ni un fallo,
-
-48
-00:02:41,566 --> 00:02:46,120
-ni el síntoma de nada. Los datos
-van justo en la dirección contraria.
-
-49
-00:02:46,140 --> 00:02:49,140
+00:02:49,024 --> 00:02:54,086
 Es más frecuente cuanto más joven
 eres, y se va apagando con la edad.
 
-50
-00:02:49,160 --> 00:02:53,720
+45
+00:02:54,146 --> 00:02:58,842
 Aparece más en gente que viaja, y
 en gente que recuerda sus sueños.
 
-51
-00:02:53,740 --> 00:02:58,580
+46
+00:02:58,902 --> 00:03:01,369
 Si fuera deterioro, pasaría
 exactamente lo contrario.
 
-52
-00:02:58,600 --> 00:03:03,181
+47
+00:03:01,429 --> 00:03:07,083
 De ahí sale la explicación que a mí
 me parece la más elegante de toda la
 
-53
-00:03:03,201 --> 00:03:07,540
+48
+00:03:07,143 --> 00:03:11,369
 neurociencia de la memoria. El
 déjà vu no es tu memoria fallando.
 
-54
-00:03:07,560 --> 00:03:08,840
+49
+00:03:11,429 --> 00:03:13,869
 Es tu memoria comprobándose a sí misma.
 
-55
-00:03:08,860 --> 00:03:13,560
+50
+00:03:13,929 --> 00:03:18,428
 Es el sistema levantando la mano
 para avisar de que algo no cuadra.
 
-56
-00:03:13,580 --> 00:03:18,020
+51
+00:03:18,488 --> 00:03:23,312
 Por eso se apaga con los años, cuando
 ese control se vuelve más flojo.
 
-57
-00:03:18,040 --> 00:03:21,480
+52
+00:03:23,372 --> 00:03:25,754
 Hoy, además, se puede
 provocar en laboratorio.
 
-58
-00:03:21,500 --> 00:03:26,130
+53
+00:03:25,814 --> 00:03:29,591
 Montan en realidad virtual una
 habitación nueva con exactamente la misma
 
-59
-00:03:26,150 --> 00:03:28,605
+54
+00:03:29,651 --> 00:03:31,478
 distribución que otra que viste antes.
 
-60
-00:03:28,625 --> 00:03:31,680
+55
+00:03:31,538 --> 00:03:33,786
 Otros muebles, otros
 colores, misma geometría.
 
+56
+00:03:33,846 --> 00:03:37,632
+Y la gente entra y
+dice: yo he estado aquí.
+
+57
+00:03:37,692 --> 00:03:43,017
+Sin poder decir dónde. Ahora sí,
+volvamos a lo que te pedí que guardaras.
+
+58
+00:03:43,077 --> 00:03:47,340
+Existe algo llamado déjà vécu,
+y no es un déjà vu más largo.
+
+59
+00:03:47,400 --> 00:03:51,240
+Es otra cosa. Son personas que sienten
+que ya han vivido absolutamente todo
+
+60
+00:03:51,300 --> 00:03:53,640
+lo que les pasa. No un instante suelto.
+
 61
-00:03:31,700 --> 00:03:36,280
-Y la gente entra y dice: yo he
-estado aquí. Sin poder decir dónde.
-
-62
-00:03:36,300 --> 00:03:39,540
-Ahora sí, volvamos a lo
-que te pedí que guardaras.
-
-63
-00:03:39,560 --> 00:03:42,820
-Existe algo llamado déjà vécu, y no
-es un déjà vu más largo. Es otra cosa.
-
-64
-00:03:42,840 --> 00:03:47,678
-Son personas que sienten que ya han
-vivido absolutamente todo lo que les
-
-65
-00:03:47,698 --> 00:03:50,026
-pasa. No un instante suelto. Todo.
-
-66
-00:03:50,046 --> 00:03:54,560
-Hay casos descritos de gente que
+00:03:53,700 --> 00:03:58,440
+Todo. Hay casos descritos de gente que
 dejó de leer el periódico y de ver la
 
-67
-00:03:54,580 --> 00:03:59,837
+62
+00:03:58,500 --> 00:04:02,875
 televisión, convencida de que ya
 lo había leído y ya lo había visto.
 
-68
-00:03:59,857 --> 00:04:05,020
-Sus familiares les enseñaban la
-fecha del periódico. Daba igual.
+63
+00:04:02,935 --> 00:04:05,483
+Sus familiares les enseñaban
+la fecha del periódico.
 
-69
-00:04:05,040 --> 00:04:09,440
-La sensación de haberlo vivido
-pesaba más que la prueba.
+64
+00:04:05,543 --> 00:04:09,397
+Daba igual. La sensación de haberlo
+vivido pesaba más que la prueba.
 
-70
-00:04:09,460 --> 00:04:11,200
+65
+00:04:09,457 --> 00:04:14,288
 Piénsalo un segundo. Tu certeza de que
 algo es real no viene de la realidad.
 
-71
-00:04:11,220 --> 00:04:14,580
+66
+00:04:14,348 --> 00:04:16,959
 Viene de una señal que
 fabrica tu propio cerebro.
 
-72
-00:04:14,600 --> 00:04:19,720
+67
+00:04:17,019 --> 00:04:19,844
 Y cuando esa señal se dispara
 sola, la realidad pierde.
 
-73
-00:04:19,740 --> 00:04:24,700
+68
+00:04:19,904 --> 00:04:24,459
 Así que la próxima vez que te pase, no
 busques la vida anterior ni el trozo
 
-74
-00:04:24,720 --> 00:04:25,600
-de futuro.
+69
+00:04:24,519 --> 00:04:29,075
+de futuro. Lo que acabas de sentir es
+tu cabeza pillándose a sí misma en un
 
-75
-00:04:25,620 --> 00:04:30,371
-Lo que acabas de sentir es tu cabeza
-pillándose a sí misma en un error,
+70
+00:04:29,135 --> 00:04:30,897
+error, durante menos de un segundo.
 
-76
-00:04:30,391 --> 00:04:32,380
-durante menos de un segundo.
-
-77
-00:04:32,400 --> 00:04:35,020
+71
+00:04:30,957 --> 00:04:34,408
 Y te ha dejado ver, un
 instante, la máquina por dentro.
 
-78
-00:04:35,040 --> 00:04:39,391
+72
+00:04:34,468 --> 00:04:38,876
 La semana que viene te cuento cómo un
 solo hombre desobedeció un protocolo y
 
-79
-00:04:39,411 --> 00:04:41,680
+73
+00:04:38,936 --> 00:04:40,472
 evitó una guerra nuclear. Suscríbete.
 
-80
-00:04:41,700 --> 00:04:46,904
-Y si conoces a alguien que crea
-que el déjà vu es una premonición,
+74
+00:04:40,532 --> 00:04:45,687
+Y si conoces a alguien que crea que
+el déjà vu es una premonición, mándale
 
-81
-00:04:46,924 --> 00:04:48,580
-mándale este video.
+75
+00:04:45,747 --> 00:04:47,928
+este video. Te prometo una cosa.
 
-82
-00:04:48,600 --> 00:04:52,387
-Te prometo una cosa. La próxima vez que
-lo sientas, no lo vas a vivir igual.
+76
+00:04:47,988 --> 00:04:52,410
+La próxima vez que lo sientas,
+no lo vas a vivir igual.
