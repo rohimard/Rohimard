@@ -23,6 +23,8 @@
  *   "line1":  "DE TU SUELDO",         // white subhead
  *   "line2":  "SE VA EN LA CASA",     // white on the alarm-color box
  *   "side":   "left",                 // which side holds the text: "left" or "right"
+ *   "numberSize": 300,                // px. Drop it for a headline that is a phrase
+ *                                     // rather than a number — 300 only fits ~5 chars.
  *   "accent": "#FFD400",              // number color
  *   "alarm":  "#E10600"              // box color
  * }
@@ -39,6 +41,9 @@ const rel = p => path.isAbsolute(p) ? p : path.join(dir, p);
 const accent = cfg.accent || '#FFD400';
 const alarm = cfg.alarm || '#E10600';
 const side = cfg.side === 'right' ? 'right' : 'left';
+// A number fits at 300px; a whole phrase does not, and silently overflows the
+// frame. Let the config drop the size when the headline is words, not digits.
+const numSize = cfg.numberSize || 300;
 const imgB64 = fs.readFileSync(rel(cfg.image)).toString('base64');
 const fontB64 = fs.readFileSync(rel(cfg.font)).toString('base64');
 const number = cfg.number || '';
@@ -59,9 +64,9 @@ html,body{width:1280px;height:720px;overflow:hidden;background:#000;}
     radial-gradient(120% 120% at 50% 45%, rgba(0,0,0,0) 45%, rgba(0,0,0,0.55) 100%),
     linear-gradient(${gradDir}, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.55) 30%, rgba(0,0,0,0) 55%);}
 .txt{position:absolute;${align}top:96px;z-index:5;}
-.num{font-size:300px;line-height:0.86;color:${accent};
+.num{font-size:${numSize}px;line-height:0.92;color:${accent};
      -webkit-text-stroke:9px #000;paint-order:stroke fill;
-     text-shadow:0 14px 26px rgba(0,0,0,0.85);transform:rotate(-4deg);transform-origin:${side} center;letter-spacing:-6px;}
+     text-shadow:0 14px 26px rgba(0,0,0,0.85);transform:rotate(-4deg);transform-origin:${side} center;letter-spacing:${numSize > 200 ? -6 : -2}px;}
 .sub{margin-top:14px;transform:rotate(-2deg);transform-origin:${side} center;}
 .l1{font-size:70px;line-height:1.0;color:#fff;-webkit-text-stroke:6px #000;paint-order:stroke fill;
     text-shadow:0 8px 16px rgba(0,0,0,0.8);letter-spacing:1px;}

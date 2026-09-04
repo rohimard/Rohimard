@@ -1,0 +1,12 @@
+{
+  "image": "base.jpg",
+  "font": "../../../kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura-pregunta",
+  "number": "¿YA VIVISTE",
+  "numberSize": 132,
+  "line1": "",
+  "line2": "ESTO ANTES?",
+  "side": "right",
+  "accent": "#FFD400",
+  "alarm": "#E10600"
+}

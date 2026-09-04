@@ -14,12 +14,17 @@
 
 | Miniatura | Título |
 |---|---|
-| **A** — `NO ES` / PREMONICIÓN / ES UN ERROR | Título 1 o 2 (la miniatura niega el mito, el título pone la escena) |
-| **C** — `DÉJÀ VU` / LO QUE PASA / DE VERDAD | Título 3 (aquí sí encaja la negación en el título) |
+| **Lanzamiento** — `ERROR` / NO ES UNA / PREMONICIÓN | Título 1 o 2 (la miniatura niega el mito, el título pone la escena) |
+| **Pregunta** — `¿YA VIVISTE` / ESTO ANTES? | Título 1 (la portada pregunta, el título contesta desde un quirófano) o 3 |
 
-Lanzamiento: **miniatura A + título 1**.
+Lanzamiento: **miniatura `ERROR` + título 1**.
 
-Evitar: miniatura A + título 3 — ambos dicen "no es premonición".
+Evitar: miniatura `ERROR` + título 3 — ambos dicen "no es premonición".
+
+Rotación a las 48 h si el CTR no arranca: cambiar a **`¿YA VIVISTE ESTO
+ANTES?` + título 1**. No es un retoque, es el marco opuesto — corregir una
+creencia frente a hacerle una pregunta al espectador. Un solo cambio a la
+vez: si se rota la portada, el título se queda.
 
 ## Descripción
 
