@@ -33,3 +33,6 @@ next-env.d.ts
 canal-youtube/producciones/**/_thumb.html
 canal-youtube/producciones/**/audio.mp3
 canal-youtube/producciones/**/*.mp4
+canal-cerebro-traidor/producciones/**/_thumb.html
+canal-cerebro-traidor/producciones/**/audio.mp3
+canal-cerebro-traidor/producciones/**/*.mp4
