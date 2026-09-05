@@ -35,8 +35,15 @@ En este video vas a entender qué ocurre exactamente en tu cabeza durante ese se
 
 Suscríbete para el próximo video: cómo un solo hombre desobedeció un protocolo y evitó una guerra nuclear.
 
-CAPÍTULOS
-(pendientes de cuadrar con el audio real — generar con srt_align.js y timing_sheet.js)
+0:00 El error que llevas cometiendo
+0:38 Montreal, 1934
+1:18 Lo que decían los pacientes
+1:37 Cómo funciona tu memoria
+2:23 El malentendido más común
+2:50 Los datos que no cuadran
+3:24 Provocarlo en laboratorio
+3:40 Déjà vécu: la versión extrema
+4:15 La idea que cambia todo
 
 —
 Historia Incómoda: historias reales que parecen inventadas.
