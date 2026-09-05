@@ -37,15 +37,26 @@ con el canal ("tu cerebro te traiciona sin que lo notes").
 - `seo.md` — títulos, descripción y comentario fijado con las fuentes.
 - `miniatura/` — ver su propio README.
 
-## Pendiente (requiere el audio)
+## Audio
 
-1. Pegar `guion-voz.txt` en ElevenLabs y traer `audio.mp3`.
-2. Medir con `mp3_duration.js`.
-3. Trocear y transcribir con ElevenLabs Scribe para anclar tiempos reales
-   (palabra por palabra) y contenido real de cada escena — igual método
-   que corrigió el desfase de video 2 en Historia Incómoda.
-4. Generar `hoja-montaje.csv`/`.txt` y `subtitulos.srt` con esos tiempos.
-5. Cuadrar los timestamps de capítulos en `seo.md`.
-6. Generar las 40 imágenes de `prompts-imagenes.txt` (proponer un lote de
+`audio.mp3` (no versionado en git, ver `.gitignore`) — generado con
+ElevenLabs, voz **David - Energetic, Deep and Pleasant**
+(`qRUgOhnxGASxirG4fKjv`), pedida explícitamente por el usuario por nombre
+— es la misma voz de referencia que ya cita `kit-produccion/references/guion.md`
+para el perfil del narrador del canal. 4:39.7 min (279,75 s), coste 4.978
+créditos (~0,91 USD).
+
+Primer intento descartado: voz "SANDMOR" (cálida/cinematográfica), el
+usuario pidió explícitamente cambiar a David antes de aprobarla.
+
+## Pendiente
+
+1. Trocear el audio y transcribir con ElevenLabs Scribe para anclar
+   tiempos reales (palabra por palabra) y contenido real de cada escena
+   — igual método que corrigió el desfase de video 2 en Historia
+   Incómoda.
+2. Generar `hoja-montaje.csv`/`.txt` y `subtitulos.srt` con esos tiempos.
+3. Cuadrar los timestamps de capítulos en `seo.md`.
+4. Generar las 40 imágenes de `prompts-imagenes.txt` (proponer un lote de
    prueba pequeño primero, no generar las 40 de golpe, mismo criterio de
    conciencia de costo que en Historia Incómoda).
