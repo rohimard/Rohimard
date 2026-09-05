@@ -1,0 +1,128 @@
+ESTILO BASE (se pega al final de cada prompt, ya incluido abajo en cada uno):
+fotografía cinematográfica hiperrealista, full frame 35mm, luz natural o fluorescente motivada, colorimetría sobria con un ligero viraje cálido-sepia años setenta, profundidad de campo real, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K, sin texto en pantalla, 16:9
+
+PERSONAJES RECURRENTES (repetir la descripción completa en cada plano donde aparezcan; ninguno es una persona real identificable, son reconstrucciones genéricas):
+- GUARDIA: hombre joven estadounidense de unos 20 años, pelo corto castaño estilo años setenta, complexión delgada y atlética, uniforme caqui genérico sin insignias ni nombres, gafas de sol de aviador reflectantes que ocultan por completo los ojos, porra de madera en la mano
+- PRISIONERO: hombre joven estadounidense de unos 20 años, pelo corto, complexión delgada, bata holgada tipo camisón de hospital sin insignias, descalzo, número genérico cosido en el pecho sin que se lea con claridad, expresión de agotamiento
+- INVESTIGADOR: hombre de unos 40 años, pelo corto entrecano, camisa de vestir sencilla remangada, gafas de pasta, manos cuidadas de alguien que trabaja con documentos
+- ESPECTADOR (para los planos de cierre, presente): hombre latinoamericano de unos 30 años, pelo corto oscuro, ropa de calle sencilla y actual (camiseta lisa oscura), complexión normal
+
+1
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de unas manos sosteniendo un uniforme caqui doblado, unas gafas de sol de aviador reflectantes encima y una porra de madera al lado, sobre una mesa metálica gris en una habitación en penumbra, luz cenital dura de una sola bombilla, atmósfera de expectación incómoda, fotografía cinematográfica hiperrealista, full frame 35mm, colorimetría sobria con leve viraje sepia, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+2
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre joven estadounidense de unos 20 años, pelo corto castaño estilo años setenta, complexión delgada y atlética, se está poniendo unas gafas de sol de aviador reflectantes que le ocultan por completo los ojos, sobre un uniforme caqui genérico sin insignias, en un vestidor institucional pobre con taquillas metálicas, luz fluorescente cruda, expresión neutra que empieza a endurecerse, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+3
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: una puerta de rejas metálicas improvisada se cierra de golpe en un pasillo estrecho de sótano institucional, paredes de hormigón pintadas de gris, iluminación fluorescente cruda proyectando sombras alargadas, plano bajo mirando hacia la reja cerrándose, sensación de encierro, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+4
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre joven estadounidense de unos 20 años, pelo corto, complexión delgada, con una bata holgada tipo camisón de hospital sin insignias, descalzo, sentado en el suelo de una celda improvisada de hormigón, mirando hacia arriba con expresión de incertidumbre hacia una figura fuera de cuadro, luz fluorescente dura desde arriba, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+5
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: fachada de un edificio universitario de ladrillo estilo años setenta con un cartel discreto de "Departamento de Psicología", cielo despejado de California, coches de época aparcados enfrente, luz de media mañana, fotografía cinematográfica hiperrealista, full frame 35mm, colorimetría cálida ligeramente desaturada, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+6
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: escalera de hormigón descendiendo hacia un sótano institucional oscuro, con un cartel improvisado de cartón que dice "Prisión del Condado" apoyado contra la pared, iluminación fluorescente parpadeante al fondo, atmósfera de reconstrucción improvisada y barata, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+7
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: mesa de reclutamiento universitaria de los años setenta con un cartel de papel escrito a máquina anunciando un estudio psicológico pagado, varios jóvenes estadounidenses en fila esperando para apuntarse, campus universitario de fondo, luz de tarde cálida, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+8
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: dos filas enfrentadas de jóvenes estadounidenses de unos 20 años en un pasillo institucional, una fila con uniformes caqui de guardia y gafas de aviador, la otra con batas de hospital descalzos, separación clara entre ambos grupos, luz fluorescente cruda, composición simétrica que remarca la división, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+9
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: calendario de pared de los años setenta con un círculo marcado a mano en una fecha, junto a un reloj de pared institucional, sobre una pared de hormigón gris desnuda, luz fluorescente fría, plano cerrado que transmite el paso planificado del tiempo, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+10
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre joven estadounidense de unos 20 años, pelo corto castaño, uniforme caqui genérico, gafas de aviador reflectantes, de pie con los brazos cruzados y postura rígida frente a un grupo borroso de prisioneros descalzos en bata, luz fluorescente dura desde arriba, sensación de autoridad recién adoptada, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+11
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre joven estadounidense de unos 20 años, bata holgada tipo camisón de hospital, descalzo, haciendo flexiones en el suelo de hormigón de un pasillo de sótano en plena madrugada, otro joven con uniforme caqui y gafas de aviador reflectantes de pie observando con la porra de madera colgando de la mano, luz fluorescente cruda, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+12
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: puerta de un armario metálico estrecho entreabierta en un pasillo oscuro de sótano institucional, con una sombra de una persona agachada dentro apenas visible, luz que entra en una franja estrecha, atmósfera claustrofóbica y opresiva, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+13
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre joven estadounidense de unos 20 años con bata holgada de hospital, sentado en el suelo con la espalda contra la pared de hormigón, rostro entre las manos, cuerpo encogido en una postura de angustia extrema, luz fluorescente fría y dura desde arriba, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+14
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre de unos 40 años, pelo corto oscuro, camisa de vestir de los años setenta, sujeta una tablilla con papeles y se lleva la otra mano a la frente con gesto de preocupación, mirando a través de un cristal de observación hacia un pasillo institucional al fondo, luz de oficina cálida, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+15
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: estantería de una biblioteca universitaria llena de libros de psicología gruesos y antiguos, con uno de ellos abierto sobre un atril mostrando un diagrama genérico sin texto legible, luz cálida de lectura, polvo suspendido en el aire iluminado por un rayo de sol, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+16
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un proyector de diapositivas antiguo iluminando una pared blanca en un aula universitaria en penumbra, siluetas de estudiantes sentados tomando apuntes de espaldas a cámara, haz de luz visible cruzando la sala, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+17
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: recorte de periódico genérico sin texto legible mostrando una fotografía borrosa de disturbios en una prisión real, sobre una mesa de madera, luz de ventana lateral suave, atmósfera seria y documental, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+18
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: silueta de una persona de pie proyectando una sombra enorme y deformada sobre una pared de hormigón, la sombra tiene forma vagamente monstruosa, metáfora visual de que cualquiera puede volverse cruel, luz dura lateral, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+19
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: sala de archivo universitario moderna con estanterías metálicas llenas de cajas de cartón numeradas y etiquetadas, un hombre de unos 40 años, pelo corto entrecano, camisa de vestir sencilla remangada, revisando el contenido de una caja abierta bajo luz de tubo fluorescente, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+20
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de manos con gafas de pasta puestas sujetando una cinta de casete antigua y una bobina de cinta magnetofónica abierta, sobre una mesa de archivo con documentos amarillentos alrededor, luz cálida de flexo, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+21
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un reproductor de cinta de carrete abierto antiguo con las bobinas girando, luces indicadoras encendidas, sobre una mesa de madera en una sala de archivo silenciosa, luz cálida puntual, atmósfera de revelación silenciosa, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+22
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre de mediana edad con camisa de los años setenta y una tablilla de papeles inclinado hacia un joven con uniforme caqui y gafas de aviador, hablándole muy de cerca al oído con gesto de instrucción firme, en un pasillo institucional en penumbra, luz fluorescente lateral dura, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+23
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre joven estadounidense de unos 20 años, uniforme caqui genérico, gafas de aviador reflectantes, de pie con una postura exagerada de autoridad, una mano en la cadera, en un pasillo de sótano institucional, luz fluorescente dura proyectando una sombra alargada y teatral detrás de él, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+24
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: una pantalla de cine antigua proyectando la silueta borrosa de un vaquero de western en blanco y negro, vista desde detrás de unas butacas vacías de un cine de los años setenta, luz del proyector visible, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+25
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre de unos 60 años, pelo cano, sentado en un sillón de una sala de estar moderna, siendo entrevistado frente a una cámara fuera de cuadro, expresión reflexiva y algo incómoda, luz suave de entrevista documental, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+26
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre joven con bata holgada de hospital tumbado en el suelo de una celda improvisada fingiendo temblar, con un ojo entreabierto mirando de reojo hacia la puerta como comprobando si alguien lo observa, luz fluorescente dura, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+27
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un libro de texto universitario de tapa dura sobre psicología abierto sobre un escritorio, con un lápiz marcando un párrafo subrayado, luz de lámpara de estudio, atmósfera de aula moderna, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+28
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: dos fotografías antiguas en blanco y negro colocadas una junto a otra sobre una mesa de archivo, una mostrando el pasillo de la falsa prisión y otra mostrando disturbios reales en una cárcel de guerra, sin rostros identificables, luz cálida de flexo, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+29
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: máquina de escribir antigua con una hoja a medio escribir, un guion de teatro mecanografiado genérico apoyado al lado abierto por una página con anotaciones a mano en el margen, luz cálida de escritorio, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+30
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre joven estadounidense de unos 20 años, uniforme caqui, gafas de aviador reflectantes, mirándose las propias manos con una porra de madera sujeta, expresión de duda debajo de las gafas, luz fluorescente fría, primer plano íntimo, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+31
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: silueta de una persona con traje de oficina de pie en el centro de un escenario de teatro vacío iluminado por un único foco cenital, alrededor solo oscuridad, metáfora de interpretar un papel social sin darse cuenta, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+32
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre latinoamericano de unos 30 años, pelo corto oscuro, camiseta lisa oscura, de pie frente a un espejo de cuerpo entero en una sala de estar moderna y sencilla, ajustándose el cuello de una camisa de vestir sobre la camiseta, luz natural de ventana, expresión de ligera incomodidad, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+33
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: fila de sillas vacías idénticas en una sala de espera de oficina moderna e impersonal, luz fluorescente fría uniforme, sensación de anonimato institucional, composición simétrica, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+34
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un dial de volumen giratorio antiguo tipo radio siendo girado lentamente por una mano, metáfora visual de ajustar el propio comportamiento, fondo desenfocado cálido, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+35
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: la misma escalera de hormigón del sótano institucional, ahora vacía y polvorienta, con el cartel improvisado de cartón caído en el suelo, luz fluorescente parpadeante y débil, atmósfera de lugar abandonado décadas después, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+36
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre latinoamericano de unos 30 años, pelo corto oscuro, camiseta lisa oscura, sentado en un escritorio de oficina moderno, deteniéndose a mitad de un gesto habitual con expresión pensativa, como si acabara de notar algo en sí mismo, luz de oficina natural suave, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+37
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: dos electrodos metálicos conectados a un generador con un dial marcado de bajo a alto voltaje, sobre una mesa de madera institucional de los años sesenta, iluminación dura de laboratorio, atmósfera inquietante, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+38
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre con bata blanca de laboratorio genérica visto de espaldas y desenfocado, sujetando una tablilla de papeles, de pie junto a una puerta cerrada en un pasillo institucional en penumbra, luz fluorescente fría, atmósfera de autoridad silenciosa, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental de reconstrucción histórica, máximo detalle, 8K.
+
+39
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: un hombre latinoamericano de unos 30 años, pelo corto oscuro, camiseta lisa oscura, mirando directamente a cámara con expresión seria y receptiva, en un fondo neutro oscuro con una luz suave lateral tipo entrevista, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
+
+40
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano del icono de suscripción de una plataforma de video genérica, sin logotipos identificables, con un dedo a punto de tocarlo, fondo oscuro desenfocado con un leve resplandor violeta, fotografía cinematográfica hiperrealista, full frame 35mm, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K.
