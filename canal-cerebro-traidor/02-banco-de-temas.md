@@ -1,27 +1,22 @@
-# Temas extraídos — "El cerebro idiota" (Dean Burnett)
+# Banco de temas — Cerebro Traidor
 
-Fuente: EPUB subido por el usuario. Libro de divulgación sobre neurociencia
-y psicología cotidiana (por qué el cerebro falla en memoria, miedo,
-inteligencia, personalidad, relaciones y salud mental).
+Fuente: EPUB "El cerebro idiota" (Dean Burnett), subido por el usuario.
+Libro de divulgación sobre neurociencia y psicología cotidiana (por qué el
+cerebro falla en memoria, miedo, inteligencia, personalidad, relaciones y
+salud mental). Es la fuente de los **hechos**, no de la redacción: cada
+guión se escribe con palabras propias — ver por qué en
+`01-identidad-del-canal.md`.
 
-## Aviso antes de usar esto
+Este es el banco de temas de partida del canal **Cerebro Traidor** (ver
+`00-estrategia-canal.md` y `01-identidad-del-canal.md`). No es apto para
+Historia Incómoda (otro canal, otra promesa) salvo como gancho puntual
+cruzado — ver la nota de cruce en `00-estrategia-canal.md`.
 
-Este libro es **neurociencia/psicología, no historia**. "Historia Incómoda"
-tiene su identidad fijada en `07-identidad-del-canal.md` alrededor de
-historia con gramática de true crime — meter esto tal cual rompería el
-posicionamiento ("100% de la gente sabe qué es el canal en menos de un
-segundo"). Dos formas honestas de usarlo:
-
-1. **Segundo canal / pilar aparte** ("datos incómodos sobre tu cerebro") con
-   su propio nombre — el ángulo "esto que haces cada día tiene una razón que
-   no imaginas" es tan viral como la historia, pero es otra promesa.
-2. Usarlo como **banco de ganchos**, no de videos completos — una frase de
-   aquí puede abrir un video histórico ("por qué el cerebro humano cree
-   fácilmente en leyendas como esta", enlazando con el video 3).
-
-Cada tema abajo ya trae el hecho verificado en el propio texto del libro (no
-inventado), y 2 títulos siguiendo el criterio del canal: <60 caracteres,
-sin registro educativo ("aprende", "te explico"), un solo gancho por título.
+Cada tema abajo trae el hecho verificado contra el propio texto del libro
+(no inventado), y 2 títulos de partida. Para la fórmula de título/guión/
+miniatura de alta viralidad, ver `03-kit-viralidad.md` — los títulos de
+esta tabla son material en bruto, se ajustan a la fórmula al planificar
+cada video, no se usan literalmente sin pasar por ese filtro.
 
 ## Control del cuerpo (cap. 1)
 
