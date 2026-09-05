@@ -12,149 +12,218 @@ Este es el banco de temas de partida del canal **Cerebro Traidor** (ver
 Historia Incómoda (otro canal, otra promesa) salvo como gancho puntual
 cruzado — ver la nota de cruce en `00-estrategia-canal.md`.
 
-Cada tema abajo trae el hecho verificado contra el propio texto del libro
-(no inventado), y 2 títulos de partida. Para la fórmula de título/guión/
-miniatura de alta viralidad, ver `03-kit-viralidad.md` — los títulos de
-esta tabla son material en bruto, se ajustan a la fórmula al planificar
-cada video, no se usan literalmente sin pasar por ese filtro.
+Cada tema trae el hecho verificado, la **oportunidad real en YouTube**
+(investigada el 05/09/2026 con búsquedas por tema, ver metodología abajo)
+y el **título final** ya optimizado — ajustado tras la investigación
+cuando el título de partida era débil, se pasaba de 60 caracteres o el
+ángulo ya estaba saturado. Para la fórmula completa de título/guión/
+miniatura, ver `03-kit-viralidad.md`.
+
+## Metodología de la verificación de oportunidad
+
+Para cada uno de los 56 temas se hicieron 1-2 búsquedas (español, y en
+inglés cuando aportaba señal de formato) para ver si el ángulo específico
+ya está cubierto por canales grandes en YouTube en español. Clasificación:
+
+- **ALTA** — hueco real: el tema solo tiene artículos/shorts sueltos, o
+  ningún canal lo trata con este ángulo narrativo.
+- **MEDIA** — existe contenido pero disperso, de tono distinto (clínico,
+  autoayuda) o de menor producción — se puede competir con mejor gancho.
+- **BAJA** — ya hay canales grandes en español haciendo exactamente este
+  ángulo con buen resultado (ej. Dunning-Kruger, Asch, Milgram, Phineas
+  Gage, H.M., tests de personalidad, depresión) — no es donde hay que
+  empezar, aunque el tema en sí sea real y bueno.
+
+**Nota sobre búsqueda por texto**: esto mide presencia/ausencia de video
+existente, no demanda de audiencia — un tema BAJA en oportunidad (como
+Dunning-Kruger) sigue siendo un dato real y fuerte, solo que hay que
+remar contra canales ya establecidos ahí; se puede usar más adelante con
+un ángulo distinto (ej. un caso real y concreto de alguien con el efecto,
+en vez de la explicación general).
+
 
 ## Control del cuerpo (cap. 1)
 
-| Tema | El hecho | Título A | Título B |
-|---|---|---|---|
-| Mareo en el transporte | Es un conflicto entre lo que ven tus ojos y lo que siente tu oído interno — tu cerebro cree que estás envenenado | Por qué te mareas en el coche y nunca conduciendo | Tu cerebro cree que estás envenenado cuando te mareas viajando |
-| Control del hambre | Decidir comer no depende solo del estómago: el cerebro anula esa señal constantemente | Tu cerebro decide que tienes hambre antes que tu estómago | Por qué puedes tener hambre justo después de comer |
-| Sueño y sonambulismo | Dormir activa procesos tan complejos que el cerebro a veces "ejecuta" movimiento sin conciencia | Lo que hace tu cerebro dormido es más raro que cualquier pesadilla | Caminar dormido: lo que pasa quiere moverte pero no despertarte |
-| Respuesta de lucha o huida | El cerebro no distingue una amenaza real de una sombra: reacciona igual a ambas | Tu cerebro no distingue una bata de un asesino en la oscuridad | Por qué te da un vuelco el corazón por una sombra que no es nada |
+| # | Tema | Hecho | Oportunidad | Título final |
+|---|---|---|---|---|
+| 1 | Mareo en el transporte | Es un conflicto entre lo que ven tus ojos y lo que siente tu oído interno — tu cerebro cree que estás envenenado | **ALTA** | Por qué te mareas en el coche y nunca conduciendo |
+| 2 | Control del hambre | Decidir comer no depende solo del estómago: el cerebro anula esa señal constantemente | **ALTA** | Tu cerebro decide que tienes hambre antes que tu estómago |
+| 3 | Sueño y sonambulismo | Dormir activa procesos tan complejos que el cerebro a veces "ejecuta" movimiento sin conciencia | **MEDIA** | Tu cerebro dormido hace algo más raro que una pesadilla |
+| 4 | Respuesta de lucha o huida | El cerebro no distingue una amenaza real de una sombra: reacciona igual a ambas | **MEDIA** | Para tu cerebro, una bata y un asesino son lo mismo |
 
 ## Memoria (cap. 2)
 
-| Tema | El hecho | Título A | Título B |
-|---|---|---|---|
-| Olvidar por qué entraste a un cuarto | Pasar por una puerta borra el contexto mental de la habitación anterior (evento de frontera) | La razón real por la que olvidas para qué entraste a un cuarto | Tu cerebro borra tus pensamientos cada vez que cruzas una puerta |
-| Recordar caras antes que nombres | El cerebro procesa rostros y nombres en sistemas separados, y el de caras es mucho más rápido | Por qué recuerdas su cara pero nunca su nombre | Reconocer una cara es 10 veces más fácil para tu cerebro que un nombre |
-| Alcohol y memoria | El aprendizaje "dependiente del estado" hace que recuerdes mejor algo borracho si vuelves a beber | El alcohol puede ayudarte a recordar cosas que olvidaste borracho | Por qué a veces solo recuerdas algo si vuelves a beber |
-| Sesgo egotista de la memoria | El cerebro reescribe recuerdos para que tú siempre quedes mejor parado | Tu cerebro reescribe tus recuerdos para que quedes bien | Por qué nunca eres el malo de tus propios recuerdos |
-| Cuando la memoria se rompe (demencia) | Perder la memoria no borra a la persona de golpe: destruye el sistema por partes, en un orden concreto | Qué le pasa realmente a un cerebro cuando pierde la memoria | El orden exacto en el que se borra un recuerdo cuando el cerebro falla |
+| # | Tema | Hecho | Oportunidad | Título final |
+|---|---|---|---|---|
+| 5 | Olvidar por qué entraste a un cuarto | Pasar por una puerta borra el contexto mental de la habitación anterior (evento de frontera) | **ALTA** | La razón real por la que olvidas para qué entraste a un cuarto |
+| 6 | Recordar caras antes que nombres | El cerebro procesa rostros y nombres en sistemas separados, y el de caras es mucho más rápido | **ALTA** | Por qué recuerdas su cara pero nunca su nombre |
+| 7 | Alcohol y memoria | El aprendizaje "dependiente del estado" hace que recuerdes mejor algo borracho si vuelves a beber | **ALTA** | El alcohol te ayuda a recordar lo que olvidaste ebrio |
+| 8 | Sesgo egotista de la memoria | El cerebro reescribe recuerdos para que tú siempre quedes mejor parado | **MEDIA** | Tu cerebro reescribe tus recuerdos para que quedes bien |
+| 9 | Cuando la memoria se rompe (demencia) | Perder la memoria no borra a la persona de golpe: destruye el sistema por partes, en un orden concreto | **MEDIA** | Qué le pasa realmente a un cerebro cuando pierde la memoria |
 
 ## Miedo y ansiedad (cap. 3)
 
-| Tema | El hecho | Título A | Título B |
-|---|---|---|---|
-| Conspiranoia y superstición | El cerebro está diseñado para ver patrones incluso donde no existen — es la misma raíz de creer en conspiraciones | Tu cerebro está diseñado para creer en conspiraciones | Por qué a tu cerebro le encantan las coincidencias falsas |
-| Fobias y ansiedad social | Para el cerebro, el miedo social (hacer el ridículo) puede activarse más fuerte que el miedo a un peligro físico real | Por qué le tienes más miedo a hablar en público que a un tigre | El miedo al ridículo es, para tu cerebro, más real que el miedo físico |
-| Por qué buscamos pasar miedo | El miedo controlado (montaña rusa, terror) libera la misma química que el placer, sin el peligro real | La razón científica por la que te gusta pasar miedo | Por qué el miedo, cuando es falso, se siente como diversión |
-| Body image / crítica social | Una crítica sobre tu cuerpo activa las mismas zonas cerebrales que un dolor físico real | Un insulto duele en tu cerebro como un hueso roto | Por qué las palabras sobre tu cuerpo duelen literalmente |
+| # | Tema | Hecho | Oportunidad | Título final |
+|---|---|---|---|---|
+| 10 | Conspiranoia y superstición | El cerebro está diseñado para ver patrones incluso donde no existen — es la misma raíz de creer en conspiraciones | **ALTA** | Tu cerebro está diseñado para creer en conspiraciones |
+| 11 | Fobias y ansiedad social | Para el cerebro, el miedo social (hacer el ridículo) puede activarse más fuerte que el miedo a un peligro físico real | **MEDIA** | Por qué temes más hablar en público que a un tigre |
+| 12 | Por qué buscamos pasar miedo | El miedo controlado (montaña rusa, terror) libera la misma química que el placer, sin el peligro real | **MEDIA** | La razón científica por la que te gusta pasar miedo |
+| 13 | Body image / crítica social | Una crítica sobre tu cuerpo activa las mismas zonas cerebrales que un dolor físico real | **ALTA** | Un insulto duele en tu cerebro como un hueso roto |
 
 ## Inteligencia (cap. 4)
 
-| Tema | El hecho | Título A | Título B |
-|---|---|---|---|
-| Medir el CI | El test de CI mide un tipo muy concreto de razonamiento, no "inteligencia" en general | Tu test de CI no mide lo que tú crees que mide | Por qué alguien con un CI altísimo puede ser un desastre en la vida real |
-| El profesor despistado | Concentrarse mucho en una tarea agota literalmente la atención disponible para todo lo demás | Por qué la gente más inteligente es la más despistada | El precio real de ser muy bueno concentrándote en una cosa |
-| Efecto Dunning-Kruger | Cuanta menos competencia tiene alguien en un tema, menos capaz es de notar su propia ignorancia | Cuanto menos sabes, más seguro estás de tener razón | Por qué la gente que menos sabe discute con más seguridad |
-| Los crucigramas no entrenan el cerebro | Mejorar en un juego mental solo te hace mejor en ese juego, no más inteligente en general | Los crucigramas no te hacen más listo (esto lo demuestra) | El mito del "entrenamiento cerebral" que la ciencia no respalda |
-| Altura e inteligencia | Existe una correlación estadística real (débil, pero real) entre estatura e inteligencia media | Las personas altas son, en promedio, más inteligentes (es un dato real) | El dato incómodo sobre estatura e inteligencia que suena a broma y no lo es |
+| # | Tema | Hecho | Oportunidad | Título final |
+|---|---|---|---|---|
+| 14 | Medir el CI | El test de CI mide un tipo muy concreto de razonamiento, no "inteligencia" en general | **MEDIA** | Tu test de CI no mide lo que tú crees que mide |
+| 15 | El profesor despistado | Concentrarse mucho en una tarea agota literalmente la atención disponible para todo lo demás | **ALTA** | Por qué la gente más inteligente es la más despistada |
+| 16 | Efecto Dunning-Kruger | Cuanta menos competencia tiene alguien en un tema, menos capaz es de notar su propia ignorancia | **BAJA** | Cuanto menos sabes, más seguro estás de tener razón |
+| 17 | Los crucigramas no entrenan el cerebro | Mejorar en un juego mental solo te hace mejor en ese juego, no más inteligente en general | **ALTA** | Los crucigramas no te hacen más listo (esto lo demuestra) |
+| 18 | Altura e inteligencia | Existe una correlación estadística real (débil, pero real) entre estatura e inteligencia media | **ALTA** | Tu altura influye en tu inteligencia más de lo que crees |
 
 ## Percepción (cap. 5)
 
-| Tema | El hecho | Título A | Título B |
-|---|---|---|---|
-| Olfato vs. gusto | La mayor parte de lo que llamas "sabor" en realidad lo estás oliendo, no saboreando | Casi todo lo que llamas sabor en realidad lo estás oliendo | Tapa tu nariz mientras comes: así descubres qué es sabor de verdad |
-| Oído y tacto conectados | Los mismos receptores que procesan el sonido están ligados a los del tacto — por eso ciertos sonidos "se sienten" en la piel | Por qué ciertos sonidos te dan escalofríos en la piel | Oído y tacto están más conectados de lo que crees |
-| Pareidolia religiosa | El cerebro está tan entrenado para detectar caras que las ve en tostadas, nubes o manchas | Por qué tu cerebro ve caras (y hasta a Jesús) en una tostada | La razón por la que ves rostros en cosas que no tienen cara |
-| Atención selectiva (efecto cóctel) | El cerebro filtra casi todo el ruido ambiente, pero deja pasar tu propio nombre aunque no lo escuches "a propósito" | Por qué escuchas tu nombre en una fiesta ruidosa sin intentarlo | Tu cerebro ignora todo el ruido de una fiesta, menos una palabra |
+| # | Tema | Hecho | Oportunidad | Título final |
+|---|---|---|---|---|
+| 19 | Olfato vs. gusto | La mayor parte de lo que llamas "sabor" en realidad lo estás oliendo, no saboreando | **MEDIA** | Casi todo lo que llamas sabor en realidad lo estás oliendo |
+| 20 | Oído y tacto conectados | Los mismos receptores que procesan el sonido están ligados a los del tacto — por eso ciertos sonidos "se sienten" en la piel | **MEDIA** | Por qué ciertos sonidos te dan escalofríos en la piel |
+| 21 | Pareidolia religiosa | El cerebro está tan entrenado para detectar caras que las ve en tostadas, nubes o manchas | **MEDIA** | Tu cerebro ve caras, hasta la de Jesús, en una tostada |
+| 22 | Atención selectiva (efecto cóctel) | El cerebro filtra casi todo el ruido ambiente, pero deja pasar tu propio nombre aunque no lo escuches "a propósito" | **MEDIA** | Tu cerebro capta tu nombre en medio del ruido sin querer |
 
 ## Personalidad (cap. 6)
 
-| Tema | El hecho | Título A | Título B |
-|---|---|---|---|
-| Tests de personalidad | Tests populares como el de "16 tipos" no tienen respaldo científico sólido como predictores reales | El test de personalidad que hiciste no sirve para nada | Por qué la ciencia no respalda los tests de personalidad virales |
-| La ira | La ira es una respuesta útil de protección, no un simple "fallo" del carácter | La ira existe porque tu cerebro cree que te está protegiendo | Por qué enfadarse, a veces, es lo que tu cerebro necesita hacer |
-| Motivación | Las frases motivadoras genéricas no activan los mismos mecanismos que la motivación real y personal | Por qué las frases motivadoras de gimnasio no funcionan | La motivación no viene de una frase bonita, viene de otro lado |
-| El humor | Nadie tiene una explicación científica cerrada de qué hace gracioso algo — hay varias teorías en competencia | Nadie sabe explicar del todo por qué algo da risa | La ciencia todavía no puede explicar por completo el sentido del humor |
+| # | Tema | Hecho | Oportunidad | Título final |
+|---|---|---|---|---|
+| 23 | Tests de personalidad | Tests populares como el de "16 tipos" no tienen respaldo científico sólido como predictores reales | **BAJA** | El test de personalidad que hiciste no sirve para nada |
+| 24 | La ira | La ira es una respuesta útil de protección, no un simple "fallo" del carácter | **MEDIA** | La ira existe porque tu cerebro cree que te protege |
+| 25 | Motivación | Las frases motivadoras genéricas no activan los mismos mecanismos que la motivación real y personal | **ALTA** | Por qué las frases motivadoras de gimnasio no funcionan |
+| 26 | El humor | Nadie tiene una explicación científica cerrada de qué hace gracioso algo — hay varias teorías en competencia | **MEDIA** | Nadie sabe explicar del todo por qué algo da risa |
 
 ## Relaciones sociales (cap. 7)
 
-| Tema | El hecho | Título A | Título B |
-|---|---|---|---|
-| Expresiones faciales involuntarias | Ocultar una emoción real en la cara exige un esfuerzo consciente que casi siempre se filtra igual | Por qué es casi imposible esconder lo que sientes en la cara | Tu cara te delata aunque intentes ocultar lo que sientes |
-| Premio y castigo (control social) | Los mismos mecanismos cerebrales de recompensa que usan las drogas se usan para controlar tu comportamiento social | Cómo el cerebro te hace fácil de manipular sin que lo notes | El mecanismo que usan para controlarte sin que te des cuenta |
-| Rupturas amorosas | Una ruptura activa literalmente las mismas regiones cerebrales que procesan el dolor físico | Una ruptura duele en tu cerebro como una herida física real | Por qué un desamor duele en el cuerpo y no solo en la cabeza |
-| Conformidad de grupo | En el experimento de Asch, el 75% de la gente dio al menos una respuesta obviamente falsa solo por igualarse al grupo | El 75% de la gente miente sobre lo que ve solo por encajar | El experimento que demostró que mentirías con tal de encajar |
-| Crueldad humana | El cerebro social que nos hace empáticos con "los nuestros" es el mismo que nos hace fríos con "los otros" | El mismo cerebro que te hace bueno te puede hacer cruel | Por qué ser amable con tu grupo te puede volver cruel con el resto |
+| # | Tema | Hecho | Oportunidad | Título final |
+|---|---|---|---|---|
+| 27 | Expresiones faciales involuntarias | Ocultar una emoción real en la cara exige un esfuerzo consciente que casi siempre se filtra igual | **ALTA** | Casi no puedes esconder lo que sientes en la cara |
+| 28 | Premio y castigo (control social) | Los mismos mecanismos cerebrales de recompensa que usan las drogas se usan para controlar tu comportamiento social | **MEDIA** | Cómo el cerebro te hace fácil de manipular sin que lo notes |
+| 29 | Rupturas amorosas | Una ruptura activa literalmente las mismas regiones cerebrales que procesan el dolor físico | **MEDIA** | Una ruptura duele en tu cerebro como una herida física real |
+| 30 | Conformidad de grupo | En el experimento de Asch, el 75% de la gente dio al menos una respuesta obviamente falsa solo por igualarse al grupo | **BAJA** | El 75% de la gente miente sobre lo que ve solo por encajar |
+| 31 | Crueldad humana | El cerebro social que nos hace empáticos con "los nuestros" es el mismo que nos hace fríos con "los otros" | **ALTA** | El mismo cerebro que te hace bueno te puede hacer cruel |
 
 ## Cuando el cerebro falla (cap. 8)
 
-| Tema | El hecho | Título A | Título B |
-|---|---|---|---|
-| Depresión (mitos) | La depresión clínica no es "estar triste": es un trastorno distinto que la conversación diaria confunde con tristeza normal | La depresión no es estar triste. Es otra cosa completamente distinta | El error más común al hablar de depresión, según la ciencia |
-| Crisis de pánico | Durante una crisis de pánico el cuerpo dispara literalmente el mismo sistema de alarma que ante un peligro de vida o muerte | Qué pasa realmente en tu cuerpo durante un ataque de pánico | Tu cuerpo reacciona a un ataque de pánico igual que a morir de verdad |
-| Adicción | El cerebro que se vuelve adicto a una droga usa el mismo circuito de recompensa que el vínculo afectivo | Tu cerebro no distingue tanto entre una droga y el amor | Por qué dejar una adicción se parece tanto a una ruptura |
-| Psicosis / alucinaciones | Alucinar no es "inventar" algo de la nada: el cerebro genera percepción real con la misma maquinaria que usa siempre | Cómo tu cerebro puede hacerte ver y oír cosas que no existen | El mismo sistema que te hace ver la realidad te puede engañar del todo |
+| # | Tema | Hecho | Oportunidad | Título final |
+|---|---|---|---|---|
+| 32 | Depresión (mitos) | La depresión clínica no es "estar triste": es un trastorno distinto que la conversación diaria confunde con tristeza normal | **BAJA** | La depresión no es estar triste, es otra cosa distinta |
+| 33 | Crisis de pánico | Durante una crisis de pánico el cuerpo dispara literalmente el mismo sistema de alarma que ante un peligro de vida o muerte | **MEDIA** | Qué pasa realmente en tu cuerpo durante un ataque de pánico |
+| 34 | Adicción | El cerebro que se vuelve adicto a una droga usa el mismo circuito de recompensa que el vínculo afectivo | **MEDIA** | Tu cerebro no distingue tanto entre una droga y el amor |
+| 35 | Psicosis / alucinaciones | Alucinar no es "inventar" algo de la nada: el cerebro genera percepción real con la misma maquinaria que usa siempre | **MEDIA** | Tu cerebro puede hacerte ver y oír cosas que no existen |
 
 ## Temas nuevos investigados (fuera del libro)
 
-Casos, experimentos y síndromes reales, verificados contra literatura de
-psicología/neurociencia establecida — no vienen del libro de Burnett, se
-investigaron aparte para ampliar el banco. Marcados **[MITO/REALIDAD]**
-los que exigen el mismo cuidado que "Reinhold Boyer" en Historia Incómoda:
-se cuentan como caso célebre y luego se desmontan, nunca como hecho cerrado
-sin más — ese desmontaje es, además, el propio gancho viral.
+| # | Tema | Hecho | Oportunidad | Título final |
+|---|---|---|---|---|
+| 36 | Punto ciego del ojo | Cada ojo tiene una zona sin receptores (por donde sale el nervio óptico) que no ves — tu cerebro rellena el hueco inventando lo que "debería" haber | **MEDIA** | Hay algo que ves ahora que tu cerebro se está inventando |
+| 37 | Efecto McGurk | Lo que oyes cambia según los labios que ves mover al hablar — el mismo sonido se "oye" distinto con distinto vídeo | **MEDIA** | Tu cerebro cambia lo que oyes según lo que ve tu ojo |
+| 38 | Ceguera al cambio (change blindness) | La gente no nota cambios grandes en una escena (hasta un cambio de persona) si ocurren en un corte de atención | **MEDIA** | Puedes no notar que la persona con la que hablas cambió |
+| 39 | Ilusión de la mano de goma | En minutos, el cerebro "adopta" una mano de goma como si fuera la tuya con solo tocarlas a la vez | **MEDIA** | Tu cerebro puede creer que una mano de plástico es tuya |
+| 40 | Efecto Mandela (memoria colectiva falsa) | Miles de personas comparten el mismo recuerdo equivocado sobre algo que nunca pasó así | **MEDIA** | Millones de personas recuerdan igual algo que nunca ocurrió |
+| 41 | Phineas Gage | Sobrevivió a que una barra de hierro le atravesara el cráneo de lado a lado — y su personalidad cambió por completo el resto de su vida | **BAJA** | Una barra de hierro le atravesó el cráneo y sobrevivió |
+| 42 | Paciente H.M. (Henry Molaison) | Le extirparon el hipocampo para curar su epilepsia y perdió la capacidad de formar recuerdos nuevos el resto de su vida | **BAJA** | El hombre que vivió 50 años sin poder recordar nada nuevo |
+| 43 | Experimento de Milgram (obediencia) | El 65% de los participantes aplicó lo que creía descargas eléctricas letales solo porque un hombre de bata blanca se lo pidió | **BAJA** | El 65% obedeció una orden que creía que podía matar |
+| 44 | **[MITO/REALIDAD]** Cárcel de Stanford | Se presentó como prueba de que "cualquiera se vuelve un monstruo con poder" — grabaciones desclasificadas muestran que a los guardias se les instruyó activamente para actuar así | **ALTA** | El experimento de psicología más citado fue manipulado |
+| 45 | **[MITO/REALIDAD]** Caso Kitty Genovese / "efecto espectador" | La historia de 38 testigos que no hicieron nada fue en gran parte una exageración del reportaje original de 1964 | **MEDIA** | Lo que te enseñaron en psicología no pasó así |
+| 46 | Síndrome de Capgras | La persona reconoce la cara de un ser querido pero está convencida de que es un impostor idéntico | **MEDIA** | Creen que su familia fue reemplazada por impostores iguales |
+| 47 | Síndrome de Cotard | La persona está convencida de que está muerta, o de que no existe, mientras sigue viva y consciente | **MEDIA** | Hay personas convencidas de que ya están muertas y hablan |
+| 48 | Síndrome de la mano ajena | Una mano se mueve por su cuenta, contra la voluntad de la propia persona, tras ciertos daños cerebrales | **ALTA** | Hay manos que actúan solas, sin permiso de su dueño |
+| 49 | Prosopagnosia (ceguera facial) | Algunas personas no pueden reconocer ni su propia cara en el espejo, aunque vean perfectamente | **MEDIA** | Hay gente que no reconoce su propia cara en el espejo |
+| 50 | Síndrome del acento extranjero | Tras un daño cerebral, algunas personas empiezan a hablar su propio idioma con acento extranjero de forma permanente | **ALTA** | Un golpe en la cabeza le cambió el acento para siempre |
+| 51 | Amnesia infantil | Nadie recuerda casi nada de antes de los 3-4 años, y la ciencia no se pone del todo de acuerdo en por qué | **MEDIA** | Por qué no recuerdas nada de cuando eras bebé |
+| 52 | Efecto Baader-Meinhof (ilusión de frecuencia) | Aprendes una palabra o dato nuevo y de repente "empieza a aparecer" en todas partes — solo la estás notando más | **MEDIA** | Aprendes algo nuevo y de golpe aparece en todos lados |
+| 53 | Efecto de verdad ilusoria | Repetir una afirmación falsa las veces suficientes hace que la gente la crea más verdadera, aunque sepa que es falsa | **ALTA** | Repetir una mentira las veces suficientes hace que la creas |
+| 54 | Parálisis del sueño | El cuerpo se despierta antes que el cerebro apague la parálisis del sueño REM, produciendo alucinaciones de presencia | **MEDIA** | Despiertas sin poder moverte y sientes que no estás solo |
+| 55 | Déjà vu | Sigue sin explicación 100% cerrada, pero la teoría del "doble procesamiento" cerebral es la más sólida hasta hoy | **MEDIA** | Nadie sabe por qué sientes que ya viviste este momento |
+| 56 | Sonambulismo violento (casos documentados) | Existen casos reales, documentados legalmente, de personas que cometieron actos violentos completamente dormidas | **ALTA** | Hay personas que han hecho cosas graves dormidas, sin saberlo |
 
-### Fallos de percepción que no se pueden "desver"
+## Notas de investigación por tema
 
-| Tema | El hecho | Título A | Título B |
-|---|---|---|---|
-| Punto ciego del ojo | Cada ojo tiene una zona sin receptores (por donde sale el nervio óptico) que no ves — tu cerebro rellena el hueco inventando lo que "debería" haber | Hay una parte de lo que ves que tu cerebro se está inventando ahora mismo | El agujero en tu visión que nunca vas a poder notar |
-| Efecto McGurk | Lo que oyes cambia según los labios que ves mover al hablar — el mismo sonido se "oye" distinto con distinto vídeo | Tu cerebro cambia lo que oyes según lo que ve tu ojo | El truco de audio que demuestra que no confías en tus propios oídos |
-| Ceguera al cambio (change blindness) | La gente no nota cambios grandes en una escena (hasta un cambio de persona) si ocurren en un corte de atención | Puedes no notar que la persona con la que hablas cambió de golpe | El experimento que demuestra que ves mucho menos de lo que crees |
-| Ilusión de la mano de goma | En minutos, el cerebro "adopta" una mano de goma como si fuera la tuya con solo tocarlas a la vez | Tu cerebro puede creer que una mano de plástico es tuya en minutos | El experimento que hace que sientas dolor por una mano que no es tuya |
-| Efecto Mandela (memoria colectiva falsa) | Miles de personas comparten el mismo recuerdo equivocado sobre algo que nunca pasó así | Millones de personas recuerdan igual algo que nunca ocurrió | Por qué tanta gente "recuerda" lo mismo mal, exactamente igual |
+Motivo breve de cada oportunidad/cambio de título (ver tabla arriba para el título final):
 
-### Casos y experimentos que no deberían haber pasado
+1. **[ALTA]** Solo hay videos cortos/tutoriales de salud sobre cinetosis, nada narrativo.
+2. **[ALTA]** Casi todo el contenido encontrado es en texto (artículos), poco video dedicado.
+3. **[MEDIA]** Curiosamente (canal grande) ya cubrió sonambulismo bien; ajusté longitud.
+4. **[MEDIA]** Lucha-o-huida en general está muy cubierto, pero el ángulo bata/asesino no.
+5. **[ALTA]** Solo shorts/reels sueltos, ningún canal grande con tratamiento narrativo; muy compartible.
+6. **[ALTA]** Solo artículos (Infobae, UNAM), cero video dedicado encontrado.
+7. **[ALTA]** Poca cobertura en video, mayoría artículos.
+8. **[MEDIA]** Varios canales grandes ya hablan de sesgos de memoria en general.
+9. **[MEDIA]** Demencia/Alzheimer muy cubierto, pero no con el ángulo "destrucción por partes".
+10. **[ALTA]** Mucho artículo, casi nada de video dedicado en español, tema de gran actualidad.
+11. **[MEDIA]** Miedo escénico sobrecubierto en modo autoayuda; la comparación con el tigre es fresca.
+12. **[MEDIA]** Cubierto repetidamente por medios y canales de curiosidades.
+13. **[ALTA]** Ningún video dedicado encontrado, solo artículos; gancho visceral con hueco real.
+14. **[MEDIA]** Existe un video con ángulo similar, pero la mayoría es "haz el test", no crítica.
+15. **[ALTA]** Se mezcla con contenido de Dunning-Kruger; sin tratamiento propio dedicado.
+16. **[BAJA]** Dunning-Kruger está saturadísimo en YouTube en español.
+17. **[ALTA]** Ningún video cubre esta afirmación específica, solo tutoriales de cómo resolverlos.
+18. **[ALTA]** Solo un artículo tratando el dato, cero video; reformulado para no cerrar la respuesta.
+19. **[MEDIA]** Un video lo toca de forma genérica; hueco para versión con más gancho.
+20. **[MEDIA]** Muy cubierto en artículos, sin canal grande dominando el ángulo en video.
+21. **[MEDIA]** Hay un video dedicado y varios artículos; tema conocido pero no saturado.
+22. **[MEDIA]** Muy documentado en texto y un video, sin gran producción narrativa.
+23. **[BAJA]** Ya hay videos en español con el ángulo casi idéntico.
+24. **[MEDIA]** Cubierto de forma genérica/terapéutica; falta el ángulo dramático de "protección".
+25. **[ALTA]** No se encontró ningún video con este ángulo específico.
+26. **[MEDIA]** Tema cubierto por varios, pero el ángulo "nadie lo sabe explicar" diferencia.
+27. **[ALTA]** No apareció ningún video en los resultados, solo artículos; hueco real.
+28. **[MEDIA]** "Dopamina y redes sociales" saturado en general, pero este ángulo específico no.
+29. **[MEDIA]** Ya existe un video con ángulo casi idéntico.
+30. **[BAJA]** El experimento de Asch está sobrecubierto en YouTube en español.
+31. **[ALTA]** Poca cobertura directa, ángulo dramático sin explotar.
+32. **[BAJA]** Tema muy cubierto por canales de salud mental con el mismo ángulo.
+33. **[MEDIA]** Muy cubierto por canales de salud mental, pero en tono clínico, no true-crime.
+34. **[MEDIA]** "El amor es una droga" bastante cubierto en medios y artículos.
+35. **[MEDIA]** Información dispersa en artículos, sin video narrativo dedicado grande.
+36. **[MEDIA]** Hay algún video y varios artículos, pero persiste el hueco de tratamiento cinematográfico.
+37. **[MEDIA]** Bien documentado (shorts + artículos), sin gran producción narrativa en español.
+38. **[MEDIA]** Cubierto con un video de un mago y contenido disperso.
+39. **[MEDIA]** Ya hay muchos videos y shorts de este experimento.
+40. **[MEDIA]** Existe un video grande y popular sobre esto; se puede competir pero hay competencia fuerte.
+41. **[BAJA]** Phineas Gage ya tiene muchísimos videos dedicados en español.
+42. **[BAJA]** El caso H.M. ya tiene numerosos videos dedicados en español.
+43. **[BAJA]** Milgram es clásico y está sobrecubierto en YouTube en español.
+44. **[ALTA]** Narrativa "manipulado/mentira" fuerte en inglés (documental Nat Geo), apenas explotada en español.
+45. **[MEDIA]** Hay cobertura pero dispersa; el ángulo "mito vs. realidad" tiene hueco.
+46. **[MEDIA]** Existe al menos un video directo con el mismo ángulo (Capgras).
+47. **[MEDIA]** Ya hay varios shorts con ganchos casi idénticos sobre Cotard.
+48. **[ALTA]** Solo shorts/TikToks sueltos, sin tratamiento narrativo fuerte.
+49. **[MEDIA]** Cobertura moderada, principalmente shorts.
+50. **[ALTA]** Tema muy llamativo con poca cobertura de video, mayoría artículos.
+51. **[MEDIA]** Cubierto por varios artículos y un video; tema recurrente pero competible.
+52. **[MEDIA]** Ya cubierto con varios shorts, pero se puede competir con mejor narrativa.
+53. **[ALTA]** Solo un video encontrado; tema de gran actualidad (desinformación) con hueco narrativo real.
+54. **[MEDIA]** Muy cubierto pero de altísima demanda evergreen.
+55. **[MEDIA]** Tema evergreen muy cubierto pero de gran demanda constante.
+56. **[ALTA]** Cobertura solo en artículos/TV, no hay tratamiento tipo documental true-crime en YouTube.
 
-| Tema | El hecho | Título A | Título B |
-|---|---|---|---|
-| Phineas Gage | Sobrevivió a que una barra de hierro le atravesara el cráneo de lado a lado — y su personalidad cambió por completo el resto de su vida | El hombre al que una barra de hierro le atravesó la cabeza y sobrevivió | El caso que fundó la neurociencia moderna, y empezó con un accidente |
-| Paciente H.M. (Henry Molaison) | Le extirparon el hipocampo para curar su epilepsia y perdió la capacidad de formar recuerdos nuevos el resto de su vida | El hombre que vivió 50 años sin poder recordar nada nuevo | Le quitaron una parte del cerebro y quedó atrapado en el presente para siempre |
-| Experimento de Milgram (obediencia) | El 65% de los participantes aplicó lo que creía descargas eléctricas letales solo porque un hombre de bata blanca se lo pidió | El 65% de la gente hizo lo que creía que podía matar a alguien, solo porque se lo pidieron | El experimento que demostró hasta dónde obedecemos a una bata blanca |
-| **[MITO/REALIDAD]** Cárcel de Stanford | Se presentó como prueba de que "cualquiera se vuelve un monstruo con poder" — grabaciones desclasificadas muestran que a los guardias se les instruyó activamente para actuar así | El experimento más citado de la psicología estaba manipulado | Lo que de verdad pasó en el experimento de la cárcel de Stanford |
-| **[MITO/REALIDAD]** Caso Kitty Genovese / "efecto espectador" | La historia de 38 testigos que no hicieron nada fue en gran parte una exageración del reportaje original de 1964 | La historia que enseñan en psicología (y que no pasó como te la contaron) | El caso real detrás del "efecto espectador" no es el que estudiaste |
+## Top 8 de mayor oportunidad (verificado en YouTube, 05/09/2026)
 
-### El cerebro rompiéndose (síndromes reales, verificables)
+Reemplaza los "top 5" especulativos de la versión anterior de este
+documento — esta lista ya está contrastada contra lo que existe hoy en
+YouTube, no es solo criterio editorial.
 
-| Tema | El hecho | Título A | Título B |
-|---|---|---|---|
-| Síndrome de Capgras | La persona reconoce la cara de un ser querido pero está convencida de que es un impostor idéntico | Hay personas que creen que su familia fue reemplazada por impostores idénticos | El síndrome que te hace no creer que tu propia madre es tu madre |
-| Síndrome de Cotard | La persona está convencida de que está muerta, o de que no existe, mientras sigue viva y consciente | Hay personas convencidas de que están muertas mientras hablan contigo | El síndrome en el que alguien jura que ya no existe |
-| Síndrome de la mano ajena | Una mano se mueve por su cuenta, contra la voluntad de la propia persona, tras ciertos daños cerebrales | Hay manos que actúan solas, sin permiso de la persona a la que pertenecen | El síndrome en el que tu propia mano deja de obedecerte |
-| Prosopagnosia (ceguera facial) | Algunas personas no pueden reconocer ni su propia cara en el espejo, aunque vean perfectamente | Hay gente que no reconoce su propia cara en el espejo | Ceguera facial: cuando ver perfectamente no basta para reconocer a nadie |
-| Síndrome del acento extranjero | Tras un daño cerebral, algunas personas empiezan a hablar su propio idioma con acento extranjero de forma permanente | Un golpe en la cabeza le cambió el acento para siempre | El síndrome que te hace sonar extranjero en tu propio idioma |
-| Amnesia infantil | Nadie recuerda casi nada de antes de los 3-4 años, y la ciencia no se pone del todo de acuerdo en por qué | Por qué no recuerdas nada de cuando eras bebé | El misterio de los años que tu cerebro borró y nunca supiste |
+1. **#44 — El experimento de psicología más citado fue manipulado** (cárcel de Stanford): mito/revelación con fuerte respaldo documental en inglés, casi sin explotar en español.
+2. **#56 — Sonambulismo violento, casos reales**: encaja perfecto con el ADN true crime del canal; cobertura actual solo en TV/artículos, no en YouTube documental.
+3. **#13 — Un insulto duele en tu cerebro como un hueso roto**: gancho visceral universal, cero video dedicado encontrado.
+4. **#31 — El mismo cerebro que te hace bueno te puede hacer cruel**: ángulo dramático/filosófico, casi sin cobertura directa.
+5. **#5 — La razón real por la que olvidas para qué entraste a un cuarto** (efecto puerta): altísima relatabilidad, solo hay shorts sueltos.
+6. **#27 — Casi no puedes esconder lo que sientes en la cara**: ningún video encontrado en la búsqueda, gancho universal.
+7. **#50 — Un golpe en la cabeza le cambió el acento para siempre** (síndrome del acento extranjero): curveball muy compartible, cobertura mínima en video.
+8. **#53 — Repetir una mentira las veces suficientes hace que la creas** (efecto de verdad ilusoria): tema de actualidad por la desinformación, poca cobertura en video.
 
-### Efectos con nombre que persiguen después de conocerlos
+## Temas de oportunidad BAJA (no empezar por aquí)
 
-| Tema | El hecho | Título A | Título B |
-|---|---|---|---|
-| Efecto Baader-Meinhof (ilusión de frecuencia) | Aprendes una palabra o dato nuevo y de repente "empieza a aparecer" en todas partes — solo la estás notando más | Por qué algo nuevo que aprendes empieza a aparecer en todos lados | El efecto que hace que tu cerebro te haga creer en coincidencias |
-| Efecto de verdad ilusoria | Repetir una afirmación falsa las veces suficientes hace que la gente la crea más verdadera, aunque sepa que es falsa | Repetir una mentira las veces suficientes hace que la creas | Por qué escuchar algo muchas veces lo hace sonar más cierto |
-| Parálisis del sueño | El cuerpo se despierta antes que el cerebro apague la parálisis del sueño REM, produciendo alucinaciones de presencia | Por qué a veces despiertas sin poder moverte y sientes que no estás solo | El fallo del sueño que en toda cultura se interpretó como un demonio |
-| Déjà vu | Sigue sin explicación 100% cerrada, pero la teoría del "doble procesamiento" cerebral es la más sólida hasta hoy | Nadie sabe explicar del todo por qué sientes que ya viviste este momento | La ciencia todavía no ha resuelto del todo el déjà vu |
-| Sonambulismo violento (casos documentados) | Existen casos reales, documentados legalmente, de personas que cometieron actos violentos completamente dormidas | Hay personas que han hecho cosas graves dormidas, sin saberlo | El caso real de alguien juzgado por algo que hizo dormido |
-
-## Los 5 más fuertes si abren una serie nueva
-
-1. **Efecto Dunning-Kruger** — "Cuanto menos sabes, más seguro estás de tener razón" (universal, todo el mundo conoce un caso real al instante)
-2. **Rupturas amorosas = dolor físico** — dato con cifra de estudio real detrás, muy compartible
-3. **Conspiranoia** — conecta directo con el video 3 (por qué el cerebro cree leyendas falsas)
-4. **Pareidolia religiosa (Jesús en la tostada)** — imagen fortísima para miniatura, gancho absurdo y real a la vez
-5. **Experimento de Asch (conformidad)** — cifra dura (75%) + experimento real y verificable, mismo tipo de gancho que "escala que rompe la cabeza" en `06-temas-intrigantes.md`
-
-## Los 5 más fuertes de los temas nuevos investigados
-
-1. **Phineas Gage** — imagen mental brutal (barra de hierro atravesando el cráneo), caso 100% real y documentado, funciona igual de bien como Short suelto
-2. **[MITO/REALIDAD] Cárcel de Stanford** — desmontar el experimento más citado de la psicología tiene el mismo tirón que desmontar los cascos vikingos en Historia Incómoda: "toda tu vida creíste esto"
-3. **Síndrome de Capgras** — el más inquietante de los síndromes: "tu familia no es tu familia" es un gancho casi de terror, pero 100% real y clínico
-4. **Ilusión de la mano de goma** — se puede filmar/describir como una demostración en vivo, ideal para abrir un video sin depender solo de narración
-5. **[MITO/REALIDAD] Caso Kitty Genovese** — mismo patrón que Frank Tower en el video 3: la leyenda que enseñan en clase resulta ser una exageración periodística
+Dunning-Kruger (#16), tests de personalidad (#23), experimento de Asch
+(#30), depresión/mitos (#32), Phineas Gage (#41), paciente H.M. (#42) y
+Milgram (#43) ya tienen canales grandes en español cubriendo exactamente
+ese ángulo. Son temas reales y buenos — no se descartan del banco — pero
+no son el mejor punto de partida para los primeros videos del canal
+frente a los 8 de arriba, que compiten en hueco vacío.
