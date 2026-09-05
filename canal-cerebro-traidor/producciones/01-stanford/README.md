@@ -24,16 +24,23 @@ con el canal ("tu cerebro te traiciona sin que lo notes").
 - `guion.txt` — 5.006 caracteres, ortografía correcta (lectura/subtítulos).
 - `guion-voz.txt` — 4.979 caracteres, adaptado a pronunciación (Zimbárdo,
   Stánford, Tibó Le Teksié; años en letras; sin dos puntos ni símbolos).
-- `prompts-imagenes.txt` — 40 prompts fotorrealistas de reconstrucción
-  documental. Ningún guardia/prisionero es una persona real identificable
-  (son reconstrucciones genéricas, sin nombre ni rasgos de Zimbardo o de
-  ningún participante real) — mismo criterio de precaución que Frank Tower.
-- `segments-placeholder.json` — 40 escenas con rótulo y bloque narrativo
-  (`EL_DILEMA`, `EL_EXPERIMENTO`, `LA_VERSION_OFICIAL`, `FAMA_DEL_ESTUDIO`,
-  `LA_GRIETA`, `EL_MECANISMO_REAL`, `APLICACION_COTIDIANA`, `CIERRE`). El
-  campo `text` se rellena con el guión real una vez exista el audio,
-  siguiendo el método de `sync_desde_transcripcion.md` **desde el
-  principio** (no repetir el error de reparto por proporción de video 2).
+- `prompts-imagenes.txt` — **75 prompts** fotorrealistas de reconstrucción
+  documental (ampliado desde 40: con 4:39,7 min de audio y un tope de 5s
+  por plano pedido por el usuario, el mínimo matemático es 56 planos;
+  75 deja margen cómodo). Ningún guardia/prisionero es una persona real
+  identificable (son reconstrucciones genéricas, sin nombre ni rasgos de
+  Zimbardo ni de ningún participante real) — mismo criterio de precaución
+  que Frank Tower.
+- `segments-placeholder.json` — **75 escenas**, cada una con su bloque
+  narrativo (`EL_DILEMA`, `EL_EXPERIMENTO`, `FAMA_DEL_ESTUDIO`,
+  `LA_GRIETA`, `EL_MECANISMO_REAL`, `CEREBRO_TRAIDOR_SUTIL`,
+  `APLICACION_COTIDIANA`, `CIERRE_PREGUNTA`, `CIERRE_CTA`) y su `text`
+  ya relleno — a diferencia de video 2, aquí el `text` de cada escena
+  **es el propio guión partido en orden** (no una etiqueta adivinada por
+  separado), así que no hay riesgo de desfase de contenido: el texto
+  completo de las 75 escenas reconstruye exactamente `guion.txt`
+  (verificado, 4.998 caracteres). Falta anclar el **tiempo** real de cada
+  una — eso viene del paso de transcripción de abajo, no del contenido.
 - `seo.md` — títulos, descripción y comentario fijado con las fuentes.
 - `miniatura/` — ver su propio README.
 
@@ -49,14 +56,28 @@ créditos (~0,91 USD).
 Primer intento descartado: voz "SANDMOR" (cálida/cinematográfica), el
 usuario pidió explícitamente cambiar a David antes de aprobarla.
 
+## Cuántas imágenes y por qué 75
+
+El usuario pidió que ningún plano dure más de 5 segundos, para no aburrir.
+Con 279,75 s de audio, el mínimo matemático es 279,75 ÷ 5 = **56 planos**
+si cada uno durara exactamente 5s — algo que no pasa en la práctica porque
+los cortes se ajustan al final de cada frase, no a un reloj fijo. El
+guión se partió en 75 fragmentos por cláusula (no por proporción de
+caracteres), a un ritmo real medido de ~17,5 car/s: el 90% de los
+fragmentos caen entre 2 y 5 segundos estimados, y solo un puñado ronda
+5-6s — esos se revisan y, si hace falta, se dividen en dos imágenes más
+al anclar el tiempo real en el paso siguiente.
+
 ## Pendiente
 
-1. Trocear el audio y transcribir con ElevenLabs Scribe para anclar
-   tiempos reales (palabra por palabra) y contenido real de cada escena
-   — igual método que corrigió el desfase de video 2 en Historia
-   Incómoda.
+1. Trocear el audio en ventanas de 15s y transcribir con ElevenLabs
+   Scribe para anclar el tiempo real (palabra por palabra) de cada una
+   de las 75 escenas — igual método que corrigió el desfase de video 2
+   en Historia Incómoda. Como el `text` de cada escena ya es el guión
+   real en orden, este paso solo asigna **tiempos**, no contenido.
 2. Generar `hoja-montaje.csv`/`.txt` y `subtitulos.srt` con esos tiempos.
+   Si algún plano supera 5s reales, dividirlo en dos imágenes.
 3. Cuadrar los timestamps de capítulos en `seo.md`.
-4. Generar las 40 imágenes de `prompts-imagenes.txt` (proponer un lote de
-   prueba pequeño primero, no generar las 40 de golpe, mismo criterio de
+4. Generar las 75 imágenes de `prompts-imagenes.txt` (proponer un lote de
+   prueba pequeño primero, no generar las 75 de golpe, mismo criterio de
    conciencia de costo que en Historia Incómoda).

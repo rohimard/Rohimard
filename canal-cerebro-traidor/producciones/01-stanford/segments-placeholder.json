@@ -1,42 +1,452 @@
 [
-  {"id": 1, "block": "EL_DILEMA", "cue": "uniforme y porra sobre la mesa", "text": ""},
-  {"id": 2, "block": "EL_DILEMA", "cue": "poniéndose las gafas de aviador", "text": ""},
-  {"id": 3, "block": "EL_DILEMA", "cue": "reja cerrándose", "text": ""},
-  {"id": 4, "block": "EL_DILEMA", "cue": "prisionero mirando hacia arriba", "text": ""},
-  {"id": 5, "block": "EL_EXPERIMENTO", "cue": "fachada Universidad de Stanford", "text": ""},
-  {"id": 6, "block": "EL_EXPERIMENTO", "cue": "escalera al sótano, cartel improvisado", "text": ""},
-  {"id": 7, "block": "EL_EXPERIMENTO", "cue": "reclutamiento de estudiantes", "text": ""},
-  {"id": 8, "block": "EL_EXPERIMENTO", "cue": "división en dos grupos", "text": ""},
-  {"id": 9, "block": "EL_EXPERIMENTO", "cue": "calendario marcado, dos semanas planeadas", "text": ""},
-  {"id": 10, "block": "LA_VERSION_OFICIAL", "cue": "guardia adoptando autoridad", "text": ""},
-  {"id": 11, "block": "LA_VERSION_OFICIAL", "cue": "flexiones de madrugada", "text": ""},
-  {"id": 12, "block": "LA_VERSION_OFICIAL", "cue": "armario oscuro, castigo", "text": ""},
-  {"id": 13, "block": "LA_VERSION_OFICIAL", "cue": "crisis nerviosa del prisionero", "text": ""},
-  {"id": 14, "block": "LA_VERSION_OFICIAL", "cue": "Zimbardo deteniendo el experimento", "text": ""},
-  {"id": 15, "block": "FAMA_DEL_ESTUDIO", "cue": "biblioteca, libros de psicología", "text": ""},
-  {"id": 16, "block": "FAMA_DEL_ESTUDIO", "cue": "aula universitaria, proyector", "text": ""},
-  {"id": 17, "block": "FAMA_DEL_ESTUDIO", "cue": "recorte de prensa, disturbios reales", "text": ""},
-  {"id": 18, "block": "FAMA_DEL_ESTUDIO", "cue": "sombra monstruosa, cualquiera se vuelve cruel", "text": ""},
-  {"id": 19, "block": "LA_GRIETA", "cue": "archivo universitario moderno", "text": ""},
-  {"id": 20, "block": "LA_GRIETA", "cue": "cinta de casete y bobina magnetofónica", "text": ""},
-  {"id": 21, "block": "LA_GRIETA", "cue": "reproductor de carrete abierto", "text": ""},
-  {"id": 22, "block": "LA_GRIETA", "cue": "instrucciones al oído del guardia", "text": ""},
-  {"id": 23, "block": "LA_GRIETA", "cue": "guardia posando con autoridad exagerada", "text": ""},
-  {"id": 24, "block": "LA_GRIETA", "cue": "pantalla de cine, silueta de vaquero", "text": ""},
-  {"id": 25, "block": "LA_GRIETA", "cue": "entrevista décadas después", "text": ""},
-  {"id": 26, "block": "LA_GRIETA", "cue": "prisionero fingiendo el temblor", "text": ""},
-  {"id": 27, "block": "EL_MECANISMO_REAL", "cue": "libro de texto subrayado", "text": ""},
-  {"id": 28, "block": "EL_MECANISMO_REAL", "cue": "dos fotografías comparadas", "text": ""},
-  {"id": 29, "block": "EL_MECANISMO_REAL", "cue": "guion de teatro mecanografiado", "text": ""},
-  {"id": 30, "block": "EL_MECANISMO_REAL", "cue": "guardia dudando de sus propias manos", "text": ""},
-  {"id": 31, "block": "EL_MECANISMO_REAL", "cue": "silueta bajo el foco de teatro", "text": ""},
-  {"id": 32, "block": "APLICACION_COTIDIANA", "cue": "espectador frente al espejo, ajustándose el cuello", "text": ""},
-  {"id": 33, "block": "APLICACION_COTIDIANA", "cue": "sillas idénticas, sala de espera institucional", "text": ""},
-  {"id": 34, "block": "APLICACION_COTIDIANA", "cue": "dial de volumen girando", "text": ""},
-  {"id": 35, "block": "APLICACION_COTIDIANA", "cue": "escalera del sótano, décadas después, vacía", "text": ""},
-  {"id": 36, "block": "APLICACION_COTIDIANA", "cue": "espectador deteniéndose a notar algo en sí mismo", "text": ""},
-  {"id": 37, "block": "CIERRE", "cue": "electrodos y generador de descargas", "text": ""},
-  {"id": 38, "block": "CIERRE", "cue": "hombre de bata blanca junto a la puerta", "text": ""},
-  {"id": 39, "block": "CIERRE", "cue": "espectador mirando a cámara", "text": ""},
-  {"id": 40, "block": "CIERRE", "cue": "icono de suscripción", "text": ""}
+  {
+    "id": 1,
+    "block": "EL_DILEMA",
+    "cue": "Imagina que te dan un uniforme",
+    "text": "Imagina que te dan un uniforme caqui, unas gafas de sol que te tapan los ojos y una porra de madera."
+  },
+  {
+    "id": 2,
+    "block": "EL_DILEMA",
+    "cue": "Te dicen que durante dos semanas",
+    "text": "Te dicen que durante dos semanas vas a ser guardia de una cárcel."
+  },
+  {
+    "id": 3,
+    "block": "EL_DILEMA",
+    "cue": "Nadie te explica cómo comportarte. Nadie",
+    "text": "Nadie te explica cómo comportarte. Nadie te dice qué está permitido y qué no."
+  },
+  {
+    "id": 4,
+    "block": "EL_DILEMA",
+    "cue": "Solo te dan el uniforme y",
+    "text": "Solo te dan el uniforme y te cierran la puerta detrás."
+  },
+  {
+    "id": 5,
+    "block": "EL_DILEMA",
+    "cue": "¿Cuánto tiempo crees que tardarías en",
+    "text": "¿Cuánto tiempo crees que tardarías en empezar a humillar a la persona que tienes encerrada?"
+  },
+  {
+    "id": 6,
+    "block": "EL_DILEMA",
+    "cue": "Esa es la pregunta que se",
+    "text": "Esa es la pregunta que se hizo, en 1971,"
+  },
+  {
+    "id": 7,
+    "block": "EL_EXPERIMENTO",
+    "cue": "un psicólogo de la Universidad de",
+    "text": "un psicólogo de la Universidad de Stanford llamado Philip Zimbardo."
+  },
+  {
+    "id": 8,
+    "block": "EL_EXPERIMENTO",
+    "cue": "Montó una cárcel falsa en el",
+    "text": "Montó una cárcel falsa en el sótano del edificio de psicología."
+  },
+  {
+    "id": 9,
+    "block": "EL_EXPERIMENTO",
+    "cue": "Reclutó a veinticuatro estudiantes universitarios sanos",
+    "text": "Reclutó a veinticuatro estudiantes universitarios sanos y sin antecedentes,"
+  },
+  {
+    "id": 10,
+    "block": "EL_EXPERIMENTO",
+    "cue": "y los dividió al azar en",
+    "text": "y los dividió al azar en dos grupos: guardias y prisioneros."
+  },
+  {
+    "id": 11,
+    "block": "EL_EXPERIMENTO",
+    "cue": "El experimento estaba planeado para durar",
+    "text": "El experimento estaba planeado para durar dos semanas completas."
+  },
+  {
+    "id": 12,
+    "block": "EL_EXPERIMENTO",
+    "cue": "Duró seis días. Según se ha",
+    "text": "Duró seis días. Según se ha contado durante décadas en clases de psicología de medio mundo,"
+  },
+  {
+    "id": 13,
+    "block": "EL_EXPERIMENTO",
+    "cue": "los guardias se volvieron crueles casi",
+    "text": "los guardias se volvieron crueles casi de inmediato."
+  },
+  {
+    "id": 14,
+    "block": "EL_EXPERIMENTO",
+    "cue": "Empezaron a humillar a los prisioneros",
+    "text": "Empezaron a humillar a los prisioneros, a privarlos de sueño,"
+  },
+  {
+    "id": 15,
+    "block": "EL_EXPERIMENTO",
+    "cue": "a obligarlos a hacer flexiones de",
+    "text": "a obligarlos a hacer flexiones de madrugada,"
+  },
+  {
+    "id": 16,
+    "block": "EL_EXPERIMENTO",
+    "cue": "a encerrarlos desnudos en armarios oscuros",
+    "text": "a encerrarlos desnudos en armarios oscuros."
+  },
+  {
+    "id": 17,
+    "block": "EL_EXPERIMENTO",
+    "cue": "Uno de los prisioneros sufrió una",
+    "text": "Uno de los prisioneros sufrió una crisis nerviosa tan real,"
+  },
+  {
+    "id": 18,
+    "block": "EL_EXPERIMENTO",
+    "cue": "que tuvieron que sacarlo del experimento",
+    "text": "que tuvieron que sacarlo del experimento antes de tiempo."
+  },
+  {
+    "id": 19,
+    "block": "EL_EXPERIMENTO",
+    "cue": "Zimbardo lo detuvo todo porque, según",
+    "text": "Zimbardo lo detuvo todo porque, según dijo entonces,"
+  },
+  {
+    "id": 20,
+    "block": "EL_EXPERIMENTO",
+    "cue": "la situación se le había ido",
+    "text": "la situación se le había ido de las manos."
+  },
+  {
+    "id": 21,
+    "block": "FAMA_DEL_ESTUDIO",
+    "cue": "Esta historia se convirtió en uno",
+    "text": "Esta historia se convirtió en uno de los experimentos más citados de toda la psicología."
+  },
+  {
+    "id": 22,
+    "block": "FAMA_DEL_ESTUDIO",
+    "cue": "Se enseña en universidades de todo",
+    "text": "Se enseña en universidades de todo el mundo,"
+  },
+  {
+    "id": 23,
+    "block": "FAMA_DEL_ESTUDIO",
+    "cue": "se repite en documentales, se usa",
+    "text": "se repite en documentales, se usa para explicar torturas reales en guerras y prisiones,"
+  },
+  {
+    "id": 24,
+    "block": "FAMA_DEL_ESTUDIO",
+    "cue": "cualquier atrocidad cometida por gente que",
+    "text": "cualquier atrocidad cometida por gente que hasta ayer parecía normal."
+  },
+  {
+    "id": 25,
+    "block": "FAMA_DEL_ESTUDIO",
+    "cue": "La conclusión que se sacó fue",
+    "text": "La conclusión que se sacó fue esta: no hace falta ser un monstruo para comportarte como uno."
+  },
+  {
+    "id": 26,
+    "block": "FAMA_DEL_ESTUDIO",
+    "cue": "Basta con darte un uniforme y",
+    "text": "Basta con darte un uniforme y poder sobre otra persona."
+  },
+  {
+    "id": 27,
+    "block": "FAMA_DEL_ESTUDIO",
+    "cue": "Cualquiera, en teoría, tú incluido, se",
+    "text": "Cualquiera, en teoría, tú incluido, se convertiría en el guardia cruel en menos de una semana."
+  },
+  {
+    "id": 28,
+    "block": "LA_GRIETA",
+    "cue": "Pero hay un problema. Décadas después",
+    "text": "Pero hay un problema. Décadas después,"
+  },
+  {
+    "id": 29,
+    "block": "LA_GRIETA",
+    "cue": "un investigador francés llamado Thibault Le",
+    "text": "un investigador francés llamado Thibault Le Texier consiguió acceso a las grabaciones originales,"
+  },
+  {
+    "id": 30,
+    "block": "LA_GRIETA",
+    "cue": "guardadas en los archivos de la",
+    "text": "guardadas en los archivos de la propia universidad."
+  },
+  {
+    "id": 31,
+    "block": "LA_GRIETA",
+    "cue": "Y lo que hay en esas",
+    "text": "Y lo que hay en esas cintas no es lo que se ha contado durante cincuenta años."
+  },
+  {
+    "id": 32,
+    "block": "LA_GRIETA",
+    "cue": "Se escucha al propio Zimbardo, antes",
+    "text": "Se escucha al propio Zimbardo, antes de empezar,"
+  },
+  {
+    "id": 33,
+    "block": "LA_GRIETA",
+    "cue": "dando instrucciones directas a los guardias",
+    "text": "dando instrucciones directas a los guardias sobre cómo ser duros con los prisioneros."
+  },
+  {
+    "id": 34,
+    "block": "LA_GRIETA",
+    "cue": "Uno de los guardias más recordados",
+    "text": "Uno de los guardias más recordados, apodado por los demás como el vaquero de una película,"
+  },
+  {
+    "id": 35,
+    "block": "LA_GRIETA",
+    "cue": "reconoció años después en una entrevista",
+    "text": "reconoció años después en una entrevista que estaba actuando,"
+  },
+  {
+    "id": 36,
+    "block": "LA_GRIETA",
+    "cue": "imitando a un personaje de un",
+    "text": "imitando a un personaje de un filme carcelario que había visto poco antes."
+  },
+  {
+    "id": 37,
+    "block": "LA_GRIETA",
+    "cue": "Y el prisionero de la crisis",
+    "text": "Y el prisionero de la crisis nerviosa tan citada en los libros confesó,"
+  },
+  {
+    "id": 38,
+    "block": "LA_GRIETA",
+    "cue": "también años más tarde, que la",
+    "text": "también años más tarde, que la fingió para poder salir de allí y volver a estudiar para un examen pendiente."
+  },
+  {
+    "id": 39,
+    "block": "EL_MECANISMO_REAL",
+    "cue": "O sea que el experimento más",
+    "text": "O sea que el experimento más famoso de la psicología"
+  },
+  {
+    "id": 40,
+    "block": "EL_MECANISMO_REAL",
+    "cue": "sobre que cualquiera se vuelve un",
+    "text": "sobre que cualquiera se vuelve un monstruo con poder no midió exactamente eso."
+  },
+  {
+    "id": 41,
+    "block": "EL_MECANISMO_REAL",
+    "cue": "Midió otra cosa, y es todavía",
+    "text": "Midió otra cosa, y es todavía más incómoda."
+  },
+  {
+    "id": 42,
+    "block": "EL_MECANISMO_REAL",
+    "cue": "Zimbardo no demostró que el poder",
+    "text": "Zimbardo no demostró que el poder corrompe a cualquiera de forma automática."
+  },
+  {
+    "id": 43,
+    "block": "EL_MECANISMO_REAL",
+    "cue": "Demostró que basta con que alguien",
+    "text": "Demostró que basta con que alguien con autoridad te insinúe,"
+  },
+  {
+    "id": 44,
+    "block": "EL_MECANISMO_REAL",
+    "cue": "sin decírtelo con esas palabras, qué",
+    "text": "sin decírtelo con esas palabras, qué papel se espera que interpretes,"
+  },
+  {
+    "id": 45,
+    "block": "EL_MECANISMO_REAL",
+    "cue": "para que tu cerebro lo haga",
+    "text": "para que tu cerebro lo haga sin que tú lo decidas de verdad."
+  },
+  {
+    "id": 46,
+    "block": "EL_MECANISMO_REAL",
+    "cue": "No hizo falta ninguna orden explícita",
+    "text": "No hizo falta ninguna orden explícita de ser cruel."
+  },
+  {
+    "id": 47,
+    "block": "EL_MECANISMO_REAL",
+    "cue": "Bastó la ropa, el guion cultural",
+    "text": "Bastó la ropa, el guion cultural de cómo actúa un guardia duro en las películas,"
+  },
+  {
+    "id": 48,
+    "block": "EL_MECANISMO_REAL",
+    "cue": "y una figura de autoridad observando",
+    "text": "y una figura de autoridad observando desde un lado."
+  },
+  {
+    "id": 49,
+    "block": "CEREBRO_TRAIDOR_SUTIL",
+    "cue": "Esto es tu cerebro traicionándote de",
+    "text": "Esto es tu cerebro traicionándote de una forma mucho más sutil de lo que parece."
+  },
+  {
+    "id": 50,
+    "block": "CEREBRO_TRAIDOR_SUTIL",
+    "cue": "No necesita convertirte en otra persona",
+    "text": "No necesita convertirte en otra persona."
+  },
+  {
+    "id": 51,
+    "block": "CEREBRO_TRAIDOR_SUTIL",
+    "cue": "Solo necesita una situación con un",
+    "text": "Solo necesita una situación con un rol claro,"
+  },
+  {
+    "id": 52,
+    "block": "CEREBRO_TRAIDOR_SUTIL",
+    "cue": "una autoridad cerca, y la sensación",
+    "text": "una autoridad cerca, y la sensación de que existe un guion que se espera que sigas."
+  },
+  {
+    "id": 53,
+    "block": "CEREBRO_TRAIDOR_SUTIL",
+    "cue": "A partir de ahí, tu cerebro",
+    "text": "A partir de ahí, tu cerebro deja de preguntarse si lo que hace está bien,"
+  },
+  {
+    "id": 54,
+    "block": "CEREBRO_TRAIDOR_SUTIL",
+    "cue": "y empieza a preguntarse si lo",
+    "text": "y empieza a preguntarse si lo está haciendo bien dentro del papel asignado."
+  },
+  {
+    "id": 55,
+    "block": "CEREBRO_TRAIDOR_SUTIL",
+    "cue": "Es la misma maquinaria que hace",
+    "text": "Es la misma maquinaria que hace que actúes distinto en una entrevista de trabajo,"
+  },
+  {
+    "id": 56,
+    "block": "CEREBRO_TRAIDOR_SUTIL",
+    "cue": "en una fiesta con gente que",
+    "text": "en una fiesta con gente que no conoces, o delante de tu jefe."
+  },
+  {
+    "id": 57,
+    "block": "CEREBRO_TRAIDOR_SUTIL",
+    "cue": "No te conviertes en otra persona",
+    "text": "No te conviertes en otra persona, pero tu cerebro ajusta el volumen de quién eres"
+  },
+  {
+    "id": 58,
+    "block": "CEREBRO_TRAIDOR_SUTIL",
+    "cue": "según lo que cree que se",
+    "text": "según lo que cree que se espera de él en ese momento concreto."
+  },
+  {
+    "id": 59,
+    "block": "APLICACION_COTIDIANA",
+    "cue": "Y esto no se queda en",
+    "text": "Y esto no se queda en un sótano de Stanford en 1971."
+  },
+  {
+    "id": 60,
+    "block": "APLICACION_COTIDIANA",
+    "cue": "Pasa cada vez que te pones",
+    "text": "Pasa cada vez que te pones un uniforme, un cargo o una etiqueta de grupo,"
+  },
+  {
+    "id": 61,
+    "block": "APLICACION_COTIDIANA",
+    "cue": "y nadie te dice cómo comportarte",
+    "text": "y nadie te dice cómo comportarte, pero todo el mundo a tu alrededor parece saberlo."
+  },
+  {
+    "id": 62,
+    "block": "APLICACION_COTIDIANA",
+    "cue": "Tu cerebro rellena ese hueco solo",
+    "text": "Tu cerebro rellena ese hueco solo, copiando el guion que cree que corresponde,"
+  },
+  {
+    "id": 63,
+    "block": "APLICACION_COTIDIANA",
+    "cue": "y lo hace tan rápido que",
+    "text": "y lo hace tan rápido que ni siquiera lo notas como una decisión."
+  },
+  {
+    "id": 64,
+    "block": "APLICACION_COTIDIANA",
+    "cue": "Lo vives como si siempre hubieras",
+    "text": "Lo vives como si siempre hubieras sido así."
+  },
+  {
+    "id": 65,
+    "block": "APLICACION_COTIDIANA",
+    "cue": "Saber esto no te vuelve inmune",
+    "text": "Saber esto no te vuelve inmune. Pero sí cambia cuál es la pregunta correcta."
+  },
+  {
+    "id": 66,
+    "block": "CIERRE_PREGUNTA",
+    "cue": "La próxima vez que te sorprendas",
+    "text": "La próxima vez que te sorprendas actuando distinto de lo que crees que eres,"
+  },
+  {
+    "id": 67,
+    "block": "CIERRE_PREGUNTA",
+    "cue": "con un uniforme, un cargo o",
+    "text": "con un uniforme, un cargo o dentro de un grupo,"
+  },
+  {
+    "id": 68,
+    "block": "CIERRE_PREGUNTA",
+    "cue": "no te preguntes solo si eres",
+    "text": "no te preguntes solo si eres buena o mala persona."
+  },
+  {
+    "id": 69,
+    "block": "CIERRE_PREGUNTA",
+    "cue": "Pregúntate qué guion estás siguiendo sin",
+    "text": "Pregúntate qué guion estás siguiendo sin haberlo elegido,"
+  },
+  {
+    "id": 70,
+    "block": "CIERRE_PREGUNTA",
+    "cue": "y quién te lo puso delante",
+    "text": "y quién te lo puso delante sin que lo notaras."
+  },
+  {
+    "id": 71,
+    "block": "CIERRE_CTA",
+    "cue": "En el próximo video vas a",
+    "text": "En el próximo video vas a conocer a un hombre"
+  },
+  {
+    "id": 72,
+    "block": "CIERRE_CTA",
+    "cue": "que aplicó descargas eléctricas que creía",
+    "text": "que aplicó descargas eléctricas que creía mortales a un desconocido,"
+  },
+  {
+    "id": 73,
+    "block": "CIERRE_CTA",
+    "cue": "solo porque otro hombre con bata",
+    "text": "solo porque otro hombre con bata blanca se lo pidió con voz tranquila."
+  },
+  {
+    "id": 74,
+    "block": "CIERRE_CTA",
+    "cue": "Suscríbete si quieres entender hasta dónde",
+    "text": "Suscríbete si quieres entender hasta dónde llega la traición de tu propio cerebro."
+  },
+  {
+    "id": 75,
+    "block": "CIERRE_CTA",
+    "cue": "Nos vemos en el siguiente",
+    "text": "Nos vemos en el siguiente."
+  }
 ]
