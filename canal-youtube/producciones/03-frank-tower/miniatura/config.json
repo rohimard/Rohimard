@@ -1,0 +1,12 @@
+{
+  "image": "base.jpg",
+  "font": "../../../kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura",
+  "number": "8 VECES",
+  "numberSize": 190,
+  "line1": "",
+  "line2": "NO EXISTIÓ",
+  "side": "right",
+  "accent": "#FFD400",
+  "alarm": "#E10600"
+}
