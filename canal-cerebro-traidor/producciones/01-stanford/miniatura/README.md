@@ -30,17 +30,32 @@ A y C porque:
   puede convertirse en un recurso visual recurrente de la marca.
 - Ningún rostro ni persona real identificable — solo manos genéricas.
 
-Sello rojo diagonal "MANIPULADO" posicionado sobre las cuerdas, dejando
-visibles la cruceta, las manos y la silueta borrosa de la marioneta
-asomando debajo del sello — no tapa el elemento más expresivo de la
-imagen.
+**Segundo intento (descartado)**: sello rojo diagonal "MANIPULADO" estilo
+ribete/cinta, con "1971 / ASÍ LO MONTARON" en violeta al lado. El usuario
+lo rechazó: "esa etiqueta de cancelado no me convence" — el sello diagonal
+se lee como una pegatina genérica de "cancelado/oferta", no comunica
+"esto salió de un archivo real".
 
-Se decidió **no** añadir el número/año lateral (como en el intento
-anterior): la composición ya está cargada visualmente en el centro-
-izquierda, y un bloque de texto adicional a la derecha competiría con
-la imagen en vez de sumar. Aquí el título ("El experimento de psicología
-más citado fue manipulado") ya aporta el dato concreto (el "qué"); la
-miniatura aporta solo la emoción/metáfora (el "cómo se siente").
+## Versión final: barra de documento censurado
+
+Se sustituyó el sello diagonal por una **barra horizontal negra tipo
+documento desclasificado**: dos marcas de tachado a los lados del texto
+(como redacciones de un informe), filo rojo fino arriba y abajo, y una
+etiqueta pequeña roja "ARCHIVO 1971" en la esquina superior derecha. Este
+lenguaje visual conecta directamente con el giro real del video (las
+grabaciones desclasificadas de Le Texier), en vez de con la estética
+genérica de sello/pegatina que ya se había usado y rechazado dos veces.
+Script nuevo, reutilizable: `render_thumbnail_redacted.js` en el kit.
+
+La barra se posiciona sobre las cuerdas de la marioneta, dejando visibles
+la cruceta, las manos y la silueta borrosa de la marioneta asomando
+debajo — no tapa el elemento más expresivo de la imagen.
+
+No se añadió número/año lateral aparte de la etiqueta "ARCHIVO 1971": el
+título ("El experimento de psicología más citado fue manipulado") ya
+aporta el dato concreto (el "qué"); la miniatura aporta la emoción/
+metáfora (el "cómo se siente") más el contexto documental (el "de dónde
+sale esto").
 
 ## Selección de la imagen base
 

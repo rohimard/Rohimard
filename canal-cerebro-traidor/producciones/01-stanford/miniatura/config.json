@@ -2,8 +2,8 @@
   "image": "base.jpg",
   "font": "../../../../canal-youtube/kit-produccion/assets/Anton-Regular.woff2",
   "out": "miniatura",
-  "sello": "MANIPULADO",
-  "selloColor": "#C40800",
-  "selloAngulo": -13,
-  "selloY": 430
+  "text": "MANIPULADO",
+  "sub": "ARCHIVO 1971",
+  "barY": 460,
+  "barH": 120
 }
