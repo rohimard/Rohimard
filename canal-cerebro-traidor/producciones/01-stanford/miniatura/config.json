@@ -1,0 +1,13 @@
+{
+  "image": "base.jpg",
+  "font": "../../../../canal-youtube/kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura",
+  "sello": "MANIPULADO",
+  "selloColor": "#C40800",
+  "selloAngulo": -13,
+  "selloY": 280,
+  "numero": "1971",
+  "numeroSize": 300,
+  "leyenda": "ASÍ LO MONTARON",
+  "accent": "#8B5CF6"
+}
