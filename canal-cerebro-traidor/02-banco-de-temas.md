@@ -93,6 +93,56 @@ cada video, no se usan literalmente sin pasar por ese filtro.
 | Adicción | El cerebro que se vuelve adicto a una droga usa el mismo circuito de recompensa que el vínculo afectivo | Tu cerebro no distingue tanto entre una droga y el amor | Por qué dejar una adicción se parece tanto a una ruptura |
 | Psicosis / alucinaciones | Alucinar no es "inventar" algo de la nada: el cerebro genera percepción real con la misma maquinaria que usa siempre | Cómo tu cerebro puede hacerte ver y oír cosas que no existen | El mismo sistema que te hace ver la realidad te puede engañar del todo |
 
+## Temas nuevos investigados (fuera del libro)
+
+Casos, experimentos y síndromes reales, verificados contra literatura de
+psicología/neurociencia establecida — no vienen del libro de Burnett, se
+investigaron aparte para ampliar el banco. Marcados **[MITO/REALIDAD]**
+los que exigen el mismo cuidado que "Reinhold Boyer" en Historia Incómoda:
+se cuentan como caso célebre y luego se desmontan, nunca como hecho cerrado
+sin más — ese desmontaje es, además, el propio gancho viral.
+
+### Fallos de percepción que no se pueden "desver"
+
+| Tema | El hecho | Título A | Título B |
+|---|---|---|---|
+| Punto ciego del ojo | Cada ojo tiene una zona sin receptores (por donde sale el nervio óptico) que no ves — tu cerebro rellena el hueco inventando lo que "debería" haber | Hay una parte de lo que ves que tu cerebro se está inventando ahora mismo | El agujero en tu visión que nunca vas a poder notar |
+| Efecto McGurk | Lo que oyes cambia según los labios que ves mover al hablar — el mismo sonido se "oye" distinto con distinto vídeo | Tu cerebro cambia lo que oyes según lo que ve tu ojo | El truco de audio que demuestra que no confías en tus propios oídos |
+| Ceguera al cambio (change blindness) | La gente no nota cambios grandes en una escena (hasta un cambio de persona) si ocurren en un corte de atención | Puedes no notar que la persona con la que hablas cambió de golpe | El experimento que demuestra que ves mucho menos de lo que crees |
+| Ilusión de la mano de goma | En minutos, el cerebro "adopta" una mano de goma como si fuera la tuya con solo tocarlas a la vez | Tu cerebro puede creer que una mano de plástico es tuya en minutos | El experimento que hace que sientas dolor por una mano que no es tuya |
+| Efecto Mandela (memoria colectiva falsa) | Miles de personas comparten el mismo recuerdo equivocado sobre algo que nunca pasó así | Millones de personas recuerdan igual algo que nunca ocurrió | Por qué tanta gente "recuerda" lo mismo mal, exactamente igual |
+
+### Casos y experimentos que no deberían haber pasado
+
+| Tema | El hecho | Título A | Título B |
+|---|---|---|---|
+| Phineas Gage | Sobrevivió a que una barra de hierro le atravesara el cráneo de lado a lado — y su personalidad cambió por completo el resto de su vida | El hombre al que una barra de hierro le atravesó la cabeza y sobrevivió | El caso que fundó la neurociencia moderna, y empezó con un accidente |
+| Paciente H.M. (Henry Molaison) | Le extirparon el hipocampo para curar su epilepsia y perdió la capacidad de formar recuerdos nuevos el resto de su vida | El hombre que vivió 50 años sin poder recordar nada nuevo | Le quitaron una parte del cerebro y quedó atrapado en el presente para siempre |
+| Experimento de Milgram (obediencia) | El 65% de los participantes aplicó lo que creía descargas eléctricas letales solo porque un hombre de bata blanca se lo pidió | El 65% de la gente hizo lo que creía que podía matar a alguien, solo porque se lo pidieron | El experimento que demostró hasta dónde obedecemos a una bata blanca |
+| **[MITO/REALIDAD]** Cárcel de Stanford | Se presentó como prueba de que "cualquiera se vuelve un monstruo con poder" — grabaciones desclasificadas muestran que a los guardias se les instruyó activamente para actuar así | El experimento más citado de la psicología estaba manipulado | Lo que de verdad pasó en el experimento de la cárcel de Stanford |
+| **[MITO/REALIDAD]** Caso Kitty Genovese / "efecto espectador" | La historia de 38 testigos que no hicieron nada fue en gran parte una exageración del reportaje original de 1964 | La historia que enseñan en psicología (y que no pasó como te la contaron) | El caso real detrás del "efecto espectador" no es el que estudiaste |
+
+### El cerebro rompiéndose (síndromes reales, verificables)
+
+| Tema | El hecho | Título A | Título B |
+|---|---|---|---|
+| Síndrome de Capgras | La persona reconoce la cara de un ser querido pero está convencida de que es un impostor idéntico | Hay personas que creen que su familia fue reemplazada por impostores idénticos | El síndrome que te hace no creer que tu propia madre es tu madre |
+| Síndrome de Cotard | La persona está convencida de que está muerta, o de que no existe, mientras sigue viva y consciente | Hay personas convencidas de que están muertas mientras hablan contigo | El síndrome en el que alguien jura que ya no existe |
+| Síndrome de la mano ajena | Una mano se mueve por su cuenta, contra la voluntad de la propia persona, tras ciertos daños cerebrales | Hay manos que actúan solas, sin permiso de la persona a la que pertenecen | El síndrome en el que tu propia mano deja de obedecerte |
+| Prosopagnosia (ceguera facial) | Algunas personas no pueden reconocer ni su propia cara en el espejo, aunque vean perfectamente | Hay gente que no reconoce su propia cara en el espejo | Ceguera facial: cuando ver perfectamente no basta para reconocer a nadie |
+| Síndrome del acento extranjero | Tras un daño cerebral, algunas personas empiezan a hablar su propio idioma con acento extranjero de forma permanente | Un golpe en la cabeza le cambió el acento para siempre | El síndrome que te hace sonar extranjero en tu propio idioma |
+| Amnesia infantil | Nadie recuerda casi nada de antes de los 3-4 años, y la ciencia no se pone del todo de acuerdo en por qué | Por qué no recuerdas nada de cuando eras bebé | El misterio de los años que tu cerebro borró y nunca supiste |
+
+### Efectos con nombre que persiguen después de conocerlos
+
+| Tema | El hecho | Título A | Título B |
+|---|---|---|---|
+| Efecto Baader-Meinhof (ilusión de frecuencia) | Aprendes una palabra o dato nuevo y de repente "empieza a aparecer" en todas partes — solo la estás notando más | Por qué algo nuevo que aprendes empieza a aparecer en todos lados | El efecto que hace que tu cerebro te haga creer en coincidencias |
+| Efecto de verdad ilusoria | Repetir una afirmación falsa las veces suficientes hace que la gente la crea más verdadera, aunque sepa que es falsa | Repetir una mentira las veces suficientes hace que la creas | Por qué escuchar algo muchas veces lo hace sonar más cierto |
+| Parálisis del sueño | El cuerpo se despierta antes que el cerebro apague la parálisis del sueño REM, produciendo alucinaciones de presencia | Por qué a veces despiertas sin poder moverte y sientes que no estás solo | El fallo del sueño que en toda cultura se interpretó como un demonio |
+| Déjà vu | Sigue sin explicación 100% cerrada, pero la teoría del "doble procesamiento" cerebral es la más sólida hasta hoy | Nadie sabe explicar del todo por qué sientes que ya viviste este momento | La ciencia todavía no ha resuelto del todo el déjà vu |
+| Sonambulismo violento (casos documentados) | Existen casos reales, documentados legalmente, de personas que cometieron actos violentos completamente dormidas | Hay personas que han hecho cosas graves dormidas, sin saberlo | El caso real de alguien juzgado por algo que hizo dormido |
+
 ## Los 5 más fuertes si abren una serie nueva
 
 1. **Efecto Dunning-Kruger** — "Cuanto menos sabes, más seguro estás de tener razón" (universal, todo el mundo conoce un caso real al instante)
@@ -100,3 +150,11 @@ cada video, no se usan literalmente sin pasar por ese filtro.
 3. **Conspiranoia** — conecta directo con el video 3 (por qué el cerebro cree leyendas falsas)
 4. **Pareidolia religiosa (Jesús en la tostada)** — imagen fortísima para miniatura, gancho absurdo y real a la vez
 5. **Experimento de Asch (conformidad)** — cifra dura (75%) + experimento real y verificable, mismo tipo de gancho que "escala que rompe la cabeza" en `06-temas-intrigantes.md`
+
+## Los 5 más fuertes de los temas nuevos investigados
+
+1. **Phineas Gage** — imagen mental brutal (barra de hierro atravesando el cráneo), caso 100% real y documentado, funciona igual de bien como Short suelto
+2. **[MITO/REALIDAD] Cárcel de Stanford** — desmontar el experimento más citado de la psicología tiene el mismo tirón que desmontar los cascos vikingos en Historia Incómoda: "toda tu vida creíste esto"
+3. **Síndrome de Capgras** — el más inquietante de los síndromes: "tu familia no es tu familia" es un gancho casi de terror, pero 100% real y clínico
+4. **Ilusión de la mano de goma** — se puede filmar/describir como una demostración en vivo, ideal para abrir un video sin depender solo de narración
+5. **[MITO/REALIDAD] Caso Kitty Genovese** — mismo patrón que Frank Tower en el video 3: la leyenda que enseñan en clase resulta ser una exageración periodística
