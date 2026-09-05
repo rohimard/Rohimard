@@ -24,23 +24,25 @@ con el canal ("tu cerebro te traiciona sin que lo notes").
 - `guion.txt` — 5.006 caracteres, ortografía correcta (lectura/subtítulos).
 - `guion-voz.txt` — 4.979 caracteres, adaptado a pronunciación (Zimbárdo,
   Stánford, Tibó Le Teksié; años en letras; sin dos puntos ni símbolos).
-- `prompts-imagenes.txt` — **75 prompts** fotorrealistas de reconstrucción
-  documental (ampliado desde 40: con 4:39,7 min de audio y un tope de 5s
-  por plano pedido por el usuario, el mínimo matemático es 56 planos;
-  75 deja margen cómodo). Ningún guardia/prisionero es una persona real
-  identificable (son reconstrucciones genéricas, sin nombre ni rasgos de
-  Zimbardo ni de ningún participante real) — mismo criterio de precaución
-  que Frank Tower.
-- `segments-placeholder.json` — **75 escenas**, cada una con su bloque
-  narrativo (`EL_DILEMA`, `EL_EXPERIMENTO`, `FAMA_DEL_ESTUDIO`,
-  `LA_GRIETA`, `EL_MECANISMO_REAL`, `CEREBRO_TRAIDOR_SUTIL`,
-  `APLICACION_COTIDIANA`, `CIERRE_PREGUNTA`, `CIERRE_CTA`) y su `text`
-  ya relleno — a diferencia de video 2, aquí el `text` de cada escena
-  **es el propio guión partido en orden** (no una etiqueta adivinada por
-  separado), así que no hay riesgo de desfase de contenido: el texto
-  completo de las 75 escenas reconstruye exactamente `guion.txt`
-  (verificado, 4.998 caracteres). Falta anclar el **tiempo** real de cada
-  una — eso viene del paso de transcripción de abajo, no del contenido.
+- `prompts-imagenes.txt` — **83 prompts** fotorrealistas de reconstrucción
+  documental, ya con tiempos reales verificados (ver más abajo). Ningún
+  guardia/prisionero es una persona real identificable (son
+  reconstrucciones genéricas, sin nombre ni rasgos de Zimbardo ni de
+  ningún participante real) — mismo criterio de precaución que Frank
+  Tower.
+- `segments.json` — **83 escenas finales**, cada una con bloque narrativo,
+  texto real y **tiempo de inicio/fin real** (`t_start`/`t_end`, en
+  segundos, anclados por transcripción — ver abajo). Sustituye a
+  `segments-placeholder.json`.
+- `word_times.json` — el mapa palabra→tiempo completo de las 873 palabras
+  del guión (`raw`, `tiempo`), producido por la alineación contra la
+  transcripción. 97,8% de coincidencia exacta.
+- `hoja-montaje.csv` / `.txt` — 83 planos con tiempos reales, formato
+  compatible con `kit-produccion/scripts/montar_video.js`.
+- `subtitulos.srt` — 83 cues ancladas a los mismos tiempos reales, en
+  bloques de máximo 2 líneas de 42 caracteres (verificado carácter por
+  carácter, no por bytes — cuidado con `awk length()` en textos con
+  tildes, cuenta bytes UTF-8 y da falsos positivos).
 - `seo.md` — títulos, descripción y comentario fijado con las fuentes.
 - `miniatura/` — ver su propio README.
 
@@ -56,28 +58,38 @@ créditos (~0,91 USD).
 Primer intento descartado: voz "SANDMOR" (cálida/cinematográfica), el
 usuario pidió explícitamente cambiar a David antes de aprobarla.
 
-## Cuántas imágenes y por qué 75
+## Cómo se ancló el tiempo real (troceo + transcripción)
 
-El usuario pidió que ningún plano dure más de 5 segundos, para no aburrir.
-Con 279,75 s de audio, el mínimo matemático es 279,75 ÷ 5 = **56 planos**
-si cada uno durara exactamente 5s — algo que no pasa en la práctica porque
-los cortes se ajustan al final de cada frase, no a un reloj fijo. El
-guión se partió en 75 fragmentos por cláusula (no por proporción de
-caracteres), a un ritmo real medido de ~17,5 car/s: el 90% de los
-fragmentos caen entre 2 y 5 segundos estimados, y solo un puñado ronda
-5-6s — esos se revisan y, si hace falta, se dividen en dos imágenes más
-al anclar el tiempo real en el paso siguiente.
+Siguiendo `kit-produccion/scripts/sync_desde_transcripcion.md`:
+
+1. `audio.mp3` (279,75 s) troceado en 19 ventanas de 15 s con ffmpeg
+   (`-f segment`).
+2. Cada ventana subida y transcrita por separado con ElevenLabs Scribe
+   (19 transcripciones × ~5 créditos = ~96 créditos, ~0,017 USD — mucho
+   más barato que estimado inicialmente porque el precio real de Scribe
+   por esta duración es bajo).
+3. Guión completo (873 palabras) alineado contra las 865 palabras
+   transcritas con `difflib.SequenceMatcher`: **97,8% de coincidencia
+   exacta**. Cada palabra reconocida recibe su tiempo real (posición
+   dentro de su ventana de 15s); las palabras no reconocidas se
+   interpolan entre sus vecinas más cercanas ya ancladas.
+4. Como el `text` de cada una de las 75 escenas ya era el guión real
+   partido en orden (no una etiqueta adivinada aparte), este paso solo
+   necesitó **asignar tiempo**, no volver a verificar contenido — se
+   evitó desde el origen el problema que tuvo el video 2.
+5. Con los tiempos reales medidos, **8 de las 75 escenas** resultaron
+   durar más de 5 segundos (máximo real: 6,38s) — se dividieron cada
+   una en dos planos con un prompt de imagen adicional (continuación
+   visual de la misma escena), llevando el total a **83 planos**,
+   todos ≤ 4,96s reales, media 3,37s.
+6. `hoja-montaje.csv`/`.txt` y `subtitulos.srt` generados directamente
+   desde esos 83 tiempos reales — nada estimado.
 
 ## Pendiente
 
-1. Trocear el audio en ventanas de 15s y transcribir con ElevenLabs
-   Scribe para anclar el tiempo real (palabra por palabra) de cada una
-   de las 75 escenas — igual método que corrigió el desfase de video 2
-   en Historia Incómoda. Como el `text` de cada escena ya es el guión
-   real en orden, este paso solo asigna **tiempos**, no contenido.
-2. Generar `hoja-montaje.csv`/`.txt` y `subtitulos.srt` con esos tiempos.
-   Si algún plano supera 5s reales, dividirlo en dos imágenes.
-3. Cuadrar los timestamps de capítulos en `seo.md`.
-4. Generar las 75 imágenes de `prompts-imagenes.txt` (proponer un lote de
-   prueba pequeño primero, no generar las 75 de golpe, mismo criterio de
+1. Cuadrar los timestamps de capítulos en `seo.md` con la hoja real.
+2. Generar las 83 imágenes de `prompts-imagenes.txt` (proponer un lote de
+   prueba pequeño primero, no generar las 83 de golpe, mismo criterio de
    conciencia de costo que en Historia Incómoda).
+3. Renderizar el video final con `montar_video.js` una vez existan las
+   imágenes.
