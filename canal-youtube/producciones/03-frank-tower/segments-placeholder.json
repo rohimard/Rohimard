@@ -1,0 +1,370 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "block": "EL_MITO",
+      "cue": "Reinhold Boyer",
+      "text": ""
+    },
+    {
+      "id": 2,
+      "block": "EL_MITO",
+      "cue": "Un puente de tren que se derrumba",
+      "text": ""
+    },
+    {
+      "id": 3,
+      "block": "EL_MITO",
+      "cue": "Doscientos muertos",
+      "text": ""
+    },
+    {
+      "id": 4,
+      "block": "EL_MITO",
+      "cue": "Un teatro que arde en Viena",
+      "text": ""
+    },
+    {
+      "id": 5,
+      "block": "EL_MITO",
+      "cue": "Cuatrocientas cuarenta y nueve personas",
+      "text": ""
+    },
+    {
+      "id": 6,
+      "block": "EL_MITO",
+      "cue": "Una mina que explota",
+      "text": ""
+    },
+    {
+      "id": 7,
+      "block": "EL_MITO",
+      "cue": "Mil trescientos hombres",
+      "text": ""
+    },
+    {
+      "id": 8,
+      "block": "EL_MITO",
+      "cue": "El terremoto más mortal de Europa",
+      "text": ""
+    },
+    {
+      "id": 9,
+      "block": "EL_MITO",
+      "cue": "Doscientas mil muertes",
+      "text": ""
+    },
+    {
+      "id": 10,
+      "block": "EL_MITO",
+      "cue": "Compró un billete para el Titanic",
+      "text": ""
+    },
+    {
+      "id": 11,
+      "block": "EL_MITO",
+      "cue": "Canceló a última hora",
+      "text": ""
+    },
+    {
+      "id": 12,
+      "block": "EL_MITO",
+      "cue": "El barco se hundió",
+      "text": ""
+    },
+    {
+      "id": 13,
+      "block": "EL_MITO",
+      "cue": "Mil quinientas trece víctimas",
+      "text": ""
+    },
+    {
+      "id": 14,
+      "block": "EL_MITO",
+      "cue": "Un huracán en Miami",
+      "text": ""
+    },
+    {
+      "id": 15,
+      "block": "EL_MITO",
+      "cue": "Una inundación del Misisipi",
+      "text": ""
+    },
+    {
+      "id": 16,
+      "block": "EL_MITO",
+      "cue": "Se ha compartido millones de veces",
+      "text": ""
+    },
+    {
+      "id": 17,
+      "block": "LA_GRIETA",
+      "cue": "Reinhold Boyer no existe",
+      "text": ""
+    },
+    {
+      "id": 18,
+      "block": "LA_GRIETA",
+      "cue": "Dos mil doscientos veinticuatro nombres",
+      "text": ""
+    },
+    {
+      "id": 19,
+      "block": "LA_GRIETA",
+      "cue": "Ningún periódico de la época",
+      "text": ""
+    },
+    {
+      "id": 20,
+      "block": "LA_GRIETA",
+      "cue": "Cadenas de WhatsApp y Facebook",
+      "text": ""
+    },
+    {
+      "id": 21,
+      "block": "LA_GRIETA",
+      "cue": "Esto no es nuevo",
+      "text": ""
+    },
+    {
+      "id": 22,
+      "block": "LA_GRIETA",
+      "cue": "Hace más de cien años",
+      "text": ""
+    },
+    {
+      "id": 23,
+      "block": "FRANK_TOWER",
+      "cue": "Frank Tower",
+      "text": ""
+    },
+    {
+      "id": 24,
+      "block": "FRANK_TOWER",
+      "cue": "Fogonero superviviente de tres naufragios",
+      "text": ""
+    },
+    {
+      "id": 25,
+      "block": "FRANK_TOWER",
+      "cue": "El Empress of Ireland y el Lusitania",
+      "text": ""
+    },
+    {
+      "id": 26,
+      "block": "FRANK_TOWER",
+      "cue": "Ripley's Believe It or Not lo publicó como hecho",
+      "text": ""
+    },
+    {
+      "id": 27,
+      "block": "FRANK_TOWER",
+      "cue": "Circuló durante décadas",
+      "text": ""
+    },
+    {
+      "id": 28,
+      "block": "FRANK_TOWER",
+      "cue": "No existe ningún Frank Tower en las listas",
+      "text": ""
+    },
+    {
+      "id": 29,
+      "block": "FRANK_TOWER",
+      "cue": "Un superviviente real, Francis Toner",
+      "text": ""
+    },
+    {
+      "id": 30,
+      "block": "FRANK_TOWER",
+      "cue": "Sin ninguna prueba",
+      "text": ""
+    },
+    {
+      "id": 31,
+      "block": "FRANK_TOWER",
+      "cue": "El apellido se transformó en la leyenda",
+      "text": ""
+    },
+    {
+      "id": 32,
+      "block": "FRANK_TOWER",
+      "cue": "Así se fabrica una leyenda",
+      "text": ""
+    },
+    {
+      "id": 33,
+      "block": "FRANK_TOWER",
+      "cue": "Catástrofes reales muy documentadas",
+      "text": ""
+    },
+    {
+      "id": 34,
+      "block": "COMO_SE_FABRICA",
+      "cue": "Supervivientes reales de cada una",
+      "text": ""
+    },
+    {
+      "id": 35,
+      "block": "COMO_SE_FABRICA",
+      "cue": "Fusionados en un solo personaje",
+      "text": ""
+    },
+    {
+      "id": 36,
+      "block": "COMO_SE_FABRICA",
+      "cue": "Un hombre al que la muerte persigue",
+      "text": ""
+    },
+    {
+      "id": 37,
+      "block": "COMO_SE_FABRICA",
+      "cue": "Mucho más viral",
+      "text": ""
+    },
+    {
+      "id": 38,
+      "block": "COMO_SE_FABRICA",
+      "cue": "Nunca tuvo que subirse a un barco de verdad",
+      "text": ""
+    },
+    {
+      "id": 39,
+      "block": "COMO_SE_FABRICA",
+      "cue": "Solo tuvo que ser compartido lo suficiente",
+      "text": ""
+    },
+    {
+      "id": 40,
+      "block": "VIOLET_JESSOP",
+      "cue": "Hay una versión real",
+      "text": ""
+    },
+    {
+      "id": 41,
+      "block": "VIOLET_JESSOP",
+      "cue": "Violet Jessop",
+      "text": ""
+    },
+    {
+      "id": 42,
+      "block": "VIOLET_JESSOP",
+      "cue": "El Olympic choca en mil novecientos once",
+      "text": ""
+    },
+    {
+      "id": 43,
+      "block": "VIOLET_JESSOP",
+      "cue": "El Olympic sobrevivió a duras penas",
+      "text": ""
+    },
+    {
+      "id": 44,
+      "block": "VIOLET_JESSOP",
+      "cue": "La trasladan al Titanic",
+      "text": ""
+    },
+    {
+      "id": 45,
+      "block": "VIOLET_JESSOP",
+      "cue": "Chocó contra el iceberg",
+      "text": ""
+    },
+    {
+      "id": 46,
+      "block": "VIOLET_JESSOP",
+      "cue": "Un bote salvavidas con una orden de última hora",
+      "text": ""
+    },
+    {
+      "id": 47,
+      "block": "VIOLET_JESSOP",
+      "cue": "Un bebé en brazos para poder subir",
+      "text": ""
+    },
+    {
+      "id": 48,
+      "block": "VIOLET_JESSOP",
+      "cue": "Cuatro años después, el Britannic",
+      "text": ""
+    },
+    {
+      "id": 49,
+      "block": "VIOLET_JESSOP",
+      "cue": "Chocó contra una mina en el mar Egeo",
+      "text": ""
+    },
+    {
+      "id": 50,
+      "block": "VIOLET_JESSOP",
+      "cue": "Se hundió en menos de una hora",
+      "text": ""
+    },
+    {
+      "id": 51,
+      "block": "VIOLET_JESSOP",
+      "cue": "Saltó al agua",
+      "text": ""
+    },
+    {
+      "id": 52,
+      "block": "VIOLET_JESSOP",
+      "cue": "La hélice todavía en marcha",
+      "text": ""
+    },
+    {
+      "id": 53,
+      "block": "VIOLET_JESSOP",
+      "cue": "Golpeándose la cabeza contra la quilla",
+      "text": ""
+    },
+    {
+      "id": 54,
+      "block": "VIOLET_JESSOP",
+      "cue": "Tres barcos hermanos",
+      "text": ""
+    },
+    {
+      "id": 55,
+      "block": "VIOLET_JESSOP",
+      "cue": "Nombre, apellido y contrato verificable",
+      "text": ""
+    },
+    {
+      "id": 56,
+      "block": "VIOLET_JESSOP",
+      "cue": "La diferencia entre leyenda e historia real",
+      "text": ""
+    },
+    {
+      "id": 57,
+      "block": "CIERRE",
+      "cue": "Se deshace al buscar el primer nombre",
+      "text": ""
+    },
+    {
+      "id": 58,
+      "block": "CIERRE",
+      "cue": "Antes de compartir, comprueba",
+      "text": ""
+    },
+    {
+      "id": 59,
+      "block": "CIERRE",
+      "cue": "Promesa del próximo video",
+      "text": ""
+    },
+    {
+      "id": 60,
+      "block": "CIERRE",
+      "cue": "Suscríbete y comparte",
+      "text": ""
+    },
+    {
+      "id": 61,
+      "block": "CIERRE",
+      "cue": "Cierre",
+      "text": ""
+    }
+  ]
+}
