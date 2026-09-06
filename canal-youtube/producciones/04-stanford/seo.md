@@ -1,4 +1,4 @@
-# SEO — video 1 de Cerebro Traidor (el experimento de la cárcel de Stanford)
+# SEO — video 4 de Historia Incómoda (el experimento de la cárcel de Stanford)
 
 ## Nota de verificación (importante)
 
@@ -24,7 +24,8 @@ esos nombres propios con precisión de fecha exacta).
 
 1. **"El experimento de psicología más citado fue manipulado"** (57 car. —
    **recomendado**: fue el título que salió mejor calificado en la
-   investigación de oportunidad — ver `../../02-banco-de-temas.md` tema 44)
+   investigación de oportunidad de YouTube hecha sobre el tema 44 de un
+   banco de 56 temas)
 2. "La cárcel falsa que engañó a la psicología 50 años" (52 car. — pone la
    cifra del engaño por delante)
 3. "Zimbardo no demostró lo que dice tu libro de psicología" (57 car. —
@@ -51,7 +52,7 @@ Suscríbete para el próximo video: el experimento en el que el 65% de la gente 
 3:38 Cómo te pasa esto a ti
 
 —
-Cerebro Traidor: tu cerebro toma decisiones por ti todo el día, y la mayoría son malas.
+Historia Incómoda: historias reales que parecen inventadas.
 
 Fuentes: Thibault Le Texier, "Histoire d'un mensonge" (2018); Ben Blum, "The Lifespan of a Lie" (Medium, 2018). Si detectas un error, dímelo en los comentarios.
 

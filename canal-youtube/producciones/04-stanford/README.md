@@ -1,8 +1,10 @@
-# Producción 01 — El experimento de la cárcel de Stanford (mito/realidad)
+# Producción 04 — El experimento de la cárcel de Stanford (mito/realidad)
 
-Primer video del canal **Cerebro Traidor**. Elegido de la lista de 56 temas
-del banco (`../../02-banco-de-temas.md`) tras verificar oportunidad real en
-YouTube: tema #44, oportunidad **ALTA** — la narrativa de "el experimento
+Video 4 de **Historia Incómoda**. El tema salió de una investigación de
+oportunidad hecha sobre un banco de 56 temas de neurociencia/psicología
+(pensado en un inicio para un canal aparte que finalmente no se lanzó por
+separado — se decidió publicar este video en Historia Incómoda en su
+lugar): tema #44, oportunidad **ALTA** — la narrativa de "el experimento
 más citado de la psicología estaba manipulado" tiene respaldo documental
 fuerte en inglés pero apenas está explotada en YouTube en español.
 
@@ -13,11 +15,11 @@ citados en psicología para explicar que "cualquiera se vuelve un monstruo
 con poder". El video lo cuenta primero como se enseña habitualmente, y
 luego lo desmonta con la investigación real de Thibault Le Texier sobre
 las grabaciones desclasificadas del propio archivo de Stanford (2018) —
-mismo tratamiento honesto de "mito vs. realidad" que se usó con Frank
-Tower en Historia Incómoda. El giro final no es "todo es mentira": es que
+mismo tratamiento honesto de "mito vs. realidad" que ya usó Historia
+Incómoda con Frank Tower. El giro final no es "todo es mentira": es que
 el mecanismo real (obedecer un guion social implícito sin que nadie dé la
-orden explícita) es más inquietante que el mito, y conecta directamente
-con el canal ("tu cerebro te traiciona sin que lo notes").
+orden explícita) es más inquietante que el mito — tu comportamiento
+cambia con un uniforme, un cargo o un grupo sin que tú lo decidas.
 
 ## Archivos
 

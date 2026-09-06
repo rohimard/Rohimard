@@ -1,4 +1,4 @@
-# Miniatura — video 1 de Cerebro Traidor
+# Miniatura — video 4 de Historia Incómoda
 
 ## Historial
 
@@ -25,9 +25,11 @@ A y C porque:
 
 - Se lee perfecto incluso reducido a tamaño de feed: la cruceta y las
   manos son inconfundibles.
-- No ilustra solo este video: resume la idea central de **todo el
-  canal** ("alguien mueve los hilos sin que la marioneta lo sepa"),
-  puede convertirse en un recurso visual recurrente de la marca.
+- No ilustra solo este video: la idea de "alguien mueve los hilos sin que
+  la marioneta lo sepa" resume bien el giro del propio experimento
+  (obedecer un guion social implícito sin que nadie dé la orden
+  explícita), y podría reutilizarse como recurso visual si Historia
+  Incómoda cubre más temas de manipulación/psicología social.
 - Ningún rostro ni persona real identificable — solo manos genéricas.
 
 **Segundo intento (descartado)**: sello rojo diagonal "MANIPULADO" estilo
