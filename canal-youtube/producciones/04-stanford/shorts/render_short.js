@@ -58,14 +58,25 @@ let cadena = filtros.join(';') + ';' +
   `concat=n=${nV}:v=1:a=0[vcat]`;
 
 // original_size es obligatorio: sin él, el filtro subtitles no sabe a qué
-// resolución se pensó el Fontsize y asume una por defecto mucho más chica
-// (algo como 384x288) — el texto sale reescalado ~5-6x más grande de lo
-// pedido, y con captions largos el bloque de varias líneas se sale del
-// cuadro por arriba. Con original_size=1080x1920, Fontsize=52 son 52px
-// reales en el video final.
-const estilo = `FontName=Anton,Fontsize=42,Bold=1,PrimaryColour=&H00FFFFFF,` +
-  `OutlineColour=&H00000000,BorderStyle=1,Outline=4,Shadow=1,` +
-  `Alignment=2,MarginV=110,MarginL=64,MarginR=64`;
+// resolución se pensó el Fontsize y asume una por defecto mucho más chica,
+// y con captions largos el bloque de varias líneas se sale del cuadro por
+// arriba.
+// Alignment=6, no 8: este build de ffmpeg/libass interpreta el campo
+// Alignment de force_style con la numeración legado de SSA (1/2/3
+// abajo-izq/centro/der, 5/6/7 arriba-izq/centro/der), no la numeración
+// "numpad" de ASS v4+ (donde 8 sería arriba-centro) — se confirmó con
+// renders de calibración aislados sobre fondo plano: Alignment=8 quedaba
+// a media altura, Alignment=6 sí es arriba-centro real.
+// La imagen nítida de cada plano va centrada en el canvas (arranca en
+// ~y=658 de 1920 por arriba, ver la composición en imagenes/*.jpg). Con
+// Fontsize=14 y MarginV=85 el texto queda justo encima de esa línea, en
+// la franja difuminada, sin tapar nunca la foto — calibrado renderizando
+// subtítulos reales (incluida la línea más larga del short) directo sobre
+// imagenes/01.jpg y comparando la posición del texto contra el borde de
+// la imagen nítida.
+const estilo = `FontName=Anton,Fontsize=14,Bold=1,PrimaryColour=&H00FFFFFF,` +
+  `OutlineColour=&H00000000,BorderStyle=1,Outline=2,Shadow=1,` +
+  `Alignment=6,MarginV=85,MarginL=64,MarginR=64`;
 cadena += `;[vcat]subtitles=subtitulos.srt:original_size=${W}x${H}:force_style='${estilo}'[vsub]`;
 
 const finVideo = planos[planos.length - 1].t_end;

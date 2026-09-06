@@ -134,6 +134,45 @@ Arreglado en dos partes:
 Verificado de nuevo extrayendo fotogramas en los planos con las frases
 más largas (los que antes se cortaban) — todos dentro del cuadro.
 
+## Subtítulos: tamaño y posición final, sobre la línea nítida/difuminada
+
+**Tercer ajuste**: aun sin salirse del cuadro, el usuario pidió letras más
+chicas — el tamaño anterior (Fontsize=34, más el intento inicial de
+subirlas con `Alignment=8,MarginV=380`) seguía tapando parte de la
+imagen nítida de cada plano — y pidió colocarlas justo por encima de la
+línea donde termina la imagen nítida centrada y empieza el difuminado de
+arriba (~y=658 de 1920, ver la composición en `imagenes/*.jpg`).
+
+Al intentarlo apareció un hallazgo no obvio: en este build de
+ffmpeg/libass, el campo `Alignment` de `force_style` en el filtro
+`subtitles` usa la numeración **legado de SSA** (1/2/3 = abajo
+izq/centro/der, 5/6/7 = arriba izq/centro/der), no la numeración
+"numpad" de ASS v4+ que documenta la mayoría de referencias online (donde
+7/8/9 serían arriba). Se confirmó con renders de calibración aislados
+sobre un fondo gris plano con una sola línea de prueba: `Alignment=8`
+(que debería ser "arriba-centro" en ASS v4+) colocaba el texto a media
+altura del cuadro; `Alignment=6` sí lo colocaba arriba de verdad;
+`Alignment=2` seguía colocándolo abajo (igual que las versiones previas,
+todas anclaba abajo). Por eso el primer intento de subir el texto
+(`Alignment=8,MarginV=380`) no funcionó: el texto seguía cayendo sobre la
+mitad de la foto.
+
+Con `Alignment=6` confirmado como arriba-centro real, se calibró
+`Fontsize` y `MarginV` renderizando directamente sobre una imagen real
+del short (`imagenes/01.jpg`) — no sobre el fondo plano — probando la
+línea de subtítulo más larga del short entero ("décadas muestran que
+Zimbardo", 30 caracteres) para asegurar que cupiera en una sola línea
+dentro del ancho disponible (`MarginL`/`MarginR=64`, 952px). Valores
+finales: `Fontsize=14` (bajado desde 34/42) y `MarginV=85`, que dejan el
+texto en una franja fina justo por encima del borde de la imagen nítida,
+con un margen de separación pequeño pero limpio, sin tocarla en ningún
+plano probado (incluida la línea más larga).
+
+Verificado extrayendo fotogramas en 6 puntos distintos del video final,
+incluyendo planos con composiciones muy distintas (pasillo con dos
+personas, percha con ropa, preso sentado en el suelo): el texto queda
+siempre en la franja difuminada de arriba, nunca sobre la foto.
+
 ## Resultado
 
 `short-final.mp4` (no versionado) — 1080×1920, 40.7s, 10 MB, cabe
