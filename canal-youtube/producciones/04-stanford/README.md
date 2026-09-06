@@ -91,9 +91,12 @@ Siguiendo `kit-produccion/scripts/sync_desde_transcripcion.md`:
 
 1. ~~Cuadrar los timestamps de capítulos en `seo.md` con la hoja real.~~
    Hecho — capítulos ya cuadrados contra `segments.json`.
-2. Generar las 83 imágenes de `prompts-imagenes-listos.txt` — el usuario
-   las está generando por su cuenta (pidió los prompts ya armados en vez
-   de que los genere el agente).
-3. Renderizar el video final con `montar_video.js` una vez existan las
-   83 imágenes, usando `hoja-montaje.csv`, `audio.mp3` y `subtitulos.srt`,
-   todos ya con tiempos reales.
+2. ~~Generar las 83 imágenes de `prompts-imagenes-listos.txt`.~~ Hecho —
+   el usuario las generó por su cuenta y las subió vía la Mesa de Montaje
+   (`kit-produccion/editor-movil.md`); recuperadas de la base del
+   artefacto y guardadas en `imagenes/01.jpg`…`83.jpg`.
+3. ~~Renderizar el video final con `montar_video.js`.~~ Hecho —
+   `video-final.mp4` (1920x1080, 280s, 85 MB), generado con
+   `render.json` a partir de `hoja-montaje.csv`, `audio.mp3` y
+   `subtitulos.srt`, todos con tiempos reales. Pendiente solo: subir a
+   YouTube con el `seo.md` y la miniatura de `miniatura/`.
