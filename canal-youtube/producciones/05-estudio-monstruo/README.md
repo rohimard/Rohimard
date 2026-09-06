@@ -38,15 +38,21 @@ en plano cerrado — ver la nota al principio de `prompts-imagenes.txt`.
 - `guion.txt` — 4.814 caracteres, ortografía correcta (lectura/subtítulos).
 - `guion-voz.txt` — 4.826 caracteres, adaptado a pronunciación (Uéndel
   Yónson, Meri Túdor, Dávenport, Áiowa; números en letras).
-- `prompts-imagenes.txt` — 45 prompts fotorrealistas de reconstrucción
-  documental, look de fotografía de archivo en blanco y negro/sepia de
-  los años treinta (distinto del viraje cálido setentero de Stanford),
-  con transición a color moderno neutro a partir de la escena 26
-  (descubrimiento en 2001 en adelante) y en el bloque de conexión con el
-  espectador actual.
-- `segments.json` — 45 escenas con bloque narrativo, cue corto y texto
-  real, en el mismo formato que las producciones anteriores. Tiempos
-  reales pendientes de anclar cuando exista el audio.
+- `prompts-imagenes.txt` — **71 prompts** fotorrealistas de
+  reconstrucción documental (subido desde 45 tras el aviso del usuario
+  de que se quedaba corto para el ritmo dinámico que necesita un video
+  de ~4:30 min — la media de Stanford es 3,37s por plano con 83 planos
+  para 280s; aquí se apunta a un ritmo similar). Look de fotografía de
+  archivo en blanco y negro/sepia de los años treinta (distinto del
+  viraje cálido setentero de Stanford), con transición a color moderno
+  neutro desde la escena 42 (el descubrimiento en 2001 en adelante).
+- `segments.json` — 71 escenas con bloque narrativo, cue corto y texto
+  real, en el mismo formato que las producciones anteriores. Es un mapa
+  de planos **previo al audio**, para fijar cuántas imágenes hacen falta
+  y en qué orden — los tiempos reales (y el ajuste fino de cuántos
+  planos hacen falta de verdad) se anclan después, igual que en Stanford
+  y el Short, troceando el audio real y transcribiéndolo con ElevenLabs
+  Scribe.
 - `seo.md` — títulos, descripción y comentario fijado con las fuentes.
 
 ## Guión: estructura
