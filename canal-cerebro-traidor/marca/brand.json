@@ -1,0 +1,14 @@
+{
+  "font": "../../canal-youtube/kit-produccion/assets/Anton-Regular.woff2",
+  "outDir": ".",
+  "bannerName": "banner",
+  "line1": "CEREBRO",
+  "line2": "TRAIDOR",
+  "tagline": "TU CEREBRO DECIDE POR TI SIN QUE LO SEPAS",
+  "monogram": "CT",
+  "mark": "ring",
+  "accent": "#8B5CF6",
+  "alarm": "#C40800",
+  "ink": "#0B0B0C",
+  "guides": true
+}

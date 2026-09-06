@@ -26,7 +26,11 @@
  *   "accent": "#FFD400",
  *   "alarm":  "#E10600",
  *   "ink":    "#0B0B0C",
- *   "guides": true                 // also write banner-guides.png with the safe area drawn
+ *   "guides": true,                // also write banner-guides.png with the safe area drawn
+ *   "mark": "asterisk"             // which single-shape mark to use for logo-mark.png and
+ *                                   // the banner bleed decoration: "asterisk" | "ring"
+ *                                   // (add more shape() cases below as new channels need them —
+ *                                   // keep each one a single bold shape that survives 24px)
  * }
  */
 const fs = require('fs');
@@ -52,14 +56,27 @@ const texture = `
   radial-gradient(140% 120% at 50% 50%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.75) 100%)`;
 
 /* ---------- avatar variants ---------- */
-// Asterisk drawn as SVG rather than a glyph: full control of stroke weight so
-// it still reads as one shape at 24px.
+// Marks drawn as SVG rather than a glyph: full control of stroke weight so
+// each one still reads as one shape at 24px (the size YouTube actually shows
+// the avatar at most of the time — this is the real acceptance test, not how
+// it looks at full 800px).
 const asterisk = c => `<svg viewBox="0 0 100 100" width="440" height="440">
   <g stroke="${c}" stroke-width="15" stroke-linecap="round">
     <line x1="50" y1="14" x2="50" y2="86"/>
     <line x1="19" y1="32" x2="81" y2="68"/>
     <line x1="19" y1="68" x2="81" y2="32"/>
   </g></svg>`;
+
+// Broken ring: an almost-closed circle with one gap. Reads as "something
+// whole with a piece missing/controlled" — a single contained shape, visually
+// distinct from the asterisk's radiating lines so the two channels never get
+// confused for one another in a recommendations feed.
+const ring = c => `<svg viewBox="0 0 100 100" width="440" height="440">
+  <path d="M 74 26 A 40 40 0 1 1 26 26" fill="none" stroke="${c}" stroke-width="15" stroke-linecap="round"/>
+</svg>`;
+
+const MARKS = { asterisk, ring };
+const markFn = MARKS[cfg.mark] || asterisk;
 
 const avatarHTML = inner => `<!doctype html><meta charset="utf-8"><style>${face}${reset}
 html,body{width:800px;height:800px;overflow:hidden;}
@@ -76,6 +93,12 @@ const redaction = `<div style="width:560px;height:560px;background:${accent};
    <div style="width:400px;height:112px;background:${ink};"></div></div>`;
 
 const avatars = {
+  // Generic, mark-agnostic output: whatever cfg.mark resolves to. This is the
+  // one new channels should point their "logo" at.
+  'logo-mark': avatarHTML(markFn(accent)),
+  // Historia Incómoda's original comparison set — kept exactly as decided,
+  // always the asterisk regardless of cfg.mark, so that channel's file names
+  // and content never drift even if this script grows more mark types.
   'logo-asterisco': avatarHTML(asterisk(accent)),
   'logo-monograma': avatarHTML(
     `<div class="col"><div class="mono" style="color:${accent}">${cfg.monogram || 'HI'}</div><div class="bar"></div></div>`),
@@ -116,8 +139,8 @@ html,body{width:2048px;height:1152px;overflow:hidden;}
         font-size:26px;color:rgba(255,0,0,.9);letter-spacing:3px;}
 .bleed svg{width:620px;height:620px;}
 </style><div class="b">
-  <div class="bleed l">${asterisk('#ffffff')}</div>
-  <div class="bleed r">${asterisk('#ffffff')}</div>
+  <div class="bleed l">${markFn('#ffffff')}</div>
+  <div class="bleed r">${markFn('#ffffff')}</div>
   <div class="safe">
     <div class="word"><span class="a">${cfg.line1 || ''}</span> <span class="b2">${cfg.line2 || ''}</span></div>
     <div class="rule"></div>

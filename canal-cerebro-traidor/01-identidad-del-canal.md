@@ -74,9 +74,8 @@ mintió"), tono de acusación/investigación, no de clase.
 - [ ] Reclamar **@cerebrotraidor** en YouTube Studio.
 - [ ] Si estuviera ocupado: buscar variante propia, no parchear con
       números ni "oficial" (mismo criterio que Historia Incómoda).
-- [ ] Definir marca visual: paleta propia distinta a la de Historia
-      Incómoda para que ningún espectador confunda los dos canales —
-      propuesta: base oscura igual (`#0B0B0C`), pero acento **morado/violeta
-      eléctrico** en vez de amarillo, para que la miniatura se distinga a
-      primer vistazo del otro canal incluso en la misma pantalla de
-      recomendados.
+- [x] Definir marca visual: hecho — ver `marca/README.md`. Base oscura
+      igual (`#0B0B0C`), acento **violeta** (`#8B5CF6`) en vez de amarillo,
+      logo propio (anillo partido) distinto del asterisco de Historia
+      Incómoda. Falta solo subir `marca/logo-mark.png` y `marca/banner.png`
+      a YouTube Studio una vez creado el canal.
