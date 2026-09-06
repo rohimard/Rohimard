@@ -82,6 +82,18 @@ en plano cerrado — ver la nota al principio de `prompts-imagenes.txt`.
 - `audio.mp3` (no versionado, ver `.gitignore`) — voz David
   (`qRUgOhnxGASxirG4fKjv`), 264,83s (4:24,8), coste 4.824,52 créditos
   (~0,88 USD).
+- `imagenes/` — 99 imágenes (`01.jpg`…`99.jpg`), generadas por el usuario en
+  Flow a partir de `prompts-imagenes.txt` y subidas a través de la Mesa de
+  Montaje (proyecto `vvcxibze5gzv70rwadxf`), de donde se descargaron con
+  `read_db` sobre la colección `planos` de ese proyecto.
+- `render.js` — monta `video-final.mp4` (no versionado) leyendo los tiempos
+  exactos de `segments.json`, no los redondeados de `hoja-montaje.csv`:
+  varios planos duran menos de 1s (mínimo real 0,70s) y `montar_video.js`
+  solo entiende segundos enteros (`m:ss`), igual que pasó con el Short. Es
+  el mismo patrón que `shorts/render_short.js` de Stanford, adaptado a
+  1920x1080/25fps. Verificado extrayendo fotogramas en 5 puntos del video
+  (0:01, 1:01, 2:03, 3:12, 4:24) y comprobando que imagen y subtítulo
+  coinciden exactamente con `segments.json`.
 - `seo.md` — títulos, descripción y comentario fijado con las fuentes.
 
 ## Cómo se ancló el tiempo real
@@ -123,9 +135,11 @@ ponen un profesor o un jefe) → cierre con gancho al próximo video
    coincidencia exacta, 1.454,84 créditos de transcripción (~0,26 USD).
 3. ~~Generar la hoja de montaje con tiempos reales.~~ Hecho —
    `hoja-montaje.csv` y `subtitulos.srt`, 99 planos.
-4. El usuario genera las 99 imágenes en Flow/Imagen a partir de
-   `prompts-imagenes.txt` y las trae de vuelta.
-5. Miniatura: estrategia ya esbozada en `seo.md`, pendiente de imagen
+4. ~~El usuario genera las 99 imágenes en Flow/Imagen.~~ Hecho —
+   subidas a la Mesa de Montaje y descargadas a `imagenes/`.
+5. ~~Render final.~~ Hecho — `render.js`, `video-final.mp4` (78 MB,
+   264,84s, 1920x1080 @25fps), verificado por fotogramas contra
+   `segments.json`.
+6. Miniatura: estrategia ya esbozada en `seo.md`, pendiente de imagen
    base y montaje del texto.
-6. Render final (con `render.json` + `montar_video.js`, mismo flujo
-   que Stanford) y subida a YouTube.
+7. Subida a YouTube.
