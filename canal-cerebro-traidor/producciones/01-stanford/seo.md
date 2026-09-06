@@ -44,11 +44,11 @@ En este video vas a ver qué reveló esa investigación, y qué dice de verdad s
 Suscríbete para el próximo video: el experimento en el que el 65% de la gente aplicó lo que creía que eran descargas eléctricas mortales, solo porque se lo pidió un hombre con bata blanca.
 
 0:00 El dilema
-0:XX El experimento de 1971
-0:XX La versión que se enseña en todas partes
-0:XX Las grabaciones que nadie había escuchado
-0:XX Lo que de verdad mide tu cerebro
-0:XX Cómo te pasa esto a ti
+0:24 El experimento de 1971
+1:11 La versión que se enseña en todas partes
+1:39 Las grabaciones que nadie había escuchado
+2:22 Lo que de verdad mide tu cerebro
+3:38 Cómo te pasa esto a ti
 
 —
 Cerebro Traidor: tu cerebro toma decisiones por ti todo el día, y la mayoría son malas.
@@ -58,8 +58,8 @@ Fuentes: Thibault Le Texier, "Histoire d'un mensonge" (2018); Ben Blum, "The Lif
 #psicologia #neurociencia #experimentodestanford #cerebro #documental
 ```
 
-(Los timestamps "0:XX" se rellenan cuando exista el audio real y la hoja
-de montaje, igual que en Historia Incómoda — ver `../../../canal-youtube/kit-produccion/references/timing.md`.)
+(Timestamps ya cuadrados contra `segments.json`, tiempos reales anclados
+por transcripción — ver `README.md` para el método.)
 
 ## Comentario fijado sugerido
 

@@ -87,9 +87,11 @@ Siguiendo `kit-produccion/scripts/sync_desde_transcripcion.md`:
 
 ## Pendiente
 
-1. Cuadrar los timestamps de capítulos en `seo.md` con la hoja real.
-2. Generar las 83 imágenes de `prompts-imagenes.txt` (proponer un lote de
-   prueba pequeño primero, no generar las 83 de golpe, mismo criterio de
-   conciencia de costo que en Historia Incómoda).
+1. ~~Cuadrar los timestamps de capítulos en `seo.md` con la hoja real.~~
+   Hecho — capítulos ya cuadrados contra `segments.json`.
+2. Generar las 83 imágenes de `prompts-imagenes-listos.txt` — el usuario
+   las está generando por su cuenta (pidió los prompts ya armados en vez
+   de que los genere el agente).
 3. Renderizar el video final con `montar_video.js` una vez existan las
-   imágenes.
+   83 imágenes, usando `hoja-montaje.csv`, `audio.mp3` y `subtitulos.srt`,
+   todos ya con tiempos reales.
