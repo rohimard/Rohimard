@@ -1,0 +1,9 @@
+{
+  "image": "base.jpg",
+  "font": "../../../kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura",
+  "text": "ACTUABA",
+  "sub": "ARCHIVO 1971",
+  "barY": 520,
+  "barH": 140
+}
