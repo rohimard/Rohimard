@@ -178,6 +178,29 @@ siempre en la franja difuminada de arriba, nunca sobre la foto.
 `short-final.mp4` (no versionado) — 1080×1920, 40.7s, 10 MB, cabe
 directo en el chat sin comprimir.
 
+## Miniatura
+
+`miniatura-short.jpg`/`.png` (1080×1920) — mismo concepto ya aprobado en
+`../miniatura/` (titular "ACTUABA" en amarillo + "EL GUARDIA MÁS CRUEL" /
+"LO CONFESÓ DESPUÉS" en caja roja), reutilizado a propósito: la frase del
+guardia que confesó que solo actuaba es también la revelación central del
+propio guión del short, así que la miniatura conecta visualmente el short
+con el video largo en el feed — quien ya vio uno reconoce el otro.
+
+No se podía usar `kit-produccion/scripts/render_thumbnail.js` tal cual:
+está fijado a 1280×720 con el texto a un lado y el sujeto al otro,
+pensado para una imagen base horizontal con espacio negativo lateral.
+Aquí no hay "un lado": la imagen base (`imagenes/01.jpg`, el mismo
+compuesto blur-pad que usa el plano 1 del video) es simétrica
+(guardias/presos enfrentados). Se creó `render_thumbnail_short.js`,
+hermano vertical del script del kit, con el texto centrado en la franja
+difuminada de arriba en vez de a un lado — mismo criterio que ya se usó
+para no tapar la imagen nítida con los subtítulos. Costo: $0 (imagen ya
+generada para el propio short).
+
+Verificado escalando a tamaño de feed de Shorts (`test-feed-short.png`,
+135×240): el titular se lee con claridad instantánea.
+
 ## Pendiente
 
 Subir a YouTube Shorts como contenido adicional del video 4 — mismo

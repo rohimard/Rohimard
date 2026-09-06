@@ -31,6 +31,7 @@ next-env.d.ts
 
 # artefactos temporales del render de miniaturas
 canal-youtube/producciones/**/_thumb.html
+canal-youtube/producciones/**/_thumb_short.html
 canal-youtube/producciones/**/audio.mp3
 canal-youtube/producciones/**/*.mp4
 canal-cerebro-traidor/producciones/**/_thumb.html
