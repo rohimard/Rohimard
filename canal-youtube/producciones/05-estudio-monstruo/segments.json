@@ -30,470 +30,603 @@
   {
     "id": 5,
     "block": "GANCHO",
-    "cue": "Corrección severa",
-    "text": "Cada vez que te trabas, aunque sea un poco, ella te corrige, te llama tartamudo",
+    "cue": "El niño intenta hablar",
+    "text": "Cada vez que te trabas",
     "imagen": "05.jpg"
   },
   {
     "id": 6,
     "block": "GANCHO",
-    "cue": "Humillación en voz baja",
-    "text": "te dice que hables mejor si no quieres que la gente se ría de ti.",
+    "cue": "Una pequeña duda al hablar",
+    "text": "aunque sea un poco",
     "imagen": "06.jpg"
   },
   {
     "id": 7,
     "block": "GANCHO",
-    "cue": "No es tu profesora",
-    "text": "No sabes que esa mujer no es tu profesora.",
+    "cue": "Corrección: 'tartamudo'",
+    "text": "ella te corrige, te llama tartamudo",
     "imagen": "07.jpg"
   },
   {
     "id": 8,
     "block": "GANCHO",
-    "cue": "Un experimento científico",
-    "text": "No sabes que estás dentro de un experimento científico",
+    "cue": "Humillación en voz baja",
+    "text": "te dice que hables mejor si no quieres que la gente se ría de ti.",
     "imagen": "08.jpg"
   },
   {
     "id": 9,
     "block": "GANCHO",
-    "cue": "Sesenta años de silencio",
-    "text": "que nadie te va a decir la verdad durante los próximos sesenta años.",
+    "cue": "No es tu profesora",
+    "text": "No sabes que esa mujer no es tu profesora.",
     "imagen": "09.jpg"
   },
   {
     "id": 10,
-    "block": "CONTEXTO",
-    "cue": "Iowa, 1939",
-    "text": "Esto pasó de verdad, en mil novecientos treinta y nueve",
+    "block": "GANCHO",
+    "cue": "Un experimento científico",
+    "text": "No sabes que estás dentro de un experimento científico",
     "imagen": "10.jpg"
   },
   {
     "id": 11,
-    "block": "CONTEXTO",
-    "cue": "Davenport, Iowa",
-    "text": "en un orfanato de Davenport, en el estado de Iowa.",
+    "block": "GANCHO",
+    "cue": "Sesenta años de silencio",
+    "text": "que nadie te va a decir la verdad durante los próximos sesenta años.",
     "imagen": "11.jpg"
   },
   {
     "id": 12,
     "block": "CONTEXTO",
-    "cue": "Retrato de Wendell Johnson",
-    "text": "El responsable fue un psicólogo llamado Wendell Johnson",
+    "cue": "Esto pasó de verdad",
+    "text": "Esto pasó de verdad",
     "imagen": "12.jpg"
   },
   {
     "id": 13,
     "block": "CONTEXTO",
-    "cue": "Concentración, no solo ciencia",
-    "text": "la razón por la que le obsesionaba la tartamudez no era solo académica.",
+    "cue": "Mil novecientos treinta y nueve",
+    "text": "en mil novecientos treinta y nueve",
     "imagen": "13.jpg"
   },
   {
     "id": 14,
     "block": "CONTEXTO",
-    "cue": "Johnson de niño, tartamudo",
-    "text": "Él mismo había tartamudeado desde niño, y quería demostrar algo muy concreto: que la tartamudez no nace en la garganta",
+    "cue": "Orfanato de Davenport",
+    "text": "en un orfanato de Davenport",
     "imagen": "14.jpg"
   },
   {
     "id": 15,
     "block": "CONTEXTO",
-    "cue": "La hipótesis: nace en quien escucha",
-    "text": "nace en la cabeza de quien te escucha.",
+    "cue": "Estado de Iowa",
+    "text": "en el estado de Iowa.",
     "imagen": "15.jpg"
   },
   {
     "id": 16,
     "block": "CONTEXTO",
-    "cue": "Niños sanos, hablando con normalidad",
-    "text": "Para probarlo necesitaba niños sanos, que hablaran con normalidad",
+    "cue": "Retrato de Wendell Johnson",
+    "text": "El responsable fue un psicólogo llamado Wendell Johnson",
     "imagen": "16.jpg"
   },
   {
     "id": 17,
     "block": "CONTEXTO",
-    "cue": "Convertirlos con palabras",
-    "text": "y ver si podía convertirlos en tartamudos solo con palabras.",
+    "cue": "Concentración, no solo ciencia",
+    "text": "la razón por la que le obsesionaba la tartamudez no era solo académica.",
     "imagen": "17.jpg"
   },
   {
     "id": 18,
-    "block": "EL EXPERIMENTO",
-    "cue": "Johnson no lo hizo con su mano",
-    "text": "Johnson no hizo el experimento con su propia mano.",
+    "block": "CONTEXTO",
+    "cue": "Johnson de niño, tartamudo",
+    "text": "Él mismo había tartamudeado desde niño",
     "imagen": "18.jpg"
   },
   {
     "id": 19,
-    "block": "EL EXPERIMENTO",
-    "cue": "Mary Tudor recibe el encargo",
-    "text": "Se lo encargó a una estudiante de posgrado, Mary Tudor",
+    "block": "CONTEXTO",
+    "cue": "La hipótesis: no nace en la garganta",
+    "text": "quería demostrar algo muy concreto: que la tartamudez no nace en la garganta",
     "imagen": "19.jpg"
   },
   {
     "id": 20,
-    "block": "EL EXPERIMENTO",
-    "cue": "El orfanato, sin padres que pregunten",
-    "text": "eligió al orfanato de Davenport porque esos niños no tenían padres que preguntaran qué les estaban haciendo.",
+    "block": "CONTEXTO",
+    "cue": "Nace en quien escucha",
+    "text": "nace en la cabeza de quien te escucha.",
     "imagen": "20.jpg"
   },
   {
     "id": 21,
-    "block": "EL EXPERIMENTO",
-    "cue": "Veintidós niños, dos grupos",
-    "text": "Veintidós niños fueron divididos en dos grupos",
+    "block": "CONTEXTO",
+    "cue": "Niños sanos",
+    "text": "Para probarlo necesitaba niños sanos",
     "imagen": "21.jpg"
   },
   {
     "id": 22,
-    "block": "EL EXPERIMENTO",
-    "cue": "Sin saber que participaban",
-    "text": "sin que ninguno supiera que participaba en nada.",
+    "block": "CONTEXTO",
+    "cue": "Que hablaran con normalidad",
+    "text": "que hablaran con normalidad",
     "imagen": "22.jpg"
   },
   {
     "id": 23,
-    "block": "EL EXPERIMENTO",
-    "cue": "El grupo de los elogios",
-    "text": "Al primer grupo, Tudor lo trataba con elogios constantes",
+    "block": "CONTEXTO",
+    "cue": "Convertirlos con palabras",
+    "text": "y ver si podía convertirlos en tartamudos solo con palabras.",
     "imagen": "23.jpg"
   },
   {
     "id": 24,
     "block": "EL EXPERIMENTO",
-    "cue": "Hablaban de maravilla",
-    "text": "les decía que hablaban de maravilla pasara lo que pasara.",
+    "cue": "Johnson no lo hizo con su mano",
+    "text": "Johnson no hizo el experimento con su propia mano.",
     "imagen": "24.jpg"
   },
   {
     "id": 25,
     "block": "EL EXPERIMENTO",
-    "cue": "El grupo contrario",
-    "text": "Al segundo grupo lo sometía a lo contrario: cada palabra dudada",
+    "cue": "Mary Tudor recibe el encargo",
+    "text": "Se lo encargó a una estudiante de posgrado, Mary Tudor",
     "imagen": "25.jpg"
   },
   {
     "id": 26,
     "block": "EL EXPERIMENTO",
-    "cue": "Cada pausa, una humillación",
-    "text": "cada pausa normal de un niño de seis años, se convertía en una humillación.",
+    "cue": "El orfanato, sin padres que pregunten",
+    "text": "eligió al orfanato de Davenport porque esos niños no tenían padres que preguntaran qué les estaban haciendo.",
     "imagen": "26.jpg"
   },
   {
     "id": 27,
     "block": "EL EXPERIMENTO",
-    "cue": "Los llamaba tartamudos",
-    "text": "Los llamaba tartamudos una y otra vez",
+    "cue": "Veintidós niños, dos grupos",
+    "text": "Veintidós niños fueron divididos en dos grupos",
     "imagen": "27.jpg"
   },
   {
     "id": 28,
     "block": "EL EXPERIMENTO",
-    "cue": "Sin serlo de verdad",
-    "text": "aunque casi ninguno lo fuera de verdad.",
+    "cue": "Sin saber que participaban",
+    "text": "sin que ninguno supiera que participaba en nada.",
     "imagen": "28.jpg"
   },
   {
     "id": 29,
-    "block": "LAS CONSECUENCIAS",
-    "cue": "Resultados rápidos",
-    "text": "Los resultados llegaron rápido",
+    "block": "EL EXPERIMENTO",
+    "cue": "Al primer grupo",
+    "text": "Al primer grupo",
     "imagen": "29.jpg"
   },
   {
     "id": 30,
-    "block": "LAS CONSECUENCIAS",
-    "cue": "Peor de lo esperado",
-    "text": "fueron peores de lo que Johnson esperaba.",
+    "block": "EL EXPERIMENTO",
+    "cue": "Elogios constantes",
+    "text": "Tudor lo trataba con elogios constantes",
     "imagen": "30.jpg"
   },
   {
     "id": 31,
-    "block": "LAS CONSECUENCIAS",
-    "cue": "Hablar menos por miedo",
-    "text": "Varios de los niños del segundo grupo empezaron a hablar menos por miedo a equivocarse.",
+    "block": "EL EXPERIMENTO",
+    "cue": "Hablaban de maravilla",
+    "text": "les decía que hablaban de maravilla pasara lo que pasara.",
     "imagen": "31.jpg"
   },
   {
     "id": 32,
-    "block": "LAS CONSECUENCIAS",
-    "cue": "Dejar de participar",
-    "text": "Algunos dejaron de participar en clase.",
+    "block": "EL EXPERIMENTO",
+    "cue": "El grupo contrario",
+    "text": "Al segundo grupo lo sometía a lo contrario: cada palabra dudada",
     "imagen": "32.jpg"
   },
   {
     "id": 33,
-    "block": "LAS CONSECUENCIAS",
-    "cue": "No decir su propio nombre",
-    "text": "Uno se negaba a decir su propio nombre en voz alta.",
+    "block": "EL EXPERIMENTO",
+    "cue": "Cada pausa de un niño de seis años",
+    "text": "cada pausa normal de un niño de seis años",
     "imagen": "33.jpg"
   },
   {
     "id": 34,
-    "block": "LAS CONSECUENCIAS",
-    "cue": "No entendían el experimento",
-    "text": "No estaban actuando un papel para un experimento que entendieran.",
+    "block": "EL EXPERIMENTO",
+    "cue": "Se convertía en humillación",
+    "text": "se convertía en una humillación.",
     "imagen": "34.jpg"
   },
   {
     "id": 35,
-    "block": "LAS CONSECUENCIAS",
-    "cue": "Vergüenza a los seis años",
-    "text": "Estaban aprendiendo, a los seis años, que su forma de hablar era motivo de vergüenza",
+    "block": "EL EXPERIMENTO",
+    "cue": "Los llamaba tartamudos",
+    "text": "Los llamaba tartamudos una y otra vez",
     "imagen": "35.jpg"
   },
   {
     "id": 36,
-    "block": "LAS CONSECUENCIAS",
-    "cue": "Se quedó pegada mucho después",
-    "text": "y esa idea se les quedó pegada mucho después de que Tudor dejara de visitarlos.",
+    "block": "EL EXPERIMENTO",
+    "cue": "Sin serlo de verdad",
+    "text": "aunque casi ninguno lo fuera de verdad.",
     "imagen": "36.jpg"
   },
   {
     "id": 37,
-    "block": "EL DESCUBRIMIENTO",
-    "cue": "Nunca lo publicó",
-    "text": "Johnson nunca publicó estos resultados en una revista científica.",
+    "block": "LAS CONSECUENCIAS",
+    "cue": "Resultados rápidos",
+    "text": "Los resultados llegaron rápido",
     "imagen": "37.jpg"
   },
   {
     "id": 38,
-    "block": "EL DESCUBRIMIENTO",
-    "cue": "Sabía lo que había hecho",
-    "text": "Sabía exactamente lo que había hecho",
+    "block": "LAS CONSECUENCIAS",
+    "cue": "Peor de lo esperado",
+    "text": "fueron peores de lo que Johnson esperaba.",
     "imagen": "38.jpg"
   },
   {
     "id": 39,
-    "block": "EL DESCUBRIMIENTO",
-    "cue": "No se podía defender",
-    "text": "y sabía que no se podía defender.",
+    "block": "LAS CONSECUENCIAS",
+    "cue": "Hablar menos por miedo",
+    "text": "Varios de los niños del segundo grupo empezaron a hablar menos por miedo a equivocarse.",
     "imagen": "39.jpg"
   },
   {
     "id": 40,
-    "block": "EL DESCUBRIMIENTO",
-    "cue": "Guardado en un cajón",
-    "text": "El estudio quedó guardado en un cajón durante más de sesenta años, mencionado solo por encima en algún trabajo posterior",
+    "block": "LAS CONSECUENCIAS",
+    "cue": "Dejar de participar",
+    "text": "Algunos dejaron de participar en clase.",
     "imagen": "40.jpg"
   },
   {
     "id": 41,
-    "block": "EL DESCUBRIMIENTO",
-    "cue": "Un periodista, en 2001",
-    "text": "hasta que un periodista del estado de Iowa consiguió acceso a los archivos originales de la universidad en dos mil uno.",
+    "block": "LAS CONSECUENCIAS",
+    "cue": "No decir su propio nombre",
+    "text": "Uno se negaba a decir su propio nombre en voz alta.",
     "imagen": "41.jpg"
   },
   {
     "id": 42,
-    "block": "EL DESCUBRIMIENTO",
-    "cue": "La noticia salió",
-    "text": "Cuando la noticia salió",
+    "block": "LAS CONSECUENCIAS",
+    "cue": "No entendían el experimento",
+    "text": "No estaban actuando un papel para un experimento que entendieran.",
     "imagen": "42.jpg"
   },
   {
     "id": 43,
-    "block": "EL DESCUBRIMIENTO",
-    "cue": "Ya no había forma de esconderla",
-    "text": "ya no había forma de esconderla.",
+    "block": "LAS CONSECUENCIAS",
+    "cue": "Vergüenza a los seis años",
+    "text": "Estaban aprendiendo, a los seis años",
     "imagen": "43.jpg"
   },
   {
     "id": 44,
-    "block": "EL DESCUBRIMIENTO",
-    "cue": "Aquellos niños, ya ancianos",
-    "text": "Varios de aquellos niños, entonces ancianos",
+    "block": "LAS CONSECUENCIAS",
+    "cue": "Motivo de vergüenza",
+    "text": "que su forma de hablar era motivo de vergüenza",
     "imagen": "44.jpg"
   },
   {
     "id": 45,
-    "block": "EL DESCUBRIMIENTO",
-    "cue": "Secuelas seis décadas después",
-    "text": "seguían arrastrando problemas de habla y de autoestima seis décadas después.",
+    "block": "LAS CONSECUENCIAS",
+    "cue": "Se quedó pegada mucho después",
+    "text": "y esa idea se les quedó pegada mucho después de que Tudor dejara de visitarlos.",
     "imagen": "45.jpg"
   },
   {
     "id": 46,
     "block": "EL DESCUBRIMIENTO",
-    "cue": "La universidad pidió perdón",
-    "text": "La Universidad de Iowa tuvo que pedir perdón en público",
+    "cue": "Nunca lo publicó",
+    "text": "Johnson nunca publicó estos resultados en una revista científica.",
     "imagen": "46.jpg"
   },
   {
     "id": 47,
     "block": "EL DESCUBRIMIENTO",
-    "cue": "Una indemnización, un daño irreparable",
-    "text": "terminó pagando una indemnización a los supervivientes por un daño que nunca debió existir.",
+    "cue": "Sabía lo que había hecho",
+    "text": "Sabía exactamente lo que había hecho",
     "imagen": "47.jpg"
   },
   {
     "id": 48,
-    "block": "LA REVELACION",
-    "cue": "La parte que de verdad importa",
-    "text": "Aquí está la parte que de verdad importa",
+    "block": "EL DESCUBRIMIENTO",
+    "cue": "No se podía defender",
+    "text": "y sabía que no se podía defender.",
     "imagen": "48.jpg"
   },
   {
     "id": 49,
-    "block": "LA REVELACION",
-    "cue": "No solo un científico cruzó la raya",
-    "text": "no es solo que un científico se pasara de la raya.",
+    "block": "EL DESCUBRIMIENTO",
+    "cue": "Guardado en un cajón sesenta años",
+    "text": "El estudio quedó guardado en un cajón durante más de sesenta años",
     "imagen": "49.jpg"
   },
   {
     "id": 50,
-    "block": "LA REVELACION",
-    "cue": "Su hipótesis tenía razón",
-    "text": "Es que la hipótesis de Johnson, en el fondo, tenía razón",
+    "block": "EL DESCUBRIMIENTO",
+    "cue": "Mencionado solo por encima",
+    "text": "mencionado solo por encima en algún trabajo posterior",
     "imagen": "50.jpg"
   },
   {
     "id": 51,
-    "block": "LA REVELACION",
-    "cue": "Usada para hacer daño",
-    "text": "solo que la usó para hacer daño en vez de para entender algo real.",
+    "block": "EL DESCUBRIMIENTO",
+    "cue": "Un periodista, en 2001",
+    "text": "hasta que un periodista del estado de Iowa consiguió acceso a los archivos originales de la universidad en dos mil uno.",
     "imagen": "51.jpg"
   },
   {
     "id": 52,
-    "block": "LA REVELACION",
-    "cue": "No hace falta tener el problema",
-    "text": "Una persona no necesita tener ningún problema de verdad para empezar a comportarse como si lo tuviera.",
+    "block": "EL DESCUBRIMIENTO",
+    "cue": "La noticia salió",
+    "text": "Cuando la noticia salió",
     "imagen": "52.jpg"
   },
   {
     "id": 53,
-    "block": "LA REVELACION",
-    "cue": "Basta con que te lo repitan",
-    "text": "Basta con que alguien con autoridad, un profesor, un padre, un jefe, te repita las veces suficientes que eres torpe, que eres lento",
+    "block": "EL DESCUBRIMIENTO",
+    "cue": "Ya no había forma de esconderla",
+    "text": "ya no había forma de esconderla.",
     "imagen": "53.jpg"
   },
   {
     "id": 54,
-    "block": "LA REVELACION",
-    "cue": "Tu cerebro deja de confiar",
-    "text": "que hablas mal, para que tu cerebro deje de confiar en lo que hacía bien de forma natural y empiece a vigilarse a sí mismo todo el rato.",
+    "block": "EL DESCUBRIMIENTO",
+    "cue": "Aquellos niños, ya ancianos",
+    "text": "Varios de aquellos niños, entonces ancianos",
     "imagen": "54.jpg"
   },
   {
     "id": 55,
-    "block": "LA REVELACION",
-    "cue": "La vigilancia produce el tropiezo",
-    "text": "Esa vigilancia constante es precisamente lo que produce el tropiezo que se supone que estabas evitando.",
+    "block": "EL DESCUBRIMIENTO",
+    "cue": "Problemas de habla",
+    "text": "seguían arrastrando problemas de habla",
     "imagen": "55.jpg"
   },
   {
     "id": 56,
-    "block": "CONEXION UNIVERSAL",
-    "cue": "No se quedó en 1939",
-    "text": "Esto no se quedó en un orfanato de Iowa en mil novecientos treinta y nueve.",
+    "block": "EL DESCUBRIMIENTO",
+    "cue": "Seis décadas después",
+    "text": "de autoestima seis décadas después.",
     "imagen": "56.jpg"
   },
   {
     "id": 57,
-    "block": "CONEXION UNIVERSAL",
-    "cue": "Te sigue pasando hoy",
-    "text": "Te sigue pasando cada vez que alguien con poder sobre ti decide qué etiqueta llevas puesta.",
+    "block": "EL DESCUBRIMIENTO",
+    "cue": "La universidad pidió perdón",
+    "text": "La Universidad de Iowa tuvo que pedir perdón en público",
     "imagen": "57.jpg"
   },
   {
     "id": 58,
-    "block": "CONEXION UNIVERSAL",
-    "cue": "El profesor y las matemáticas",
-    "text": "El niño al que un profesor le dice que es malo en matemáticas deja de intentarlo en serio",
+    "block": "EL DESCUBRIMIENTO",
+    "cue": "Una indemnización, un daño irreparable",
+    "text": "terminó pagando una indemnización a los supervivientes por un daño que nunca debió existir.",
     "imagen": "58.jpg"
   },
   {
     "id": 59,
-    "block": "CONEXION UNIVERSAL",
-    "cue": "Cree que no se le dan los números",
-    "text": "y años después sigue creyendo que simplemente no se le dan los números.",
+    "block": "LA REVELACION",
+    "cue": "La parte que de verdad importa",
+    "text": "Aquí está la parte que de verdad importa",
     "imagen": "59.jpg"
   },
   {
     "id": 60,
-    "block": "CONEXION UNIVERSAL",
-    "cue": "El jefe y el desorden",
-    "text": "El empleado al que un jefe le repite que es desorganizado empieza a olvidar cosas que antes recordaba sin esfuerzo.",
+    "block": "LA REVELACION",
+    "cue": "No solo un científico cruzó la raya",
+    "text": "no es solo que un científico se pasara de la raya.",
     "imagen": "60.jpg"
   },
   {
     "id": 61,
-    "block": "CONEXION UNIVERSAL",
-    "cue": "La etiqueta no describe lo que eras",
-    "text": "No es que la etiqueta describa lo que ya eras.",
+    "block": "LA REVELACION",
+    "cue": "Su hipótesis",
+    "text": "Es que la hipótesis de Johnson",
     "imagen": "61.jpg"
   },
   {
     "id": 62,
-    "block": "CONEXION UNIVERSAL",
-    "cue": "Repetida por la persona equivocada",
-    "text": "Es que, repetida lo suficiente por la persona equivocada",
+    "block": "LA REVELACION",
+    "cue": "En el fondo, tenía razón",
+    "text": "en el fondo, tenía razón",
     "imagen": "62.jpg"
   },
   {
     "id": 63,
-    "block": "CONEXION UNIVERSAL",
-    "cue": "La etiqueta te construye",
-    "text": "la etiqueta te construye.",
+    "block": "LA REVELACION",
+    "cue": "Usada para hacer daño",
+    "text": "solo que la usó para hacer daño en vez de para entender algo real.",
     "imagen": "63.jpg"
   },
   {
     "id": 64,
-    "block": "CIERRE",
-    "cue": "No borra lo que ya cargas",
-    "text": "Saber esto no borra las etiquetas que ya cargas.",
+    "block": "LA REVELACION",
+    "cue": "No hace falta tener el problema",
+    "text": "Una persona no necesita tener ningún problema de verdad para empezar a comportarse como si lo tuviera.",
     "imagen": "64.jpg"
   },
   {
     "id": 65,
-    "block": "CIERRE",
-    "cue": "La pregunta correcta",
-    "text": "Pero sí cambia la pregunta que te tienes que hacer la próxima vez que sientas que algo se te da mal de forma innata.",
+    "block": "LA REVELACION",
+    "cue": "Basta con que alguien con autoridad",
+    "text": "Basta con que alguien con autoridad",
     "imagen": "65.jpg"
   },
   {
     "id": 66,
-    "block": "CIERRE",
-    "cue": "Quién te lo dijo primero",
-    "text": "Pregúntate quién te lo dijo primero, cuántas veces te lo repitió",
+    "block": "LA REVELACION",
+    "cue": "Un profesor, un padre, un jefe",
+    "text": "un profesor, un padre, un jefe",
     "imagen": "66.jpg"
   },
   {
     "id": 67,
-    "block": "CIERRE",
-    "cue": "Si alguna vez lo comprobaste",
-    "text": "si alguna vez comprobaste si era verdad o si simplemente dejaste de intentarlo.",
+    "block": "LA REVELACION",
+    "cue": "Te repita que eres torpe",
+    "text": "te repita las veces suficientes que eres torpe",
     "imagen": "67.jpg"
   },
   {
     "id": 68,
-    "block": "CIERRE",
-    "cue": "El próximo experimento",
-    "text": "En el próximo video vas a conocer un experimento todavía más difícil de creer",
+    "block": "LA REVELACION",
+    "cue": "Que eres lento",
+    "text": "que eres lento",
     "imagen": "68.jpg"
   },
   {
     "id": 69,
-    "block": "CIERRE",
-    "cue": "Decapitar una rata frente a la cámara",
-    "text": "el de un profesor universitario que pidió a sus alumnos que decapitaran una rata viva delante de una cámara, solo para fotografiar la cara que ponían.",
+    "block": "LA REVELACION",
+    "cue": "Que hablas mal",
+    "text": "que hablas mal",
     "imagen": "69.jpg"
   },
   {
     "id": 70,
-    "block": "CIERRE",
-    "cue": "Suscríbete",
-    "text": "Suscríbete si quieres seguir entendiendo hasta dónde llega la traición de tu propio cerebro.",
+    "block": "LA REVELACION",
+    "cue": "Tu cerebro deja de confiar",
+    "text": "para que tu cerebro deje de confiar en lo que hacía bien de forma natural",
     "imagen": "70.jpg"
   },
   {
     "id": 71,
+    "block": "LA REVELACION",
+    "cue": "Vigilarse a sí mismo",
+    "text": "empiece a vigilarse a sí mismo todo el rato.",
+    "imagen": "71.jpg"
+  },
+  {
+    "id": 72,
+    "block": "LA REVELACION",
+    "cue": "La vigilancia produce el tropiezo",
+    "text": "Esa vigilancia constante es precisamente lo que produce el tropiezo que se supone que estabas evitando.",
+    "imagen": "72.jpg"
+  },
+  {
+    "id": 73,
+    "block": "CONEXION UNIVERSAL",
+    "cue": "No se quedó en 1939",
+    "text": "Esto no se quedó en un orfanato de Iowa en mil novecientos treinta y nueve.",
+    "imagen": "73.jpg"
+  },
+  {
+    "id": 74,
+    "block": "CONEXION UNIVERSAL",
+    "cue": "Te sigue pasando hoy",
+    "text": "Te sigue pasando cada vez que alguien con poder sobre ti decide qué etiqueta llevas puesta.",
+    "imagen": "74.jpg"
+  },
+  {
+    "id": 75,
+    "block": "CONEXION UNIVERSAL",
+    "cue": "El profesor y las matemáticas",
+    "text": "El niño al que un profesor le dice que es malo en matemáticas deja de intentarlo en serio",
+    "imagen": "75.jpg"
+  },
+  {
+    "id": 76,
+    "block": "CONEXION UNIVERSAL",
+    "cue": "Cree que no se le dan los números",
+    "text": "y años después sigue creyendo que simplemente no se le dan los números.",
+    "imagen": "76.jpg"
+  },
+  {
+    "id": 77,
+    "block": "CONEXION UNIVERSAL",
+    "cue": "El jefe y el desorden",
+    "text": "El empleado al que un jefe le repite que es desorganizado empieza a olvidar cosas que antes recordaba sin esfuerzo.",
+    "imagen": "77.jpg"
+  },
+  {
+    "id": 78,
+    "block": "CONEXION UNIVERSAL",
+    "cue": "La etiqueta no describe lo que eras",
+    "text": "No es que la etiqueta describa lo que ya eras.",
+    "imagen": "78.jpg"
+  },
+  {
+    "id": 79,
+    "block": "CONEXION UNIVERSAL",
+    "cue": "Repetida por la persona equivocada",
+    "text": "Es que, repetida lo suficiente por la persona equivocada",
+    "imagen": "79.jpg"
+  },
+  {
+    "id": 80,
+    "block": "CONEXION UNIVERSAL",
+    "cue": "La etiqueta te construye",
+    "text": "la etiqueta te construye.",
+    "imagen": "80.jpg"
+  },
+  {
+    "id": 81,
+    "block": "CIERRE",
+    "cue": "No borra lo que ya cargas",
+    "text": "Saber esto no borra las etiquetas que ya cargas.",
+    "imagen": "81.jpg"
+  },
+  {
+    "id": 82,
+    "block": "CIERRE",
+    "cue": "La pregunta correcta",
+    "text": "Pero sí cambia la pregunta que te tienes que hacer la próxima vez que sientas que algo se te da mal de forma innata.",
+    "imagen": "82.jpg"
+  },
+  {
+    "id": 83,
+    "block": "CIERRE",
+    "cue": "Quién te lo dijo primero",
+    "text": "Pregúntate quién te lo dijo primero",
+    "imagen": "83.jpg"
+  },
+  {
+    "id": 84,
+    "block": "CIERRE",
+    "cue": "Cuántas veces te lo repitió",
+    "text": "cuántas veces te lo repitió",
+    "imagen": "84.jpg"
+  },
+  {
+    "id": 85,
+    "block": "CIERRE",
+    "cue": "Si alguna vez lo comprobaste",
+    "text": "si alguna vez comprobaste si era verdad o si simplemente dejaste de intentarlo.",
+    "imagen": "85.jpg"
+  },
+  {
+    "id": 86,
+    "block": "CIERRE",
+    "cue": "El próximo experimento",
+    "text": "En el próximo video vas a conocer un experimento todavía más difícil de creer",
+    "imagen": "86.jpg"
+  },
+  {
+    "id": 87,
+    "block": "CIERRE",
+    "cue": "Decapitar una rata frente a la cámara",
+    "text": "el de un profesor universitario que pidió a sus alumnos que decapitaran una rata viva delante de una cámara",
+    "imagen": "87.jpg"
+  },
+  {
+    "id": 88,
+    "block": "CIERRE",
+    "cue": "La cara que ponían",
+    "text": "solo para fotografiar la cara que ponían.",
+    "imagen": "88.jpg"
+  },
+  {
+    "id": 89,
+    "block": "CIERRE",
+    "cue": "Suscríbete",
+    "text": "Suscríbete si quieres seguir entendiendo hasta dónde llega la traición de tu propio cerebro.",
+    "imagen": "89.jpg"
+  },
+  {
+    "id": 90,
     "block": "CIERRE",
     "cue": "Cierre del canal",
     "text": "Nos vemos en el siguiente.",
-    "imagen": "71.jpg"
+    "imagen": "90.jpg"
   }
 ]

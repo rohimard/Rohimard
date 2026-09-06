@@ -38,21 +38,28 @@ en plano cerrado — ver la nota al principio de `prompts-imagenes.txt`.
 - `guion.txt` — 4.814 caracteres, ortografía correcta (lectura/subtítulos).
 - `guion-voz.txt` — 4.826 caracteres, adaptado a pronunciación (Uéndel
   Yónson, Meri Túdor, Dávenport, Áiowa; números en letras).
-- `prompts-imagenes.txt` — **71 prompts** fotorrealistas de
-  reconstrucción documental (subido desde 45 tras el aviso del usuario
-  de que se quedaba corto para el ritmo dinámico que necesita un video
-  de ~4:30 min — la media de Stanford es 3,37s por plano con 83 planos
-  para 280s; aquí se apunta a un ritmo similar). Look de fotografía de
-  archivo en blanco y negro/sepia de los años treinta (distinto del
-  viraje cálido setentero de Stanford), con transición a color moderno
-  neutro desde la escena 42 (el descubrimiento en 2001 en adelante).
-- `segments.json` — 71 escenas con bloque narrativo, cue corto y texto
+- `prompts-imagenes.txt` — **90 prompts** fotorrealistas de
+  reconstrucción documental. Subido en dos pasos tras el guión inicial
+  de 45: primero a 71 (partiendo frases largas por palabra, umbral de 9
+  palabras), y el usuario notó que Stanford tenía 83 para una duración
+  casi idéntica — la diferencia real es que en Stanford el número salió
+  **después** de medir el audio real (75 frases naturales del guión, 8
+  de ellas partidas en dos por durar más de ~5-6s), mientras que aquí se
+  estimó antes de tener audio. Se volvió a partir con un umbral más
+  agresivo (7 palabras, recursivo) para no quedar por debajo del
+  estándar del canal: 90 planos, media de ~3s, incluso algo más rápido
+  que Stanford. Look de fotografía de archivo en blanco y negro/sepia de
+  los años treinta (distinto del viraje cálido setentero de Stanford),
+  con transición a color moderno neutro desde la escena 52 (el
+  descubrimiento en 2001 en adelante).
+- `segments.json` — 90 escenas con bloque narrativo, cue corto y texto
   real, en el mismo formato que las producciones anteriores. Es un mapa
   de planos **previo al audio**, para fijar cuántas imágenes hacen falta
   y en qué orden — los tiempos reales (y el ajuste fino de cuántos
-  planos hacen falta de verdad) se anclan después, igual que en Stanford
-  y el Short, troceando el audio real y transcribiéndolo con ElevenLabs
-  Scribe.
+  planos hacen falta de verdad, fusionando los que salgan demasiado
+  cortos o partiendo los que salgan demasiado largos) se anclan después,
+  igual que en Stanford y el Short, troceando el audio real y
+  transcribiéndolo con ElevenLabs Scribe.
 - `seo.md` — títulos, descripción y comentario fijado con las fuentes.
 
 ## Guión: estructura
