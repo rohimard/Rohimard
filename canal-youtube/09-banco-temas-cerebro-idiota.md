@@ -56,28 +56,67 @@ Se hizo así:
 | Ruptura amorosa = dolor físico (#70/71) | 1 video de entretenimiento, sin tratamiento narrativo profundo | 🟢 ALTA |
 | Estudio Monstruo, Wendell Johnson (sugerido, no en la lista original) | Artículos sí, pero solo 1 video de YouTube dedicado encontrado | 🟢 **ALTA — la mejor oportunidad encontrada** |
 
-## Shortlist recomendada para video largo (por orden de prioridad)
+## Segunda ronda: búsqueda en los rincones menos explotados
+
+El usuario pidió específicamente ir más allá del libro y buscar en "los
+bajos fondos de internet" — casos reales, oscuros y poco tratados en
+formato video en español, no solo los clásicos de manual. Se verificaron
+8 candidatos más con búsqueda real:
+
+| Tema | Qué se encontró | Veredicto |
+|---|---|---|
+| **Experimento de Landis, 1924** (decapitar una rata para fotografiar el miedo) | **Cero videos de YouTube en español encontrados** — solo blogs/artículos | 🟢 **ALTA — sin competencia en video** |
+| **Facebook, el experimento de contagio emocional (2014)** | **Cero videos dedicados en español** — solo cobertura de prensa de la época | 🟢 **ALTA — sin competencia en video** |
+| **Harry Harlow, "el pozo de la desesperación"** (cámara de aislamiento total, distinto del clásico de la madre de trapo) | Sin video de YouTube en español dedicado a esta parte específica (más oscura) del trabajo de Harlow | 🟢 ALTA |
+| Jane Elliott, ojos azules vs. ojos marrones (1968) | Documental "Una clase dividida" (1985) + 1 video dedicado en español ya existente | 🟡 MEDIA — cubierto pero no saturado |
+| Rat Park, Bruce Alexander (adicción y ambiente) | Contenido en español disperso en blogs, sin video narrativo dedicado claro | 🟡 MEDIA |
+| David Rosenhan, pseudopacientes en psiquiátricos | 2 videos de YouTube en español + cobertura mediática 2025 (Infobae, El Debate) | 🔴 BAJA — más saturado de lo esperado |
+| Robbers Cave (niños divididos en tribus enemigas, 1954) | 4+ videos ya dedicados, incluido uno en español | 🔴 BAJA — más saturado de lo esperado |
+| José Delgado, detuvo un toro con un electrodo cerebral (1963) | Bastante cubierto ya (varios videos + blogs + foros) | 🔴 BAJA — más saturado de lo esperado |
+
+## Shortlist final recomendada para video largo (por orden de prioridad)
 
 1. **El Estudio Monstruo (Wendell Johnson, 1939)** — 22 niños huérfanos
-   usados sin consentimiento para inducirles tartartamudez; la Universidad
+   usados sin consentimiento para inducirles tartamudez; la Universidad
    de Iowa se disculpó públicamente recién en 2001. Poquísimo explotado en
    video, encaja perfecto con el registro true-crime del canal (como
-   Stanford, pero con ética aún más oscura). **Nueva propuesta, no estaba
-   en la lista original.**
-2. **El ladrón del jugo de limón (#39)** — historia real, absurda y
-   verificable (intentó robar un banco creyendo que el jugo de limón lo
-   haría invisible a las cámaras), origen real del "efecto Dunning-Kruger".
-   Gancho perfecto, tono ligero-cómico distinto a los últimos 2 videos.
-3. **Agorafobia: el mito vs. la realidad (#32)** — mismo formato que ya
-   funcionó con Frank Tower: todo el mundo cree saber qué es, casi nadie
-   sabe la definición real. Bajo riesgo de guion (no depende de un caso
-   real con nombre propio).
-4. **Síndrome de Capgras (#90)** — "crees que tu pareja fue reemplazada
-   por un impostor idéntico"; gancho inquietante fuerte, poco explotado a
-   fondo. Requiere cuidado clínico (no sensacionalizar la enfermedad
-   mental real).
-5. **Ruptura amorosa como síndrome de abstinencia (#70+71 fusionados)** —
+   Stanford, pero con ética aún más oscura).
+2. **El experimento de Landis (1924)** — a estudiantes de posgrado se les
+   pidió decapitar una rata viva para fotografiar su expresión facial de
+   asco/pánico; dos tercios lo hizo, incluido un niño de 13 años que
+   participaba como control. Cero competencia en video en español, gancho
+   brutal ("¿tú lo harías?").
+3. **Facebook, el experimento que manipuló las emociones de 700.000
+   personas sin avisarles (2014)** — moderno, verificable con fuentes de
+   la época, y conecta directo con la tesis que ya viene repitiendo el
+   canal desde Stanford: cambias de comportamiento sin que nadie te dé la
+   orden explícita, aquí a escala de red social. Cero competencia en video.
+4. **El ladrón del jugo de limón (#39)** — historia real y absurda (creyó
+   que el jugo de limón lo haría invisible a las cámaras), origen real del
+   "efecto Dunning-Kruger". Tono más ligero, buen cambio de ritmo.
+5. **Agorafobia: el mito vs. la realidad (#32)** — mismo formato que ya
+   funcionó con Frank Tower. Bajo riesgo de guion, no depende de un caso
+   con nombre propio.
+6. **Síndrome de Capgras (#90)** — "crees que tu pareja fue reemplazada
+   por un impostor idéntico"; requiere cuidado clínico al narrarlo.
+7. **El pozo de la desesperación de Harry Harlow** — versión más oscura y
+   menos conocida que el experimento de la "madre de alambre" (ese sí ya
+   tiene video en español); aislamiento total de crías de mono desde el
+   nacimiento. Tratar con la misma seriedad que el Estudio Monstruo.
+8. **Ruptura amorosa como síndrome de abstinencia (#70+71 fusionados)** —
    universal, todo el mundo lo vivió, con respaldo real de neuroimagen.
+
+## Descartados tras la segunda búsqueda (más saturados de lo esperado)
+
+Se investigaron como posibles candidatos "poco explotados" y resultaron
+tener más competencia real de la asumida — no priorizar:
+
+- **Rosenhan** (pseudopacientes) — 2 videos ya, más cobertura mediática
+  reciente en 2025.
+- **Robbers Cave** (niños en tribus enemigas) — 4+ videos ya, incluido uno
+  en español.
+- **José Delgado y el toro** — buena historia, pero ya bastante contada en
+  YouTube y foros en español.
 
 ## Temas a evitar o corregir antes de usar
 
