@@ -1,9 +1,12 @@
 {
   "image": "base.jpg",
-  "font": "../../../../canal-youtube/kit-produccion/assets/Anton-Regular.woff2",
+  "font": "../../../kit-produccion/assets/Anton-Regular.woff2",
   "out": "miniatura",
-  "text": "MANIPULADO",
-  "sub": "ARCHIVO 1971",
-  "barY": 460,
-  "barH": 120
+  "number": "ACTUABA",
+  "numberSize": 220,
+  "line1": "EL GUARDIA MÁS CRUEL",
+  "line2": "LO CONFESÓ DESPUÉS",
+  "side": "left",
+  "accent": "#FFD400",
+  "alarm": "#E10600"
 }

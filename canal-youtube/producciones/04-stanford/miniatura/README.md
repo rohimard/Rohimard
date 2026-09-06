@@ -66,8 +66,49 @@ Se generó 1 imagen por concepto (3 en total, 818 créditos cada una,
 objetivo era comparar direcciones distintas, no elegir entre varias
 tomas de la misma idea.
 
+## Verificación (versión titiritero — histórica)
+
+`test-feed.png` de esa versión: "MANIPULADO" se leía con claridad
+instantánea, y la silueta de manos + cruceta se reconocía sin esfuerzo.
+
+## Rehecha: "la sonrisa que no debía existir" (descartada)
+
+El usuario pidió una miniatura nueva con otra idea. Se generaron 3
+conceptos (la cinta que lo delata, el expediente reabierto, la sonrisa
+que no debía existir) y se eligió el tercero: primer plano extremo de
+boca/mandíbula sonriendo con complicidad (sin ojos ni rasgos
+identificables), foto de archivo en blanco y negro con grano — mismo
+estilo de barra "documento censurado" que la versión anterior, texto
+**"ACTUABA"** (conecta con la investigación real: uno de los guardias
+confesó años después que estaba imitando a un personaje de película).
+Aprobada en un primer momento, pero descartada al pedir el usuario que
+la miniatura siguiera el **formato clásico de Historia Incómoda**
+(el de Genghis Khan y Déjà vu: palabra/número amarillo grande + sujeto
+a un lado + caja roja con la segunda línea), no el estilo de barra
+negra que se había usado hasta ahora.
+
+## Versión final (aprobada): formato clásico + guardia del propio video
+
+Rehecha con `render_thumbnail.js` (el script estándar del canal, no
+`render_thumbnail_redacted.js`). Se probaron dos imágenes de fondo
+para el mismo texto y layout, comparando lado a lado:
+
+- **A (elegida)** — reutiliza `imagenes/04.jpg`, ya generada para el
+  propio video (guardia de uniforme caqui y gafas de aviador de pie en
+  el pasillo de la cárcel). Costo: $0, la imagen ya existía.
+- **B (descartada)** — imagen nueva del primer plano de la sonrisa
+  (~818 créditos, ~0,15 USD), pero el texto amarillo terminaba tapando
+  justo la sonrisa — el elemento que hacía interesante ese encuadre se
+  perdía, y a tamaño de feed casi no se distinguía nada.
+
+Texto: **"ACTUABA"** (amarillo, `numberSize: 220` porque a 300px por
+defecto una palabra de 7 letras se sale del marco) / "EL GUARDIA MÁS
+CRUEL" (blanco) / "LO CONFESÓ DESPUÉS" (caja roja). `side: "left"` deja
+el texto a la izquierda y el guardia visible a la derecha, sin que se
+tapen entre sí.
+
 ## Verificación
 
-`test-feed.png` — prueba obligatoria a 246px: "MANIPULADO" se lee con
-claridad instantánea, y la silueta de manos + cruceta se reconoce sin
-esfuerzo. Miniatura aprobada.
+`test-feed.png` — a 246px el guardia con gafas de aviador y "ACTUABA"
+se leen con claridad instantánea. Miniatura aprobada por el usuario
+("la a").
