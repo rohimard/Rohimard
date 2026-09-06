@@ -38,29 +38,54 @@ en plano cerrado — ver la nota al principio de `prompts-imagenes.txt`.
 - `guion.txt` — 4.814 caracteres, ortografía correcta (lectura/subtítulos).
 - `guion-voz.txt` — 4.826 caracteres, adaptado a pronunciación (Uéndel
   Yónson, Meri Túdor, Dávenport, Áiowa; números en letras).
-- `prompts-imagenes.txt` — **90 prompts** fotorrealistas de
-  reconstrucción documental. Subido en dos pasos tras el guión inicial
-  de 45: primero a 71 (partiendo frases largas por palabra, umbral de 9
-  palabras), y el usuario notó que Stanford tenía 83 para una duración
-  casi idéntica — la diferencia real es que en Stanford el número salió
-  **después** de medir el audio real (75 frases naturales del guión, 8
-  de ellas partidas en dos por durar más de ~5-6s), mientras que aquí se
-  estimó antes de tener audio. Se volvió a partir con un umbral más
-  agresivo (7 palabras, recursivo) para no quedar por debajo del
-  estándar del canal: 90 planos, media de ~3s, incluso algo más rápido
-  que Stanford. Look de fotografía de archivo en blanco y negro/sepia de
-  los años treinta (distinto del viraje cálido setentero de Stanford),
-  con transición a color moderno neutro desde la escena 52 (el
-  descubrimiento en 2001 en adelante).
-- `segments.json` — 90 escenas con bloque narrativo, cue corto y texto
-  real, en el mismo formato que las producciones anteriores. Es un mapa
-  de planos **previo al audio**, para fijar cuántas imágenes hacen falta
-  y en qué orden — los tiempos reales (y el ajuste fino de cuántos
-  planos hacen falta de verdad, fusionando los que salgan demasiado
-  cortos o partiendo los que salgan demasiado largos) se anclan después,
-  igual que en Stanford y el Short, troceando el audio real y
-  transcribiéndolo con ElevenLabs Scribe.
+- `prompts-imagenes.txt` — **99 prompts** fotorrealistas de
+  reconstrucción documental, con tiempos reales ya anclados. Historial:
+  45 iniciales (antes del audio) → 71 (el usuario avisó que 45 se
+  quedaba corto) → 90 (el usuario notó que Stanford tenía 83 para una
+  duración casi idéntica, así que se igualó la densidad) → **99 final**,
+  ya con el audio real medido: de los 90 planos estimados, 9 duraban más
+  de 5s reales y se partieron en dos, exactamente el mismo criterio que
+  dejó a Stanford en 83 (75 frases naturales, 8 partidas). Media final
+  real: **2,68s por plano** (más rápido que Stanford). Look de
+  fotografía de archivo en blanco y negro/sepia de los años treinta,
+  con transición a color moderno neutro desde el descubrimiento en 2001.
+- `segments.json` — 99 escenas con bloque narrativo, cue, texto real y
+  **tiempos reales** (`t_start`/`t_end`, anclados por transcripción, ver
+  abajo). Cobertura verificada: la concatenación de los 99 textos
+  reproduce `guion.txt` palabra por palabra, sin huecos.
+- `word_times.json` — mapa palabra→tiempo real de las 845 palabras del
+  guión, 97,9% de coincidencia exacta contra la transcripción (mismo
+  método y precisión que Stanford, 97,8%).
+- `subtitulos.srt` — 99 cues con los tiempos reales, bloques de máximo
+  2 líneas de 42 caracteres.
+- `hoja-montaje.csv` — 99 planos con tiempos reales (mm:ss.cc), imagen
+  y bloque narrativo, compatible con `kit-produccion/scripts/montar_video.js`.
+- `align.py` — script de alineación (guión completo vs. transcripción
+  troceada en 18 ventanas de 15s), reutilizable si se regenera el audio.
+- `audio.mp3` (no versionado, ver `.gitignore`) — voz David
+  (`qRUgOhnxGASxirG4fKjv`), 264,83s (4:24,8), coste 4.824,52 créditos
+  (~0,88 USD).
 - `seo.md` — títulos, descripción y comentario fijado con las fuentes.
+
+## Cómo se ancló el tiempo real
+
+Mismo método que Stanford y el Short
+(`kit-produccion/scripts/sync_desde_transcripcion.md`): `audio.mp3`
+troceado en 18 ventanas de 15s con ffmpeg, cada una transcrita por
+separado con ElevenLabs Scribe (coste real: 1.454,84 créditos, ~0,26
+USD — bastante más barato que estimado, igual que pasó en Stanford),
+guión completo alineado contra las 18 transcripciones con
+`difflib.SequenceMatcher`: **97,9% de coincidencia exacta**. Las
+palabras no reconocidas (sobre todo los nombres propios re-escritos
+fonéticamente para la voz, que Scribe normalizó de vuelta a su
+ortografía real en la mayoría de los casos) se interpolan entre sus
+vecinas ya ancladas.
+
+Con los tiempos reales medidos, **9 de los 90 planos estimados**
+resultaron durar más de 5 segundos (máximo real: 7,34s antes de
+partir) — se dividieron cada uno en dos planos con un prompt de imagen
+adicional, llevando el total a **99 planos**, todos ≤ 4,89s reales,
+media 2,68s.
 
 ## Guión: estructura
 
@@ -75,16 +100,15 @@ ponen un profesor o un jefe) → cierre con gancho al próximo video
 
 ## Pendiente
 
-1. Generar el audio con la voz del canal (David,
-   `qRUgOhnxGASxirG4fKjv`) — coste estimado ~0,90 USD por la longitud
-   del guión, similar a Stanford. Pendiente de confirmación antes de
-   generar.
-2. Medir el audio real y anclar los tiempos de `segments.json`
-   (troceo + transcripción con ElevenLabs Scribe, mismo método que
-   los videos anteriores).
-3. Generar la hoja de montaje con tiempos reales.
-4. El usuario genera las 45 imágenes en Flow/Imagen a partir de
+1. ~~Generar el audio con la voz del canal.~~ Hecho — `audio.mp3`,
+   264,83s, 4.824,52 créditos (~0,88 USD).
+2. ~~Medir el audio real y anclar los tiempos.~~ Hecho — 97,9% de
+   coincidencia exacta, 1.454,84 créditos de transcripción (~0,26 USD).
+3. ~~Generar la hoja de montaje con tiempos reales.~~ Hecho —
+   `hoja-montaje.csv` y `subtitulos.srt`, 99 planos.
+4. El usuario genera las 99 imágenes en Flow/Imagen a partir de
    `prompts-imagenes.txt` y las trae de vuelta.
 5. Miniatura: estrategia ya esbozada en `seo.md`, pendiente de imagen
    base y montaje del texto.
-6. Render final y subida a YouTube.
+6. Render final (con `render.json` + `montar_video.js`, mismo flujo
+   que Stanford) y subida a YouTube.
