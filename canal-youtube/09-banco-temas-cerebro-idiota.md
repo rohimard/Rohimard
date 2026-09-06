@@ -38,6 +38,13 @@ Se hizo así:
 
 | Tema | Qué se encontró | Veredicto |
 |---|---|---|
+| Estudio Monstruo, Wendell Johnson (sugerido, no en la lista original) | Artículos sí, pero solo 1 video de YouTube dedicado encontrado | 🟢 **ALTA — la mejor oportunidad encontrada** |
+| Ladrón del jugo de limón / McArthur Wheeler (#39) | Mucha prensa (Infobae, El Tiempo) pero solo 1 video de YouTube dedicado encontrado | 🟢 ALTA |
+| Síndrome de Capgras (#90) | Contenido mixto (Draw My Life 2019, shorts), nada a nivel documental largo | 🟢 ALTA |
+| Agorafobia, mito vs. realidad (#32) | Solo artículos de blogs de terapia, ningún video narrativo dedicado | 🟢 ALTA |
+| Ruptura amorosa = dolor físico (#70/71) | 1 video de entretenimiento, sin tratamiento narrativo profundo | 🟢 ALTA |
+| Harry Harlow, monos de alambre (sugerido) | 1 video dedicado + varios blogs | 🟡 MEDIA |
+| Elizabeth Loftus, recuerdos falsos (sugerido) | 2-3 videos + charla TED subtitulada | 🟡 MEDIA |
 | Experimento de Milgram (#75) | — | **Ya confirmado como próximo video** (video 5), no se re-evalúa |
 | Experimento de Asch (#73) | 10+ videos dedicados en español desde 2011 | 🔴 BAJA — saturado |
 | Efecto espectador / Kitty Genovese (#74) | 8+ videos, incluido un "documental completo" reciente | 🔴 BAJA — saturado |
@@ -48,13 +55,6 @@ Se hizo así:
 | Pequeño Albert (sugerido) | 10 videos dedicados | 🔴 BAJA — saturado |
 | David Reimer / caso Money (sugerido) | 6+ documentales en español | 🔴 BAJA — saturado |
 | Genie Wiley (sugerido) | Varios documentales ya en español | 🔴 BAJA — saturado |
-| Harry Harlow, monos de alambre (sugerido) | 1 video dedicado + varios blogs | 🟡 MEDIA |
-| Elizabeth Loftus, recuerdos falsos (sugerido) | 2-3 videos + charla TED subtitulada | 🟡 MEDIA |
-| Ladrón del jugo de limón / McArthur Wheeler (#39) | Mucha prensa (Infobae, El Tiempo) pero solo 1 video de YouTube dedicado encontrado | 🟢 ALTA |
-| Síndrome de Capgras (#90) | Contenido mixto (Draw My Life 2019, shorts), nada a nivel documental largo | 🟢 ALTA |
-| Agorafobia, mito vs. realidad (#32) | Solo artículos de blogs de terapia, ningún video narrativo dedicado | 🟢 ALTA |
-| Ruptura amorosa = dolor físico (#70/71) | 1 video de entretenimiento, sin tratamiento narrativo profundo | 🟢 ALTA |
-| Estudio Monstruo, Wendell Johnson (sugerido, no en la lista original) | Artículos sí, pero solo 1 video de YouTube dedicado encontrado | 🟢 **ALTA — la mejor oportunidad encontrada** |
 
 ## Segunda ronda: búsqueda en los rincones menos explotados
 
