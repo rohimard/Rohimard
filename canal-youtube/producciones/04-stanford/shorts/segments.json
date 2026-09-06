@@ -3,115 +3,115 @@
     {
       "n": 1,
       "t_start": 0.0,
-      "t_end": 4.173,
+      "t_end": 5.083,
       "imagen": "01.jpg",
-      "texto": "En 1971 encerraron a 24 estudiantes en una cárcel falsa."
+      "texto": "En 1971 encerraron a 24 estudiantes en una cárcel falsa:"
     },
     {
       "n": 2,
-      "t_start": 4.173,
-      "t_end": 5.006,
+      "t_start": 5.083,
+      "t_end": 6.212,
       "imagen": "02.jpg",
-      "texto": "Unos, guardias."
+      "texto": "unos de guardias,"
     },
     {
       "n": 3,
-      "t_start": 5.006,
-      "t_end": 5.841,
+      "t_start": 6.212,
+      "t_end": 7.303,
       "imagen": "03.jpg",
-      "texto": "Otros, presos."
+      "texto": "otros de presos."
     },
     {
       "n": 4,
-      "t_start": 5.841,
-      "t_end": 9.18,
+      "t_start": 7.303,
+      "t_end": 10.208,
       "imagen": "04.jpg",
       "texto": "En seis días todo se salió de control,"
     },
     {
       "n": 5,
-      "t_start": 9.18,
-      "t_end": 13.352,
+      "t_start": 10.208,
+      "t_end": 13.61,
       "imagen": "05.jpg",
       "texto": "y se volvió el experimento más citado de la psicología."
     },
     {
       "n": 6,
-      "t_start": 13.352,
-      "t_end": 15.977,
+      "t_start": 13.61,
+      "t_end": 15.987,
       "imagen": "06.jpg",
       "texto": "Pero grabaciones ocultas por décadas muestran que"
     },
     {
       "n": 7,
-      "t_start": 15.977,
-      "t_end": 18.529,
+      "t_start": 15.987,
+      "t_end": 18.703,
       "imagen": "07.jpg",
       "texto": "Zimbardo le decía a los guardias cómo comportarse."
     },
     {
       "n": 8,
-      "t_start": 18.529,
-      "t_end": 21.401,
+      "t_start": 18.703,
+      "t_end": 21.682,
       "imagen": "08.jpg",
       "texto": "Uno confesó después que solo actuaba, copiando una película."
     },
     {
       "n": 9,
-      "t_start": 21.401,
-      "t_end": 24.273,
+      "t_start": 21.682,
+      "t_end": 24.562,
       "imagen": "09.jpg",
       "texto": "Y el preso de la crisis nerviosa más famosa"
     },
     {
       "n": 10,
-      "t_start": 24.273,
-      "t_end": 26.187,
+      "t_start": 24.562,
+      "t_end": 26.201,
       "imagen": "10.jpg",
       "texto": "admitió que la fingió para salir."
     },
     {
       "n": 11,
-      "t_start": 26.187,
-      "t_end": 29.377,
+      "t_start": 26.201,
+      "t_end": 29.597,
       "imagen": "11.jpg",
       "texto": "No midieron que cualquiera se vuelve un monstruo con poder."
     },
     {
       "n": 12,
-      "t_start": 29.377,
-      "t_end": 32.331,
+      "t_start": 29.597,
+      "t_end": 32.398,
       "imagen": "12.jpg",
       "texto": "Midieron algo peor: que tu cerebro sigue un guion social"
     },
     {
       "n": 13,
-      "t_start": 32.331,
-      "t_end": 34.068,
+      "t_start": 32.398,
+      "t_end": 33.927,
       "imagen": "13.jpg",
       "texto": "sin que nadie dé la orden."
     },
     {
       "n": 14,
-      "t_start": 34.068,
-      "t_end": 37.832,
+      "t_start": 33.927,
+      "t_end": 37.716,
       "imagen": "14.jpg",
       "texto": "Y te pasa cada vez que cambias con un uniforme o un cargo,"
     },
     {
       "n": 15,
-      "t_start": 37.832,
-      "t_end": 38.7,
+      "t_start": 37.716,
+      "t_end": 38.719,
       "imagen": "15.jpg",
       "texto": "sin darte cuenta."
     },
     {
       "n": 16,
-      "t_start": 38.7,
-      "t_end": 40.438,
+      "t_start": 38.719,
+      "t_end": 40.725,
       "imagen": "16.jpg",
       "texto": "La investigación completa, en el video."
     }
   ],
-  "audio_dur": 40.4375
+  "audio_dur": 40.7249
 }

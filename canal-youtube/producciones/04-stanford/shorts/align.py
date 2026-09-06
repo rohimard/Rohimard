@@ -3,9 +3,14 @@ import re, json, difflib, unicodedata
 GUION = open('guion-short.txt', encoding='utf-8').read().strip()
 
 CHUNKS = [
-    {"start": 0.0, "dur": 15.020408, "text": "En 1971 encerraron a veinticuatro estudiantes en una cárcel falsa. Unos, guardias, otros, presos. En seis días todo se salió de control y se volvió el experimento más citado de la psicología. Pero grabaciones ocultas por"},
-    {"start": 15.020408, "dur": 14.994286, "text": "Décadas muestran que Zimbardo le decía a los guardias cómo comportarse. Uno confesó después que solo actuaba copiando una película y el preso de la crisis nerviosa más famosa admitió que la fingió para salir. No midieron que cualquiera se vuelve un monstruo con poder. Midieron algo"},
-    {"start": 30.014694, "dur": 10.422857, "text": "Peor, que tu cerebro sigue un guion social sin que nadie dé la orden. Y te pasa cada vez que cambias con un uniforme o un cargo sin darte cuenta. La investigación completa en el video"},
+    {"start": 0.0, "dur": 5.120000, "text": "En 1971 encerraron a veinticuatro estudiantes en una cárcel falsa"},
+    {"start": 5.120000, "dur": 5.093878, "text": "Unos de guardias, otros de presos. En seis días, todo se salió de control"},
+    {"start": 10.213878, "dur": 5.093878, "text": "Y se volvió el experimento más citado de la psicología. Pero grabaciones ocultas por décadas"},
+    {"start": 15.307756, "dur": 5.093878, "text": "muestran que Zimbardo le decía a los guardias cómo comportarse. Uno confesó después que solo"},
+    {"start": 20.401634, "dur": 5.120000, "text": "actuaba copiando una película y el preso de la crisis nerviosa más famosa admitió que la"},
+    {"start": 25.521634, "dur": 5.093878, "text": "para salir. No midieron que cualquiera se vuelve un monstruo con poder. Midieron algo peor"},
+    {"start": 30.615512, "dur": 5.093878, "text": "que tu cerebro sigue un guion social sin que nadie dé la orden y te pasa cada vez que cambias"},
+    {"start": 35.709390, "dur": 5.015510, "text": "con un uniforme o un cargo sin darte cuenta. La investigación completa en el video"},
 ]
 
 def norm(w):

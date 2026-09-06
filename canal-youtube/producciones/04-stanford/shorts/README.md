@@ -6,12 +6,21 @@ el hook inmediato y el ritmo rápido de Shorts.
 
 ## Guión
 
-`guion-short.txt` — 119 palabras. Estructura: hook en la primera frase
+`guion-short.txt` — 121 palabras. Estructura: hook en la primera frase
 (cárcel falsa, sin intro ni "hola bienvenidos") → dato conocido → el
 giro real (grabaciones ocultas) → las dos revelaciones más fuertes
 (guardia actuando, preso fingiendo) → conclusión inquietante → gancho
 al video completo. Nada del guión original de 4:39 se copia literal;
 es un resumen redactado para 40s.
+
+**Corrección de voz**: la primera versión decía "Unos, guardias. Otros,
+presos." — cuatro fragmentos cortados por puntos y comas seguidos. El
+usuario detectó que sonaba poco natural, con pausas que no correspondían
+al ritmo del montaje. El problema no era el montaje: era que ElevenLabs
+trata cada fragmento corto separado por punto como una frase aparte y
+mete una pausa dramática entre cada uno. Se reescribió como una sola
+oración fluida ("...cárcel falsa: unos de guardias, otros de presos.")
+y se regeneró el audio completo — mismo costo (~$0.12), sonido natural.
 
 ## Audio
 
@@ -22,12 +31,19 @@ créditos (~0,12 USD).
 ## Cómo se ancló el tiempo real
 
 Mismo método que el video principal
-(`kit-produccion/scripts/sync_desde_transcripcion.md`): audio troceado
-en 3 ventanas (15s, 15s, 10.4s), cada una transcrita por separado con
-ElevenLabs Scribe, guión completo alineado contra las transcripciones
-con `difflib.SequenceMatcher` — **100% de coincidencia exacta** (guión
-corto, sin palabras raras que Scribe transcribiera distinto). Script:
+(`kit-produccion/scripts/sync_desde_transcripcion.md`), con ventanas
+más finas que las de 15s del video largo: audio troceado en 8 ventanas
+de ~5s, cada una transcrita por separado con ElevenLabs Scribe, guión
+completo alineado contra las transcripciones con
+`difflib.SequenceMatcher` — 99,2% de coincidencia exacta. Script:
 `align.py` → `word_times.json`.
+
+Ventanas más finas importan aquí porque el short tiene frases muy
+cortas seguidas (0.8–1.1s cada una) — con ventanas de 15s como las del
+video largo, el reparto de tiempo por palabra (uniforme dentro de cada
+ventana) se nota más de la cuenta en frases cortas con pausas de coma
+o punto; con ventanas de 5s el error de esa aproximación queda mucho
+más acotado.
 
 ## Planos e imágenes
 
@@ -91,7 +107,7 @@ todos correctos tras el fix.
 
 ## Resultado
 
-`short-final.mp4` (no versionado) — 1080×1920, 40.4s, 9.9 MB, cabe
+`short-final.mp4` (no versionado) — 1080×1920, 40.7s, 10 MB, cabe
 directo en el chat sin comprimir.
 
 ## Pendiente
