@@ -140,6 +140,7 @@ ponen un profesor o un jefe) → cierre con gancho al próximo video
 5. ~~Render final.~~ Hecho — `render.js`, `video-final.mp4` (78 MB,
    264,84s, 1920x1080 @25fps), verificado por fotogramas contra
    `segments.json`.
-6. Miniatura: estrategia ya esbozada en `seo.md`, pendiente de imagen
-   base y montaje del texto.
+6. ~~Miniatura.~~ Hecha — ver `miniatura/README.md`: reutiliza
+   `imagenes/03.jpg` (Mary Tudor), titular "MONSTRUO" + "EXPERIMENTO CON
+   NIÑOS" + caja roja "OCULTO 62 AÑOS".
 7. Subida a YouTube.

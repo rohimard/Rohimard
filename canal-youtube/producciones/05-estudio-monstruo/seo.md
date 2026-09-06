@@ -27,13 +27,13 @@ el guión evita cifras no verificadas).
 
 ## Miniatura
 
-Ver `miniatura/README.md` cuando se genere (mismo flujo que los videos
-anteriores: estrategia + prompt de imagen base sin texto, montaje del
-titular con `render_thumbnail.js`). Propuesta de concepto: silla infantil
-de madera vacía en primer plano, sala institucional en blanco y negro
-sepia detrás, espacio negativo arriba para el titular en amarillo
-`"MONSTRUO"` + subtítulo blanco `"EXPERIMENTARON CON NIÑOS"` + caja roja
-`"LO OCULTARON 62 AÑOS"`.
+Hecha — ver `miniatura/README.md`. Formato clásico del canal
+(`render_thumbnail.js`): reutiliza `imagenes/03.jpg` (Mary Tudor, sonrisa
+profesional fría) en vez de la silla vacía propuesta al principio, que
+quedó descartada junto con el estilo blanco y negro/sepia al fijarse el
+look realista a color de todo el video. Titular amarillo `"MONSTRUO"` +
+subtítulo blanco `"EXPERIMENTO CON NIÑOS"` + caja roja
+`"OCULTO 62 AÑOS"`.
 
 ## Descripción
 
