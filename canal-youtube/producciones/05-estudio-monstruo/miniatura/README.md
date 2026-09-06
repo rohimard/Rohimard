@@ -29,9 +29,12 @@ derecha, sin superposición con su rostro.
 
 Primer intento con `numberSize: 200` (el valor que usó "ACTUABA", 7
 letras): "MONSTRUO" tiene una letra más y con ese tamaño llegaba a tapar
-los ojos de la mujer. Se bajó a 165 y quedó despejado — verificado
-comparando el ancho del texto contra la posición real de la cara en el
-render, no solo por longitud de la palabra.
+los ojos de la mujer. Se bajó a 165 y quedó despejado, pero el usuario
+pidió acercar más la imagen y mover a la mujer más a la derecha para
+dejar aún más aire entre el texto y su cara. Se recortó `base.jpg` desde
+`imagenes/03.jpg` (`crop=750:422:70:43`, ~1.37x de zoom) manteniendo su
+posición relativa vertical pero desplazándola del 60% al 72% del ancho
+del encuadre — mismo `numberSize: 165`, ahora con más margen de sobra.
 
 ## Verificación
 
