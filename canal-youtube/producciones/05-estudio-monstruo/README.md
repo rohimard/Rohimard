@@ -46,9 +46,18 @@ en plano cerrado — ver la nota al principio de `prompts-imagenes.txt`.
   ya con el audio real medido: de los 90 planos estimados, 9 duraban más
   de 5s reales y se partieron en dos, exactamente el mismo criterio que
   dejó a Stanford en 83 (75 frases naturales, 8 partidas). Media final
-  real: **2,68s por plano** (más rápido que Stanford). Look de
-  fotografía de archivo en blanco y negro/sepia de los años treinta,
-  con transición a color moderno neutro desde el descubrimiento en 2001.
+  real: **2,68s por plano** (más rápido que Stanford).
+
+  **Corrección de estilo**: la primera versión pedía look de archivo en
+  blanco y negro con viraje sepia. El usuario generó el primer lote en
+  Flow y no le convenció — quería algo realista y humano, no una foto
+  vieja. Se reescribió el bloque de estilo de los 99 prompts a
+  fotografía cinematográfica realista **a color**, con textura de piel y
+  detalle humano real (la ambientación de los años treinta queda en la
+  ropa/objetos, no en el tratamiento de color). Se evitó escribir
+  "sepia" o "blanco y negro" incluso en negativo ("no blanco y negro"),
+  porque los generadores de imagen tienden a engancharse con la palabra
+  presente en el prompt más que con la negación.
 - `segments.json` — 99 escenas con bloque narrativo, cue, texto real y
   **tiempos reales** (`t_start`/`t_end`, anclados por transcripción, ver
   abajo). Cobertura verificada: la concatenación de los 99 textos
@@ -58,8 +67,16 @@ en plano cerrado — ver la nota al principio de `prompts-imagenes.txt`.
   método y precisión que Stanford, 97,8%).
 - `subtitulos.srt` — 99 cues con los tiempos reales, bloques de máximo
   2 líneas de 42 caracteres.
-- `hoja-montaje.csv` — 99 planos con tiempos reales (mm:ss.cc), imagen
-  y bloque narrativo, compatible con `kit-produccion/scripts/montar_video.js`.
+- `hoja-montaje.csv` — 99 planos, formato exacto que espera la
+  **Mesa de Montaje** (`kit-produccion/editor-movil.md`): separado por
+  punto y coma, con BOM, columnas `Plano;Bloque;Entra;Sale;Duracion
+  (s);Escena`, tiempos redondeados a segundo entero (mismo formato y
+  redondeo con reconciliación de `scripts/timing_sheet.js`). Un primer
+  intento con un formato propio (coma, columnas distintas, tiempos con
+  centésimas) fue rechazado por la Mesa de Montaje — este es el que
+  acepta. **Es solo para subir y previsualizar**: el render final usa
+  los tiempos exactos (con centésimas) de `segments.json`, no los
+  redondeados de este CSV.
 - `align.py` — script de alineación (guión completo vs. transcripción
   troceada en 18 ventanas de 15s), reutilizable si se regenera el audio.
 - `audio.mp3` (no versionado, ver `.gitignore`) — voz David
