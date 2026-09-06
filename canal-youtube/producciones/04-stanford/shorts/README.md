@@ -105,6 +105,35 @@ Verificado extrayendo fotogramas en 5 puntos distintos del video final
 y comparando manualmente contra el texto del subtítulo en ese momento:
 todos correctos tras el fix.
 
+## Subtítulos: de un cue por plano a grupos cortos por palabra real
+
+**Segundo bug encontrado y corregido**: la primera versión ponía un
+solo cue de subtítulo por plano, con el texto completo de la frase de
+ese plano (hasta 13 palabras en el plano más largo). El filtro
+`subtitles` de ffmpeg además no tenía declarada la resolución real del
+video (`original_size`), así que escalaba el texto varias veces más
+grande de lo pedido por `Fontsize`. Combinado, una frase larga se
+envolvía en 6-7 líneas a un tamaño enorme, y como el bloque está
+anclado abajo (`Alignment=2`) y crece hacia arriba, las primeras
+líneas quedaban literalmente fuera del cuadro por arriba — el usuario
+lo vio como "una parte se pierde arriba".
+
+Arreglado en dos partes:
+1. `subtitles=...:original_size=1080x1920:...` en `render_short.js`
+   para que el `Fontsize` sea en píxeles reales del video final, no
+   reescalado contra una resolución por defecto mucho más chica.
+2. Los subtítulos ya no van uno por plano: se generan directo desde
+   `word_times.json` (tiempos reales por palabra) en grupos cortos de
+   máximo 4 palabras, cortando antes si termina en coma/punto/dos
+   puntos — 35 cues en vez de 16, cada uno cabe siempre en 1-2 líneas
+   sin importar cuántas palabras tenga la frase completa del plano.
+   Un plano de imagen puede así mostrar 2-3 cues de subtítulo distintos
+   dentro de su duración, que es el estilo real de caption de Shorts
+   (rotación rápida de 3-4 palabras), no un párrafo estático.
+
+Verificado de nuevo extrayendo fotogramas en los planos con las frases
+más largas (los que antes se cortaban) — todos dentro del cuadro.
+
 ## Resultado
 
 `short-final.mp4` (no versionado) — 1080×1920, 40.7s, 10 MB, cabe

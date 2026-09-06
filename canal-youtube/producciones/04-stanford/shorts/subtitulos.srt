@@ -1,63 +1,139 @@
 1
-00:00:00,000 --> 00:00:05,083
-En 1971 encerraron a 24 estudiantes en una cárcel falsa:
+00:00:00,000 --> 00:00:02,048
+En 1971 encerraron a
 
 2
+00:00:02,048 --> 00:00:04,096
+24 estudiantes en una
+
+3
+00:00:04,096 --> 00:00:05,083
+cárcel falsa:
+
+4
 00:00:05,083 --> 00:00:06,212
 unos de guardias,
 
-3
+5
 00:00:06,212 --> 00:00:07,303
 otros de presos.
 
-4
-00:00:07,303 --> 00:00:10,208
-En seis días todo se salió de control,
-
-5
-00:00:10,208 --> 00:00:13,610
-y se volvió el experimento más citado de la psicología.
-
 6
-00:00:13,610 --> 00:00:15,987
-Pero grabaciones ocultas por décadas muestran que
+00:00:07,303 --> 00:00:08,758
+En seis días todo
 
 7
-00:00:15,987 --> 00:00:18,703
-Zimbardo le decía a los guardias cómo comportarse.
+00:00:08,758 --> 00:00:10,208
+se salió de control,
 
 8
-00:00:18,703 --> 00:00:21,682
-Uno confesó después que solo actuaba, copiando una película.
+00:00:10,208 --> 00:00:11,572
+y se volvió el
 
 9
-00:00:21,682 --> 00:00:24,562
-Y el preso de la crisis nerviosa más famosa
+00:00:11,572 --> 00:00:12,930
+experimento más citado de
 
 10
-00:00:24,562 --> 00:00:26,201
-admitió que la fingió para salir.
+00:00:12,930 --> 00:00:13,610
+la psicología.
 
 11
-00:00:26,201 --> 00:00:29,597
-No midieron que cualquiera se vuelve un monstruo con poder.
+00:00:13,610 --> 00:00:14,968
+Pero grabaciones ocultas por
 
 12
-00:00:29,597 --> 00:00:32,398
-Midieron algo peor: que tu cerebro sigue un guion social
+00:00:14,968 --> 00:00:16,326
+décadas muestran que Zimbardo
 
 13
-00:00:32,398 --> 00:00:33,927
-sin que nadie dé la orden.
+00:00:16,326 --> 00:00:17,685
+le decía a los
 
 14
-00:00:33,927 --> 00:00:37,716
-Y te pasa cada vez que cambias con un uniforme o un cargo,
+00:00:17,685 --> 00:00:18,703
+guardias cómo comportarse.
 
 15
+00:00:18,703 --> 00:00:20,062
+Uno confesó después que
+
+16
+00:00:20,062 --> 00:00:20,722
+solo actuaba,
+
+17
+00:00:20,722 --> 00:00:21,682
+copiando una película.
+
+18
+00:00:21,682 --> 00:00:22,962
+Y el preso de
+
+19
+00:00:22,962 --> 00:00:24,242
+la crisis nerviosa más
+
+20
+00:00:24,242 --> 00:00:25,444
+famosa admitió que la
+
+21
+00:00:25,444 --> 00:00:26,201
+fingió para salir.
+
+22
+00:00:26,201 --> 00:00:27,559
+No midieron que cualquiera
+
+23
+00:00:27,559 --> 00:00:28,918
+se vuelve un monstruo
+
+24
+00:00:28,918 --> 00:00:29,597
+con poder.
+
+25
+00:00:29,597 --> 00:00:30,594
+Midieron algo peor:
+
+26
+00:00:30,594 --> 00:00:31,635
+que tu cerebro sigue
+
+27
+00:00:31,635 --> 00:00:32,653
+un guion social sin
+
+28
+00:00:32,653 --> 00:00:33,671
+que nadie dé la
+
+29
+00:00:33,671 --> 00:00:34,691
+orden. Y te pasa
+
+30
+00:00:34,691 --> 00:00:35,730
+cada vez que cambias
+
+31
+00:00:35,730 --> 00:00:37,047
+con un uniforme o
+
+32
+00:00:37,047 --> 00:00:37,716
+un cargo,
+
+33
 00:00:37,716 --> 00:00:38,719
 sin darte cuenta.
 
-16
-00:00:38,719 --> 00:00:40,725
-La investigación completa, en el video.
+34
+00:00:38,719 --> 00:00:39,722
+La investigación completa,
+
+35
+00:00:39,722 --> 00:00:40,725
+en el video.

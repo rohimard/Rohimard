@@ -57,10 +57,16 @@ let cadena = filtros.join(';') + ';' +
   Array.from({ length: nV }, (_, k) => `[v${k}]`).join('') +
   `concat=n=${nV}:v=1:a=0[vcat]`;
 
-const estilo = `FontName=Anton,Fontsize=30,Bold=1,PrimaryColour=&H00FFFFFF,` +
-  `OutlineColour=&H00000000,BorderStyle=1,Outline=3,Shadow=1,` +
-  `Alignment=2,MarginV=180`;
-cadena += `;[vcat]subtitles=subtitulos.srt:force_style='${estilo}'[vsub]`;
+// original_size es obligatorio: sin él, el filtro subtitles no sabe a qué
+// resolución se pensó el Fontsize y asume una por defecto mucho más chica
+// (algo como 384x288) — el texto sale reescalado ~5-6x más grande de lo
+// pedido, y con captions largos el bloque de varias líneas se sale del
+// cuadro por arriba. Con original_size=1080x1920, Fontsize=52 son 52px
+// reales en el video final.
+const estilo = `FontName=Anton,Fontsize=42,Bold=1,PrimaryColour=&H00FFFFFF,` +
+  `OutlineColour=&H00000000,BorderStyle=1,Outline=4,Shadow=1,` +
+  `Alignment=2,MarginV=110,MarginL=64,MarginR=64`;
+cadena += `;[vcat]subtitles=subtitulos.srt:original_size=${W}x${H}:force_style='${estilo}'[vsub]`;
 
 const finVideo = planos[planos.length - 1].t_end;
 const idxAudio = entradas.filter(a => a === '-i').length;
