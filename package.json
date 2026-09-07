@@ -1,8 +1,8 @@
 {
-  "name": "cotizapro",
+  "name": "momentia",
   "version": "0.1.0",
   "private": true,
-  "description": "CotizaPro — crea cotizaciones y presupuestos profesionales en menos de 60 segundos, genera un PDF y compártelos con tus clientes.",
+  "description": "MOMENTIA — Regalos que continúan después de abrirlos. Regalos físicos personalizados con experiencia digital privada (QR).",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,11 +10,25 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.12.4",
-    "@supabase/supabase-js": "^2.112.3",
-    "next": "14.2.15",
+    "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-progress": "^1.1.0",
+    "@radix-ui/react-select": "^2.1.2",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.1",
+    "@radix-ui/react-tabs": "^1.1.1",
+    "@supabase/ssr": "^0.12.6",
+    "@supabase/supabase-js": "^2.45.4",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.11.9",
+    "lucide-react": "^0.451.0",
+    "next": "14.2.35",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "tailwind-merge": "^2.5.4",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/node": "20.14.10",

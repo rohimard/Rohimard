@@ -1,18 +1,9 @@
-/**
- * Configuración de Supabase.
- *
- * La app funciona sin Supabase (modo demo). Cuando defines las variables
- * de entorno, el login/registro reales se activan automáticamente.
- *
- * Variables necesarias (archivo .env.local):
- *   NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
- *   NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGci...
- */
+export const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
+export const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
+export const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
 
-export const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
-export const SUPABASE_ANON_KEY =
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? "";
+/** true cuando el proyecto tiene Supabase configurado (fuera de "modo demo"). */
+export const isSupabaseConfigured = Boolean(supabaseUrl && supabaseAnonKey);
 
-/** True cuando las credenciales de Supabase están presentes. */
-export const isSupabaseConfigured =
-  SUPABASE_URL.length > 0 && SUPABASE_ANON_KEY.length > 0;
+/** true cuando además existe la Service Role Key (necesaria para admin/experiencias). */
+export const isSupabaseAdminConfigured = Boolean(supabaseUrl && supabaseServiceRoleKey);

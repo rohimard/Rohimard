@@ -1,76 +1,117 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: ["class"],
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    container: {
+      center: true,
+      padding: "1.25rem",
+      screens: { "2xl": "1240px" },
+    },
     extend: {
       colors: {
-        // Marca principal: azul profundo y confiable (profesionalidad + tecnología)
-        brand: {
-          50: "#eff5ff",
-          100: "#dbe8fe",
-          200: "#bfd7fe",
-          300: "#93bbfd",
-          400: "#6096fa",
-          500: "#3b73f6",
-          600: "#2456eb",
-          700: "#1c43d8",
-          800: "#1d38af",
-          900: "#1d338a",
-          950: "#152154",
+        // Identidad MOMENTIA
+        borgona: {
+          DEFAULT: "#6B0F1A",
+          50: "#FBEEEF",
+          100: "#F2D4D7",
+          200: "#E0A6AC",
+          300: "#CD7981",
+          400: "#B44B56",
+          500: "#93202D",
+          600: "#6B0F1A",
+          700: "#560C15",
+          800: "#420910",
+          900: "#2D060B",
         },
-        // Acento: verde para señales de éxito (cotización aceptada / rapidez)
-        accent: {
-          50: "#ecfdf5",
-          100: "#d1fae5",
-          200: "#a7f3d0",
-          400: "#34d399",
-          500: "#10b981",
-          600: "#059669",
-          700: "#047857",
+        rubi: {
+          DEFAULT: "#B93A5A",
+          50: "#FBEFF2",
+          100: "#F4D3DC",
+          200: "#E6A6B7",
+          300: "#D77A93",
+          400: "#C95770",
+          500: "#B93A5A",
+          600: "#96263F",
+          700: "#701D2E",
         },
-        ink: {
-          50: "#f6f7f9",
-          100: "#eceef2",
-          200: "#d5dae2",
-          300: "#b0b9c8",
-          400: "#8593a8",
-          500: "#65748c",
-          600: "#505c72",
-          700: "#414a5c",
-          800: "#38404e",
-          900: "#0f141c",
-          950: "#080b11",
+        rosa: {
+          DEFAULT: "#E7B1B8",
+          50: "#FBF2F3",
+          100: "#F6E1E4",
+          200: "#E7B1B8",
+          300: "#DB919A",
         },
+        crema: {
+          DEFAULT: "#F7E7DB",
+          50: "#FFFBF8",
+          100: "#F7E7DB",
+          200: "#EFD4BF",
+        },
+        dorado: {
+          DEFAULT: "#C8A57A",
+          50: "#F4EDE3",
+          100: "#E6D3B8",
+          200: "#D6BB93",
+          300: "#C8A57A",
+          400: "#B58C58",
+          500: "#8F6B3E",
+        },
+        blanco: {
+          DEFAULT: "#FFF9F5",
+        },
+        ink: "#2B1B1D",
       },
       fontFamily: {
+        serif: ["var(--font-serif)", "Georgia", "serif"],
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
+        script: ["var(--font-script)", "cursive"],
       },
       boxShadow: {
-        soft: "0 1px 2px 0 rgba(15,20,28,0.04), 0 8px 24px -8px rgba(15,20,28,0.10)",
-        card: "0 1px 3px rgba(15,20,28,0.06), 0 12px 32px -12px rgba(15,20,28,0.14)",
-        glow: "0 20px 60px -20px rgba(36,86,235,0.45)",
+        soft: "0 2px 8px -2px rgba(107,15,26,0.08), 0 12px 32px -12px rgba(107,15,26,0.14)",
+        card: "0 1px 2px rgba(107,15,26,0.06), 0 20px 48px -18px rgba(107,15,26,0.22)",
+        gold: "0 0 0 1px rgba(200,165,122,0.35)",
       },
       borderRadius: {
-        xl: "0.875rem",
-        "2xl": "1.25rem",
+        xl: "1rem",
+        "2xl": "1.5rem",
+        "3xl": "2rem",
       },
       keyframes: {
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(12px)" },
+          "0%": { opacity: "0", transform: "translateY(16px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
         },
         float: {
           "0%,100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-8px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
+        "pulse-soft": {
+          "0%,100%": { opacity: "1" },
+          "50%": { opacity: "0.6" },
         },
       },
       animation: {
-        "fade-up": "fade-up 0.6s cubic-bezier(0.22,1,0.36,1) both",
-        float: "float 6s ease-in-out infinite",
+        "fade-up": "fade-up 0.7s cubic-bezier(0.22,1,0.36,1) both",
+        "fade-in": "fade-in 0.8s ease both",
+        float: "float 7s ease-in-out infinite",
+        shimmer: "shimmer 3s linear infinite",
+        "pulse-soft": "pulse-soft 2.4s ease-in-out infinite",
+      },
+      backgroundImage: {
+        "gold-line": "linear-gradient(90deg, transparent, #C8A57A, transparent)",
       },
     },
   },

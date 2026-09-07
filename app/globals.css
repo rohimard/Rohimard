@@ -2,94 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #0f141c;
-}
-
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-borgona-100/60;
+  }
+
   html {
-    -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-white text-ink-900 antialiased;
-    font-feature-settings: "cv11", "ss01";
-    text-rendering: optimizeLegibility;
-  }
-
-  /* Evita zoom involuntario en inputs de iOS/Android (fuente >= 16px) */
-  input,
-  textarea,
-  select {
-    font-size: 16px;
+    @apply bg-blanco text-ink antialiased;
+    font-feature-settings: "ss01" on, "liga" on;
   }
 
   ::selection {
-    @apply bg-brand-600/15 text-brand-800;
+    @apply bg-rosa-200 text-borgona-800;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-crema-50;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dorado-300 rounded-full;
   }
 }
 
 @layer components {
-  .container-page {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-6 lg:px-8;
-  }
-
-  /* Botones */
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold
-    transition-all duration-200 focus-visible:outline-none focus-visible:ring-2
-    focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
-  }
-
-  .btn-primary {
-    @apply btn bg-brand-600 text-white shadow-soft hover:bg-brand-700 active:scale-[0.99];
-  }
-
-  .btn-secondary {
-    @apply btn border border-ink-200 bg-white text-ink-800 hover:border-ink-300 hover:bg-ink-50 active:scale-[0.99];
-  }
-
-  .btn-ghost {
-    @apply btn text-ink-700 hover:bg-ink-100;
-  }
-
-  .btn-lg {
-    @apply px-6 py-3.5 text-base;
-  }
-
-  /* Superficies */
-  .card {
-    @apply rounded-2xl border border-ink-200 bg-white shadow-soft;
-  }
-
-  .input-label {
-    @apply mb-1.5 block text-sm font-medium text-ink-700;
-  }
-
-  .input {
-    @apply block w-full rounded-xl border border-ink-200 bg-white px-3.5 py-2.5 text-[15px] text-ink-900
-    placeholder:text-ink-400 transition-colors focus:border-brand-500 focus:outline-none
-    focus:ring-4 focus:ring-brand-500/10;
-  }
-
-  .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-xs font-medium;
+  .container-momentia {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-8;
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-3 py-1
-    text-xs font-semibold uppercase tracking-wide text-brand-700;
+    @apply font-sans text-xs sm:text-sm font-semibold uppercase tracking-[0.22em] text-rubi-500;
+  }
+
+  .heading-display {
+    @apply font-serif font-medium tracking-tight text-borgona-700;
+  }
+
+  .script-accent {
+    @apply font-script text-dorado-500;
+  }
+
+  .gold-rule {
+    @apply h-px w-16 bg-gold-line;
+  }
+
+  .btn-base {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm sm:text-[0.95rem] font-semibold tracking-wide transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dorado-300 focus-visible:ring-offset-2 focus-visible:ring-offset-blanco disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply btn-base bg-borgona-600 text-blanco shadow-soft hover:bg-borgona-700 hover:shadow-card active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn-base border border-borgona-300/70 bg-transparent text-borgona-700 hover:bg-borgona-50 active:scale-[0.98];
+  }
+
+  .btn-gold {
+    @apply btn-base bg-dorado-300 text-borgona-800 hover:bg-dorado-400 shadow-soft active:scale-[0.98];
+  }
+
+  .card-premium {
+    @apply rounded-2xl border border-dorado-200/50 bg-blanco/90 shadow-card backdrop-blur-sm;
+  }
+
+  .ornament-line {
+    @apply relative flex items-center justify-center gap-3 text-dorado-400;
+  }
+  .ornament-line::before,
+  .ornament-line::after {
+    content: "";
+    @apply h-px flex-1 bg-gradient-to-r from-transparent via-dorado-300 to-transparent;
   }
 }
 
-/* Fondo con malla suave para secciones hero */
-.bg-grid {
-  background-image:
-    linear-gradient(to right, rgba(15, 20, 28, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 20, 28, 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
-  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 }

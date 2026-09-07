@@ -1,48 +1,46 @@
-import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient } from "@supabase/ssr";
-import { SUPABASE_ANON_KEY, SUPABASE_URL, isSupabaseConfigured } from "./config";
+import { NextResponse, type NextRequest } from "next/server";
+import { isSupabaseConfigured, supabaseAnonKey, supabaseUrl } from "@/lib/supabase/config";
 
-/**
- * Refresca la sesión de Supabase en cada request y protege /dashboard.
- * En modo demo (sin variables de entorno) no hace nada: deja pasar todo.
- */
 export async function updateSession(request: NextRequest) {
-  // Modo demo: sin Supabase, no hay sesión que refrescar ni rutas que proteger.
-  if (!isSupabaseConfigured) {
-    return NextResponse.next({ request });
-  }
-
   let response = NextResponse.next({ request });
 
-  const supabase = createServerClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+  const isAdminRoute = request.nextUrl.pathname.startsWith("/admin");
+  const isAdminLogin = request.nextUrl.pathname === "/admin/login";
+
+  if (!isSupabaseConfigured) {
+    // Sin Supabase configurado no se puede validar sesión; se bloquea /admin por defecto.
+    if (isAdminRoute && !isAdminLogin) {
+      return NextResponse.redirect(new URL("/admin/login", request.url));
+    }
+    return response;
+  }
+
+  const supabase = createServerClient(supabaseUrl, supabaseAnonKey, {
     cookies: {
       getAll() {
         return request.cookies.getAll();
       },
       setAll(cookiesToSet) {
-        cookiesToSet.forEach(({ name, value }) =>
-          request.cookies.set(name, value),
-        );
+        cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value));
         response = NextResponse.next({ request });
-        cookiesToSet.forEach(({ name, value, options }) =>
-          response.cookies.set(name, value, options),
-        );
+        cookiesToSet.forEach(({ name, value, options }) => response.cookies.set(name, value, options));
       },
     },
   });
 
-  // IMPORTANTE: getUser() revalida el token; no uses getSession() aquí.
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const isDashboard = request.nextUrl.pathname.startsWith("/dashboard");
+  if (isAdminRoute && !isAdminLogin && !user) {
+    const redirectUrl = new URL("/admin/login", request.url);
+    redirectUrl.searchParams.set("next", request.nextUrl.pathname);
+    return NextResponse.redirect(redirectUrl);
+  }
 
-  if (!user && isDashboard) {
-    const url = request.nextUrl.clone();
-    url.pathname = "/login";
-    url.searchParams.set("redirectedFrom", request.nextUrl.pathname);
-    return NextResponse.redirect(url);
+  if (isAdminLogin && user) {
+    return NextResponse.redirect(new URL("/admin", request.url));
   }
 
   return response;

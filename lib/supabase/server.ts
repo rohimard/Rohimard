@@ -1,32 +1,22 @@
-import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
-import {
-  SUPABASE_ANON_KEY,
-  SUPABASE_URL,
-  isSupabaseConfigured,
-} from "./config";
+import { cookies } from "next/headers";
+import { supabaseAnonKey, supabaseUrl } from "@/lib/supabase/config";
+import type { Database } from "@/lib/types/database";
 
-/**
- * Cliente de Supabase para Server Components / Route Handlers.
- * Devuelve `null` si aún no hay credenciales (modo demo).
- */
-export function getSupabaseServerClient() {
-  if (!isSupabaseConfigured) return null;
-
+/** Cliente de Supabase para Server Components / Server Actions (respeta RLS, sesión del usuario). */
+export function createClient() {
   const cookieStore = cookies();
 
-  return createServerClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+  return createServerClient<Database>(supabaseUrl, supabaseAnonKey, {
     cookies: {
       getAll() {
         return cookieStore.getAll();
       },
       setAll(cookiesToSet) {
         try {
-          cookiesToSet.forEach(({ name, value, options }) =>
-            cookieStore.set(name, value, options),
-          );
+          cookiesToSet.forEach(({ name, value, options }) => cookieStore.set(name, value, options));
         } catch {
-          // Ignorado: `setAll` llamado desde un Server Component sin respuesta mutable.
+          // Se puede ignorar si se llama desde un Server Component (no hay respuesta que mutar).
         }
       },
     },

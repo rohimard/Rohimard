@@ -1,40 +1,48 @@
-# Base de datos de CotizaPro (Supabase)
+# Base de datos de MOMENTIA
 
-Las migraciones de `supabase/migrations/` definen todo el esquema, las políticas
-de seguridad (RLS) y las funciones. Están numeradas y deben aplicarse **en orden**:
+Migraciones SQL en `supabase/migrations/`, pensadas para ejecutarse **en orden**:
 
-1. `20260818120000_schema.sql` — tablas `profiles`, `clients`, `quotes`, `quote_items`.
-2. `20260818120100_rls.sql` — Row Level Security en las 4 tablas.
-3. `20260818120200_functions.sql` — perfil automático al registrarse + numeración de cotizaciones.
+1. `0001_schema.sql` — tipos enum, tablas, índices, triggers y funciones (incluye
+   la generación automática de perfiles al registrarse y de números de pedido).
+2. `0002_rls.sql` — Row Level Security en todas las tablas + función `is_admin()`.
+3. `0003_storage.sql` — buckets de Storage (`experience-media`, `payment-proofs`,
+   `product-images`) y sus políticas.
+4. `0004_seed.sql` — productos MOMENTIA, configuración de delivery, campaña de
+   lanzamiento y una experiencia de demostración (`/m/demo`).
 
 ## Cómo aplicarlas
 
-### Opción A — Editor SQL de Supabase (la más simple)
+**Opción A — Panel de Supabase (recomendado si no usas la CLI):**
 
-1. Entra a tu proyecto en [app.supabase.com](https://app.supabase.com).
-2. Menú lateral → **SQL Editor** → **New query**.
-3. Abre cada archivo de `supabase/migrations/` **en orden**, copia su contenido,
-   pégalo y pulsa **Run**. (O usa el archivo combinado `supabase/schema.sql`,
-   que contiene los tres en un solo bloque.)
-4. Verifica en **Table Editor** que aparecen las 4 tablas y en
-   **Authentication → Policies** que cada tabla tiene sus políticas.
+1. Crea un proyecto en [supabase.com](https://supabase.com).
+2. Ve a `SQL Editor` → `New query`.
+3. Pega y ejecuta cada archivo, en el orden 0001 → 0002 → 0003 → 0004.
 
-### Opción B — Supabase CLI (reproducible)
+**Opción B — Supabase CLI:**
 
 ```bash
-# Requiere la CLI de Supabase y el proyecto enlazado (supabase link).
+supabase link --project-ref <tu-project-ref>
 supabase db push
 ```
 
-La CLI aplica los archivos de `supabase/migrations/` automáticamente.
+## Crear el primer administrador
 
-## Confirmación de email
+1. Registra un usuario cualquiera (se crea con `role = 'customer'` automáticamente).
+2. En `SQL Editor`, ejecuta:
 
-Por defecto Supabase pide confirmación por email al registrarse. La app maneja
-ambos casos:
+   ```sql
+   update public.profiles set role = 'admin' where id =
+     (select id from auth.users where email = 'tu-correo@dominio.com');
+   ```
 
-- **Confirmación activada:** tras registrarse se muestra "revisa tu correo".
-- **Confirmación desactivada:** tras registrarse se entra directo al dashboard.
+3. Inicia sesión en `/admin/login` con ese correo.
 
-Para desactivarla (útil en pruebas): **Authentication → Providers → Email** →
-desactiva *Confirm email*.
+## Notas de arquitectura
+
+- Todo lo relacionado a **experiencias digitales** (`digital_experiences` y tablas
+  relacionadas) se lee/escribe siempre desde el servidor con la Service Role Key
+  (`lib/supabase/admin.ts`). Así la lógica de privacidad (pública / PIN / temporal)
+  vive en código de aplicación, no se filtra nunca vía RLS a un cliente anónimo.
+- El checkout del configurador (`orders`, `order_items`, `payments`,
+  `delivery_addresses`) permite `INSERT` anónimo (regalo sin necesidad de crear
+  cuenta), pero el `SELECT` está restringido a administradores.
