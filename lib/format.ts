@@ -1,51 +1,43 @@
-/** Utilidades de formato compartidas en toda la app. */
-
-/**
- * Formatea un número como moneda: 315 -> "$315.00".
- *
- * Se hace manualmente (en vez de Intl.NumberFormat) para garantizar el mismo
- * resultado en el servidor y en cualquier navegador/teléfono. Con Intl, algunos
- * dispositivos muestran "USD 315.00" en lugar de "$315.00", lo que desbordaba
- * las casillas.
- */
-export function formatCurrency(value: number, symbol = "$"): string {
-  const safe = Number.isFinite(value) ? value : 0;
-  const sign = safe < 0 ? "-" : "";
-  const [intPart, decPart] = Math.abs(safe).toFixed(2).split(".");
-  const grouped = intPart.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  return `${sign}${symbol}${grouped}.${decPart}`;
+export function formatSoles(amount: number): string {
+  return new Intl.NumberFormat("es-PE", {
+    style: "currency",
+    currency: "PEN",
+    maximumFractionDigits: 0,
+  }).format(amount);
 }
 
-/** Monedas soportadas y su símbolo para mostrar importes. */
-export const CURRENCIES: { code: string; label: string; symbol: string }[] = [
-  { code: "USD", label: "USD — Dólar", symbol: "$" },
-  { code: "MXN", label: "MXN — Peso mexicano", symbol: "$" },
-  { code: "EUR", label: "EUR — Euro", symbol: "€" },
-  { code: "COP", label: "COP — Peso colombiano", symbol: "$" },
-  { code: "PEN", label: "PEN — Sol peruano", symbol: "S/" },
-  { code: "ARS", label: "ARS — Peso argentino", symbol: "$" },
-  { code: "CLP", label: "CLP — Peso chileno", symbol: "$" },
-  { code: "GTQ", label: "GTQ — Quetzal", symbol: "Q" },
-];
-
-/** Devuelve el símbolo de una moneda por su código (por defecto "$"). */
-export function currencySymbol(code?: string | null): string {
-  return CURRENCIES.find((c) => c.code === code)?.symbol ?? "$";
+/** Convierte una URL de YouTube o Vimeo en su URL de embed. Si no reconoce el formato, devuelve null. */
+export function toEmbedVideoUrl(url: string): string | null {
+  try {
+    const u = new URL(url);
+    if (u.hostname.includes("youtube.com")) {
+      const id = u.searchParams.get("v");
+      if (id) return `https://www.youtube.com/embed/${id}`;
+      const shortsMatch = u.pathname.match(/\/shorts\/([\w-]+)/);
+      if (shortsMatch) return `https://www.youtube.com/embed/${shortsMatch[1]}`;
+    }
+    if (u.hostname === "youtu.be") {
+      const id = u.pathname.replace("/", "");
+      if (id) return `https://www.youtube.com/embed/${id}`;
+    }
+    if (u.hostname.includes("vimeo.com")) {
+      const id = u.pathname.split("/").filter(Boolean).pop();
+      if (id) return `https://player.vimeo.com/video/${id}`;
+    }
+    return null;
+  } catch {
+    return null;
+  }
 }
 
-/** Fecha corta legible: "2026-08-18" -> "18 ago 2026". */
-export function formatDate(iso?: string | null): string {
-  if (!iso) return "—";
-  const d = new Date(iso);
-  if (Number.isNaN(d.getTime())) return "—";
-  return new Intl.DateTimeFormat("es", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  }).format(d);
-}
-
-/** Redondea a 2 decimales evitando errores de coma flotante. */
-export function round2(value: number): number {
-  return Math.round((value + Number.EPSILON) * 100) / 100;
+/** Convierte un enlace de Spotify (canción, álbum o playlist) en su URL de embed. */
+export function toEmbedSpotifyUrl(url: string): string | null {
+  try {
+    const u = new URL(url);
+    if (!u.hostname.includes("open.spotify.com")) return null;
+    const path = u.pathname.replace(/^\/(intl-[a-z]{2}\/)?/, "/");
+    return `https://open.spotify.com/embed${path}`;
+  } catch {
+    return null;
+  }
 }

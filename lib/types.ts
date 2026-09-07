@@ -1,76 +1,40 @@
-/** Tipos de dominio, alineados con el esquema de Supabase. */
+export type BoxLine = "esencial" | "historia" | "corporate";
 
-export type QuoteStatus = "draft" | "sent" | "viewed" | "accepted" | "rejected";
+export const BOX_LINES: Record<
+  BoxLine,
+  { name: string; tagline: string; priceFrom: number }
+> = {
+  esencial: {
+    name: "Momentia Esencial",
+    tagline: "Belleza esencial, grandes emociones.",
+    priceFrom: 89,
+  },
+  historia: {
+    name: "Momentia Historia",
+    tagline: "Tu historia merece ser contada.",
+    priceFrom: 139,
+  },
+  corporate: {
+    name: "Momentia Corporate",
+    tagline: "Fortalece vínculos, inspira equipos.",
+    priceFrom: 89,
+  },
+};
 
-export interface Profile {
-  id: string;
-  full_name: string;
-  business_name: string;
-  phone: string;
-  email: string;
-  address: string;
-  logo_url: string | null;
-  currency: string;
-  tax_rate: number;
-  quote_prefix: string;
-  quote_next_number: number;
-  created_at: string;
-  updated_at: string;
+/** Experiencia digital personalizada asociada al QR de una caja. */
+export interface Experience {
+  slug: string;
+  boxLine: BoxLine;
+  senderName: string;
+  recipientName: string;
+  message: string;
+  letter: string;
+  photos: string[];
+  videoUrl: string | null;
+  playlistUrl: string | null;
+  createdAt: string;
+  /** Solo se genera en modo demo (sin Supabase) para permitir re-editar desde el mismo navegador. */
+  editToken?: string;
 }
 
-export interface Client {
-  id: string;
-  user_id: string;
-  name: string;
-  phone: string;
-  email: string;
-  address: string;
-  created_at: string;
-  updated_at: string;
-}
-
-export interface Quote {
-  id: string;
-  user_id: string;
-  client_id: string | null;
-  quote_number: string;
-  service_description: string;
-  subtotal: number;
-  discount: number;
-  tax: number;
-  total: number;
-  status: QuoteStatus;
-  created_at: string;
-  updated_at: string;
-  sent_at: string | null;
-  viewed_at: string | null;
-  accepted_at: string | null;
-  rejected_at: string | null;
-}
-
-/** Cotización con el nombre del cliente resuelto (para listados). */
-export interface QuoteWithClient extends Quote {
-  client_name: string | null;
-}
-
-export interface QuoteItem {
-  id: string;
-  quote_id: string;
-  description: string;
-  quantity: number;
-  unit_price: number;
-  total: number;
-  created_at: string;
-}
-
-export interface DashboardStats {
-  creadas: number;
-  enviadas: number;
-  aceptadas: number;
-  totalCotizado: number;
-}
-
-/** Resultado estándar de las Server Actions. */
-export type ActionResult<T = undefined> =
-  | { ok: true; data: T }
-  | { ok: false; error: string };
+export type NewExperienceInput = Omit<Experience, "createdAt">;

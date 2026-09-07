@@ -1,6 +1,6 @@
 "use client";
 
-import { createBrowserClient } from "@supabase/ssr";
+import { createClient } from "@supabase/supabase-js";
 import {
   SUPABASE_ANON_KEY,
   SUPABASE_URL,
@@ -8,11 +8,11 @@ import {
 } from "./config";
 
 /**
- * Cliente de Supabase para el navegador.
- * Devuelve `null` si aún no se han configurado las credenciales,
- * lo que permite que la app corra en modo demo.
+ * Cliente de Supabase para el navegador (usado para subir fotos al bucket
+ * público `experiencias`). Devuelve `null` si aún no se configuraron las
+ * credenciales, lo que activa el modo demo (localStorage).
  */
 export function getSupabaseBrowserClient() {
   if (!isSupabaseConfigured) return null;
-  return createBrowserClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  return createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 }

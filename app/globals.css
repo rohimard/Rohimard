@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #0f141c;
+  --background: #f7e7db;
+  --foreground: #241a19;
 }
 
 @layer base {
@@ -14,9 +14,16 @@
   }
 
   body {
-    @apply bg-white text-ink-900 antialiased;
+    @apply bg-cream-50 text-ink-900 antialiased;
     font-feature-settings: "cv11", "ss01";
     text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-serif;
   }
 
   /* Evita zoom involuntario en inputs de iOS/Android (fuente >= 16px) */
@@ -27,7 +34,7 @@
   }
 
   ::selection {
-    @apply bg-brand-600/15 text-brand-800;
+    @apply bg-maroon-600/15 text-maroon-700;
   }
 }
 
@@ -38,17 +45,17 @@
 
   /* Botones */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-semibold
     transition-all duration-200 focus-visible:outline-none focus-visible:ring-2
-    focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+    focus-visible:ring-maroon-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
   }
 
   .btn-primary {
-    @apply btn bg-brand-600 text-white shadow-soft hover:bg-brand-700 active:scale-[0.99];
+    @apply btn bg-maroon-600 text-cream-50 shadow-soft hover:bg-maroon-700 active:scale-[0.99];
   }
 
   .btn-secondary {
-    @apply btn border border-ink-200 bg-white text-ink-800 hover:border-ink-300 hover:bg-ink-50 active:scale-[0.99];
+    @apply btn border border-maroon-200 bg-white text-maroon-700 hover:border-maroon-300 hover:bg-maroon-50 active:scale-[0.99];
   }
 
   .btn-ghost {
@@ -56,12 +63,12 @@
   }
 
   .btn-lg {
-    @apply px-6 py-3.5 text-base;
+    @apply px-7 py-3.5 text-base;
   }
 
   /* Superficies */
   .card {
-    @apply rounded-2xl border border-ink-200 bg-white shadow-soft;
+    @apply rounded-2xl border border-ink-100 bg-white shadow-soft;
   }
 
   .input-label {
@@ -70,8 +77,8 @@
 
   .input {
     @apply block w-full rounded-xl border border-ink-200 bg-white px-3.5 py-2.5 text-[15px] text-ink-900
-    placeholder:text-ink-400 transition-colors focus:border-brand-500 focus:outline-none
-    focus:ring-4 focus:ring-brand-500/10;
+    placeholder:text-ink-400 transition-colors focus:border-maroon-500 focus:outline-none
+    focus:ring-4 focus:ring-maroon-500/10;
   }
 
   .chip {
@@ -79,17 +86,40 @@
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-brand-100 bg-brand-50 px-3 py-1
-    text-xs font-semibold uppercase tracking-wide text-brand-700;
+    @apply inline-flex items-center gap-2 rounded-full border border-maroon-200/70 bg-maroon-50 px-3 py-1
+    text-xs font-semibold uppercase tracking-wide text-maroon-700;
+  }
+
+  .script-accent {
+    @apply font-script text-rose-600;
   }
 }
 
-/* Fondo con malla suave para secciones hero */
+/* Fondo ornamental suave para secciones */
 .bg-grid {
-  background-image:
-    linear-gradient(to right, rgba(15, 20, 28, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 20, 28, 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
+  background-image: var(--tw-gradient-stops), radial-gradient(circle at 1px 1px, rgba(107, 15, 26, 0.08) 1px, transparent 0);
+  background-size: 100% 100%, 22px 22px;
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
   mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+}
+
+/* Marco de celular para la vista previa de "experiencia digital" */
+.phone-frame {
+  @apply relative mx-auto flex h-[420px] w-[220px] flex-col overflow-hidden rounded-[2rem] border-[6px] border-ink-900 bg-white shadow-card;
+}
+
+.phone-frame::before {
+  content: "";
+  @apply absolute left-1/2 top-1.5 z-10 h-1.5 w-14 -translate-x-1/2 rounded-full bg-ink-900;
+}
+
+/* Efecto de sobre que se abre para la carta digital */
+.envelope-flap {
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.envelope-flap.is-open {
+  transform: rotateX(-160deg);
 }

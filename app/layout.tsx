@@ -1,34 +1,50 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Playfair_Display, Great_Vibes, Poppins } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-serif",
+  display: "swap",
+  weight: ["500", "600", "700", "800"],
+});
+
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  variable: "--font-script",
+  display: "swap",
+  weight: "400",
+});
+
+const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "CotizaPro — Cotizaciones profesionales en menos de 60 segundos",
-    template: "%s · CotizaPro",
+    default: "Momentia — Regalos que continúan después de abrirlos",
+    template: "%s · Momentia",
   },
   description:
-    "Crea cotizaciones y presupuestos profesionales desde tu teléfono, genera un PDF y compártelos con tus clientes. Hecho para electricistas, plomeros, técnicos y trabajadores independientes.",
+    "Cajas de regalo personalizadas con una experiencia digital exclusiva: escanea el QR de tu caja y descubre fotos, un video, una playlist y una carta hechos solo para ti.",
   keywords: [
-    "cotizaciones",
-    "presupuestos",
-    "PDF",
-    "electricista",
-    "plomero",
-    "trabajador independiente",
+    "regalos personalizados",
+    "caja de regalo",
+    "regalo con QR",
+    "regalo digital",
+    "Momentia",
+    "Lima",
+    "Perú",
   ],
-  applicationName: "CotizaPro",
-  authors: [{ name: "CotizaPro" }],
+  applicationName: "Momentia",
+  authors: [{ name: "Momentia" }],
 };
 
 export const viewport: Viewport = {
-  themeColor: "#2456eb",
+  themeColor: "#6b0f1a",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -40,8 +56,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="es" className={inter.variable}>
-      <body className="min-h-dvh bg-white">{children}</body>
+    <html
+      lang="es"
+      className={`${poppins.variable} ${playfair.variable} ${greatVibes.variable}`}
+    >
+      <body className="min-h-dvh bg-cream-50">{children}</body>
     </html>
   );
 }

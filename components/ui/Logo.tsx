@@ -1,31 +1,25 @@
 import Link from "next/link";
 
 export function Logo({
-  href = "/",
   className = "",
-  compact = false,
+  withTagline = false,
 }: {
-  href?: string;
   className?: string;
-  compact?: boolean;
+  withTagline?: boolean;
 }) {
   return (
-    <Link
-      href={href}
-      className={`inline-flex items-center gap-2.5 font-semibold text-ink-900 ${className}`}
-      aria-label="CotizaPro"
-    >
-      <span className="grid h-9 w-9 place-items-center rounded-xl bg-brand-600 text-white shadow-soft">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-          <path
-            d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13l0-8Z"
-            fill="currentColor"
-          />
-        </svg>
+    <Link href="/" className={`inline-flex flex-col items-center ${className}`}>
+      <span className="flex items-center gap-2">
+        <span className="grid h-9 w-9 place-items-center rounded-full border border-gold-400 font-serif text-lg font-bold text-maroon-600">
+          M
+        </span>
+        <span className="font-serif text-xl font-bold tracking-wide text-maroon-600">
+          MOMENTIA
+        </span>
       </span>
-      {!compact && (
-        <span className="text-lg tracking-tight">
-          Cotiza<span className="text-brand-600">Pro</span>
+      {withTagline && (
+        <span className="mt-1 text-[11px] uppercase tracking-[0.2em] text-ink-500">
+          Regalos que continúan después de abrirlos
         </span>
       )}
     </Link>

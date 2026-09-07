@@ -1,5 +1,4 @@
-import { cookies } from "next/headers";
-import { createServerClient } from "@supabase/ssr";
+import { createClient } from "@supabase/supabase-js";
 import {
   SUPABASE_ANON_KEY,
   SUPABASE_URL,
@@ -7,28 +6,12 @@ import {
 } from "./config";
 
 /**
- * Cliente de Supabase para Server Components / Route Handlers.
+ * Cliente de Supabase para Server Components / Server Actions.
+ * No hay autenticación en Momentia (no se necesita login para crear una
+ * experiencia), así que basta un cliente simple con la llave anónima.
  * Devuelve `null` si aún no hay credenciales (modo demo).
  */
 export function getSupabaseServerClient() {
   if (!isSupabaseConfigured) return null;
-
-  const cookieStore = cookies();
-
-  return createServerClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-    cookies: {
-      getAll() {
-        return cookieStore.getAll();
-      },
-      setAll(cookiesToSet) {
-        try {
-          cookiesToSet.forEach(({ name, value, options }) =>
-            cookieStore.set(name, value, options),
-          );
-        } catch {
-          // Ignorado: `setAll` llamado desde un Server Component sin respuesta mutable.
-        }
-      },
-    },
-  });
+  return createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 }

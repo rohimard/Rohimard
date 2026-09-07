@@ -1,8 +1,8 @@
 {
-  "name": "cotizapro",
+  "name": "momentia",
   "version": "0.1.0",
   "private": true,
-  "description": "CotizaPro — crea cotizaciones y presupuestos profesionales en menos de 60 segundos, genera un PDF y compártelos con tus clientes.",
+  "description": "Momentia — regalos físicos personalizados con una experiencia digital exclusiva: cada caja incluye un código QR que lleva a una página con fotos, video, playlist y una carta para la persona que la recibe.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,14 +10,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.12.4",
     "@supabase/supabase-js": "^2.112.3",
-    "next": "14.2.15",
+    "next": "14.2.35",
+    "qrcode": "^1.5.4",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
     "@types/node": "20.14.10",
+    "@types/qrcode": "^1.5.5",
     "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "autoprefixer": "10.4.19",

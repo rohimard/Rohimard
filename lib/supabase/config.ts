@@ -1,8 +1,11 @@
 /**
  * Configuración de Supabase.
  *
- * La app funciona sin Supabase (modo demo). Cuando defines las variables
- * de entorno, el login/registro reales se activan automáticamente.
+ * Momentia funciona sin Supabase (modo demo): las experiencias creadas en
+ * /crear se guardan en el navegador (localStorage) y siguen siendo visibles
+ * en /[slug] desde ese mismo dispositivo. Cuando defines las variables de
+ * entorno, las experiencias se guardan de verdad en la base de datos y son
+ * visibles para cualquiera que escanee el QR.
  *
  * Variables necesarias (archivo .env.local):
  *   NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
