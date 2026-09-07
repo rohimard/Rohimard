@@ -86,6 +86,23 @@ formato video en español, no solo los clásicos de manual. Se verificaron
    asco/pánico; dos tercios lo hizo, incluido un niño de 13 años que
    participaba como control. Cero competencia en video en español, gancho
    brutal ("¿tú lo harías?").
+
+   **Cuidado de política de YouTube (avisado por el usuario)**: el caso
+   involucra crueldad animal real, y YouTube tiene una política específica
+   contra ese contenido (violent/graphic content policy) que puede
+   desmonetizar o restringir el video si se usa la palabra "decapitar" (u
+   otra igual de explícita) en título, miniatura o tags, o si las imágenes
+   sugieren el acto en sí. Al producir este video:
+   - Guión: narrar el hecho sin detenerse en detalle gráfico — el foco es
+     la obediencia/reacción psicológica, no la violencia.
+   - Título/miniatura/tags: evitar "decapitar" — usar un ángulo más
+     clínico o psicológico ("el experimento que probó hasta dónde
+     obedeces a una bata blanca", "le pidieron matar a un animal para
+     fotografiar su cara").
+   - Imágenes: nunca generar el acto en sí (sin sangre, sin el momento de
+     la muerte) — sugerir con el entorno (jaula, cámara, cara de los
+     estudiantes), mismo criterio que la angustia infantil en Estudio
+     Monstruo.
 3. **Facebook, el experimento que manipuló las emociones de 700.000
    personas sin avisarles (2014)** — moderno, verificable con fuentes de
    la época, y conecta directo con la tesis que ya viene repitiendo el
