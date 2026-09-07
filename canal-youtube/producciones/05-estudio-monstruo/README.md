@@ -5,8 +5,12 @@ Video 5 de **Historia Incómoda**. Sale del banco de temas
 empezar por los temas marcados ALTA en el testing de oportunidad, y este
 es el que encabeza la shortlist (casi sin competencia en video en
 español, verificado con búsqueda real). Adelanta en el orden de
-producción al experimento de Milgram, que sigue confirmado pero pasa a
-ser el siguiente después de este.
+producción al experimento de Milgram — la nota original decía que
+Milgram pasaba a ser el siguiente después de este, pero la shortlist
+final (`09-banco-temas-cerebro-idiota.md`, "Shortlist final recomendada
+para video largo") lo reemplazó por el experimento de Landis (1924),
+que es además el que ya quedó grabado como gancho de cierre en
+`guion.txt`. Milgram queda pendiente de reprogramar más adelante.
 
 ## Por qué este ángulo
 
