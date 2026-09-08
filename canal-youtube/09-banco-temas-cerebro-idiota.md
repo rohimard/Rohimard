@@ -165,9 +165,82 @@ Ver el PDF adjunto para la tabla completa con los 100 temas organizados
 por los 8 clusters originales del libro, veredicto (ALTA/MEDIA/BAJA) y
 razón — no se duplica aquí por longitud.
 
+## Tercera ronda (07/09/2026): 30 candidatos nuevos, verificados con vidIQ + búsqueda real
+
+Motivada por un análisis de vidIQ sobre el canal que, aunque diagnosticó
+mal la causa (comparó long-form de 0-96h de vida contra Shorts con
+distribución instantánea — ver más abajo la nota sobre eso), sí acertó
+en el formato ganador: experimento/hecho real oscuro, denso en datos.
+Se generaron 30 candidatos nuevos en ese registro y se verificaron **los
+30** con búsqueda real (vidIQ `youtube_search`/`keyword_research` hasta
+agotar créditos, luego WebSearch) antes de tocar nada del guión.
+
+**Hallazgo del proceso**: los "misterios clásicos" universales (Anticitera,
+Roanoke, fuego griego, Dyatlov, la novela que predijo el Titanic, Pompeya,
+Kaspar Hauser) están **todos, sin excepción, saturados** en español —
+confirmado con videos reales, varios con 5-10 videos dedicados y algunos
+con cientos de miles de vistas. Es el terreno más pisado del género. No
+volver a proponer temas de esa categoría sin verificar antes.
+
+### 🟢 ALTA — cero o casi cero competencia real confirmada
+
+| Tema | Evidencia |
+|---|---|
+| El Proyecto Aversión (Sudáfrica, apartheid, "curar" homosexuales en el ejército) | Máx. 1.849 vistas en el mejor video encontrado, canal de 87 subs |
+| El experimento de Vipeholm (Suecia, caramelos para provocar caries) | Máx. 415 vistas encontradas |
+| Universo 25 (los ratones de Calhoun) | Ningún video dedicado en español encontrado |
+| Operación Midnight Climax (CIA, LSD, prostitutas, espejos falsos) | Ningún video dedicado en español encontrado |
+| Tusko, el elefante al que inyectaron LSD | Ningún video dedicado en español (solo shorts en portugués/inglés) |
+| La plaga danzante de Estrasburgo, 1518 | Ningún video dedicado en español encontrado |
+| Robert Cornish, el científico que reanimaba perros muertos | Solo 1 video encontrado |
+| Harry Harlow, el pozo de la desesperación | Ya validado en la 2ª ronda |
+| Facebook, contagio emocional 2014 | Ya validado en la 2ª ronda |
+
+### 🟡 MEDIA — cubierto 1-3 veces, competible con mejor ángulo/densidad
+
+| Tema | Por qué sigue vivo |
+|---|---|
+| Willowbrook (niños con hepatitis) | 1 video grande pero de 2015, se puede refrescar |
+| Sífilis en Guatemala (1946-48) | 2-3 videos, ninguno con registro true-crime denso |
+| Internados indígenas de Canadá (experimentos de nutrición) | La cobertura existente es sobre las muertes en general, no sobre el experimento nutricional específico |
+| Pont-Saint-Esprit, "el pan maldito" (Francia 1951, ¿LSD de la CIA?) | 2 videos, ángulo conspirativo sin explotar |
+| John Lilly y el tanque de aislamiento sensorial | Solo 1 video encontrado |
+| El puente de los perros "suicidas" (Overtoun) | Cobertura dispersa, sin video dominante |
+| El motín del Bounty y la matanza en Pitcairn | Mucho artículo, poco video dedicado a la parte sangrienta |
+| Proyecto Pigeon de Skinner (palomas guía de misiles) | Varios videos, pero todos en tono "curiosidad" — hueco en el ángulo de crueldad animal en guerra |
+| El experimento del hambre de Minnesota | 4 videos, casi todos de nutrición/dieta, no del impacto psicológico |
+
+### 🔴 Descartados — saturados, confirmado con búsqueda real
+
+Unidad 731 (6+ videos), Biosfera 2 (documentales + serie de Netflix),
+Kaspar Hauser (5+ videos), Mecanismo de Anticitera (4+), Colonia perdida
+de Roanoke (10 videos), Fuego griego (múltiples), Paso de Dyatlov (10+),
+la novela que predijo el Titanic — *Futility* (4+), Pompeya (8+
+documentales), gemelos separados de Neubauer (varios + cobertura de
+prensa), Baby X (sin video propio robusto, mezclado con contenido no
+relacionado).
+
+### Nota sobre el análisis de vidIQ que originó esta ronda
+
+vidIQ comparó los Shorts de Stanford/Estudio Monstruo (miles de vistas)
+contra los mismos videos en largo (0-2 vistas) y concluyó que el tema
+"experimentos" es la fórmula y que la historia general está muerta. El
+diagnóstico real: los largos comparados tenían entre 0 y 96 horas de
+vida al momento del análisis, mientras los Shorts reciben distribución
+instantánea del feed sin importar suscriptores — con 10 suscriptores,
+ningún video largo iba a tener tracción todavía, sin importar el tema.
+La prueba real (¿el tema experimento también funciona en largo?)
+todavía no ha corrido: Stanford y Estudio Monstruo en formato largo
+están en la misma situación de arranque en frío. Reevaluar en 1-2
+semanas. Las ideas concretas de tema que dio vidIQ (Pequeño Albert,
+MKUltra, Tuskegee) están **todas saturadas** — confirmado con búsqueda
+real (Tuskegee tiene un video con 544.987 vistas, MKUltra tiene uno de
+Dross con 6,47 millones).
+
 ## Fuente
 
 Lista original: PDF aportado por el usuario, "100 temas verificados de
 'El Cerebro Idiota' (Dean Burnett)". Testing de competencia hecho el
 06/09/2026 con búsquedas reales en Google/YouTube (17 temas) + criterio
-editorial para el resto.
+editorial para el resto. Tercera ronda (30 temas nuevos, 18
+sobrevivientes) hecha el 07/09/2026 con vidIQ + búsqueda real.
