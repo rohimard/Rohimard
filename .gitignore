@@ -45,3 +45,6 @@ canal-cerebro-traidor/producciones/**/*.mp4
 canal-youtube/kokoro-models/
 canal-youtube/freevc-models/*
 !canal-youtube/freevc-models/kevin-referencia.mp3
+
+# clave de la API de voz (nunca al repo)
+canal-youtube/.google-tts-key
