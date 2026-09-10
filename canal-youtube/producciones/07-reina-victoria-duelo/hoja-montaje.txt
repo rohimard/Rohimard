@@ -1,4 +1,4 @@
-HOJA DE MONTAJE — Total 4:16 (256 s) · 49 imágenes
+HOJA DE MONTAJE — Total 4:22 (262 s) · 49 imágenes
 ==========================================================================
 
 ### GANCHO
@@ -7,89 +7,89 @@ HOJA DE MONTAJE — Total 4:16 (256 s) · 49 imágenes
 1       0:00    0:03    3s    Windsor 1861
 2       0:03    0:09    6s    Veintiún años casada
 3       0:09    0:13    4s    Cuarenta años por delante
-4       0:13    0:20    7s    Vestir de negro para siempre
+4       0:13    0:21    8s    Vestir de negro para siempre
 
 ### HECHO
 #       ENTRA   SALE    DUR   ESCENA
 --------------------------------------------------------------------------
-5       0:20    0:26    6s    Reina Victoria y Alberto
-6       0:26    0:33    7s    La ropa preparada cada mañana
-7       0:33    0:39    6s    El agua caliente para afeitarlo
-8       0:39    0:47    8s    Una década sin aparecer
-9       0:47    0:51    4s    Retraso en el Parlamento
-10      0:51    0:56    5s    Papel de carta con borde negro
-11      0:56    1:01    5s    Décadas después
-12      1:01    1:08    7s    Treinta años más de negro
+5       0:21    0:27    6s    Reina Victoria y Alberto
+6       0:27    0:34    7s    La ropa preparada cada mañana
+7       0:34    0:40    6s    El agua caliente para afeitarlo
+8       0:40    0:49    9s    Una década sin aparecer
+9       0:49    0:53    4s    Retraso en el Parlamento
+10      0:53    0:58    5s    Papel de carta con borde negro
+11      0:58    1:03    5s    Décadas después
+12      1:03    1:11    8s    Treinta años más de negro
 
 ### REENCUADRE
 #       ENTRA   SALE    DUR   ESCENA
 --------------------------------------------------------------------------
-13      1:08    1:16    8s    La versión de amor eterno
-14      1:16    1:22    6s    La versión incómoda
+13      1:11    1:19    8s    La versión de amor eterno
+14      1:19    1:25    6s    La versión incómoda
 
 ### REVELACION
 #       ENTRA   SALE    DUR   ESCENA
 --------------------------------------------------------------------------
-15      1:22    1:28    6s    Tiene nombre clínico
-16      1:28    1:32    4s    Reconocido en 2022
-17      1:32    1:37    5s    El manual de diagnóstico
-18      1:37    1:42    5s    Antes se llamaba solo amor
-19      1:42    1:47    5s    Una condición con nombre propio
+15      1:25    1:31    6s    Tiene nombre clínico
+16      1:31    1:35    4s    Reconocido en 2022
+17      1:35    1:40    5s    El manual de diagnóstico
+18      1:40    1:45    5s    Antes se llamaba solo amor
+19      1:45    1:50    5s    Una condición con nombre propio
 
 ### PUENTE
 #       ENTRA   SALE    DUR   ESCENA
 --------------------------------------------------------------------------
-20      1:47    1:51    4s    No exclusivo de una reina
-21      1:51    1:56    5s    Puede que también en ti
+20      1:50    1:54    4s    No exclusivo de una reina
+21      1:54    1:59    5s    Puede que también en ti
 
 ### TITULO
 #       ENTRA   SALE    DUR   ESCENA
 --------------------------------------------------------------------------
-22      1:56    2:03    7s    7 señales de duelo no resuelto
+22      1:59    2:06    7s    7 señales de duelo no resuelto
 
 ### SEÑALES
 #       ENTRA   SALE    DUR   ESCENA
 --------------------------------------------------------------------------
-23      2:03    2:07    4s    1. Una parte de ti murió
-24      2:07    2:14    7s    1. Identidad perdida
-25      2:14    2:17    3s    2. Te cuesta creerlo
-26      2:17    2:21    4s    2. La ropa de Alberto
-27      2:21    2:27    6s    2. Como si fuera a volver
-28      2:27    2:30    3s    2. Negación pasajera
-29      2:30    2:34    4s    3. Evitas los recordatorios
-30      2:34    2:40    6s    3. Cambiar de acera
-31      2:40    2:45    5s    4. Dolor intacto con los años
-32      2:45    2:50    5s    4. Rabia y amargura
-33      2:50    2:53    3s    5. No te reenganchas a la vida
-34      2:53    3:00    7s    5. Traición a la memoria
-35      3:00    3:04    4s    6. Detrás de un cristal
-36      3:04    3:08    4s    6. Ni siquiera lo bueno
-37      3:08    3:14    6s    7. La vida ya no tiene sentido
-38      3:14    3:19    5s    7. El para qué se apagó
+23      2:06    2:10    4s    1. Una parte de ti murió
+24      2:10    2:18    8s    1. Identidad perdida
+25      2:18    2:21    3s    2. Te cuesta creerlo
+26      2:21    2:25    4s    2. La ropa de Alberto
+27      2:25    2:32    7s    2. Como si fuera a volver
+28      2:32    2:35    3s    2. Negación pasajera
+29      2:35    2:39    4s    3. Evitas los recordatorios
+30      2:39    2:45    6s    3. Cambiar de acera
+31      2:45    2:50    5s    4. Dolor intacto con los años
+32      2:50    2:55    5s    4. Rabia y amargura
+33      2:55    2:58    3s    5. No te reenganchas a la vida
+34      2:58    3:06    8s    5. Traición a la memoria
+35      3:06    3:10    4s    6. Detrás de un cristal
+36      3:10    3:14    4s    6. Ni siquiera lo bueno
+37      3:14    3:20    6s    7. La vida ya no tiene sentido
+38      3:20    3:25    5s    7. El para qué se apagó
 
 ### DATOS
 #       ENTRA   SALE    DUR   ESCENA
 --------------------------------------------------------------------------
-39      3:19    3:23    4s    La clave es el tiempo
-40      3:23    3:29    6s    Cuánto tiempo sigue igual
-41      3:29    3:36    7s    Doce meses después
-42      3:36    3:40    4s    Antes de esa fecha es normal
-43      3:40    3:45    5s    Existe tratamiento
+39      3:25    3:29    4s    La clave es el tiempo
+40      3:29    3:35    6s    Cuánto tiempo sigue igual
+41      3:35    3:42    7s    Doce meses después
+42      3:42    3:46    4s    Antes de esa fecha es normal
+43      3:46    3:51    5s    Existe tratamiento
 
 ### LEGADO
 #       ENTRA   SALE    DUR   ESCENA
 --------------------------------------------------------------------------
-44      3:45    3:49    4s    A ella nadie la trató
-45      3:49    3:54    5s    Cuarenta años atrapada
-46      3:54    3:59    5s    La palabra exacta
-47      3:59    4:05    6s    Gente preparada para ayudarte
+44      3:51    3:55    4s    A ella nadie la trató
+45      3:55    4:00    5s    Cuarenta años atrapada
+46      4:00    4:05    5s    La palabra exacta
+47      4:05    4:11    6s    Gente preparada para ayudarte
 
 ### CTA
 #       ENTRA   SALE    DUR   ESCENA
 --------------------------------------------------------------------------
-48      4:05    4:11    6s    Próximo vídeo
-49      4:11    4:16    5s    Suscríbete
+48      4:11    4:17    6s    Próximo vídeo
+49      4:17    4:22    5s    Suscríbete
 
 --------------------------------------------------------------------------
-TOTAL: 4:16 (256 s)
+TOTAL: 4:22 (262 s)
 Nota: zoom lento (Ken Burns) en planos >=8s; ancla a la onda los datos y golpes clave.
