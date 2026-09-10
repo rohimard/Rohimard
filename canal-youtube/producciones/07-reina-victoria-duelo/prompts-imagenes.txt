@@ -1,0 +1,209 @@
+Personaje histórico (repetir palabra por palabra en cada plano donde aparece):
+"la reina Victoria del Reino Unido, mujer de unos 42 años, rostro ovalado y pálido, cabello oscuro recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido"
+
+Personaje secundario (solo en el plano 5, retrato/memoria):
+"el príncipe Alberto de Sajonia-Coburgo-Gota, hombre de unos 42 años, bigote y patillas discretas, uniforme militar victoriano oscuro con condecoraciones"
+
+Personaje moderno (repetir palabra por palabra en los planos del bloque de autodiagnóstico, del 20 al 49):
+"una persona adulta de unos 35 años, complexión media, pelo castaño corto, ropa cotidiana sencilla en tonos neutros, jersey gris y camisa clara"
+
+Bloque de estilo base (ya incluido al final de cada prompt):
+"fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9"
+
+===================================================================
+
+1
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: exterior nocturno del castillo de Windsor en diciembre de 1861, fachada de piedra gótica iluminada por ventanas con luz de vela, cielo nublado de invierno, niebla baja sobre el césped, encuadre amplio que transmite frialdad y aislamiento. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+2
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: la reina Victoria del Reino Unido, mujer de unos 42 años, rostro ovalado y pálido, cabello oscuro recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido, de pie junto a una cama con dosel vacía en una habitación de palacio en penumbra, luz de vela lateral marcando sombras profundas en su rostro. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+3
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un reloj de pared victoriano antiguo detenido, en una habitación de palacio oscura, polvo suspendido en un rayo de luz que entra por una cortina entreabierta, sensación de tiempo congelado. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+4
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: la reina Victoria del Reino Unido, mujer de unos 42 años, rostro ovalado y pálido, cabello oscuro recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido, sentada frente a un espejo ovalado enmarcado en oro, reflejo repetido de su propio luto, luz fría de ventana. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+5
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: retrato de estudio victoriano doble, la reina Victoria del Reino Unido, mujer de unos 42 años, rostro ovalado y pálido, cabello oscuro recogido en un moño bajo, vestido oscuro de corte real, junto al príncipe Alberto de Sajonia-Coburgo-Gota, hombre de unos 42 años, bigote y patillas discretas, uniforme militar victoriano oscuro con condecoraciones, ambos serios y erguidos, fondo de estudio fotográfico de época con cortinaje pesado. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+6
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: una doncella victoriana deja un uniforme militar oscuro perfectamente doblado sobre una silla de madera tallada, en un vestidor de palacio vacío y silencioso, luz de mañana entrando por una ventana alta, ambiente solemne. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+7
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una jarra de porcelana victoriana con agua humeante sobre una bandeja de plata, junto a una navaja de afeitar antigua y una toalla blanca doblada, encima de un tocador de caoba, vapor visible en el aire frío de la habitación. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+8
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: multitud de súbditos victorianos vestidos de época mirando hacia un balcón vacío de un palacio, expresión de desconcierto e inquietud, cielo gris de Londres, banderas a media asta. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+9
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: exterior del Palacio de Westminster en el siglo diecinueve visto desde el Támesis, con niebla y sillas vacías del hemiciclo del Parlamento visibles a través de una ventana en primer plano, sensación de ausencia de autoridad. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+10
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano extremo de una hoja de papel de carta victoriano con un grueso borde negro de luto impreso, tintero y pluma de ganso al lado, sobre un escritorio de madera oscura iluminado por una vela. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+11
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: pila de cartas antiguas con borde negro de luto atadas con una cinta, envejecidas por el paso de las décadas, sobre una mesa de caoba con luz cálida de lámpara de aceite, un calendario de pared victoriano al fondo mostrando una fecha muy posterior. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+12
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: la reina Victoria del Reino Unido, mujer de unos 42 años, rostro ovalado y pálido, cabello oscuro recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido, ahora con el rostro visiblemente más anciano y arrugado, sentada sola en un salón de palacio vacío, décadas después, luz tenue de atardecer. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+13
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: pintura al óleo de época mostrando a una pareja real victoriana idealizada y romántica bajo un cerezo en flor, colores cálidos y luz dorada de fantasía, estilo cuadro clásico enmarcado colgado en una pared de palacio. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+14
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: la misma pintura al óleo romántica de la pareja real bajo el cerezo, pero ahora con grietas visibles en el lienzo y la pintura desconchada en las esquinas, luz fría y dura que revela el deterioro, contraste entre la fantasía pintada y el marco real envejecido. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+15
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un manual médico antiguo de tapa dura abriéndose sobre un escritorio de madera, páginas amarillentas con diagramas anatómicos, luz de lámpara de lectura moderna, transición visual entre lo histórico y lo clínico. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+16
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: manos de una persona adulta sosteniendo un manual de diagnóstico psiquiátrico moderno de tapa azul oscura, sobre una mesa de consulta clínica minimalista, luz natural suave de ventana, ambiente contemporáneo y sobrio. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+17
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: interior de una sala de conferencias médica contemporánea vacía, hileras de sillas ordenadas frente a una pantalla apagada, luz de mañana entrando por persianas venecianas, ambiente clínico y silencioso. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+18
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: la reina Victoria del Reino Unido, mujer de unos 42 años, rostro ovalado y pálido, cabello oscuro recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido, mirando directamente a cámara en un retrato fotográfico de estudio de época, fondo oscuro neutro, luz lateral dramática. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+19
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una etiqueta médica moderna con una cinta métrica y un estetoscopio dispuestos ordenadamente sobre una superficie blanca clínica, luz de estudio suave y uniforme, composición minimalista. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+20
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: interior de un salón contemporáneo iluminado por luz cálida de tarde, una silla vacía frente a una mesa puesta con dos tazas, una de ellas sin usar y cubierta de polvo fino, atmósfera de ausencia cotidiana moderna. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+21
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: una persona adulta de unos 35 años, complexión media, pelo castaño corto, ropa cotidiana sencilla en tonos neutros, jersey gris y camisa clara, sentada en el borde de una cama en un dormitorio moderno con luz de ventana suave, mirando el móvil apagado en su mano, expresión reflexiva. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+22
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano cenital de siete piedras lisas de río alineadas sobre una mesa de madera oscura, cada una iluminada individualmente por un haz de luz cálida, composición simétrica y limpia. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+23
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: una persona adulta de unos 35 años, complexión media, pelo castaño corto, ropa cotidiana sencilla en tonos neutros, jersey gris y camisa clara, de pie frente a un espejo en un baño moderno con luz fría, con la mano apoyada en el cristal, expresión de vacío emocional. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+24
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una fotografía enmarcada partida por la mitad simbólicamente, mitad nítida y mitad desenfocada, sobre una repisa de madera en una sala moderna con luz tenue de tarde. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+25
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: una persona adulta de unos 35 años, complexión media, pelo castaño corto, ropa cotidiana sencilla en tonos neutros, jersey gris y camisa clara, sentada a la mesa de una cocina moderna mirando fijamente un plato vacío puesto frente a una silla desocupada, luz de ventana lateral suave. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+26
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una percha con ropa perfectamente planchada y colgada en un armario ordenado, con una pequeña capa de polvo visible en los hombros de la prenda, luz cálida y suave entrando por una rendija de la puerta del armario. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+27
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un teléfono móvil moderno sobre una mesa mostrando una conversación de mensajes antigua abierta, con el dedo de una persona a punto de tocar el botón de llamar, luz cálida de lámpara nocturna, ambiente íntimo. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+28
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una mano soltando lentamente un teléfono móvil sobre una mesa, gesto de resignación, luz fría de noche entrando por una ventana al fondo desenfocado. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+29
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: una persona adulta de unos 35 años, complexión media, pelo castaño corto, ropa cotidiana sencilla en tonos neutros, jersey gris y camisa clara, caminando por una calle urbana moderna y cambiando bruscamente de acera para evitar un escaparate concreto, luz de tarde, cámara siguiendo el movimiento desde media distancia. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+30
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un cajón entreabierto lleno de fotografías impresas desordenadas y un dedo dudando sobre una de ellas sin llegar a tocarla, luz cálida de lámpara de escritorio en una habitación moderna. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+31
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: una persona adulta de unos 35 años, complexión media, pelo castaño corto, ropa cotidiana sencilla en tonos neutros, jersey gris y camisa clara, sentada sola en un banco de un parque moderno al atardecer, mirada perdida hacia el horizonte, hombros caídos, luz cálida y nostálgica. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+32
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano extremo de unos ojos humanos llenos de lágrimas contenidas sin llegar a derramarse, iluminación lateral suave, fondo completamente desenfocado, máxima carga emocional. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+33
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: una persona adulta de unos 35 años, complexión media, pelo castaño corto, ropa cotidiana sencilla en tonos neutros, jersey gris y camisa clara, de pie frente a la puerta de su propia casa sin decidirse a salir, mano apoyada en el marco, luz de mañana entrando desde fuera. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+34
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una invitación de boda o un folleto de un curso nuevo sobre una mesa, con una mano apartándolo lentamente hacia un lado sin abrirlo, luz natural de ventana, ambiente doméstico moderno. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+35
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: una persona adulta de unos 35 años, complexión media, pelo castaño corto, ropa cotidiana sencilla en tonos neutros, jersey gris y camisa clara, tras un cristal de ventana empañado en una habitación moderna, silueta borrosa y distante, luz fría exterior filtrándose. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+36
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una mano tocando pétalos de una flor sin reacción visible en el rostro desenfocado al fondo, luz de jardín soleada que contrasta con la falta de expresión, metáfora de anestesia emocional. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+37
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: una persona adulta de unos 35 años, complexión media, pelo castaño corto, ropa cotidiana sencilla en tonos neutros, jersey gris y camisa clara, tumbada mirando al techo en una habitación a oscuras iluminada solo por la luz azulada de una ventana nocturna, expresión ausente. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+38
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una vela pequeña apagándose lentamente con el último hilo de humo, sobre una mesa oscura, contraluz suave, atmósfera de sentido que se desvanece. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+39
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un reloj de arena moderno de escritorio con la arena cayendo lentamente, sobre una mesa de oficina minimalista, luz natural de ventana, composición centrada. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+40
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: dos vasos de agua idénticos sobre una mesa, uno con el agua en calma y otro con ondas persistentes que no dejan de moverse, iluminación cenital suave, metáfora visual de intensidad emocional que no cesa. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+41
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un calendario de pared moderno con doce meses tachados en secuencia hasta una fecha marcada con un círculo rojo, luz de oficina neutra, composición ordenada. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+42
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: una persona adulta de unos 35 años, complexión media, pelo castaño corto, ropa cotidiana sencilla en tonos neutros, jersey gris y camisa clara, en una sala de espera médica moderna, luz suave y cálida, expresión de calma tentativa. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+43
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de dos manos entrelazadas sobre una mesa de consulta terapéutica moderna, una perteneciente a un terapeuta y otra a un paciente, luz cálida y esperanzadora de ventana lateral. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+44
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: la reina Victoria del Reino Unido, mujer de unos 42 años, rostro ovalado y pálido, cabello oscuro recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido, sola frente a una ventana alta de palacio mirando hacia un jardín gris de invierno, silueta a contraluz. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+45
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: retrato final de la reina Victoria del Reino Unido, ahora anciana, cabello blanco recogido bajo un velo negro de luto, vestido negro victoriano de cuello alto, sentada en un sillón de palacio, luz tenue de vela, expresión serena pero cansada, décadas de duelo visibles en su rostro. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+46
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un libro de psicología moderno abierto sobre una mesa de madera clara, con un lápiz subrayando una línea de texto, luz natural cálida de tarde entrando por una ventana. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+47
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: una persona adulta de unos 35 años, complexión media, pelo castaño corto, ropa cotidiana sencilla en tonos neutros, jersey gris y camisa clara, saliendo por una puerta hacia una calle iluminada por el sol de la mañana, cuerpo entero de espaldas caminando hacia la luz, sensación de avance. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+48
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: silueta de una persona sentada mirando una pantalla de televisor apagada que refleja tenuemente una escena de época borrosa, en un salón moderno oscuro, luz cálida de una lámpara al fondo, sensación de expectativa por lo que viene después. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+49
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una campana de notificaciones y un icono de suscripción genéricos tallados en madera sobre un escritorio minimalista moderno, luz cálida de estudio, composición limpia y acogedora. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.

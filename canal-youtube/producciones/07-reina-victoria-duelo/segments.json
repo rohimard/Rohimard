@@ -1,0 +1,298 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "block": "GANCHO",
+      "cue": "Windsor 1861",
+      "text": "Es diciembre de 1861 y estás en el castillo de Windsor."
+    },
+    {
+      "id": 2,
+      "block": "GANCHO",
+      "cue": "Veintiún años casada",
+      "text": "El hombre con el que llevas veintiún años casada acaba de morir de fiebre tifoidea, con cuarenta y dos años,"
+    },
+    {
+      "id": 3,
+      "block": "GANCHO",
+      "cue": "Cuarenta años por delante",
+      "text": "y a ti te quedan más de cuarenta años de vida por delante."
+    },
+    {
+      "id": 4,
+      "block": "GANCHO",
+      "cue": "Vestir de negro para siempre",
+      "text": "Lo que todavía no sabes es que vas a pasarlos vistiendo de negro, cada día, sin excepción, hasta el día de tu propia muerte."
+    },
+    {
+      "id": 5,
+      "block": "HECHO",
+      "cue": "Reina Victoria y Alberto",
+      "text": "Esto pasó de verdad. Ella es la reina Victoria del Reino Unido. Él es el príncipe Alberto, su esposo."
+    },
+    {
+      "id": 6,
+      "block": "HECHO",
+      "cue": "La ropa preparada cada mañana",
+      "text": "Después de su muerte, la reina ordenó que la ropa de él se siguiera preparando cada mañana como si fuera a vestirse."
+    },
+    {
+      "id": 7,
+      "block": "HECHO",
+      "cue": "El agua caliente para afeitarlo",
+      "text": "Ordenó que el agua caliente para afeitarlo se siguiera llevando a su habitación, día tras día, durante años."
+    },
+    {
+      "id": 8,
+      "block": "HECHO",
+      "cue": "Una década sin aparecer",
+      "text": "Se negó a aparecer en público durante casi una década completa, hasta el punto de que el pueblo empezó a preguntarse si su reina seguía gobernando de verdad,"
+    },
+    {
+      "id": 9,
+      "block": "HECHO",
+      "cue": "Retraso en el Parlamento",
+      "text": "y se retrasó años en volver a abrir el Parlamento en persona."
+    },
+    {
+      "id": 10,
+      "block": "HECHO",
+      "cue": "Papel de carta con borde negro",
+      "text": "Para el resto de su vida usó papel de carta con el borde negro de luto,"
+    },
+    {
+      "id": 11,
+      "block": "HECHO",
+      "cue": "Décadas después",
+      "text": "incluso décadas después, en cartas que no tenían nada que ver con la muerte de Alberto."
+    },
+    {
+      "id": 12,
+      "block": "HECHO",
+      "cue": "Treinta años más de negro",
+      "text": "Cuando por fin volvió a mostrarse en público, seguía vestida de negro. Y siguió vestida de negro los siguientes treinta años, hasta que murió en 1901."
+    },
+    {
+      "id": 13,
+      "block": "REENCUADRE",
+      "cue": "La versión de amor eterno",
+      "text": "Durante mucho tiempo la historia contó esto como una prueba de amor eterno: la viuda fiel que nunca dejó de llorar a su gran amor."
+    },
+    {
+      "id": 14,
+      "block": "REENCUADRE",
+      "cue": "La versión incómoda",
+      "text": "Es una versión bonita. Pero no es la versión completa, y la versión completa es mucho más incómoda."
+    },
+    {
+      "id": 15,
+      "block": "REVELACION",
+      "cue": "Tiene nombre clínico",
+      "text": "Primero: lo que le pasó a la reina Victoria tiene nombre clínico hoy, y ese nombre es duelo prolongado."
+    },
+    {
+      "id": 16,
+      "block": "REVELACION",
+      "cue": "Reconocido en 2022",
+      "text": "No se reconoció oficialmente como un trastorno médico real hasta el año 2022,"
+    },
+    {
+      "id": 17,
+      "block": "REVELACION",
+      "cue": "El manual de diagnóstico",
+      "text": "cuando entró en el manual de diagnóstico que usan los psicólogos en todo el mundo."
+    },
+    {
+      "id": 18,
+      "block": "REVELACION",
+      "cue": "Antes se llamaba solo amor",
+      "text": "Durante siglo y medio, lo que le pasó a la reina Victoria se llamó simplemente \"amor\"."
+    },
+    {
+      "id": 19,
+      "block": "REVELACION",
+      "cue": "Una condición con nombre propio",
+      "text": "Ahora sabemos que también era una condición identificable, con señales concretas y un nombre propio."
+    },
+    {
+      "id": 20,
+      "block": "PUENTE",
+      "cue": "No exclusivo de una reina",
+      "text": "Segunda: esas señales no son exclusivas de una reina del siglo diecinueve."
+    },
+    {
+      "id": 21,
+      "block": "PUENTE",
+      "cue": "Puede que también en ti",
+      "text": "Están pasando ahora mismo, en gente que tienes cerca, y puede que también en ti."
+    },
+    {
+      "id": 22,
+      "block": "TITULO",
+      "cue": "7 señales de duelo no resuelto",
+      "text": "Aquí van siete señales de que tú también estás atravesando un duelo que tu cuerpo y tu mente no han terminado de procesar."
+    },
+    {
+      "id": 23,
+      "block": "SEÑALES",
+      "cue": "1. Una parte de ti murió",
+      "text": "Primera señal: sientes que una parte de ti murió con esa persona."
+    },
+    {
+      "id": 24,
+      "block": "SEÑALES",
+      "cue": "1. Identidad perdida",
+      "text": "No es una metáfora bonita: mucha gente con duelo prolongado describe sentir que perdió también su propia identidad, no solo a la otra persona."
+    },
+    {
+      "id": 25,
+      "block": "SEÑALES",
+      "cue": "2. Te cuesta creerlo",
+      "text": "Segunda señal: todavía te cuesta creer que de verdad pasó."
+    },
+    {
+      "id": 26,
+      "block": "SEÑALES",
+      "cue": "2. La ropa de Alberto",
+      "text": "La reina Victoria hizo que siguieran preparando la ropa de Alberto durante años."
+    },
+    {
+      "id": 27,
+      "block": "SEÑALES",
+      "cue": "2. Como si fuera a volver",
+      "text": "Si una parte de ti sigue actuando como si esa persona fuera a volver, aunque sepas perfectamente que no es así,"
+    },
+    {
+      "id": 28,
+      "block": "SEÑALES",
+      "cue": "2. Negación pasajera",
+      "text": "eso es duelo prolongado, no una negación pasajera."
+    },
+    {
+      "id": 29,
+      "block": "SEÑALES",
+      "cue": "3. Evitas los recordatorios",
+      "text": "Tercera señal: evitas cualquier cosa que te recuerde que esa persona ya no está."
+    },
+    {
+      "id": 30,
+      "block": "SEÑALES",
+      "cue": "3. Cambiar de acera",
+      "text": "Cambias de acera para no pasar por un sitio. Borras fotos, o al contrario, no consigues borrar ni una sola."
+    },
+    {
+      "id": 31,
+      "block": "SEÑALES",
+      "cue": "4. Dolor intacto con los años",
+      "text": "Cuarta señal: sientes un dolor emocional tan intenso que parece que fue ayer, aunque hayan pasado años."
+    },
+    {
+      "id": 32,
+      "block": "SEÑALES",
+      "cue": "4. Rabia y amargura",
+      "text": "Rabia, amargura, una tristeza que no se suaviza con el tiempo como se supone que debería."
+    },
+    {
+      "id": 33,
+      "block": "SEÑALES",
+      "cue": "5. No te reenganchas a la vida",
+      "text": "Quinta señal: te cuesta reengancharte con tu propia vida."
+    },
+    {
+      "id": 34,
+      "block": "SEÑALES",
+      "cue": "5. Traición a la memoria",
+      "text": "Planes, relaciones nuevas, proyectos: todo se siente como una traición a la memoria de quien perdiste, o directamente ya no consigues que te importen."
+    },
+    {
+      "id": 35,
+      "block": "SEÑALES",
+      "cue": "6. Detrás de un cristal",
+      "text": "Sexta señal: sientes una insensibilidad extraña, como si vivieras detrás de un cristal,"
+    },
+    {
+      "id": 36,
+      "block": "SEÑALES",
+      "cue": "6. Ni siquiera lo bueno",
+      "text": "incapaz de sentir nada con la intensidad de antes, ni siquiera lo bueno."
+    },
+    {
+      "id": 37,
+      "block": "SEÑALES",
+      "cue": "7. La vida ya no tiene sentido",
+      "text": "Séptima señal: sientes que tu vida, en el fondo, ya no tiene el mismo sentido sin esa persona."
+    },
+    {
+      "id": 38,
+      "block": "SEÑALES",
+      "cue": "7. El para qué se apagó",
+      "text": "No es que quieras hacerte daño, es que el \"para qué\" de las cosas se apagó."
+    },
+    {
+      "id": 39,
+      "block": "DATOS",
+      "cue": "La clave es el tiempo",
+      "text": "Si algo de esto te suena, la clave está en un solo dato:"
+    },
+    {
+      "id": 40,
+      "block": "DATOS",
+      "cue": "Cuánto tiempo sigue igual",
+      "text": "lo que separa el duelo normal del duelo prolongado no es cuánto sufres, es cuánto tiempo sigue igual de intenso."
+    },
+    {
+      "id": 41,
+      "block": "DATOS",
+      "cue": "Doce meses después",
+      "text": "Doce meses después, en adultos, sin que nada se haya movido, es la señal de alarma que los psicólogos ya saben identificar."
+    },
+    {
+      "id": 42,
+      "block": "DATOS",
+      "cue": "Antes de esa fecha es normal",
+      "text": "Antes de esa fecha, es completamente normal que duela así de fuerte."
+    },
+    {
+      "id": 43,
+      "block": "DATOS",
+      "cue": "Existe tratamiento",
+      "text": "Y hoy en día existe tratamiento específico para el duelo prolongado, y funciona de verdad."
+    },
+    {
+      "id": 44,
+      "block": "LEGADO",
+      "cue": "A ella nadie la trató",
+      "text": "A la reina Victoria nadie le ofreció ese tratamiento, porque todavía no existía."
+    },
+    {
+      "id": 45,
+      "block": "LEGADO",
+      "cue": "Cuarenta años atrapada",
+      "text": "Vivió cuarenta años atrapada en un duelo que hoy sabemos que tiene nombre, causas y salida."
+    },
+    {
+      "id": 46,
+      "block": "LEGADO",
+      "cue": "La palabra exacta",
+      "text": "Tú tienes algo que ella no tuvo: la palabra exacta para lo que te está pasando,"
+    },
+    {
+      "id": 47,
+      "block": "LEGADO",
+      "cue": "Gente preparada para ayudarte",
+      "text": "y gente preparada para ayudarte a salir de ahí, no para juzgarte por seguir vestido de negro por dentro."
+    },
+    {
+      "id": 48,
+      "block": "CTA",
+      "cue": "Próximo vídeo",
+      "text": "En el próximo vídeo vas a conocer a alguien que sí encontró la salida, y cómo lo hizo."
+    },
+    {
+      "id": 49,
+      "block": "CTA",
+      "cue": "Suscríbete",
+      "text": "Suscríbete si quieres entender lo que de verdad pasa dentro de tu cabeza cuando pierdes a alguien."
+    }
+  ]
+}
