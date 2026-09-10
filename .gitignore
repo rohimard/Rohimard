@@ -39,5 +39,9 @@ canal-cerebro-traidor/producciones/**/_thumb.html
 canal-cerebro-traidor/producciones/**/audio.mp3
 canal-cerebro-traidor/producciones/**/*.mp4
 
-# modelos de la voz del narrador (Kokoro TTS) — binarios pesados, se descargan aparte
+# modelos de la voz del narrador — binarios pesados, se descargan de releases de GitHub
+# (ver las URLs en la cabecera de canal-youtube/voz-narrador.py).
+# La referencia de Kevin sí se versiona: sin ella la voz no es reproducible.
 canal-youtube/kokoro-models/
+canal-youtube/freevc-models/*
+!canal-youtube/freevc-models/kevin-referencia.mp3
