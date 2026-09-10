@@ -38,3 +38,6 @@ canal-youtube/producciones/**/chunks/
 canal-cerebro-traidor/producciones/**/_thumb.html
 canal-cerebro-traidor/producciones/**/audio.mp3
 canal-cerebro-traidor/producciones/**/*.mp4
+
+# modelos de la voz del narrador (Kokoro TTS) — binarios pesados, se descargan aparte
+canal-youtube/kokoro-models/
