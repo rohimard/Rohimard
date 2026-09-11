@@ -33,15 +33,45 @@ ALBERTO = ("el príncipe Alberto de Sajonia-Coburgo-Gota, hombre de unos "
            "cuarenta y dos años, bigote y patillas discretas, uniforme "
            "militar victoriano oscuro con condecoraciones")
 
-MODERNO = ("una persona adulta de unos treinta y cinco años, complexión "
-           "media, pelo castaño corto, ropa cotidiana sencilla en tonos "
-           "neutros, jersey gris y camisa clara")
+# Tiene que ser inequívoco. La primera versión decía "una persona adulta" y
+# el generador resolvía el sexo a cara o cruz en cada plano: salían hombres
+# en unos y mujeres en otros, y el bloque entero dejaba de leerse como la
+# misma persona.
+MODERNO = ("un hombre de treinta y cinco años, pelo castaño corto y liso, "
+           "barba corta de tres días, complexión media, jersey de lana gris "
+           "de cuello redondo sobre camisa blanca, vaqueros oscuros, sin "
+           "gafas, siempre el mismo hombre")
 
 ESTILO = ("fotografía cinematográfica hiperrealista, full frame treinta y "
           "cinco milímetros, luz natural, colorimetría sobria y ligeramente "
           "desaturada, profundidad de campo real, grano fílmico sutil, "
           "estilo documental contemporáneo, máximo detalle, 8K, sin texto "
           "en pantalla, 16:9")
+
+# La época hay que decirla, no darla por supuesta: si no se nombra, el
+# generador mezcla atrezo de los dos siglos en el mismo encuadre.
+EPOCA_VICTORIANA = ("ambientación estrictamente victoriana de mil ochocientos "
+                    "sesenta, sin ningún objeto moderno en el encuadre")
+EPOCA_ACTUAL = ("ambientación estrictamente contemporánea actual, mobiliario "
+                "y ropa de hoy, sin ningún elemento de época")
+
+# Qué época le toca a cada bloque. Los que aparecen como "mixto" son planos
+# divididos que contraponen las dos a propósito.
+EPOCA_POR_BLOQUE = {
+    "GANCHO": EPOCA_VICTORIANA,
+    "HECHO": EPOCA_VICTORIANA,
+    "REENCUADRE": EPOCA_VICTORIANA,
+    "REVELACION": EPOCA_ACTUAL,
+    "PUENTE": EPOCA_ACTUAL,
+    "TITULO": EPOCA_ACTUAL,
+    "DATOS": EPOCA_ACTUAL,
+    "LEGADO": EPOCA_ACTUAL,
+    "CTA": EPOCA_ACTUAL,
+}
+
+# Planos que contraponen las dos épocas en un encuadre partido, y por tanto
+# no llevan la coletilla de época única.
+PLANOS_MIXTOS = {29, 36, 48, 83}
 
 CABECERA = f"""Personaje histórico (repetir palabra por palabra en cada plano donde aparece):
 "{VICTORIA}"
@@ -57,6 +87,17 @@ Bloque de estilo base (ya incluido al final de cada prompt):
 
 Nota de ritmo: ningún plano pasa de cuatro segundos. El tipo de plano
 alterna a propósito para que el montaje no se sienta plano.
+
+IMPORTANTE para que los planos casen entre sí:
+- El hombre moderno es SIEMPRE el mismo. Si tu generador tiene función de
+  personajes (en Flow se llama "Caracteres"), créalo una vez con esa
+  descripción y reutilízalo; sale mucho más consistente que repetir el
+  texto en cada prompt.
+- Cada prompt dice ya de qué época es. No quites esa parte: sin ella el
+  generador mezcla atrezo victoriano y actual en el mismo encuadre.
+- Los planos 29, 36, 48 y 83 son los únicos que contraponen las dos épocas
+  en un encuadre partido. Son los más difíciles de acertar; si alguno sale
+  raro, genera las dos mitades por separado y júntalas en el montaje.
 
 ==================================================================="""
 
@@ -195,8 +236,11 @@ PLANOS = [
      "detalle macro de un diagrama médico dibujado a mano en un cuaderno, "
      "líneas y anotaciones ilegibles, luz de escritorio lateral"),
     ("REVELACION", "Señales concretas, nombre propio",
-     "plano medio de una pizarra de consulta con siete marcas o casillas "
-     "dibujadas en fila, sin texto legible, luz de ventana de despacho"),
+     # Nada de cantidades: al pedir siete casillas dibujó seis. Los
+     # generadores de imagen no cuentan.
+     "plano medio de una pizarra blanca de consulta con una fila de casillas "
+     "vacías dibujadas a mano, sin texto legible, luz de ventana de "
+     "despacho"),
 
     # --- PUENTE ---
     ("PUENTE", "No solo una reina del diecinueve",
@@ -223,9 +267,10 @@ PLANOS = [
 
     # --- SEÑAL 1 ---
     ("SEÑAL 1", "Una parte de ti murió",
-     f"primer plano de {MODERNO} mirándose en el espejo del baño, el reflejo "
-     "ligeramente desalineado o incompleto respecto a la persona real, luz "
-     "fría de mañana"),
+     # "Reflejo desalineado" le hizo triplicar la cara. Mejor un encuadre
+     # fotográfico normal y que la idea la ponga la narración.
+     f"primer plano de {MODERNO} mirándose en el espejo del baño, un solo "
+     "reflejo nítido, rostro cansado y sin expresión, luz fría de mañana"),
     ("SEÑAL 1", "No es una metáfora bonita",
      "plano medio de una silla vacía en un comedor moderno con la mesa puesta "
      "para dos, uno de los platos intacto, luz de lámpara colgante"),
@@ -248,8 +293,11 @@ PLANOS = [
      "uniforme sobre una silla y una persona actual doblando un jersey ajeno "
      "sobre una cama, misma composición en ambos lados"),
     ("SEÑAL 2", "Sigues actuando como si volviera",
-     "detalle de un cepillo de dientes de más en un vaso del baño, macro, "
-     "azulejos modernos, luz de espejo"),
+     # "Un cepillo de más" no se entiende en imagen. Dos juntos, uno seco y
+     # sin usar, sí cuenta la historia.
+     "detalle macro de dos cepillos de dientes juntos en un vaso de baño, uno "
+     "visiblemente usado y el otro seco e intacto, azulejos modernos "
+     "desenfocados al fondo, luz suave de espejo"),
     ("SEÑAL 2", "Aunque sepas que no",
      f"primer plano de {MODERNO} mirando el móvil con una conversación "
      "abierta sin respuesta, pantalla iluminando el rostro en la oscuridad"),
@@ -427,12 +475,16 @@ def main():
         encoding="utf-8")
 
     lineas = [CABECERA, ""]
-    for i, ((_, cue, escena), t) in enumerate(zip(PLANOS, trozos), 1):
+    for i, ((bloque, cue, escena), t) in enumerate(zip(PLANOS, trozos), 1):
         seg = len(t.split()) / ritmo
+        # Los bloques de señales son todos actuales; van por defecto.
+        epoca = "" if i in PLANOS_MIXTOS else EPOCA_POR_BLOQUE.get(
+            bloque, EPOCA_ACTUAL)
         lineas.append(f"{i}   [{seg:.1f}s]   {cue}\n")
         lineas.append(
             f"Crea una imagen fotorrealista cinematográfica en formato "
-            f"horizontal 16:9, sin ningún texto: {escena}. {ESTILO}.\n")
+            f"horizontal 16:9, sin ningún texto: {escena}. "
+            f"{epoca + '. ' if epoca else ''}{ESTILO}.\n")
     (AQUI / "prompts-imagenes.txt").write_text(
         "\n".join(lineas), encoding="utf-8")
 
