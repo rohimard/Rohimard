@@ -1,0 +1,130 @@
+# Narra un guión entero con la cadena Piper -> Chatterbox, la que se eligió.
+#
+# Chatterbox pierde calidad por encima de unos trescientos caracteres, así
+# que el guión se trocea por frases y se concatena. Dos cuidados para que
+# no se note el corte: todos los trozos usan la misma referencia, y la
+# semilla se fija en cada uno, porque si no el timbre va derivando y a
+# mitad del vídeo ya no es la misma voz.
+name: voz-guion-completo
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-guion-completo.yml
+      - canal-youtube/.guion-disparo
+
+permissions:
+  contents: write
+
+env:
+  GUION: canal-youtube/producciones/07-reina-victoria-duelo/guion-voz.txt
+  DESTINO: canal-youtube/producciones/07-reina-victoria-duelo
+  ACABADO: highshelf=f=6500:g=2,deesser=i=0.25:m=0.5:f=0.55,equalizer=f=200:t=q:w=1.2:g=1.5,loudnorm=I=-16:TP=-1.5:LRA=11
+  PIPER_BASE: https://huggingface.co/rhasspy/piper-voices/resolve/main
+
+jobs:
+  narrar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Referencia sintética con Piper
+        run: |
+          pip install --quiet piper-tts==1.2.0
+          curl -sSL -o ref.onnx \
+            "$PIPER_BASE/es/es_MX/claude/high/es_MX-claude-high.onnx"
+          curl -sSL -o ref.onnx.json \
+            "$PIPER_BASE/es/es_MX/claude/high/es_MX-claude-high.onnx.json"
+          # La misma frase que se usó para elegir la voz, para que el
+          # timbre del vídeo entero sea el de la muestra aprobada.
+          printf '%s %s\n' \
+            "Es diciembre de mil ochocientos sesenta y uno y estás en el castillo de Windsor. El hombre con el que llevas veintiún años casada acaba de morir de fiebre tifoidea." \
+            "Es diciembre de mil ochocientos sesenta y uno y estás en el castillo de Windsor. El hombre con el que llevas veintiún años casada acaba de morir de fiebre tifoidea." \
+            | piper -m ref.onnx -f ref-larga.wav
+          ffmpeg -y -v error -i ref-larga.wav -t 22 -ar 24000 -ac 1 \
+                 -af "loudnorm=I=-20:TP=-2:LRA=9" ref-piper.wav
+
+      - run: pip install --quiet chatterbox-tts
+
+      - name: Narrar el guión
+        run: |
+          mkdir -p trozos
+          python - <<'PY'
+          import os
+          import re
+          import torch
+          import torchaudio as ta
+          from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+
+          MAX = 260   # Chatterbox se degrada por encima de ~300.
+
+          def trocear(texto):
+              """Agrupa frases enteras sin pasar del límite del modelo."""
+              frases = re.split(r"(?<=[.!?])\s+", re.sub(r"\s+", " ", texto).strip())
+              trozos, actual = [], ""
+              for f in frases:
+                  cand = (actual + " " + f).strip()
+                  if len(cand) > MAX and actual:
+                      trozos.append(actual)
+                      actual = f
+                  else:
+                      actual = cand
+              if actual:
+                  trozos.append(actual)
+              return trozos
+
+          texto = open(os.environ["GUION"], encoding="utf-8").read()
+          trozos = trocear(texto)
+          print(f"{len(trozos)} trozos, {len(texto)} caracteres")
+
+          modelo = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
+          for i, trozo in enumerate(trozos, 1):
+              torch.manual_seed(1861)   # el timbre no debe derivar entre trozos
+              wav = modelo.generate(
+                  trozo,
+                  language_id="es",
+                  audio_prompt_path="ref-piper.wav",
+                  exaggeration=0.4,
+                  cfg_weight=0.5,
+              )
+              ta.save(f"trozos/{i:03d}.wav", wav, modelo.sr)
+              print(f"  {i}/{len(trozos)}  {len(trozo)} car.")
+          PY
+
+      - name: Unir y rematar
+        run: |
+          # Un respiro entre trozos, si no las frases se pisan.
+          ffmpeg -y -v error -f lavfi -t 0.28 -i anullsrc=r=24000:cl=mono \
+                 -ar 24000 -ac 1 silencio.wav
+          : > lista.txt
+          for f in $(ls trozos/*.wav | sort); do
+            echo "file '$PWD/$f'"        >> lista.txt
+            echo "file '$PWD/silencio.wav'" >> lista.txt
+          done
+          ffmpeg -y -v error -f concat -safe 0 -i lista.txt \
+                 -af "$ACABADO" -codec:a libmp3lame -qscale:a 2 audio.mp3
+          echo "duración: $(ffprobe -v error -show_entries format=duration -of csv=p=0 audio.mp3) s"
+
+      - name: Devolver el audio a la rama
+        run: |
+          # audio.mp3 está en .gitignore, va con -f a propósito.
+          mv audio.mp3 "$DESTINO/audio.mp3"
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO/audio.mp3"
+          git commit -q -m 'Narracion completa del video siete' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 4))
+          done
+          exit 1
