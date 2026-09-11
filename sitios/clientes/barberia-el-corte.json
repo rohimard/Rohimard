@@ -1,0 +1,48 @@
+{
+  "slug": "barberia-el-corte",
+  "negocio": {
+    "nombre": "Barbería El Corte",
+    "tipo": "Barbería clásica",
+    "eslogan": "Corte, barba y buena plática. Sin cita previa.",
+    "descripcion": "Llevamos doce años cortando en la colonia. Entras, te sientas y sales listo. Si hay fila, te avisamos por WhatsApp cuándo llegar.",
+    "portada": ""
+  },
+  "contacto": {
+    "whatsapp": "+52 55 1234 5678",
+    "telefono": "+52 55 1234 5678",
+    "email": "hola@barberiaelcorte.mx",
+    "direccion": "Av. Álvaro Obregón 145, Roma Norte, CDMX",
+    "mapa": ""
+  },
+  "horario": [
+    { "dias": "Lunes a viernes", "horas": "10:00 – 20:00" },
+    { "dias": "Sábado", "horas": "09:00 – 21:00" },
+    { "dias": "Domingo", "horas": "Cerrado" }
+  ],
+  "servicios": [
+    { "nombre": "Corte de caballero", "precio": 180, "descripcion": "Lavado, corte y peinado." },
+    { "nombre": "Corte + barba", "precio": 280, "descripcion": "El completo. Toalla caliente incluida." },
+    { "nombre": "Arreglo de barba", "precio": 140, "descripcion": "Perfilado y aceite." },
+    { "nombre": "Corte niño", "precio": 120, "descripcion": "Menores de 12 años." },
+    { "nombre": "Rapado a máquina", "precio": 100 }
+  ],
+  "resenas": [
+    { "texto": "Llevo tres años yendo. Nunca me han fallado y siempre salgo contento.", "autor": "Miguel A." },
+    { "texto": "Pedí cita por WhatsApp y me contestaron en dos minutos. Así da gusto.", "autor": "Jorge R." }
+  ],
+  "galeria": [],
+  "redes": {
+    "instagram": "https://instagram.com/barberiaelcorte"
+  },
+  "marca": {
+    "color": "#b45309",
+    "colorOscuro": "#78350f",
+    "moneda": "$"
+  },
+  "textos": {
+    "cta": "Apartar mi lugar por WhatsApp",
+    "mensajeWhatsapp": "Hola, vi su web. ¿Tienen lugar hoy para corte?",
+    "tituloCierre": "¿Pasas hoy?",
+    "textoCierre": "Mándanos un mensaje y te decimos a qué hora hay lugar."
+  }
+}

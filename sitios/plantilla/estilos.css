@@ -1,0 +1,248 @@
+/* Sitio para negocio local — móvil primero, sin dependencias.
+   El color de marca llega por --marca desde el HTML generado. */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --tinta: #18181b;
+  --tinta-suave: #52525b;
+  --borde: #e4e4e7;
+  --fondo: #ffffff;
+  --fondo-alt: #fafafa;
+  --wa: #25d366;
+  --radio: 14px;
+  --ancho: 760px;
+}
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--tinta);
+  background: var(--fondo);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 { line-height: 1.25; margin: 0; text-wrap: balance; }
+
+/* --- Portada ------------------------------------------------------------ */
+
+.hero {
+  background: var(--marca);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 64px 20px 56px;
+  text-align: center;
+}
+
+.hero-contenido { max-width: var(--ancho); margin: 0 auto; }
+
+.hero h1 { font-size: clamp(2rem, 7vw, 3rem); font-weight: 800; letter-spacing: -0.02em; }
+
+.eslogan { font-size: 1.15rem; margin: 12px 0 0; opacity: 0.95; }
+
+.hero-dir { font-size: 0.95rem; margin: 8px 0 0; opacity: 0.8; }
+
+/* --- Botones ------------------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 28px;
+  padding: 15px 28px;
+  min-height: 52px;
+  border-radius: 999px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+
+.btn:active { transform: scale(0.98); }
+
+.btn-wa { background: var(--wa); color: #04310f; }
+.btn-wa:hover { filter: brightness(1.06); }
+
+/* --- Secciones ---------------------------------------------------------- */
+
+.seccion {
+  max-width: var(--ancho);
+  margin: 0 auto;
+  padding-block: 48px;
+  padding-inline: 20px;
+}
+
+.seccion-alt { background: var(--fondo-alt); max-width: none; }
+.seccion-alt > * { max-width: var(--ancho); margin-inline: auto; }
+
+.seccion h2 {
+  font-size: clamp(1.4rem, 4.5vw, 1.9rem);
+  font-weight: 750;
+  letter-spacing: -0.015em;
+  margin-bottom: 24px;
+  color: var(--marca-oscuro);
+}
+
+.intro p { margin: 0; font-size: 1.1rem; color: var(--tinta-suave); }
+
+/* --- Servicios ---------------------------------------------------------- */
+
+.servicios { list-style: none; margin: 0; padding: 0; }
+
+.servicio {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--borde);
+}
+.servicio:last-child { border-bottom: 0; }
+
+.servicio-fila {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.servicio h3 { font-size: 1.05rem; font-weight: 650; }
+
+.precio {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--marca);
+  white-space: nowrap;
+}
+
+.servicio-desc { margin: 4px 0 0; font-size: 0.95rem; color: var(--tinta-suave); }
+
+/* --- Galería ------------------------------------------------------------ */
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.galeria figure { margin: 0; }
+
+.galeria img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radio);
+}
+
+/* --- Reseñas ------------------------------------------------------------ */
+
+.resenas { display: grid; gap: 16px; }
+
+blockquote {
+  margin: 0;
+  padding: 20px;
+  background: #fff;
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+}
+
+blockquote p { margin: 0; font-style: italic; }
+
+blockquote cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-weight: 650;
+  font-size: 0.9rem;
+  color: var(--tinta-suave);
+}
+
+/* --- Contacto ----------------------------------------------------------- */
+
+.contacto { display: grid; gap: 28px; }
+
+.datos-contacto { list-style: none; margin: 0; padding: 0; }
+.datos-contacto li { padding: 6px 0; }
+.datos-contacto a { color: var(--marca); }
+
+.horario h3 { font-size: 1.05rem; margin-bottom: 10px; }
+.horario dl { margin: 0; }
+
+.horario-fila {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--borde);
+}
+.horario-fila:last-child { border-bottom: 0; }
+
+.horario dt { color: var(--tinta-suave); }
+.horario dd { margin: 0; font-weight: 650; }
+
+.mapa {
+  max-width: var(--ancho);
+  margin: 24px auto 0;
+  padding-inline: 20px;
+}
+
+.mapa iframe {
+  width: 100%;
+  height: 280px;
+  border: 0;
+  border-radius: var(--radio);
+}
+
+.redes { text-align: center; margin-top: 20px; }
+.redes a { color: var(--marca); font-weight: 650; text-transform: capitalize; }
+
+/* --- Cierre y pie ------------------------------------------------------- */
+
+.cierre { text-align: center; }
+.cierre p { color: var(--tinta-suave); margin: 0; }
+
+footer {
+  padding: 28px 20px 90px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--tinta-suave);
+  border-top: 1px solid var(--borde);
+}
+
+footer p { margin: 0; }
+
+/* --- Botón flotante de WhatsApp ----------------------------------------- */
+
+.wa-flotante {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--wa);
+  color: #04310f;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.22);
+  transition: transform 0.15s ease;
+}
+
+.wa-flotante:hover { transform: scale(1.06); }
+
+/* --- Escritorio --------------------------------------------------------- */
+
+@media (min-width: 720px) {
+  .hero { padding: 96px 20px 84px; }
+  .contacto { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .resenas { grid-template-columns: 1fr 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
