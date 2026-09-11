@@ -1,8 +1,8 @@
 {
-  "name": "cotizapro",
+  "name": "videolargo",
   "version": "0.1.0",
   "private": true,
-  "description": "CotizaPro — crea cotizaciones y presupuestos profesionales en menos de 60 segundos, genera un PDF y compártelos con tus clientes.",
+  "description": "VideoLargo — planifica vídeos largos (8 minutos o más) con NotebookLM: reparte tus fuentes en bloques y genera las instrucciones personalizadas listas para pegar.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,8 +10,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@supabase/ssr": "^0.12.4",
-    "@supabase/supabase-js": "^2.112.3",
     "next": "14.2.15",
     "react": "18.3.1",
     "react-dom": "18.3.1"
