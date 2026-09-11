@@ -448,6 +448,55 @@ PLANOS = [
 ]
 
 
+def escribir_version_agente(trozos: list) -> None:
+    """Versión para pegar de una vez en un agente generador.
+
+    El archivo largo repite el bloque de estilo y la descripción de los
+    personajes en cada uno de los ochenta y nueve prompts. Para una persona
+    eso es cómodo, porque puede copiar un prompt suelto; para un agente son
+    veinticinco mil caracteres de lastre que además invitan a que se salte
+    los últimos. Aquí el estilo y los personajes se declaran una sola vez y
+    cada escena queda en una línea.
+    """
+    corto = {VICTORIA: "VICTORIA", ALBERTO: "ALBERTO", MODERNO: "HOMBRE"}
+
+    victorianos = [i for i, (b, _, _) in enumerate(PLANOS, 1)
+                   if EPOCA_POR_BLOQUE.get(b) == EPOCA_VICTORIANA
+                   and i not in PLANOS_MIXTOS]
+    mixtos = ", ".join(str(i) for i in sorted(PLANOS_MIXTOS))
+
+    cabecera = f"""Genera {len(PLANOS)} imágenes, una por cada escena numerada de la lista.
+Cada imagen en formato horizontal 16:9 y SIN NINGÚN TEXTO dentro de la imagen.
+
+ESTILO, aplícalo a las {len(PLANOS)} sin excepción:
+{ESTILO}.
+
+PERSONAJES RECURRENTES. Donde una escena diga VICTORIA, ALBERTO o HOMBRE,
+usa exactamente esta descripción, sin variarla, para que sea siempre la
+misma persona en todas las imágenes donde aparezca:
+VICTORIA = {VICTORIA}.
+ALBERTO = {ALBERTO}.
+HOMBRE = {MODERNO}.
+
+ÉPOCA, es importante y no la deduzcas de la escena:
+Las escenas {victorianos[0]} a {victorianos[-1]} son victorianas de mil ochocientos sesenta,
+sin ningún objeto moderno en el encuadre.
+El resto son contemporáneas actuales, sin ningún elemento de época.
+Las escenas {mixtos} son la excepción: contraponen las dos épocas en un
+encuadre partido por la mitad.
+
+ESCENAS"""
+
+    lineas = [cabecera, ""]
+    for i, (_, _, escena) in enumerate(PLANOS, 1):
+        for largo, etiqueta in corto.items():
+            escena = escena.replace(largo, etiqueta)
+        lineas.append(f"{i}. {escena}.")
+
+    (AQUI / "prompts-agente.txt").write_text(
+        "\n".join(lineas) + "\n", encoding="utf-8")
+
+
 def main():
     texto = GUION.read_text(encoding="utf-8").strip()
     parrafos = [p.strip() for p in texto.split("\n\n") if p.strip()]
@@ -487,6 +536,8 @@ def main():
             f"{epoca + '. ' if epoca else ''}{ESTILO}.\n")
     (AQUI / "prompts-imagenes.txt").write_text(
         "\n".join(lineas), encoding="utf-8")
+
+    escribir_version_agente(trozos)
 
     largos = [(i, len(t.split()) / ritmo)
               for i, t in enumerate(trozos, 1)
