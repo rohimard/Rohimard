@@ -23,23 +23,24 @@ detalle del fondo (una vela roja o un tapiz), fotografía cinematográfica
 hiperrealista, full frame 35mm, grano fílmico sutil, máximo detalle, 8K, sin texto en
 pantalla, sin letras, sin números, 16:9, 1280x720.
 
-MONTAJE DEL TEXTO (cuando devuelvas la imagen generada)
+MONTAJE DEL TEXTO — YA HECHO
 =========================================================
-config.json para node scripts/render_thumbnail.js:
-{
-  "image": "base.jpg",
-  "font": "../../kit-produccion/assets/Anton-Regular.woff2",
-  "out": "miniatura",
-  "number": "40",
-  "line1": "AÑOS VESTIDA",
-  "line2": "DE LUTO",
-  "side": "right",
-  "accent": "#FFD400",
-  "alarm": "#E10600"
-}
-Nota: "side" está puesto en "right" porque el prompt deja el espacio negativo a la
-derecha (la cara mirando desde el tercio izquierdo). Confirmar mirando la imagen real
-antes de renderizar, por si el generador la compone al revés.
+La configuración vive en miniatura-config.json, al lado de este archivo.
+El render se lanza solo: el workflow .github/workflows/miniatura.yml lee la
+URL de la imagen base de canal-youtube/.miniatura-url y compone el titular
+en un runner. Aquí no se puede hacer en local porque los servidores donde
+Artlist deja la imagen generada están bloqueados por la salida de red, y
+porque el render necesita un Chromium que este entorno no trae.
+
+Estado: base.jpg, miniatura.png y miniatura.jpg generadas y en el repo.
+
+Base generada con Artlist, modelo Nano Banana 2 a 2K.
+"side" quedó en "right" y es correcto: la imagen salió con la cara en el
+tercio izquierdo y el espacio negativo a la derecha, como pedía el prompt.
+Comprobado sobre la imagen real, no supuesto.
+
+Para probar otro titular no hace falta regenerar la imagen: cambiar number,
+line1 y line2 en miniatura-config.json y volver a empujar la rama.
 
 VARIANTES DE TITULAR PARA A/B (mismo prompt de imagen, cambia solo el texto)
 ===============================================================================
