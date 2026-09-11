@@ -53,6 +53,8 @@ jobs:
         with:
           python-version: '3.11'
 
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
       - run: pip install --quiet edge-tts
 
       - name: Muestras de cada narrador latino
