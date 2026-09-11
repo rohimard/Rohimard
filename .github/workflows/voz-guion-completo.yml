@@ -1,10 +1,15 @@
-# Narra un guión entero con la cadena Piper -> Chatterbox, la que se eligió.
+# Narra un guión entero con la cadena Piper -> Chatterbox, repartido entre
+# varios runners.
 #
-# Chatterbox pierde calidad por encima de unos trescientos caracteres, así
-# que el guión se trocea por frases y se concatena. Dos cuidados para que
-# no se note el corte: todos los trozos usan la misma referencia, y la
-# semilla se fija en cada uno, porque si no el timbre va derivando y a
-# mitad del vídeo ya no es la misma voz.
+# Chatterbox va a CPU pura, así que un guión de unos cuatro mil seiscientos
+# caracteres tarda casi una hora en un solo runner. Los trozos no dependen
+# unos de otros, de modo que se reparten entre seis trabajos en paralelo y
+# baja a unos quince minutos. En un repo público los trabajos en paralelo
+# siguen sin costar nada.
+#
+# La referencia de voz no se pasa entre trabajos: Piper es determinista, así
+# que cada runner la regenera idéntica en diez segundos. Sale más barato que
+# moverla de un lado a otro.
 name: voz-guion-completo
 
 on:
@@ -14,6 +19,7 @@ on:
       - claude/viral-youtube-video-ideas-luqj2m
     paths:
       - .github/workflows/voz-guion-completo.yml
+      - canal-youtube/narrar-trozos.py
       - canal-youtube/.guion-disparo
 
 permissions:
@@ -28,7 +34,12 @@ env:
 jobs:
   narrar:
     runs-on: ubuntu-latest
-    timeout-minutes: 330
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      # Si cambias el número de partes, cambia también el --de de abajo.
+      matrix:
+        parte: [0, 1, 2, 3, 4, 5]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -44,8 +55,8 @@ jobs:
             "$PIPER_BASE/es/es_MX/claude/high/es_MX-claude-high.onnx"
           curl -sSL -o ref.onnx.json \
             "$PIPER_BASE/es/es_MX/claude/high/es_MX-claude-high.onnx.json"
-          # La misma frase que se usó para elegir la voz, para que el
-          # timbre del vídeo entero sea el de la muestra aprobada.
+          # La misma frase con la que se eligió la voz, para que el timbre
+          # del vídeo entero sea el de la muestra aprobada.
           printf '%s %s\n' \
             "Es diciembre de mil ochocientos sesenta y uno y estás en el castillo de Windsor. El hombre con el que llevas veintiún años casada acaba de morir de fiebre tifoidea." \
             "Es diciembre de mil ochocientos sesenta y uno y estás en el castillo de Windsor. El hombre con el que llevas veintiún años casada acaba de morir de fiebre tifoidea." \
@@ -55,50 +66,41 @@ jobs:
 
       - run: pip install --quiet chatterbox-tts
 
-      - name: Narrar el guión
+      - name: Narrar la parte ${{ matrix.parte }}
         run: |
-          mkdir -p trozos
-          python - <<'PY'
-          import os
-          import re
-          import torch
-          import torchaudio as ta
-          from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+          python canal-youtube/narrar-trozos.py "$GUION" \
+                 --parte ${{ matrix.parte }} --de 6
 
-          MAX = 260   # Chatterbox se degrada por encima de ~300.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: trozos-${{ matrix.parte }}
+          path: trozos/
+          retention-days: 1
 
-          def trocear(texto):
-              """Agrupa frases enteras sin pasar del límite del modelo."""
-              frases = re.split(r"(?<=[.!?])\s+", re.sub(r"\s+", " ", texto).strip())
-              trozos, actual = [], ""
-              for f in frases:
-                  cand = (actual + " " + f).strip()
-                  if len(cand) > MAX and actual:
-                      trozos.append(actual)
-                      actual = f
-                  else:
-                      actual = cand
-              if actual:
-                  trozos.append(actual)
-              return trozos
+  unir:
+    needs: narrar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
 
-          texto = open(os.environ["GUION"], encoding="utf-8").read()
-          trozos = trocear(texto)
-          print(f"{len(trozos)} trozos, {len(texto)} caracteres")
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: trozos-*
+          merge-multiple: true
+          path: trozos
 
-          modelo = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
-          for i, trozo in enumerate(trozos, 1):
-              torch.manual_seed(1861)   # el timbre no debe derivar entre trozos
-              wav = modelo.generate(
-                  trozo,
-                  language_id="es",
-                  audio_prompt_path="ref-piper.wav",
-                  exaggeration=0.4,
-                  cfg_weight=0.5,
-              )
-              ta.save(f"trozos/{i:03d}.wav", wav, modelo.sr)
-              print(f"  {i}/{len(trozos)}  {len(trozo)} car.")
-          PY
+      - name: Comprobar que no falta ningún trozo
+        run: |
+          # Los nombres van numerados desde 001, así que un hueco se ve
+          # comparando el total con el número más alto.
+          hay=$(ls trozos/*.wav | wc -l)
+          alto=$(ls trozos/*.wav | sort | tail -1 | tr -dc '0-9' | sed 's/^0*//')
+          echo "$hay trozos, el último es el $alto"
+          if [ "$hay" -ne "$alto" ]; then
+            echo "::error::faltan trozos, el audio saldría con huecos"
+            exit 1
+          fi
 
       - name: Unir y rematar
         run: |
@@ -107,7 +109,7 @@ jobs:
                  -ar 24000 -ac 1 silencio.wav
           : > lista.txt
           for f in $(ls trozos/*.wav | sort); do
-            echo "file '$PWD/$f'"        >> lista.txt
+            echo "file '$PWD/$f'"           >> lista.txt
             echo "file '$PWD/silencio.wav'" >> lista.txt
           done
           ffmpeg -y -v error -f concat -safe 0 -i lista.txt \
