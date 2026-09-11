@@ -1,46 +1,39 @@
-# CotizaPro
+# VideoLargo
 
-Micro-SaaS para trabajadores independientes y pequeños negocios (electricistas,
-plomeros, técnicos, pintores, fotógrafos, jardineros…) que permite **crear una
-cotización profesional en menos de 60 segundos**, generar un PDF y compartirla
-con el cliente.
+Planificador de vídeos largos para **NotebookLM**. Traduce una duración objetivo
+—8 minutos, por ejemplo— a un plan de bloques y escribe las instrucciones
+personalizadas listas para pegar en el panel Studio.
 
-> Flujo del producto: **Crear cotización → Generar PDF → Compartir → Seguimiento**
+## El problema
 
-## Desplegar en 1 clic
+NotebookLM no tiene control de duración. Los Video Overviews salen de donde
+salen: el formato **Short** está fijado en ~60 s, **Cinematic** ronda los 2-3
+minutos y **Explainer** es el único que llega a 5-10, con mucha varianza. Pedir
+«hazlo más largo» en las instrucciones añade un par de minutos y poco más.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frohimard%2FRohimard%2Ftree%2Fclaude%2Fcotizapro-initial-phase-lk7k6k&project-name=cotizapro&repository-name=cotizapro)
+Lo que sí mueve la aguja es escribir la instrucción con dos cosas dentro:
 
-Pulsa el botón, inicia sesión con GitHub y Vercel clona el proyecto y lo publica
-con una URL pública en ~1 minuto. **No necesitas configurar nada** (arranca en
-modo demo). Detalles en [`DEPLOY.md`](./DEPLOY.md).
+- **a quién le habla el vídeo**, que obliga a explicar en vez de resumir, y
+- **un presupuesto de palabras explícito**, que es la única forma de expresar
+  una duración que el modelo entiende.
 
-## Estado: Fase 2 (datos reales y autenticación)
+Y cuando la duración objetivo supera lo que el formato da de sí, repartirla en
+bloques y unirlos después.
 
-La app funciona con **usuarios y datos reales** cuando Supabase está configurado,
-y conserva un **modo demo** como fallback cuando no lo está.
+## Qué hace la app
 
-- ✅ Landing page (hero, problema, solución, cómo funciona, CTA)
-- ✅ Sistema de diseño (Tailwind + tokens de marca)
-- ✅ **Supabase Auth real** en login y registro (+ modo demo)
-- ✅ **Base de datos PostgreSQL** con RLS (`profiles`, `clients`, `quotes`, `quote_items`)
-- ✅ **Protección de rutas** con middleware (`/dashboard/*` requiere sesión)
-- ✅ Perfil del negocio (`/dashboard/configuracion`)
-- ✅ Clientes: crear, editar, eliminar, buscar (`/dashboard/clientes`)
-- ✅ Cotizaciones reales: crear, guardar, numeración única, listar y ver detalle
-- ✅ Dashboard con estadísticas y cotizaciones **reales** (+ estado vacío)
-- ✅ Responsive (prioridad móvil: 360 / 390 / 412 px, tablet y desktop)
+1. Lees tu duración objetivo y tu índice (un punto por línea).
+2. Calcula el presupuesto de palabras a 145 palabras/minuto, el ritmo de
+   narración medido sobre Video Overviews reales.
+3. Reparte los puntos en tantos bloques como el formato puede sostener.
+4. Escribe la instrucción de cada bloque **dentro del límite de caracteres de tu
+   plan** (500 en gratis, 10.000 en Plus), priorizando lo que no puede faltar y
+   añadiendo las frases que alargan la narración mientras quepan.
+5. Te avisa cuando el plan que has pedido no es realista.
 
-> **Migraciones SQL** en `supabase/migrations/` — ver [`supabase/README.md`](./supabase/README.md).
+Todo ocurre en el navegador. No hay backend, ni base de datos, ni claves.
 
-## Tecnología
-
-- [Next.js 14](https://nextjs.org/) (App Router)
-- TypeScript
-- Tailwind CSS
-- Supabase (Auth) — opcional en Fase 1
-
-## Puesta en marcha
+## Arrancar
 
 ```bash
 npm install
@@ -49,47 +42,18 @@ npm run dev
 
 Abre http://localhost:3000
 
-### Configurar Supabase (opcional)
-
-Sin credenciales, la app corre en **modo demo**: los formularios de login y
-registro te llevan directo al dashboard de ejemplo.
-
-Para activar el login real:
-
-1. Crea un proyecto en [supabase.com](https://supabase.com).
-2. En _Project Settings → API_ copia la **Project URL** y la **anon public key**.
-3. Copia `.env.local.example` a `.env.local` y rellena:
-
-   ```env
-   NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGci...
-   ```
-
-4. Reinicia `npm run dev`.
-
 ## Estructura
 
-```
-app/
-  page.tsx                          Landing page
-  login/  register/                 Autenticación
-  dashboard/
-    layout.tsx                      Shell con navegación responsive
-    page.tsx                        Dashboard (stats + cotizaciones demo)
-    cotizaciones/nueva/page.tsx     Formulario de nueva cotización
-components/
-  site/        Navbar, Footer, QuoteMockup
-  auth/        AuthShell, AuthForm
-  dashboard/   DashboardNav, StatCard, EstadoBadge
-  cotizacion/  NuevaCotizacionForm
-  ui/          Logo, icons
-lib/
-  demo.ts      Datos de demostración
-  format.ts    Formato de moneda
-  supabase/    Clientes de Supabase (browser/server) + config
-```
+| Ruta | Qué contiene |
+| --- | --- |
+| `lib/plan.ts` | Toda la lógica: presupuesto de palabras, reparto en bloques, redacción de instrucciones y avisos. |
+| `components/Planificador.tsx` | Formulario y resultados, en cliente. |
+| `components/Montaje.tsx` | Los pasos posteriores, dentro de NotebookLM y en el editor. |
 
-## Fuera de alcance en Fase 1
+## Límites conocidos
 
-Stripe/pagos, IA, WhatsApp automático, generación real de PDF, CRM, inventario,
-facturación, contabilidad y automatizaciones. Llegarán en fases posteriores.
+El plan hace la duración probable, no exacta: NotebookLM puede devolver un vídeo
+más corto del pedido y conviene generar un par de veces y quedarse con la toma
+más larga. Por encima de ~15 minutos el camino deja de ser el Video Overview —
+el Audio Overview aguanta mucho más metraje y se le pueden montar imágenes
+encima.
