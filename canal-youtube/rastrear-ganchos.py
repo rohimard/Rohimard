@@ -60,16 +60,24 @@ def buscar(consulta: str) -> list:
     return salida
 
 
-def detalles(video_id: str) -> dict:
+# YouTube bloquea el cliente web desde IP de centros de datos, que es lo que
+# es un runner. Pedir el cliente de televisor suele esquivarlo.
+CLIENTES = ["--extractor-args", "youtube:player_client=tv,web_safari,android"]
+
+
+def detalles(video_id: str, ruidoso: bool = False) -> dict:
     """La búsqueda plana no trae suscriptores; hay que pedir el vídeo."""
     cmd = [
         "yt-dlp", f"https://www.youtube.com/watch?v={video_id}",
-        "--skip-download", "--dump-json", "--no-warnings",
+        "--skip-download", "--dump-json", "--no-warnings", *CLIENTES,
     ]
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
     try:
         return json.loads(r.stdout)
     except json.JSONDecodeError:
+        if ruidoso:
+            print(f"    [{video_id}] sin datos: "
+                  f"{(r.stderr or 'sin stderr').strip()[:300]}")
         return {}
 
 
@@ -79,7 +87,7 @@ def subtitulos(video_id: str, carpeta: Path) -> str:
         "yt-dlp", f"https://www.youtube.com/watch?v={video_id}",
         "--skip-download", "--write-subs", "--write-auto-subs",
         "--sub-langs", "es.*", "--sub-format", "vtt",
-        "--convert-subs", "vtt", "--no-warnings",
+        "--convert-subs", "vtt", "--no-warnings", *CLIENTES,
         "-o", str(carpeta / "%(id)s.%(ext)s"),
     ]
     subprocess.run(cmd, capture_output=True, text=True, timeout=180)
@@ -132,9 +140,15 @@ def main():
 
     print(f"\n{len(candidatos)} candidatos con más de {VISTAS_MIN} vistas\n")
 
-    ganadores = []
-    for c in sorted(candidatos, key=lambda x: -x["vistas"])[:60]:
-        d = detalles(c["id"])
+    ganadores, sin_datos = [], 0
+    for n, c in enumerate(sorted(candidatos, key=lambda x: -x["vistas"])[:60]):
+        # Los primeros fallos se cuentan en voz alta: si YouTube está
+        # bloqueando al runner, hay que verlo en el log y no achacarlo
+        # a que el nicho no tenga ganadores.
+        d = detalles(c["id"], ruidoso=(n < 3))
+        if not d:
+            sin_datos += 1
+            continue
         subs = d.get("channel_follower_count") or 0
         if not subs or subs > SUBS_MAX:
             continue
@@ -176,6 +190,9 @@ def main():
             f.write(f"> {g['gancho']}\n\n---\n\n")
 
     print(f"\n{len(ganadores)} ganadores guardados")
+    if sin_datos:
+        print(f"{sin_datos} vídeos sin datos: si son casi todos, "
+              f"YouTube está bloqueando al runner, no es el nicho")
 
 
 if __name__ == "__main__":
