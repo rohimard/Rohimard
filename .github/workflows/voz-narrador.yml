@@ -4,6 +4,10 @@
 # de red filtrada y casi todos los servicios de voz están bloqueados. Un
 # runner de Actions sí tiene internet abierto, y en un repo público los
 # minutos son gratis. El audio vuelve como artefacto del run.
+#
+# Se dispara tocando canal-youtube/.voz-disparo y empujando la rama. Podría
+# ser un workflow_dispatch, pero GitHub solo registra esos cuando el archivo
+# ya vive en la rama por defecto, y aquí trabajamos en una rama aparte.
 name: voz-narrador
 
 on:
@@ -18,11 +22,21 @@ on:
       completo:
         description: '"si" para narrar el guión entero, "no" para solo muestras'
         default: 'no'
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-narrador.yml
+      - canal-youtube/.voz-disparo
 
 permissions:
   contents: read
 
 env:
+  # En un push no hay inputs, así que cada uno cae a su valor por defecto.
+  GUION: ${{ inputs.guion || 'canal-youtube/producciones/07-reina-victoria-duelo/guion-voz.txt' }}
+  MUESTRA: ${{ inputs.muestra || 'Es diciembre de mil ochocientos sesenta y uno y estás en el castillo de Windsor. El hombre con el que llevas veintiún años casada acaba de morir de fiebre tifoidea.' }}
+  COMPLETO: ${{ inputs.completo || 'no' }}
   # Mismo acabado que veníamos usando: aire en agudos, algo de cuerpo,
   # de-ess suave y volumen de emisión.
   ACABADO: highshelf=f=6500:g=2,deesser=i=0.25:m=0.5:f=0.55,equalizer=f=200:t=q:w=1.2:g=1.5,loudnorm=I=-16:TP=-1.5:LRA=11
@@ -42,8 +56,6 @@ jobs:
       - run: pip install --quiet edge-tts
 
       - name: Muestras de cada narrador latino
-        env:
-          MUESTRA: ${{ inputs.muestra }}
         run: |
           mkdir -p salida
           for v in es-MX-JorgeNeural es-US-AlonsoNeural es-CO-GonzaloNeural \
@@ -59,9 +71,9 @@ jobs:
           done
 
       - name: Guión completo
-        if: inputs.completo == 'si'
+        if: ${{ (inputs.completo || 'no') == 'si' }}
         run: |
-          edge-tts --voice es-MX-JorgeNeural --file "${{ inputs.guion }}" \
+          edge-tts --voice es-MX-JorgeNeural --file "$GUION" \
                    --write-media salida/cruda-completo.mp3
           ffmpeg -y -v error -i salida/cruda-completo.mp3 \
                  -af "$ACABADO" -codec:a libmp3lame -qscale:a 2 \
@@ -98,8 +110,6 @@ jobs:
       - run: pip install --quiet chatterbox-tts
 
       - name: Narrar con la voz de Kevin
-        env:
-          MUESTRA: ${{ inputs.muestra }}
         run: |
           mkdir -p salida
           python - <<'PY'
