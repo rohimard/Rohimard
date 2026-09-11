@@ -48,7 +48,11 @@ jobs:
 
       - name: Render del titular
         run: |
-          npm install --silent playwright-core
+          # render_thumbnail.js compone con Chromium sin cabeza, y el runner
+          # no trae ninguno. playwright-core no descarga navegador por
+          # diseño, así que hay que pedirlo aparte.
+          npm install --silent playwright-core playwright
+          npx playwright install --with-deps chromium
           node canal-youtube/kit-produccion/scripts/render_thumbnail.js \
                "$PRODUCCION/miniatura-config.json"
           ls -la "$PRODUCCION"/miniatura.*
