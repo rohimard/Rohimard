@@ -1,16 +1,15 @@
-# Narra el guión con Azure AI Speech, la voz Alonso.
+# Narra el guión con Azure AI Speech, la voz Jorge en alta definición.
 #
-# Es la misma voz que sacábamos por edge-tts, pero entrando por la puerta
-# oficial: con clave, con términos aceptados y con derecho a publicar en un
-# canal monetizado. La capa gratuita F0 da medio millón de caracteres al
-# mes, unos cien vídeos.
+# Es la misma familia de voces que sacábamos por edge-tts, pero entrando por
+# la puerta oficial, con clave y con derecho a publicar en un canal
+# monetizado. La capa gratuita F0 da medio millón de caracteres al mes.
 #
 # Corre aquí y no en local porque el entorno donde trabaja Claude tiene
 # bloqueada la salida hacia Azure, y porque así la clave vive en los
 # secretos del repo y no pasa por la conversación.
 #
 # Azure sintetiza hasta diez minutos de audio por petición y el guión entero
-# son menos de cinco, así que va de una sola vez: segundos, no minutos.
+# son menos de seis, así que va de una sola vez: segundos, no minutos.
 name: voz-azure
 
 on:
@@ -28,7 +27,9 @@ permissions:
 env:
   GUION: canal-youtube/producciones/07-reina-victoria-duelo/guion-voz.txt
   DESTINO: canal-youtube/producciones/07-reina-victoria-duelo
-  VOZ: es-US-AlonsoNeural
+  # Las voces HD llevan dos puntos en el nombre. Cuidado al usarlo en rutas
+  # de archivo: ffmpeg lee lo anterior a los dos puntos como un protocolo.
+  VOZ: es-MX-Jorge:DragonHDLatestNeural
   ACABADO: highshelf=f=6500:g=2,deesser=i=0.25:m=0.5:f=0.55,equalizer=f=200:t=q:w=1.2:g=1.5,loudnorm=I=-16:TP=-1.5:LRA=11
 
 jobs:
@@ -36,16 +37,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      # Dos registros para elegir de oído. El de documental baja un poco el
-      # tono y el ritmo, que es hacia donde tira la identidad del canal.
+      # DragonHD no admite <prosody>, así que el ritmo no se toca con
+      # velocidad ni tono sino con la pausa entre párrafos, que sí admite.
       matrix:
         include:
-          - clave: alonso-natural
-            rate: '0%'
-            pitch: '0%'
-          - clave: alonso-documental
-            rate: '-6%'
-            pitch: '-4%'
+          - clave: jorge-hd-normal
+            pausa: '350ms'
+          - clave: jorge-hd-pausado
+            pausa: '700ms'
     steps:
       - uses: actions/checkout@v4
 
@@ -64,27 +63,30 @@ jobs:
         env:
           CLAVE: ${{ secrets.AZURE_SPEECH_KEY }}
           REGION: ${{ secrets.AZURE_SPEECH_REGION }}
-          RATE: ${{ matrix.rate }}
-          PITCH: ${{ matrix.pitch }}
+          PAUSA: ${{ matrix.pausa }}
         run: |
           python3 - <<'PY'
           import os
+          import sys
+          import urllib.error
           import urllib.request
           from xml.sax.saxutils import escape
 
           texto = open(os.environ["GUION"], encoding="utf-8").read().strip()
-          # Los párrafos del guión son las pausas largas del montaje.
-          parrafos = "".join(
+          pausa = os.environ["PAUSA"]
+
+          # Cada párrafo del guión es una pausa larga del montaje. El
+          # <break> entre ellos es el único control de ritmo que deja HD.
+          parrafos = f'<break time="{pausa}"/>'.join(
               f"<p>{escape(p.strip())}</p>"
               for p in texto.split("\n\n") if p.strip()
           )
           ssml = (
-              "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' "
+              "<speak version='1.0' "
+              "xmlns='http://www.w3.org/2001/10/synthesis' "
               "xml:lang='es-MX'>"
-              f"<voice name='{os.environ['VOZ']}'>"
-              f"<prosody rate='{os.environ['RATE']}' pitch='{os.environ['PITCH']}'>"
-              f"{parrafos}"
-              "</prosody></voice></speak>"
+              f"<voice name='{os.environ['VOZ']}'>{parrafos}</voice>"
+              "</speak>"
           )
 
           region = (os.environ.get("REGION") or "eastus").strip()
@@ -94,13 +96,21 @@ jobs:
               headers={
                   "Ocp-Apim-Subscription-Key": os.environ["CLAVE"],
                   "Content-Type": "application/ssml+xml",
-                  "X-Microsoft-OutputFormat": "audio-24khz-160kbitrate-mono-mp3",
+                  "X-Microsoft-OutputFormat":
+                      "audio-24khz-160kbitrate-mono-mp3",
                   "User-Agent": "historia-incomoda",
               },
               method="POST",
           )
-          with urllib.request.urlopen(peticion, timeout=180) as r:
-              audio = r.read()
+          try:
+              with urllib.request.urlopen(peticion, timeout=300) as r:
+                  audio = r.read()
+          except urllib.error.HTTPError as e:
+              # Azure explica en el cuerpo qué elemento SSML rechazó, y sin
+              # eso un fallo de voz HD es indistinguible de uno de clave.
+              print(f"Azure devolvió {e.code}: {e.read().decode(errors='replace')[:500]}")
+              sys.exit(1)
+
           open("crudo.mp3", "wb").write(audio)
           print(f"{len(texto)} caracteres -> {len(audio)/1024:.0f} KB")
           PY
@@ -120,7 +130,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git add -f "$CARPETA"
-          git commit -q -m 'Narracion con Azure ${{ matrix.clave }}' || exit 0
+          git commit -q -m 'Narracion con ${{ matrix.clave }}' || exit 0
           for i in 1 2 3 4 5; do
             git pull --rebase -q origin "$GITHUB_REF_NAME" && \
               git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
