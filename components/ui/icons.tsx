@@ -120,3 +120,11 @@ export const IconMenu = (p: IconProps) => (
     <path d="M4 7h16M4 12h16M4 17h16" />
   </svg>
 );
+
+export const IconSparkles = (p: IconProps) => (
+  <svg {...base(p)}>
+    <path d="M12 3.5 13.6 8l4.4 1.6L13.6 11 12 15.5 10.4 11 6 9.6 10.4 8 12 3.5Z" />
+    <path d="M18.5 15.5 19.2 17.4l1.9.7-1.9.7-.7 1.9-.7-1.9-1.9-.7 1.9-.7.7-1.9Z" />
+    <path d="M5.5 14.5 6 15.9l1.4.5-1.4.5-.5 1.4-.5-1.4-1.4-.5 1.4-.5.5-1.4Z" />
+  </svg>
+);

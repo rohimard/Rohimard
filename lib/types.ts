@@ -14,6 +14,7 @@ export interface Profile {
   tax_rate: number;
   quote_prefix: string;
   quote_next_number: number;
+  plan: Plan;
   created_at: string;
   updated_at: string;
 }
@@ -68,6 +69,18 @@ export interface DashboardStats {
   enviadas: number;
   aceptadas: number;
   totalCotizado: number;
+}
+
+/** Plan de suscripción del usuario. */
+export type Plan = "free" | "pro";
+
+/** Estado de la cuota mensual de IA (devuelto por las funciones de Supabase). */
+export interface AiCreditStatus {
+  allowed: boolean;
+  used: number;
+  limit: number;
+  remaining: number;
+  plan: Plan;
 }
 
 /** Resultado estándar de las Server Actions. */

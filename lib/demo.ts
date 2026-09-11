@@ -25,6 +25,7 @@ export const demoProfile: Profile = {
   tax_rate: 0,
   quote_prefix: "COT-",
   quote_next_number: 5,
+  plan: "free",
   created_at: "2026-08-01",
   updated_at: "2026-08-01",
 };

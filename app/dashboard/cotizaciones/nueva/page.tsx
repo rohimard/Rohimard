@@ -3,6 +3,8 @@ import Link from "next/link";
 import { NuevaCotizacionForm } from "@/components/cotizacion/NuevaCotizacionForm";
 import { getDataContext } from "@/lib/data/context";
 import { getProfile, listClients } from "@/lib/data/queries";
+import { getAiCreditsAction } from "@/lib/actions/ai";
+import { isAiConfigured } from "@/lib/ai/config";
 import { currencySymbol } from "@/lib/format";
 
 export const metadata: Metadata = {
@@ -11,9 +13,10 @@ export const metadata: Metadata = {
 
 export default async function NuevaCotizacionPage() {
   const ctx = await getDataContext();
-  const [profile, clients] = await Promise.all([
+  const [profile, clients, aiCredits] = await Promise.all([
     getProfile(ctx),
     listClients(ctx),
+    getAiCreditsAction(),
   ]);
 
   return (
@@ -46,6 +49,8 @@ export default async function NuevaCotizacionPage() {
         defaultTaxRate={profile.tax_rate ?? 0}
         symbol={currencySymbol(profile.currency)}
         demo={ctx.demo}
+        aiEnabled={isAiConfigured && !ctx.demo}
+        aiCredits={aiCredits}
       />
     </div>
   );

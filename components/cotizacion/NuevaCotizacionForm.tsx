@@ -7,7 +7,8 @@ import { clienteDemo, itemsDemo } from "@/lib/demo";
 import { formatCurrency, round2 } from "@/lib/format";
 import { createQuoteAction } from "@/lib/actions/quotes";
 import { IconArrowRight, IconPlus, IconTrash } from "@/components/ui/icons";
-import type { Client } from "@/lib/types";
+import { AsistenteIA, type BorradorAplicado } from "./AsistenteIA";
+import type { AiCreditStatus, Client } from "@/lib/types";
 
 interface Item {
   id: string;
@@ -33,11 +34,16 @@ export function NuevaCotizacionForm({
   defaultTaxRate,
   symbol,
   demo,
+  aiEnabled,
+  aiCredits,
 }: {
   clients: Client[];
   defaultTaxRate: number;
   symbol: string;
   demo: boolean;
+  /** El asistente de IA está configurado y disponible para este usuario. */
+  aiEnabled: boolean;
+  aiCredits: AiCreditStatus | null;
 }) {
   const router = useRouter();
   const [pending, startTransition] = useTransition();
@@ -92,6 +98,25 @@ export function NuevaCotizacionForm({
   }
   function removeItem(id: string) {
     setItems((prev) => prev.filter((it) => it.id !== id));
+  }
+
+  /** Vuelca el borrador de la IA: descarta las filas vacías y añade las generadas. */
+  function aplicarBorrador({ serviceDescription, items: draft }: BorradorAplicado) {
+    if (serviceDescription) setServicio(serviceDescription);
+    const nuevos = draft.map((it) => ({
+      id: nextId(),
+      descripcion: it.description,
+      cantidad: it.quantity,
+      precioUnitario: it.unit_price,
+    }));
+    setItems((prev) => {
+      // Conserva los ítems que el usuario ya había llenado a mano.
+      const propios = prev.filter(
+        (it) => it.descripcion.trim() !== "" || it.precioUnitario > 0,
+      );
+      return [...propios, ...nuevos];
+    });
+    setError(null);
   }
 
   function handleSubmit(e: React.FormEvent) {
@@ -153,6 +178,12 @@ export function NuevaCotizacionForm({
           {error}
         </div>
       )}
+
+      <AsistenteIA
+        enabled={aiEnabled}
+        credits={aiCredits}
+        onApply={aplicarBorrador}
+      />
 
       <div className="grid gap-6 lg:grid-cols-3">
         {/* Columna izquierda */}

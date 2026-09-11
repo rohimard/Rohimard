@@ -35,6 +35,35 @@ Cuando quieras el login/registro reales (Fase 2):
 
 Las credenciales se obtienen en Supabase → *Project Settings → API*.
 
+No olvides aplicar las migraciones de `supabase/migrations/` (ver
+[`supabase/README.md`](./supabase/README.md)).
+
+## Activar el asistente de IA (opcional)
+
+El asistente "Cotiza con IA" usa
+[Hugging Face Inference Providers](https://huggingface.co/docs/inference-providers).
+
+1. Crea un token en
+   <https://huggingface.co/settings/tokens> (tipo **Read**, o *Fine-grained*
+   con permiso de **Inference**).
+2. En Vercel → **Settings → Environment Variables**, agrega:
+   - `HF_TOKEN` = tu token `hf_...`
+   - `HF_MODEL` *(opcional)* = modelos separados por coma, se prueban en orden
+   - `NEXT_PUBLIC_CHECKOUT_URL` *(opcional)* = enlace de pago del plan Pro
+3. Aplica la migración `20260911120000_ai_credits.sql` en Supabase.
+4. Vuelve a desplegar.
+
+> `HF_TOKEN` **no** lleva el prefijo `NEXT_PUBLIC_`: se queda en el servidor y
+> nunca llega al navegador. No lo cambies a `NEXT_PUBLIC_HF_TOKEN`.
+
+### Cuánto cuesta
+
+Cada cotización generada gasta unos 700–900 tokens, en el entorno de $0.0005
+con los modelos por defecto. Toda cuenta de Hugging Face incluye créditos
+gratis cada mes ($0.10 en cuentas Free, $2 en PRO); pasado ese saldo se factura
+por uso, sin recargo de Hugging Face. Revisa el gasto en
+<https://huggingface.co/settings/billing>.
+
 ## Actualizaciones automáticas
 
 Tras el primer despliegue, cada vez que hagas *push* a la rama conectada,

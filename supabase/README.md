@@ -6,6 +6,8 @@ de seguridad (RLS) y las funciones. Están numeradas y deben aplicarse **en orde
 1. `20260818120000_schema.sql` — tablas `profiles`, `clients`, `quotes`, `quote_items`.
 2. `20260818120100_rls.sql` — Row Level Security en las 4 tablas.
 3. `20260818120200_functions.sql` — perfil automático al registrarse + numeración de cotizaciones.
+4. `20260911120000_ai_credits.sql` — columna `plan`, tabla `ai_usage` y funciones
+   de cuota del asistente de IA.
 
 ## Cómo aplicarlas
 
@@ -15,8 +17,8 @@ de seguridad (RLS) y las funciones. Están numeradas y deben aplicarse **en orde
 2. Menú lateral → **SQL Editor** → **New query**.
 3. Abre cada archivo de `supabase/migrations/` **en orden**, copia su contenido,
    pégalo y pulsa **Run**. (O usa el archivo combinado `supabase/schema.sql`,
-   que contiene los tres en un solo bloque.)
-4. Verifica en **Table Editor** que aparecen las 4 tablas y en
+   que contiene las cuatro en un solo bloque.)
+4. Verifica en **Table Editor** que aparecen las 5 tablas y en
    **Authentication → Policies** que cada tabla tiene sus políticas.
 
 ### Opción B — Supabase CLI (reproducible)
@@ -38,3 +40,33 @@ ambos casos:
 
 Para desactivarla (útil en pruebas): **Authentication → Providers → Email** →
 desactiva *Confirm email*.
+
+## Cuota del asistente de IA
+
+`ai_usage` guarda una fila por generación. La cuota se calcula por mes
+(`period` = `YYYY-MM`) y por plan:
+
+| Plan   | Generaciones al mes |
+| ------ | ------------------- |
+| `free` | 5                   |
+| `pro`  | 300                 |
+
+Tres funciones la gobiernan:
+
+- `ai_credit_status()` — consulta cuántas quedan, sin consumir.
+- `consume_ai_credit(kind, prompt)` — consume una de forma atómica. Bloquea la
+  fila del perfil (`for update`) para que dos peticiones simultáneas no se
+  salten el límite. Devuelve `allowed=false` sin registrar nada si ya no quedan.
+- `refund_ai_credit()` — devuelve el último crédito del mes. La app la llama
+  cuando el modelo falla, para no cobrarle al usuario un error del proveedor.
+
+Las tres son `security definer`: el usuario **no** puede escribir directamente
+en `ai_usage` (solo tiene política de `select` sobre sus propias filas).
+
+### Activar el plan Pro a un usuario
+
+Mientras no haya cobro automático, se hace desde el SQL Editor:
+
+```sql
+update public.profiles set plan = 'pro' where email = 'cliente@ejemplo.com';
+```
