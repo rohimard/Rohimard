@@ -48,3 +48,7 @@ canal-youtube/freevc-models/*
 
 # clave de la API de voz (nunca al repo)
 canal-youtube/.google-tts-key
+
+# cache de Python
+__pycache__/
+*.pyc

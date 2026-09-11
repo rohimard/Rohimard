@@ -1,50 +1,90 @@
 ﻿Plano;Bloque;Entra;Sale;Duracion (s);Escena
-1;GANCHO;0:00;0:03;3;Windsor 1861
-2;GANCHO;0:03;0:09;6;Veintiún años casada
-3;GANCHO;0:09;0:13;4;Cuarenta años por delante
-4;GANCHO;0:13;0:21;8;Vestir de negro para siempre
-5;HECHO;0:21;0:27;6;Reina Victoria y Alberto
-6;HECHO;0:27;0:34;7;La ropa preparada cada mañana
-7;HECHO;0:34;0:40;6;El agua caliente para afeitarlo
-8;HECHO;0:40;0:49;9;Una década sin aparecer
-9;HECHO;0:49;0:53;4;Retraso en el Parlamento
-10;HECHO;0:53;0:58;5;Papel de carta con borde negro
-11;HECHO;0:58;1:03;5;Décadas después
-12;HECHO;1:03;1:11;8;Treinta años más de negro
-13;REENCUADRE;1:11;1:19;8;La versión de amor eterno
-14;REENCUADRE;1:19;1:25;6;La versión incómoda
-15;REVELACION;1:25;1:31;6;Tiene nombre clínico
-16;REVELACION;1:31;1:35;4;Reconocido en 2022
-17;REVELACION;1:35;1:40;5;El manual de diagnóstico
-18;REVELACION;1:40;1:45;5;Antes se llamaba solo amor
-19;REVELACION;1:45;1:50;5;Una condición con nombre propio
-20;PUENTE;1:50;1:54;4;No exclusivo de una reina
-21;PUENTE;1:54;1:59;5;Puede que también en ti
-22;TITULO;1:59;2:06;7;7 señales de duelo no resuelto
-23;SEÑALES;2:06;2:10;4;1. Una parte de ti murió
-24;SEÑALES;2:10;2:18;8;1. Identidad perdida
-25;SEÑALES;2:18;2:21;3;2. Te cuesta creerlo
-26;SEÑALES;2:21;2:25;4;2. La ropa de Alberto
-27;SEÑALES;2:25;2:32;7;2. Como si fuera a volver
-28;SEÑALES;2:32;2:35;3;2. Negación pasajera
-29;SEÑALES;2:35;2:39;4;3. Evitas los recordatorios
-30;SEÑALES;2:39;2:45;6;3. Cambiar de acera
-31;SEÑALES;2:45;2:50;5;4. Dolor intacto con los años
-32;SEÑALES;2:50;2:55;5;4. Rabia y amargura
-33;SEÑALES;2:55;2:58;3;5. No te reenganchas a la vida
-34;SEÑALES;2:58;3:06;8;5. Traición a la memoria
-35;SEÑALES;3:06;3:10;4;6. Detrás de un cristal
-36;SEÑALES;3:10;3:14;4;6. Ni siquiera lo bueno
-37;SEÑALES;3:14;3:20;6;7. La vida ya no tiene sentido
-38;SEÑALES;3:20;3:25;5;7. El para qué se apagó
-39;DATOS;3:25;3:29;4;La clave es el tiempo
-40;DATOS;3:29;3:35;6;Cuánto tiempo sigue igual
-41;DATOS;3:35;3:42;7;Doce meses después
-42;DATOS;3:42;3:46;4;Antes de esa fecha es normal
-43;DATOS;3:46;3:51;5;Existe tratamiento
-44;LEGADO;3:51;3:55;4;A ella nadie la trató
-45;LEGADO;3:55;4:00;5;Cuarenta años atrapada
-46;LEGADO;4:00;4:05;5;La palabra exacta
-47;LEGADO;4:05;4:11;6;Gente preparada para ayudarte
-48;CTA;4:11;4:17;6;Próximo vídeo
-49;CTA;4:17;4:22;5;Suscríbete
+1;GANCHO;0:00;0:03;3;El agua caliente sube
+2;GANCHO;0:03;0:06;3;La navaja de un muerto
+3;GANCHO;0:06;0:09;3;La ropa y la toalla
+4;GANCHO;0:09;0:11;2;El castillo de Windsor
+5;GANCHO;0:11;0:14;3;La mujer más poderosa del mundo
+6;HECHO;0:14;0:16;2;Esto pasó de verdad
+7;HECHO;0:16;0:19;3;La reina Victoria
+8;HECHO;0:19;0:22;3;El príncipe Alberto
+9;HECHO;0:22;0:25;3;Diciembre de mil ochocientos sesenta y uno
+10;HECHO;0:25;0:28;3;Cuarenta y dos años
+11;HECHO;0:28;0:30;2;Cuarenta años por delante
+12;HECHO;0:30;0:33;3;Vestida de negro cada día
+13;HECHO;0:33;0:35;2;Hasta su propia muerte
+14;HECHO;0:35;0:38;3;Una década sin aparecer
+15;HECHO;0:38;0:41;3;El pueblo empieza a preguntar
+16;HECHO;0:41;0:44;3;¿Sigue gobernando su reina?
+17;HECHO;0:44;0:47;3;El Parlamento sin abrir
+18;HECHO;0:47;0:50;3;Papel con borde negro
+19;HECHO;0:50;0:53;3;Décadas de luto en el papel
+20;HECHO;0:53;0:55;2;Cartas que nada tenían que ver
+21;HECHO;0:55;0:58;3;Vuelve a mostrarse
+22;HECHO;0:58;1:00;2;Seguía de negro
+23;HECHO;1:00;1:03;3;Treinta años más
+24;HECHO;1:03;1:05;2;Mil novecientos uno
+25;REENCUADRE;1:05;1:08;3;La historia lo contó como amor
+26;REENCUADRE;1:08;1:11;3;La viuda fiel
+27;REENCUADRE;1:11;1:13;2;Es una versión bonita
+28;REENCUADRE;1:13;1:15;2;Pero no es la completa
+29;REENCUADRE;1:15;1:18;3;Y la completa es más incómoda
+30;REVELACION;1:18;1:21;3;Tiene nombre clínico
+31;REVELACION;1:21;1:24;3;Duelo prolongado
+32;REVELACION;1:24;1:28;4;No se reconoció hasta hace poco
+33;REVELACION;1:28;1:32;4;El año dos mil veintidós
+34;REVELACION;1:32;1:36;4;El manual que usan los psicólogos
+35;REVELACION;1:36;1:39;3;Siglo y medio llamándolo amor
+36;REVELACION;1:39;1:42;3;Una condición identificable
+37;REVELACION;1:42;1:44;2;Señales concretas, nombre propio
+38;PUENTE;1:44;1:48;4;No solo una reina del diecinueve
+39;PUENTE;1:48;1:51;3;Están pasando ahora mismo
+40;PUENTE;1:51;1:53;2;Puede que también en ti
+41;TITULO;1:53;1:57;4;Siete señales
+42;TITULO;1:57;2:01;4;Un duelo sin terminar de procesar
+43;SEÑAL 1;2:01;2:05;4;Una parte de ti murió
+44;SEÑAL 1;2:05;2:09;4;No es una metáfora bonita
+45;SEÑAL 1;2:09;2:11;2;Perdió su propia identidad
+46;SEÑAL 1;2:11;2:13;2;No solo a la otra persona
+47;SEÑAL 2;2:13;2:17;4;Cuesta creer que pasó
+48;SEÑAL 2;2:17;2:21;4;La ropa de Alberto, otra vez
+49;SEÑAL 2;2:21;2:25;4;Sigues actuando como si volviera
+50;SEÑAL 2;2:25;2:29;4;Aunque sepas que no
+51;SEÑAL 2;2:29;2:32;3;No es negación pasajera
+52;SEÑAL 3;2:32;2:36;4;Evitas lo que te lo recuerde
+53;SEÑAL 3;2:36;2:40;4;Cambias de acera
+54;SEÑAL 3;2:40;2:44;4;Borras fotos, o no puedes
+55;SEÑAL 4;2:44;2:48;4;Duele como si fuera ayer
+56;SEÑAL 4;2:48;2:52;4;Rabia y amargura
+57;SEÑAL 4;2:52;2:55;3;Una tristeza que no se suaviza
+58;SEÑAL 5;2:55;2:58;3;No te reenganchas con tu vida
+59;SEÑAL 5;2:58;3:02;4;Planes, relaciones, proyectos
+60;SEÑAL 5;3:02;3:04;2;Se siente como una traición
+61;SEÑAL 5;3:04;3:07;3;Ya no consigues que importen
+62;SEÑAL 6;3:07;3:09;2;Una insensibilidad extraña
+63;SEÑAL 6;3:09;3:11;2;Detrás de un cristal
+64;SEÑAL 6;3:11;3:14;3;Sin la intensidad de antes
+65;SEÑAL 6;3:14;3:16;2;Ni siquiera lo bueno
+66;SEÑAL 7;3:16;3:19;3;Tu vida ya no tiene el mismo sentido
+67;SEÑAL 7;3:19;3:22;3;Sin esa persona
+68;SEÑAL 7;3:22;3:24;2;No es que quieras hacerte daño
+69;SEÑAL 7;3:24;3:27;3;El para qué se apagó
+70;DATOS;3:27;3:29;2;Si algo de esto te suena
+71;DATOS;3:29;3:33;4;La clave es un solo dato
+72;DATOS;3:33;3:36;3;No es cuánto sufres
+73;DATOS;3:36;3:39;3;Es cuánto tiempo sigue igual
+74;DATOS;3:39;3:42;3;Doce meses, en adultos
+75;DATOS;3:42;3:46;4;La señal de alarma
+76;DATOS;3:46;3:48;2;Antes de esa fecha
+77;DATOS;3:48;3:51;3;Es normal que duela así
+78;DATOS;3:51;3:55;4;Existe tratamiento específico
+79;DATOS;3:55;3:57;2;Y funciona de verdad
+80;LEGADO;3:57;4:00;3;A ella nadie se lo ofreció
+81;LEGADO;4:00;4:04;4;Porque todavía no existía
+82;LEGADO;4:04;4:07;3;Cuarenta años atrapada
+83;LEGADO;4:07;4:09;2;Tú tienes algo que ella no tuvo
+84;LEGADO;4:09;4:12;3;La palabra exacta
+85;LEGADO;4:12;4:15;3;Gente preparada para ayudarte
+86;LEGADO;4:15;4:18;3;No para juzgarte
+87;CTA;4:18;4:22;4;Alguien que sí encontró la salida
+88;CTA;4:22;4:26;4;Y cómo lo hizo
+89;CTA;4:26;4:30;4;Lo que pasa dentro de tu cabeza
