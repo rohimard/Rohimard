@@ -29,8 +29,11 @@ on:
       - .github/workflows/voz-narrador.yml
       - canal-youtube/.voz-disparo
 
+# El audio vuelve commiteado a la rama, no como artefacto: el almacenamiento
+# de artefactos de GitHub está bloqueado por la política de salida del
+# entorno donde trabaja Claude, y a git sí se llega.
 permissions:
-  contents: read
+  contents: write
 
 env:
   # En un push no hay inputs, así que cada uno cae a su valor por defecto.
@@ -82,10 +85,22 @@ jobs:
                  salida/guion-completo.mp3
           rm salida/cruda-completo.mp3
 
-      - uses: actions/upload-artifact@v4
-        with:
-          name: voces-edge
-          path: salida/
+      - name: Devolver el audio a la rama
+        env:
+          DESTINO: canal-youtube/muestras-voz/edge
+        run: |
+          rm -rf "$DESTINO" && mkdir -p "$DESTINO" && mv salida/*.mp3 "$DESTINO"/
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Muestras de voz de edge-tts' || exit 0
+          # El otro trabajo empuja a la vez; reintentamos sobre lo suyo.
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 4))
+          done
+          exit 1
 
   # ---------------------------------------------------------------------
   # Clonación de la voz de Kevin con Chatterbox multilingüe. Tarda bastante
@@ -136,8 +151,19 @@ jobs:
                  salida/kevin-clonado.mp3
           rm salida/kevin-crudo.wav
 
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: voz-kevin-clonada
-          path: salida/
+      - name: Devolver el audio a la rama
+        env:
+          DESTINO: canal-youtube/muestras-voz/kevin
+        run: |
+          rm -rf "$DESTINO" && mkdir -p "$DESTINO" && mv salida/*.mp3 "$DESTINO"/
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Muestra de la voz de Kevin clonada' || exit 0
+          # El otro trabajo empuja a la vez; reintentamos sobre lo suyo.
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 4))
+          done
+          exit 1
