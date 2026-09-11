@@ -51,14 +51,23 @@ jobs:
           # render_thumbnail.js compone con Chromium sin cabeza, y el runner
           # no trae ninguno. playwright-core no descarga navegador por
           # diseño, así que hay que pedirlo aparte.
-          npm install --silent playwright-core playwright
-          npx playwright install --with-deps chromium
+          #
+          # Se instala FUERA del repo a propósito: este es un proyecto Next
+          # con su propio package.json, y meterle playwright dentro lo
+          # modifica y deja el árbol sucio, que luego impide el push.
+          PW="$RUNNER_TEMP/pw"
+          npm install --silent --prefix "$PW" playwright-core playwright
+          export NODE_PATH="$PW/node_modules"
+          "$PW/node_modules/.bin/playwright" install --with-deps chromium
           node canal-youtube/kit-produccion/scripts/render_thumbnail.js \
                "$PRODUCCION/miniatura-config.json"
           ls -la "$PRODUCCION"/miniatura.*
 
       - name: Devolver la miniatura a la rama
         run: |
+          # Por si alguna herramienta tocó los manifiestos del proyecto:
+          # con el árbol sucio, el rebase del push falla.
+          git checkout -- package.json package-lock.json 2>/dev/null || true
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
           git add -f "$PRODUCCION/miniatura.png" "$PRODUCCION/miniatura.jpg" \
