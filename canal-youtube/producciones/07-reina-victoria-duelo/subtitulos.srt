@@ -1,417 +1,412 @@
 1
-00:00:00,040 --> 00:00:02,590
+00:00:00,050 --> 00:00:02,210
 Cada mañana ordenas
 que suban agua caliente
 
 2
-00:00:02,630 --> 00:00:04,510
+00:00:02,250 --> 00:00:04,333
 para afeitar a un hombre que está muerto.
 
 3
-00:00:04,750 --> 00:00:06,030
+00:00:05,075 --> 00:00:06,270
 Le preparan la ropa.
 
 4
-00:00:06,110 --> 00:00:07,590
+00:00:07,013 --> 00:00:08,545
 Le dejan la toalla limpia.
 
 5
-00:00:07,790 --> 00:00:10,870
+00:00:09,287 --> 00:00:12,432
 Llevas años haciéndolo, estás
 en el castillo de Windsor,
 
 6
-00:00:10,910 --> 00:00:12,950
+00:00:12,562 --> 00:00:14,783
 y eres la mujer más poderosa del mundo.
 
 7
-00:00:13,653 --> 00:00:15,253
+00:00:16,225 --> 00:00:17,457
 Esto pasó de verdad.
 
 8
-00:00:15,293 --> 00:00:17,572
+00:00:18,200 --> 00:00:20,645
 Ella es la reina Victoria del Reino Unido.
 
 9
-00:00:17,773 --> 00:00:21,772
+00:00:21,387 --> 00:00:25,172
 Él es el príncipe Alberto, su
 esposo, muerto de fiebre tifoidea en
 
 10
-00:00:21,812 --> 00:00:25,554
+00:00:25,212 --> 00:00:29,158
 diciembre de mil ochocientos sesenta
 y uno, con cuarenta y dos años.
 
 11
-00:00:25,594 --> 00:00:29,674
+00:00:29,900 --> 00:00:33,985
 A ella le quedaban más de cuarenta años
 de vida por delante, y los pasó enteros
 
 12
-00:00:29,714 --> 00:00:32,474
+00:00:34,025 --> 00:00:37,020
 vistiendo de negro,
 cada día, sin excepción,
 
 13
-00:00:32,634 --> 00:00:34,303
+00:00:37,125 --> 00:00:38,907
 hasta el día de su propia muerte.
 
 14
-00:00:34,343 --> 00:00:37,862
+00:00:39,650 --> 00:00:43,133
 Se negó a aparecer en público
 durante casi una década completa,
 
 15
-00:00:38,102 --> 00:00:39,002
+00:00:43,288 --> 00:00:44,188
 hasta el punto de
 
 16
-00:00:39,042 --> 00:00:42,783
+00:00:44,227 --> 00:00:47,845
 que el pueblo empezó a preguntarse si
 su reina seguía gobernando de verdad,
 
 17
-00:00:43,103 --> 00:00:46,223
+00:00:48,000 --> 00:00:51,345
 y se retrasó años en volver a
 abrir el Parlamento en persona.
 
 18
-00:00:46,375 --> 00:00:49,934
+00:00:52,087 --> 00:00:55,745
 Para el resto de su vida usó papel
 de carta con el borde negro de luto,
 
 19
-00:00:50,174 --> 00:00:51,074
+00:00:55,875 --> 00:00:56,775
 incluso
 
 20
-00:00:51,114 --> 00:00:54,815
+00:00:56,815 --> 00:01:00,670
 décadas después, en cartas que no tenían
 nada que ver con la muerte de Alberto.
 
 21
-00:00:55,175 --> 00:00:58,975
+00:01:01,413 --> 00:01:05,345
 Cuando por fin volvió a mostrarse
 en público, seguía vestida de negro.
 
 22
-00:00:59,135 --> 00:01:02,174
+00:01:06,088 --> 00:01:08,983
 Y siguió vestida de negro
 los siguientes treinta años,
 
 23
-00:01:02,215 --> 00:01:04,255
+00:01:09,050 --> 00:01:11,145
 hasta que murió en mil novecientos uno.
 
 24
-00:01:05,020 --> 00:01:08,820
+00:01:12,588 --> 00:01:16,407
 Durante mucho tiempo la historia contó
 esto como una prueba de amor eterno,
 
 25
-00:01:08,980 --> 00:01:12,060
+00:01:16,575 --> 00:01:19,295
 la viuda fiel que nunca dejó
 de llorar a su gran amor.
 
 26
-00:01:12,380 --> 00:01:13,619
+00:01:20,037 --> 00:01:21,370
 Es una versión bonita.
 
 27
-00:01:13,940 --> 00:01:18,139
+00:01:22,112 --> 00:01:26,345
 Pero no es la versión completa, y la
 versión completa es mucho más incómoda.
 
 28
-00:01:18,880 --> 00:01:22,320
+00:01:27,787 --> 00:01:31,695
 Primero, lo que le pasó a la reina
 Victoria tiene nombre clínico hoy,
 
 29
-00:01:22,360 --> 00:01:24,760
+00:01:31,862 --> 00:01:33,845
 y ese nombre es duelo prolongado.
 
 30
-00:01:24,960 --> 00:01:28,400
+00:01:34,588 --> 00:01:37,747
 No se reconoció oficialmente
 como un trastorno médico real
 
 31
-00:01:28,440 --> 00:01:30,199
+00:01:37,787 --> 00:01:39,458
 hasta el año dos mil veintidós,
 
 32
-00:01:30,360 --> 00:01:34,480
+00:01:39,575 --> 00:01:43,870
 cuando entró en el manual de diagnóstico
 que usan los psicólogos en todo el mundo.
 
 33
-00:01:34,530 --> 00:01:35,930
+00:01:44,612 --> 00:01:45,970
 Durante siglo y medio,
 
 34
-00:01:36,010 --> 00:01:39,690
+00:01:46,125 --> 00:01:49,520
 lo que le pasó a la reina Victoria
 se llamó simplemente amor.
 
 35
-00:01:40,010 --> 00:01:43,170
+00:01:50,263 --> 00:01:53,358
 Ahora sabemos que también era
 una condición identificable,
 
 36
-00:01:43,370 --> 00:01:45,889
+00:01:53,487 --> 00:01:55,945
 con señales concretas y un nombre propio.
 
 37
-00:01:46,553 --> 00:01:47,453
+00:01:57,388 --> 00:01:58,288
 Segundo,
 
 38
-00:01:47,493 --> 00:01:50,993
+00:01:58,328 --> 00:02:01,970
 esas señales no son exclusivas de
 una reina del siglo diecinueve.
 
 39
-00:01:51,193 --> 00:01:54,113
+00:02:02,713 --> 00:02:05,745
 Están pasando ahora mismo,
 en gente que tienes cerca,
 
 40
-00:01:54,313 --> 00:01:55,752
+00:02:05,838 --> 00:02:07,195
 y puede que también en ti.
 
 41
-00:01:56,453 --> 00:01:59,893
+00:02:08,637 --> 00:02:11,935
 Aquí van siete señales de que tú
 también estás atravesando un duelo
 
 42
-00:01:59,933 --> 00:02:02,773
+00:02:11,975 --> 00:02:14,833
 que tu cuerpo y tu mente no
 han terminado de procesar.
 
 43
-00:02:03,513 --> 00:02:07,633
+00:02:16,275 --> 00:02:20,108
 Primera señal, sientes que una
 parte de ti murió con esa persona.
 
 44
-00:02:07,873 --> 00:02:09,513
-No es una metáfora bonita,
+00:02:20,850 --> 00:02:25,023
+No es una metáfora bonita, mucha gente
+con duelo prolongado describe sentir
 
 45
-00:02:09,673 --> 00:02:12,353
-mucha gente con duelo
-prolongado describe sentir
-
-46
-00:02:12,393 --> 00:02:16,033
+00:02:25,062 --> 00:02:28,795
 que perdió también su propia
 identidad, no solo a la otra persona.
 
-47
-00:02:16,787 --> 00:02:20,226
+46
+00:02:30,238 --> 00:02:33,708
 Segunda señal, todavía te
 cuesta creer que de verdad pasó.
 
+47
+00:02:34,450 --> 00:02:38,707
+La reina Victoria hizo que siguieran
+preparando la ropa de Alberto durante años.
+
 48
-00:02:20,467 --> 00:02:21,787
-La reina Victoria hizo
-
-49
-00:02:21,827 --> 00:02:24,866
-que siguieran preparando la
-ropa de Alberto durante años.
-
-50
-00:02:24,987 --> 00:02:28,587
+00:02:39,450 --> 00:02:42,983
 Si una parte de ti sigue actuando
 como si esa persona fuera a volver,
 
-51
-00:02:28,707 --> 00:02:29,607
+49
+00:02:43,100 --> 00:02:44,000
 aunque sepas
 
-52
-00:02:29,647 --> 00:02:31,146
+50
+00:02:44,040 --> 00:02:45,345
 perfectamente que no es así,
 
-53
-00:02:31,387 --> 00:02:34,707
+51
+00:02:45,537 --> 00:02:48,595
 eso es duelo prolongado,
 no una negación pasajera.
 
-54
-00:02:35,487 --> 00:02:39,607
-Tercera señal, evitas cualquier cosa que
-te recuerde que esa persona ya no está.
+52
+00:02:50,037 --> 00:02:50,995
+Tercera señal,
 
-55
-00:02:39,927 --> 00:02:42,167
+53
+00:02:51,113 --> 00:02:54,458
+evitas cualquier cosa que te
+recuerde que esa persona ya no está.
+
+54
+00:02:55,200 --> 00:02:57,583
 Cambias de acera para
 no pasar por un sitio.
 
-56
-00:02:42,287 --> 00:02:45,926
+55
+00:02:58,325 --> 00:03:02,095
 Borras fotos, o al contrario,
 no consigues borrar ni una sola.
 
+56
+00:03:03,537 --> 00:03:07,770
+Cuarta señal, sientes un dolor emocional
+tan intenso que parece que fue ayer,
+
 57
-00:02:46,813 --> 00:02:47,713
-Cuarta señal,
-
-58
-00:02:47,813 --> 00:02:51,213
-sientes un dolor emocional tan
-intenso que parece que fue ayer,
-
-59
-00:02:51,293 --> 00:02:52,693
+00:03:07,863 --> 00:03:09,495
 aunque hayan pasado años.
 
-60
-00:02:53,013 --> 00:02:54,253
+58
+00:03:10,238 --> 00:03:11,595
 Rabia, amargura,
 
-61
-00:02:54,373 --> 00:02:58,173
+59
+00:03:11,762 --> 00:03:15,607
 una tristeza que no se suaviza con
 el tiempo como se supone que debería.
 
-62
-00:02:58,887 --> 00:03:02,007
+60
+00:03:17,050 --> 00:03:20,345
 Quinta señal, te cuesta
 reengancharte con tu propia vida.
 
-63
-00:03:02,367 --> 00:03:06,407
+61
+00:03:21,088 --> 00:03:23,920
 Planes, relaciones nuevas, proyectos,
+
+62
+00:03:24,062 --> 00:03:25,860
 todo se siente como una traición a la
 
-64
-00:03:06,447 --> 00:03:10,406
+63
+00:03:25,900 --> 00:03:30,020
 memoria de quien perdiste, o directamente
 ya no consigues que te importen.
 
-65
-00:03:11,187 --> 00:03:14,586
+64
+00:03:31,463 --> 00:03:34,695
 Sexta señal, sientes una
 insensibilidad extraña,
 
-66
-00:03:14,627 --> 00:03:15,827
+65
+00:03:34,825 --> 00:03:36,173
 como si vivieras detrás de un
 
-67
-00:03:15,867 --> 00:03:19,226
+66
+00:03:36,213 --> 00:03:39,733
 cristal, incapaz de sentir nada
 con la intensidad de antes,
 
-68
-00:03:19,266 --> 00:03:20,427
+67
+00:03:39,850 --> 00:03:41,058
 ni siquiera lo bueno.
 
-69
-00:03:21,220 --> 00:03:24,459
+68
+00:03:42,500 --> 00:03:45,657
 Séptima señal, sientes
 que tu vida, en el fondo,
 
-70
-00:03:24,499 --> 00:03:26,860
+69
+00:03:45,812 --> 00:03:48,358
 ya no tiene el mismo
 sentido sin esa persona.
 
-71
-00:03:27,220 --> 00:03:31,020
+70
+00:03:49,100 --> 00:03:52,820
 No es que quieras hacerte daño, es
 que el para qué de las cosas se apagó.
 
-72
-00:03:31,787 --> 00:03:35,306
+71
+00:03:54,262 --> 00:03:57,545
 Si algo de esto te suena, la
 clave está en un solo dato.
 
-73
-00:03:35,546 --> 00:03:39,547
+72
+00:03:58,287 --> 00:04:01,957
 Lo que separa el duelo normal del
 duelo prolongado no es cuánto sufres,
 
-74
-00:03:39,667 --> 00:03:41,947
+73
+00:04:02,088 --> 00:04:04,308
 es cuánto tiempo sigue igual de intenso.
 
-75
-00:03:42,266 --> 00:03:45,827
+74
+00:04:05,050 --> 00:04:08,745
 Doce meses después, en adultos,
 sin que nada se haya movido,
 
-76
-00:03:45,946 --> 00:03:49,108
+75
+00:04:08,875 --> 00:04:12,245
 es la señal de alarma que los
 psicólogos ya saben identificar.
 
-77
-00:03:49,148 --> 00:03:53,187
+76
+00:04:12,988 --> 00:04:16,908
 Antes de esa fecha, es completamente
 normal que duela así de fuerte.
 
-78
-00:03:53,468 --> 00:03:57,188
+77
+00:04:17,650 --> 00:04:21,295
 Y hoy en día existe tratamiento
 específico para el duelo prolongado,
 
-79
-00:03:57,388 --> 00:03:58,668
+78
+00:04:21,387 --> 00:04:22,733
 y funciona de verdad.
 
-80
-00:03:59,420 --> 00:04:02,220
+79
+00:04:24,175 --> 00:04:27,157
 A la reina Victoria nadie
 le ofreció ese tratamiento,
 
-81
-00:04:02,299 --> 00:04:03,940
+80
+00:04:27,275 --> 00:04:29,082
 porque todavía no existía.
 
-82
-00:04:04,140 --> 00:04:07,980
+81
+00:04:29,825 --> 00:04:33,495
 Vivió cuarenta años atrapada en un
 duelo que hoy sabemos que tiene nombre,
 
-83
-00:04:08,020 --> 00:04:09,300
+82
+00:04:33,575 --> 00:04:34,695
 causas y salida.
 
-84
-00:04:09,358 --> 00:04:13,478
+83
+00:04:35,438 --> 00:04:39,670
 Tú tienes algo que ella no tuvo, la
 palabra exacta para lo que te está pasando,
 
-85
-00:04:13,598 --> 00:04:15,998
+84
+00:04:39,800 --> 00:04:42,320
 y gente preparada para
 ayudarte a salir de ahí,
 
-86
-00:04:16,118 --> 00:04:19,077
+85
+00:04:42,512 --> 00:04:45,507
 no para juzgarte por seguir
 vestido de negro por dentro.
 
-87
-00:04:19,853 --> 00:04:23,332
+86
+00:04:46,950 --> 00:04:50,633
 En el próximo video vas a conocer a
 alguien que sí encontró la salida,
 
-88
-00:04:23,373 --> 00:04:24,333
+87
+00:04:50,738 --> 00:04:51,732
 y cómo lo hizo.
 
-89
-00:04:24,573 --> 00:04:26,293
+88
+00:04:52,475 --> 00:04:54,210
 Suscríbete si quieres entender lo
 
-90
-00:04:26,333 --> 00:04:29,452
+89
+00:04:54,250 --> 00:04:57,620
 que de verdad pasa dentro de tu
 cabeza cuando pierdes a alguien.
