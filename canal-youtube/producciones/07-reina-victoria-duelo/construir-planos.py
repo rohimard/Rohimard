@@ -331,11 +331,25 @@ PLANOS = [
 
     # --- SEÑAL 5 ---
     ("SEÑAL 5", "No te reenganchas con tu vida",
-     f"plano medio de {MODERNO} sentada frente a un portátil abierto sin "
+     f"plano medio de {MODERNO} sentado frente a un portátil abierto sin "
      "escribir, tazas acumuladas al lado, luz azulada de pantalla"),
     ("SEÑAL 5", "Planes, relaciones, proyectos",
-     "plano cenital de un calendario de pared moderno con todas las casillas "
-     "vacías salvo una marcada, junto a invitaciones sin abrir"),
+     # Un calendario es un objeto hecho de texto, y la cabecera de este
+     # archivo pide imágenes sin texto: la primera versión daba una orden
+     # imposible, así que el generador se inventaba las palabras, en inglés
+     # y con faltas. No se arregla pidiéndole que escriba mejor. Se arregla
+     # dándole una razón fotográfica para que el texto no se lea, y dejando
+     # el círculo vacío: el ojo va al círculo, entiende que ahí hubo un plan
+     # y no se para a leer.
+     "plano cenital perfectamente perpendicular de un calendario de pared de "
+     "papel sobre una mesa de madera clara, la rejilla de casillas nítida y "
+     "vacía pero los números y las palabras deliberadamente ilegibles, "
+     "impresos muy pequeños en gris claro sobre blanco y ligeramente "
+     "desenfocados, una sola casilla del centro rodeada a mano con un círculo "
+     "de bolígrafo rojo y sin ninguna palabra escrita dentro, al lado tres "
+     "sobres de invitación de papel grueso color crema cerrados y sin abrir "
+     "apilados sin orden, luz de ventana lateral suave, sombras largas, "
+     "sensación de mesa a la que nadie se sienta desde hace semanas"),
     ("SEÑAL 5", "Se siente como una traición",
      f"plano medio de {MODERNO} en una cena con amigos, sonriendo a "
      "destiempo, el resto de la mesa desenfocada y animada, luz cálida de "
