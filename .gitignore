@@ -52,3 +52,9 @@ canal-youtube/.google-tts-key
 # cache de Python
 __pycache__/
 *.pyc
+
+# Marcadores provisionales de planos sin imagen. Nunca al repo: montar_video.js
+# busca la imagen por su numero, asi que un marcador versionado se colaria en el
+# video final como si fuera el plano bueno, que es justo lo que "rellenar": false
+# existe para impedir.
+canal-youtube/producciones/**/imagenes/*-PENDIENTE.jpg
