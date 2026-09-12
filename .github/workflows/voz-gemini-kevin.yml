@@ -1,0 +1,224 @@
+# Barrido "Kevin": buscar en Gemini TTS el registro de la voz Kevin de
+# ElevenLabs, que es la referencia que dio el usuario.
+#
+# QUE ES "KEVIN" EXACTAMENTE
+# Consultado el catalogo real de ElevenLabs, las entradas Kevin describen
+# siempre lo mismo: hombre estadounidense de mediana edad, registro medio,
+# "grounded, friendly, warm", "relaxed, natural, reassuring", "natural, casual
+# tone... like having a friendly chat with an insightful companion".
+# Es decir: CONVERSACIONAL, no locutor. Eso importa porque la tanda anterior
+# (voz-gemini.yml) probo seis direcciones de registro documental y grave, que
+# es justo el registro contrario.
+#
+# QUE SE VARIA AQUI
+# La direccion de interpretacion es FIJA, escrita para ese perfil. Lo que
+# cambia son dos ejes:
+#   1. La voz: seis de las treinta de Gemini cuyos descriptores oficiales se
+#      acercan al perfil (Friendly, Casual, Easy-going, Clear, Smooth,
+#      Knowledgeable). Las de la tanda anterior eran todas graves e
+#      informativas y no sirven para comparar aqui.
+#   2. El modelo: flash y pro. Pro es el de mas calidad y, lo que importa
+#      tanto como eso, tiene una cuota diaria SEPARADA de flash, asi que
+#      doce muestras no compiten por el mismo cupo gratuito.
+name: voz-gemini-kevin
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-gemini-kevin.yml
+
+permissions:
+  contents: write
+
+env:
+  DESTINO: canal-youtube/muestras-voz/gemini-kevin
+  # El mismo gancho que la tanda anterior, a proposito: si el texto cambia, la
+  # comparacion con las seis muestras ya entregadas deja de valer.
+  MUESTRA: >-
+    Cada mañana ordenas que suban agua caliente para afeitar a un hombre que
+    está muerto. Le preparan la ropa. Le dejan la toalla limpia. Llevas años
+    haciéndolo, estás en el castillo de Windsor, y eres la mujer más poderosa
+    del mundo.
+  # El perfil Kevin, traducido a instrucciones. Cada frase ataca un tic
+  # concreto de los que delatan a una voz sintetica.
+  DIRECCION: >-
+    Habla en español latinoamericano neutro. Eres un hombre de unos cuarenta y
+    cinco años contandole esto a un amigo sentado enfrente, sin prisa y sin
+    publico. Registro medio, ni agudo ni cavernoso, volumen de conversacion.
+    No eres locutor: no proyectes la voz, no subrayes palabras, no hagas la
+    entonacion cantada de la radio. Baja el tono al final de cada frase, nunca
+    lo subas. Deja caer alguna frase con poca energia, como quien ya sabe el
+    final de la historia. Respira donde respirarias hablando de verdad y para
+    en los puntos antes de seguir. No dramatices: el dato ya incomoda solo.
+
+jobs:
+  narrar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      # De una en una: el plan gratuito da 3 peticiones por minuto por modelo.
+      max-parallel: 1
+      matrix:
+        include:
+          # --- flash: seis voces, misma direccion ---
+          - clave: flash-1-achird
+            voz: Achird
+            modelo: gemini-2.5-flash-preview-tts
+          - clave: flash-2-zubenelgenubi
+            voz: Zubenelgenubi
+            modelo: gemini-2.5-flash-preview-tts
+          - clave: flash-3-umbriel
+            voz: Umbriel
+            modelo: gemini-2.5-flash-preview-tts
+          - clave: flash-4-iapetus
+            voz: Iapetus
+            modelo: gemini-2.5-flash-preview-tts
+          - clave: flash-5-algieba
+            voz: Algieba
+            modelo: gemini-2.5-flash-preview-tts
+          - clave: flash-6-sadaltager
+            voz: Sadaltager
+            modelo: gemini-2.5-flash-preview-tts
+          # --- pro: las mismas seis, para aislar cuanto aporta el modelo ---
+          - clave: pro-1-achird
+            voz: Achird
+            modelo: gemini-2.5-pro-preview-tts
+          - clave: pro-2-zubenelgenubi
+            voz: Zubenelgenubi
+            modelo: gemini-2.5-pro-preview-tts
+          - clave: pro-3-umbriel
+            voz: Umbriel
+            modelo: gemini-2.5-pro-preview-tts
+          - clave: pro-4-iapetus
+            voz: Iapetus
+            modelo: gemini-2.5-pro-preview-tts
+          - clave: pro-5-algieba
+            voz: Algieba
+            modelo: gemini-2.5-pro-preview-tts
+          - clave: pro-6-sadaltager
+            voz: Sadaltager
+            modelo: gemini-2.5-pro-preview-tts
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/viral-youtube-video-ideas-luqj2m
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Resolver la clave
+        env:
+          CLAVE_OK: ${{ secrets.GOOGLE_API_KEY }}
+          CLAVE_TYPO: ${{ secrets.GOOGLE_API_JEY }}
+        run: |
+          CLAVE="${CLAVE_OK:-$CLAVE_TYPO}"
+          if [ -z "$CLAVE" ]; then
+            echo "::error::no hay clave de Google en los secretos del repo"
+            exit 1
+          fi
+          echo "::add-mask::$CLAVE"
+          echo "CLAVE=$CLAVE" >> "$GITHUB_ENV"
+
+      - name: Sintetizar
+        env:
+          VOZ: ${{ matrix.voz }}
+          MODELO: ${{ matrix.modelo }}
+        run: |
+          mkdir -p salida
+          python3 - <<'PY'
+          import base64, json, os, re, sys, time, urllib.error, urllib.request, wave
+
+          texto = " ".join(os.environ["MUESTRA"].split())
+          direccion = " ".join(os.environ["DIRECCION"].split())
+          # El cierre explicito importa: sin el, Gemini a veces lee en voz alta
+          # parte de las instrucciones. Marcar donde acaba la direccion y
+          # empieza el guion lo evita.
+          prompt = (f"{direccion}\n\n"
+                    f"Di exactamente el texto que sigue, y nada mas. "
+                    f"No leas estas instrucciones.\n\n{texto}")
+
+          cuerpo = {
+              "contents": [{"parts": [{"text": prompt}]}],
+              "generationConfig": {
+                  "responseModalities": ["AUDIO"],
+                  "speechConfig": {
+                      "voiceConfig": {
+                          "prebuiltVoiceConfig": {"voiceName": os.environ["VOZ"]}
+                      }
+                  },
+              },
+          }
+          url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+                 f"{os.environ['MODELO']}:generateContent")
+          pet = urllib.request.Request(
+              url, data=json.dumps(cuerpo).encode(),
+              headers={"Content-Type": "application/json",
+                       "x-goog-api-key": os.environ["CLAVE"]},
+              method="POST")
+          resp = None
+          for intento in range(1, 7):
+              try:
+                  with urllib.request.urlopen(pet, timeout=300) as r:
+                      resp = json.loads(r.read())
+                  break
+              except urllib.error.HTTPError as e:
+                  detalle = e.read().decode(errors="replace")
+                  # Un 429 por minuto se espera; uno por dia no se arregla
+                  # esperando, y reintentar seis veces solo tapa el motivo.
+                  if e.code == 429 and re.search(r"PerDay|per day", detalle):
+                      print("::error::cuota DIARIA agotada para "
+                            f"{os.environ['MODELO']}. No es un fallo del "
+                            f"codigo: hay que esperar al reinicio o pasar a "
+                            f"plan de pago. {detalle[:400]}")
+                      sys.exit(1)
+                  if e.code not in (429, 500, 503) or intento == 6:
+                      print(f"::error::Google devolvio {e.code}: {detalle[:600]}")
+                      sys.exit(1)
+                  espera = 20.0 * intento
+                  m = re.search(r"retry in ([\d.]+)s", detalle)
+                  if m:
+                      espera = float(m.group(1)) + 5
+                  print(f"{e.code} en el intento {intento}; "
+                        f"espero {espera:.0f}s y repito")
+                  time.sleep(espera)
+
+          try:
+              parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
+          except (KeyError, IndexError):
+              print(f"::error::respuesta inesperada: {json.dumps(resp)[:600]}")
+              sys.exit(1)
+
+          crudo = base64.b64decode(parte["data"])
+          mime = parte.get("mimeType", "")
+          m = re.search(r"rate=(\d+)", mime)
+          sr = int(m.group(1)) if m else 24000
+          print(f"{mime} -> {len(crudo)} bytes a {sr} Hz")
+
+          # Gemini devuelve PCM crudo, sin cabecera: hay que envolverlo.
+          with wave.open("salida/voz.wav", "wb") as w:
+              w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
+              w.writeframes(crudo)
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/${{ matrix.clave }}.mp3"
+          rm salida/voz.wav
+          # Una muestra de menos de cinco segundos no es una narracion: es un
+          # fallo silencioso del modelo, y sin esto se entregaria igual.
+          DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 \
+                "salida/${{ matrix.clave }}.mp3")
+          echo "duracion: ${DUR}s"
+          python3 -c "import sys; d=float('$DUR'); sys.exit(0 if d>5 else 1)" \
+            || { echo "::error::solo ${DUR}s de audio; el modelo no leyo el texto"; exit 1; }
+          ls -la salida/
+
+      - uses: ./.github/actions/devolver
+        with:
+          destino: canal-youtube/muestras-voz/gemini-kevin
+          mensaje: Voz Gemini Kevin ${{ matrix.clave }}
