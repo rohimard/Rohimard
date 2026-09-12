@@ -1,0 +1,146 @@
+# Voces con licencia comercial, sin cuenta ni tarjeta.
+#
+# Alonso es una voz de Microsoft: suena bien pero la sacamos por edge-tts,
+# que no es la puerta oficial y no cubre publicar en un canal monetizado.
+# Aquí se busca el mismo timbre —masculino, latino neutro, de narrador— con
+# modelos de pesos abiertos cuyo audio de salida sí es del que lo genera.
+#
+# Piper y Chatterbox son ambos MIT. Piper pronuncia el español latino
+# correctamente pero suena plano; Chatterbox clona timbre y prosodia a
+# partir de unos segundos de referencia. Encadenarlos usa a Piper como
+# referencia sintética: nadie real presta su voz y la cadena entera es MIT.
+name: voz-libre
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-libre.yml
+      - canal-youtube/.voz-libre-disparo
+
+permissions:
+  contents: write
+
+env:
+  MUESTRA: Es diciembre de mil ochocientos sesenta y uno y estás en el castillo de Windsor. El hombre con el que llevas veintiún años casada acaba de morir de fiebre tifoidea.
+  ACABADO: highshelf=f=6500:g=2,deesser=i=0.25:m=0.5:f=0.55,equalizer=f=200:t=q:w=1.2:g=1.5,loudnorm=I=-16:TP=-1.5:LRA=11
+  PIPER_BASE: https://huggingface.co/rhasspy/piper-voices/resolve/main
+
+jobs:
+  piper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install --quiet piper-tts==1.2.0
+
+      - name: Narradores latinos de Piper
+        run: |
+          mkdir -p salida
+          bajar() {  # <ruta en el repo> <nombre>
+            curl -sSL -o "$2.onnx"      "$PIPER_BASE/$1/$2.onnx"
+            curl -sSL -o "$2.onnx.json" "$PIPER_BASE/$1/$2.onnx.json"
+          }
+          bajar es/es_MX/claude/high  es_MX-claude-high
+          bajar es/es_MX/ald/medium   es_MX-ald-medium
+          bajar es/es_AR/daniela/high es_AR-daniela-high
+
+          for v in es_MX-claude-high es_MX-ald-medium es_AR-daniela-high; do
+            echo "$MUESTRA" | piper -m "$v.onnx" -f "cruda-$v.wav"
+            ffmpeg -y -v error -i "cruda-$v.wav" -af "$ACABADO" \
+                   -codec:a libmp3lame -qscale:a 2 "salida/$v.mp3"
+          done
+
+      - name: Devolver el audio a la rama
+        env:
+          DESTINO: canal-youtube/muestras-voz/piper
+        run: |
+          rm -rf "$DESTINO" && mkdir -p "$DESTINO" && mv salida/*.mp3 "$DESTINO"/
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Muestras de las voces de Piper' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 4))
+          done
+          exit 1
+
+  # Piper pone la fonética, Chatterbox pone la naturalidad.
+  cadena:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Referencia sintética con Piper
+        run: |
+          pip install --quiet piper-tts==1.2.0
+          curl -sSL -o ref.onnx \
+            "$PIPER_BASE/es/es_MX/claude/high/es_MX-claude-high.onnx"
+          curl -sSL -o ref.onnx.json \
+            "$PIPER_BASE/es/es_MX/claude/high/es_MX-claude-high.onnx.json"
+          # Un párrafo largo da mejor referencia que una frase suelta.
+          printf '%s %s\n' "$MUESTRA" "$MUESTRA" | piper -m ref.onnx -f ref-larga.wav
+          ffmpeg -y -v error -i ref-larga.wav -t 22 -ar 24000 -ac 1 \
+                 -af "loudnorm=I=-20:TP=-2:LRA=9" ref-piper.wav
+
+      - run: pip install --quiet chatterbox-tts
+
+      - name: Volver a decirlo con Chatterbox
+        run: |
+          mkdir -p salida
+          python - <<'PY'
+          import os
+          import torchaudio as ta
+          from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+
+          modelo = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
+          texto = os.environ["MUESTRA"]
+          # Dos ajustes de expresividad para poder comparar de oído.
+          for nombre, exag, cfg in (("sobrio", 0.4, 0.5), ("narrador", 0.6, 0.4)):
+              wav = modelo.generate(
+                  texto,
+                  language_id="es",
+                  audio_prompt_path="ref-piper.wav",
+                  exaggeration=exag,
+                  cfg_weight=cfg,
+              )
+              ta.save(f"salida/cadena-{nombre}.wav", wav, modelo.sr)
+              print("hecho", nombre)
+          PY
+
+      - name: Acabado
+        run: |
+          for f in salida/*.wav; do
+            ffmpeg -y -v error -i "$f" -af "$ACABADO" \
+                   -codec:a libmp3lame -qscale:a 2 "${f%.wav}.mp3"
+            rm "$f"
+          done
+
+      - name: Devolver el audio a la rama
+        env:
+          DESTINO: canal-youtube/muestras-voz/cadena
+        run: |
+          rm -rf "$DESTINO" && mkdir -p "$DESTINO" && mv salida/*.mp3 "$DESTINO"/
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Muestras de la cadena Piper mas Chatterbox' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 4))
+          done
+          exit 1

@@ -1,0 +1,11 @@
+{
+  "image": "base.jpg",
+  "font": "../../kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura-b",
+  "number": "1/10",
+  "line1": "DE LA HUMANIDAD",
+  "line2": "MURIÓ POR ESTO",
+  "side": "right",
+  "accent": "#FFD400",
+  "alarm": "#E10600"
+}

@@ -1,0 +1,3 @@
+Aqui van las 89 imagenes del video 7, a resolucion completa.
+Nombre = numero de plano: 01.jpg ... 89.jpg (o .png).
+montar_video.js las busca por ese numero, no por orden alfabetico.

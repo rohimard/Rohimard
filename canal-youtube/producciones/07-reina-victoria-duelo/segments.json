@@ -1,0 +1,538 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "block": "GANCHO",
+      "cue": "El agua caliente sube",
+      "text": "Cada mañana ordenas que suban agua caliente para afeitar a un"
+    },
+    {
+      "id": 2,
+      "block": "GANCHO",
+      "cue": "La navaja de un muerto",
+      "text": "hombre que está muerto. Le preparan la ropa."
+    },
+    {
+      "id": 3,
+      "block": "GANCHO",
+      "cue": "La ropa y la toalla",
+      "text": "Le dejan la toalla limpia. Llevas años haciéndolo,"
+    },
+    {
+      "id": 4,
+      "block": "GANCHO",
+      "cue": "El castillo de Windsor",
+      "text": "estás en el castillo de Windsor,"
+    },
+    {
+      "id": 5,
+      "block": "GANCHO",
+      "cue": "La mujer más poderosa del mundo",
+      "text": "y eres la mujer más poderosa del mundo."
+    },
+    {
+      "id": 6,
+      "block": "HECHO",
+      "cue": "Esto pasó de verdad",
+      "text": "Esto pasó de verdad."
+    },
+    {
+      "id": 7,
+      "block": "HECHO",
+      "cue": "La reina Victoria",
+      "text": "Ella es la reina Victoria del Reino Unido."
+    },
+    {
+      "id": 8,
+      "block": "HECHO",
+      "cue": "El príncipe Alberto",
+      "text": "Él es el príncipe Alberto, su esposo, muerto de fiebre tifoidea"
+    },
+    {
+      "id": 9,
+      "block": "HECHO",
+      "cue": "Diciembre de mil ochocientos sesenta y uno",
+      "text": "en diciembre de mil ochocientos sesenta y uno,"
+    },
+    {
+      "id": 10,
+      "block": "HECHO",
+      "cue": "Cuarenta y dos años",
+      "text": "con cuarenta y dos años. A ella le quedaban más de"
+    },
+    {
+      "id": 11,
+      "block": "HECHO",
+      "cue": "Cuarenta años por delante",
+      "text": "cuarenta años de vida por delante,"
+    },
+    {
+      "id": 12,
+      "block": "HECHO",
+      "cue": "Vestida de negro cada día",
+      "text": "y los pasó enteros vistiendo de negro, cada día, sin excepción,"
+    },
+    {
+      "id": 13,
+      "block": "HECHO",
+      "cue": "Hasta su propia muerte",
+      "text": "hasta el día de su propia muerte."
+    },
+    {
+      "id": 14,
+      "block": "HECHO",
+      "cue": "Una década sin aparecer",
+      "text": "Se negó a aparecer en público durante casi una década completa,"
+    },
+    {
+      "id": 15,
+      "block": "HECHO",
+      "cue": "El pueblo empieza a preguntar",
+      "text": "hasta el punto de que el pueblo empezó a preguntarse si"
+    },
+    {
+      "id": 16,
+      "block": "HECHO",
+      "cue": "¿Sigue gobernando su reina?",
+      "text": "su reina seguía gobernando de verdad, y se retrasó años en"
+    },
+    {
+      "id": 17,
+      "block": "HECHO",
+      "cue": "El Parlamento sin abrir",
+      "text": "volver a abrir el Parlamento en persona. Para el resto de"
+    },
+    {
+      "id": 18,
+      "block": "HECHO",
+      "cue": "Papel con borde negro",
+      "text": "su vida usó papel de carta con el borde negro de"
+    },
+    {
+      "id": 19,
+      "block": "HECHO",
+      "cue": "Décadas de luto en el papel",
+      "text": "luto, incluso décadas después, en cartas que no tenían nada que"
+    },
+    {
+      "id": 20,
+      "block": "HECHO",
+      "cue": "Cartas que nada tenían que ver",
+      "text": "ver con la muerte de Alberto."
+    },
+    {
+      "id": 21,
+      "block": "HECHO",
+      "cue": "Vuelve a mostrarse",
+      "text": "Cuando por fin volvió a mostrarse en público,"
+    },
+    {
+      "id": 22,
+      "block": "HECHO",
+      "cue": "Seguía de negro",
+      "text": "seguía vestida de negro."
+    },
+    {
+      "id": 23,
+      "block": "HECHO",
+      "cue": "Treinta años más",
+      "text": "Y siguió vestida de negro los siguientes treinta años,"
+    },
+    {
+      "id": 24,
+      "block": "HECHO",
+      "cue": "Mil novecientos uno",
+      "text": "hasta que murió en mil novecientos uno."
+    },
+    {
+      "id": 25,
+      "block": "REENCUADRE",
+      "cue": "La historia lo contó como amor",
+      "text": "Durante mucho tiempo la historia contó esto como una prueba de"
+    },
+    {
+      "id": 26,
+      "block": "REENCUADRE",
+      "cue": "La viuda fiel",
+      "text": "amor eterno, la viuda fiel que nunca dejó de llorar a"
+    },
+    {
+      "id": 27,
+      "block": "REENCUADRE",
+      "cue": "Es una versión bonita",
+      "text": "su gran amor. Es una versión bonita."
+    },
+    {
+      "id": 28,
+      "block": "REENCUADRE",
+      "cue": "Pero no es la completa",
+      "text": "Pero no es la versión completa,"
+    },
+    {
+      "id": 29,
+      "block": "REENCUADRE",
+      "cue": "Y la completa es más incómoda",
+      "text": "y la versión completa es mucho más incómoda."
+    },
+    {
+      "id": 30,
+      "block": "REVELACION",
+      "cue": "Tiene nombre clínico",
+      "text": "Primero, lo que le pasó a la reina Victoria tiene nombre"
+    },
+    {
+      "id": 31,
+      "block": "REVELACION",
+      "cue": "Duelo prolongado",
+      "text": "clínico hoy, y ese nombre es duelo prolongado. No se reconoció"
+    },
+    {
+      "id": 32,
+      "block": "REVELACION",
+      "cue": "No se reconoció hasta hace poco",
+      "text": "oficialmente como un trastorno médico real hasta el año dos mil"
+    },
+    {
+      "id": 33,
+      "block": "REVELACION",
+      "cue": "El año dos mil veintidós",
+      "text": "veintidós, cuando entró en el manual de diagnóstico que usan los"
+    },
+    {
+      "id": 34,
+      "block": "REVELACION",
+      "cue": "El manual que usan los psicólogos",
+      "text": "psicólogos en todo el mundo. Durante siglo y medio, lo que"
+    },
+    {
+      "id": 35,
+      "block": "REVELACION",
+      "cue": "Siglo y medio llamándolo amor",
+      "text": "le pasó a la reina Victoria se llamó simplemente amor."
+    },
+    {
+      "id": 36,
+      "block": "REVELACION",
+      "cue": "Una condición identificable",
+      "text": "Ahora sabemos que también era una condición identificable,"
+    },
+    {
+      "id": 37,
+      "block": "REVELACION",
+      "cue": "Señales concretas, nombre propio",
+      "text": "con señales concretas y un nombre propio."
+    },
+    {
+      "id": 38,
+      "block": "PUENTE",
+      "cue": "No solo una reina del diecinueve",
+      "text": "Segundo, esas señales no son exclusivas de una reina del siglo diecinueve."
+    },
+    {
+      "id": 39,
+      "block": "PUENTE",
+      "cue": "Están pasando ahora mismo",
+      "text": "Están pasando ahora mismo, en gente que tienes cerca,"
+    },
+    {
+      "id": 40,
+      "block": "PUENTE",
+      "cue": "Puede que también en ti",
+      "text": "y puede que también en ti."
+    },
+    {
+      "id": 41,
+      "block": "TITULO",
+      "cue": "Siete señales",
+      "text": "Aquí van siete señales de que tú también estás atravesando un"
+    },
+    {
+      "id": 42,
+      "block": "TITULO",
+      "cue": "Un duelo sin terminar de procesar",
+      "text": "duelo que tu cuerpo y tu mente no han terminado de procesar."
+    },
+    {
+      "id": 43,
+      "block": "SEÑAL 1",
+      "cue": "Una parte de ti murió",
+      "text": "Primera señal, sientes que una parte de ti murió con esa persona."
+    },
+    {
+      "id": 44,
+      "block": "SEÑAL 1",
+      "cue": "No es una metáfora bonita",
+      "text": "No es una metáfora bonita, mucha gente con duelo prolongado describe"
+    },
+    {
+      "id": 45,
+      "block": "SEÑAL 1",
+      "cue": "Perdió su propia identidad",
+      "text": "sentir que perdió también su propia identidad,"
+    },
+    {
+      "id": 46,
+      "block": "SEÑAL 1",
+      "cue": "No solo a la otra persona",
+      "text": "no solo a la otra persona."
+    },
+    {
+      "id": 47,
+      "block": "SEÑAL 2",
+      "cue": "Cuesta creer que pasó",
+      "text": "Segunda señal, todavía te cuesta creer que de verdad pasó. La"
+    },
+    {
+      "id": 48,
+      "block": "SEÑAL 2",
+      "cue": "La ropa de Alberto, otra vez",
+      "text": "reina Victoria hizo que siguieran preparando la ropa de Alberto durante"
+    },
+    {
+      "id": 49,
+      "block": "SEÑAL 2",
+      "cue": "Sigues actuando como si volviera",
+      "text": "años. Si una parte de ti sigue actuando como si esa"
+    },
+    {
+      "id": 50,
+      "block": "SEÑAL 2",
+      "cue": "Aunque sepas que no",
+      "text": "persona fuera a volver, aunque sepas perfectamente que no es así,"
+    },
+    {
+      "id": 51,
+      "block": "SEÑAL 2",
+      "cue": "No es negación pasajera",
+      "text": "eso es duelo prolongado, no una negación pasajera."
+    },
+    {
+      "id": 52,
+      "block": "SEÑAL 3",
+      "cue": "Evitas lo que te lo recuerde",
+      "text": "Tercera señal, evitas cualquier cosa que te recuerde que esa persona"
+    },
+    {
+      "id": 53,
+      "block": "SEÑAL 3",
+      "cue": "Cambias de acera",
+      "text": "ya no está. Cambias de acera para no pasar por un sitio."
+    },
+    {
+      "id": 54,
+      "block": "SEÑAL 3",
+      "cue": "Borras fotos, o no puedes",
+      "text": "Borras fotos, o al contrario, no consigues borrar ni una sola."
+    },
+    {
+      "id": 55,
+      "block": "SEÑAL 4",
+      "cue": "Duele como si fuera ayer",
+      "text": "Cuarta señal, sientes un dolor emocional tan intenso que parece que fue ayer,"
+    },
+    {
+      "id": 56,
+      "block": "SEÑAL 4",
+      "cue": "Rabia y amargura",
+      "text": "aunque hayan pasado años. Rabia, amargura, una tristeza que no se"
+    },
+    {
+      "id": 57,
+      "block": "SEÑAL 4",
+      "cue": "Una tristeza que no se suaviza",
+      "text": "suaviza con el tiempo como se supone que debería."
+    },
+    {
+      "id": 58,
+      "block": "SEÑAL 5",
+      "cue": "No te reenganchas con tu vida",
+      "text": "Quinta señal, te cuesta reengancharte con tu propia vida. Planes,"
+    },
+    {
+      "id": 59,
+      "block": "SEÑAL 5",
+      "cue": "Planes, relaciones, proyectos",
+      "text": "relaciones nuevas, proyectos, todo se siente como una traición a la"
+    },
+    {
+      "id": 60,
+      "block": "SEÑAL 5",
+      "cue": "Se siente como una traición",
+      "text": "memoria de quien perdiste,"
+    },
+    {
+      "id": 61,
+      "block": "SEÑAL 5",
+      "cue": "Ya no consigues que importen",
+      "text": "o directamente ya no consigues que te importen."
+    },
+    {
+      "id": 62,
+      "block": "SEÑAL 6",
+      "cue": "Una insensibilidad extraña",
+      "text": "Sexta señal, sientes una insensibilidad extraña,"
+    },
+    {
+      "id": 63,
+      "block": "SEÑAL 6",
+      "cue": "Detrás de un cristal",
+      "text": "como si vivieras detrás de un cristal,"
+    },
+    {
+      "id": 64,
+      "block": "SEÑAL 6",
+      "cue": "Sin la intensidad de antes",
+      "text": "incapaz de sentir nada con la intensidad de antes,"
+    },
+    {
+      "id": 65,
+      "block": "SEÑAL 6",
+      "cue": "Ni siquiera lo bueno",
+      "text": "ni siquiera lo bueno."
+    },
+    {
+      "id": 66,
+      "block": "SEÑAL 7",
+      "cue": "Tu vida ya no tiene el mismo sentido",
+      "text": "Séptima señal, sientes que tu vida, en el fondo,"
+    },
+    {
+      "id": 67,
+      "block": "SEÑAL 7",
+      "cue": "Sin esa persona",
+      "text": "ya no tiene el mismo sentido sin esa persona."
+    },
+    {
+      "id": 68,
+      "block": "SEÑAL 7",
+      "cue": "No es que quieras hacerte daño",
+      "text": "No es que quieras hacerte daño,"
+    },
+    {
+      "id": 69,
+      "block": "SEÑAL 7",
+      "cue": "El para qué se apagó",
+      "text": "es que el para qué de las cosas se apagó."
+    },
+    {
+      "id": 70,
+      "block": "DATOS",
+      "cue": "Si algo de esto te suena",
+      "text": "Si algo de esto te suena,"
+    },
+    {
+      "id": 71,
+      "block": "DATOS",
+      "cue": "La clave es un solo dato",
+      "text": "la clave está en un solo dato. Lo que separa el"
+    },
+    {
+      "id": 72,
+      "block": "DATOS",
+      "cue": "No es cuánto sufres",
+      "text": "duelo normal del duelo prolongado no es cuánto sufres,"
+    },
+    {
+      "id": 73,
+      "block": "DATOS",
+      "cue": "Es cuánto tiempo sigue igual",
+      "text": "es cuánto tiempo sigue igual de intenso. Doce meses después,"
+    },
+    {
+      "id": 74,
+      "block": "DATOS",
+      "cue": "Doce meses, en adultos",
+      "text": "en adultos, sin que nada se haya movido,"
+    },
+    {
+      "id": 75,
+      "block": "DATOS",
+      "cue": "La señal de alarma",
+      "text": "es la señal de alarma que los psicólogos ya saben identificar."
+    },
+    {
+      "id": 76,
+      "block": "DATOS",
+      "cue": "Antes de esa fecha",
+      "text": "Antes de esa fecha,"
+    },
+    {
+      "id": 77,
+      "block": "DATOS",
+      "cue": "Es normal que duela así",
+      "text": "es completamente normal que duela así de fuerte."
+    },
+    {
+      "id": 78,
+      "block": "DATOS",
+      "cue": "Existe tratamiento específico",
+      "text": "Y hoy en día existe tratamiento específico para el duelo prolongado,"
+    },
+    {
+      "id": 79,
+      "block": "DATOS",
+      "cue": "Y funciona de verdad",
+      "text": "y funciona de verdad."
+    },
+    {
+      "id": 80,
+      "block": "LEGADO",
+      "cue": "A ella nadie se lo ofreció",
+      "text": "A la reina Victoria nadie le ofreció ese tratamiento,"
+    },
+    {
+      "id": 81,
+      "block": "LEGADO",
+      "cue": "Porque todavía no existía",
+      "text": "porque todavía no existía. Vivió cuarenta años atrapada en un duelo"
+    },
+    {
+      "id": 82,
+      "block": "LEGADO",
+      "cue": "Cuarenta años atrapada",
+      "text": "que hoy sabemos que tiene nombre, causas y salida."
+    },
+    {
+      "id": 83,
+      "block": "LEGADO",
+      "cue": "Tú tienes algo que ella no tuvo",
+      "text": "Tú tienes algo que ella no tuvo,"
+    },
+    {
+      "id": 84,
+      "block": "LEGADO",
+      "cue": "La palabra exacta",
+      "text": "la palabra exacta para lo que te está pasando,"
+    },
+    {
+      "id": 85,
+      "block": "LEGADO",
+      "cue": "Gente preparada para ayudarte",
+      "text": "y gente preparada para ayudarte a salir de ahí,"
+    },
+    {
+      "id": 86,
+      "block": "LEGADO",
+      "cue": "No para juzgarte",
+      "text": "no para juzgarte por seguir vestido de negro por dentro."
+    },
+    {
+      "id": 87,
+      "block": "CTA",
+      "cue": "Alguien que sí encontró la salida",
+      "text": "En el próximo video vas a conocer a alguien que sí"
+    },
+    {
+      "id": 88,
+      "block": "CTA",
+      "cue": "Y cómo lo hizo",
+      "text": "encontró la salida, y cómo lo hizo. Suscríbete si quieres entender"
+    },
+    {
+      "id": 89,
+      "block": "CTA",
+      "cue": "Lo que pasa dentro de tu cabeza",
+      "text": "lo que de verdad pasa dentro de tu cabeza cuando pierdes a alguien."
+    }
+  ]
+}

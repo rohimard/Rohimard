@@ -1,0 +1,31 @@
+# Deja en la rama lo que haya en salida/. Se extrae a una accion porque el
+# bucle de reintentos se repetia en cinco workflows y cuando dos trabajos
+# empujan a la vez uno pierde: aqui el reintento esta en un solo sitio.
+name: devolver
+description: Commitea y empuja los archivos de salida a la rama actual
+inputs:
+  destino:
+    description: Carpeta del repo donde dejarlos
+    required: true
+  mensaje:
+    description: Mensaje del commit
+    required: true
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+        mkdir -p "${{ inputs.destino }}"
+        mv salida/* "${{ inputs.destino }}"/
+        git config user.name 'github-actions[bot]'
+        git config user.email 'github-actions[bot]@users.noreply.github.com'
+        git add -f "${{ inputs.destino }}"
+        git commit -q -m "${{ inputs.mensaje }}" || exit 0
+        # Diez intentos con espera creciente: varios trabajos de la misma
+        # matriz terminan a la vez y chocan al empujar.
+        for i in $(seq 1 10); do
+          git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+            git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+          sleep $((i * 4))
+        done
+        exit 1

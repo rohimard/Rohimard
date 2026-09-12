@@ -1,0 +1,218 @@
+[
+  {
+    "id": 1,
+    "block": "GANCHO",
+    "cue": "Dormitorio del orfanato",
+    "text": "Imagina que tienes seis años, vives en un orfanato,",
+    "t_start": 0.0,
+    "t_end": 2.258,
+    "imagen": "01.jpg"
+  },
+  {
+    "id": 2,
+    "block": "GANCHO",
+    "cue": "La mujer con la libreta",
+    "text": "y un día una mujer te dice que hablas mal.",
+    "t_start": 2.258,
+    "t_end": 4.768,
+    "imagen": "02.jpg"
+  },
+  {
+    "id": 3,
+    "block": "REVELACION",
+    "cue": "Gesto frío y calculado",
+    "text": "No es tu profesora: es un experimento.",
+    "t_start": 4.768,
+    "t_end": 7.848,
+    "imagen": "03.jpg"
+  },
+  {
+    "id": 4,
+    "block": "DATOS",
+    "cue": "Orfanato de los años treinta",
+    "text": "Mil novecientos treinta y nueve, Universidad de Iowa.",
+    "t_start": 7.848,
+    "t_end": 9.975,
+    "imagen": "04.jpg"
+  },
+  {
+    "id": 5,
+    "block": "DATOS",
+    "cue": "Grupo de niños del orfanato",
+    "text": "Veintidós niños huérfanos, divididos en dos grupos sin saberlo.",
+    "t_start": 9.975,
+    "t_end": 13.237,
+    "imagen": "05.jpg"
+  },
+  {
+    "id": 6,
+    "block": "EXPERIMENTO",
+    "cue": "Elogio cálido",
+    "text": "A la mitad la elogiaban por todo.",
+    "t_start": 13.237,
+    "t_end": 15.617,
+    "imagen": "06.jpg"
+  },
+  {
+    "id": 7,
+    "block": "EXPERIMENTO",
+    "cue": "Reprimenda con el dedo",
+    "text": "A la otra la humillaban por cada palabra dudada,",
+    "t_start": 15.617,
+    "t_end": 18.259,
+    "imagen": "07.jpg"
+  },
+  {
+    "id": 8,
+    "block": "EXPERIMENTO",
+    "cue": "Manos tensas del niño",
+    "text": "aunque casi ninguno tartamudeara de verdad.",
+    "t_start": 18.259,
+    "t_end": 20.036,
+    "imagen": "08.jpg"
+  },
+  {
+    "id": 9,
+    "block": "JOHNSON",
+    "cue": "Retrato de Johnson",
+    "text": "El responsable, Wendell Johnson, tartamudeó de niño",
+    "t_start": 20.036,
+    "t_end": 22.53,
+    "imagen": "09.jpg"
+  },
+  {
+    "id": 10,
+    "block": "JOHNSON",
+    "cue": "Johnson mirando por la ventana",
+    "text": "y quería probar que el problema nace en",
+    "t_start": 22.53,
+    "t_end": 25.396,
+    "imagen": "10.jpg"
+  },
+  {
+    "id": 11,
+    "block": "JOHNSON",
+    "cue": "Johnson junto a la ventana",
+    "text": "cómo te habla la gente, no en tu garganta.",
+    "t_start": 25.396,
+    "t_end": 28.604,
+    "imagen": "11.jpg"
+  },
+  {
+    "id": 12,
+    "block": "ENCUBRIMIENTO",
+    "cue": "Cerrando el cajón",
+    "text": "Nunca publicó los resultados:",
+    "t_start": 28.604,
+    "t_end": 30.037,
+    "imagen": "12.jpg"
+  },
+  {
+    "id": 13,
+    "block": "ENCUBRIMIENTO",
+    "cue": "Mirando el cajón cerrado",
+    "text": "sabía que no se podían defender.",
+    "t_start": 30.037,
+    "t_end": 32.333,
+    "imagen": "13.jpg"
+  },
+  {
+    "id": 14,
+    "block": "ENCUBRIMIENTO",
+    "cue": "Archivador polvoriento",
+    "text": "El estudio quedó oculto sesenta y dos años,",
+    "t_start": 32.333,
+    "t_end": 34.829,
+    "imagen": "14.jpg"
+  },
+  {
+    "id": 15,
+    "block": "DESCUBRIMIENTO",
+    "cue": "Periodista revisando archivos",
+    "text": "hasta que un periodista encontró los archivos en dos mil uno.",
+    "t_start": 34.829,
+    "t_end": 38.591,
+    "imagen": "15.jpg"
+  },
+  {
+    "id": 16,
+    "block": "CONSECUENCIAS",
+    "cue": "Manos temblando",
+    "text": "Esos niños, ya ancianos,",
+    "t_start": 38.591,
+    "t_end": 40.04,
+    "imagen": "16.jpg"
+  },
+  {
+    "id": 17,
+    "block": "CONSECUENCIAS",
+    "cue": "Taza derramándose",
+    "text": "seguían arrastrando el daño seis décadas después.",
+    "t_start": 40.04,
+    "t_end": 42.727,
+    "imagen": "17.jpg"
+  },
+  {
+    "id": 18,
+    "block": "CONSECUENCIAS",
+    "cue": "Documento oficial sellado",
+    "text": "La universidad pidió perdón en público.",
+    "t_start": 42.727,
+    "t_end": 45.169,
+    "imagen": "18.jpg"
+  },
+  {
+    "id": 19,
+    "block": "GIRO",
+    "cue": "Espejo en sala vacía",
+    "text": "Pero lo más inquietante no es lo que le hicieron.",
+    "t_start": 45.169,
+    "t_end": 48.481,
+    "imagen": "19.jpg"
+  },
+  {
+    "id": 20,
+    "block": "GIRO",
+    "cue": "Modelo de cerebro",
+    "text": "Es que su hipótesis tenía razón.",
+    "t_start": 48.481,
+    "t_end": 50.763,
+    "imagen": "20.jpg"
+  },
+  {
+    "id": 21,
+    "block": "GIRO",
+    "cue": "Silla infantil volcada",
+    "text": "Solo la usó para destruir, no para entender.",
+    "t_start": 50.763,
+    "t_end": 53.614,
+    "imagen": "21.jpg"
+  },
+  {
+    "id": 22,
+    "block": "CONEXION",
+    "cue": "Aula moderna",
+    "text": "Y te sigue pasando cada vez que un profesor",
+    "t_start": 53.614,
+    "t_end": 56.703,
+    "imagen": "22.jpg"
+  },
+  {
+    "id": 23,
+    "block": "CONEXION",
+    "cue": "Oficina moderna",
+    "text": "o un jefe decide qué etiqueta llevas puesta.",
+    "t_start": 56.703,
+    "t_end": 59.364,
+    "imagen": "23.jpg"
+  },
+  {
+    "id": 24,
+    "block": "CIERRE",
+    "cue": "Cierre del canal",
+    "text": "La historia completa, en el video.",
+    "t_start": 59.364,
+    "t_end": 62.35,
+    "imagen": "24.jpg"
+  }
+]

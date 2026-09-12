@@ -1,0 +1,81 @@
+# Monta el texto de la miniatura sobre la imagen base.
+#
+# Los generadores de imagen escriben el texto fatal, así que la base se
+# genera limpia y el titular se compone aquí con Anton, que es lo que da el
+# aspecto nítido de miniatura con buen porcentaje de clics.
+#
+# Corre en un runner porque los servidores donde vive la imagen generada
+# están bloqueados desde el entorno de Claude, y porque aquí hay Chromium
+# para el render sin instalar nada más.
+name: miniatura
+
+on:
+  workflow_dispatch:
+    inputs:
+      base:
+        description: URL de la imagen base generada
+        required: true
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/miniatura.yml
+      - canal-youtube/producciones/**/miniatura-config.json
+      - canal-youtube/.miniatura-url
+
+permissions:
+  contents: write
+
+env:
+  PRODUCCION: canal-youtube/producciones/07-reina-victoria-duelo
+
+jobs:
+  montar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Bajar la imagen base
+        run: |
+          URL="${{ inputs.base }}"
+          # En un push no hay inputs, así que la URL viaja en un archivo.
+          [ -n "$URL" ] || URL="$(tr -d '[:space:]' < canal-youtube/.miniatura-url)"
+          curl -sSL --max-time 120 -o "$PRODUCCION/base.jpg" "$URL"
+          file "$PRODUCCION/base.jpg"
+
+      - name: Render del titular
+        run: |
+          # render_thumbnail.js compone con Chromium sin cabeza, y el runner
+          # no trae ninguno. playwright-core no descarga navegador por
+          # diseño, así que hay que pedirlo aparte.
+          #
+          # Se instala FUERA del repo a propósito: este es un proyecto Next
+          # con su propio package.json, y meterle playwright dentro lo
+          # modifica y deja el árbol sucio, que luego impide el push.
+          PW="$RUNNER_TEMP/pw"
+          npm install --silent --prefix "$PW" playwright-core playwright
+          export NODE_PATH="$PW/node_modules"
+          "$PW/node_modules/.bin/playwright" install --with-deps chromium
+          node canal-youtube/kit-produccion/scripts/render_thumbnail.js \
+               "$PRODUCCION/miniatura-config.json"
+          ls -la "$PRODUCCION"/miniatura.*
+
+      - name: Devolver la miniatura a la rama
+        run: |
+          # Por si alguna herramienta tocó los manifiestos del proyecto:
+          # con el árbol sucio, el rebase del push falla.
+          git checkout -- package.json package-lock.json 2>/dev/null || true
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$PRODUCCION/miniatura.png" "$PRODUCCION/miniatura.jpg" \
+                     "$PRODUCCION/base.jpg"
+          git commit -q -m 'Miniatura del video siete' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

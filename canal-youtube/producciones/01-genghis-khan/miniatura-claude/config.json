@@ -1,0 +1,11 @@
+{
+  "image": "base-v3.jpg",
+  "font": "../../../kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura-claude",
+  "number": "10%",
+  "line1": "DE LA HUMANIDAD",
+  "line2": "DESAPARECIÓ",
+  "side": "right",
+  "accent": "#FFD400",
+  "alarm": "#E10600"
+}

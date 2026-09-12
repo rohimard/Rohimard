@@ -28,3 +28,33 @@ next-env.d.ts
 
 # runtime data store (regenerated from seed)
 /.data
+
+# artefactos temporales del render de miniaturas
+canal-youtube/producciones/**/_thumb.html
+canal-youtube/producciones/**/_thumb_short.html
+canal-youtube/producciones/**/audio.mp3
+canal-youtube/producciones/**/*.mp4
+canal-youtube/producciones/**/chunks/
+canal-cerebro-traidor/producciones/**/_thumb.html
+canal-cerebro-traidor/producciones/**/audio.mp3
+canal-cerebro-traidor/producciones/**/*.mp4
+
+# modelos de la voz del narrador — binarios pesados, se descargan de releases de GitHub
+# (ver las URLs en la cabecera de canal-youtube/voz-narrador.py).
+# La referencia de Kevin sí se versiona: sin ella la voz no es reproducible.
+canal-youtube/kokoro-models/
+canal-youtube/freevc-models/*
+!canal-youtube/freevc-models/kevin-referencia.mp3
+
+# clave de la API de voz (nunca al repo)
+canal-youtube/.google-tts-key
+
+# cache de Python
+__pycache__/
+*.pyc
+
+# Marcadores provisionales de planos sin imagen. Nunca al repo: montar_video.js
+# busca la imagen por su numero, asi que un marcador versionado se colaria en el
+# video final como si fuera el plano bueno, que es justo lo que "rellenar": false
+# existe para impedir.
+canal-youtube/producciones/**/imagenes/*-PENDIENTE.jpg

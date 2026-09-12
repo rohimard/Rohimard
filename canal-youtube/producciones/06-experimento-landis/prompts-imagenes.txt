@@ -1,0 +1,242 @@
+Prompts listos para copiar y pegar tal cual, uno por escena, en el orden del guión.
+Estimación previa al audio real (basada en el conteo de palabras, 779 en total) — se
+revisará y probablemente se dividirá en más planos cortos una vez exista el audio real y
+los tiempos por palabra, mismo método que en Stanford y Estudio Monstruo.
+
+Estilo: fotografía realista a COLOR (nunca blanco y negro ni viraje sepia tipo foto de
+archivo antigua) — cinematográfica, con textura de piel y detalle humano real, como si
+estuviera pasando delante de la cámara ahora mismo, aunque la ambientación (ropa, muebles,
+objetos) sea de los años veinte. Colorimetría cálida de época durante la parte histórica,
+pasando a color moderno neutro en la sección de conexión universal y el cierre.
+
+CUIDADO DE CONTENIDO (importante, avisado por el usuario — política de crueldad animal de
+YouTube): ninguna imagen muestra el acto de matar al animal, ni sangre, ni el momento del
+corte. La rata solo aparece viva, en la bandeja, o el instante justo ANTES o DESPUÉS del
+acto sugerido por el entorno (el cuchillo sobre la bandeja, las manos del estudiante
+alejándose, su cara reaccionando) — nunca el acto en sí. Mismo criterio de no mostrar el
+momento explícito que ya se usó con la angustia infantil en Estudio Monstruo.
+
+Ningún estudiante ni el propio Landis es una persona real identificable: rasgos genéricos,
+sin nombres visibles.
+
+01
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: interior de un laboratorio universitario de los años veinte, mesa de madera con instrumental científico, luz de ventana alta entrando de lado. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+02
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: un joven estudiante universitario de unos veinte años sentado en una silla de madera, un asistente de laboratorio pintándole líneas finas con tinta sobre la cara para marcar los músculos. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+03
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de una cámara fotográfica de trípode de los años veinte, enfocando hacia el sujeto sentado, el fotógrafo ajustando el objetivo. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+04
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: un gramófono antiguo de los años veinte sonando sobre una mesa lateral, el estudiante escuchando con expresión neutra. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+05
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de un libro con tapas de cuero abierto en una página con un pasaje bíblico subrayado, el estudiante leyendo en voz alta. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+06
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: un investigador con bata acercando un pequeño frasco de vidrio abierto hacia la nariz del estudiante, este último con los ojos entrecerrados. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral dura motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+07
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de los ojos del estudiante llenándose de lágrimas por el amoníaco, sin mostrar el frasco. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral dura motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+08
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: una carpeta de fotografías médicas antiguas cerrada sobre la mesa, solo visible el canto, sin contenido explícito a la vista. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+09
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el estudiante apartando la mirada incómodo de algo fuera de cuadro sobre la mesa, gesto de vergüenza. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+10
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: un balde metálico de los años veinte sobre el suelo de madera, agua y ranas vivas visibles dentro, nada perturbador. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+11
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de la mano del estudiante sumergida en el balde, expresión de asco leve en su rostro reflejado desenfocado al fondo. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+12
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: la puerta del laboratorio abriéndose, un investigador con bata blanca entrando con una bandeja metálica cubierta con un paño. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral dramática motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+13
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de una rata blanca viva, tranquila, dentro de una jaula pequeña sobre la mesa, sin ningún elemento amenazante en cuadro. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+14
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: un cuchillo simple de laboratorio sobre un paño blanco encima de la bandeja metálica, visto de lejos, sin sangre ni nada perturbador. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral dramática motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+15
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano del rostro del estudiante mirando fijamente hacia la bandeja fuera de cuadro, expresión de shock e incredulidad. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral dramática motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+16
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: retrato de tres cuartos de un hombre de unos veinticinco años, camisa con chaleco de los años veinte, expresión seria y observadora, en un despacho universitario con estanterías de libros. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+17
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el mismo hombre escribiendo notas en un cuaderno de investigación, un diagrama simple de una cara humana dibujado a un lado con anotaciones sobre los músculos. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+18
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: fachada exterior de un edificio universitario de ladrillo de los años veinte en Minnesota, cielo despejado de invierno. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural de día motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+19
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: una hilera de fotografías en blanco y negro reveladas colgando de pinzas para secar en un cuarto oscuro de fotografía, mostrando distintos rostros gesticulando, sin detalle explícito visible. fotografía cinematográfica hiperrealista, full frame 35mm, luz de cuarto oscuro motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+20
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el investigador de pie junto a una mesa de laboratorio distinta, preparando el siguiente estímulo, mirando su reloj de bolsillo. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+21
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: una fila de tres sillas de madera vacías junto a una pared de laboratorio, esperando a los siguientes sujetos del experimento. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+22
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de la bandeja metálica con la rata dentro de su jaula pequeña y el cuchillo al lado, vista general sin nadie tocándola todavía. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral dramática motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+23
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de las manos de un estudiante distinto, temblando levemente, alejadas de la bandeja, sin tocar nada. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral dramática motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+24
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el rostro de ese estudiante mirando hacia abajo, mandíbula tensa, decidiendo, sin mostrar sus manos ni la bandeja. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral dramática motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+25
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el mismo estudiante de espaldas, hombros caídos, alejándose despacio de la mesa un momento después, sin mostrar la bandeja ni ningún detalle del acto. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+26
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: un paño blanco cubriendo por completo la bandeja metálica sobre la mesa, escena tranquila y sin detalle explícito, luz suave. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+27
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano del rostro de una estudiante, ojos llorosos, mirando hacia abajo, un momento después del experimento, sin mostrar la mesa. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+28
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: otro estudiante negando con la cabeza, dando un paso atrás con las manos levantadas, gesto claro de rechazo, sin mostrar qué está rechazando. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral dramática motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+29
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el investigador acercándose con calma hacia la mesa mientras el estudiante que se negó observa desde un lado, de espaldas a cámara, sin mostrar la mesa. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral dramática motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+30
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano del rostro del estudiante que se negó, obligado a seguir mirando, ojos muy abiertos, cámara fotográfica visible al fondo desenfocada apuntando hacia él. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral dramática motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+31
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: sala de espera institucional sobria de los años veinte, un niño de unos trece años sentado solo en un banco de madera, sin adultos cerca, expresión tranquila. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural de ventana motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+32
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de una ficha clínica antigua de papel amarillento sobre un escritorio, con un brazalete de tensión arterial de época al lado, sin nombre legible. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+33
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: un adulto con bata guiando amablemente al niño de trece años de la mano por un pasillo institucional hacia el laboratorio, visto de espaldas ambos. fotografía cinematográfica hiperrealista, full frame 35mm, luz de pasillo motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+34
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el niño de trece años sentado en la misma silla de laboratorio, visto de espaldas o de perfil lejano, sin mostrar su rostro con detalle, pequeño en el encuadre. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+35
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de las manos pequeñas del niño apretadas sobre su regazo, nudillos tensos, sin mostrar nada más de la escena. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+36
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: la sala de laboratorio vacía momentos después, la ventana dejando entrar luz de tarde, silencio y calma tras la escena. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral suave motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+37
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: un cartel discreto de madera en la puerta del laboratorio con letras talladas sin nombre propio legible con claridad. fotografía cinematográfica hiperrealista, full frame 35mm, luz de pasillo motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+38
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el investigador solo en su despacho de noche, revisando decenas de fotografías reveladas extendidas sobre el escritorio, expresión de concentración frustrada. fotografía cinematográfica hiperrealista, full frame 35mm, luz de lámpara de escritorio motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+39
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de dos fotografías puestas una junto a otra sobre el escritorio, dos rostros distintos reaccionando de forma completamente opuesta al mismo momento, sin detalle explícito. fotografía cinematográfica hiperrealista, full frame 35mm, luz de lámpara de escritorio motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+40
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano del rostro de una persona riendo nerviosamente con lágrimas en los ojos, expresión ambigua entre risa y llanto. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+41
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano del rostro de otra persona con lágrimas cayendo, expresión de tristeza genuina. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+42
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano del rostro de una tercera persona completamente inexpresivo, mirada vacía y fija hacia la cámara. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+43
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el investigador tachando con lápiz un diagrama de expresiones faciales en su cuaderno, gesto de rendición. fotografía cinematográfica hiperrealista, full frame 35mm, luz de lámpara de escritorio motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+44
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de una hoja de papel con un diagrama de una cara tachado con varias líneas cruzadas encima, sin texto legible. fotografía cinematográfica hiperrealista, full frame 35mm, luz de lámpara de escritorio motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+45
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el investigador reclinado hacia atrás en su silla, frotándose los ojos cansado, las fotografías desordenadas sobre la mesa. fotografía cinematográfica hiperrealista, full frame 35mm, luz de lámpara de escritorio motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+46
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: todas las fotografías extendidas sobre la mesa vistas desde arriba, decenas de rostros distintos, ningún patrón visible entre ellos. fotografía cinematográfica hiperrealista, full frame 35mm, luz de lámpara de escritorio motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+47
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de una lista escrita a mano con marcas de verificación junto a nombres tachados por privacidad, conteo de participantes del experimento. fotografía cinematográfica hiperrealista, full frame 35mm, luz de lámpara de escritorio motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+48
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el investigador de pie frente a una ventana de su despacho al atardecer, de espaldas, silueta pensativa. fotografía cinematográfica hiperrealista, full frame 35mm, luz de atardecer motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+49
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de la bandeja metálica ahora vacía y limpia sobre la mesa de laboratorio, luz suave, escena tranquila, sin ningún detalle perturbador. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral suave motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+50
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de una fila de fotografías clavadas en un tablón, todas mostrando la misma pose de espera pero rostros con reacciones radicalmente distintas. fotografía cinematográfica hiperrealista, full frame 35mm, luz de despacho motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+51
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el investigador mirando fijamente una sola fotografía en su mano, expresión de darse cuenta de algo, luz de vela junto a él. fotografía cinematográfica hiperrealista, full frame 35mm, luz de vela motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+52
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de esa fotografía en su mano, dos personas distintas en el mismo instante ante la misma orden, sin detalle explícito, solo sus rostros muy próximos entre sí. fotografía cinematográfica hiperrealista, full frame 35mm, luz de vela motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+53
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: silueta del investigador reflejada en la ventana oscura de la noche, superpuesta sobre las luces lejanas del campus universitario. fotografía cinematográfica hiperrealista, full frame 35mm, luz nocturna motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+54
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de una balanza antigua de laboratorio en reposo, perfectamente equilibrada, metáfora visual de la autoridad y la obediencia sin necesidad de fuerza. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+55
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de una bata blanca de laboratorio colgada de un perchero, luz entrando por la ventana detrás. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+56
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: un cuestionario impreso de los años veinte con casillas y firmas, sobre un portapapeles de madera, en manos del investigador. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+57
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el investigador entregando el portapapeles con total naturalidad y una sonrisa profesional a un nuevo estudiante que acaba de entrar. fotografía cinematográfica hiperrealista, full frame 35mm, luz de ventana lateral motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+58
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: disolución visual del laboratorio de los años veinte hacia una oficina moderna genérica, superponiendo ambas escenas a través de una ventana. fotografía cinematográfica hiperrealista, transición de época, iluminación mixta motivada, colorimetría de transición realista, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+59
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: oficina moderna genérica, un empleado adulto de espaldas frente a un escritorio, un jefe de pie a su lado señalando la pantalla con gesto casual. fotografía cinematográfica hiperrealista, full frame 35mm, luz de oficina moderna motivada, colorimetría neutra realista moderna, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+60
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de un reloj de pared de oficina marcando las siete de la tarde, escritorios vacíos alrededor salvo uno iluminado. fotografía cinematográfica hiperrealista, full frame 35mm, luz de oficina moderna motivada, colorimetría neutra realista moderna, grano fílmico sutil, profundidad de campo real, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+61
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: ese mismo empleado tecleando resignado en su computadora de noche, oficina vacía detrás, luz azulada de la pantalla sobre su cara. fotografía cinematográfica hiperrealista, full frame 35mm, luz de pantalla motivada, colorimetría neutra realista moderna, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+62
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: una sala de reuniones moderna genérica, varias personas asintiendo en silencio mientras un superior habla de pie, ninguno mostrando desacuerdo. fotografía cinematográfica hiperrealista, full frame 35mm, luz de sala de reuniones motivada, colorimetría neutra realista moderna, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+63
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de una persona adulta genérica bajando la mirada evasivamente durante esa misma reunión, sin decir nada. fotografía cinematográfica hiperrealista, full frame 35mm, luz de sala de reuniones motivada, colorimetría neutra realista moderna, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+64
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: una calle genérica moderna, una persona caminando rápido y esquivando la mirada de alguien pidiendo ayuda sentado en la acera. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural de calle motivada, colorimetría neutra realista moderna, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+65
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de las manos de esa persona apretando el teléfono con fuerza mientras sigue caminando, gesto de tensión interna. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural de calle motivada, colorimetría neutra realista moderna, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+66
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: disolución de vuelta al laboratorio de los años veinte, el investigador ahora sentado escribiendo el título de un artículo científico a máquina de escribir. fotografía cinematográfica hiperrealista, full frame 35mm, luz de escritorio motivada, colorimetría cálida realista de los años veinte a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+67
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de las teclas de la máquina de escribir en movimiento, hoja de papel a medio escribir, sin texto legible con claridad. fotografía cinematográfica hiperrealista, full frame 35mm, luz de escritorio motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+68
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: una copia impresa del artículo académico terminado, encuadernada en tapa dura simple, colocada en un estante de biblioteca universitaria junto a otras publicaciones similares, sin destacar. fotografía cinematográfica hiperrealista, full frame 35mm, luz de biblioteca motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+69
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: capa de polvo fina acumulándose visualmente con el paso del tiempo sobre ese mismo libro en el estante, sugerido con un rayo de luz que atraviesa la biblioteca vacía. fotografía cinematográfica hiperrealista, full frame 35mm, luz de biblioteca motivada, colorimetría cálida realista de los años veinte a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+70
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: el investigador ya mayor, décadas después, caminando por un pasillo universitario distinto, con paso tranquilo, ajeno a la relevancia de aquel hallazgo perdido. fotografía cinematográfica hiperrealista, full frame 35mm, luz de pasillo motivada, colorimetría cálida realista de mediados de siglo a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+71
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: fachada exterior de otra universidad estadounidense de mediados de los años sesenta, estilo arquitectónico moderno para la época, cielo despejado. fotografía cinematográfica hiperrealista, full frame 35mm, luz natural de día motivada, colorimetría realista de mediados de siglo a todo color, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+72
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: un psicólogo genérico de unos treinta años, traje oscuro de los años sesenta, de pie frente a una máquina con botones y diales, preparando un nuevo experimento sin revelar más detalle. fotografía cinematográfica hiperrealista, full frame 35mm, luz de laboratorio motivada, colorimetría realista de mediados de siglo a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+73
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: primer plano de ese mismo hombre mirando fijamente a cámara con expresión calmada y profesional, sugiriendo intriga sin mostrar más. fotografía cinematográfica hiperrealista, full frame 35mm, luz de laboratorio motivada, colorimetría realista de mediados de siglo a todo color, piel y texturas humanas reales, grano fílmico sutil, profundidad de campo real, estilo documental de reconstrucción histórica en color, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+74
+Crea una imagen fotorrealista en formato horizontal 16:9, sin ningún texto: logotipo simple de un asterisco genérico iluminado suavemente sobre fondo oscuro neutro, sin texto ni marca, como cierre de sección. fotografía cinematográfica hiperrealista, iluminación de estudio suave y neutra, fondo oscuro liso, aspecto minimalista y elegante, máximo detalle, 8K, sin texto en pantalla, 16:9.

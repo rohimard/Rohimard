@@ -1,0 +1,12 @@
+{
+  "hoja": "hoja-montaje.csv",
+  "imagenes": "imagenes",
+  "audio": "narracion.wav",
+  "srt": "subtitulos.srt",
+  "salida": "video-07-reina-victoria.mp4",
+  "resolucion": "1920x1080",
+  "fps": 25,
+  "crf": 20,
+  "zoom": 1.12,
+  "rellenar": false
+}

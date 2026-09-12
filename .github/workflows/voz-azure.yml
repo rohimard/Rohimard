@@ -1,0 +1,196 @@
+# Narra el guión con Azure AI Speech, la voz Jorge en alta definición.
+#
+# Es la misma familia de voces que sacábamos por edge-tts, pero entrando por
+# la puerta oficial, con clave y con derecho a publicar en un canal
+# monetizado. La capa gratuita F0 da medio millón de caracteres al mes.
+#
+# Corre aquí y no en local porque el entorno donde trabaja Claude tiene
+# bloqueada la salida hacia Azure, y porque así la clave vive en los
+# secretos del repo y no pasa por la conversación.
+#
+# POR QUÉ ESTE ARCHIVO SE REHIZO
+# La primera versión pedía la voz por REST a 24 kHz y luego la recodificaba de
+# MP3 a MP3. Medido sobre el resultado: la señal caía en seco de -40 dB a
+# -71 dB en 11 kHz, o sea que no había nada por encima. Una voz humana llega a
+# 16-20 kHz, y ahí es donde viven la respiración y las eses; sin eso el oído
+# la lee como sintética. Encima el acabado llevaba un highshelf de +2 dB a
+# partir de 6,5 kHz, que en una señal sin contenido ahí arriba no realza el
+# aire de la voz sino los artefactos del códec: la banda de 6-8 kHz acababa
+# sonando MÁS fuerte que la de 4-6 kHz, que es justo lo que no pasa en una voz
+# real. Ahora se pide WAV a 48 kHz sin pérdida, se toca lo mínimo y se
+# comprime una sola vez.
+#
+# Y la segunda razón del cambio: por REST no hay forma de saber cuándo suena
+# cada palabra, así que los subtítulos se estimaban midiendo los silencios del
+# MP3 y la estimación se desviaba hasta tres segundos. El SDK emite un evento
+# por palabra con su posición exacta en el audio. Con eso los subtítulos dejan
+# de ser una estimación.
+name: voz-azure
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-azure.yml
+      - canal-youtube/.azure-disparo
+      - canal-youtube/.azure-objetivo
+
+permissions:
+  contents: write
+
+# GUION y DESTINO no estan aqui: se leen de canal-youtube/.azure-objetivo, una
+# linea cada uno, para que el mismo workflow narre el video y el short sin
+# duplicar cien lineas de YAML.
+env:
+  # Jorge normal, NO la variante DragonHD. Medido sobre muestras del mismo
+  # texto: por encima de 12 kHz la HD da -97 dB y esta -46 dB, o sea que la
+  # que se llama HD es la única sin agudos, y sin agudos una voz no suena a
+  # persona. Y lo que más pesa: la HD no admite estilos, así que un guion
+  # sobre un duelo de cuarenta años se leía sin ninguna intención.
+  VOZ: es-MX-JorgeNeural
+  # Elegido de oído sobre seis muestras. El grado va aquí para no tocarlo sin
+  # querer: es el que se aprobó escuchando.
+  ESTILO: sad
+  GRADO: '1.4'
+  PAUSA: 700ms
+
+jobs:
+  narrar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Comprobar que la clave está puesta
+        env:
+          CLAVE: ${{ secrets.AZURE_SPEECH_KEY }}
+        run: |
+          if [ -z "$CLAVE" ]; then
+            echo "::error::falta el secreto AZURE_SPEECH_KEY en el repo"
+            exit 1
+          fi
+
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install --quiet azure-cognitiveservices-speech
+
+      - name: Leer el objetivo
+        run: |
+          OBJ=canal-youtube/.azure-objetivo
+          if [ ! -f "$OBJ" ]; then
+            echo "::error::falta $OBJ con el guion y la carpeta de salida"
+            exit 1
+          fi
+          echo "GUION=$(sed -n 1p "$OBJ" | tr -d '[:space:]')" >> "$GITHUB_ENV"
+          echo "DESTINO=$(sed -n 2p "$OBJ" | tr -d '[:space:]')" >> "$GITHUB_ENV"
+          sed -n 1,2p "$OBJ"
+
+      - name: Sintetizar con Azure
+        env:
+          CLAVE: ${{ secrets.AZURE_SPEECH_KEY }}
+          REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+          from xml.sax.saxutils import escape
+
+          import azure.cognitiveservices.speech as speechsdk
+
+          texto = open(os.environ["GUION"], encoding="utf-8").read().strip()
+
+          # Cada párrafo del guión es una pausa larga del montaje. El <break>
+          # entre ellos es el único control de ritmo que deja HD.
+          parrafos = f'<break time="{os.environ["PAUSA"]}"/>'.join(
+              f"<p>{escape(p.strip())}</p>"
+              for p in texto.split("\n\n") if p.strip()
+          )
+          # Azure no da error cuando una voz no admite el estilo pedido: lo
+          # ignora en silencio y devuelve el audio plano. Por eso el estilo se
+          # comprobó antes con muestras en vez de darlo por bueno aquí.
+          cuerpo = (f'<mstts:express-as style="{os.environ["ESTILO"]}" '
+                    f'styledegree="{os.environ["GRADO"]}">{parrafos}'
+                    "</mstts:express-as>")
+          ssml = (
+              "<speak version='1.0' "
+              "xmlns='http://www.w3.org/2001/10/synthesis' "
+              "xmlns:mstts='http://www.w3.org/2001/mstts' "
+              "xml:lang='es-MX'>"
+              f"<voice name='{os.environ['VOZ']}'>{cuerpo}</voice>"
+              "</speak>"
+          )
+
+          cfg = speechsdk.SpeechConfig(
+              subscription=os.environ["CLAVE"],
+              region=(os.environ.get("REGION") or "eastus").strip(),
+          )
+          # Sin pérdida y a 48 kHz: es el techo que da Azure y lo que evita
+          # tener que recomprimir nada por el camino.
+          cfg.set_speech_synthesis_output_format(
+              speechsdk.SpeechSynthesisOutputFormat.Riff48Khz16BitMonoPcm
+          )
+
+          # Sin altavoz en el runner: si no se dice, el SDK intenta abrir uno.
+          sint = speechsdk.SpeechSynthesizer(speech_config=cfg, audio_config=None)
+
+          palabras = []
+          def apuntar(evt):
+              # audio_offset viene en unidades de 100 ns.
+              palabras.append({
+                  "texto": evt.text,
+                  "entra": evt.audio_offset / 10_000_000,
+                  "dura": evt.duration.total_seconds()
+                          if hasattr(evt.duration, "total_seconds")
+                          else evt.duration / 10_000_000,
+              })
+          sint.synthesis_word_boundary.connect(apuntar)
+
+          res = sint.speak_ssml_async(ssml).get()
+          if res.reason != speechsdk.ResultReason.SynthesizingAudioCompleted:
+              det = res.cancellation_details
+              print(f"::error::Azure canceló: {det.reason} · {det.error_details}")
+              sys.exit(1)
+
+          open("narracion.wav", "wb").write(res.audio_data)
+          json.dump(palabras, open("palabras.json", "w"), ensure_ascii=False)
+          print(f"{len(texto)} caracteres -> {len(res.audio_data)/1e6:.1f} MB")
+          print(f"marcas de palabra recibidas: {len(palabras)}")
+          if not palabras:
+              # Sin marcas los subtítulos volverían a ser una estimación, que
+              # es justo el fallo que este archivo viene a corregir.
+              print("::error::la voz no emitió marcas de palabra")
+              sys.exit(1)
+          PY
+
+      - name: Acabado
+        run: |
+          mkdir -p salida
+          # Solo nivel. Nada de ecualizar: cualquier realce aquí es a ciegas y
+          # ya costó una narración entera. El WAV va al montaje tal cual, y el
+          # MP3 es solo para escuchar.
+          ffmpeg -y -v error -i narracion.wav \
+                 -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -ar 48000 -ac 1 -c:a pcm_s16le "salida/narracion.wav"
+          ffmpeg -y -v error -i "salida/narracion.wav" \
+                 -c:a libmp3lame -b:a 320k "salida/narracion.mp3"
+          for f in salida/narracion.wav salida/narracion.mp3; do
+            echo "$f — $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f") s"
+          done
+
+      - name: Devolver la narración a la rama
+        run: |
+          cp salida/narracion.wav "$DESTINO/narracion.wav"
+          cp salida/narracion.mp3 "$DESTINO/audio.mp3"
+          cp palabras.json "$DESTINO/palabras.json"
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO/narracion.wav" "$DESTINO/audio.mp3" \
+                     "$DESTINO/palabras.json"
+          git commit -q -m 'Narracion a 48 kHz con marcas de palabra' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

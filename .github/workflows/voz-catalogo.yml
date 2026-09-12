@@ -1,0 +1,108 @@
+# Lista TODAS las voces en español que da la cuenta de Azure, con sus estilos,
+# su calidad y su tipo.
+#
+# Por qué existe: hasta ahora las voces se elegían de memoria, probando las que
+# se me ocurrían. Eso no es investigar. Azure publica el catálogo completo en
+# /cognitiveservices/voices/list, con los estilos que admite cada voz y si es
+# de la generación normal, HD o multilingüe. Sin ese dato, elegir es adivinar,
+# y ya se eligió mal una vez: DragonHD se escogió por llamarse HD y resultó ser
+# la única sin agudos y sin estilos.
+name: voz-catalogo
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-catalogo.yml
+
+permissions:
+  contents: write
+
+jobs:
+  catalogo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Pedir el catálogo a Azure
+        env:
+          CLAVE: ${{ secrets.AZURE_SPEECH_KEY }}
+          REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+
+          region = (os.environ.get("REGION") or "eastus").strip()
+          pet = urllib.request.Request(
+              f"https://{region}.tts.speech.microsoft.com"
+              "/cognitiveservices/voices/list",
+              headers={"Ocp-Apim-Subscription-Key": os.environ["CLAVE"]},
+          )
+          with urllib.request.urlopen(pet, timeout=120) as r:
+              voces = json.loads(r.read())
+
+          print(f"voces totales en la cuenta: {len(voces)}")
+
+          # Español de cualquier variante, mas las multilingues de cualquier
+          # locale: esas hablan español aunque su locale sea otro, y son la
+          # generacion mas nueva.
+          es = [v for v in voces
+                if v.get("Locale", "").startswith("es-")
+                or "Multilingual" in v.get("ShortName", "")]
+          print(f"candidatas (es-* o multilingüe): {len(es)}")
+
+          filas = []
+          for v in sorted(es, key=lambda x: (x.get("Locale",""), x.get("ShortName",""))):
+              filas.append({
+                  "nombre": v.get("ShortName"),
+                  "locale": v.get("Locale"),
+                  "genero": v.get("Gender"),
+                  "tipo": v.get("VoiceType"),
+                  "sample_rate": v.get("SampleRateHertz"),
+                  "estilos": v.get("StyleList") or [],
+                  "roles": v.get("RolePlayList") or [],
+                  "locales_extra": v.get("SecondaryLocaleList") or [],
+                  "palabras_por_minuto": v.get("WordsPerMinute"),
+                  "estado": v.get("Status"),
+              })
+          json.dump(filas, open("catalogo-voces.json", "w"),
+                    ensure_ascii=False, indent=1)
+
+          # Resumen legible en el log, que es lo que se lee de verdad.
+          print("\nVOCES MASCULINAS EN ESPAÑOL, con estilos")
+          for f in filas:
+              if f["genero"] != "Male":
+                  continue
+              est = ", ".join(f["estilos"]) if f["estilos"] else "(sin estilos)"
+              print(f"  {f['nombre']:<42} {f['sample_rate']:>6} Hz  {est}")
+
+          print("\nMULTILINGÜES (hablan español aunque su locale sea otro)")
+          for f in filas:
+              if "Multilingual" not in f["nombre"]:
+                  continue
+              est = ", ".join(f["estilos"]) if f["estilos"] else "(sin estilos)"
+              print(f"  {f['nombre']:<42} {f['genero']:<7} "
+                    f"{f['sample_rate']:>6} Hz  {est}")
+
+          print("\nFRECUENCIAS DE MUESTREO QUE DECLARAN")
+          from collections import Counter
+          for sr, n in sorted(Counter(f["sample_rate"] for f in filas).items()):
+              print(f"  {sr} Hz : {n} voces")
+          PY
+
+      - name: Devolver el catálogo a la rama
+        run: |
+          mkdir -p canal-youtube/muestras-voz
+          mv catalogo-voces.json canal-youtube/muestras-voz/
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f canal-youtube/muestras-voz/catalogo-voces.json
+          git commit -q -m 'Catalogo de voces en español de Azure' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

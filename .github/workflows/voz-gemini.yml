@@ -1,0 +1,191 @@
+# Narra con Gemini TTS de Google.
+#
+# POR QUE ESTE Y NO OTRO
+# Se rechazaron, de oido, once combinaciones de Azure, ElevenLabs, Fish Audio
+# y once clones de la voz propia. El motivo que dio el usuario no fue el timbre
+# ni el acento: "se nota que no es humana". Eso es prosodia.
+#
+# Gemini TTS es el unico de los probados que permite DIRIGIR la interpretacion
+# en lenguaje natural: en vez de elegir un estilo de una lista cerrada, se le
+# describe como debe sonar. Ahi es donde se juega lo que falla.
+#
+# La clave es la de AI Studio (nivel gratuito). Chirp 3 HD es otra API distinta
+# (Cloud Text-to-Speech) y habria que activarla aparte en el proyecto.
+name: voz-gemini
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-gemini.yml
+
+permissions:
+  contents: write
+
+env:
+  DESTINO: canal-youtube/muestras-voz/gemini
+  MUESTRA: >-
+    Cada mañana ordenas que suban agua caliente para afeitar a un hombre que
+    está muerto. Le preparan la ropa. Le dejan la toalla limpia. Llevas años
+    haciéndolo, estás en el castillo de Windsor, y eres la mujer más poderosa
+    del mundo.
+
+jobs:
+  narrar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      # De uno en uno. El plan gratuito permite 3 peticiones por minuto a
+      # gemini-2.5-flash-tts, y con la matriz en paralelo dos trabajos se
+      # comian la cuota de los otros y morian con 429 sin generar nada.
+      max-parallel: 1
+      matrix:
+        include:
+          # Voces graves y de registro informativo, que es lo que pide un
+          # documental. La direccion va aparte de la voz: son dos palancas.
+          - clave: 1-charon-documental
+            voz: Charon
+            direccion: >-
+              Narra esto como el presentador de un documental nocturno de
+              sucesos reales. Voz grave y contenida, ritmo lento, sin prisa.
+              Habla a una sola persona, no a un publico. Para de verdad en los
+              puntos. No dramatices: deja que el dato golpee solo.
+          - clave: 2-algenib-confesional
+            voz: Algenib
+            direccion: >-
+              Cuenta esto en voz baja, casi confidencial, como si se lo
+              estuvieras contando a alguien sentado enfrente a medianoche.
+              Tono grave, intimo, pausado. Nada de enfasis de locutor.
+          - clave: 3-gacrux-sobrio
+            voz: Gacrux
+            direccion: >-
+              Lee esto con sobriedad de archivo historico. Voz madura, seria,
+              sin emocion añadida. Ritmo regular y lento, pausas largas entre
+              frases.
+          - clave: 4-rasalgethi-narrador
+            voz: Rasalgethi
+            direccion: >-
+              Narra como un documental de la BBC doblado al español. Claro,
+              grave, autoritario pero cercano. Baja el tono al final de cada
+              frase en lugar de subirlo.
+          - clave: 5-enceladus-susurro
+            voz: Enceladus
+            direccion: >-
+              Casi susurrado, con aire en la voz, muy lento. Como quien cuenta
+              algo que incomoda y no quiere levantar la voz.
+          - clave: 6-orus-firme
+            voz: Orus
+            direccion: >-
+              Firme y directo, grave, sin adornos. El tono de quien expone un
+              hecho incomodo sin pedir perdon por contarlo.
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      # El secreto se guardo como GOOGLE_API_JEY (una J por una K). Se aceptan
+      # los dos nombres para no obligar a rehacerlo, y para que siga
+      # funcionando el dia que se corrija.
+      - name: Resolver la clave
+        env:
+          CLAVE_OK: ${{ secrets.GOOGLE_API_KEY }}
+          CLAVE_TYPO: ${{ secrets.GOOGLE_API_JEY }}
+        run: |
+          CLAVE="${CLAVE_OK:-$CLAVE_TYPO}"
+          if [ -z "$CLAVE" ]; then
+            echo "::error::no hay ni GOOGLE_API_KEY ni GOOGLE_API_JEY en los secretos del repo"
+            exit 1
+          fi
+          [ -n "$CLAVE_OK" ] && echo "usando GOOGLE_API_KEY" || echo "usando GOOGLE_API_JEY"
+          # A GITHUB_ENV para los pasos siguientes, y enmascarada en el log.
+          echo "::add-mask::$CLAVE"
+          echo "CLAVE=$CLAVE" >> "$GITHUB_ENV"
+
+      - name: Sintetizar
+        env:
+          VOZ: ${{ matrix.voz }}
+          DIRECCION: ${{ matrix.direccion }}
+        run: |
+          mkdir -p salida
+          python3 - <<'PY'
+          import base64, json, os, re, sys, time, urllib.error, urllib.request, wave
+
+          texto = " ".join(os.environ["MUESTRA"].split())
+          direccion = " ".join(os.environ["DIRECCION"].split())
+          # La direccion va delante del texto, en la misma peticion: es asi
+          # como Gemini recibe la indicacion de interpretacion.
+          prompt = f"{direccion}\n\n{texto}"
+
+          cuerpo = {
+              "contents": [{"parts": [{"text": prompt}]}],
+              "generationConfig": {
+                  "responseModalities": ["AUDIO"],
+                  "speechConfig": {
+                      "voiceConfig": {
+                          "prebuiltVoiceConfig": {"voiceName": os.environ["VOZ"]}
+                      }
+                  },
+              },
+          }
+          url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+                 "gemini-2.5-flash-preview-tts:generateContent")
+          pet = urllib.request.Request(
+              url, data=json.dumps(cuerpo).encode(),
+              headers={"Content-Type": "application/json",
+                       "x-goog-api-key": os.environ["CLAVE"]},
+              method="POST")
+          # El 429 de cuota no es un fallo: es una cola. Google dice en el
+          # cuerpo cuantos segundos faltan ("Please retry in 28.6s"), asi que
+          # esperamos eso y reintentamos en vez de perder la muestra.
+          resp = None
+          for intento in range(1, 7):
+              try:
+                  with urllib.request.urlopen(pet, timeout=300) as r:
+                      resp = json.loads(r.read())
+                  break
+              except urllib.error.HTTPError as e:
+                  # El cuerpo dice si es cuota, modelo no disponible o clave
+                  # mala; sin eso los tres fallos son indistinguibles.
+                  detalle = e.read().decode(errors="replace")
+                  if e.code not in (429, 500, 503) or intento == 6:
+                      print(f"::error::Google devolvio {e.code}: {detalle[:600]}")
+                      sys.exit(1)
+                  espera = 20.0 * intento
+                  m = re.search(r"retry in ([\d.]+)s", detalle)
+                  if m:
+                      espera = float(m.group(1)) + 5
+                  print(f"{e.code} en el intento {intento}; "
+                        f"espero {espera:.0f}s y repito")
+                  time.sleep(espera)
+
+          try:
+              parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
+          except (KeyError, IndexError):
+              print(f"::error::respuesta inesperada: {json.dumps(resp)[:600]}")
+              sys.exit(1)
+
+          crudo = base64.b64decode(parte["data"])
+          mime = parte.get("mimeType", "")
+          m = re.search(r"rate=(\d+)", mime)
+          sr = int(m.group(1)) if m else 24000
+          print(f"{mime} -> {len(crudo)} bytes a {sr} Hz")
+
+          # Gemini devuelve PCM crudo, sin cabecera: hay que envolverlo.
+          with wave.open("salida/voz.wav", "wb") as w:
+              w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
+              w.writeframes(crudo)
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/${{ matrix.clave }}.mp3"
+          rm salida/voz.wav
+          ls -la salida/
+
+      - uses: ./.github/actions/devolver
+        with:
+          destino: canal-youtube/muestras-voz/gemini
+          mensaje: Voz Gemini ${{ matrix.clave }}

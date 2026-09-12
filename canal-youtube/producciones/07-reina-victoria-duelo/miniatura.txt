@@ -1,0 +1,49 @@
+ESTRATEGIA
+==========
+Foco emocional: la cara de la reina Victoria, no un rostro contemporáneo (regla del
+canal para el nicho histórico). Emoción extrema: dolor crudo, no el "dolor contenido"
+del resto del vídeo — aquí se exagera para el CTR.
+Conflicto visual: una mujer diminuta y sola vestida de negro contra un fondo de
+palacio vacío e inmenso → transmite "atrapada" antes de leer una palabra.
+Dato shock que ancla el titular: 40 AÑOS. Es un número concreto, verificable y brutal
+("¿40 años? imposible") — mejor gancho que la palabra clínica "duelo prolongado",
+que se reserva para el título (así título y miniatura no dicen lo mismo).
+
+PROMPT DE LA IMAGEN BASE (sin texto) — pegar en Flow/Imagen
+=============================================================
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9: primer
+plano de la reina Victoria del Reino Unido, mujer de unos 42 años, rostro ovalado y
+pálido, cabello oscuro recogido en un moño bajo, vestido negro victoriano de luto de
+cuello alto y mangas largas, expresión de dolor crudo y desgarrado, ojos llorosos,
+mirada perdida directa a cámara, encuadrada en el tercio izquierdo del fotograma,
+fondo de un salón de palacio vacío y en penumbra con luz fría azulada, amplio espacio
+negativo oscuro a la derecha del encuadre para colocar texto, iluminación lateral
+dramática tipo claroscuro, colores desaturados con un toque de rojo de alarma en un
+detalle del fondo (una vela roja o un tapiz), fotografía cinematográfica
+hiperrealista, full frame 35mm, grano fílmico sutil, máximo detalle, 8K, sin texto en
+pantalla, sin letras, sin números, 16:9, 1280x720.
+
+MONTAJE DEL TEXTO — YA HECHO
+=========================================================
+La configuración vive en miniatura-config.json, al lado de este archivo.
+El render se lanza solo: el workflow .github/workflows/miniatura.yml lee la
+URL de la imagen base de canal-youtube/.miniatura-url y compone el titular
+en un runner. Aquí no se puede hacer en local porque los servidores donde
+Artlist deja la imagen generada están bloqueados por la salida de red, y
+porque el render necesita un Chromium que este entorno no trae.
+
+Estado: base.jpg, miniatura.png y miniatura.jpg generadas y en el repo.
+
+Base generada con Artlist, modelo Nano Banana 2 a 2K.
+"side" quedó en "right" y es correcto: la imagen salió con la cara en el
+tercio izquierdo y el espacio negativo a la derecha, como pedía el prompt.
+Comprobado sobre la imagen real, no supuesto.
+
+Para probar otro titular no hace falta regenerar la imagen: cambiar number,
+line1 y line2 en miniatura-config.json y volver a empujar la rama.
+
+VARIANTES DE TITULAR PARA A/B (mismo prompt de imagen, cambia solo el texto)
+===============================================================================
+A — dato shock (lanzar con esta):  40 | AÑOS VESTIDA DE LUTO
+B — identificación:                ESTO | NO ES AMOR, ES UN TRASTORNO
+C — emocional:                     NADIE LE | DIJO QUE ESO TENÍA NOMBRE

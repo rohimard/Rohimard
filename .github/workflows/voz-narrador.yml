@@ -1,0 +1,169 @@
+# Genera la voz del narrador de Historia Incómoda en un runner de GitHub.
+#
+# Por qué aquí y no en local: el entorno donde trabaja Claude tiene la salida
+# de red filtrada y casi todos los servicios de voz están bloqueados. Un
+# runner de Actions sí tiene internet abierto, y en un repo público los
+# minutos son gratis. El audio vuelve como artefacto del run.
+#
+# Se dispara tocando canal-youtube/.voz-disparo y empujando la rama. Podría
+# ser un workflow_dispatch, pero GitHub solo registra esos cuando el archivo
+# ya vive en la rama por defecto, y aquí trabajamos en una rama aparte.
+name: voz-narrador
+
+on:
+  workflow_dispatch:
+    inputs:
+      guion:
+        description: Archivo de guión a narrar
+        default: canal-youtube/producciones/07-reina-victoria-duelo/guion-voz.txt
+      muestra:
+        description: Frase corta para las pruebas de voz
+        default: Es diciembre de mil ochocientos sesenta y uno y estás en el castillo de Windsor. El hombre con el que llevas veintiún años casada acaba de morir de fiebre tifoidea.
+      completo:
+        description: '"si" para narrar el guión entero, "no" para solo muestras'
+        default: 'no'
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-narrador.yml
+      - canal-youtube/.voz-disparo
+
+# El audio vuelve commiteado a la rama, no como artefacto: el almacenamiento
+# de artefactos de GitHub está bloqueado por la política de salida del
+# entorno donde trabaja Claude, y a git sí se llega.
+permissions:
+  contents: write
+
+env:
+  # En un push no hay inputs, así que cada uno cae a su valor por defecto.
+  GUION: ${{ inputs.guion || 'canal-youtube/producciones/07-reina-victoria-duelo/guion-voz.txt' }}
+  MUESTRA: ${{ inputs.muestra || 'Es diciembre de mil ochocientos sesenta y uno y estás en el castillo de Windsor. El hombre con el que llevas veintiún años casada acaba de morir de fiebre tifoidea.' }}
+  COMPLETO: ${{ inputs.completo || 'no' }}
+  # Mismo acabado que veníamos usando: aire en agudos, algo de cuerpo,
+  # de-ess suave y volumen de emisión.
+  ACABADO: highshelf=f=6500:g=2,deesser=i=0.25:m=0.5:f=0.55,equalizer=f=200:t=q:w=1.2:g=1.5,loudnorm=I=-16:TP=-1.5:LRA=11
+
+jobs:
+  # ---------------------------------------------------------------------
+  # Voces neuronales de Microsoft. Gratis, sin cuenta y sin límite de uso.
+  # ---------------------------------------------------------------------
+  edge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - run: pip install --quiet edge-tts
+
+      - name: Muestras de cada narrador latino
+        run: |
+          mkdir -p salida
+          for v in es-MX-JorgeNeural es-US-AlonsoNeural es-CO-GonzaloNeural \
+                   es-AR-TomasNeural es-CL-LorenzoNeural es-PE-AlexNeural; do
+            echo "::group::$v"
+            edge-tts --voice "$v" --text "$MUESTRA" \
+                     --write-media "salida/cruda-$v.mp3"
+            ffmpeg -y -v error -i "salida/cruda-$v.mp3" \
+                   -af "$ACABADO" -codec:a libmp3lame -qscale:a 2 \
+                   "salida/$v.mp3"
+            rm "salida/cruda-$v.mp3"
+            echo "::endgroup::"
+          done
+
+      - name: Guión completo
+        if: ${{ (inputs.completo || 'no') == 'si' }}
+        run: |
+          edge-tts --voice es-MX-JorgeNeural --file "$GUION" \
+                   --write-media salida/cruda-completo.mp3
+          ffmpeg -y -v error -i salida/cruda-completo.mp3 \
+                 -af "$ACABADO" -codec:a libmp3lame -qscale:a 2 \
+                 salida/guion-completo.mp3
+          rm salida/cruda-completo.mp3
+
+      - name: Devolver el audio a la rama
+        env:
+          DESTINO: canal-youtube/muestras-voz/edge
+        run: |
+          rm -rf "$DESTINO" && mkdir -p "$DESTINO" && mv salida/*.mp3 "$DESTINO"/
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Muestras de voz de edge-tts' || exit 0
+          # El otro trabajo empuja a la vez; reintentamos sobre lo suyo.
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 4))
+          done
+          exit 1
+
+  # ---------------------------------------------------------------------
+  # Clonación de la voz de Kevin con Chatterbox multilingüe. Tarda bastante
+  # en CPU, así que aquí solo va la frase de muestra.
+  # ---------------------------------------------------------------------
+  clonar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Recortar la referencia
+        # Chatterbox quiere unos segundos limpios, no los veinticinco minutos.
+        # El minuto 11:15 es el tramo con más voz seguida de la grabación.
+        run: |
+          ffmpeg -y -v error -ss 675.2 -t 22 \
+                 -i canal-youtube/freevc-models/kevin-referencia.mp3 \
+                 -ar 24000 -ac 1 -af "loudnorm=I=-20:TP=-2:LRA=9" kevin-ref.wav
+
+      - run: pip install --quiet chatterbox-tts
+
+      - name: Narrar con la voz de Kevin
+        run: |
+          mkdir -p salida
+          python - <<'PY'
+          import os
+          import torchaudio as ta
+          from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+
+          modelo = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
+          wav = modelo.generate(
+              os.environ["MUESTRA"],
+              language_id="es",
+              audio_prompt_path="kevin-ref.wav",
+          )
+          ta.save("salida/kevin-crudo.wav", wav, modelo.sr)
+          print("generado")
+          PY
+
+      - name: Acabado
+        run: |
+          ffmpeg -y -v error -i salida/kevin-crudo.wav \
+                 -af "$ACABADO" -codec:a libmp3lame -qscale:a 2 \
+                 salida/kevin-clonado.mp3
+          rm salida/kevin-crudo.wav
+
+      - name: Devolver el audio a la rama
+        env:
+          DESTINO: canal-youtube/muestras-voz/kevin
+        run: |
+          rm -rf "$DESTINO" && mkdir -p "$DESTINO" && mv salida/*.mp3 "$DESTINO"/
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Muestra de la voz de Kevin clonada' || exit 0
+          # El otro trabajo empuja a la vez; reintentamos sobre lo suyo.
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 4))
+          done
+          exit 1

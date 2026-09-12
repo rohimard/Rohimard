@@ -1,0 +1,89 @@
+01  0:00–0:03   3.1s  GANCHO       El agua caliente sube
+02  0:03–0:07   3.9s  GANCHO       La navaja de un muerto
+03  0:07–0:11   3.7s  GANCHO       La ropa y la toalla
+04  0:11–0:13   1.8s  GANCHO       El castillo de Windsor
+05  0:13–0:16   3.7s  GANCHO       La mujer más poderosa del mundo
+06  0:16–0:18   2.0s  HECHO        Esto pasó de verdad
+07  0:18–0:21   3.2s  HECHO        La reina Victoria
+08  0:21–0:25   3.7s  HECHO        El príncipe Alberto
+09  0:25–0:28   2.5s  HECHO        Diciembre de mil ochocientos sesenta y uno
+10  0:28–0:31   3.5s  HECHO        Cuarenta y dos años
+11  0:31–0:33   2.0s  HECHO        Cuarenta años por delante
+12  0:33–0:37   4.0s  HECHO        Vestida de negro cada día
+13  0:37–0:40   2.5s  HECHO        Hasta su propia muerte
+14  0:40–0:43   3.6s  HECHO        Una década sin aparecer
+15  0:43–0:46   2.6s  HECHO        El pueblo empieza a preguntar
+16  0:46–0:49   3.3s  HECHO        ¿Sigue gobernando su reina?
+17  0:49–0:53   3.7s  HECHO        El Parlamento sin abrir
+18  0:53–0:55   2.4s  HECHO        Papel con borde negro
+19  0:55–0:59   3.8s  HECHO        Décadas de luto en el papel
+20  0:59–1:01   2.3s  HECHO        Cartas que nada tenían que ver
+21  1:01–1:04   2.4s  HECHO        Vuelve a mostrarse
+22  1:04–1:06   2.2s  HECHO        Seguía de negro
+23  1:06–1:09   3.0s  HECHO        Treinta años más
+24  1:09–1:13   3.5s  HECHO        Mil novecientos uno
+25  1:13–1:16   3.0s  REENCUADRE   La historia lo contó como amor
+26  1:16–1:18   2.8s  REENCUADRE   La viuda fiel
+27  1:18–1:22   3.7s  REENCUADRE   Es una versión bonita
+28  1:22–1:24   1.7s  REENCUADRE   Pero no es la completa
+29  1:24–1:28   4.0s  REENCUADRE   Y la completa es más incómoda
+30  1:28–1:31   3.1s  REVELACION   Tiene nombre clínico
+31  1:31–1:35   4.6s  REVELACION   Duelo prolongado
+32  1:35–1:39   3.2s  REVELACION   No se reconoció hasta hace poco
+33  1:39–1:42   3.4s  REVELACION   El año dos mil veintidós
+34  1:42–1:46   4.2s  REVELACION   El manual que usan los psicólogos
+35  1:46–1:50   3.9s  REVELACION   Siglo y medio llamándolo amor
+36  1:50–1:53   3.2s  REVELACION   Una condición identificable
+37  1:53–1:57   3.9s  REVELACION   Señales concretas, nombre propio
+38  1:57–2:03   5.3s  PUENTE       No solo una reina del diecinueve
+39  2:03–2:06   3.1s  PUENTE       Están pasando ahora mismo
+40  2:06–2:09   2.8s  PUENTE       Puede que también en ti
+41  2:09–2:12   3.0s  TITULO       Siete señales
+42  2:12–2:16   4.6s  TITULO       Un duelo sin terminar de procesar
+43  2:16–2:21   4.6s  SEÑAL 1      Una parte de ti murió
+44  2:21–2:25   3.8s  SEÑAL 1      No es una metáfora bonita
+45  2:25–2:27   2.6s  SEÑAL 1      Perdió su propia identidad
+46  2:27–2:30   3.0s  SEÑAL 1      No solo a la otra persona
+47  2:30–2:35   4.4s  SEÑAL 2      Cuesta creer que pasó
+48  2:35–2:38   3.5s  SEÑAL 2      La ropa de Alberto, otra vez
+49  2:38–2:42   3.7s  SEÑAL 2      Sigues actuando como si volviera
+50  2:42–2:46   3.8s  SEÑAL 2      Aunque sepas que no
+51  2:46–2:50   4.5s  SEÑAL 2      No es negación pasajera
+52  2:50–2:54   3.6s  SEÑAL 3      Evitas lo que te lo recuerde
+53  2:54–2:58   4.7s  SEÑAL 3      Cambias de acera
+54  2:58–3:04   5.2s  SEÑAL 3      Borras fotos, o no puedes
+55  3:04–3:08   4.3s  SEÑAL 4      Duele como si fuera ayer
+56  3:08–3:13   5.0s  SEÑAL 4      Rabia y amargura
+57  3:13–3:17   4.2s  SEÑAL 4      Una tristeza que no se suaviza
+58  3:17–3:22   4.8s  SEÑAL 5      No te reenganchas con tu vida
+59  3:22–3:26   4.1s  SEÑAL 5      Planes, relaciones, proyectos
+60  3:26–3:27   1.5s  SEÑAL 5      Se siente como una traición
+61  3:27–3:31   4.0s  SEÑAL 5      Ya no consigues que importen
+62  3:31–3:35   3.4s  SEÑAL 6      Una insensibilidad extraña
+63  3:35–3:37   2.2s  SEÑAL 6      Detrás de un cristal
+64  3:37–3:40   2.9s  SEÑAL 6      Sin la intensidad de antes
+65  3:40–3:42   2.7s  SEÑAL 6      Ni siquiera lo bueno
+66  3:42–3:46   3.3s  SEÑAL 7      Tu vida ya no tiene el mismo sentido
+67  3:46–3:49   3.3s  SEÑAL 7      Sin esa persona
+68  3:49–3:51   1.8s  SEÑAL 7      No es que quieras hacerte daño
+69  3:51–3:54   3.4s  SEÑAL 7      El para qué se apagó
+70  3:54–3:56   1.6s  DATOS        Si algo de esto te suena
+71  3:56–3:59   3.2s  DATOS        La clave es un solo dato
+72  3:59–4:02   3.0s  DATOS        No es cuánto sufres
+73  4:02–4:06   4.3s  DATOS        Es cuánto tiempo sigue igual
+74  4:06–4:09   2.5s  DATOS        Doce meses, en adultos
+75  4:09–4:13   4.1s  DATOS        La señal de alarma
+76  4:13–4:14   1.3s  DATOS        Antes de esa fecha
+77  4:14–4:18   3.4s  DATOS        Es normal que duela así
+78  4:18–4:21   3.7s  DATOS        Existe tratamiento específico
+79  4:21–4:24   2.8s  DATOS        Y funciona de verdad
+80  4:24–4:27   3.1s  LEGADO       A ella nadie se lo ofreció
+81  4:27–4:32   4.6s  LEGADO       Porque todavía no existía
+82  4:32–4:35   3.6s  LEGADO       Cuarenta años atrapada
+83  4:35–4:37   1.9s  LEGADO       Tú tienes algo que ella no tuvo
+84  4:37–4:40   2.5s  LEGADO       La palabra exacta
+85  4:40–4:43   2.7s  LEGADO       Gente preparada para ayudarte
+86  4:43–4:47   4.4s  LEGADO       No para juzgarte
+87  4:47–4:49   2.5s  CTA          Alguien que sí encontró la salida
+88  4:49–4:54   4.7s  CTA          Y cómo lo hizo
+89  4:54–4:58   4.2s  CTA          Lo que pasa dentro de tu cabeza
