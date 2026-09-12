@@ -1,0 +1,38 @@
+Genera 24 imágenes VERTICALES 9:16, una por escena numerada.
+SIN NINGÚN TEXTO dentro de la imagen.
+
+ESTILO, aplícalo a las 24 sin excepción:
+fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, vertical 9:16, 1080x1920, sujeto centrado y grande en el encuadre, tercio inferior despejado y sin elementos importantes
+
+PERSONAJES. Donde una escena diga VICTORIA o ALBERTO, usa exactamente
+esta descripción sin variarla, para que sea siempre la misma persona:
+VICTORIA = la reina Victoria del Reino Unido, mujer de unos cuarenta y dos años, rostro ovalado y pálido, cabello oscuro con raya al medio recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido.
+ALBERTO = el príncipe Alberto de Sajonia-Coburgo-Gota, hombre de unos cuarenta y dos años, bigote y patillas discretas, uniforme militar victoriano oscuro con condecoraciones.
+
+ÉPOCA, es importante y no la deduzcas de la escena: cada línea la dice.
+
+ESCENAS
+1. plano cenital de un ataúd de madera oscura descendiendo a una fosa, manos enguantadas de negro soltando una rosa blanca, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+2. plano medio de VICTORIA de pie, sola, en un pasillo de palacio vacío y en penumbra, la figura pequeña contra la arquitectura enorme, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+3. primer plano cerrado del rostro de VICTORIA, mirada directa a cámara, luz lateral dura que deja media cara en sombra, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+4. plano general vertical del castillo de Windsor al amanecer de invierno, silueta de piedra gótica contra cielo gris, niebla baja, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+5. plano medio de ALBERTO tendido en una cama con dosel, rostro demacrado y sudoroso, luz de vela, frascos de medicina en la mesilla, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+6. retrato de estudio victoriano de ALBERTO, expresión serena, fondo de cortinaje pesado, iluminación cálida de fotografía de época, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+7. detalle de las manos de VICTORIA abotonando el cuello alto de un vestido negro de luto frente a un espejo de marco dorado, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+8. detalle de un armario victoriano abierto lleno solo de vestidos negros idénticos colgados en fila, ni una sola prenda de color, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+9. primer plano de VICTORIA muy anciana, unos ochenta años, mismo vestido negro de luto, rostro surcado de arrugas, mirada apagada, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+10. plano general de VICTORIA de espaldas mirando por un ventanal alto de palacio, cortinas pesadas medio cerradas, habitación a oscuras, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+11. plano medio de una multitud victoriana de clase trabajadora agolpada ante las verjas de un palacio, rostros mirando hacia arriba, expectación y desconcierto, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+12. detalle de un trono de madera tallada y terciopelo rojo completamente vacío en un salón enorme, un rayo de luz cayendo sobre el asiento, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+13. plano general vertical del interior de la Cámara de los Lores vacía, bancos rojos desiertos, luz entrando por los ventanales góticos, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+14. detalle macro de una hoja de papel de carta crema con un grueso borde negro de luto, pluma de acero y tintero al lado, sobre un escritorio de caoba, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+15. plano cenital de un montón alto de cartas con el borde negro atadas con cinta, apiladas por décadas, el papel de las de abajo amarilleado, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+16. detalle de una mano anciana escribiendo con pluma en un papel de borde negro, manga de encaje negro, luz de lámpara de aceite, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+17. retrato doble de época de VICTORIA y ALBERTO juntos en un marco ovalado dorado sobre una repisa, la foto un poco inclinada y con polvo, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+18. plano cenital de un manual médico moderno de tapa azul abierto sobre una mesa blanca de consulta, junto a unas gafas y un bolígrafo, ambientación estrictamente contemporánea actual, sin ningún elemento de época.
+19. detalle macro de un dedo recorriendo una línea de una página de un manual clínico, el texto deliberadamente desenfocado e ilegible, ambientación estrictamente contemporánea actual, sin ningún elemento de época.
+20. primer plano de un hombre de treinta y cinco años, pelo castaño corto, barba de tres días, jersey de lana gris, sentado en una consulta escuchando, expresión de reconocerse en algo, ambientación estrictamente contemporánea actual, sin ningún elemento de época.
+21. detalle macro de un puño apretado sobre una mesa de madera clara, nudillos blancos, ambientación estrictamente contemporánea actual, sin ningún elemento de época.
+22. plano cenital de un calendario de pared de papel sobre una mesa de madera clara, la rejilla de casillas nítida y vacía pero los números deliberadamente ilegibles, impresos diminutos en gris claro y algo desenfocados, doce hojas pasadas dobladas hacia atrás, ambientación estrictamente contemporánea actual, sin ningún elemento de época.
+23. plano medio de VICTORIA sentada sola en una butaca enorme de un salón vacío, manos en el regazo, la luz de la ventana cayendo lejos de ella, ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre.
+24. plano medio de dos personas sentadas frente a frente en una consulta luminosa y moderna, una escuchando a la otra con atención, sin que se vean las caras con claridad, ambientación estrictamente contemporánea actual, sin ningún elemento de época.

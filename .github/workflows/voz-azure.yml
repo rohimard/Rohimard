@@ -40,9 +40,10 @@ on:
 permissions:
   contents: write
 
-# El guion y la carpeta de salida se leen de canal-youtube/.azure-objetivo, una
-# linea cada uno. Asi el mismo workflow narra el video y el short sin duplicar
-# cien lineas de YAML, y cambiar de objetivo es editar dos lineas de texto.
+# GUION y DESTINO no estan aqui: se leen de canal-youtube/.azure-objetivo, una
+# linea cada uno, para que el mismo workflow narre el video y el short sin
+# duplicar cien lineas de YAML.
+env:
   # Jorge normal, NO la variante DragonHD. Medido sobre muestras del mismo
   # texto: por encima de 12 kHz la HD da -97 dB y esta -46 dB, o sea que la
   # que se llama HD es la única sin agudos, y sin agudos una voz no suena a
