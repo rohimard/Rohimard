@@ -175,7 +175,7 @@ def main() -> None:
     palabras = emparejar(guion, marcas)
     bloques = cortar(palabras)
 
-    lineas, previo = [], 0.0
+    lineas, previo, reales = [], 0.0, []
     for i, b in enumerate(bloques, 1):
         entra = max(b[0]["entra"], previo + HUECO)
         sale = b[-1]["sale"] + COLA
@@ -183,6 +183,7 @@ def main() -> None:
             sale = min(sale, bloques[i][0]["entra"] - HUECO)
         sale = max(sale, entra + MIN_DUR)
         previo = sale
+        reales.append(sale - entra)
         lineas.append(f"{i}\n{reloj(entra)} --> {reloj(sale)}\n{dos_lineas(b)}\n")
     open(destino, "w", encoding="utf-8").write("\n".join(lineas))
 
@@ -192,9 +193,11 @@ def main() -> None:
     print(f"  palabras del guion: {total} · marcas de Azure: {len(marcas)} · "
           f"emparejadas: {len(palabras)}")
     print(f"  {len(bloques)} subtítulos · última palabra a {fin:.2f}s")
-    dur = [b[-1]["sale"] - b[0]["entra"] for b in bloques]
-    print(f"  duración: min {min(dur):.1f}s · media {sum(dur)/len(dur):.1f}s · "
-          f"max {max(dur):.1f}s")
+    # Lo que importa es cuánto está el subtítulo en pantalla, no el hueco que
+    # ocupan sus palabras en el audio: la primera versión medía lo segundo y
+    # anunciaba mínimos de 0,2 s que en realidad no existían.
+    print(f"  en pantalla: min {min(reales):.1f}s · "
+          f"media {sum(reales)/len(reales):.1f}s · max {max(reales):.1f}s")
 
 
 if __name__ == "__main__":

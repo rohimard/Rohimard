@@ -23,7 +23,7 @@ const FPS = 30;
 const W = 1080, H = 1920;
 const CRF = 20;
 const ALTO_IMG = 604;      // 1080 de ancho sobre origen 1376x768, par para x264
-const Y_IMG = 470;         // banda de imagen en 470-1074: fuera de la interfaz
+const Y_IMG = 600;         // banda de imagen en 600-1204, algo sobre el centro
 const ZOOM_MAX = 1.10;
 
 const FFMPEG = (() => {
@@ -58,7 +58,7 @@ planos.forEach((p, i) => {
   filtros.push(
     `[${k}:v]split=2[b${k}][f${k}];` +
     `[b${k}]scale=${W}:${H}:force_original_aspect_ratio=increase,` +
-    `crop=${W}:${H},boxblur=28:2,eq=brightness=-0.20:saturation=0.55,` +
+    `crop=${W}:${H},boxblur=20:2,eq=brightness=-0.06:saturation=0.80,` +
     `setsar=1[bg${k}];` +
     `[f${k}]scale=${W * 2}:-2,${kenBurns(i, dur)},setsar=1[fg${k}];` +
     `[bg${k}][fg${k}]overlay=0:${Y_IMG}:format=auto,` +
@@ -73,10 +73,19 @@ let cadena = filtros.join(';') + ';' +
 
 // Subtítulos grandes y en el hueco de abajo. Se queman al final, sobre el
 // montaje ya concatenado, para que el zoom no los deforme.
+// CUIDADO con las unidades. Fontsize y MarginV NO van en pixeles de video:
+// van en el lienzo interno de ASS, que para un SRT sin cabecera es de 288 de
+// alto, y luego libass lo escala al alto real. Aqui el factor es 1920/288 =
+// 6,67. La primera version puso MarginV=560 pensando en pixeles y mando los
+// subtitulos fuera de la pantalla: no salia ni uno.
+//   Fontsize 11  -> 73 px reales, y a 0,55 em por caracter caben
+//                    unos 21 por linea en los 880 px utiles
+//   MarginV  75   -> 500 px reales desde abajo, o sea centrados sobre y=1420,
+//                    bajo la banda de imagen y encima de la interfaz de Shorts
 const srt = 'subtitulos.srt';
-const estilo = `FontName=DejaVu Sans,Fontsize=17,Bold=1,` +
+const estilo = `FontName=DejaVu Sans,Fontsize=11,Bold=1,` +
   `PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,BorderStyle=1,` +
-  `Outline=3,Shadow=1,Alignment=2,MarginV=560,MarginL=40,MarginR=40`;
+  `Outline=2,Shadow=1,Alignment=2,MarginV=75,MarginL=15,MarginR=15`;
 cadena += `;[vcat]subtitles=${srt}:force_style='${estilo}'[vsub]`;
 
 const idxAudio = entradas.filter(a => a === '-i').length;
