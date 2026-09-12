@@ -1,0 +1,122 @@
+# Prueba modelos de voz que NO se han usado todavia en este canal.
+#
+# Chatterbox no es el estado del arte: estaba montado de antes. Aqui se prueban
+# dos arquitecturas distintas, las dos con licencia Apache 2.0 (uso comercial
+# sin condiciones, que es lo que exige un canal monetizado):
+#
+#   Zonos   clona desde una referencia, como Chatterbox, pero es un modelo mas
+#           reciente y mas grande. Es la apuesta de calidad.
+#   Kokoro  no clona: trae voces propias en español. Es otra familia entera,
+#           asi que no arrastra los tics de las que ya se rechazaron.
+#
+# Corre en CPU sin GPU, asi que Zonos puede tardar. Por eso van en trabajos
+# separados y sin fail-fast: que uno se caiga no puede llevarse al otro.
+name: voz-modelos-nuevos
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-modelos-nuevos.yml
+
+permissions:
+  contents: write
+
+env:
+  DESTINO: canal-youtube/muestras-voz/nuevos
+  REFERENCIA: canal-youtube/voz-propia/referencia-video.wav
+  MUESTRA: >-
+    Cada mañana ordenas que suban agua caliente para afeitar a un hombre que
+    está muerto. Le preparan la ropa. Le dejan la toalla limpia. Llevas años
+    haciéndolo, estás en el castillo de Windsor, y eres la mujer más poderosa
+    del mundo.
+
+jobs:
+  kokoro:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        voz: [em_alex, em_santa, ef_dora]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng
+      - run: pip install --quiet kokoro soundfile
+
+      - name: Generar
+        env:
+          VOZ: ${{ matrix.voz }}
+        run: |
+          mkdir -p salida
+          python - <<'PY'
+          import os, numpy as np, soundfile as sf
+          from kokoro import KPipeline
+          # 'e' es el paquete de español de Kokoro.
+          pipe = KPipeline(lang_code="e")
+          texto = " ".join(os.environ["MUESTRA"].split())
+          trozos = [a for _,_,a in pipe(texto, voice=os.environ["VOZ"], speed=0.92)]
+          sf.write("salida/voz.wav", np.concatenate(trozos), 24000)
+          print(f"{os.environ['VOZ']}: {len(np.concatenate(trozos))/24000:.1f}s")
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/kokoro-${{ matrix.voz }}.mp3"
+          rm salida/voz.wav
+
+      - uses: ./.github/actions/devolver
+        with:
+          destino: canal-youtube/muestras-voz/nuevos
+          mensaje: Voz Kokoro ${{ matrix.voz }}
+
+  zonos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng
+
+      - name: Instalar Zonos
+        run: |
+          pip install --quiet torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install --quiet git+https://github.com/Zyphra/Zonos.git || \
+            echo "ZONOS_FALLO=1" >> "$GITHUB_ENV"
+
+      - name: Generar
+        if: env.ZONOS_FALLO != '1'
+        run: |
+          mkdir -p salida
+          python - <<'PY'
+          import os, torch, torchaudio
+          from zonos.model import Zonos
+          from zonos.conditioning import make_cond_dict
+
+          modelo = Zonos.from_pretrained("Zyphra/Zonos-v0.1-transformer", device="cpu")
+          wav, sr = torchaudio.load(os.environ["REFERENCIA"])
+          hablante = modelo.make_speaker_embedding(wav, sr)
+          cond = make_cond_dict(
+              text=" ".join(os.environ["MUESTRA"].split()),
+              speaker=hablante,
+              language="es",
+          )
+          codigos = modelo.generate(modelo.prepare_conditioning(cond))
+          salida = modelo.autoencoder.decode(codigos).cpu()[0]
+          torchaudio.save("salida/voz.wav", salida, modelo.autoencoder.sampling_rate)
+          print(f"generado a {modelo.autoencoder.sampling_rate} Hz")
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/zonos-clon.mp3"
+          rm salida/voz.wav
+
+      - uses: ./.github/actions/devolver
+        if: env.ZONOS_FALLO != '1'
+        with:
+          destino: canal-youtube/muestras-voz/nuevos
+          mensaje: Voz Zonos clonada
