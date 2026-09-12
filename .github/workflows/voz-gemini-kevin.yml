@@ -172,11 +172,21 @@ jobs:
                   detalle = e.read().decode(errors="replace")
                   # Un 429 por minuto se espera; uno por dia no se arregla
                   # esperando, y reintentar seis veces solo tapa el motivo.
-                  if e.code == 429 and re.search(r"PerDay|per day", detalle):
-                      print("::error::cuota DIARIA agotada para "
-                            f"{os.environ['MODELO']}. No es un fallo del "
-                            f"codigo: hay que esperar al reinicio o pasar a "
+                  # Hay tres 429 distintos y confundirlos cuesta horas:
+                  #  - limit: 0   -> el modelo NO esta en el plan gratuito.
+                  #                  Esperar no sirve de nada; solo facturar.
+                  #  - PerDay     -> cupo del dia agotado. Vuelve al reinicio.
+                  #  - lo demas   -> cupo del minuto. Se espera y se repite.
+                  if e.code == 429 and re.search(r"limit: 0\b", detalle):
+                      print(f"::error::{os.environ['MODELO']} no esta "
+                            "disponible en el plan gratuito (limit: 0). No es "
+                            "cuota agotada y no se arregla esperando: requiere "
                             f"plan de pago. {detalle[:400]}")
+                      sys.exit(1)
+                  if e.code == 429 and re.search(r"PerDay|per day", detalle):
+                      print("::error::cupo DIARIO agotado para "
+                            f"{os.environ['MODELO']}. Vuelve al reinicio de "
+                            f"cuota. {detalle[:400]}")
                       sys.exit(1)
                   if e.code not in (429, 500, 503) or intento == 6:
                       print(f"::error::Google devolvio {e.code}: {detalle[:600]}")

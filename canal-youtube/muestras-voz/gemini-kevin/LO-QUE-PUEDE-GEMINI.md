@@ -37,8 +37,17 @@ narrar el guion completo, no despues.
 
 ## 4. Cuota y monetizacion
 
-- Plan gratuito: **3 peticiones por minuto y por modelo**, mas un tope diario.
-  Por eso la matriz corre de una en una y distingue el 429 por minuto del diario.
+Numeros MEDIDOS, no de folleto (salen del cuerpo de los 429 del 12/09):
+
+| Modelo | Plan gratuito |
+|---|---|
+| `gemini-2.5-flash-preview-tts` | 3 por minuto, **10 al dia** |
+| `gemini-2.5-pro-preview-tts` | **`limit: 0` — no esta en el plan gratuito** |
+
+Lo segundo importa mas de lo que parece: `pro` no es "cuota agotada", es que no
+existe sin facturacion. Esperar al reinicio no lo desbloquea. Si se quiere la
+calidad de `pro` hay que activar plan de pago; con plan gratuito el techo real
+del canal son diez muestras diarias de `flash`.
 - El uso comercial de la salida esta permitido por los terminos de la API. Aviso
   honesto: en el plan gratuito Google puede usar las peticiones para mejorar sus
   productos. No bloquea monetizar, pero es la diferencia real con el plan de pago.
