@@ -1,0 +1,136 @@
+# Compara voces y estilos de Azure sobre el mismo trozo de guion.
+#
+# Por qué: la narración que se publicó sonaba sintética, y el diagnóstico del
+# ancho de banda resultó ser un callejón — el muro de 11 kHz es del modelo
+# DragonHD y pedir 48 kHz no lo mueve. Lo que sí estaba sin explorar es la
+# interpretación: DragonHD no admite prosody ni express-as, así que el guion
+# se lee sin intención ninguna. Las voces neuronales normales sí admiten
+# estilos, y para un guion sobre un duelo de cuarenta años eso pesa más que
+# unos kilohercios.
+#
+# Todas las muestras salen del mismo texto y con el mismo acabado, para que lo
+# que se compare sea la voz y no el proceso.
+name: voz-comparativa
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-comparativa.yml
+
+permissions:
+  contents: write
+
+env:
+  GUION: canal-youtube/producciones/07-reina-victoria-duelo/guion-voz.txt
+  CARPETA: canal-youtube/muestras-voz/comparativa
+
+jobs:
+  comparar:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # La actual, como referencia contra la que comparar.
+          - clave: 1-jorge-hd-actual
+            voz: es-MX-Jorge:DragonHDLatestNeural
+            estilo: ''
+          # Alonso, que es la que le gustó la primera vez.
+          - clave: 2-alonso-narracion
+            voz: es-US-AlonsoNeural
+            estilo: 'narration-professional'
+          - clave: 3-alonso-sin-estilo
+            voz: es-US-AlonsoNeural
+            estilo: ''
+          # Jorge normal: misma voz que la HD, pero con estilos disponibles.
+          - clave: 4-jorge-triste
+            voz: es-MX-JorgeNeural
+            estilo: 'sad'
+          - clave: 5-jorge-serio
+            voz: es-MX-JorgeNeural
+            estilo: 'serious'
+          # Álvaro, peninsular, habitual en documental.
+          - clave: 6-alvaro-narracion
+            voz: es-ES-AlvaroNeural
+            estilo: 'narration-professional'
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install --quiet azure-cognitiveservices-speech
+
+      - name: Sintetizar
+        env:
+          CLAVE: ${{ secrets.AZURE_SPEECH_KEY }}
+          REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+          VOZ: ${{ matrix.voz }}
+          ESTILO: ${{ matrix.estilo }}
+        run: |
+          python3 - <<'PY'
+          import os, sys
+          from xml.sax.saxutils import escape
+          import azure.cognitiveservices.speech as speechsdk
+
+          # Los tres primeros párrafos: el gancho y la primera vuelta de
+          # tuerca. Basta para juzgar timbre y, sobre todo, intención.
+          texto = open(os.environ["GUION"], encoding="utf-8").read().strip()
+          trozo = "\n\n".join(texto.split("\n\n")[:3])
+
+          cuerpo = '<break time="500ms"/>'.join(
+              f"<p>{escape(p.strip())}</p>"
+              for p in trozo.split("\n\n") if p.strip()
+          )
+          estilo = os.environ.get("ESTILO", "").strip()
+          if estilo:
+              cuerpo = (f'<mstts:express-as style="{estilo}" styledegree="1.4">'
+                        f"{cuerpo}</mstts:express-as>")
+          ssml = (
+              "<speak version='1.0' "
+              "xmlns='http://www.w3.org/2001/10/synthesis' "
+              "xmlns:mstts='http://www.w3.org/2001/mstts' "
+              "xml:lang='es-MX'>"
+              f"<voice name='{os.environ['VOZ']}'>{cuerpo}</voice>"
+              "</speak>"
+          )
+
+          cfg = speechsdk.SpeechConfig(
+              subscription=os.environ["CLAVE"],
+              region=(os.environ.get("REGION") or "eastus").strip(),
+          )
+          cfg.set_speech_synthesis_output_format(
+              speechsdk.SpeechSynthesisOutputFormat.Riff48Khz16BitMonoPcm)
+          sint = speechsdk.SpeechSynthesizer(speech_config=cfg, audio_config=None)
+          res = sint.speak_ssml_async(ssml).get()
+          if res.reason != speechsdk.ResultReason.SynthesizingAudioCompleted:
+              d = res.cancellation_details
+              # Un estilo que la voz no admite se rechaza aquí; conviene que se
+              # lea en el log en vez de parecer un fallo de clave.
+              print(f"::warning::{os.environ['VOZ']} / {estilo or 'sin estilo'}:"
+                    f" {d.reason} · {d.error_details}")
+              sys.exit(1)
+          open("crudo.wav", "wb").write(res.audio_data)
+          print(f"{len(trozo)} caracteres · {len(res.audio_data)/1e6:.1f} MB")
+          PY
+
+      - name: Acabado
+        run: |
+          mkdir -p salida
+          # Solo nivel, idéntico para todas: lo que se compara es la voz.
+          ffmpeg -y -v error -i crudo.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/${{ matrix.clave }}.mp3"
+
+      - name: Devolver las muestras a la rama
+        run: |
+          mkdir -p "$CARPETA" && mv salida/*.mp3 "$CARPETA"/
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$CARPETA"
+          git commit -q -m 'Muestra de voz ${{ matrix.clave }}' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

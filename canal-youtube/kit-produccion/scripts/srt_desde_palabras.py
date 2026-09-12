@@ -25,6 +25,7 @@ LINEAS = 2
 COLA = 0.12       # segundos de respiración al final de cada subtítulo
 HUECO = 0.04      # separación mínima entre un subtítulo y el siguiente
 MIN_DUR = 0.9
+MAX_DUR = 4.2       # más tiempo en pantalla y el ojo se va de la imagen
 
 
 def normalizar(p: str) -> str:
@@ -76,32 +77,55 @@ def emparejar(guion: str, marcas: list) -> list:
 def cortar(palabras: list) -> list:
     """Agrupa palabras en subtítulos legibles.
 
-    Se corta preferentemente donde hay puntuación fuerte, porque coincide con
-    la pausa que hizo el narrador y así el subtítulo cambia cuando cambia la
-    frase, no a mitad de una.
+    Primero por frases, porque el punto es donde el narrador para de verdad y
+    donde el espectador puede soltar la vista. Las frases que no caben se
+    parten por dentro, y ahí el sitio importa: la primera versión cortaba por
+    longitud y dejaba "un hombre que" al final de un subtítulo y "está muerto"
+    al principio del siguiente, o sea el remate del gancho partido en dos. Se
+    parte por la conjunción o preposición más cercana al centro, que es donde
+    el oído ya espera una junta.
     """
     tope = ANCHO * LINEAS
-    bloques, actual = [], []
-    largo = 0
-    for i, p in enumerate(palabras):
-        t = p["palabra"]
-        nuevo = largo + len(t) + (1 if actual else 0)
-        fuerte = bool(re.search(r"[.!?]$", t))
-        media = bool(re.search(r"[,;:]$", t))
-        if actual and (nuevo > tope or (fuerte and largo > tope * 0.45)):
-            bloques.append(actual)
-            actual, largo = [p], len(t)
-        else:
-            actual.append(p)
-            largo = nuevo
-            if fuerte and largo > tope * 0.55:
-                bloques.append(actual)
-                actual, largo = [], 0
-            elif media and largo > tope * 0.8:
-                bloques.append(actual)
-                actual, largo = [], 0
-    if actual:
-        bloques.append(actual)
+
+    # Palabras por las que es natural empezar un trozo nuevo.
+    JUNTAS = {"para", "porque", "aunque", "cuando", "mientras", "pero", "sino",
+              "que", "y", "o", "ni", "si", "como", "donde", "hasta", "desde",
+              "con", "sin", "sobre", "entre", "tras", "durante", "salvo"}
+
+    def frases(ps):
+        act = []
+        for w in ps:
+            act.append(w)
+            if re.search(r"[.!?]$", w["palabra"]):
+                yield act
+                act = []
+        if act:
+            yield act
+
+    def largo(ps):
+        return sum(len(w["palabra"]) for w in ps) + len(ps) - 1
+
+    def partir(ps):
+        """Parte una frase larga en trozos que quepan, buscando junta."""
+        if largo(ps) <= tope and ps[-1]["sale"] - ps[0]["entra"] <= MAX_DUR:
+            return [ps]
+        # candidatos: índices donde empezaría el segundo trozo
+        centro = len(ps) / 2
+        cands = [i for i in range(1, len(ps))
+                 if largo(ps[:i]) <= tope and largo(ps[i:]) <= tope]
+        if not cands:
+            cands = list(range(1, len(ps)))
+        def coste(i):
+            junta = normalizar(ps[i]["palabra"]) in JUNTAS
+            coma = bool(re.search(r"[,;:]$", ps[i-1]["palabra"]))
+            # una coma manda sobre todo; luego la conjunción; luego el centro
+            return (0 if coma else (1 if junta else 2), abs(i - centro))
+        i = min(cands, key=coste)
+        return partir(ps[:i]) + partir(ps[i:])
+
+    bloques = []
+    for f in frases(palabras):
+        bloques.extend(partir(f))
     return [b for b in bloques if b]
 
 
@@ -153,7 +177,7 @@ def main() -> None:
     open(destino, "w", encoding="utf-8").write("\n".join(lineas))
 
     fin = bloques[-1][-1]["sale"]
-    total = len(re.findall(r"\\S+", guion))
+    total = len(guion.split())
     print(f"{destino}")
     print(f"  palabras del guion: {total} · marcas de Azure: {len(marcas)} · "
           f"emparejadas: {len(palabras)}")
