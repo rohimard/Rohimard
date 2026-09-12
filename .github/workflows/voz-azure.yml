@@ -35,13 +35,14 @@ on:
     paths:
       - .github/workflows/voz-azure.yml
       - canal-youtube/.azure-disparo
+      - canal-youtube/.azure-objetivo
 
 permissions:
   contents: write
 
-env:
-  GUION: canal-youtube/producciones/07-reina-victoria-duelo/guion-voz.txt
-  DESTINO: canal-youtube/producciones/07-reina-victoria-duelo
+# El guion y la carpeta de salida se leen de canal-youtube/.azure-objetivo, una
+# linea cada uno. Asi el mismo workflow narra el video y el short sin duplicar
+# cien lineas de YAML, y cambiar de objetivo es editar dos lineas de texto.
   # Jorge normal, NO la variante DragonHD. Medido sobre muestras del mismo
   # texto: por encima de 12 kHz la HD da -97 dB y esta -46 dB, o sea que la
   # que se llama HD es la única sin agudos, y sin agudos una voz no suena a
@@ -71,6 +72,17 @@ jobs:
 
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - run: pip install --quiet azure-cognitiveservices-speech
+
+      - name: Leer el objetivo
+        run: |
+          OBJ=canal-youtube/.azure-objetivo
+          if [ ! -f "$OBJ" ]; then
+            echo "::error::falta $OBJ con el guion y la carpeta de salida"
+            exit 1
+          fi
+          echo "GUION=$(sed -n 1p "$OBJ" | tr -d '[:space:]')" >> "$GITHUB_ENV"
+          echo "DESTINO=$(sed -n 2p "$OBJ" | tr -d '[:space:]')" >> "$GITHUB_ENV"
+          sed -n 1,2p "$OBJ"
 
       - name: Sintetizar con Azure
         env:
