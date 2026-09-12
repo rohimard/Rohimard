@@ -1,0 +1,130 @@
+# Clona la voz del dueño del canal con Chatterbox Multilingual.
+#
+# POR QUÉ ESTE CAMINO
+# Se agotaron los demás: Azure tiene techo de prosodia (once combinaciones de
+# voz y estilo medidas, todas rechazadas de oído), ElevenLabs está sin cuota
+# (4 créditos de 121.004) y vidIQ solo sirve de monedero alterno. Una voz
+# propia no tiene techo de catálogo, no cuesta nada y es de quien la graba.
+#
+# POR QUÉ CHATTERBOX Y NO XTTS
+# Licencia. XTTS-v2 se publica bajo la Coqui Public Model License, que prohíbe
+# el uso comercial, y este canal está monetizado. Chatterbox es MIT.
+#
+# LA REFERENCIA MANDA
+# El intento anterior clonó una referencia sintética de Piper y salió un robot;
+# la que había guardada después era de OpenSLR a 16 kHz, o sea calidad
+# telefónica. Aquí la referencia es una grabación real a 48 kHz, y se le
+# recorta el tramo más limpio en vez de tomar los primeros segundos.
+name: voz-clonada
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-clonada.yml
+      - canal-youtube/voz-propia/referencia.wav
+
+permissions:
+  contents: write
+
+env:
+  REFERENCIA: canal-youtube/voz-propia/referencia.wav
+  DESTINO: canal-youtube/muestras-voz/clonada
+  MUESTRA: >-
+    Cada mañana ordenas que suban agua caliente para afeitar a un hombre que
+    está muerto. Le preparan la ropa. Le dejan la toalla limpia. Llevas años
+    haciéndolo, estás en el castillo de Windsor, y eres la mujer más poderosa
+    del mundo.
+
+jobs:
+  clonar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # exaggeration mueve la intensidad emocional; cfg_weight, cuánto se
+          # ciñe al texto: más bajo sale más lento y deliberado, que es el
+          # registro de documental.
+          - clave: 1-narrador
+            exageracion: '0.4'
+            cfg: '0.3'
+          - clave: 2-sobrio
+            exageracion: '0.3'
+            cfg: '0.3'
+          - clave: 3-defecto
+            exageracion: '0.5'
+            cfg: '0.5'
+          - clave: 4-intenso
+            exageracion: '0.7'
+            cfg: '0.5'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Comprobar la referencia
+        run: |
+          if [ ! -f "$REFERENCIA" ]; then
+            echo "::error::falta $REFERENCIA"
+            exit 1
+          fi
+          ffprobe -v error -show_entries format=duration \
+                  -show_entries stream=sample_rate,channels \
+                  -of default=nw=1 "$REFERENCIA"
+
+      - run: pip install --quiet chatterbox-tts
+
+      - name: Clonar
+        run: |
+          mkdir -p salida
+          python - <<'PY'
+          import os
+          import torch
+          import torchaudio as ta
+          from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+
+          modelo = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
+          torch.manual_seed(1861)
+          wav = modelo.generate(
+              " ".join(os.environ["MUESTRA"].split()),
+              language_id="es",
+              audio_prompt_path=os.environ["REFERENCIA"],
+              exaggeration=float(os.environ["EXAGERACION"]),
+              cfg_weight=float(os.environ["CFG"]),
+          )
+          ta.save("salida/voz.wav", wav, modelo.sr)
+          print(f"generado a {modelo.sr} Hz")
+          PY
+        env:
+          EXAGERACION: ${{ matrix.exageracion }}
+          CFG: ${{ matrix.cfg }}
+
+      - name: Acabado
+        run: |
+          # SOLO nivel. Nada de ecualizar: el highshelf a 6,5 kHz que llevaba
+          # la cadena anterior realzaba artefactos en vez de aire, medido.
+          ffmpeg -y -v error -i salida/voz.wav \
+                 -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -codec:a libmp3lame -b:a 256k "salida/${{ matrix.clave }}.mp3"
+          rm salida/voz.wav
+
+      - name: Devolver las muestras a la rama
+        run: |
+          mkdir -p "$DESTINO" && mv salida/*.mp3 "$DESTINO"/
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Voz clonada ${{ matrix.clave }}' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
