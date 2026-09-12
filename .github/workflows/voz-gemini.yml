@@ -84,18 +84,26 @@ jobs:
           python-version: '3.11'
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
 
-      - name: Comprobar que la clave está puesta
+      # El secreto se guardo como GOOGLE_API_JEY (una J por una K). Se aceptan
+      # los dos nombres para no obligar a rehacerlo, y para que siga
+      # funcionando el dia que se corrija.
+      - name: Resolver la clave
         env:
-          CLAVE: ${{ secrets.GOOGLE_API_KEY }}
+          CLAVE_OK: ${{ secrets.GOOGLE_API_KEY }}
+          CLAVE_TYPO: ${{ secrets.GOOGLE_API_JEY }}
         run: |
+          CLAVE="${CLAVE_OK:-$CLAVE_TYPO}"
           if [ -z "$CLAVE" ]; then
-            echo "::error::falta el secreto GOOGLE_API_KEY en el repo"
+            echo "::error::no hay ni GOOGLE_API_KEY ni GOOGLE_API_JEY en los secretos del repo"
             exit 1
           fi
+          [ -n "$CLAVE_OK" ] && echo "usando GOOGLE_API_KEY" || echo "usando GOOGLE_API_JEY"
+          # A GITHUB_ENV para los pasos siguientes, y enmascarada en el log.
+          echo "::add-mask::$CLAVE"
+          echo "CLAVE=$CLAVE" >> "$GITHUB_ENV"
 
       - name: Sintetizar
         env:
-          CLAVE: ${{ secrets.GOOGLE_API_KEY }}
           VOZ: ${{ matrix.voz }}
           DIRECCION: ${{ matrix.direccion }}
         run: |
