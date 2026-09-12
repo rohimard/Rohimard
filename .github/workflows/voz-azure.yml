@@ -42,11 +42,16 @@ permissions:
 env:
   GUION: canal-youtube/producciones/07-reina-victoria-duelo/guion-voz.txt
   DESTINO: canal-youtube/producciones/07-reina-victoria-duelo
-  # Las voces HD llevan dos puntos en el nombre. Cuidado al usarlo en rutas
-  # de archivo: ffmpeg lee lo anterior a los dos puntos como un protocolo.
-  VOZ: es-MX-Jorge:DragonHDLatestNeural
-  # DragonHD no admite <prosody>, así que el ritmo no se toca con velocidad ni
-  # tono sino con la pausa entre párrafos, que sí admite.
+  # Jorge normal, NO la variante DragonHD. Medido sobre muestras del mismo
+  # texto: por encima de 12 kHz la HD da -97 dB y esta -46 dB, o sea que la
+  # que se llama HD es la única sin agudos, y sin agudos una voz no suena a
+  # persona. Y lo que más pesa: la HD no admite estilos, así que un guion
+  # sobre un duelo de cuarenta años se leía sin ninguna intención.
+  VOZ: es-MX-JorgeNeural
+  # Elegido de oído sobre seis muestras. El grado va aquí para no tocarlo sin
+  # querer: es el que se aprobó escuchando.
+  ESTILO: sad
+  GRADO: '1.4'
   PAUSA: 700ms
 
 jobs:
@@ -88,11 +93,18 @@ jobs:
               f"<p>{escape(p.strip())}</p>"
               for p in texto.split("\n\n") if p.strip()
           )
+          # Azure no da error cuando una voz no admite el estilo pedido: lo
+          # ignora en silencio y devuelve el audio plano. Por eso el estilo se
+          # comprobó antes con muestras en vez de darlo por bueno aquí.
+          cuerpo = (f'<mstts:express-as style="{os.environ["ESTILO"]}" '
+                    f'styledegree="{os.environ["GRADO"]}">{parrafos}'
+                    "</mstts:express-as>")
           ssml = (
               "<speak version='1.0' "
               "xmlns='http://www.w3.org/2001/10/synthesis' "
+              "xmlns:mstts='http://www.w3.org/2001/mstts' "
               "xml:lang='es-MX'>"
-              f"<voice name='{os.environ['VOZ']}'>{parrafos}</voice>"
+              f"<voice name='{os.environ['VOZ']}'>{cuerpo}</voice>"
               "</speak>"
           )
 
