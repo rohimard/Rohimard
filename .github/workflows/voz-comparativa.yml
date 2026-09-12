@@ -25,7 +25,8 @@ permissions:
 
 env:
   GUION: canal-youtube/producciones/07-reina-victoria-duelo/guion-voz.txt
-  CARPETA: canal-youtube/muestras-voz/comparativa
+  CARPETA: canal-youtube/muestras-voz/comparativa-2
+  CATALOGO: canal-youtube/muestras-voz/catalogo-voces.json
 
 jobs:
   comparar:
@@ -34,32 +35,79 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # La actual, como referencia contra la que comparar.
-          - clave: 1-jorge-hd-actual
-            voz: es-MX-Jorge:DragonHDLatestNeural
-            estilo: ''
-          # Alonso, que es la que le gustó la primera vez.
-          - clave: 2-alonso-narracion
-            voz: es-US-AlonsoNeural
-            estilo: 'narration-professional'
-          - clave: 3-alonso-sin-estilo
-            voz: es-US-AlonsoNeural
-            estilo: ''
-          # Jorge normal: misma voz que la HD, pero con estilos disponibles.
-          - clave: 4-jorge-triste
+          # La actual, de referencia: mismo texto y mismo acabado que el resto.
+          - clave: 1-jorge-sad-actual
             voz: es-MX-JorgeNeural
             estilo: 'sad'
-          - clave: 5-jorge-serio
+          # La misma voz con el estilo que nunca se probo. El catalogo dice que
+          # Jorge admite cheerful, chat, whispering, sad y excited; solo se uso
+          # sad. Para un guion de duelo, el registro confesional puede ser lo
+          # que falta.
+          - clave: 2-jorge-whispering
             voz: es-MX-JorgeNeural
-            estilo: 'serious'
-          # Álvaro, peninsular, habitual en documental.
-          - clave: 6-alvaro-narracion
-            voz: es-ES-AlvaroNeural
-            estilo: 'narration-professional'
+            estilo: 'whispering'
+          - clave: 3-jorge-chat
+            voz: es-MX-JorgeNeural
+            estilo: 'chat'
+          # MAI-Voice-2: otra generacion de modelo, dieciocho estilos. Declara
+          # 24 kHz, que juega en contra, pero con ese rango hay que oirlo antes
+          # de descartarlo por una cifra.
+          - clave: 4-alejo-sad
+            voz: es-MX-Alejo:MAI-Voice-2
+            estilo: 'sad'
+          - clave: 5-alejo-regretful
+            voz: es-MX-Alejo:MAI-Voice-2
+            estilo: 'regretful'
+          - clave: 6-alejo-softvoice
+            voz: es-MX-Alejo:MAI-Voice-2
+            estilo: 'softvoice'
+          # Multilingues a 48 kHz con estilo: hablan español aunque su locale
+          # sea en-US. Las multilingues es-* estan todas a 24 kHz, asi que la
+          # puerta buena es esta.
+          - clave: 7-derek-empathetic
+            voz: en-US-DerekMultilingualNeural
+            estilo: 'empathetic'
+          - clave: 8-andrew-empathetic
+            voz: en-US-AndrewMultilingualNeural
+            estilo: 'empathetic'
+          # Timbres a 48 kHz sin estilo, sin probar todavia: si uno destaca de
+          # oido, ya se vera si compensa perder la direccion emocional.
+          - clave: 9-luciano
+            voz: es-MX-LucianoNeural
+            estilo: ''
+          - clave: 10-teo
+            voz: es-ES-TeoNeural
+            estilo: ''
     steps:
       - uses: actions/checkout@v4
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - run: pip install --quiet azure-cognitiveservices-speech
+
+      # Azure NO da error cuando una voz no admite el estilo pedido: lo ignora
+      # y devuelve el audio plano. Eso ya arruino dos muestras de la primera
+      # comparativa (Alonso y Alvaro salieron sin direccion y yo las compare
+      # creyendo que la llevaban). Con el catalogo en el repo, se comprueba
+      # antes de gastar una sintesis.
+      - name: Comprobar que la voz admite el estilo
+        env:
+          VOZ: ${{ matrix.voz }}
+          ESTILO: ${{ matrix.estilo }}
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+          voz, estilo = os.environ["VOZ"], os.environ.get("ESTILO", "").strip()
+          cat = json.load(open(os.environ["CATALOGO"], encoding="utf-8"))
+          ficha = next((v for v in cat if v["nombre"] == voz), None)
+          if ficha is None:
+              print(f"::error::{voz} no esta en el catalogo de la cuenta")
+              sys.exit(1)
+          print(f"{voz} · {ficha['sample_rate']} Hz · "
+                f"estilos: {ficha['estilos'] or 'ninguno'}")
+          if estilo and estilo not in ficha["estilos"]:
+              print(f"::error::{voz} no admite el estilo '{estilo}'. "
+                    f"Azure lo ignoraria en silencio y la muestra saldria plana.")
+              sys.exit(1)
+          PY
 
       - name: Sintetizar
         env:
