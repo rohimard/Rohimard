@@ -16,12 +16,16 @@ primera palabra y sale cuando acaba la última.
   python3 srt_desde_palabras.py guion.txt palabras.json [salida.srt]
 """
 import json
+import os
 import re
 import sys
 import unicodedata
 
-ANCHO = 42        # caracteres por línea
-LINEAS = 2
+# En vertical la pantalla es la mitad de ancha, asi que las lineas tienen que
+# ser mas cortas o el subtitulo ocupa media imagen. Se deja configurable en vez
+# de duplicar el script para el short.
+ANCHO = int(os.environ.get("SRT_ANCHO", 42))
+LINEAS = int(os.environ.get("SRT_LINEAS", 2))
 COLA = 0.12       # segundos de respiración al final de cada subtítulo
 HUECO = 0.04      # separación mínima entre un subtítulo y el siguiente
 MIN_DUR = 0.9
@@ -111,8 +115,14 @@ def cortar(palabras: list) -> list:
             return [ps]
         # candidatos: índices donde empezaría el segundo trozo
         centro = len(ps) / 2
+        # Se admiten unos caracteres de mas: un limite duro descartaba el corte
+        # natural por uno o dos caracteres y elegia uno peor. Con ANCHO=24
+        # partia "Imagina enterrar a tu marido y no / volver a quitarte..." en
+        # vez de por la "y", porque la segunda mitad se pasaba en 1 caracter.
+        HOLGURA = 4
         cands = [i for i in range(1, len(ps))
-                 if largo(ps[:i]) <= tope and largo(ps[i:]) <= tope]
+                 if largo(ps[:i]) <= tope + HOLGURA
+                 and largo(ps[i:]) <= tope + HOLGURA]
         if not cands:
             cands = list(range(1, len(ps)))
         def coste(i):
