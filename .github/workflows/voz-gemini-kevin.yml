@@ -22,13 +22,12 @@
 #      doce muestras no compiten por el mismo cupo gratuito.
 name: voz-gemini-kevin
 
+# SOLO a mano. El disparo por push sobre este mismo fichero parecia comodo y
+# era una trampa: cada correccion de una linea de codigo relanzaba las doce
+# muestras y se comia el cupo diario de diez, dejando el barrido a medias por
+# haber arreglado un mensaje de error.
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - claude/viral-youtube-video-ideas-luqj2m
-    paths:
-      - .github/workflows/voz-gemini-kevin.yml
 
 permissions:
   contents: write
