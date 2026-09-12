@@ -1,37 +1,132 @@
-TÍTULOS (A/B)
-=============
-A (principal, ya verificado sin colisión en YouTube):
-La Reina que vistió luto 40 años (esto es duelo no resuelto)
+SEO DEL VÍDEO 7 — La reina Victoria y el duelo prolongado
+Rehecho el 2026-09-12 con datos de vidIQ, no a ojo.
 
-B — variante dato/identificación:
-40 años de luto real: así es el DUELO PROLONGADO (y nadie te lo dijo)
+DATOS QUE MANDAN SOBRE LAS DECISIONES
+=====================================
+Búsquedas mensuales (vidIQ, contexto España/LatAm):
 
-C — variante señales, si A/B no despega en 48h:
-7 SEÑALES de DUELO NO RESUELTO (la Reina Victoria las tuvo todas)
+  duelo ....................... 61.342   competencia 42,9   ← el término
+  historia de inglaterra ...... 16.253   +240% de crecimiento
+  familia real británica ....... 9.230
+  reina victoria eugenia ....... 4.909   (¡otra reina! no confundir)
+  era victoriana ............... 4.533
+  superar el duelo ............. 4.612
+  reina victoria ............... 3.761   competencia 41,2
+  perder a un ser querido ...... 3.371
+  duelo prolongado ............... <750   competencia 44,3   ← NO lo busca nadie
+  duelo patológico ............... <750
+  príncipe alberto ............... <750
+
+La conclusión que cambia el título: "duelo prolongado" es el término clínico
+correcto y es el tema del vídeo, pero NADIE lo escribe en el buscador. El
+título anterior lo ponía en mayúsculas al principio. La palabra que sí se
+busca, y por goleada, es "duelo" a secas.
+
+"queen victoria" tiene 53.133 búsquedas, pero sus mercados son Pakistán, India
+y Brasil. Para un canal en español no sirve: se descarta.
+
+TÍTULO
+======
+La Reina Victoria vistió luto 40 años y hoy su duelo tiene nombre clínico
+
+Puntuación vidIQ: 84/100.
+
+Por qué éste y no el de 86 puntos. La variante
+  "...y hoy ESO tiene nombre clínico"                    -> 86
+  "...y hoy SU DUELO tiene nombre clínico"                -> 84
+Dos puntos de diferencia en una puntuación de caja negra no compensan dejar
+fuera la palabra con 61.342 búsquedas al mes. La puntuación estima el clic; el
+volumen de búsqueda es un dato medido.
+
+Lo que hace el título, por partes:
+  "La Reina Victoria"        entidad buscable (3.761/mes) y va delante, que es
+                             lo único que se ve en móvil antes del corte
+  "vistió luto 40 años"      el dato concreto y verificable, el mismo de la
+                             miniatura
+  "su duelo"                 el término con volumen real
+  "tiene nombre clínico"     la incongruencia que obliga a abrir: si tiene
+                             nombre clínico, entonces no era solo amor
+
+Otros candidatos medidos, por si el principal no despega en 48 h:
+  84  Cada mañana afeitaba a un hombre muerto: 40 años de duelo
+      (es el gancho literal del guion; más morboso, menos buscable)
+  82  La Reina Victoria vistió luto 40 años: su duelo hoy tiene nombre clínico
+  77  7 señales de que tu duelo no ha terminado (el caso de la Reina Victoria)
+      (gira hacia identificación; probar si el nicho psicología rinde más que
+      el de historia)
+  73  40 años vestida de luto: el duelo que nadie supo diagnosticar
 
 DESCRIPCIÓN
 ===========
-La reina Victoria del Reino Unido vistió de negro durante los últimos 40 años de su
-vida tras la muerte de su esposo, el príncipe Alberto. Durante siglo y medio se contó
-como una historia de amor eterno. Hoy sabemos que tiene un nombre clínico: duelo
-prolongado, reconocido oficialmente como trastorno en 2022. Te cuento el caso real y
-las 7 señales que indican que tú también podrías estar atravesando uno.
+La reina Victoria del Reino Unido vistió de negro los últimos 40 años de su
+vida, desde la muerte de su esposo Alberto en 1861 hasta la suya en 1901.
+Durante siglo y medio esto se contó como una historia de amor eterno. Hoy
+tiene un nombre clínico: duelo prolongado, reconocido oficialmente como
+trastorno en 2022.
 
-En este video vas a entender la diferencia entre el duelo normal y el duelo que se
-queda atascado, por qué el tiempo es la clave (no la intensidad), y qué hacer si te
-has reconocido en alguna de las señales.
+En este documental te cuento el caso real y las 7 señales que los psicólogos
+usan hoy para identificarlo, porque no son exclusivas de una reina del siglo
+diecinueve.
 
-Suscríbete para no perderte el próximo caso.
+Vas a entender la diferencia entre el duelo normal y el duelo que se queda
+atascado, por qué la clave está en el tiempo y no en la intensidad del dolor,
+y qué existe hoy que en 1861 no existía.
 
-Todos los datos de este video están contrastados con fuentes históricas y clínicas.
-Si detectas un error, dímelo en los comentarios y lo corrijo en un fijado.
+Capítulos
+0:00 Cada mañana afeitaba a un hombre que estaba muerto
+0:16 40 años de negro: lo que hizo de verdad
+1:13 La versión bonita, y la que falta
+1:28 Por qué desde 2022 esto tiene nombre
+1:57 No es solo cosa de una reina victoriana
+2:16 Señal 1: una parte de ti murió con esa persona
+2:30 Señal 2: aún te cuesta creer que pasó
+2:50 Señal 3: evitas lo que te lo recuerde
+3:04 Señal 4: duele como si fuera ayer
+3:17 Señal 5: no te reenganchas con tu vida
+3:31 Señal 6: vives detrás de un cristal
+3:42 Señal 7: el para qué se apagó
+3:54 El dato que separa el duelo normal del prolongado
+4:24 Lo que ella no tuvo y tú sí
+4:47 Próximo vídeo
 
-Capítulos:
-0:00 La reina que dejó de vivir cuando murió su esposo
-1:08 La versión que te contaron (y la que no)
-1:22 Por qué esto tiene nombre desde 2022
-1:56 7 señales de duelo no resuelto
-3:19 La diferencia entre duelo normal y duelo prolongado
-3:45 Lo que ella no tuvo, y tú sí
+Todos los datos de este vídeo están contrastados con fuentes históricas y
+clínicas. Si detectas un error, dímelo en los comentarios y lo corrijo en un
+fijado.
 
-#duelo #psicologia #historiaincomoda
+Este vídeo no es un diagnóstico ni sustituye a un profesional. Si te has
+reconocido en varias señales, habla con un psicólogo.
+
+#duelo #salud mental #historia #reinavictoria #documental #historiaincomoda
+
+ETIQUETAS
+=========
+Ordenadas por volumen de búsqueda medido, no por intuición:
+
+duelo, superar el duelo, perder a un ser querido, duelo prolongado,
+duelo no resuelto, reina victoria, historia de inglaterra, era victoriana,
+familia real británica, monarquía británica, príncipe alberto,
+documental historia, salud mental, psicología del duelo, luto,
+historia incómoda
+
+Nota: "duelo prolongado" y "príncipe alberto" van como etiqueta aunque tengan
+menos de 750 búsquedas. No están ahí por volumen sino por relevancia temática,
+que es lo que YouTube usa para emparejar el vídeo con sugerencias.
+
+MINIATURA
+=========
+miniatura.jpg — "40 / AÑOS VESTIDA DE LUTO"
+El número de la miniatura y el del título son el mismo dato a propósito: se
+refuerzan en la parrilla en vez de competir. Lo que NO se repite es la palabra
+clínica: el título dice "nombre clínico" y la miniatura no, para que haya algo
+que descubrir al abrir.
+
+No se ha podido puntuar con vidIQ: su medidor exige un vídeo ya publicado, no
+acepta un archivo local. Una vez subido, conviene medirla.
+
+PENDIENTE DE VALIDAR
+====================
+Todo lo de aquí arriba sale de volúmenes de búsqueda y de la puntuación de
+títulos de vidIQ. Lo que sigue SIN comprobar con datos es el gancho del guion:
+se reescribió por criterio, adelantando el golpe del segundo diez al cuatro,
+pero nunca se comparó contra transcripciones de vídeos que hayan funcionado de
+verdad en este nicho. Queda pendiente.
