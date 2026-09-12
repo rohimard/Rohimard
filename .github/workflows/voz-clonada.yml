@@ -25,12 +25,12 @@ on:
     paths:
       - .github/workflows/voz-clonada.yml
       - canal-youtube/voz-propia/referencia.wav
+      - canal-youtube/voz-propia/referencia-video.wav
 
 permissions:
   contents: write
 
 env:
-  REFERENCIA: canal-youtube/voz-propia/referencia.wav
   DESTINO: canal-youtube/muestras-voz/clonada
   MUESTRA: >-
     Cada mañana ordenas que suban agua caliente para afeitar a un hombre que
@@ -46,21 +46,20 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # exaggeration mueve la intensidad emocional; cfg_weight, cuánto se
-          # ciñe al texto: más bajo sale más lento y deliberado, que es el
-          # registro de documental.
-          - clave: 1-narrador
+          # Dos grabaciones de la misma persona, con defectos opuestos: la de
+          # la grabadora de voz esta limpia pero cortada en 11 kHz, y la de
+          # video llega a 20 kHz pero tiene ambiente continuo a -43 dBFS.
+          # Mismo modelo y mismos ajustes para que lo unico que cambie sea eso.
+          # exaggeration mueve la intensidad; cfg_weight, cuanto se ciñe al
+          # texto: mas bajo sale mas lento, que es el registro de documental.
+          - clave: 5-video-narrador
+            ref: canal-youtube/voz-propia/referencia-video.wav
             exageracion: '0.4'
             cfg: '0.3'
-          - clave: 2-sobrio
+          - clave: 6-video-sobrio
+            ref: canal-youtube/voz-propia/referencia-video.wav
             exageracion: '0.3'
             cfg: '0.3'
-          - clave: 3-defecto
-            exageracion: '0.5'
-            cfg: '0.5'
-          - clave: 4-intenso
-            exageracion: '0.7'
-            cfg: '0.5'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -70,6 +69,8 @@ jobs:
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
 
       - name: Comprobar la referencia
+        env:
+          REFERENCIA: ${{ matrix.ref }}
         run: |
           if [ ! -f "$REFERENCIA" ]; then
             echo "::error::falta $REFERENCIA"
@@ -105,6 +106,7 @@ jobs:
         env:
           EXAGERACION: ${{ matrix.exageracion }}
           CFG: ${{ matrix.cfg }}
+          REFERENCIA: ${{ matrix.ref }}
 
       - name: Acabado
         run: |
