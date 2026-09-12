@@ -38,6 +38,10 @@ jobs:
     timeout-minutes: 20
     strategy:
       fail-fast: false
+      # De uno en uno. El plan gratuito permite 3 peticiones por minuto a
+      # gemini-2.5-flash-tts, y con la matriz en paralelo dos trabajos se
+      # comian la cuota de los otros y morian con 429 sin generar nada.
+      max-parallel: 1
       matrix:
         include:
           # Voces graves y de registro informativo, que es lo que pide un
@@ -109,7 +113,7 @@ jobs:
         run: |
           mkdir -p salida
           python3 - <<'PY'
-          import base64, json, os, re, sys, urllib.error, urllib.request, wave
+          import base64, json, os, re, sys, time, urllib.error, urllib.request, wave
 
           texto = " ".join(os.environ["MUESTRA"].split())
           direccion = " ".join(os.environ["DIRECCION"].split())
@@ -135,15 +139,29 @@ jobs:
               headers={"Content-Type": "application/json",
                        "x-goog-api-key": os.environ["CLAVE"]},
               method="POST")
-          try:
-              with urllib.request.urlopen(pet, timeout=180) as r:
-                  resp = json.loads(r.read())
-          except urllib.error.HTTPError as e:
-              # El cuerpo dice si es cuota, modelo no disponible o clave mala;
-              # sin eso los tres fallos son indistinguibles.
-              print(f"::error::Google devolvio {e.code}: "
-                    f"{e.read().decode(errors='replace')[:600]}")
-              sys.exit(1)
+          # El 429 de cuota no es un fallo: es una cola. Google dice en el
+          # cuerpo cuantos segundos faltan ("Please retry in 28.6s"), asi que
+          # esperamos eso y reintentamos en vez de perder la muestra.
+          resp = None
+          for intento in range(1, 7):
+              try:
+                  with urllib.request.urlopen(pet, timeout=300) as r:
+                      resp = json.loads(r.read())
+                  break
+              except urllib.error.HTTPError as e:
+                  # El cuerpo dice si es cuota, modelo no disponible o clave
+                  # mala; sin eso los tres fallos son indistinguibles.
+                  detalle = e.read().decode(errors="replace")
+                  if e.code not in (429, 500, 503) or intento == 6:
+                      print(f"::error::Google devolvio {e.code}: {detalle[:600]}")
+                      sys.exit(1)
+                  espera = 20.0 * intento
+                  m = re.search(r"retry in ([\d.]+)s", detalle)
+                  if m:
+                      espera = float(m.group(1)) + 5
+                  print(f"{e.code} en el intento {intento}; "
+                        f"espero {espera:.0f}s y repito")
+                  time.sleep(espera)
 
           try:
               parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
