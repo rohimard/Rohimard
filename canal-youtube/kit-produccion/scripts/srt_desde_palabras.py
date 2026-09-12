@@ -92,9 +92,15 @@ def cortar(palabras: list) -> list:
     tope = ANCHO * LINEAS
 
     # Palabras por las que es natural empezar un trozo nuevo.
+    # Palabras por las que es natural EMPEZAR un trozo nuevo. Van aqui los
+    # nexos y tambien los articulos y posesivos: si un trozo acaba en "el" o
+    # en "su", el ojo se queda esperando el sustantivo y la linea se lee mal.
+    # Poniendolos aqui, el corte los empuja al trozo siguiente, con su nombre.
     JUNTAS = {"para", "porque", "aunque", "cuando", "mientras", "pero", "sino",
               "que", "y", "o", "ni", "si", "como", "donde", "hasta", "desde",
-              "con", "sin", "sobre", "entre", "tras", "durante", "salvo"}
+              "con", "sin", "sobre", "entre", "tras", "durante", "salvo",
+              "el", "la", "los", "las", "un", "una", "unos", "unas",
+              "su", "sus", "mi", "mis", "tu", "tus", "del", "al", "de", "en"}
 
     def frases(ps):
         act = []

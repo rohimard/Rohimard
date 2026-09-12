@@ -4,12 +4,12 @@ Imagina enterrar
 a tu marido y no
 
 2
-00:00:01,762 --> 00:00:02,710
-volver a quitarte el
+00:00:01,762 --> 00:00:02,663
+volver a quitarte
 
 3
-00:00:02,750 --> 00:00:04,220
-negro en
+00:00:02,703 --> 00:00:04,220
+el negro en
 cuarenta años.
 
 4
@@ -27,13 +27,13 @@ mil ochocientos
 sesenta y uno:
 
 7
-00:00:10,912 --> 00:00:11,885
-el príncipe Alberto
+00:00:10,912 --> 00:00:12,173
+el príncipe
+Alberto muere
 
 8
-00:00:11,925 --> 00:00:13,160
-muere de
-fiebre tifoidea
+00:00:12,213 --> 00:00:13,160
+de fiebre tifoidea
 
 9
 00:00:13,200 --> 00:00:14,757
@@ -84,23 +84,24 @@ si su reina
 seguía gobernando.
 
 19
-00:00:30,738 --> 00:00:31,823
-Tardó años
-en volver a
+00:00:30,738 --> 00:00:32,098
+Tardó años en
+volver a abrir
 
 20
-00:00:31,863 --> 00:00:33,557
-abrir el Parlamento
+00:00:32,138 --> 00:00:33,557
+el Parlamento
 en persona.
 
 21
-00:00:34,300 --> 00:00:35,360
-Y usó papel de carta
+00:00:34,300 --> 00:00:35,535
+Y usó papel
+de carta con
 
 22
-00:00:35,400 --> 00:00:37,407
-con el borde negro
-el resto de su vida,
+00:00:35,575 --> 00:00:37,407
+el borde negro el
+resto de su vida,
 
 23
 00:00:37,562 --> 00:00:39,185
