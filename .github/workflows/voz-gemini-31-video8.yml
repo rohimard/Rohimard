@@ -147,11 +147,30 @@ jobs:
                   print(f"{e.code} en el intento {intento}; espero {espera:.0f}s")
                   time.sleep(espera)
 
-          try:
-              parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
-          except (KeyError, IndexError):
-              print(f"::error::respuesta inesperada: {json.dumps(resp)[:600]}")
-              sys.exit(1)
+          # Un 200 OK con finishReason=SAFETY no es un error HTTP: el modelo
+          # genero texto internamente (se ve en usageMetadata) y su propio
+          # filtro bloqueo el audio. Paso con este mismo texto casi
+          # identico al de una prueba anterior que SI paso, asi que se
+          # trata como fallo intermitente y se reintenta, no como bloqueo
+          # fijo de contenido. Maximo dos reintentos: cada uno gasta una
+          # peticion real del cupo, igual que si hubiera generado audio.
+          for intento_seguridad in range(1, 4):
+              try:
+                  parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
+                  break
+              except (KeyError, IndexError):
+                  razon = resp.get("candidates", [{}])[0].get("finishReason", "?")
+                  if razon == "SAFETY" and intento_seguridad < 3:
+                      print(f"::warning::bloqueo de seguridad en el intento "
+                            f"{intento_seguridad}, reintentando con el mismo "
+                            f"texto (el filtro parece intermitente)")
+                      time.sleep(10)
+                      with urllib.request.urlopen(pet, timeout=300) as r:
+                          resp = json.loads(r.read())
+                      continue
+                  print(f"::error::respuesta inesperada (finishReason={razon}): "
+                        f"{json.dumps(resp)[:600]}")
+                  sys.exit(1)
 
           crudo = base64.b64decode(parte["data"])
           m = re.search(r"rate=(\d+)", parte.get("mimeType", ""))
