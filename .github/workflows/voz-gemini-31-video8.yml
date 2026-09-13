@@ -31,27 +31,29 @@ env:
   DESTINO: canal-youtube/producciones/08-kaczynski-harvard/prueba-31
   MODELO: gemini-3.1-flash-tts-preview
   VOZ: Achird
-  CLAVE_SALIDA: trozo1-rapido
+  CLAVE_SALIDA: trozo1-equilibrado
   # La misma direccion que corrigio el ritmo lento del video 8 en 2.5-flash.
-  # La frase "ritmo vivo... cambia de marcha" funciono en 2.5-flash y aqui
-  # no movio la aguja (salio a 2,42 palabras/s igual que sin ella). Este
-  # modelo necesita algo mas contundente, y ademas se le da la etiqueta
-  # [fast] propia en el TEXTO, que es su propio mecanismo documentado de
-  # control de velocidad, en vez de confiar solo en la prosa de la direccion.
+  # El intento anterior sumo DOS empujones a la vez ([fast] en el texto +
+  # esta direccion con "RAPIDO" en mayusculas) y se paso: 3,48 palabras/s,
+  # un 24% por encima del objetivo de 2,8, el usuario lo confirmo como
+  # "muy rapido". Se quita el [fast] del texto (ver mas abajo) y aqui se
+  # suaviza la urgencia sin volver a la version neutra que salio lenta.
   DIRECCION: >-
     Habla en español latinoamericano neutro. Eres un hombre de unos cuarenta y
     cinco años que tiene poco tiempo para contarle esto a un amigo antes de
-    que llegue alguien mas, asi que habla RAPIDO, sin arrastrar ninguna
-    palabra, sin proyectar la voz de locutor. Ve al grano en cada frase.
-    Registro medio, volumen de conversacion. Baja el tono al final de cada
-    frase, nunca lo subas. No dramatices: el dato ya incomoda solo.
+    que llegue alguien mas, asi que hablas con cierta urgencia, sin arrastrar
+    ninguna palabra, sin proyectar la voz de locutor. Ve al grano en cada
+    frase. Registro medio, volumen de conversacion. Baja el tono al final de
+    cada frase, nunca lo subas. No dramatices: el dato ya incomoda solo.
   # Trozo 1 real del guion, puntuacion fluida (solo quedan puntos de cambio
   # de idea) mas dos etiquetas en los dos giros de verdad del parrafo.
-  # [fast] al inicio, marcando el tono para todo el bloque; se deja SOLO una
-  # pausa dramatica (antes de "Unabomber"), no dos, para no acumular varios
-  # segundos de silencio con la lectura ya mas rapida.
+  # Se quita el [fast]: combinado con la direccion urgente daba 3,48
+  # palabras/s (24% por encima del objetivo), y el usuario lo confirmo
+  # como demasiado rapido. Queda solo la direccion suavizada como unico
+  # empujon de velocidad. Sigue una sola pausa dramatica (antes de
+  # "Unabomber"), que en la prueba anterior ya salio bien de tamaño.
   TEXTO: >-
-    [fast] Tienes dieciséis años y acabas de entrar en Harvard, eres el más
+    Tienes dieciséis años y acabas de entrar en Harvard, eres el más
     joven de tu clase. Un profesor te invita a un estudio sobre la
     personalidad y aceptas. Te piden que escribas en qué crees, tus
     principios, tu filosofía, lo que de verdad te importa, con todo el
