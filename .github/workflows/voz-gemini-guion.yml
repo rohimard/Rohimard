@@ -23,6 +23,14 @@
 #
 # Los trozos se igualan en nivel antes de pegarlos (si no, se oye el salto en
 # cada costura) y se comprueba que la duracion total se parece al patron.
+#
+# SE PUEDE REANUDAR, Y HACE FALTA
+# El cupo diario NO se reinicia a medianoche UTC sino a medianoche del
+# Pacifico. La primera tanda troceada murio en el trozo 2 por cuota, con el
+# trozo 1 ya generado y tirado a la basura. Ahora cada trozo se guarda en la
+# rama segun sale, con el hash de su texto al lado; al relanzar se reutiliza
+# lo que ya existe y solo se piden los que faltan. Si cambia el guion, el
+# hash deja de cuadrar y ese trozo se regenera solo.
 name: voz-gemini-guion
 
 # workflow_dispatch no sirve aqui: la API solo lo acepta si el workflow esta
@@ -98,9 +106,12 @@ jobs:
       - name: Sintetizar por trozos
         run: |
           mkdir -p salida trozos
+          # Recuperar los trozos que ya se generaron en tandas anteriores.
+          cp -f "$DESTINO"/trozos/*.flac trozos/ 2>/dev/null || true
+          cp -f "$DESTINO"/trozos/manifiesto.json trozos/ 2>/dev/null || true
           python3 - <<'PY'
-          import base64, json, math, os, re, sys, time
-          import urllib.error, urllib.request, wave
+          import base64, hashlib, json, math, os, re, subprocess, sys, time
+          import urllib.error, urllib.request, wave, array
 
           texto = open(os.environ["GUION"], encoding="utf-8").read().strip()
           direccion = " ".join(os.environ["DIRECCION"].split())
@@ -124,11 +135,19 @@ jobs:
                   trozos.append(" ".join(actual))
 
           print(f"{len(texto.split())} palabras -> {len(trozos)} trozos")
-          for i, t in enumerate(trozos, 1):
-              print(f"  {i}: {len(t.split()):>3} palabras | {t[:60]}...")
-          if len(trozos) > 9:
-              print(f"::error::{len(trozos)} trozos pasan del cupo diario de 10")
+          if len(trozos) > 10:
+              print(f"::error::{len(trozos)} trozos pasan del cupo diario")
               sys.exit(1)
+
+          def huella(t):
+              return hashlib.sha256(
+                  (os.environ["VOZ"] + "|" + direccion + "|" + t).encode()
+              ).hexdigest()[:16]
+
+          try:
+              manif = json.load(open("trozos/manifiesto.json"))
+          except Exception:
+              manif = {}
 
           url = ("https://generativelanguage.googleapis.com/v1beta/models/"
                  f"{os.environ['MODELO']}:generateContent")
@@ -157,15 +176,16 @@ jobs:
                   except urllib.error.HTTPError as e:
                       d = e.read().decode(errors="replace")
                       if e.code == 429 and re.search(r"limit: 0\b", d):
-                          print(f"::error::{os.environ['MODELO']} no esta en "
-                                f"el plan gratuito (limit: 0). {d[:300]}")
-                          sys.exit(1)
+                          raise SystemExit(
+                              f"::error::{os.environ['MODELO']} no esta en el "
+                              f"plan gratuito (limit: 0)")
                       if e.code == 429 and re.search(r"PerDay|per day", d):
-                          print(f"::error::cupo DIARIO agotado. {d[:300]}")
-                          sys.exit(1)
+                          # No es un fallo del codigo: se guarda lo hecho y se
+                          # reanuda tras el reinicio (medianoche del Pacifico).
+                          raise SystemExit("CUOTA_DIARIA")
                       if e.code not in (429, 500, 503) or intento == 6:
-                          print(f"::error::Google devolvio {e.code}: {d[:500]}")
-                          sys.exit(1)
+                          raise SystemExit(
+                              f"::error::Google devolvio {e.code}: {d[:400]}")
                       espera = 20.0 * intento
                       m = re.search(r"retry in ([\d.]+)s", d)
                       if m:
@@ -173,27 +193,44 @@ jobs:
                       print(f"  {e.code}, espero {espera:.0f}s")
                       time.sleep(espera)
 
-          import array
+          def guardar(i, crudo, sr):
+              w = f"trozos/{i:02d}.wav"
+              with wave.open(w, "wb") as f:
+                  f.setnchannels(1); f.setsampwidth(2); f.setframerate(sr)
+                  f.writeframes(crudo)
+              # FLAC: sin perdida, la mitad de bytes en la rama. Volver a
+              # codificar un mp3 en cada tanda degradaria el trozo.
+              subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", w,
+                              f"trozos/{i:02d}.flac"], check=True)
+              os.remove(w)
 
-          def rms(b):
-              a = array.array("h"); a.frombytes(b)
-              if not a:
-                  return 0.0
-              return math.sqrt(sum(x * x for x in a) / len(a))
+          def leer(i):
+              b = subprocess.run(
+                  ["ffmpeg", "-v", "error", "-i", f"trozos/{i:02d}.flac",
+                   "-f", "s16le", "-ac", "1", "-ar", "24000", "-"],
+                  check=True, stdout=subprocess.PIPE).stdout
+              return b, 24000
 
-          def escalar(b, k):
-              a = array.array("h"); a.frombytes(b)
-              for i in range(len(a)):
-                  a[i] = max(-32768, min(32767, int(a[i] * k)))
-              return a.tobytes()
-
-          piezas, sr = [], 24000
+          piezas, sr, pedidos, corte = [], 24000, 0, None
           for i, t in enumerate(trozos, 1):
-              if i > 1:
-                  # El plan gratuito da 3 peticiones por minuto.
-                  time.sleep(25)
-              print(f"trozo {i}/{len(trozos)}")
-              resp = pedir(t)
+              h = huella(t)
+              if manif.get(str(i)) == h and os.path.exists(f"trozos/{i:02d}.flac"):
+                  crudo, sr = leer(i)
+                  print(f"trozo {i}/{len(trozos)}: reutilizado "
+                        f"({len(crudo)/(sr*2):.1f}s)")
+                  piezas.append(crudo)
+                  continue
+              if pedidos:
+                  time.sleep(25)   # el plan gratuito da 3 por minuto
+              print(f"trozo {i}/{len(trozos)}: pidiendo a Gemini")
+              try:
+                  resp = pedir(t)
+              except SystemExit as e:
+                  if str(e) == "CUOTA_DIARIA":
+                      corte = i
+                      break
+                  raise
+              pedidos += 1
               try:
                   parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
               except (KeyError, IndexError):
@@ -206,24 +243,41 @@ jobs:
               dur = len(crudo) / (sr * 2)
               esp = len(t.split()) / 2.8
               print(f"   {dur:.1f}s (esperaba ~{esp:.0f}s)")
-              # Un trozo que sale a menos de la mitad es que el modelo se
-              # comio texto, y pegado entre otros no se nota al oido.
+              # Un trozo a menos de la mitad es texto comido, y pegado entre
+              # otros cuatro no se nota al oido.
               if dur < esp * 0.5:
                   print(f"::error::trozo {i} truncado: {dur:.1f}s de ~{esp:.0f}s")
                   sys.exit(1)
-              with wave.open(f"trozos/{i:02d}.wav", "wb") as w:
-                  w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
-                  w.writeframes(crudo)
+              guardar(i, crudo, sr)
+              manif[str(i)] = h
+              json.dump(manif, open("trozos/manifiesto.json", "w"), indent=1)
               piezas.append(crudo)
 
+          json.dump(manif, open("trozos/manifiesto.json", "w"), indent=1)
+          if corte:
+              print(f"::warning::cupo diario agotado en el trozo {corte} de "
+                    f"{len(trozos)}. Los {corte-1} ya generados quedan "
+                    f"guardados en la rama; al relanzar tras el reinicio "
+                    f"(medianoche del Pacifico) solo se piden los que faltan.")
+              sys.exit(1)
+
+          def rms(b):
+              a = array.array("h"); a.frombytes(b)
+              return math.sqrt(sum(x * x for x in a) / len(a)) if a else 0.0
+
+          def escalar(b, k):
+              a = array.array("h"); a.frombytes(b)
+              for i in range(len(a)):
+                  a[i] = max(-32768, min(32767, int(a[i] * k)))
+              return a.tobytes()
+
           # Igualar niveles al primer trozo: sin esto se oye un salto de
-          # volumen en cada costura, que es peor que la degradacion original.
+          # volumen en cada costura, peor que la degradacion original.
           base = rms(piezas[0]) or 1.0
           silencio = b"\x00\x00" * int(sr * 0.15)
           salida = b""
           for i, p in enumerate(piezas):
-              r = rms(p) or base
-              k = base / r
+              k = base / (rms(p) or base)
               if i:
                   salida += silencio
               print(f"   trozo {i+1}: ganancia x{k:.2f}")
@@ -234,20 +288,28 @@ jobs:
               w.writeframes(salida)
           total = len(salida) / (sr * 2)
           esperado = float(os.environ["ESPERADO"])
-          print(f"::notice::{len(trozos)} trozos, {total:.1f}s en total "
-                f"({100 * total / esperado:.0f}% del patron de Azure)")
+          print(f"::notice::{len(trozos)} trozos, {total:.1f}s "
+                f"({100 * total / esperado:.0f}% del patron de Azure); "
+                f"{pedidos} peticiones gastadas")
           if total < esperado * 0.75:
               print(f"::error::solo {total:.1f}s de {esperado:.1f}s esperados")
               sys.exit(1)
           PY
           ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
                  -c:a libmp3lame -b:a 256k "salida/${CLAVE}.mp3"
-          for t in trozos/*.wav; do
-            ffmpeg -y -v error -i "$t" -c:a libmp3lame -b:a 192k \
-                   "salida/$(basename "${t%.wav}")-trozo.mp3"
-          done
-          rm -rf salida/voz.wav trozos
-          ls -la salida/
+          rm -f salida/voz.wav
+          ls -la salida/ trozos/
+
+      - name: Guardar los trozos hechos
+        # Corre aunque el paso anterior falle: si el cupo se agota a mitad,
+        # lo ya generado tiene que llegar a la rama o se pierde.
+        if: always()
+        run: |
+          mkdir -p "$DESTINO/trozos"
+          cp -f trozos/*.flac "$DESTINO/trozos/" 2>/dev/null || true
+          cp -f trozos/manifiesto.json "$DESTINO/trozos/" 2>/dev/null || true
+          cp -f salida/*.mp3 "$DESTINO/" 2>/dev/null || true
+          ls -la "$DESTINO" "$DESTINO/trozos" 2>/dev/null || true
 
       - uses: ./.github/actions/devolver
         with:
