@@ -51,17 +51,16 @@ on:
 permissions:
   contents: write
 
+# GUION, DESTINO, CLAVE y ESPERADO no estan aqui: se leen de
+# canal-youtube/.gemini-disparo, una linea cada uno. Asi el mismo commit
+# que configura el objetivo es el que dispara, y cambiar de video no obliga
+# a tocar el workflow (que ademas ya no se auto-dispara).
 env:
-  GUION: canal-youtube/producciones/07-reina-victoria-duelo/guion-voz.txt
-  DESTINO: canal-youtube/muestras-voz/gemini-guion
   MODELO: gemini-2.5-flash-preview-tts
   # Achird es "Friendly" en el catalogo de Google, la mas cercana al perfil
   # Kevin que pidio el usuario. Si se cambia la voz, cambia tambien CLAVE.
   VOZ: Achird
   CLAVE: achird-guion-completo
-  # La duracion de la narracion de Azure ya montada, en segundos. Sirve de
-  # patron: si Gemini devuelve mucho menos, es que trunco.
-  ESPERADO: '298.3'
   # Palabras por trozo. 160 son unos 57 s a 2,8 palabras/s, por debajo
   # del minuto en que empieza a degradarse.
   PALABRAS: '160'
@@ -89,6 +88,22 @@ jobs:
           python-version: '3.11'
 
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Leer el objetivo
+        run: |
+          OBJ=canal-youtube/.gemini-disparo
+          # Linea 1 guion, 2 destino, 3 clave del fichero, 4 duracion patron.
+          # Se ignora todo lo que venga a partir de la quinta (comentarios).
+          for n in 1:GUION 2:DESTINO 3:CLAVE 4:ESPERADO; do
+            i=${n%%:*}; k=${n##*:}
+            v=$(sed -n "${i}p" "$OBJ" | tr -d '[:space:]')
+            if [ -z "$v" ]; then
+              echo "::error::falta la linea $i ($k) en $OBJ"
+              exit 1
+            fi
+            echo "$k=$v" >> "$GITHUB_ENV"
+            echo "$k = $v"
+          done
 
       - name: Resolver la clave de Google
         env:
@@ -313,5 +328,5 @@ jobs:
 
       - uses: ./.github/actions/devolver
         with:
-          destino: canal-youtube/muestras-voz/gemini-guion
+          destino: ${{ env.DESTINO }}
           mensaje: Narracion completa con Gemini
