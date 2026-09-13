@@ -16,7 +16,13 @@ runs:
     - shell: bash
       run: |
         mkdir -p "${{ inputs.destino }}"
-        mv salida/* "${{ inputs.destino }}"/
+        # Si el paso anterior corto por cupo antes de montar el mp3 final,
+        # salida/ queda vacia: el glob no expande, mv falla contra el
+        # literal "salida/*" y con `set -e` tira todo el resto del script,
+        # incluido el commit de lo que YA se guardo (por ejemplo, trozos
+        # sueltos que otro paso ya copio al destino). Que no haya mp3 final
+        # no es motivo para perder eso.
+        mv salida/* "${{ inputs.destino }}"/ 2>/dev/null || true
         git config user.name 'github-actions[bot]'
         git config user.email 'github-actions[bot]@users.noreply.github.com'
         git add -f "${{ inputs.destino }}"
