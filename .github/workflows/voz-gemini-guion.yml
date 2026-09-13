@@ -64,15 +64,23 @@ env:
   # Palabras por trozo. 160 son unos 57 s a 2,8 palabras/s, por debajo
   # del minuto en que empieza a degradarse.
   PALABRAS: '160'
+  # OJO CON ESTA DIRECCION. La primera version decia "sin prisa", "para en los
+  # puntos antes de seguir" y "manten el mismo tono de principio a fin". El
+  # resultado fueron 2,44 palabras/s (la lectura mas lenta de todas las
+  # probadas, contra 2,71 de Azure y 2,82 de Gemini de tiron) y el usuario lo
+  # describio como lento y aburrido. Tenia razon: "manten el mismo tono de
+  # principio a fin" es, literalmente, una instruccion de ser monotono. Se
+  # puso para evitar la deriva entre trozos y costo toda la dinamica.
   DIRECCION: >-
     Habla en español latinoamericano neutro. Eres un hombre de unos cuarenta y
-    cinco años contandole esto a un amigo sentado enfrente, sin prisa y sin
-    publico. Registro medio, volumen de conversacion. No eres locutor: no
-    proyectes la voz, no subrayes palabras, no hagas la entonacion cantada de
-    la radio. Baja el tono al final de cada frase, nunca lo subas. Respira
-    donde respirarias hablando de verdad y para en los puntos antes de seguir.
-    Manten el mismo tono de principio a fin, sin acelerar segun avanzas. No
-    dramatices: el dato ya incomoda solo.
+    cinco años contandole esto a un amigo sentado enfrente. Registro medio,
+    volumen de conversacion, y ritmo vivo: se habla mas rapido de lo que se
+    lee. No eres locutor: no proyectes la voz, no subrayes palabras, no hagas
+    la entonacion cantada de la radio. Baja el tono al final de cada frase,
+    nunca lo subas. CAMBIA DE MARCHA: encadena sin pausa las frases que van
+    juntas y frena solo donde el dato necesita caer. No hagas la misma pausa
+    en todos los puntos, que es lo que convierte una historia en un dictado.
+    No dramatices: el dato ya incomoda solo.
 
 jobs:
   narrar:
@@ -129,8 +137,22 @@ jobs:
           import urllib.error, urllib.request, wave, array
 
           texto = open(os.environ["GUION"], encoding="utf-8").read().strip()
-          direccion = " ".join(os.environ["DIRECCION"].split())
+          base = " ".join(os.environ["DIRECCION"].split())
           tope = int(os.environ["PALABRAS"])
+
+          # Direccion POR TROZO, que es la palanca que ningun otro motor da.
+          # Un narrador de verdad no lee cinco minutos con el mismo tono: baja
+          # en el giro, acelera en el contexto, se para en la frase que mata.
+          # Fichero opcional junto al guion, una linea por trozo; una linea en
+          # blanco deja ese trozo con la direccion base.
+          ruta_dir = os.path.join(os.path.dirname(os.environ["GUION"]),
+                                  "direcciones.txt")
+          porTrozo = []
+          if os.path.exists(ruta_dir):
+              porTrozo = [" ".join(l.split())
+                          for l in open(ruta_dir, encoding="utf-8")
+                          if not l.lstrip().startswith("#")]
+              print(f"direcciones por trozo: {len(porTrozo)} lineas")
 
           # Cortar SOLO en final de frase: partir a mitad deja el trozo
           # siguiente empezando sin entonacion de arranque, y se nota.
@@ -154,9 +176,17 @@ jobs:
               print(f"::error::{len(trozos)} trozos pasan del cupo diario")
               sys.exit(1)
 
-          def huella(t):
+          def dirDe(i):
+              """Direccion del trozo i (1-based); cae a la base si no hay."""
+              if i <= len(porTrozo) and porTrozo[i - 1]:
+                  return base + " " + porTrozo[i - 1]
+              return base
+
+          def huella(i, t):
+              # La direccion entra en el hash: si se cambia, ese trozo se
+              # regenera solo y no se reutiliza una toma con el tono viejo.
               return hashlib.sha256(
-                  (os.environ["VOZ"] + "|" + direccion + "|" + t).encode()
+                  (os.environ["VOZ"] + "|" + dirDe(i) + "|" + t).encode()
               ).hexdigest()[:16]
 
           try:
@@ -167,7 +197,7 @@ jobs:
           url = ("https://generativelanguage.googleapis.com/v1beta/models/"
                  f"{os.environ['MODELO']}:generateContent")
 
-          def pedir(txt):
+          def pedir(txt, direccion):
               cuerpo = {
                   "contents": [{"parts": [{"text":
                       f"{direccion}\n\nDi exactamente el texto que sigue, "
@@ -228,7 +258,7 @@ jobs:
 
           piezas, sr, pedidos, corte = [], 24000, 0, None
           for i, t in enumerate(trozos, 1):
-              h = huella(t)
+              h = huella(i, t)
               if manif.get(str(i)) == h and os.path.exists(f"trozos/{i:02d}.flac"):
                   crudo, sr = leer(i)
                   print(f"trozo {i}/{len(trozos)}: reutilizado "
@@ -239,7 +269,7 @@ jobs:
                   time.sleep(25)   # el plan gratuito da 3 por minuto
               print(f"trozo {i}/{len(trozos)}: pidiendo a Gemini")
               try:
-                  resp = pedir(t)
+                  resp = pedir(t, dirDe(i))
               except SystemExit as e:
                   if str(e) == "CUOTA_DIARIA":
                       corte = i
