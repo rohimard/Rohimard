@@ -121,39 +121,45 @@ jobs:
                        "x-goog-api-key": os.environ["CLAVE"]},
               method="POST")
 
-          resp = None
-          for intento in range(1, 5):
-              try:
-                  with urllib.request.urlopen(pet, timeout=300) as r:
-                      resp = json.loads(r.read())
-                  break
-              except urllib.error.HTTPError as e:
-                  d = e.read().decode(errors="replace")
-                  if e.code == 429 and re.search(r"limit: 0\b", d):
-                      print(f"::error::{os.environ['MODELO']} sin acceso "
-                            f"gratuito (limit: 0). {d[:400]}")
-                      sys.exit(1)
-                  if e.code == 429 and re.search(r"PerDay|per day", d):
-                      print(f"::error::cupo diario de {os.environ['MODELO']} "
-                            f"agotado. {d[:400]}")
-                      sys.exit(1)
-                  if e.code not in (429, 500, 503) or intento == 4:
-                      print(f"::error::Google devolvio {e.code}: {d[:600]}")
-                      sys.exit(1)
-                  espera = 20.0 * intento
-                  m = re.search(r"retry in ([\d.]+)s", d)
-                  if m:
-                      espera = float(m.group(1)) + 5
-                  print(f"{e.code} en el intento {intento}; espero {espera:.0f}s")
-                  time.sleep(espera)
+          def pedir():
+              """Una llamada con reintento completo de errores HTTP.
+              Devuelve el JSON ya parseado o termina el programa."""
+              for intento in range(1, 5):
+                  try:
+                      with urllib.request.urlopen(pet, timeout=300) as r:
+                          return json.loads(r.read())
+                  except urllib.error.HTTPError as e:
+                      d = e.read().decode(errors="replace")
+                      if e.code == 429 and re.search(r"limit: 0\b", d):
+                          print(f"::error::{os.environ['MODELO']} sin acceso "
+                                f"gratuito (limit: 0). {d[:400]}")
+                          sys.exit(1)
+                      if e.code == 429 and re.search(r"PerDay|per day", d):
+                          print(f"::error::cupo diario de "
+                                f"{os.environ['MODELO']} agotado. {d[:400]}")
+                          sys.exit(1)
+                      if e.code not in (429, 500, 503) or intento == 4:
+                          print(f"::error::Google devolvio {e.code}: {d[:600]}")
+                          sys.exit(1)
+                      espera = 20.0 * intento
+                      m = re.search(r"retry in ([\d.]+)s", d)
+                      if m:
+                          espera = float(m.group(1)) + 5
+                      print(f"{e.code} en el intento {intento}; "
+                            f"espero {espera:.0f}s")
+                      time.sleep(espera)
 
           # Un 200 OK con finishReason=SAFETY no es un error HTTP: el modelo
           # genero texto internamente (se ve en usageMetadata) y su propio
-          # filtro bloqueo el audio. Paso con este mismo texto casi
-          # identico al de una prueba anterior que SI paso, asi que se
-          # trata como fallo intermitente y se reintenta, no como bloqueo
-          # fijo de contenido. Maximo dos reintentos: cada uno gasta una
-          # peticion real del cupo, igual que si hubiera generado audio.
+          # filtro bloqueo el audio. El mismo texto, casi igual, ya paso
+          # bien en dos pruebas anteriores con mas etiquetas dramaticas
+          # (mas intensas, no menos), asi que un bloqueo ahora encaja mejor
+          # con un filtro que varia entre llamadas que con un rechazo fijo
+          # de este contenido. Se reintenta LLAMANDO A pedir() DE NUEVO, con
+          # su propio manejo de 429/500/503 -- el fallo anterior era llamar
+          # a urlopen a pelo aqui, sin ese reintento, y un 503 durante el
+          # reintento tiraba el script entero.
+          resp = pedir()
           for intento_seguridad in range(1, 4):
               try:
                   parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
@@ -165,8 +171,7 @@ jobs:
                             f"{intento_seguridad}, reintentando con el mismo "
                             f"texto (el filtro parece intermitente)")
                       time.sleep(10)
-                      with urllib.request.urlopen(pet, timeout=300) as r:
-                          resp = json.loads(r.read())
+                      resp = pedir()
                       continue
                   print(f"::error::respuesta inesperada (finishReason={razon}): "
                         f"{json.dumps(resp)[:600]}")
