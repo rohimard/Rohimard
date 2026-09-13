@@ -357,6 +357,10 @@ jobs:
           ls -la "$DESTINO" "$DESTINO/trozos" 2>/dev/null || true
 
       - uses: ./.github/actions/devolver
+        # TAMBIEN con always(). Guardar los trozos en el disco del runner no
+        # sirve de nada si el paso que los empuja a la rama se salta: el
+        # runner se destruye y el audio se pierde igual. Paso ya dos veces.
+        if: always()
         with:
           destino: ${{ env.DESTINO }}
           mensaje: Narracion completa con Gemini
