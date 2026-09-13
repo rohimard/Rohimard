@@ -237,6 +237,77 @@ MKUltra, Tuskegee) están **todas saturadas** — confirmado con búsqueda
 real (Tuskegee tiene un video con 544.987 vistas, MKUltra tiene uno de
 Dross con 6,47 millones).
 
+## Cuarta ronda (13/09/2026): candidatos nuevos, verificados con busqueda real
+
+Hecha con **busqueda web gratuita** para la competencia y **una sola llamada
+de vidIQ** (quedaban 27 creditos, 5 por consulta) reservada para lo unico que
+la web no da: volumen de busqueda. Mismo reparto que conviene repetir cuando
+el credito escasee.
+
+### 🔥 URGENTE — hay una ventana temporal que se cierra el 25 de septiembre
+
+**Ted Kaczynski y el experimento de Henry Murray en Harvard.**
+
+Netflix estrena pelicula sobre el caso el **25/09/2026** (Jacob Tremblay,
+Russell Crowe). El pico de busqueda ya ha empezado, medido con vidIQ el
+12/09 sobre mercado MX:
+
+| Termino | Busquedas/mes | Crecimiento | Competencia | Volumen MX |
+|---|---|---|---|---|
+| `unabomber` | 115.704 | **+263,8 %** | 62,5 | 2.847 |
+| `ted kaczynski` | 66.734 | **+210,6 %** | **55,5** | **3.197** |
+| `unabomber documentary` | 14.722 | +240,6 % | **45,5** | — |
+| `unabomber trailer` | 72.070 | — | 47,5 | — |
+| `true crime` (genero) | 3.073.814 | +1,2 % | 60 | 27.527 |
+
+Ojo al detalle que decide el titulo: **"ted kaczynski" tiene MENOS
+competencia y MAS volumen en Mexico que "unabomber"**, pese a que en global
+busca menos. Las dos deben ir en el titulo, con Kaczynski delante.
+
+Las variantes largas ("who was the unabomber", "unabomber case", "how did
+the unabomber get caught") estan todas por debajo de 750 busquedas: no vale
+la pena construir el titulo sobre ellas.
+
+**El angulo, que es lo que nos toca:** la prensa en español ya cubrio el caso
+(BioBioChile, Gizmodo ES, Xataka, rinconpsicologia), pero **en video en
+español solo se encontro un Dailymotion y un canal en portugues**. El hueco
+esta en video, no en texto. Y el angulo encaja con la tesis que el canal
+sostiene desde Stanford: no es la biografia del terrorista, es lo que una
+institucion le hizo a un chaval de 16 años durante tres años.
+
+Contenido verificado del experimento: Murray recluto a 22 estudiantes,
+les pidio escribir su filosofia personal, y luego los sento bajo focos con
+electrodos mientras un equipo atacaba sus creencias con "ataques vehementes,
+demoledores y abusivos" — palabras del propio Murray. Kaczynski paso por
+ello desde 1959 hasta 1962. Murray venia de la OSS, precursora de la CIA.
+
+### 🟢 Competencia cero en video en español (verificado)
+
+| Tema | Que se encontro |
+|---|---|
+| Peter Tripp, 201 horas sin dormir (1959) | **Ningun** video en español. DJ en una cabina de cristal en Times Square; alucinaciones desde el dia 3; acabo creyendo que el era un impostor de si mismo |
+| Operacion Sea-Spray (1950) | **Ningun** video en español. La Marina de EEUU rocio bacterias sobre San Francisco; 800.000 personas inhalaron el aerosol; 11 hospitalizados, 1 muerto |
+| Experimento de Hofling (1966) | Solo videos en ingles. 21 de 22 enfermeras estuvieron a punto de matar a un paciente porque una voz por telefono dijo ser medico |
+| Vavilov y los botanicos de Leningrado | Solo articulos, ningun video. Murieron de hambre rodeados de toneladas de semillas comestibles que estaban custodiando |
+
+### 🟡 Cubierto, pero con hueco de angulo
+
+| Tema | Competencia real |
+|---|---|
+| Epidemia de risa de Tanganica (1962) | 1 video en español, en tono de curiosidad ligera. Hueco en registro serio |
+| Los tres Cristos de Ypsilanti | 3 videos (uno de Dolina, un podcast). Cubierto |
+| David Reimer | Muchos articulos, ningun video dedicado encontrado. **Alto riesgo**: menor, abuso sexual, identidad de genero. Solo con el cuidado del Estudio Monstruo |
+
+### Metodo, para repetirlo
+
+1. Generar candidatos en el registro del canal (caso real oscuro, arco
+   narrativo, no dato suelto).
+2. Verificar competencia con busqueda web **gratis**, buscando VIDEO en
+   español, no articulos. Articulos saturados + video vacio = hueco bueno.
+3. Gastar credito de vidIQ solo en el finalista, en modo `research`, que
+   devuelve el termino semilla mas 20 relacionados de una sola llamada.
+4. Mirar el crecimiento, no solo el volumen: un +263 % dice que hay una ola.
+
 ## Fuente
 
 Lista original: PDF aportado por el usuario, "100 temas verificados de
