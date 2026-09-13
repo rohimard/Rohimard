@@ -1,0 +1,174 @@
+# Narra el GUION ENTERO con Gemini TTS en una sola peticion.
+#
+# POR QUE IMPORTA ESTE EXPERIMENTO
+# Fish Audio cobra por byte: el guion (4.667 bytes) se come 4.667 de los 5.332
+# creditos que quedan, o sea una sola toma y a secas. Gemini cobra por
+# PETICION, y su ventana de entrada admite de sobra las 809 palabras. Si el
+# modelo devuelve los ~300 segundos completos en una respuesta, narrar un
+# video entero cuesta 1 de las 10 peticiones diarias gratuitas. Es la
+# diferencia entre un presupuesto y ningun presupuesto.
+#
+# LO QUE PUEDE SALIR MAL, Y POR ESO SE MIDE
+# La respuesta llega como audio en base64 dentro del JSON. 300 segundos a
+# 24 kHz son ~14 MB de PCM, ~19 MB ya codificados. Nadie garantiza que quepa.
+# Si Gemini trunca, devolvera audio corto SIN error, asi que el trabajo
+# compara contra la narracion de Azure ya existente (298,3 s medidos) y falla
+# nombrando el numero. Un fallo aqui es un resultado, no una averia.
+name: voz-gemini-guion
+
+# Solo a mano: el disparo por push sobre el propio fichero ya se comio dos
+# veces el cupo diario de diez peticiones al corregir una linea de codigo.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  GUION: canal-youtube/producciones/07-reina-victoria-duelo/guion-voz.txt
+  DESTINO: canal-youtube/muestras-voz/gemini-guion
+  MODELO: gemini-2.5-flash-preview-tts
+  # Achird es "Friendly" en el catalogo de Google, la mas cercana al perfil
+  # Kevin que pidio el usuario. Si se cambia la voz, cambia tambien CLAVE.
+  VOZ: Achird
+  CLAVE: achird-guion-completo
+  # La duracion de la narracion de Azure ya montada, en segundos. Sirve de
+  # patron: si Gemini devuelve mucho menos, es que trunco.
+  ESPERADO: '298.3'
+  DIRECCION: >-
+    Habla en español latinoamericano neutro. Eres un hombre de unos cuarenta y
+    cinco años contandole esto a un amigo sentado enfrente, sin prisa y sin
+    publico. Registro medio, volumen de conversacion. No eres locutor: no
+    proyectes la voz, no subrayes palabras, no hagas la entonacion cantada de
+    la radio. Baja el tono al final de cada frase, nunca lo subas. Respira
+    donde respirarias hablando de verdad y para en los puntos antes de seguir.
+    Manten el mismo tono de principio a fin, sin acelerar segun avanzas. No
+    dramatices: el dato ya incomoda solo.
+
+jobs:
+  narrar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/viral-youtube-video-ideas-luqj2m
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Resolver la clave de Google
+        env:
+          CLAVE_OK: ${{ secrets.GOOGLE_API_KEY }}
+          CLAVE_TYPO: ${{ secrets.GOOGLE_API_JEY }}
+        run: |
+          G="${CLAVE_OK:-$CLAVE_TYPO}"
+          if [ -z "$G" ]; then
+            echo "::error::no hay clave de Google en los secretos del repo"
+            exit 1
+          fi
+          echo "::add-mask::$G"
+          echo "GOOGLE=$G" >> "$GITHUB_ENV"
+
+      - name: Sintetizar el guion entero
+        run: |
+          mkdir -p salida
+          python3 - <<'PY'
+          import base64, json, os, re, sys, time, urllib.error, urllib.request, wave
+
+          texto = open(os.environ["GUION"], encoding="utf-8").read().strip()
+          direccion = " ".join(os.environ["DIRECCION"].split())
+          print(f"guion: {len(texto.encode())} bytes, {len(texto.split())} palabras")
+
+          prompt = (f"{direccion}\n\n"
+                    f"Di exactamente el texto que sigue, entero y sin resumir, "
+                    f"y nada mas. No leas estas instrucciones.\n\n{texto}")
+
+          cuerpo = {
+              "contents": [{"parts": [{"text": prompt}]}],
+              "generationConfig": {
+                  "responseModalities": ["AUDIO"],
+                  "speechConfig": {
+                      "voiceConfig": {
+                          "prebuiltVoiceConfig": {"voiceName": os.environ["VOZ"]}
+                      }
+                  },
+              },
+          }
+          url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+                 f"{os.environ['MODELO']}:generateContent")
+          pet = urllib.request.Request(
+              url, data=json.dumps(cuerpo).encode(),
+              headers={"Content-Type": "application/json",
+                       "x-goog-api-key": os.environ["GOOGLE"]},
+              method="POST")
+
+          resp = None
+          for intento in range(1, 7):
+              try:
+                  # Generar cinco minutos de audio tarda; 300 s no bastan.
+                  with urllib.request.urlopen(pet, timeout=900) as r:
+                      resp = json.loads(r.read())
+                  break
+              except urllib.error.HTTPError as e:
+                  detalle = e.read().decode(errors="replace")
+                  if e.code == 429 and re.search(r"limit: 0\b", detalle):
+                      print(f"::error::{os.environ['MODELO']} no esta en el "
+                            f"plan gratuito (limit: 0). {detalle[:400]}")
+                      sys.exit(1)
+                  if e.code == 429 and re.search(r"PerDay|per day", detalle):
+                      print(f"::error::cupo DIARIO agotado. {detalle[:400]}")
+                      sys.exit(1)
+                  if e.code not in (429, 500, 503) or intento == 6:
+                      print(f"::error::Google devolvio {e.code}: {detalle[:600]}")
+                      sys.exit(1)
+                  espera = 20.0 * intento
+                  m = re.search(r"retry in ([\d.]+)s", detalle)
+                  if m:
+                      espera = float(m.group(1)) + 5
+                  print(f"{e.code} en el intento {intento}; espero {espera:.0f}s")
+                  time.sleep(espera)
+
+          try:
+              parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
+          except (KeyError, IndexError):
+              print(f"::error::respuesta inesperada: {json.dumps(resp)[:600]}")
+              sys.exit(1)
+
+          crudo = base64.b64decode(parte["data"])
+          mime = parte.get("mimeType", "")
+          m = re.search(r"rate=(\d+)", mime)
+          sr = int(m.group(1)) if m else 24000
+          dur = len(crudo) / (sr * 2)
+          print(f"{mime} -> {len(crudo)} bytes a {sr} Hz = {dur:.1f}s")
+
+          with wave.open("salida/voz.wav", "wb") as w:
+              w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
+              w.writeframes(crudo)
+
+          # El veredicto del experimento. Azure narro este mismo guion en
+          # 298,3 s; si Gemini devuelve bastante menos es que corto el texto,
+          # y eso NO se ve oyendo los primeros diez segundos.
+          esperado = float(os.environ["ESPERADO"])
+          print(f"::notice::Gemini devolvio {dur:.1f}s frente a los "
+                f"{esperado:.1f}s de la narracion de Azure "
+                f"({100 * dur / esperado:.0f}%)")
+          if dur < esperado * 0.6:
+              print(f"::error::truncado: {dur:.1f}s de {esperado:.1f}s "
+                    "esperados. El guion entero NO cabe en una peticion; "
+                    "hay que trocearlo.")
+              sys.exit(1)
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/${CLAVE}.mp3"
+          ffprobe -v error -show_entries format=duration -of csv=p=0 "salida/${CLAVE}.mp3"
+          rm salida/voz.wav
+          ls -la salida/
+
+      - uses: ./.github/actions/devolver
+        with:
+          destino: canal-youtube/muestras-voz/gemini-guion
+          mensaje: Narracion completa con Gemini
