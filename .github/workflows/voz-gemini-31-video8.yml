@@ -1,0 +1,171 @@
+# Prueba combinada sobre texto REAL del video 8: direccion de ritmo probada
+# (la que arreglo el video 8 en 2.5-flash) + etiquetas de gemini-3.1-flash
+# ([short pause], [slow]) puestas en los dos puntos donde el trozo 1 tiene
+# peso dramatico real, no en el gancho de siempre.
+#
+# Fichero separado de voz-gemini-31.yml a proposito: ese ya gasto sus dos
+# peticiones de hoy contra el gancho estandar. Tocar su centinela reharia
+# esas dos otra vez sin necesidad (no tiene manifiesto/cache). Este centinela
+# es propio, asi que solo dispara esta prueba nueva.
+#
+# El texto real (parrafos 1 a 4 del guion) tenia originalmente ocho puntos
+# separando frases cortas -- el mismo patron que el experimento de ayer en
+# VoxCPM2 demostro que rompe la prosodia. Aqui se dejan solo los puntos de
+# cambio de idea real y se sustituyen los demas por comas, y se marcan con
+# etiquetas los dos lugares donde el guion pide una pausa real: antes de
+# revelar el nombre de Kaczynski, y antes de revelar "Unabomber".
+name: voz-gemini-31-video8
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - canal-youtube/.gemini-31-video8-disparo
+
+permissions:
+  contents: write
+
+env:
+  DESTINO: canal-youtube/producciones/08-kaczynski-harvard/prueba-31
+  MODELO: gemini-3.1-flash-tts-preview
+  VOZ: Achird
+  CLAVE_SALIDA: trozo1-ritmo-etiquetas
+  # La misma direccion que corrigio el ritmo lento del video 8 en 2.5-flash.
+  DIRECCION: >-
+    Habla en español latinoamericano neutro. Eres un hombre de unos cuarenta y
+    cinco años contandole esto a un amigo sentado enfrente, sin prisa y sin
+    publico. Registro medio, volumen de conversacion, y ritmo vivo: se habla
+    mas rapido de lo que se lee. No eres locutor: no proyectes la voz, no
+    subrayes palabras, no hagas la entonacion cantada de la radio. Baja el
+    tono al final de cada frase, nunca lo subas. CAMBIA DE MARCHA: encadena
+    sin pausa las frases que van juntas y frena solo donde el dato necesita
+    caer. No dramatices: el dato ya incomoda solo.
+  # Trozo 1 real del guion, puntuacion fluida (solo quedan puntos de cambio
+  # de idea) mas dos etiquetas en los dos giros de verdad del parrafo.
+  TEXTO: >-
+    Tienes dieciséis años y acabas de entrar en Harvard, eres el más joven de
+    tu clase. Un profesor te invita a un estudio sobre la personalidad y
+    aceptas. Te piden que escribas en qué crees, tus principios, tu
+    filosofía, lo que de verdad te importa, con todo el detalle que puedas.
+    Escribes páginas enteras, las entregas. Semanas después te sientan en
+    una silla frente a un espejo que solo se ve por un lado, te apuntan a la
+    cara con focos, te conectan electrodos al pecho. Y entra un desconocido
+    con tus páginas en la mano y empieza a leerlas en voz alta, para
+    destrozarlas una por una, delante de una cámara. [short pause] Esto pasó
+    de verdad. El chico de dieciséis años se llama Theodore Kaczynski.
+    [short pause] [slow] Diecisiete años después, el FBI le pondrá otro
+    nombre: Unabomber.
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/viral-youtube-video-ideas-luqj2m
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Resolver la clave
+        env:
+          CLAVE_OK: ${{ secrets.GOOGLE_API_KEY }}
+          CLAVE_TYPO: ${{ secrets.GOOGLE_API_JEY }}
+        run: |
+          CLAVE="${CLAVE_OK:-$CLAVE_TYPO}"
+          if [ -z "$CLAVE" ]; then
+            echo "::error::no hay clave de Google en los secretos del repo"
+            exit 1
+          fi
+          echo "::add-mask::$CLAVE"
+          echo "CLAVE=$CLAVE" >> "$GITHUB_ENV"
+
+      - name: Sintetizar
+        run: |
+          mkdir -p salida
+          python3 - <<'PY'
+          import base64, json, os, re, sys, time, urllib.error, urllib.request, wave
+
+          direccion = " ".join(os.environ["DIRECCION"].split())
+          texto = " ".join(os.environ["TEXTO"].split())
+          prompt = (f"{direccion}\n\nDi exactamente el texto que sigue, y nada "
+                    f"mas. No leas estas instrucciones ni las etiquetas entre "
+                    f"corchetes en voz alta; son marcas de interpretacion, no "
+                    f"texto.\n\n{texto}")
+
+          cuerpo = {
+              "contents": [{"parts": [{"text": prompt}]}],
+              "generationConfig": {
+                  "responseModalities": ["AUDIO"],
+                  "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig":
+                      {"voiceName": os.environ["VOZ"]}}},
+              },
+          }
+          url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+                 f"{os.environ['MODELO']}:generateContent")
+          pet = urllib.request.Request(
+              url, data=json.dumps(cuerpo).encode(),
+              headers={"Content-Type": "application/json",
+                       "x-goog-api-key": os.environ["CLAVE"]},
+              method="POST")
+
+          resp = None
+          for intento in range(1, 5):
+              try:
+                  with urllib.request.urlopen(pet, timeout=300) as r:
+                      resp = json.loads(r.read())
+                  break
+              except urllib.error.HTTPError as e:
+                  d = e.read().decode(errors="replace")
+                  if e.code == 429 and re.search(r"limit: 0\b", d):
+                      print(f"::error::{os.environ['MODELO']} sin acceso "
+                            f"gratuito (limit: 0). {d[:400]}")
+                      sys.exit(1)
+                  if e.code == 429 and re.search(r"PerDay|per day", d):
+                      print(f"::error::cupo diario de {os.environ['MODELO']} "
+                            f"agotado. {d[:400]}")
+                      sys.exit(1)
+                  if e.code not in (429, 500, 503) or intento == 4:
+                      print(f"::error::Google devolvio {e.code}: {d[:600]}")
+                      sys.exit(1)
+                  espera = 20.0 * intento
+                  m = re.search(r"retry in ([\d.]+)s", d)
+                  if m:
+                      espera = float(m.group(1)) + 5
+                  print(f"{e.code} en el intento {intento}; espero {espera:.0f}s")
+                  time.sleep(espera)
+
+          try:
+              parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
+          except (KeyError, IndexError):
+              print(f"::error::respuesta inesperada: {json.dumps(resp)[:600]}")
+              sys.exit(1)
+
+          crudo = base64.b64decode(parte["data"])
+          m = re.search(r"rate=(\d+)", parte.get("mimeType", ""))
+          sr = int(m.group(1)) if m else 24000
+          print(f"{len(crudo)} bytes a {sr} Hz = {len(crudo)/(sr*2):.1f}s, "
+                f"{len(texto.split())} palabras de texto (incluye etiquetas)")
+
+          with wave.open("salida/voz.wav", "wb") as w:
+              w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
+              w.writeframes(crudo)
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/${CLAVE_SALIDA}.mp3"
+          rm salida/voz.wav
+          DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 \
+                "salida/${CLAVE_SALIDA}.mp3")
+          echo "duracion: ${DUR}s"
+          python3 -c "import sys; sys.exit(0 if float('$DUR')>5 else 1)" \
+            || { echo "::error::solo ${DUR}s; el modelo no leyo el texto"; exit 1; }
+
+      - uses: ./.github/actions/devolver
+        if: always()
+        with:
+          destino: canal-youtube/producciones/08-kaczynski-harvard/prueba-31
+          mensaje: Gemini 3.1 sobre texto real del video 8
