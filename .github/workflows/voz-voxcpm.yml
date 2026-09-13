@@ -79,8 +79,14 @@ jobs:
 
       - name: Instalar VoxCPM2
         run: |
-          pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
+          # torch y torchaudio EN LA MISMA LLAMADA, del mismo indice. Instalar
+          # torch solo y dejar que voxcpm arrastre su propio torchaudio
+          # (primer intento) deja versiones de ABI distintas: torchaudio
+          # falla al cargar su .so compilado con "Could not load this
+          # library", un fallo de version, no de codigo.
+          pip install --quiet torch torchaudio --index-url https://download.pytorch.org/whl/cpu
           pip install --quiet voxcpm soundfile
+          python3 -c "import torchaudio; print('torchaudio', torchaudio.__version__, 'carga bien')"
           # Sin fallback silencioso: si esto falla, el job falla y se ve por
           # que. El intento anterior de Zonos fallo callado y nadie lo notó.
 
@@ -144,8 +150,14 @@ jobs:
 
       - name: Instalar VoxCPM2
         run: |
-          pip install --quiet torch --index-url https://download.pytorch.org/whl/cpu
+          # torch y torchaudio EN LA MISMA LLAMADA, del mismo indice. Instalar
+          # torch solo y dejar que voxcpm arrastre su propio torchaudio
+          # (primer intento) deja versiones de ABI distintas: torchaudio
+          # falla al cargar su .so compilado con "Could not load this
+          # library", un fallo de version, no de codigo.
+          pip install --quiet torch torchaudio --index-url https://download.pytorch.org/whl/cpu
           pip install --quiet voxcpm soundfile
+          python3 -c "import torchaudio; print('torchaudio', torchaudio.__version__, 'carga bien')"
 
       - name: Generar
         run: |
