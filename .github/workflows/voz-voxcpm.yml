@@ -138,6 +138,93 @@ jobs:
           destino: canal-youtube/muestras-voz/voxcpm
           mensaje: Voz VoxCPM2 diseño ${{ matrix.clave }}
 
+  # Job aislado para una sola pregunta: ¿la puntuacion entrecortada es lo que
+  # hace sonar la voz rapida y poco natural, o es el motor?
+  #
+  # El texto de siempre tiene tres frases cortas seguidas de punto: "...que
+  # esta muerto. Le preparan la ropa. Le dejan la toalla limpia." Es el mismo
+  # estilo entrecortado que usan varios guiones del canal. La hipotesis es
+  # que VoxCPM2 trata cada punto como un corte duro y reinicia la prosodia
+  # en cada uno, sin dar tiempo a fluir.
+  #
+  # Prueba controlada: MISMAS PALABRAS, solo se cambian los tres puntos que
+  # separan esas frases por comas. Ni una palabra distinta, para que la
+  # comparacion aisle de verdad la puntuacion y no se cuele otra variable.
+  puntuacion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - clave: entrecortado
+            texto: >-
+              Cada mañana ordenas que suban agua caliente para afeitar a un
+              hombre que está muerto. Le preparan la ropa. Le dejan la
+              toalla limpia. Llevas años haciéndolo, estás en el castillo de
+              Windsor, y eres la mujer más poderosa del mundo.
+          - clave: fluido
+            texto: >-
+              Cada mañana ordenas que suban agua caliente para afeitar a un
+              hombre que está muerto, le preparan la ropa, le dejan la
+              toalla limpia. Llevas años haciéndolo, estás en el castillo de
+              Windsor, y eres la mujer más poderosa del mundo.
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Instalar VoxCPM2
+        run: |
+          pip install --quiet torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install --quiet voxcpm soundfile
+          python3 -c "import torchaudio; print('torchaudio', torchaudio.__version__, 'carga bien')"
+
+      - name: Generar
+        env:
+          TEXTO: ${{ matrix.texto }}
+        run: |
+          mkdir -p salida
+          python3 - <<'PY'
+          import os, time
+          import soundfile as sf
+          from voxcpm import VoxCPM
+
+          modelo = VoxCPM.from_pretrained(
+              "openbmb/VoxCPM2", load_denoiser=False,
+              device="cpu", optimize=False,
+          )
+          # El mismo descriptor "conversacional" que ya se probo, para que
+          # lo unico distinto entre este par y la muestra anterior sea la
+          # puntuacion, no la direccion de voz.
+          descriptor = ("hombre de unos cuarenta y cinco años, voz cálida y "
+                        "conversacional, como hablándole a un amigo sentado "
+                        "enfrente, sin ánimo de locutor")
+          texto = " ".join(os.environ["TEXTO"].split())
+          entrada = f"({descriptor}){texto}"
+
+          t0 = time.time()
+          wav = modelo.generate(text=entrada, cfg_value=2.0, inference_timesteps=10)
+          print(f"generado en {time.time()-t0:.0f}s, "
+                f"{len(wav)/modelo.tts_model.sample_rate:.1f}s de audio")
+          sf.write("salida/voz.wav", wav, modelo.tts_model.sample_rate)
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/${{ matrix.clave }}.mp3"
+          rm salida/voz.wav
+          DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 \
+                "salida/${{ matrix.clave }}.mp3")
+          echo "duracion: ${DUR}s"
+          python3 -c "import sys; sys.exit(0 if float('$DUR')>5 else 1)" \
+            || { echo "::error::solo ${DUR}s; el modelo no genero el texto"; exit 1; }
+
+      - uses: ./.github/actions/devolver
+        with:
+          destino: canal-youtube/muestras-voz/voxcpm-puntuacion
+          mensaje: VoxCPM2 puntuacion ${{ matrix.clave }}
+
   clonado:
     runs-on: ubuntu-latest
     timeout-minutes: 120
