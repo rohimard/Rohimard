@@ -31,32 +31,38 @@ env:
   DESTINO: canal-youtube/producciones/08-kaczynski-harvard/prueba-31
   MODELO: gemini-3.1-flash-tts-preview
   VOZ: Achird
-  CLAVE_SALIDA: trozo1-ritmo-etiquetas
+  CLAVE_SALIDA: trozo1-rapido
   # La misma direccion que corrigio el ritmo lento del video 8 en 2.5-flash.
+  # La frase "ritmo vivo... cambia de marcha" funciono en 2.5-flash y aqui
+  # no movio la aguja (salio a 2,42 palabras/s igual que sin ella). Este
+  # modelo necesita algo mas contundente, y ademas se le da la etiqueta
+  # [fast] propia en el TEXTO, que es su propio mecanismo documentado de
+  # control de velocidad, en vez de confiar solo en la prosa de la direccion.
   DIRECCION: >-
     Habla en español latinoamericano neutro. Eres un hombre de unos cuarenta y
-    cinco años contandole esto a un amigo sentado enfrente, sin prisa y sin
-    publico. Registro medio, volumen de conversacion, y ritmo vivo: se habla
-    mas rapido de lo que se lee. No eres locutor: no proyectes la voz, no
-    subrayes palabras, no hagas la entonacion cantada de la radio. Baja el
-    tono al final de cada frase, nunca lo subas. CAMBIA DE MARCHA: encadena
-    sin pausa las frases que van juntas y frena solo donde el dato necesita
-    caer. No dramatices: el dato ya incomoda solo.
+    cinco años que tiene poco tiempo para contarle esto a un amigo antes de
+    que llegue alguien mas, asi que habla RAPIDO, sin arrastrar ninguna
+    palabra, sin proyectar la voz de locutor. Ve al grano en cada frase.
+    Registro medio, volumen de conversacion. Baja el tono al final de cada
+    frase, nunca lo subas. No dramatices: el dato ya incomoda solo.
   # Trozo 1 real del guion, puntuacion fluida (solo quedan puntos de cambio
   # de idea) mas dos etiquetas en los dos giros de verdad del parrafo.
+  # [fast] al inicio, marcando el tono para todo el bloque; se deja SOLO una
+  # pausa dramatica (antes de "Unabomber"), no dos, para no acumular varios
+  # segundos de silencio con la lectura ya mas rapida.
   TEXTO: >-
-    Tienes dieciséis años y acabas de entrar en Harvard, eres el más joven de
-    tu clase. Un profesor te invita a un estudio sobre la personalidad y
-    aceptas. Te piden que escribas en qué crees, tus principios, tu
-    filosofía, lo que de verdad te importa, con todo el detalle que puedas.
-    Escribes páginas enteras, las entregas. Semanas después te sientan en
-    una silla frente a un espejo que solo se ve por un lado, te apuntan a la
-    cara con focos, te conectan electrodos al pecho. Y entra un desconocido
-    con tus páginas en la mano y empieza a leerlas en voz alta, para
-    destrozarlas una por una, delante de una cámara. [short pause] Esto pasó
-    de verdad. El chico de dieciséis años se llama Theodore Kaczynski.
-    [short pause] [slow] Diecisiete años después, el FBI le pondrá otro
-    nombre: Unabomber.
+    [fast] Tienes dieciséis años y acabas de entrar en Harvard, eres el más
+    joven de tu clase. Un profesor te invita a un estudio sobre la
+    personalidad y aceptas. Te piden que escribas en qué crees, tus
+    principios, tu filosofía, lo que de verdad te importa, con todo el
+    detalle que puedas. Escribes páginas enteras, las entregas. Semanas
+    después te sientan en una silla frente a un espejo que solo se ve por un
+    lado, te apuntan a la cara con focos, te conectan electrodos al pecho. Y
+    entra un desconocido con tus páginas en la mano y empieza a leerlas en
+    voz alta, para destrozarlas una por una, delante de una cámara. Esto
+    pasó de verdad. El chico de dieciséis años se llama Theodore Kaczynski.
+    [short pause] Diecisiete años después, el FBI le pondrá otro nombre:
+    Unabomber.
 
 jobs:
   probar:
