@@ -16,10 +16,20 @@
 # nombrando el numero. Un fallo aqui es un resultado, no una averia.
 name: voz-gemini-guion
 
-# Solo a mano: el disparo por push sobre el propio fichero ya se comio dos
-# veces el cupo diario de diez peticiones al corregir una linea de codigo.
+# workflow_dispatch no sirve aqui: la API solo lo acepta si el workflow esta
+# en la rama por defecto, y este vive en la rama de trabajo. Asi que se
+# dispara tocando un fichero centinela, igual que voz-guion-completo.
+#
+# El disparador es .gemini-disparo y NO el propio workflow, a proposito:
+# corregir una linea de codigo no debe gastar una de las diez peticiones
+# diarias. Eso ya paso dos veces.
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - canal-youtube/.gemini-disparo
 
 permissions:
   contents: write
