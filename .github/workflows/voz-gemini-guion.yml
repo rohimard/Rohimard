@@ -1,19 +1,28 @@
-# Narra el GUION ENTERO con Gemini TTS en una sola peticion.
+# Narra el GUION ENTERO con Gemini TTS, POR TROZOS.
 #
-# POR QUE IMPORTA ESTE EXPERIMENTO
-# Fish Audio cobra por byte: el guion (4.667 bytes) se come 4.667 de los 5.332
-# creditos que quedan, o sea una sola toma y a secas. Gemini cobra por
-# PETICION, y su ventana de entrada admite de sobra las 809 palabras. Si el
-# modelo devuelve los ~300 segundos completos en una respuesta, narrar un
-# video entero cuesta 1 de las 10 peticiones diarias gratuitas. Es la
-# diferencia entre un presupuesto y ningun presupuesto.
+# LO QUE SE APRENDIO A LA MALA
+# La primera version pedia los 287 segundos en una sola peticion. Cabian: el
+# audio volvia entero y la transcripcion del final coincidia con el guion.
+# Pero la voz se DEGRADA segun avanza, y eso no lo ve un ffprobe:
 #
-# LO QUE PUEDE SALIR MAL, Y POR ESO SE MIDE
-# La respuesta llega como audio en base64 dentro del JSON. 300 segundos a
-# 24 kHz son ~14 MB de PCM, ~19 MB ya codificados. Nadie garantiza que quepa.
-# Si Gemini trunca, devolvera audio corto SIN error, asi que el trabajo
-# compara contra la narracion de Azure ya existente (298,3 s medidos) y falla
-# nombrando el numero. Un fallo aqui es un resultado, no una averia.
+#   t=10s   agudos -6,7 dB   graves -1,3 dB   eco a 150 ms +0,19
+#   t=275s  agudos -3,6 dB   graves -3,4 dB   eco a 150 ms +0,33
+#
+# Es decir: pierde cuerpo, gana siseo, y hacia el final aparece una repeticion
+# a 150 ms que se oye como eco. El transcriptor de Fish llego a escribir
+# "[eco]" en mitad del texto. El quiebre esta entre el segundo 60 y el 120.
+#
+# Causa: el modelo es autorregresivo, cada tramo se genera condicionado por lo
+# que el mismo acaba de producir, y el error se acumula. La cura no es cambiar
+# de voz sino no dejarle correr tanto seguido.
+#
+# POR ESO SE TROCEA
+# Trozos de unas 160 palabras (~60 s), cortados SOLO en final de frase, una
+# peticion por trozo. Cinco peticiones de las diez diarias gratuitas para un
+# video entero: sigue saliendo gratis, y sin degradacion.
+#
+# Los trozos se igualan en nivel antes de pegarlos (si no, se oye el salto en
+# cada costura) y se comprueba que la duracion total se parece al patron.
 name: voz-gemini-guion
 
 # workflow_dispatch no sirve aqui: la API solo lo acepta si el workflow esta
@@ -45,6 +54,9 @@ env:
   # La duracion de la narracion de Azure ya montada, en segundos. Sirve de
   # patron: si Gemini devuelve mucho menos, es que trunco.
   ESPERADO: '298.3'
+  # Palabras por trozo. 160 son unos 57 s a 2,8 palabras/s, por debajo
+  # del minuto en que empieza a degradarse.
+  PALABRAS: '160'
   DIRECCION: >-
     Habla en español latinoamericano neutro. Eres un hombre de unos cuarenta y
     cinco años contandole esto a un amigo sentado enfrente, sin prisa y sin
@@ -83,99 +95,158 @@ jobs:
           echo "::add-mask::$G"
           echo "GOOGLE=$G" >> "$GITHUB_ENV"
 
-      - name: Sintetizar el guion entero
+      - name: Sintetizar por trozos
         run: |
-          mkdir -p salida
+          mkdir -p salida trozos
           python3 - <<'PY'
-          import base64, json, os, re, sys, time, urllib.error, urllib.request, wave
+          import base64, json, math, os, re, sys, time
+          import urllib.error, urllib.request, wave
 
           texto = open(os.environ["GUION"], encoding="utf-8").read().strip()
           direccion = " ".join(os.environ["DIRECCION"].split())
-          print(f"guion: {len(texto.encode())} bytes, {len(texto.split())} palabras")
+          tope = int(os.environ["PALABRAS"])
 
-          prompt = (f"{direccion}\n\n"
-                    f"Di exactamente el texto que sigue, entero y sin resumir, "
-                    f"y nada mas. No leas estas instrucciones.\n\n{texto}")
+          # Cortar SOLO en final de frase: partir a mitad deja el trozo
+          # siguiente empezando sin entonacion de arranque, y se nota.
+          frases = re.findall(r"[^.!?]+[.!?]+(?:\s|$)|[^.!?]+$", texto)
+          frases = [f.strip() for f in frases if f.strip()]
+          trozos, actual = [], []
+          for f in frases:
+              actual.append(f)
+              if sum(len(x.split()) for x in actual) >= tope:
+                  trozos.append(" ".join(actual)); actual = []
+          if actual:
+              # Una cola muy corta se pega al trozo anterior en vez de gastar
+              # una peticion entera en diez palabras.
+              if trozos and sum(len(x.split()) for x in actual) < tope // 3:
+                  trozos[-1] += " " + " ".join(actual)
+              else:
+                  trozos.append(" ".join(actual))
 
-          cuerpo = {
-              "contents": [{"parts": [{"text": prompt}]}],
-              "generationConfig": {
-                  "responseModalities": ["AUDIO"],
-                  "speechConfig": {
-                      "voiceConfig": {
-                          "prebuiltVoiceConfig": {"voiceName": os.environ["VOZ"]}
-                      }
-                  },
-              },
-          }
-          url = ("https://generativelanguage.googleapis.com/v1beta/models/"
-                 f"{os.environ['MODELO']}:generateContent")
-          pet = urllib.request.Request(
-              url, data=json.dumps(cuerpo).encode(),
-              headers={"Content-Type": "application/json",
-                       "x-goog-api-key": os.environ["GOOGLE"]},
-              method="POST")
-
-          resp = None
-          for intento in range(1, 7):
-              try:
-                  # Generar cinco minutos de audio tarda; 300 s no bastan.
-                  with urllib.request.urlopen(pet, timeout=900) as r:
-                      resp = json.loads(r.read())
-                  break
-              except urllib.error.HTTPError as e:
-                  detalle = e.read().decode(errors="replace")
-                  if e.code == 429 and re.search(r"limit: 0\b", detalle):
-                      print(f"::error::{os.environ['MODELO']} no esta en el "
-                            f"plan gratuito (limit: 0). {detalle[:400]}")
-                      sys.exit(1)
-                  if e.code == 429 and re.search(r"PerDay|per day", detalle):
-                      print(f"::error::cupo DIARIO agotado. {detalle[:400]}")
-                      sys.exit(1)
-                  if e.code not in (429, 500, 503) or intento == 6:
-                      print(f"::error::Google devolvio {e.code}: {detalle[:600]}")
-                      sys.exit(1)
-                  espera = 20.0 * intento
-                  m = re.search(r"retry in ([\d.]+)s", detalle)
-                  if m:
-                      espera = float(m.group(1)) + 5
-                  print(f"{e.code} en el intento {intento}; espero {espera:.0f}s")
-                  time.sleep(espera)
-
-          try:
-              parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
-          except (KeyError, IndexError):
-              print(f"::error::respuesta inesperada: {json.dumps(resp)[:600]}")
+          print(f"{len(texto.split())} palabras -> {len(trozos)} trozos")
+          for i, t in enumerate(trozos, 1):
+              print(f"  {i}: {len(t.split()):>3} palabras | {t[:60]}...")
+          if len(trozos) > 9:
+              print(f"::error::{len(trozos)} trozos pasan del cupo diario de 10")
               sys.exit(1)
 
-          crudo = base64.b64decode(parte["data"])
-          mime = parte.get("mimeType", "")
-          m = re.search(r"rate=(\d+)", mime)
-          sr = int(m.group(1)) if m else 24000
-          dur = len(crudo) / (sr * 2)
-          print(f"{mime} -> {len(crudo)} bytes a {sr} Hz = {dur:.1f}s")
+          url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+                 f"{os.environ['MODELO']}:generateContent")
+
+          def pedir(txt):
+              cuerpo = {
+                  "contents": [{"parts": [{"text":
+                      f"{direccion}\n\nDi exactamente el texto que sigue, "
+                      f"entero y sin resumir, y nada mas. No leas estas "
+                      f"instrucciones.\n\n{txt}"}]}],
+                  "generationConfig": {
+                      "responseModalities": ["AUDIO"],
+                      "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig":
+                          {"voiceName": os.environ["VOZ"]}}},
+                  },
+              }
+              pet = urllib.request.Request(
+                  url, data=json.dumps(cuerpo).encode(),
+                  headers={"Content-Type": "application/json",
+                           "x-goog-api-key": os.environ["GOOGLE"]},
+                  method="POST")
+              for intento in range(1, 7):
+                  try:
+                      with urllib.request.urlopen(pet, timeout=600) as r:
+                          return json.loads(r.read())
+                  except urllib.error.HTTPError as e:
+                      d = e.read().decode(errors="replace")
+                      if e.code == 429 and re.search(r"limit: 0\b", d):
+                          print(f"::error::{os.environ['MODELO']} no esta en "
+                                f"el plan gratuito (limit: 0). {d[:300]}")
+                          sys.exit(1)
+                      if e.code == 429 and re.search(r"PerDay|per day", d):
+                          print(f"::error::cupo DIARIO agotado. {d[:300]}")
+                          sys.exit(1)
+                      if e.code not in (429, 500, 503) or intento == 6:
+                          print(f"::error::Google devolvio {e.code}: {d[:500]}")
+                          sys.exit(1)
+                      espera = 20.0 * intento
+                      m = re.search(r"retry in ([\d.]+)s", d)
+                      if m:
+                          espera = float(m.group(1)) + 5
+                      print(f"  {e.code}, espero {espera:.0f}s")
+                      time.sleep(espera)
+
+          import array
+
+          def rms(b):
+              a = array.array("h"); a.frombytes(b)
+              if not a:
+                  return 0.0
+              return math.sqrt(sum(x * x for x in a) / len(a))
+
+          def escalar(b, k):
+              a = array.array("h"); a.frombytes(b)
+              for i in range(len(a)):
+                  a[i] = max(-32768, min(32767, int(a[i] * k)))
+              return a.tobytes()
+
+          piezas, sr = [], 24000
+          for i, t in enumerate(trozos, 1):
+              if i > 1:
+                  # El plan gratuito da 3 peticiones por minuto.
+                  time.sleep(25)
+              print(f"trozo {i}/{len(trozos)}")
+              resp = pedir(t)
+              try:
+                  parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
+              except (KeyError, IndexError):
+                  print(f"::error::respuesta rara en el trozo {i}: "
+                        f"{json.dumps(resp)[:400]}")
+                  sys.exit(1)
+              crudo = base64.b64decode(parte["data"])
+              m = re.search(r"rate=(\d+)", parte.get("mimeType", ""))
+              sr = int(m.group(1)) if m else 24000
+              dur = len(crudo) / (sr * 2)
+              esp = len(t.split()) / 2.8
+              print(f"   {dur:.1f}s (esperaba ~{esp:.0f}s)")
+              # Un trozo que sale a menos de la mitad es que el modelo se
+              # comio texto, y pegado entre otros no se nota al oido.
+              if dur < esp * 0.5:
+                  print(f"::error::trozo {i} truncado: {dur:.1f}s de ~{esp:.0f}s")
+                  sys.exit(1)
+              with wave.open(f"trozos/{i:02d}.wav", "wb") as w:
+                  w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
+                  w.writeframes(crudo)
+              piezas.append(crudo)
+
+          # Igualar niveles al primer trozo: sin esto se oye un salto de
+          # volumen en cada costura, que es peor que la degradacion original.
+          base = rms(piezas[0]) or 1.0
+          silencio = b"\x00\x00" * int(sr * 0.15)
+          salida = b""
+          for i, p in enumerate(piezas):
+              r = rms(p) or base
+              k = base / r
+              if i:
+                  salida += silencio
+              print(f"   trozo {i+1}: ganancia x{k:.2f}")
+              salida += escalar(p, k) if abs(k - 1) > 0.02 else p
 
           with wave.open("salida/voz.wav", "wb") as w:
               w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
-              w.writeframes(crudo)
-
-          # El veredicto del experimento. Azure narro este mismo guion en
-          # 298,3 s; si Gemini devuelve bastante menos es que corto el texto,
-          # y eso NO se ve oyendo los primeros diez segundos.
+              w.writeframes(salida)
+          total = len(salida) / (sr * 2)
           esperado = float(os.environ["ESPERADO"])
-          print(f"::notice::Gemini devolvio {dur:.1f}s frente a los "
-                f"{esperado:.1f}s de la narracion de Azure "
-                f"({100 * dur / esperado:.0f}%)")
-          if dur < esperado * 0.6:
-              print(f"::error::truncado: {dur:.1f}s de {esperado:.1f}s "
-                    "esperados. El guion entero NO cabe en una peticion; "
-                    "hay que trocearlo.")
+          print(f"::notice::{len(trozos)} trozos, {total:.1f}s en total "
+                f"({100 * total / esperado:.0f}% del patron de Azure)")
+          if total < esperado * 0.75:
+              print(f"::error::solo {total:.1f}s de {esperado:.1f}s esperados")
               sys.exit(1)
           PY
           ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
                  -c:a libmp3lame -b:a 256k "salida/${CLAVE}.mp3"
-          ffprobe -v error -show_entries format=duration -of csv=p=0 "salida/${CLAVE}.mp3"
-          rm salida/voz.wav
+          for t in trozos/*.wav; do
+            ffmpeg -y -v error -i "$t" -c:a libmp3lame -b:a 192k \
+                   "salida/$(basename "${t%.wav}")-trozo.mp3"
+          done
+          rm -rf salida/voz.wav trozos
           ls -la salida/
 
       - uses: ./.github/actions/devolver
