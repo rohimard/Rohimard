@@ -56,7 +56,14 @@ permissions:
 # que configura el objetivo es el que dispara, y cambiar de video no obliga
 # a tocar el workflow (que ademas ya no se auto-dispara).
 env:
-  MODELO: gemini-2.5-flash-preview-tts
+  # gemini-2.5-flash-preview-tts se probo primero (ver historial de este
+  # fichero) y llego a 2,44 palabras/s incluso tras arreglar la direccion:
+  # lento y aburrido, dijo el usuario. gemini-3.1-flash-tts-preview, probado
+  # aparte sobre el trozo 1 real del guion (canal-youtube/producciones/
+  # 08-kaczynski-harvard/prueba-31), dio 2,91 palabras/s con la misma voz y
+  # una direccion mas suave -- el usuario lo aprobo. Cupo diario aparte del
+  # de 2.5-flash, mismo endpoint y forma de peticion.
+  MODELO: gemini-3.1-flash-tts-preview
   # Achird es "Friendly" en el catalogo de Google, la mas cercana al perfil
   # Kevin que pidio el usuario. Si se cambia la voz, cambia tambien CLAVE.
   VOZ: Achird
@@ -64,23 +71,17 @@ env:
   # Palabras por trozo. 160 son unos 57 s a 2,8 palabras/s, por debajo
   # del minuto en que empieza a degradarse.
   PALABRAS: '160'
-  # OJO CON ESTA DIRECCION. La primera version decia "sin prisa", "para en los
-  # puntos antes de seguir" y "manten el mismo tono de principio a fin". El
-  # resultado fueron 2,44 palabras/s (la lectura mas lenta de todas las
-  # probadas, contra 2,71 de Azure y 2,82 de Gemini de tiron) y el usuario lo
-  # describio como lento y aburrido. Tenia razon: "manten el mismo tono de
-  # principio a fin" es, literalmente, una instruccion de ser monotono. Se
-  # puso para evitar la deriva entre trozos y costo toda la dinamica.
+  # La direccion que dio 2,91 palabras/s en la prueba real (ver
+  # prueba-31/trozo1-equilibrado.mp3). Un unico empujon de velocidad
+  # ("cierta urgencia"); la version con [fast] en el texto ademas de esto
+  # se paso a 3,48 palabras/s y el usuario la marco como demasiado rapida.
   DIRECCION: >-
     Habla en español latinoamericano neutro. Eres un hombre de unos cuarenta y
-    cinco años contandole esto a un amigo sentado enfrente. Registro medio,
-    volumen de conversacion, y ritmo vivo: se habla mas rapido de lo que se
-    lee. No eres locutor: no proyectes la voz, no subrayes palabras, no hagas
-    la entonacion cantada de la radio. Baja el tono al final de cada frase,
-    nunca lo subas. CAMBIA DE MARCHA: encadena sin pausa las frases que van
-    juntas y frena solo donde el dato necesita caer. No hagas la misma pausa
-    en todos los puntos, que es lo que convierte una historia en un dictado.
-    No dramatices: el dato ya incomoda solo.
+    cinco años que tiene poco tiempo para contarle esto a un amigo antes de
+    que llegue alguien mas, asi que hablas con cierta urgencia, sin arrastrar
+    ninguna palabra, sin proyectar la voz de locutor. Ve al grano en cada
+    frase. Registro medio, volumen de conversacion. Baja el tono al final de
+    cada frase, nunca lo subas. No dramatices: el dato ya incomoda solo.
 
 jobs:
   narrar:
@@ -183,10 +184,12 @@ jobs:
               return base
 
           def huella(i, t):
-              # La direccion entra en el hash: si se cambia, ese trozo se
-              # regenera solo y no se reutiliza una toma con el tono viejo.
+              # La direccion y el modelo entran en el hash: si cualquiera
+              # cambia, ese trozo se regenera solo y no se reutiliza una
+              # toma con el tono o el modelo viejo.
               return hashlib.sha256(
-                  (os.environ["VOZ"] + "|" + dirDe(i) + "|" + t).encode()
+                  (os.environ["MODELO"] + "|" + os.environ["VOZ"] + "|" +
+                   dirDe(i) + "|" + t).encode()
               ).hexdigest()[:16]
 
           try:
@@ -238,6 +241,28 @@ jobs:
                       print(f"  {e.code}, espero {espera:.0f}s")
                       time.sleep(espera)
 
+          def intentar(txt, direccion):
+              """Pide un trozo y reintenta si el propio filtro de seguridad
+              de Google bloquea el audio: un 200 OK con finishReason=SAFETY
+              no es un error HTTP (el modelo genero texto internamente,
+              pero su filtro corto el audio), y se ha visto intermitente
+              sobre el mismo texto en pruebas anteriores de este guion."""
+              resp = pedir(txt, direccion)
+              for intento_seguridad in range(1, 4):
+                  try:
+                      return resp["candidates"][0]["content"]["parts"][0]["inlineData"]
+                  except (KeyError, IndexError):
+                      razon = resp.get("candidates", [{}])[0].get("finishReason", "?")
+                      if razon == "SAFETY" and intento_seguridad < 3:
+                          print(f"   bloqueo de seguridad, reintento "
+                                f"{intento_seguridad}")
+                          time.sleep(10)
+                          resp = pedir(txt, direccion)
+                          continue
+                      raise SystemExit(
+                          f"::error::respuesta inesperada (finishReason="
+                          f"{razon}): {json.dumps(resp)[:400]}")
+
           def guardar(i, crudo, sr):
               w = f"trozos/{i:02d}.wav"
               with wave.open(w, "wb") as f:
@@ -266,22 +291,20 @@ jobs:
                   piezas.append(crudo)
                   continue
               if pedidos:
-                  time.sleep(25)   # el plan gratuito da 3 por minuto
+                  # 25s de margen entre peticiones. El limite de 3/min era el
+                  # de 2.5-flash; el de este modelo en preview no esta
+                  # documentado, asi que se mantiene el mismo margen por
+                  # prudencia.
+                  time.sleep(25)
               print(f"trozo {i}/{len(trozos)}: pidiendo a Gemini")
               try:
-                  resp = pedir(t, dirDe(i))
+                  parte = intentar(t, dirDe(i))
               except SystemExit as e:
                   if str(e) == "CUOTA_DIARIA":
                       corte = i
                       break
                   raise
               pedidos += 1
-              try:
-                  parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
-              except (KeyError, IndexError):
-                  print(f"::error::respuesta rara en el trozo {i}: "
-                        f"{json.dumps(resp)[:400]}")
-                  sys.exit(1)
               crudo = base64.b64decode(parte["data"])
               m = re.search(r"rate=(\d+)", parte.get("mimeType", ""))
               sr = int(m.group(1)) if m else 24000
