@@ -1,0 +1,126 @@
+Genera 95 imágenes, una por cada escena numerada de la lista.
+Cada imagen en formato horizontal 16:9 y SIN NINGÚN TEXTO dentro de la imagen.
+LA ÚNICA EXCEPCIÓN es la escena 56: ahí la palabra LAWFUL SÍ tiene que leerse.
+
+ESTILO, aplícalo a las 95 sin excepción:
+fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+ROSTROS, es una regla dura y no la relajes en ninguna escena:
+ninguna persona real aparece con cara reconocible. Ni Theodore Kaczynski ni
+Henry Murray tienen rostro en ningún plano. Las personas se resuelven siempre
+por manos, nucas, siluetas, contraluces y objetos. Donde una escena mencione
+figuras, déjalas de espaldas, a contraluz o fuera de foco.
+
+PERSONAJE RECURRENTE. Donde una escena diga EL CHICO, usa exactamente esta
+descripción, sin variarla, para que sea siempre la misma persona:
+EL CHICO = un chico de dieciséis años, complexión delgada, abrigo de lana oscuro sobre camisa blanca y corbata estrecha, pelo corto peinado a un lado, SIEMPRE de espaldas o con el rostro fuera de encuadre, nunca se le ve la cara.
+
+ÉPOCA, es importante y no la deduzcas de la escena. Aquí no hay un corte
+limpio entre dos épocas: el relato salta entre el experimento de mil
+novecientos sesenta, el pasado militar del profesor en los cuarenta, la
+campaña de paquetes de los ochenta y noventa, y el archivo del presente.
+Escena 1: Estados Unidos de los años ochenta, sin ningún objeto posterior a esa década.
+Escena 2: Montana rural, sin ningún objeto moderno.
+Escenas 3 a 14, 26 a 32, 53 a 55, 70, 72, 76 a 78, 81, 91 a 92, 95: universidad estadounidense de mil novecientos sesenta, sin ningún objeto posterior a esa década.
+Escenas 15 a 20, 33 a 52, 75, 88, 93 a 94: laboratorio de psicología estadounidense de mil novecientos sesenta, instrumental de la época, sin ningún objeto moderno.
+Escenas 21, 59 a 68, 71, 73 a 74: Estados Unidos de los años ochenta y noventa, sin ningún objeto posterior al año dos mil.
+Escenas 22, 56 a 58, 69, 79 a 80, 82 a 87, 89 a 90: archivo institucional actual, sobrio y neutro.
+Escenas 23 a 25: despacho institucional estadounidense de mil novecientos cuarenta, Segunda Guerra Mundial, sin ningún objeto posterior.
+
+ESCENAS
+
+1. primer plano de un paquete envuelto en papel de estraza atado con cordel, esquinas gastadas, sellos postales antiguos sin texto legible, abandonado sobre la mesa metálica de una sala de clasificación de correo en penumbra
+2. plano general amplio de una cabaña diminuta de madera contrachapada, sola en un claro entre coníferas altas, nieve sucia en el suelo, sin electricidad ni tendido eléctrico a la vista, cielo plomizo de invierno, ninguna persona
+3. plano general amplio del patio de una universidad de ladrillo rojo de la Ivy League al amanecer de otoño, hojas secas en el suelo, niebla baja entre los edificios, ninguna persona a la vista
+4. plano medio de espaldas de EL CHICO con libros bajo el brazo, cruzando el patio entre estudiantes claramente mayores que él, su rostro nunca visible
+5. plano general de un aula universitaria de los años sesenta llena de estudiantes vistos desde atrás, todos con americana, uno de ellos visiblemente más bajo y más joven que el resto
+6. detalle cenital de unas manos jóvenes deslizando una ficha de cartulina sobre un mostrador de madera, una mano adulta sellándola con un tampón metálico, la ficha desenfocada e ilegible
+7. primer plano de un sobre de papel grueso sin membrete visible siendo dejado sobre un pupitre de madera vacío, luz de ventana alta entrando en diagonal
+8. plano general de un aula universitaria antigua completamente vacía, bancos corridos de madera, pizarra limpia, un solo haz de luz cruzando el polvo del aire
+9. plano cenital cerrado de una hoja de papel completamente en blanco sobre un escritorio de residencia estudiantil por la noche, una pluma estilográfica al lado, flexo encendido, sin ningún texto escrito
+10. plano general de un dormitorio individual de residencia universitaria de los años sesenta, cama estrecha hecha con esmero militar, escritorio ordenado, ninguna fotografía personal en las paredes
+11. macro extremo de la punta de una pluma estilográfica dejando tinta azul sobre papel, la escritura completamente ilegible y fuera de foco, solo se distingue el gesto
+12. plano cenital de un montón creciente de hojas manuscritas apiladas sin orden sobre un escritorio, la escritura ilegible, un cenicero y una taza vacía al borde del encuadre
+13. plano medio de unas manos jóvenes empujando una carpeta de cartón marrón por encima de una mesa hacia unas manos adultas que la reciben, ningún rostro en el encuadre
+14. plano cerrado de una carpeta de cartón marrón cerrada sobre una mesa de despacho vacía, una mano adulta apoyada encima
+15. plano general de un pasillo de sótano institucional de azulejo verde pálido, tubos vistos en el techo, una única puerta cerrada al fondo iluminada desde arriba
+16. plano frontal simétrico de una silla de madera sola en el centro de una sala desnuda, dos focos de estudio apuntándola desde delante, la silla vacía, sombras duras en el suelo
+17. plano desde el interior de una sala de observación en penumbra mirando a través de un espejo unidireccional hacia una sala iluminada, siluetas de observadores de espaldas en primer término
+18. macro de electrodos metálicos adheridos con esparadrapo a la piel del pecho de un joven, cables trenzados saliendo del encuadre, sin rostro visible, luz dura
+19. macro de una correa de cuero con hebilla ciñendo el antebrazo de un joven al reposabrazos de madera de una silla, sin rostro
+20. contraluz de la silueta de un hombre de traje entrando por una puerta con un fajo de hojas en la mano, la luz de la sala recortándolo, su rostro completamente en sombra
+21. primer plano de un retrato robot policial dibujado a lápiz sobre papel amarillento, un hombre con capucha y gafas de sol oscuras, clavado en un tablón de corcho de oficina
+22. plano cerrado de una mesa de archivo con dos carpetas separadas por un espacio vacío, luz cenital fría, nada más en el encuadre
+23. plano general de un despacho de inteligencia militar de los años cuarenta, mapas en la pared, una silla vacía tras un escritorio de roble, humo de cigarrillo en el aire
+24. detalle de un sello de caucho de organismo gubernamental apoyado sobre un tampón de tinta roja junto a carpetas atadas con cordel, sin texto legible
+25. plano medio de dos siluetas enfrentadas a ambos lados de una mesa desnuda bajo una única bombilla colgante, sala de interrogatorio de los años cuarenta, ambos rostros fuera de encuadre
+26. plano general de la fachada de un edificio universitario de ladrillo con columnas blancas, cielo encapotado, un hombre de espaldas subiendo la escalinata
+27. plano cenital de veintidós fichas de cartulina en blanco dispuestas en cuadrícula perfecta sobre un escritorio de madera oscura, todas idénticas y sin texto
+28. plano medio de varios jóvenes de los años sesenta haciendo cola en un pasillo universitario, todos de perfil o de espaldas, ninguno mirando a cámara
+29. plano medio de un grupo de jóvenes estudiantes de los años sesenta sentados en un aula, todos vistos desde atrás, atendiendo a una figura desenfocada al fondo
+30. plano cenital de un folio manuscrito a pluma sobre un escritorio, la caligrafía completamente ilegible, una lámpara proyectando un círculo de luz cálida
+31. macro de una mano juvenil deteniéndose a mitad de una frase, la pluma levantada, un borrón de tinta extendiéndose en el papel
+32. primer plano de una hoja manuscrita con varios párrafos tachados con rabia y reescritos encima, escritura ilegible
+33. plano cenital de una carpeta de cartón abierta sobre una mesa metálica, dentro un fajo de hojas manuscritas, dos manos de hombre adulto pasándolas una a una
+34. plano general simétrico de la sala de experimentos, silla vacía en el centro, dos focos encendidos, espejo unidireccional ocupando toda la pared del fondo
+35. plano general de un banco de madera vacío en un pasillo institucional junto a una puerta cerrada, luz de fluorescente parpadeante
+36. contrapicado de dos focos de estudio de los años sesenta encendidos apuntando hacia el objetivo, el resto del encuadre en negro absoluto
+37. macro de una aguja de polígrafo de los años sesenta trazando una línea temblorosa sobre papel milimetrado que avanza, sin ningún número legible
+38. detalle de un fuelle de goma de medición respiratoria ceñido al pecho de un joven sentado, subiendo y bajando, sin rostro en el encuadre
+39. plano medio de un hombre joven de traje oscuro y corbata estrecha ajustándose el puño de la camisa antes de entrar por una puerta, visto de espaldas
+40. plano cenital de unas manos masculinas subrayando con lápiz rojo párrafos de un texto manuscrito ajeno, marcando frases concretas
+41. plano contrapicado de una silueta masculina de pie gesticulando con hojas en la mano, iluminada desde abajo por un foco, sombra enorme proyectada en la pared
+42. plano cerrado de un reloj de pared industrial de los años sesenta marcando una hora indefinida, sin números legibles, pared desnuda
+43. primer plano de unas manos juveniles agarrando con fuerza los reposabrazos de madera de una silla, los nudillos blancos, sin rostro
+44. macro de una anotación manuscrita antigua a pluma en el margen de un informe mecanografiado, la escritura ilegible, papel amarillento
+45. plano medio de una cámara de cine de dieciséis milímetros sobre trípode, el carrete girando, apuntando hacia una silla vacía iluminada al fondo
+46. plano medio de tres siluetas de hombres de traje de espaldas, de pie en penumbra frente a un cristal iluminado, uno de ellos tomando notas
+47. plano cerrado de un objetivo de cámara de cine antiguo, el reflejo de una figura sentada deformado en el cristal curvo, irreconocible
+48. detalle del carrete de película girando en la cámara, el conteo de metraje avanzando, grano de la época
+49. plano general de una sala de proyección en penumbra con una sola silla frente a una pantalla iluminada en blanco, la nuca de un joven sentado en primer término
+50. plano cenital de varias latas metálicas de película apiladas sobre una mesa, etiquetas en blanco sin texto
+51. plano cerrado del haz de luz de un proyector de cine atravesando el humo de una sala oscura hacia la pantalla
+52. plano cerrado de una mano rebobinando manualmente el carrete de una moviola de los años sesenta
+53. plano general de una ventana universitaria vista desde dentro, el mismo paisaje del patio repetido en cuatro estaciones distintas en composición de cuatro cuadrantes
+54. plano medio de espaldas de EL CHICO, de pie y solo en el patio universitario, hojas de otoño cayendo
+55. plano medio de espaldas del mismo joven tres años mayor, más alto y más delgado, de pie en el mismo punto exacto del patio, ahora en invierno y sin hojas
+56. macro extremo de una etiqueta mecanografiada antigua pegada al lomo de una carpeta de archivo, con la palabra LAWFUL escrita en mayúsculas de máquina de escribir, único texto permitido en todo el vídeo, papel envejecido
+57. plano cenital de una hilera de carpetas de archivo idénticas en un cajón metálico, todas con etiquetas mecanografiadas ilegibles salvo una
+58. plano cenital de una carpeta de archivo abierta con hojas mecanografiadas amarillentas, todo el texto desenfocado e ilegible salvo el gesto de pasar página
+59. plano general de una cabaña de madera pequeña y aislada en un bosque nevado de montaña, sin camino de acceso visible, humo saliendo de la chimenea
+60. plano cenital de un paquete de papel marrón atado con cordel sobre el mostrador de una oficina de correos, sellos antiguos, sin ningún texto legible
+61. plano medio de una saca de lona de correos abierta apoyada contra una pared de oficina, sobres y paquetes asomando
+62. plano general de tres sillas vacías de oficina de los años ochenta, dispuestas en fila contra una pared desnuda, luz de fluorescente
+63. plano general del interior de una tienda de ordenadores de los años ochenta al cerrar, monitores apagados, persiana a medio bajar, nadie dentro
+64. plano general del interior de una cabaña de madera de una sola habitación, estufa de leña, estanterías con libros hasta el techo, una máquina de escribir sobre una mesa
+65. plano general de un despacho de agencia de publicidad de los años noventa vacío, carteles enmarcados, una chaqueta colgada del respaldo de una silla
+66. plano general de un aserradero al amanecer con troncos apilados y maquinaria detenida, niebla entre la madera, sin gente
+67. plano medio de un buzón metálico abierto y vacío en la fachada de una casa suburbana estadounidense, luz de media tarde
+68. plano general de un pasillo de hospital de los años noventa en penumbra, sillas vacías alineadas contra la pared, una puerta doble al fondo
+69. plano cenital de dos titulares de periódico recortados y superpuestos sobre una mesa, el texto completamente desenfocado e ilegible
+70. plano general de veintiún jóvenes de los años sesenta sentados en un aula, todos de espaldas a cámara, una silla vacía entre ellos
+71. plano general de una calle residencial estadounidense de los años noventa al amanecer, buzones alineados, ningún coche circulando
+72. plano medio de espaldas de un grupo de graduados universitarios de los años sesenta con toga, dispersándose por un césped
+73. plano cerrado de una mano adulta cerrándose lentamente en un puño sobre una mesa de madera, luz lateral dura
+74. plano general de una mesa de comedor familiar puesta para cuatro con una silla vacía, luz de tarde entrando por la ventana
+75. plano general de la sala de experimentos ahora vacía y a oscuras, la silla volcada, los focos apagados, polvo en el aire
+76. plano cenital de veintidós pupitres de madera vacíos en cuadrícula perfecta en un aula iluminada por ventanales
+77. plano general de un pasillo universitario largo y desierto, puertas cerradas a ambos lados, luz de fluorescente
+78. plano contrapicado de una fachada universitaria neoclásica de piedra con columnas, cielo plomizo
+79. plano general de un aula magna con un atril vacío y filas de asientos llenos vistos desde atrás, todas las nucas hacia cámara
+80. plano cerrado de una placa metálica conmemorativa apoyada sobre terciopelo dentro de una vitrina, la inscripción completamente ilegible
+81. plano cenital de un pupitre de madera vacío en un aula con todos los demás ocupados, vistos desde arriba
+82. plano general de un salón de actos universitario vacío con una corona de flores sobre un caballete junto a un atril
+83. plano medio de un cajón de archivo metálico cerrándose y una mano girando la llave en la cerradura, primer plano del pestillo
+84. plano general de una sala de archivo con estanterías metálicas altas en penumbra, una cadena y un candado cruzando un pasillo
+85. plano cenital de un formulario de consentimiento en blanco sobre una mesa clínica moderna junto a un bolígrafo, sin ningún texto legible
+86. plano general de una puerta de sala de estudio moderna entreabierta con luz entrando desde el pasillo
+87. plano medio de dos sillas modernas enfrentadas a la misma altura junto a una mesa baja, sala luminosa y neutra
+88. plano general de la sala de los años sesenta con la silla, los focos y el espejo, vista desde el umbral de la puerta
+89. plano cerrado de una etiqueta de restricción de acceso colgando de un asa de cajón metálico, la etiqueta en blanco sin texto
+90. plano cenital de un manual de ética de investigación cerrado sobre una mesa, tapa lisa sin texto, luz difusa
+91. plano general de un grupo de graduados de los años sesenta lanzando los birretes al aire, vistos en contraluz contra un cielo blanco
+92. plano medio de un hombre mayor de espaldas sentado solo en un banco de un campus universitario en otoño
+93. plano frontal de la silla vacía bajo los focos, encuadre idéntico al del principio, invitando al espectador a ocuparla
+94. plano cerrado del asiento de madera de la silla visto desde arriba, vacío, el haz de los focos cayendo sobre él
+95. plano general amplio del patio universitario al anochecer, ventanas encendidas, una sola figura pequeña de espaldas cruzándolo
