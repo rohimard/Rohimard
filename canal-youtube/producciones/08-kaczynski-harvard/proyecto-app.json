@@ -1,0 +1,1019 @@
+{
+ "titulo": "Kaczynski y el experimento de Harvard",
+ "planos": [
+  {
+   "n": 1,
+   "bloque": "GANCHO",
+   "entra": 0.0,
+   "sale": 2.77,
+   "escena": "El paquete"
+  },
+  {
+   "n": 2,
+   "bloque": "GANCHO",
+   "entra": 2.77,
+   "sale": 5.38,
+   "escena": "La cabaña"
+  },
+  {
+   "n": 3,
+   "bloque": "GANCHO",
+   "entra": 5.38,
+   "sale": 7.83,
+   "escena": "Harvard al amanecer"
+  },
+  {
+   "n": 4,
+   "bloque": "GANCHO",
+   "entra": 7.83,
+   "sale": 10.11,
+   "escena": "Demasiado joven"
+  },
+  {
+   "n": 5,
+   "bloque": "GANCHO",
+   "entra": 10.11,
+   "sale": 12.72,
+   "escena": "El más joven de la clase"
+  },
+  {
+   "n": 6,
+   "bloque": "GANCHO",
+   "entra": 12.72,
+   "sale": 14.84,
+   "escena": "La matrícula"
+  },
+  {
+   "n": 7,
+   "bloque": "GANCHO",
+   "entra": 14.84,
+   "sale": 17.29,
+   "escena": "La invitación"
+  },
+  {
+   "n": 8,
+   "bloque": "GANCHO",
+   "entra": 17.29,
+   "sale": 19.41,
+   "escena": "El aula vacía"
+  },
+  {
+   "n": 9,
+   "bloque": "GANCHO",
+   "entra": 19.41,
+   "sale": 22.01,
+   "escena": "El papel en blanco"
+  },
+  {
+   "n": 10,
+   "bloque": "GANCHO",
+   "entra": 22.01,
+   "sale": 24.62,
+   "escena": "La habitación del colegio mayor"
+  },
+  {
+   "n": 11,
+   "bloque": "GANCHO",
+   "entra": 24.62,
+   "sale": 27.4,
+   "escena": "Escribir lo que crees"
+  },
+  {
+   "n": 12,
+   "bloque": "GANCHO",
+   "entra": 27.4,
+   "sale": 28.79,
+   "escena": "Páginas y páginas"
+  },
+  {
+   "n": 13,
+   "bloque": "GANCHO",
+   "entra": 28.79,
+   "sale": 30.28,
+   "escena": "La entrega"
+  },
+  {
+   "n": 14,
+   "bloque": "GANCHO",
+   "entra": 30.28,
+   "sale": 31.87,
+   "escena": "Lo entregó él mismo"
+  },
+  {
+   "n": 15,
+   "bloque": "GANCHO",
+   "entra": 31.87,
+   "sale": 33.17,
+   "escena": "El pasillo del sótano"
+  },
+  {
+   "n": 16,
+   "bloque": "GANCHO",
+   "entra": 33.17,
+   "sale": 34.86,
+   "escena": "La silla"
+  },
+  {
+   "n": 17,
+   "bloque": "GANCHO",
+   "entra": 34.86,
+   "sale": 36.45,
+   "escena": "El espejo"
+  },
+  {
+   "n": 18,
+   "bloque": "GANCHO",
+   "entra": 36.45,
+   "sale": 37.94,
+   "escena": "Los electrodos"
+  },
+  {
+   "n": 19,
+   "bloque": "GANCHO",
+   "entra": 37.94,
+   "sale": 39.53,
+   "escena": "La correa del brazo"
+  },
+  {
+   "n": 20,
+   "bloque": "GANCHO",
+   "entra": 39.53,
+   "sale": 45.41,
+   "escena": "El desconocido entra"
+  },
+  {
+   "n": 21,
+   "bloque": "MURRAY",
+   "entra": 45.41,
+   "sale": 51.65,
+   "escena": "El otro nombre"
+  },
+  {
+   "n": 22,
+   "bloque": "MURRAY",
+   "entra": 51.65,
+   "sale": 57.15,
+   "escena": "La pregunta"
+  },
+  {
+   "n": 23,
+   "bloque": "MURRAY",
+   "entra": 57.15,
+   "sale": 62.29,
+   "escena": "Murray, antes de Harvard"
+  },
+  {
+   "n": 24,
+   "bloque": "MURRAY",
+   "entra": 62.29,
+   "sale": 68.16,
+   "escena": "La OSS"
+  },
+  {
+   "n": 25,
+   "bloque": "MURRAY",
+   "entra": 68.16,
+   "sale": 73.67,
+   "escena": "Medir al espía"
+  },
+  {
+   "n": 26,
+   "bloque": "MURRAY",
+   "entra": 73.67,
+   "sale": 78.81,
+   "escena": "Cambió de sujetos"
+  },
+  {
+   "n": 27,
+   "bloque": "MURRAY",
+   "entra": 78.81,
+   "sale": 84.31,
+   "escena": "Veintidós"
+  },
+  {
+   "n": 28,
+   "bloque": "MURRAY",
+   "entra": 84.31,
+   "sale": 90.19,
+   "escena": "Ninguno preguntó"
+  },
+  {
+   "n": 29,
+   "bloque": "LA REDACCIÓN",
+   "entra": 90.19,
+   "sale": 96.06,
+   "escena": "Nadie supo para qué"
+  },
+  {
+   "n": 30,
+   "bloque": "LA REDACCIÓN",
+   "entra": 96.06,
+   "sale": 99.1,
+   "escena": "La redacción"
+  },
+  {
+   "n": 31,
+   "bloque": "LA REDACCIÓN",
+   "entra": 99.1,
+   "sale": 102.54,
+   "escena": "Lo más íntimo"
+  },
+  {
+   "n": 32,
+   "bloque": "LA REDACCIÓN",
+   "entra": 102.54,
+   "sale": 105.58,
+   "escena": "Sinceridad enorme"
+  },
+  {
+   "n": 33,
+   "bloque": "LA REDACCIÓN",
+   "entra": 105.58,
+   "sale": 108.41,
+   "escena": "La munición"
+  },
+  {
+   "n": 34,
+   "bloque": "LA REDACCIÓN",
+   "entra": 108.41,
+   "sale": 111.86,
+   "escena": "La sala"
+  },
+  {
+   "n": 35,
+   "bloque": "LA REDACCIÓN",
+   "entra": 111.86,
+   "sale": 115.1,
+   "escena": "La antesala"
+  },
+  {
+   "n": 36,
+   "bloque": "LA REDACCIÓN",
+   "entra": 115.1,
+   "sale": 118.13,
+   "escena": "Los focos"
+  },
+  {
+   "n": 37,
+   "bloque": "LA REDACCIÓN",
+   "entra": 118.13,
+   "sale": 121.37,
+   "escena": "El pulso"
+  },
+  {
+   "n": 38,
+   "bloque": "LA REDACCIÓN",
+   "entra": 121.37,
+   "sale": 124.4,
+   "escena": "La respiración"
+  },
+  {
+   "n": 39,
+   "bloque": "LA REDACCIÓN",
+   "entra": 124.4,
+   "sale": 127.63,
+   "escena": "No era otro estudiante"
+  },
+  {
+   "n": 40,
+   "bloque": "LA REDACCIÓN",
+   "entra": 127.63,
+   "sale": 130.66,
+   "escena": "Entrenado de antemano"
+  },
+  {
+   "n": 41,
+   "bloque": "LA REDACCIÓN",
+   "entra": 130.66,
+   "sale": 134.1,
+   "escena": "El ataque"
+  },
+  {
+   "n": 42,
+   "bloque": "LA REDACCIÓN",
+   "entra": 134.1,
+   "sale": 137.33,
+   "escena": "El reloj de la sala"
+  },
+  {
+   "n": 43,
+   "bloque": "LA REDACCIÓN",
+   "entra": 137.33,
+   "sale": 140.56,
+   "escena": "Todo lo furioso posible"
+  },
+  {
+   "n": 44,
+   "bloque": "LAS GRABACIONES",
+   "entra": 140.56,
+   "sale": 143.59,
+   "escena": "De su puño"
+  },
+  {
+   "n": 45,
+   "bloque": "LAS GRABACIONES",
+   "entra": 143.59,
+   "sale": 147.02,
+   "escena": "Todo se grababa"
+  },
+  {
+   "n": 46,
+   "bloque": "LAS GRABACIONES",
+   "entra": 147.02,
+   "sale": 150.25,
+   "escena": "Los que miraban"
+  },
+  {
+   "n": 47,
+   "bloque": "LAS GRABACIONES",
+   "entra": 150.25,
+   "sale": 153.28,
+   "escena": "Su cara"
+  },
+  {
+   "n": 48,
+   "bloque": "LAS GRABACIONES",
+   "entra": 153.28,
+   "sale": 156.57,
+   "escena": "El momento exacto"
+  },
+  {
+   "n": 49,
+   "bloque": "LAS GRABACIONES",
+   "entra": 156.57,
+   "sale": 160.07,
+   "escena": "Obligados a verse"
+  },
+  {
+   "n": 50,
+   "bloque": "LAS GRABACIONES",
+   "entra": 160.07,
+   "sale": 163.37,
+   "escena": "Más de una vez"
+  },
+  {
+   "n": 51,
+   "bloque": "LAS GRABACIONES",
+   "entra": 163.37,
+   "sale": 166.46,
+   "escena": "Mirarte siendo humillado"
+  },
+  {
+   "n": 52,
+   "bloque": "LAS GRABACIONES",
+   "entra": 166.46,
+   "sale": 169.75,
+   "escena": "Otra vez desde el principio"
+  },
+  {
+   "n": 53,
+   "bloque": "LAS GRABACIONES",
+   "entra": 169.75,
+   "sale": 173.25,
+   "escena": "Tres años"
+  },
+  {
+   "n": 54,
+   "bloque": "LAS GRABACIONES",
+   "entra": 173.25,
+   "sale": 176.34,
+   "escena": "Entró con dieciséis"
+  },
+  {
+   "n": 55,
+   "bloque": "LAS GRABACIONES",
+   "entra": 176.34,
+   "sale": 179.63,
+   "escena": "Salió con diecinueve"
+  },
+  {
+   "n": 56,
+   "bloque": "LAS GRABACIONES",
+   "entra": 179.63,
+   "sale": 181.75,
+   "escena": "Lawful"
+  },
+  {
+   "n": 57,
+   "bloque": "LAS GRABACIONES",
+   "entra": 181.75,
+   "sale": 183.75,
+   "escena": "Respetuoso de la ley"
+  },
+  {
+   "n": 58,
+   "bloque": "LAS GRABACIONES",
+   "entra": 183.75,
+   "sale": 185.75,
+   "escena": "El expediente"
+  },
+  {
+   "n": 59,
+   "bloque": "LAS GRABACIONES",
+   "entra": 185.75,
+   "sale": 187.75,
+   "escena": "Diecisiete años después"
+  },
+  {
+   "n": 60,
+   "bloque": "LAS GRABACIONES",
+   "entra": 187.75,
+   "sale": 189.75,
+   "escena": "El correo"
+  },
+  {
+   "n": 61,
+   "bloque": "LAS GRABACIONES",
+   "entra": 189.75,
+   "sale": 191.75,
+   "escena": "La saca"
+  },
+  {
+   "n": 62,
+   "bloque": "DESPUÉS",
+   "entra": 191.75,
+   "sale": 193.75,
+   "escena": "Tres personas"
+  },
+  {
+   "n": 63,
+   "bloque": "DESPUÉS",
+   "entra": 193.75,
+   "sale": 195.75,
+   "escena": "Una tienda de informática"
+  },
+  {
+   "n": 64,
+   "bloque": "DESPUÉS",
+   "entra": 195.75,
+   "sale": 197.75,
+   "escena": "La cabaña por dentro"
+  },
+  {
+   "n": 65,
+   "bloque": "DESPUÉS",
+   "entra": 197.75,
+   "sale": 199.75,
+   "escena": "Una oficina de publicidad"
+  },
+  {
+   "n": 66,
+   "bloque": "DESPUÉS",
+   "entra": 199.75,
+   "sale": 202.29,
+   "escena": "Un maderero"
+  },
+  {
+   "n": 67,
+   "bloque": "DESPUÉS",
+   "entra": 202.29,
+   "sale": 205.17,
+   "escena": "Sin saber por qué"
+  },
+  {
+   "n": 68,
+   "bloque": "DESPUÉS",
+   "entra": 205.17,
+   "sale": 207.88,
+   "escena": "Veintitrés heridos"
+  },
+  {
+   "n": 69,
+   "bloque": "DESPUÉS",
+   "entra": 207.88,
+   "sale": 210.76,
+   "escena": "La historia fácil"
+  },
+  {
+   "n": 70,
+   "bloque": "DESPUÉS",
+   "entra": 210.76,
+   "sale": 213.47,
+   "escena": "Los otros veintiuno"
+  },
+  {
+   "n": 71,
+   "bloque": "DESPUÉS",
+   "entra": 213.47,
+   "sale": 216.18,
+   "escena": "Nadie vio venir nada"
+  },
+  {
+   "n": 72,
+   "bloque": "DESPUÉS",
+   "entra": 216.18,
+   "sale": 218.72,
+   "escena": "Ninguno hizo lo mismo"
+  },
+  {
+   "n": 73,
+   "bloque": "DESPUÉS",
+   "entra": 218.72,
+   "sale": 221.6,
+   "escena": "Un experimento no aprieta un gatillo"
+  },
+  {
+   "n": 74,
+   "bloque": "DESPUÉS",
+   "entra": 221.6,
+   "sale": 225.03,
+   "escena": "Cincuenta años"
+  },
+  {
+   "n": 75,
+   "bloque": "DESPUÉS",
+   "entra": 225.03,
+   "sale": 228.68,
+   "escena": "Ocurrió igual"
+  },
+  {
+   "n": 76,
+   "bloque": "DESPUÉS",
+   "entra": 228.68,
+   "sale": 231.9,
+   "escena": "Veintidós chavales"
+  },
+  {
+   "n": 77,
+   "bloque": "DESPUÉS",
+   "entra": 231.9,
+   "sale": 235.34,
+   "escena": "Sin que nadie lo parara"
+  },
+  {
+   "n": 78,
+   "bloque": "DESPUÉS",
+   "entra": 235.34,
+   "sale": 238.56,
+   "escena": "La universidad más prestigiosa"
+  },
+  {
+   "n": 79,
+   "bloque": "DESPUÉS",
+   "entra": 238.56,
+   "sale": 242.21,
+   "escena": "Siguió dando clase"
+  },
+  {
+   "n": 80,
+   "bloque": "DESPUÉS",
+   "entra": 242.21,
+   "sale": 245.64,
+   "escena": "Recibiendo premios"
+  },
+  {
+   "n": 81,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 245.64,
+   "sale": 249.08,
+   "escena": "La silla que quedó vacía"
+  },
+  {
+   "n": 82,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 249.08,
+   "sale": 252.08,
+   "escena": "Muriendo homenajeado"
+  },
+  {
+   "n": 83,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 252.08,
+   "sale": 255.26,
+   "escena": "Los archivos se cerraron"
+  },
+  {
+   "n": 84,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 255.26,
+   "sale": 257.91,
+   "escena": "Cerrados al público"
+  },
+  {
+   "n": 85,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 257.91,
+   "sale": 260.92,
+   "escena": "Explicarle a una persona"
+  },
+  {
+   "n": 86,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 260.92,
+   "sale": 263.57,
+   "escena": "Que puede marcharse"
+  },
+  {
+   "n": 87,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 263.57,
+   "sale": 266.4,
+   "escena": "No mentirle"
+  },
+  {
+   "n": 88,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 266.4,
+   "sale": 269.4,
+   "escena": "No existían en aquella sala"
+  },
+  {
+   "n": 89,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 269.4,
+   "sale": 272.23,
+   "escena": "Bajo llave"
+  },
+  {
+   "n": 90,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 272.23,
+   "sale": 275.48,
+   "escena": "Existen por cosas como esta"
+  },
+  {
+   "n": 91,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 275.48,
+   "sale": 278.52,
+   "escena": "Terminaron la carrera"
+  },
+  {
+   "n": 92,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 278.52,
+   "sale": 281.78,
+   "escena": "No volvieron a hablar del tema"
+  },
+  {
+   "n": 93,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 281.78,
+   "sale": 285.23,
+   "escena": "Tú te habrías ido"
+  },
+  {
+   "n": 94,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 285.23,
+   "sale": 288.89,
+   "escena": "Ellos también lo pensaban"
+  },
+  {
+   "n": 95,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 288.89,
+   "sale": 292.34,
+   "escena": "Y se lo pedía Harvard"
+  }
+ ],
+ "cues": [
+  {
+   "start": 0.0,
+   "end": 8.32,
+   "text": "Antes de ser el Unabomber, Theodore Kaczynski fue esto: un chico de dieciséis años, el más joven de su clase, recién entrado a Harvard."
+  },
+  {
+   "start": 8.32,
+   "end": 9.71,
+   "text": "Ponte en su lugar."
+  },
+  {
+   "start": 9.71,
+   "end": 15.26,
+   "text": "Tienes dieciséis años y acabas de entrar en Harvard, eres el más joven de tu clase."
+  },
+  {
+   "start": 15.26,
+   "end": 19.42,
+   "text": "Un profesor te invita a un estudio sobre la personalidad y aceptas."
+  },
+  {
+   "start": 19.42,
+   "end": 27.4,
+   "text": "Te piden que escribas en qué crees, tus principios, tu filosofía, lo que de verdad te importa, con todo el detalle que puedas."
+  },
+  {
+   "start": 27.4,
+   "end": 29.13,
+   "text": "Escribes páginas enteras, las entregas."
+  },
+  {
+   "start": 29.13,
+   "end": 39.53,
+   "text": "Semanas después te sientan en una silla frente a un espejo que solo se ve por un lado, te apuntan a la cara con focos, te conectan electrodos al pecho."
+  },
+  {
+   "start": 39.53,
+   "end": 48.55,
+   "text": "Y entra un desconocido con tus páginas en la mano y empieza a leerlas en voz alta, para destrozarlas una por una, delante de una cámara."
+  },
+  {
+   "start": 48.55,
+   "end": 49.94,
+   "text": "Esto pasó de verdad."
+  },
+  {
+   "start": 49.94,
+   "end": 54.45,
+   "text": "Diecisiete años después, el FBI le pondrá el nombre que ya conoces: Unabomber."
+  },
+  {
+   "start": 54.45,
+   "end": 59.65,
+   "text": "La pregunta que todo el mundo hace es si una cosa llevó a la otra."
+  },
+  {
+   "start": 59.65,
+   "end": 62.77,
+   "text": "La respuesta honesta es que no se puede demostrar."
+  },
+  {
+   "start": 62.77,
+   "end": 70.05,
+   "text": "Pero lo que sí sabemos es exactamente qué le hicieron, quién se lo hizo, y que nadie pagó nunca por ello."
+  },
+  {
+   "start": 70.05,
+   "end": 72.13,
+   "text": "El profesor se llama Henry Murray."
+  },
+  {
+   "start": 72.13,
+   "end": 79.76,
+   "text": "Antes de dar clase en Harvard trabajó para la OSS, el servicio de inteligencia que fue el antecedente directo de la CIA."
+  },
+  {
+   "start": 79.76,
+   "end": 84.62,
+   "text": "Su trabajo allí era diseñar pruebas para medir cuánto aguantaba un espía bajo interrogatorio."
+  },
+  {
+   "start": 84.62,
+   "end": 87.39,
+   "text": "Cuando llegó a Harvard no cambió de oficio."
+  },
+  {
+   "start": 87.39,
+   "end": 88.43,
+   "text": "Cambió de sujetos."
+  },
+  {
+   "start": 88.43,
+   "end": 91.9,
+   "text": "En mil novecientos cincuenta y nueve reclutó a veintidós estudiantes."
+  },
+  {
+   "start": 91.9,
+   "end": 96.06,
+   "text": "A ninguno le contó, mientras duraba, qué se estaba midiendo en realidad."
+  },
+  {
+   "start": 96.06,
+   "end": 98.14,
+   "text": "El primer paso era esa redacción."
+  },
+  {
+   "start": 98.14,
+   "end": 99.87,
+   "text": "Y no era solo filosofía."
+  },
+  {
+   "start": 99.87,
+   "end": 106.46,
+   "text": "Se les pedía escribir sobre lo más íntimo que tenían, cosas que uno no cuenta ni a sus amigos."
+  },
+  {
+   "start": 106.46,
+   "end": 111.66,
+   "text": "Muchos lo hicieron con una sinceridad enorme, porque creían que aquello era un ejercicio académico."
+  },
+  {
+   "start": 111.66,
+   "end": 115.83,
+   "text": "Lo que ninguno sabía es que ese texto no era el estudio."
+  },
+  {
+   "start": 115.83,
+   "end": 116.87,
+   "text": "Era la munición."
+  },
+  {
+   "start": 116.87,
+   "end": 118.95,
+   "text": "El segundo paso era la sala."
+  },
+  {
+   "start": 118.95,
+   "end": 123.8,
+   "text": "Los focos, el espejo, los electrodos midiendo el pulso y la respiración mientras ocurría."
+  },
+  {
+   "start": 123.8,
+   "end": 127.96,
+   "text": "El tercer paso era el hombre que entraba a discutir con ellos."
+  },
+  {
+   "start": 127.96,
+   "end": 130.04,
+   "text": "Se suponía que era otro estudiante."
+  },
+  {
+   "start": 130.04,
+   "end": 131.08,
+   "text": "No lo era."
+  },
+  {
+   "start": 131.08,
+   "end": 142.18,
+   "text": "Era un estudiante de Derecho, entrenado de antemano para atacar sus ideas y ridiculizar sus valores, usando sus propias páginas, con un único objetivo: ponerlos todo lo furiosos que fuera humanamente posible."
+  },
+  {
+   "start": 142.18,
+   "end": 148.42,
+   "text": "El propio Murray describió esos interrogatorios con dos palabras suyas, escritas de su puño: vehementes, y personalmente abusivos."
+  },
+  {
+   "start": 148.42,
+   "end": 152.24,
+   "text": "Y aquí viene la parte que convierte esto en otra cosa."
+  },
+  {
+   "start": 152.24,
+   "end": 153.28,
+   "text": "Todo se grababa."
+  },
+  {
+   "start": 153.28,
+   "end": 157.09,
+   "text": "Su cara, sus gestos, el momento exacto en que se quebraban."
+  },
+  {
+   "start": 157.09,
+   "end": 161.6,
+   "text": "Y después los sentaban delante de la grabación y les obligaban a verse."
+  },
+  {
+   "start": 161.6,
+   "end": 163.68,
+   "text": "A veces, más de una vez."
+  },
+  {
+   "start": 163.68,
+   "end": 165.07,
+   "text": "No bastaba con humillarte."
+  },
+  {
+   "start": 165.07,
+   "end": 166.8,
+   "text": "Tenías que mirarte siendo humillado."
+  },
+  {
+   "start": 166.8,
+   "end": 168.19,
+   "text": "Aquello duró tres años."
+  },
+  {
+   "start": 168.19,
+   "end": 172.35,
+   "text": "De mil novecientos cincuenta y nueve a mil novecientos sesenta y dos."
+  },
+  {
+   "start": 172.35,
+   "end": 175.47,
+   "text": "Kaczynski entró con dieciséis años y salió con diecinueve."
+  },
+  {
+   "start": 175.47,
+   "end": 179.63,
+   "text": "A cada estudiante le asignaron un nombre en clave para los informes."
+  },
+  {
+   "start": 179.63,
+   "end": 181.37,
+   "text": "El de Kaczynski era Lawful."
+  },
+  {
+   "start": 181.37,
+   "end": 182.76,
+   "text": "Respetuoso de la ley."
+  },
+  {
+   "start": 182.76,
+   "end": 189.0,
+   "text": "Entre mil novecientos setenta y ocho y mil novecientos noventa y cinco, Theodore Kaczynski envió dieciséis paquetes bomba."
+  },
+  {
+   "start": 189.0,
+   "end": 191.77,
+   "text": "Mató a tres personas e hirió a veintitrés."
+  },
+  {
+   "start": 191.77,
+   "end": 197.32,
+   "text": "Ninguna de ellas tuvo nada que ver con Harvard, ni con Murray, ni con aquella sala."
+  },
+  {
+   "start": 197.32,
+   "end": 202.18,
+   "text": "Eran un dueño de una tienda de informática, un ejecutivo de publicidad, un maderero."
+  },
+  {
+   "start": 202.18,
+   "end": 205.64,
+   "text": "Gente que no supo nunca por qué le había tocado."
+  },
+  {
+   "start": 205.64,
+   "end": 212.58,
+   "text": "Y aquí es donde hay que tener cuidado, porque la historia fácil es decir que Harvard fabricó a un asesino."
+  },
+  {
+   "start": 212.58,
+   "end": 213.97,
+   "text": "Eso no se sostiene."
+  },
+  {
+   "start": 213.97,
+   "end": 219.52,
+   "text": "Los otros veintiún estudiantes pasaron por exactamente lo mismo, y ninguno hizo lo que hizo él."
+  },
+  {
+   "start": 219.52,
+   "end": 221.6,
+   "text": "Un experimento no aprieta un gatillo."
+  },
+  {
+   "start": 221.6,
+   "end": 228.18,
+   "text": "Lo que hizo Kaczynski lo decidió Kaczynski, y hay tres familias que llevan cincuenta años viviendo con esa decisión."
+  },
+  {
+   "start": 228.18,
+   "end": 231.31,
+   "text": "Lo incómodo no es que el experimento lo explique."
+  },
+  {
+   "start": 231.31,
+   "end": 234.08,
+   "text": "Lo incómodo es que el experimento ocurrió igual."
+  },
+  {
+   "start": 234.08,
+   "end": 237.89,
+   "text": "Ocurrió con veintidós chavales que no sabían dónde se estaban metiendo."
+  },
+  {
+   "start": 237.89,
+   "end": 241.02,
+   "text": "Ocurrió durante tres años sin que nadie lo parara."
+  },
+  {
+   "start": 241.02,
+   "end": 251.77,
+   "text": "Y ocurrió en la universidad más prestigiosa del mundo, firmado por un hombre que siguió dando clase, recibiendo premios y muriendo homenajeado como uno de los grandes psicólogos de su siglo."
+  },
+  {
+   "start": 251.77,
+   "end": 258.01,
+   "text": "Cuando el caso salió a la luz, décadas después, los archivos de aquel estudio se cerraron al público."
+  },
+  {
+   "start": 258.01,
+   "end": 272.23,
+   "text": "Las normas que hoy obligan a explicarle a una persona en qué consiste un experimento antes de meterla dentro, a decirle que puede marcharse cuando quiera, a no mentirle sobre lo que le vas a hacer, no existían en aquella sala."
+  },
+  {
+   "start": 272.23,
+   "end": 275.0,
+   "text": "Existen ahora, en parte, por cosas como esta."
+  },
+  {
+   "start": 275.0,
+   "end": 279.16,
+   "text": "Los otros veintiún estudiantes terminaron la carrera y siguieron con sus vidas."
+  },
+  {
+   "start": 279.16,
+   "end": 281.94,
+   "text": "La mayoría no volvió a hablar del tema."
+  },
+  {
+   "start": 281.94,
+   "end": 288.87,
+   "text": "Y si estás pensando que tú te habrías levantado y te habrías ido, recuerda una cosa: ellos también lo pensaban."
+  },
+  {
+   "start": 288.87,
+   "end": 290.61,
+   "text": "Tenían dieciséis, diecisiete, dieciocho años."
+  },
+  {
+   "start": 290.61,
+   "end": 292.34,
+   "text": "Y se lo pedía Harvard."
+  }
+ ],
+ "total": 95,
+ "creado": 1789374619000
+}
