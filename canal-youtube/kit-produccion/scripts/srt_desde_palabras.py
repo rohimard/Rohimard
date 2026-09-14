@@ -196,7 +196,7 @@ def main() -> None:
     fin = bloques[-1][-1]["sale"]
     total = len(guion.split())
     print(f"{destino}")
-    print(f"  palabras del guion: {total} · marcas de Azure: {len(marcas)} · "
+    print(f"  palabras del guion: {total} · marcas: {len(marcas)} · "
           f"emparejadas: {len(palabras)}")
     print(f"  {len(bloques)} subtítulos · última palabra a {fin:.2f}s")
     # Lo que importa es cuánto está el subtítulo en pantalla, no el hueco que

@@ -18,6 +18,14 @@
 # y esta documentado en kit-produccion/scripts/sync_desde_transcripcion.md,
 # pero Scribe se factura: ~1.650 creditos por cinco minutos de audio.
 #
+# HACE FALTA ALINEAR ANTES DE MONTAR EL SRT
+# srt_desde_palabras.py da por hecho que la marca trae la palabra tal como la
+# escribe el guion. Con Azure es cierto; con Whisper no, porque escribe lo que
+# oye ("16, 17, 18" donde el guion dice "dieciseis, diecisiete, dieciocho") y
+# ese emparejamiento glaton agota marcas antes que palabras y CORTA: en la
+# primera tirada dejo fuera las ultimas 46 palabras del guion. Por eso en medio
+# va alinear_asr.py, que alinea las dos secuencias enteras con difflib.
+#
 # LA PRECISION NO DEPENDE DE QUE WHISPER ENTIENDA BIEN
 # No hace falta un modelo grande. El texto ya se conoce -- es guion-voz.txt --
 # y srt_desde_palabras.py empareja guion y marcas tolerando los deslices del
@@ -115,30 +123,34 @@ jobs:
                 f"{time.time()-t0:.0f}s de proceso")
           PY
 
-      - name: Montar el SRT contra el guion
+      - name: Alinear las marcas con el guion
         env:
           GUION: ${{ steps.cfg.outputs.guion }}
-          AUDIO: ${{ steps.cfg.outputs.audio }}
+        run: |
+          python3 canal-youtube/kit-produccion/scripts/alinear_asr.py \
+            "$GUION" salida/palabras.json salida/palabras-guion.json
+
+      - name: Montar el SRT
+        env:
+          GUION: ${{ steps.cfg.outputs.guion }}
         run: |
           python3 canal-youtube/kit-produccion/scripts/srt_desde_palabras.py \
-            "$GUION" salida/palabras.json salida/subtitulos.srt
+            "$GUION" salida/palabras-guion.json salida/subtitulos.srt
 
-          # Control de que el emparejamiento no se ha ido: si el ultimo
-          # subtitulo no cae cerca del final del audio, algo se desalineo y es
-          # mejor verlo aqui que en el montaje. No se hace fallar el trabajo,
-          # porque el SRT ya generado sirve para revisarlo a mano.
+          # Control de que no se ha cortado ni desalineado. La primera version
+          # media la duracion con ffprobe, que NO esta instalado en el runner y
+          # tiraba el paso entero con el SRT ya escrito. La ultima marca sirve
+          # igual y no necesita nada de fuera.
           python3 - <<'PY'
-          import os, re, subprocess
+          import json, re
+          marcas = json.load(open("salida/palabras-guion.json", encoding="utf-8"))
+          audio = marcas[-1]["entra"] + marcas[-1]["dura"]
           srt = open("salida/subtitulos.srt", encoding="utf-8").read()
           h, m, s, ms = re.findall(r"--> (\d\d):(\d\d):(\d\d),(\d+)", srt)[-1]
           ultimo = int(h)*3600 + int(m)*60 + int(s) + int(ms)/1000
-          dur = float(subprocess.run(
-              ["ffprobe", "-v", "error", "-show_entries", "format=duration",
-               "-of", "default=nw=1:nk=1", os.environ["AUDIO"]],
-              capture_output=True, text=True, check=True).stdout)
-          print(f"último subtítulo sale en {ultimo:.2f}s · audio {dur:.2f}s · "
-                f"desfase {dur - ultimo:+.2f}s")
-          if abs(dur - ultimo) > 3.0:
+          print(f"última palabra a {audio:.2f}s · último subtítulo sale en "
+                f"{ultimo:.2f}s · desfase {ultimo - audio:+.2f}s")
+          if abs(ultimo - audio) > 3.0:
               print("::warning::el final del SRT no cuadra con el del audio; "
                     "revisa el emparejamiento antes de quemarlo")
           PY

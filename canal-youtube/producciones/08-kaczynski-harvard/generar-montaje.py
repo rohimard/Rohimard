@@ -18,12 +18,14 @@ plano hacia atras en el tiempo respecto de la anterior, es un falso positivo
 (titulos que comparten palabras) y se descarta.
 """
 import csv
+import json
 import re
 import unicodedata
 
 GUION = "guion-voz.txt"
 PROMPTS = "prompts-imagenes.txt"
 AUDIO = "david-elevenlabs/david-narracion.mp3"
+PALABRAS = "palabras-guion.json"
 DURACION = 292.34
 CONFIANZA = 0.6
 SALIDA_MD = "hoja-montaje.md"
@@ -59,12 +61,32 @@ def main() -> None:
         for f in re.findall(r"[^.!?]+[.!?]+(?:\s|$)|[^.!?]+$", texto)
         if f.strip()
     ]
-    wps = len(texto.split()) / DURACION
-    inicio, t = [], 0.0
+
+    # Cuando suena cada frase. ANTES se repartia el guion sobre la duracion a
+    # palabras por segundo constantes, que es justo el error que este proyecto
+    # ya se comio dos veces: el narrador no habla a ritmo constante. Medido
+    # contra la transcripcion, esa estimacion ponia la palabra "Lawful" en el
+    # segundo 179,6 cuando suena en el 182,9 -- 3,3 s de desfase en el plano
+    # que mas importa que caiga en su sitio.
+    #
+    # Ahora los tiempos salen de palabras-guion.json: cada palabra del guion
+    # con el segundo MEDIDO en que se pronuncia. Se recorren las frases
+    # consumiendo palabras en orden, que es el mismo orden en que se
+    # alinearon, asi que la n-esima palabra de la frase k es la que toca.
+    marcas = json.load(open(PALABRAS, encoding="utf-8"))
+    cursor, inicio, fin = 0, [], []
     for f in frases:
-        inicio.append(t)
-        t += len(f.split()) / wps
-    fin = inicio[1:] + [DURACION]
+        cuantas = len(f.split())
+        trozo = marcas[cursor:cursor + cuantas]
+        assert trozo, f"sin marcas para la frase: {f[:40]}"
+        inicio.append(trozo[0]["entra"])
+        fin.append(trozo[-1]["entra"] + trozo[-1]["dura"])
+        cursor += cuantas
+    assert cursor == len(marcas), (
+        f"las frases suman {cursor} palabras y hay {len(marcas)} marcas")
+    # La ultima frase cierra donde acaba el audio, no donde acaba de hablar:
+    # el ultimo plano tiene que llegar hasta el final del fichero.
+    fin[-1] = DURACION
 
     # Anclas: titulo de plano -> frase que mas palabras comparte.
     crudas = []

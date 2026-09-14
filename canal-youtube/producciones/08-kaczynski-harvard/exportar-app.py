@@ -18,10 +18,10 @@ imagenes aparecen agrupadas por capitulo. Se usa una etiqueta corta por
 capitulo porque la app pinta el nombre del bloque en mayusculas como cabecera
 fija, y el titulo entero del capitulo no cabe en una linea de movil.
 
-Los subtitulos de la vista previa NO son una transcripcion: se reparten las
-frases del guion sobre la duracion real del audio al mismo ritmo con que se
-calcularon los tiempos de los planos. Sirven para comprobar el sincronismo en
-el movil; los subtitulos finales del video saldran de transcribir el audio.
+Los subtitulos de la vista previa salen de subtitulos.srt, que son los
+definitivos: tiempos medidos sobre el audio con Whisper y alineados contra el
+guion. Antes se estimaban repartiendo las frases a ritmo constante, que es de
+donde venia el desfase de 3,3 s en el plano de "Lawful".
 """
 import csv
 import json
@@ -30,6 +30,7 @@ import re
 ENTRADA = "hoja-montaje.csv"
 GUION = "guion-voz.txt"
 SEO = "seo.txt"
+SRT = "subtitulos.srt"
 SALIDA_CSV = "hoja-montaje-app.csv"
 SALIDA_JSON = "proyecto-app.json"
 TITULO = "Kaczynski y el experimento de Harvard"
@@ -74,17 +75,26 @@ def bloqueDe(cs, t):
 
 
 def subtitulos():
-    """Frases del guion repartidas sobre el audio, al ritmo real de la toma."""
-    texto = open(GUION, encoding="utf-8").read().strip()
-    frases = [f.strip() for f in
-              re.findall(r"[^.!?]+[.!?]+(?:\s|$)|[^.!?]+$", texto) if f.strip()]
-    wps = len(texto.split()) / DURACION
-    cues, t = [], 0.0
-    for f in frases:
-        d = len(f.split()) / wps
-        cues.append({"start": round(t, 2), "end": round(t + d, 2), "text": f})
-        t += d
-    assert abs(t - DURACION) < 0.01, f"los subtítulos cierran en {t:.2f}s"
+    """Los subtitulos definitivos, leidos del SRT ya generado."""
+    bruto = open(SRT, encoding="utf-8").read().strip()
+    cues = []
+    for bloque in re.split(r"\n\s*\n", bruto):
+        lineas = [l for l in bloque.strip().split("\n") if l.strip()]
+        if len(lineas) < 3:
+            continue
+        m = re.search(r"(\d\d):(\d\d):(\d\d),(\d+)\s*-->\s*"
+                      r"(\d\d):(\d\d):(\d\d),(\d+)", lineas[1])
+        assert m, f"línea de tiempos ilegible: {lineas[1]}"
+        a = [int(x) for x in m.groups()]
+        cues.append({
+            "start": round(a[0]*3600 + a[1]*60 + a[2] + a[3]/1000, 2),
+            "end": round(a[4]*3600 + a[5]*60 + a[6] + a[7]/1000, 2),
+            # La app pinta el texto en una linea sola; el salto del SRT es
+            # para el video quemado, aqui sobra.
+            "text": " ".join(lineas[2:]),
+        })
+    assert cues, "el SRT no traía ningún subtítulo"
+    assert cues[-1]["end"] <= DURACION + 0.5, "el SRT se pasa del audio"
     return cues
 
 
