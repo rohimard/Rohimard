@@ -1,0 +1,150 @@
+# Saca los subtitulos MIDIENDO el audio, no estimandolo, y sin gastar creditos.
+#
+# POR QUE AQUI Y NO EN LA SESION
+# Whisper es gratis: el modelo se descarga de huggingface.co y corre en CPU.
+# Pero la maquina donde trabajo sale a internet por un proxy de la
+# organizacion que deniega huggingface.co (403 al CONNECT), asi que el modelo
+# no se puede bajar alli. El runner de Actions no pasa por ese proxy. El repo
+# es publico, asi que los minutos no se pagan.
+#
+# POR QUE NO VALE EL METODO DEL VIDEO 7
+# Alli las marcas de palabra las daba Azure GRATIS al sintetizar: el SDK emite
+# un evento por palabra mientras genera el audio. Eso solo existe si Azure es
+# quien LOCUTA. El video 8 esta locutado con David (ElevenLabs), asi que no
+# hay marcas y hay que sacarlas del audio ya hecho.
+#
+# POR QUE NO VALE EL METODO DE LOS VIDEOS 2 Y 4
+# Troceaban el audio y transcribian cada trozo con ElevenLabs Scribe. Funciona
+# y esta documentado en kit-produccion/scripts/sync_desde_transcripcion.md,
+# pero Scribe se factura: ~1.650 creditos por cinco minutos de audio.
+#
+# LA PRECISION NO DEPENDE DE QUE WHISPER ENTIENDA BIEN
+# No hace falta un modelo grande. El texto ya se conoce -- es guion-voz.txt --
+# y srt_desde_palabras.py empareja guion y marcas tolerando los deslices del
+# reconocedor. De Whisper solo se aprovecha CUANDO suena cada palabra, no que
+# palabra cree que es.
+name: subtitulos-whisper
+
+# Igual que el resto: dispara un fichero centinela, nunca el propio workflow,
+# para poder tocar el codigo sin lanzar una transcripcion de veinte minutos.
+on:
+  push:
+    paths:
+      - 'canal-youtube/.whisper-disparo'
+
+permissions:
+  contents: write
+
+jobs:
+  transcribir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Leer el centinela
+        id: cfg
+        run: |
+          set -e
+          F=canal-youtube/.whisper-disparo
+          # Se ignoran comentarios y lineas en blanco: las cuatro primeras
+          # lineas utiles son audio, guion, destino y modelo.
+          mapfile -t L < <(grep -v '^\s*#' "$F" | grep -v '^\s*$' | sed 's/[[:space:]]*$//')
+          for i in 0 1 2; do
+            [ -n "${L[$i]:-}" ] || { echo "::error::centinela incompleto (linea $((i+1)))"; exit 1; }
+          done
+          [ -f "${L[0]}" ] || { echo "::error::no existe el audio ${L[0]}"; exit 1; }
+          [ -f "${L[1]}" ] || { echo "::error::no existe el guion ${L[1]}"; exit 1; }
+          echo "audio=${L[0]}"   >> $GITHUB_OUTPUT
+          echo "guion=${L[1]}"   >> $GITHUB_OUTPUT
+          echo "destino=${L[2]}" >> $GITHUB_OUTPUT
+          echo "modelo=${L[3]:-medium}" >> $GITHUB_OUTPUT
+          echo "audio=${L[0]} · guion=${L[1]} · modelo=${L[3]:-medium}"
+
+      # El modelo son cientos de MB y no cambia entre tiradas: cachearlo se
+      # come el grueso del tiempo de arranque en la segunda pasada en adelante.
+      - name: Caché del modelo
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-${{ steps.cfg.outputs.modelo }}
+
+      - run: pip install -q faster-whisper
+
+      - name: Transcribir con marcas de palabra
+        env:
+          AUDIO: ${{ steps.cfg.outputs.audio }}
+          MODELO: ${{ steps.cfg.outputs.modelo }}
+        run: |
+          mkdir -p salida
+          python3 - <<'PY'
+          import json, os, time
+          from faster_whisper import WhisperModel
+
+          t0 = time.time()
+          m = WhisperModel(os.environ["MODELO"], device="cpu",
+                           compute_type="int8", cpu_threads=os.cpu_count())
+          print(f"modelo {os.environ['MODELO']} listo en {time.time()-t0:.0f}s",
+                flush=True)
+
+          # vad_filter recorta los silencios antes de decodificar. Ademas de ir
+          # mas rapido evita que el modelo alucine texto sobre el aire: en una
+          # narracion con pausas largas es donde suele inventar.
+          segs, _ = m.transcribe(os.environ["AUDIO"], language="es",
+                                 word_timestamps=True, vad_filter=True,
+                                 beam_size=5)
+
+          # Se escribe con las mismas claves que emitia Azure (texto/entra/dura)
+          # para que srt_desde_palabras.py sirva sin tocarlo.
+          marcas = []
+          for s in segs:
+              for w in (s.words or []):
+                  t = w.word.strip()
+                  if t:
+                      marcas.append({"texto": t,
+                                     "entra": round(w.start, 3),
+                                     "dura": round(w.end - w.start, 3)})
+              print(f"  {s.end:7.2f}s  {len(marcas):4d} palabras", flush=True)
+
+          if not marcas:
+              raise SystemExit("::error::la transcripción salió vacía")
+          json.dump(marcas, open("salida/palabras.json", "w", encoding="utf-8"),
+                    ensure_ascii=False)
+          fin = marcas[-1]["entra"] + marcas[-1]["dura"]
+          print(f"\n{len(marcas)} palabras · última a {fin:.2f}s · "
+                f"{time.time()-t0:.0f}s de proceso")
+          PY
+
+      - name: Montar el SRT contra el guion
+        env:
+          GUION: ${{ steps.cfg.outputs.guion }}
+          AUDIO: ${{ steps.cfg.outputs.audio }}
+        run: |
+          python3 canal-youtube/kit-produccion/scripts/srt_desde_palabras.py \
+            "$GUION" salida/palabras.json salida/subtitulos.srt
+
+          # Control de que el emparejamiento no se ha ido: si el ultimo
+          # subtitulo no cae cerca del final del audio, algo se desalineo y es
+          # mejor verlo aqui que en el montaje. No se hace fallar el trabajo,
+          # porque el SRT ya generado sirve para revisarlo a mano.
+          python3 - <<'PY'
+          import os, re, subprocess
+          srt = open("salida/subtitulos.srt", encoding="utf-8").read()
+          h, m, s, ms = re.findall(r"--> (\d\d):(\d\d):(\d\d),(\d+)", srt)[-1]
+          ultimo = int(h)*3600 + int(m)*60 + int(s) + int(ms)/1000
+          dur = float(subprocess.run(
+              ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+               "-of", "default=nw=1:nk=1", os.environ["AUDIO"]],
+              capture_output=True, text=True, check=True).stdout)
+          print(f"último subtítulo sale en {ultimo:.2f}s · audio {dur:.2f}s · "
+                f"desfase {dur - ultimo:+.2f}s")
+          if abs(dur - ultimo) > 3.0:
+              print("::warning::el final del SRT no cuadra con el del audio; "
+                    "revisa el emparejamiento antes de quemarlo")
+          PY
+
+      - uses: ./.github/actions/devolver
+        if: always()
+        with:
+          destino: ${{ steps.cfg.outputs.destino }}
+          mensaje: 'subtitulos: transcripción local con Whisper (sin créditos)'
