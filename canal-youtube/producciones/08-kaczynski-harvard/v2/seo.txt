@@ -4,12 +4,24 @@ SEO — Vídeo 8 v2 (Kaczynski y el experimento de Harvard)
 TÍTULO
 ===================================================================
 
-RECOMENDADO:
-Harvard hizo esto con 22 chicos. Uno acabó siendo el Unabomber
+RECOMENDADO (58 caracteres, no se corta en móvil):
+Harvard destrozó a 22 chicos. Uno acabó siendo el Unabomber
+
+  "destrozó" y no "hizo esto": el segundo es vago y huele a cebo
+  generico, que en este nicho sobra. "Destrozo" es el verbo que usa el
+  propio guion ("va a leerlos en voz alta para destrozarte con ellos") y
+  es defendible -- Murray escribio de su puno "vehemente y personalmente
+  abusivo". NO usar "torturo": eso ya es pasarse, y este canal vive de
+  no pasarse.
+
+  "22 chicos" promete escala, no anecdota. Es lo que cambio en el guion:
+  ya no va de un chico de dieciseis anos, va de veintidos.
 
 Alternativas:
 Tenía 16 años cuando lo sentaron en esa silla. Después fue el Unabomber
-El experimento de Harvard que duró 3 años y nadie pagó por él
+El experimento de Harvard que duró 3 años y nadie pagó por él  <- sin la
+  palabra clave: el giro del 3:10 pasa a ser sorpresa real, pero se
+  renuncia al pico de busqueda del estreno. No recomendado esta vez.
 
 DECISIÓN DE FONDO, Y ES TUYA:
 El guion esconde la identidad hasta el 3:10. El título la regala.
