@@ -53,6 +53,11 @@ canal-youtube/.google-tts-key
 __pycache__/
 *.pyc
 
+# Lista que montar-video.py le pasa al demuxer concat de ffmpeg. Se regenera
+# en cada render y lleva rutas ABSOLUTAS de la maquina donde se monto, asi que
+# versionada no sirve en ninguna otra y ademas ensucia el diff.
+canal-youtube/producciones/**/lista-concat.txt
+
 # Marcadores provisionales de planos sin imagen. Nunca al repo: montar_video.js
 # busca la imagen por su numero, asi que un marcador versionado se colaria en el
 # video final como si fuera el plano bueno, que es justo lo que "rellenar": false
