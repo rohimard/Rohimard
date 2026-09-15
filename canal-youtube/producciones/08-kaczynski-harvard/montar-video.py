@@ -113,16 +113,24 @@ def main() -> None:
         cadena += f"concat=n={len(rutas)}:v=1:a=0"
         cadena += f"{quemar}[vid]" if quemar else "[vid]"
 
-        # FALLO QUE HUBO AQUI: "-t 1" limitaba a un segundo fijo la entrada de
-        # CADA imagen, sin importar cuanto durara su plano de verdad (2 a 6 s
-        # segun la hoja). zoompan necesita fotogramas de entrada durante TODA
-        # la duracion del plano; en cuanto se agotaban al segundo 1, ffmpeg se
-        # quedaba repitiendo el ultimo fotograma disponible -- el plano se veia
-        # congelado el resto de su duracion. Cada imagen debe entrar el tiempo
-        # que le toca a SU plano, no un segundo parejo para todas.
+        # CADA IMAGEN ENTRA UNA SOLA VEZ, SIN -loop NI -t. No es un descuido:
+        # es lo unico que hace que zoompan cuadre.
+        #
+        # El parametro "d" de zoompan NO es "duracion del plano": es cuantos
+        # fotogramas saca POR CADA FOTOGRAMA DE ENTRADA. Alimentandolo con
+        # "-loop 1 -t {dur}" entraban ~25 fotogramas por segundo y el filtro
+        # multiplicaba cada uno por d. Medido: un plano de 3 s salia de 225 s
+        # (6750 fotogramas, 75 veces de mas). Como el montaje se corta luego
+        # con -shortest a la duracion del audio, el video duraba lo correcto
+        # pero las imagenes iban donde les daba la gana -- 11 de 12 cortes
+        # comprobados mostraban una imagen distinta de la que tocaba, con
+        # desfases de -67 a +25 planos.
+        #
+        # Con una sola imagen de entrada, zoompan la expande exactamente a sus
+        # "d" fotogramas: 90 fotogramas = 3,00 s para un plano de 3 s.
         cmd = ["ffmpeg", "-y"]
-        for p, d in rutas:
-            cmd += ["-loop", "1", "-t", f"{d:.3f}", "-i", p]
+        for p, _ in rutas:
+            cmd += ["-i", p]
         cmd += ["-i", args.audio, "-filter_complex", cadena, "-map", "[vid]",
                 "-map", f"{len(rutas)}:a"]
     else:
