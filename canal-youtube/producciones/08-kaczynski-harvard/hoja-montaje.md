@@ -2,7 +2,7 @@
 
 **Audio:** `david-elevenlabs/david-narracion.mp3` · 292.34s (4:52.34)
 **Imágenes:** 95, nombradas `001` … `095`
-**Duración por plano:** 1.60s la más corta, 5.50s la más larga, 3.08s de media
+**Duración por plano:** 1.60s la más corta, 5.50s la más larga, 2.81s de media
 
 ## Cómo están calculados los tiempos
 
@@ -10,7 +10,7 @@ Los tiempos de las frases son **medidos**, no estimados: salen de transcribir
 el audio real y alinear la transcripción con el guion palabra a palabra.
 
 Los planos se reparten sobre esas frases con una alineación global en orden
-(65 de 95 planos coinciden por texto con su frase). No hay anclas
+(66 de 104 planos coinciden por texto con su frase). No hay anclas
 sueltas ni tramos interpolados, que es de donde venía la deriva de la versión
 anterior: cada plano caía dos frases por delante de su narración.
 
@@ -33,33 +33,42 @@ verificar el sincronismo sin abrir el editor.
 | 9 | `009.png` | 0:13.02 | 0:14.62 | 1.60s | El papel en blanco | eres el más joven de tu clase. |
 | 10 | `010.png` | 0:14.62 | 0:17.22 | 2.60s | La habitación del colegio mayor | Un profesor te invita a un estudio sobre la personalidad y aceptas. |
 | 11 | `011.png` | 0:17.22 | 0:22.34 | 5.12s | Escribir lo que crees | Te piden que escribas en qué crees, tus principios, tu filosofía, |
-| 12 | `012.png` | 0:22.34 | 0:26.90 | 4.56s | Páginas y páginas | con todo el detalle que puedas. Escribes páginas enteras, las entregas. |
-| 13 | `013.png` | 0:26.90 | 0:28.50 | 1.60s | La entrega | Semanas después te sientan en una silla frente a un espejo que solo se ve por… |
-| 14 | `014.png` | 0:28.50 | 0:30.10 | 1.60s | Lo entregó él mismo | Semanas después te sientan en una silla frente a un espejo que solo se ve por… |
-| 15 | `015.png` | 0:30.10 | 0:31.70 | 1.60s | El pasillo del sótano | Semanas después te sientan en una silla frente a un espejo que solo se ve por… |
-| 16 | `016.png` | 0:31.70 | 0:33.30 | 1.60s | La silla | Semanas después te sientan en una silla frente a un espejo que solo se ve por… |
-| 17 | `017.png` | 0:33.30 | 0:34.90 | 1.60s | El espejo | Semanas después te sientan en una silla frente a un espejo que solo se ve por… |
-| 18 | `018.png` | 0:34.90 | 0:36.50 | 1.60s | Los electrodos | te conectan electrodos al pecho. |
-| 19 | `019.png` | 0:36.50 | 0:38.10 | 1.60s | La correa del brazo | Y entra un desconocido con tus páginas en la mano y empieza a leerlas en voz … |
-| 20 | `020.png` | 0:38.10 | 0:43.60 | 5.50s | El desconocido entra | Y entra un desconocido con tus páginas en la mano y empieza a leerlas en voz … |
-| 21 | `021.png` | 0:43.60 | 0:49.10 | 5.50s | El otro nombre | el FBI le pondrá el nombre que ya conoces: Unabomber. |
-| 22 | `022.png` | 0:49.10 | 0:54.60 | 5.50s | La pregunta | La pregunta que todo el mundo hace es si una cosa llevó a la otra. |
-| 23 | `023.png` | 0:54.60 | 1:00.10 | 5.50s | Murray, antes de Harvard | El profesor se llama Henry Murray. |
-| 24 | `024.png` | 1:00.10 | 1:05.60 | 5.50s | La OSS | Antes de dar clase en Harvard trabajó para la OSS, |
-| 25 | `025.png` | 1:05.60 | 1:11.10 | 5.50s | Medir al espía | Su trabajo allí era diseñar pruebas para medir cuánto aguantaba un espía bajo… |
-| 26 | `026.png` | 1:11.10 | 1:16.60 | 5.50s | Cambió de sujetos | Cuando llegó a Harvard no cambió de oficio. Cambió de sujetos. |
-| 27 | `027.png` | 1:16.60 | 1:22.10 | 5.50s | Veintidós | En mil novecientos cincuenta y nueve reclutó a veintidós estudiantes. |
-| 28 | `028.png` | 1:22.10 | 1:27.60 | 5.50s | Ninguno preguntó | A ninguno le contó, mientras duraba, |
-| 29 | `029.png` | 1:27.60 | 1:31.18 | 3.58s | Nadie supo para qué | qué se estaba midiendo en realidad. |
-| 30 | `030.png` | 1:31.18 | 1:35.32 | 4.14s | La redacción | El primer paso era esa redacción. |
-| 31 | `031.png` | 1:35.32 | 1:40.82 | 5.50s | Lo más íntimo | Se les pedía escribir sobre lo más íntimo que tenían, |
-| 32 | `032.png` | 1:40.82 | 1:46.32 | 5.50s | Sinceridad enorme | Muchos lo hicieron con una sinceridad enorme, |
-| 33 | `033.png` | 1:46.32 | 1:51.82 | 5.50s | La munición | Lo que ninguno sabía es que ese texto no era el estudio. Era la munición. |
-| 34 | `034.png` | 1:51.82 | 1:53.42 | 1.60s | La sala | El segundo paso era la sala. Los focos, el espejo, |
-| 35 | `035.png` | 1:53.42 | 1:55.02 | 1.60s | La antesala | El segundo paso era la sala. Los focos, el espejo, |
-| 36 | `036.png` | 1:55.02 | 1:56.62 | 1.60s | Los focos | El segundo paso era la sala. Los focos, el espejo, |
-| 37 | `037.png` | 1:56.62 | 1:58.22 | 1.60s | El pulso | los electrodos midiendo el pulso y la respiración mientras ocurría. |
-| 38 | `038.png` | 1:58.22 | 2:03.28 | 5.06s | La respiración | los electrodos midiendo el pulso y la respiración mientras ocurría. |
+| 12 | `012.png` | 0:22.34 | 0:24.46 | 2.12s | Páginas y páginas | con todo el detalle que puedas. Escribes páginas enteras, las entregas. |
+| 13 | `013.png` | 0:24.46 | 0:26.90 | 2.44s | La entrega | con todo el detalle que puedas. Escribes páginas enteras, las entregas. |
+| 14 | `014.png` | 0:26.90 | 0:28.50 | 1.60s | Lo entregó él mismo | Semanas después te sientan en una silla frente a un espejo que solo se ve por… |
+| 15 | `015.png` | 0:28.50 | 0:30.10 | 1.60s | El pasillo del sótano | Semanas después te sientan en una silla frente a un espejo que solo se ve por… |
+| 16 | `016.png` | 0:30.10 | 0:31.70 | 1.60s | La silla | Semanas después te sientan en una silla frente a un espejo que solo se ve por… |
+| 17 | `017.png` | 0:31.70 | 0:33.30 | 1.60s | El espejo | Semanas después te sientan en una silla frente a un espejo que solo se ve por… |
+| 18 | `018.png` | 0:33.30 | 0:34.90 | 1.60s | Los electrodos | te conectan electrodos al pecho. |
+| 19 | `019.png` | 0:34.90 | 0:37.33 | 2.43s | La correa del brazo | Y entra un desconocido con tus páginas en la mano y empieza a leerlas en voz … |
+| 20 | `020.png` | 0:37.33 | 0:42.83 | 5.50s | El desconocido entra | Y entra un desconocido con tus páginas en la mano y empieza a leerlas en voz … |
+| 21 | `021.png` | 0:42.83 | 0:48.33 | 5.50s | El otro nombre | el FBI le pondrá el nombre que ya conoces: Unabomber. |
+| 22 | `022.png` | 0:48.33 | 0:53.83 | 5.50s | La pregunta | La pregunta que todo el mundo hace es si una cosa llevó a la otra. |
+| 23 | `023.png` | 0:53.83 | 0:59.33 | 5.50s | Murray, antes de Harvard | El profesor se llama Henry Murray. |
+| 96 | `096.png` | 0:59.33 | 1:04.83 | 5.50s | La insignia de la OSS | Antes de dar clase en Harvard trabajó para la OSS, |
+| 24 | `024.png` | 1:04.83 | 1:08.49 | 3.66s | La OSS | Antes de dar clase en Harvard trabajó para la OSS, |
+| 97 | `097.png` | 1:08.49 | 1:10.09 | 1.60s | El informe clasificado | Antes de dar clase en Harvard trabajó para la OSS, |
+| 98 | `098.png` | 1:10.09 | 1:13.60 | 3.51s | El cronómetro | el servicio de inteligencia que fue el antecedente directo de la CIA. |
+| 25 | `025.png` | 1:13.60 | 1:16.07 | 2.47s | Medir al espía | Su trabajo allí era diseñar pruebas para medir cuánto aguantaba un espía bajo… |
+| 99 | `099.png` | 1:16.07 | 1:19.00 | 2.93s | La ventana del aula | Su trabajo allí era diseñar pruebas para medir cuánto aguantaba un espía bajo… |
+| 26 | `026.png` | 1:19.00 | 1:21.00 | 2.00s | Cambió de sujetos | Cuando llegó a Harvard no cambió de oficio. Cambió de sujetos. |
+| 100 | `100.png` | 1:21.00 | 1:23.14 | 2.14s | La convocatoria | Cuando llegó a Harvard no cambió de oficio. Cambió de sujetos. |
+| 27 | `027.png` | 1:23.14 | 1:25.21 | 2.07s | Veintidós | En mil novecientos cincuenta y nueve reclutó a veintidós estudiantes. |
+| 101 | `101.png` | 1:25.21 | 1:27.58 | 2.37s | La ficha completada | En mil novecientos cincuenta y nueve reclutó a veintidós estudiantes. |
+| 28 | `028.png` | 1:27.58 | 1:29.18 | 1.60s | Ninguno preguntó | A ninguno le contó, mientras duraba, |
+| 102 | `102.png` | 1:29.18 | 1:31.18 | 2.00s | El formulario firmado | qué se estaba midiendo en realidad. |
+| 29 | `029.png` | 1:31.18 | 1:32.78 | 1.60s | Nadie supo para qué | El primer paso era esa redacción. |
+| 30 | `030.png` | 1:32.78 | 1:35.32 | 2.54s | La redacción | El primer paso era esa redacción. |
+| 31 | `031.png` | 1:35.32 | 1:38.14 | 2.82s | Lo más íntimo | Se les pedía escribir sobre lo más íntimo que tenían, |
+| 103 | `103.png` | 1:38.14 | 1:40.82 | 2.68s | El reloj de pared | cosas que uno no cuenta ni a sus amigos. |
+| 32 | `032.png` | 1:40.82 | 1:43.84 | 3.02s | Sinceridad enorme | Muchos lo hicieron con una sinceridad enorme, |
+| 104 | `104.png` | 1:43.84 | 1:46.94 | 3.10s | Las hojas acumuladas | porque creían que aquello era un ejercicio académico. |
+| 33 | `033.png` | 1:46.94 | 1:51.88 | 4.94s | La munición | Lo que ninguno sabía es que ese texto no era el estudio. Era la munición. |
+| 34 | `034.png` | 1:51.88 | 1:53.48 | 1.60s | La sala | El segundo paso era la sala. Los focos, el espejo, |
+| 35 | `035.png` | 1:53.48 | 1:55.08 | 1.60s | La antesala | El segundo paso era la sala. Los focos, el espejo, |
+| 36 | `036.png` | 1:55.08 | 1:56.68 | 1.60s | Los focos | El segundo paso era la sala. Los focos, el espejo, |
+| 37 | `037.png` | 1:56.68 | 1:58.28 | 1.60s | El pulso | los electrodos midiendo el pulso y la respiración mientras ocurría. |
+| 38 | `038.png` | 1:58.28 | 2:03.28 | 5.00s | La respiración | los electrodos midiendo el pulso y la respiración mientras ocurría. |
 | 39 | `039.png` | 2:03.28 | 2:08.52 | 5.24s | No era otro estudiante | Se suponía que era otro estudiante. No lo era. |
 | 40 | `040.png` | 2:08.52 | 2:11.86 | 3.34s | Entrenado de antemano | entrenado de antemano para atacar sus ideas y ridiculizar sus valores, |
 | 41 | `041.png` | 2:11.86 | 2:14.44 | 2.58s | El ataque | usando sus propias páginas, |
@@ -72,12 +81,12 @@ verificar el sincronismo sin abrir el editor.
 | 48 | `048.png` | 2:35.36 | 2:37.32 | 1.96s | El momento exacto | el momento exacto en que se quebraban. |
 | 49 | `049.png` | 2:37.32 | 2:42.46 | 5.14s | Obligados a verse | Y después los sentaban delante de la grabación y les obligaban a verse. A veces, |
 | 50 | `050.png` | 2:42.46 | 2:45.58 | 3.12s | Más de una vez | más de una vez. |
-| 51 | `051.png` | 2:45.58 | 2:47.18 | 1.60s | Mirarte siendo humillado | Tenías que mirarte siendo humillado. |
-| 52 | `052.png` | 2:47.18 | 2:48.78 | 1.60s | Otra vez desde el principio | Tenías que mirarte siendo humillado. |
-| 53 | `053.png` | 2:48.78 | 2:54.28 | 5.50s | Tres años | Aquello duró tres años. |
-| 54 | `054.png` | 2:54.28 | 2:55.88 | 1.60s | Entró con dieciséis | Kaczynski entró con dieciséis años y salió con diecinueve. |
-| 55 | `055.png` | 2:55.88 | 3:01.38 | 5.50s | Salió con diecinueve | Kaczynski entró con dieciséis años y salió con diecinueve. |
-| 56 | `056.png` | 3:01.38 | 3:03.76 | 2.38s | Lawful | El de Kaczynski era Lawful. |
+| 51 | `051.png` | 2:45.58 | 2:48.04 | 2.46s | Mirarte siendo humillado | Tenías que mirarte siendo humillado. |
+| 52 | `052.png` | 2:48.04 | 2:49.64 | 1.60s | Otra vez desde el principio | Aquello duró tres años. |
+| 53 | `053.png` | 2:49.64 | 2:54.42 | 4.78s | Tres años | Aquello duró tres años. |
+| 54 | `054.png` | 2:54.42 | 2:56.02 | 1.60s | Entró con dieciséis | Kaczynski entró con dieciséis años y salió con diecinueve. |
+| 55 | `055.png` | 2:56.02 | 3:01.52 | 5.50s | Salió con diecinueve | Kaczynski entró con dieciséis años y salió con diecinueve. |
+| 56 | `056.png` | 3:01.52 | 3:03.76 | 2.24s | Lawful | El de Kaczynski era Lawful. |
 | 57 | `057.png` | 3:03.76 | 3:05.76 | 2.00s | Respetuoso de la ley | Respetuoso de la ley. |
 | 58 | `058.png` | 3:05.76 | 3:09.64 | 3.88s | El expediente | Entre mil novecientos setenta y ocho y mil novecientos noventa y cinco, |
 | 59 | `059.png` | 3:09.64 | 3:12.86 | 3.22s | Diecisiete años después | Theodore Kaczynski envió dieciséis paquetes bomba. |

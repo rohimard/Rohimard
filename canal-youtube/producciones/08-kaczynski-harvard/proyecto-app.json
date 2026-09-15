@@ -82,132 +82,181 @@
    "n": 12,
    "bloque": "GANCHO",
    "entra": 22.34,
-   "sale": 26.9,
+   "sale": 24.46,
    "escena": "Páginas y páginas"
   },
   {
    "n": 13,
    "bloque": "GANCHO",
-   "entra": 26.9,
-   "sale": 28.5,
+   "entra": 24.46,
+   "sale": 26.9,
    "escena": "La entrega"
   },
   {
    "n": 14,
    "bloque": "GANCHO",
-   "entra": 28.5,
-   "sale": 30.1,
+   "entra": 26.9,
+   "sale": 28.5,
    "escena": "Lo entregó él mismo"
   },
   {
    "n": 15,
    "bloque": "GANCHO",
-   "entra": 30.1,
-   "sale": 31.7,
+   "entra": 28.5,
+   "sale": 30.1,
    "escena": "El pasillo del sótano"
   },
   {
    "n": 16,
    "bloque": "GANCHO",
-   "entra": 31.7,
-   "sale": 33.3,
+   "entra": 30.1,
+   "sale": 31.7,
    "escena": "La silla"
   },
   {
    "n": 17,
    "bloque": "GANCHO",
-   "entra": 33.3,
-   "sale": 34.9,
+   "entra": 31.7,
+   "sale": 33.3,
    "escena": "El espejo"
   },
   {
    "n": 18,
    "bloque": "GANCHO",
-   "entra": 34.9,
-   "sale": 36.5,
+   "entra": 33.3,
+   "sale": 34.9,
    "escena": "Los electrodos"
   },
   {
    "n": 19,
    "bloque": "GANCHO",
-   "entra": 36.5,
-   "sale": 38.1,
+   "entra": 34.9,
+   "sale": 37.33,
    "escena": "La correa del brazo"
   },
   {
    "n": 20,
    "bloque": "GANCHO",
-   "entra": 38.1,
-   "sale": 43.6,
+   "entra": 37.33,
+   "sale": 42.83,
    "escena": "El desconocido entra"
   },
   {
    "n": 21,
    "bloque": "GANCHO",
-   "entra": 43.6,
-   "sale": 49.1,
+   "entra": 42.83,
+   "sale": 48.33,
    "escena": "El otro nombre"
   },
   {
    "n": 22,
    "bloque": "MURRAY",
-   "entra": 49.1,
-   "sale": 54.6,
+   "entra": 48.33,
+   "sale": 53.83,
    "escena": "La pregunta"
   },
   {
    "n": 23,
    "bloque": "MURRAY",
-   "entra": 54.6,
-   "sale": 60.1,
+   "entra": 53.83,
+   "sale": 59.33,
    "escena": "Murray, antes de Harvard"
+  },
+  {
+   "n": 96,
+   "bloque": "MURRAY",
+   "entra": 59.33,
+   "sale": 64.83,
+   "escena": "La insignia de la OSS"
   },
   {
    "n": 24,
    "bloque": "MURRAY",
-   "entra": 60.1,
-   "sale": 65.6,
+   "entra": 64.83,
+   "sale": 68.49,
    "escena": "La OSS"
+  },
+  {
+   "n": 97,
+   "bloque": "MURRAY",
+   "entra": 68.49,
+   "sale": 70.09,
+   "escena": "El informe clasificado"
+  },
+  {
+   "n": 98,
+   "bloque": "MURRAY",
+   "entra": 70.09,
+   "sale": 73.6,
+   "escena": "El cronómetro"
   },
   {
    "n": 25,
    "bloque": "MURRAY",
-   "entra": 65.6,
-   "sale": 71.1,
+   "entra": 73.6,
+   "sale": 76.07,
    "escena": "Medir al espía"
+  },
+  {
+   "n": 99,
+   "bloque": "MURRAY",
+   "entra": 76.07,
+   "sale": 79.0,
+   "escena": "La ventana del aula"
   },
   {
    "n": 26,
    "bloque": "MURRAY",
-   "entra": 71.1,
-   "sale": 76.6,
+   "entra": 79.0,
+   "sale": 81.0,
    "escena": "Cambió de sujetos"
+  },
+  {
+   "n": 100,
+   "bloque": "MURRAY",
+   "entra": 81.0,
+   "sale": 83.14,
+   "escena": "La convocatoria"
   },
   {
    "n": 27,
    "bloque": "MURRAY",
-   "entra": 76.6,
-   "sale": 82.1,
+   "entra": 83.14,
+   "sale": 85.21,
    "escena": "Veintidós"
   },
   {
+   "n": 101,
+   "bloque": "LA REDACCIÓN",
+   "entra": 85.21,
+   "sale": 87.58,
+   "escena": "La ficha completada"
+  },
+  {
    "n": 28,
-   "bloque": "MURRAY",
-   "entra": 82.1,
-   "sale": 87.6,
+   "bloque": "LA REDACCIÓN",
+   "entra": 87.58,
+   "sale": 89.18,
    "escena": "Ninguno preguntó"
+  },
+  {
+   "n": 102,
+   "bloque": "LA REDACCIÓN",
+   "entra": 89.18,
+   "sale": 91.18,
+   "escena": "El formulario firmado"
   },
   {
    "n": 29,
    "bloque": "LA REDACCIÓN",
-   "entra": 87.6,
-   "sale": 91.18,
+   "entra": 91.18,
+   "sale": 92.78,
    "escena": "Nadie supo para qué"
   },
   {
    "n": 30,
    "bloque": "LA REDACCIÓN",
-   "entra": 91.18,
+   "entra": 92.78,
    "sale": 95.32,
    "escena": "La redacción"
   },
@@ -215,55 +264,69 @@
    "n": 31,
    "bloque": "LA REDACCIÓN",
    "entra": 95.32,
-   "sale": 100.82,
+   "sale": 98.14,
    "escena": "Lo más íntimo"
+  },
+  {
+   "n": 103,
+   "bloque": "LA REDACCIÓN",
+   "entra": 98.14,
+   "sale": 100.82,
+   "escena": "El reloj de pared"
   },
   {
    "n": 32,
    "bloque": "LA REDACCIÓN",
    "entra": 100.82,
-   "sale": 106.32,
+   "sale": 103.84,
    "escena": "Sinceridad enorme"
+  },
+  {
+   "n": 104,
+   "bloque": "LA REDACCIÓN",
+   "entra": 103.84,
+   "sale": 106.94,
+   "escena": "Las hojas acumuladas"
   },
   {
    "n": 33,
    "bloque": "LA REDACCIÓN",
-   "entra": 106.32,
-   "sale": 111.82,
+   "entra": 106.94,
+   "sale": 111.88,
    "escena": "La munición"
   },
   {
    "n": 34,
    "bloque": "LA REDACCIÓN",
-   "entra": 111.82,
-   "sale": 113.42,
+   "entra": 111.88,
+   "sale": 113.48,
    "escena": "La sala"
   },
   {
    "n": 35,
    "bloque": "LA REDACCIÓN",
-   "entra": 113.42,
-   "sale": 115.02,
+   "entra": 113.48,
+   "sale": 115.08,
    "escena": "La antesala"
   },
   {
    "n": 36,
    "bloque": "LA REDACCIÓN",
-   "entra": 115.02,
-   "sale": 116.62,
+   "entra": 115.08,
+   "sale": 116.68,
    "escena": "Los focos"
   },
   {
    "n": 37,
    "bloque": "LA REDACCIÓN",
-   "entra": 116.62,
-   "sale": 118.22,
+   "entra": 116.68,
+   "sale": 118.28,
    "escena": "El pulso"
   },
   {
    "n": 38,
    "bloque": "LA REDACCIÓN",
-   "entra": 118.22,
+   "entra": 118.28,
    "sale": 123.28,
    "escena": "La respiración"
   },
@@ -355,41 +418,41 @@
    "n": 51,
    "bloque": "LAS GRABACIONES",
    "entra": 165.58,
-   "sale": 167.18,
+   "sale": 168.04,
    "escena": "Mirarte siendo humillado"
   },
   {
    "n": 52,
    "bloque": "LAS GRABACIONES",
-   "entra": 167.18,
-   "sale": 168.78,
+   "entra": 168.04,
+   "sale": 169.64,
    "escena": "Otra vez desde el principio"
   },
   {
    "n": 53,
    "bloque": "LAS GRABACIONES",
-   "entra": 168.78,
-   "sale": 174.28,
+   "entra": 169.64,
+   "sale": 174.42,
    "escena": "Tres años"
   },
   {
    "n": 54,
    "bloque": "LAS GRABACIONES",
-   "entra": 174.28,
-   "sale": 175.88,
+   "entra": 174.42,
+   "sale": 176.02,
    "escena": "Entró con dieciséis"
   },
   {
    "n": 55,
    "bloque": "LAS GRABACIONES",
-   "entra": 175.88,
-   "sale": 181.38,
+   "entra": 176.02,
+   "sale": 181.52,
    "escena": "Salió con diecinueve"
   },
   {
    "n": 56,
    "bloque": "LAS GRABACIONES",
-   "entra": 181.38,
+   "entra": 181.52,
    "sale": 183.76,
    "escena": "Lawful"
   },
@@ -1189,6 +1252,6 @@
    "text": "Y se lo pedía Harvard."
   }
  ],
- "total": 95,
+ "total": 104,
  "creado": 1789374619000
 }
