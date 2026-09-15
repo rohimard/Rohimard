@@ -113,9 +113,16 @@ def main() -> None:
         cadena += f"concat=n={len(rutas)}:v=1:a=0"
         cadena += f"{quemar}[vid]" if quemar else "[vid]"
 
+        # FALLO QUE HUBO AQUI: "-t 1" limitaba a un segundo fijo la entrada de
+        # CADA imagen, sin importar cuanto durara su plano de verdad (2 a 6 s
+        # segun la hoja). zoompan necesita fotogramas de entrada durante TODA
+        # la duracion del plano; en cuanto se agotaban al segundo 1, ffmpeg se
+        # quedaba repitiendo el ultimo fotograma disponible -- el plano se veia
+        # congelado el resto de su duracion. Cada imagen debe entrar el tiempo
+        # que le toca a SU plano, no un segundo parejo para todas.
         cmd = ["ffmpeg", "-y"]
-        for p, _ in rutas:
-            cmd += ["-loop", "1", "-t", "1", "-i", p]
+        for p, d in rutas:
+            cmd += ["-loop", "1", "-t", f"{d:.3f}", "-i", p]
         cmd += ["-i", args.audio, "-filter_complex", cadena, "-map", "[vid]",
                 "-map", f"{len(rutas)}:a"]
     else:
