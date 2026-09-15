@@ -48,21 +48,21 @@ verificar el sincronismo sin abrir el editor.
 | 96 | `096.png` | 0:59.33 | 1:04.83 | 5.50s | La insignia de la OSS | Antes de dar clase en Harvard trabajó para la OSS, |
 | 24 | `024.png` | 1:04.83 | 1:08.49 | 3.66s | La OSS | Antes de dar clase en Harvard trabajó para la OSS, |
 | 97 | `097.png` | 1:08.49 | 1:10.09 | 1.60s | El informe clasificado | Antes de dar clase en Harvard trabajó para la OSS, |
-| 98 | `098.png` | 1:10.09 | 1:13.60 | 3.51s | El cronómetro | el servicio de inteligencia que fue el antecedente directo de la CIA. |
-| 25 | `025.png` | 1:13.60 | 1:16.07 | 2.47s | Medir al espía | Su trabajo allí era diseñar pruebas para medir cuánto aguantaba un espía bajo… |
-| 99 | `099.png` | 1:16.07 | 1:19.00 | 2.93s | La ventana del aula | Su trabajo allí era diseñar pruebas para medir cuánto aguantaba un espía bajo… |
+| 98 | `098.png` | 1:10.09 | 1:13.60 | 3.51s | El cuartel general | el servicio de inteligencia que fue el antecedente directo de la CIA. |
+| 25 | `025.png` | 1:13.60 | 1:16.16 | 2.56s | Medir al espía | Su trabajo allí era diseñar pruebas para medir cuánto aguantaba un espía bajo… |
+| 99 | `099.png` | 1:16.16 | 1:19.00 | 2.84s | El maletín de instrumentos | Su trabajo allí era diseñar pruebas para medir cuánto aguantaba un espía bajo… |
 | 26 | `026.png` | 1:19.00 | 1:21.00 | 2.00s | Cambió de sujetos | Cuando llegó a Harvard no cambió de oficio. Cambió de sujetos. |
-| 100 | `100.png` | 1:21.00 | 1:23.14 | 2.14s | La convocatoria | Cuando llegó a Harvard no cambió de oficio. Cambió de sujetos. |
+| 100 | `100.png` | 1:21.00 | 1:23.14 | 2.14s | El mismo instrumental | Cuando llegó a Harvard no cambió de oficio. Cambió de sujetos. |
 | 27 | `027.png` | 1:23.14 | 1:25.21 | 2.07s | Veintidós | En mil novecientos cincuenta y nueve reclutó a veintidós estudiantes. |
 | 101 | `101.png` | 1:25.21 | 1:27.58 | 2.37s | La ficha completada | En mil novecientos cincuenta y nueve reclutó a veintidós estudiantes. |
 | 28 | `028.png` | 1:27.58 | 1:29.18 | 1.60s | Ninguno preguntó | A ninguno le contó, mientras duraba, |
-| 102 | `102.png` | 1:29.18 | 1:31.18 | 2.00s | El formulario firmado | qué se estaba midiendo en realidad. |
+| 102 | `102.png` | 1:29.18 | 1:31.18 | 2.00s | El dial oculto | qué se estaba midiendo en realidad. |
 | 29 | `029.png` | 1:31.18 | 1:32.78 | 1.60s | Nadie supo para qué | El primer paso era esa redacción. |
 | 30 | `030.png` | 1:32.78 | 1:35.32 | 2.54s | La redacción | El primer paso era esa redacción. |
 | 31 | `031.png` | 1:35.32 | 1:38.14 | 2.82s | Lo más íntimo | Se les pedía escribir sobre lo más íntimo que tenían, |
-| 103 | `103.png` | 1:38.14 | 1:40.82 | 2.68s | El reloj de pared | cosas que uno no cuenta ni a sus amigos. |
+| 103 | `103.png` | 1:38.14 | 1:40.82 | 2.68s | El papel arrugado | cosas que uno no cuenta ni a sus amigos. |
 | 32 | `032.png` | 1:40.82 | 1:43.84 | 3.02s | Sinceridad enorme | Muchos lo hicieron con una sinceridad enorme, |
-| 104 | `104.png` | 1:43.84 | 1:46.94 | 3.10s | Las hojas acumuladas | porque creían que aquello era un ejercicio académico. |
+| 104 | `104.png` | 1:43.84 | 1:46.94 | 3.10s | El lápiz rojo | porque creían que aquello era un ejercicio académico. |
 | 33 | `033.png` | 1:46.94 | 1:51.88 | 4.94s | La munición | Lo que ninguno sabía es que ese texto no era el estudio. Era la munición. |
 | 34 | `034.png` | 1:51.88 | 1:53.48 | 1.60s | La sala | El segundo paso era la sala. Los focos, el espejo, |
 | 35 | `035.png` | 1:53.48 | 1:55.08 | 1.60s | La antesala | El segundo paso era la sala. Los focos, el espejo, |

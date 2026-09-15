@@ -188,21 +188,21 @@
    "bloque": "MURRAY",
    "entra": 70.09,
    "sale": 73.6,
-   "escena": "El cronómetro"
+   "escena": "El cuartel general"
   },
   {
    "n": 25,
    "bloque": "MURRAY",
    "entra": 73.6,
-   "sale": 76.07,
+   "sale": 76.16,
    "escena": "Medir al espía"
   },
   {
    "n": 99,
    "bloque": "MURRAY",
-   "entra": 76.07,
+   "entra": 76.16,
    "sale": 79.0,
-   "escena": "La ventana del aula"
+   "escena": "El maletín de instrumentos"
   },
   {
    "n": 26,
@@ -216,7 +216,7 @@
    "bloque": "MURRAY",
    "entra": 81.0,
    "sale": 83.14,
-   "escena": "La convocatoria"
+   "escena": "El mismo instrumental"
   },
   {
    "n": 27,
@@ -244,7 +244,7 @@
    "bloque": "LA REDACCIÓN",
    "entra": 89.18,
    "sale": 91.18,
-   "escena": "El formulario firmado"
+   "escena": "El dial oculto"
   },
   {
    "n": 29,
@@ -272,7 +272,7 @@
    "bloque": "LA REDACCIÓN",
    "entra": 98.14,
    "sale": 100.82,
-   "escena": "El reloj de pared"
+   "escena": "El papel arrugado"
   },
   {
    "n": 32,
@@ -286,7 +286,7 @@
    "bloque": "LA REDACCIÓN",
    "entra": 103.84,
    "sale": 106.94,
-   "escena": "Las hojas acumuladas"
+   "escena": "El lápiz rojo"
   },
   {
    "n": 33,
