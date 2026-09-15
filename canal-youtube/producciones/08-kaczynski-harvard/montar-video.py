@@ -14,9 +14,23 @@ sensacion de movimiento con material fijo. Cuesta bastante mas de render
 (cada imagen pasa por zoompan), asi que conviene montar primero sin el para
 revisar el sincronismo y activarlo en la pasada final.
 
-NOTA: no se ha podido probar el render completo aqui porque las imagenes
-estan en la maquina del usuario, no en el repositorio. La generacion de la
-lista de concat si esta verificada contra el CSV real.
+--subtitulos quema subtitulos.srt en la imagen. Se quema y no se adjunta
+aparte porque el 80% del consumo del canal es en movil, donde los subtitulos
+opcionales vienen apagados por defecto.
+
+El estilo va escrito aqui y no en el SRT: cuerpo grande, blanco con borde
+negro grueso y sombra, pegado a la parte baja pero no al borde, que es lo que
+aguanta sobre cualquier imagen sin tener que mirar plano a plano.
+
+CUIDADO CON EL ORDEN DE fps Y subtitles
+Con el demuxer concat cada imagen entra como UN SOLO fotograma que dura todo
+el plano. Si se quema antes de fijar la cadencia, el filtro dibuja sobre ese
+fotograma unico el subtitulo activo en ese instante y luego -r duplica el
+fotograma YA COMPUESTO durante todo el plano: cada plano acaba enseñando un
+subtitulo congelado, el que estaba activo cuando entro la imagen. Se vio en el
+primer render -- en el segundo 8,28 seguia el subtitulo que acababa en el
+7,64. Por eso va fps antes que subtitles: asi cada fotograma de salida existe
+de verdad y consulta el SRT por su cuenta.
 """
 import argparse
 import csv
@@ -25,6 +39,7 @@ import subprocess
 import sys
 
 CSV = "hoja-montaje.csv"
+SRT = "subtitulos.srt"
 AUDIO = "david-elevenlabs/david-narracion.mp3"
 EXTENSIONES = (".png", ".jpg", ".jpeg", ".webp")
 W, H, FPS = 1920, 1080, 30
@@ -42,6 +57,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("carpeta")
     ap.add_argument("--zoom", action="store_true")
+    ap.add_argument("--subtitulos", action="store_true")
     ap.add_argument("--salida", default="video-8-montado.mp4")
     ap.add_argument("--audio", default=AUDIO)
     args = ap.parse_args()
@@ -68,6 +84,20 @@ def main() -> None:
     encaje = (f"scale={W}:{H}:force_original_aspect_ratio=increase,"
               f"crop={W}:{H},setsar=1")
 
+    # El filtro subtitles lee el SRT y aplica este estilo. Va SIEMPRE al final
+    # de la cadena: si se pusiera antes del escalado, el texto se escalaria y
+    # recortaria con la imagen.
+    quemar = ""
+    if args.subtitulos:
+        if not os.path.exists(SRT):
+            print(f"::error:: no encuentro los subtítulos: {SRT}")
+            sys.exit(1)
+        estilo = ("FontName=DejaVu Sans,Fontsize=22,Bold=1,"
+                  "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,"
+                  "BorderStyle=1,Outline=2,Shadow=1,"
+                  "Alignment=2,MarginV=60")
+        quemar = f",subtitles={SRT}:force_style='{estilo}'"
+
     if args.zoom:
         # zoompan trabaja por fotogramas: cada plano dura dur*FPS frames y el
         # zoom va de 1.00 a 1.08 a lo largo de ese tramo, centrado.
@@ -80,7 +110,8 @@ def main() -> None:
             )
         cadena = ";".join(trozos)
         cadena += ";" + "".join(f"[v{i}]" for i in range(len(rutas)))
-        cadena += f"concat=n={len(rutas)}:v=1:a=0[vid]"
+        cadena += f"concat=n={len(rutas)}:v=1:a=0"
+        cadena += f"{quemar}[vid]" if quemar else "[vid]"
 
         cmd = ["ffmpeg", "-y"]
         for p, _ in rutas:
@@ -97,14 +128,17 @@ def main() -> None:
             # repita la linea file: sin esto el plano 95 dura un fotograma.
             fh.write(f"file '{os.path.abspath(rutas[-1][0])}'\n")
         cmd = ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", lista,
-               "-i", args.audio, "-vf", encaje, "-r", str(FPS)]
+               "-i", args.audio,
+               "-vf", f"{encaje},fps={FPS}{quemar}", "-r", str(FPS)]
 
     cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", "18",
             "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k",
             "-shortest", args.salida]
 
     total = sum(d for _, d in rutas)
-    print(f"{len(rutas)} imágenes, {total:.2f}s, zoom={'sí' if args.zoom else 'no'}")
+    print(f"{len(rutas)} imágenes, {total:.2f}s, "
+          f"zoom={'sí' if args.zoom else 'no'}, "
+          f"subtítulos={'quemados' if args.subtitulos else 'no'}")
     print(f"render -> {args.salida}\n")
     subprocess.run(cmd, check=True)
     print(f"\nlisto: {args.salida}")
