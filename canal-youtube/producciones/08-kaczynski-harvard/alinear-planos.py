@@ -43,11 +43,12 @@ VACIAS = {"de", "la", "el", "los", "las", "un", "una", "que", "y", "en", "a",
 # manda el parecido.
 DERIVA = 0.35
 
-# Castigo por dejarse frases sin ningun plano. Sin el, el alineador amontona
-# dos planos en la frase que mas se les parece y deja la de al lado vacia; el
-# plano que la cubre se queda entonces en pantalla 16 s. Con el, "Murray,
-# antes de Harvard" baja a la frase que presenta a Murray en vez de pegarse a
-# la de la OSS con su vecino.
+# Coste de NO avanzar exactamente una oracion entre plano y plano. Se castiga
+# igual saltarse oraciones que quedarse en la misma: hay 95 planos para 98
+# oraciones, asi que lo natural es avanzar de una en una y solo desviarse
+# cuando el texto lo pide. Castigando solo el salto -- como estaba al
+# principio -- quedarse salia gratis y se amontonaban cinco planos en la misma
+# oracion mientras las vecinas quedaban vacias.
 SALTO = 0.30
 
 # Limites de lo que un plano puede durar en pantalla. La alineacion sola deja
@@ -55,6 +56,15 @@ SALTO = 0.30
 # "Respetuoso de la ley", que dura un segundo, y 16 s de un plano fijo donde
 # la narracion avanza sin imagenes asignadas.
 MIN, MAX = 1.6, 5.5
+
+# Minimo de palabras para que un trozo de frase valga como unidad propia. Se
+# alinea por ORACIONES PARCIALES, no por frases enteras, porque una frase
+# larga puede girar por la mitad y entonces un solo plano se la come entera.
+# Paso en el arranque: "Antes de ser el Unabomber, Theodore Kaczynski fue
+# esto: un chico de dieciseis anos... recien entrado a Harvard" es UNA frase,
+# y el plano del paquete bomba se quedaba en pantalla los 5,5 s -- seguias
+# viendo el paquete mientras se decia "recien entrado a Harvard".
+MIN_PAL = 4
 
 
 def norm(s):
@@ -76,8 +86,17 @@ def main() -> None:
         )
     ]
     texto = open(GUION, encoding="utf-8").read().strip()
-    frases = [f.strip() for f in
-              re.findall(r"[^.!?]+[.!?]+(?:\s|$)|[^.!?]+$", texto) if f.strip()]
+    # Cortar tambien en comas, dos puntos y punto y coma. Los trozos que se
+    # quedan en nada se pegan al anterior: "Ponte en su lugar" no gana nada
+    # partido, y un plano no puede durar lo que tarda en decirse "y".
+    crudos = [t for t in re.split(r"(?<=[.!?;:,])\s+", texto) if t.strip()]
+    frases = []
+    for t in crudos:
+        if frases and len(t.split()) < MIN_PAL:
+            frases[-1] += " " + t
+        else:
+            frases.append(t)
+    assert " ".join(frases).split() == texto.split(), "el corte perdio palabras"
 
     # Tiempos MEDIDOS de cada frase, consumiendo las palabras en orden.
     marcas = json.load(open(PALABRAS, encoding="utf-8"))
@@ -107,13 +126,14 @@ def main() -> None:
     for i in range(N):
         for j in range(M):
             if i == 0:
-                base, origen = 0.0, 0
+                # El primer plano abre el video: empezar tarde tambien cuesta.
+                base, origen = -SALTO * j, 0
             else:
                 base, origen = NEG, 0
                 for k in range(j + 1):
                     if D[i - 1][k] == NEG:
                         continue
-                    v = D[i - 1][k] - SALTO * max(0, j - k - 1)
+                    v = D[i - 1][k] - SALTO * abs(j - k - 1)
                     if v > base:
                         base, origen = v, k
             if base == NEG:

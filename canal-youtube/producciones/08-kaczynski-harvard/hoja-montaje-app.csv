@@ -1,34 +1,34 @@
 plano;bloque;entra;sale;duración;escena
-1;GANCHO;0:00.00;0:05.50;5.50;El paquete
-2;GANCHO;0:05.50;0:08.92;3.42;La cabaña
-3;GANCHO;0:08.92;0:10.52;1.60;Harvard al amanecer
-4;GANCHO;0:10.52;0:12.12;1.60;Demasiado joven
-5;GANCHO;0:12.12;0:13.72;1.60;El más joven de la clase
-6;GANCHO;0:13.72;0:17.22;3.50;La matrícula
-7;GANCHO;0:17.22;0:18.82;1.60;La invitación
-8;GANCHO;0:18.82;0:20.42;1.60;El aula vacía
-9;GANCHO;0:20.42;0:22.02;1.60;El papel en blanco
-10;GANCHO;0:22.02;0:23.62;1.60;La habitación del colegio mayor
-11;GANCHO;0:23.62;0:25.22;1.60;Escribir lo que crees
-12;GANCHO;0:25.22;0:26.90;1.68;Páginas y páginas
+1;GANCHO;0:00.00;0:01.66;1.66;El paquete
+2;GANCHO;0:01.66;0:03.42;1.76;La cabaña
+3;GANCHO;0:03.42;0:05.02;1.60;Harvard al amanecer
+4;GANCHO;0:05.02;0:06.62;1.60;Demasiado joven
+5;GANCHO;0:06.62;0:08.22;1.60;El más joven de la clase
+6;GANCHO;0:08.22;0:09.82;1.60;La matrícula
+7;GANCHO;0:09.82;0:11.42;1.60;La invitación
+8;GANCHO;0:11.42;0:13.02;1.60;El aula vacía
+9;GANCHO;0:13.02;0:14.62;1.60;El papel en blanco
+10;GANCHO;0:14.62;0:17.22;2.60;La habitación del colegio mayor
+11;GANCHO;0:17.22;0:22.34;5.12;Escribir lo que crees
+12;GANCHO;0:22.34;0:26.90;4.56;Páginas y páginas
 13;GANCHO;0:26.90;0:28.50;1.60;La entrega
 14;GANCHO;0:28.50;0:30.10;1.60;Lo entregó él mismo
 15;GANCHO;0:30.10;0:31.70;1.60;El pasillo del sótano
 16;GANCHO;0:31.70;0:33.30;1.60;La silla
 17;GANCHO;0:33.30;0:34.90;1.60;El espejo
 18;GANCHO;0:34.90;0:36.50;1.60;Los electrodos
-19;GANCHO;0:36.50;0:39.06;2.56;La correa del brazo
-20;GANCHO;0:39.06;0:44.56;5.50;El desconocido entra
-21;GANCHO;0:44.56;0:50.06;5.50;El otro nombre
-22;MURRAY;0:50.06;0:55.56;5.50;La pregunta
-23;MURRAY;0:55.56;1:01.06;5.50;Murray, antes de Harvard
-24;MURRAY;1:01.06;1:06.56;5.50;La OSS
-25;MURRAY;1:06.56;1:12.06;5.50;Medir al espía
-26;MURRAY;1:12.06;1:17.56;5.50;Cambió de sujetos
-27;MURRAY;1:17.56;1:23.06;5.50;Veintidós
-28;MURRAY;1:23.06;1:28.56;5.50;Ninguno preguntó
-29;LA REDACCIÓN;1:28.56;1:32.14;3.58;Nadie supo para qué
-30;LA REDACCIÓN;1:32.14;1:35.32;3.18;La redacción
+19;GANCHO;0:36.50;0:38.10;1.60;La correa del brazo
+20;GANCHO;0:38.10;0:43.60;5.50;El desconocido entra
+21;GANCHO;0:43.60;0:49.10;5.50;El otro nombre
+22;MURRAY;0:49.10;0:54.60;5.50;La pregunta
+23;MURRAY;0:54.60;1:00.10;5.50;Murray, antes de Harvard
+24;MURRAY;1:00.10;1:05.60;5.50;La OSS
+25;MURRAY;1:05.60;1:11.10;5.50;Medir al espía
+26;MURRAY;1:11.10;1:16.60;5.50;Cambió de sujetos
+27;MURRAY;1:16.60;1:22.10;5.50;Veintidós
+28;MURRAY;1:22.10;1:27.60;5.50;Ninguno preguntó
+29;LA REDACCIÓN;1:27.60;1:31.18;3.58;Nadie supo para qué
+30;LA REDACCIÓN;1:31.18;1:35.32;4.14;La redacción
 31;LA REDACCIÓN;1:35.32;1:40.82;5.50;Lo más íntimo
 32;LA REDACCIÓN;1:40.82;1:46.32;5.50;Sinceridad enorme
 33;LA REDACCIÓN;1:46.32;1:51.82;5.50;La munición
@@ -37,60 +37,60 @@ plano;bloque;entra;sale;duración;escena
 36;LA REDACCIÓN;1:55.02;1:56.62;1.60;Los focos
 37;LA REDACCIÓN;1:56.62;1:58.22;1.60;El pulso
 38;LA REDACCIÓN;1:58.22;2:03.28;5.06;La respiración
-39;LA REDACCIÓN;2:03.28;2:06.52;3.24;No era otro estudiante
-40;LA REDACCIÓN;2:06.52;2:09.56;3.04;Entrenado de antemano
-41;LA REDACCIÓN;2:09.56;2:13.00;3.44;El ataque
-42;LA REDACCIÓN;2:13.00;2:16.24;3.24;El reloj de la sala
-43;LA REDACCIÓN;2:16.24;2:19.96;3.72;Todo lo furioso posible
-44;LA REDACCIÓN;2:19.96;2:25.46;5.50;De su puño
-45;LAS GRABACIONES;2:25.46;2:30.96;5.50;Todo se grababa
-46;LAS GRABACIONES;2:30.96;2:33.68;2.72;Los que miraban
-47;LAS GRABACIONES;2:33.68;2:35.44;1.76;Su cara
-48;LAS GRABACIONES;2:35.44;2:37.32;1.88;El momento exacto
-49;LAS GRABACIONES;2:37.32;2:41.60;4.28;Obligados a verse
-50;LAS GRABACIONES;2:41.60;2:45.58;3.98;Más de una vez
+39;LA REDACCIÓN;2:03.28;2:08.52;5.24;No era otro estudiante
+40;LA REDACCIÓN;2:08.52;2:11.86;3.34;Entrenado de antemano
+41;LA REDACCIÓN;2:11.86;2:14.44;2.58;El ataque
+42;LA REDACCIÓN;2:14.44;2:16.36;1.92;El reloj de la sala
+43;LA REDACCIÓN;2:16.36;2:21.86;5.50;Todo lo furioso posible
+44;LAS GRABACIONES;2:21.86;2:27.36;5.50;De su puño
+45;LAS GRABACIONES;2:27.36;2:31.22;3.86;Todo se grababa
+46;LAS GRABACIONES;2:31.22;2:33.28;2.05;Los que miraban
+47;LAS GRABACIONES;2:33.28;2:35.36;2.09;Su cara
+48;LAS GRABACIONES;2:35.36;2:37.32;1.96;El momento exacto
+49;LAS GRABACIONES;2:37.32;2:42.46;5.14;Obligados a verse
+50;LAS GRABACIONES;2:42.46;2:45.58;3.12;Más de una vez
 51;LAS GRABACIONES;2:45.58;2:47.18;1.60;Mirarte siendo humillado
 52;LAS GRABACIONES;2:47.18;2:48.78;1.60;Otra vez desde el principio
 53;LAS GRABACIONES;2:48.78;2:54.28;5.50;Tres años
 54;LAS GRABACIONES;2:54.28;2:55.88;1.60;Entró con dieciséis
 55;LAS GRABACIONES;2:55.88;3:01.38;5.50;Salió con diecinueve
 56;LAS GRABACIONES;3:01.38;3:03.76;2.38;Lawful
-57;LAS GRABACIONES;3:03.76;3:05.36;1.60;Respetuoso de la ley
-58;LAS GRABACIONES;3:05.36;3:06.96;1.60;El expediente
-59;LAS GRABACIONES;3:06.96;3:08.56;1.60;Diecisiete años después
-60;LAS GRABACIONES;3:08.56;3:10.16;1.60;El correo
-61;DESPUÉS;3:10.16;3:12.86;2.70;La saca
-62;DESPUÉS;3:12.86;3:18.36;5.50;Tres personas
-63;DESPUÉS;3:18.36;3:21.14;2.78;Una tienda de informática
-64;DESPUÉS;3:21.14;3:22.74;1.60;La cabaña por dentro
-65;DESPUÉS;3:22.74;3:24.34;1.60;Una oficina de publicidad
-66;DESPUÉS;3:24.34;3:25.94;1.60;Un maderero
-67;DESPUÉS;3:25.94;3:27.54;1.60;Sin saber por qué
-68;DESPUÉS;3:27.54;3:29.14;1.60;Veintitrés heridos
-69;DESPUÉS;3:29.14;3:34.64;5.50;La historia fácil
-70;DESPUÉS;3:34.64;3:37.26;2.62;Los otros veintiuno
-71;DESPUÉS;3:37.26;3:39.01;1.74;Nadie vio venir nada
-72;DESPUÉS;3:39.01;3:40.98;1.97;Ninguno hizo lo mismo
-73;DESPUÉS;3:40.98;3:43.32;2.34;Un experimento no aprieta un gatillo
-74;DESPUÉS;3:43.32;3:48.82;5.50;Cincuenta años
-75;DESPUÉS;3:48.82;3:54.32;5.50;Ocurrió igual
-76;DESPUÉS;3:54.32;3:59.82;5.50;Veintidós chavales
-77;DESPUÉS;3:59.82;4:02.92;3.10;Sin que nadie lo parara
-78;DESPUÉS;4:02.92;4:04.75;1.83;La universidad más prestigiosa
-79;DESPUÉS;4:04.75;4:06.83;2.08;Siguió dando clase
-80;LO QUE INCOMODA;4:06.83;4:08.79;1.96;Recibiendo premios
-81;LO QUE INCOMODA;4:08.79;4:10.74;1.96;La silla que quedó vacía
-82;LO QUE INCOMODA;4:10.74;4:13.08;2.34;Muriendo homenajeado
-83;LO QUE INCOMODA;4:13.08;4:15.91;2.83;Los archivos se cerraron
-84;LO QUE INCOMODA;4:15.91;4:18.54;2.63;Cerrados al público
-85;LO QUE INCOMODA;4:18.54;4:21.73;3.19;Explicarle a una persona
-86;LO QUE INCOMODA;4:21.73;4:24.55;2.82;Que puede marcharse
-87;LO QUE INCOMODA;4:24.55;4:27.55;3.00;No mentirle
-88;LO QUE INCOMODA;4:27.55;4:31.34;3.79;No existían en aquella sala
-89;LO QUE INCOMODA;4:31.34;4:32.94;1.60;Bajo llave
-90;LO QUE INCOMODA;4:32.94;4:34.54;1.60;Existen por cosas como esta
-91;LO QUE INCOMODA;4:34.54;4:38.68;4.14;Terminaron la carrera
+57;LAS GRABACIONES;3:03.76;3:05.76;2.00;Respetuoso de la ley
+58;LAS GRABACIONES;3:05.76;3:09.64;3.88;El expediente
+59;LAS GRABACIONES;3:09.64;3:12.86;3.22;Diecisiete años después
+60;DESPUÉS;3:12.86;3:15.52;2.66;El correo
+61;DESPUÉS;3:15.52;3:18.60;3.08;La saca
+62;DESPUÉS;3:18.60;3:20.22;1.62;Tres personas
+63;DESPUÉS;3:20.22;3:21.82;1.60;Una tienda de informática
+64;DESPUÉS;3:21.82;3:23.42;1.60;La cabaña por dentro
+65;DESPUÉS;3:23.42;3:25.02;1.60;Una oficina de publicidad
+66;DESPUÉS;3:25.02;3:26.62;1.60;Un maderero
+67;DESPUÉS;3:26.62;3:28.32;1.70;Sin saber por qué
+68;DESPUÉS;3:28.32;3:30.36;2.04;Veintitrés heridos
+69;DESPUÉS;3:30.36;3:33.72;3.36;La historia fácil
+70;DESPUÉS;3:33.72;3:35.52;1.80;Los otros veintiuno
+71;DESPUÉS;3:35.52;3:38.66;3.14;Nadie vio venir nada
+72;DESPUÉS;3:38.66;3:40.98;2.32;Ninguno hizo lo mismo
+73;DESPUÉS;3:40.98;3:46.08;5.10;Un experimento no aprieta un gatillo
+74;DESPUÉS;3:46.08;3:51.58;5.50;Cincuenta años
+75;DESPUÉS;3:51.58;3:56.24;4.66;Ocurrió igual
+76;DESPUÉS;3:56.24;4:00.12;3.88;Veintidós chavales
+77;DESPUÉS;4:00.12;4:02.92;2.80;Sin que nadie lo parara
+78;DESPUÉS;4:02.92;4:06.34;3.42;La universidad más prestigiosa
+79;LO QUE INCOMODA;4:06.34;4:08.66;2.32;Siguió dando clase
+80;LO QUE INCOMODA;4:08.66;4:10.26;1.60;Recibiendo premios
+81;LO QUE INCOMODA;4:10.26;4:11.86;1.60;La silla que quedó vacía
+82;LO QUE INCOMODA;4:11.86;4:15.62;3.76;Muriendo homenajeado
+83;LO QUE INCOMODA;4:15.62;4:17.22;1.60;Los archivos se cerraron
+84;LO QUE INCOMODA;4:17.22;4:18.82;1.60;Cerrados al público
+85;LO QUE INCOMODA;4:18.82;4:24.14;5.32;Explicarle a una persona
+86;LO QUE INCOMODA;4:24.14;4:25.74;1.60;Que puede marcharse
+87;LO QUE INCOMODA;4:25.74;4:29.16;3.42;No mentirle
+88;LO QUE INCOMODA;4:29.16;4:30.98;1.82;No existían en aquella sala
+89;LO QUE INCOMODA;4:30.98;4:32.70;1.72;Bajo llave
+90;LO QUE INCOMODA;4:32.70;4:34.48;1.78;Existen por cosas como esta
+91;LO QUE INCOMODA;4:34.48;4:38.68;4.20;Terminaron la carrera
 92;LO QUE INCOMODA;4:38.68;4:41.12;2.44;No volvieron a hablar del tema
-93;LO QUE INCOMODA;4:41.12;4:44.27;3.15;Tú te habrías ido
-94;LO QUE INCOMODA;4:44.27;4:49.77;5.50;Ellos también lo pensaban
-95;LO QUE INCOMODA;4:49.77;4:52.34;2.57;Y se lo pedía Harvard
+93;LO QUE INCOMODA;4:41.12;4:46.04;4.92;Tú te habrías ido
+94;LO QUE INCOMODA;4:46.04;4:50.34;4.30;Ellos también lo pensaban
+95;LO QUE INCOMODA;4:50.34;4:52.34;2.00;Y se lo pedía Harvard
