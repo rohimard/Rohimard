@@ -1,0 +1,132 @@
+# Narra un guión entero con la cadena Piper -> Chatterbox, repartido entre
+# varios runners.
+#
+# Chatterbox va a CPU pura, así que un guión de unos cuatro mil seiscientos
+# caracteres tarda casi una hora en un solo runner. Los trozos no dependen
+# unos de otros, de modo que se reparten entre seis trabajos en paralelo y
+# baja a unos quince minutos. En un repo público los trabajos en paralelo
+# siguen sin costar nada.
+#
+# La referencia de voz no se pasa entre trabajos: Piper es determinista, así
+# que cada runner la regenera idéntica en diez segundos. Sale más barato que
+# moverla de un lado a otro.
+name: voz-guion-completo
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-guion-completo.yml
+      - canal-youtube/narrar-trozos.py
+      - canal-youtube/.guion-disparo
+
+permissions:
+  contents: write
+
+env:
+  GUION: canal-youtube/producciones/07-reina-victoria-duelo/guion-voz.txt
+  DESTINO: canal-youtube/producciones/07-reina-victoria-duelo
+  ACABADO: highshelf=f=6500:g=2,deesser=i=0.25:m=0.5:f=0.55,equalizer=f=200:t=q:w=1.2:g=1.5,loudnorm=I=-16:TP=-1.5:LRA=11
+  PIPER_BASE: https://huggingface.co/rhasspy/piper-voices/resolve/main
+
+jobs:
+  narrar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      # Si cambias el número de partes, cambia también el --de de abajo.
+      matrix:
+        parte: [0, 1, 2, 3, 4, 5]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Referencia sintética con Piper
+        run: |
+          pip install --quiet piper-tts==1.2.0
+          curl -sSL -o ref.onnx \
+            "$PIPER_BASE/es/es_MX/claude/high/es_MX-claude-high.onnx"
+          curl -sSL -o ref.onnx.json \
+            "$PIPER_BASE/es/es_MX/claude/high/es_MX-claude-high.onnx.json"
+          # La misma frase con la que se eligió la voz, para que el timbre
+          # del vídeo entero sea el de la muestra aprobada.
+          printf '%s %s\n' \
+            "Es diciembre de mil ochocientos sesenta y uno y estás en el castillo de Windsor. El hombre con el que llevas veintiún años casada acaba de morir de fiebre tifoidea." \
+            "Es diciembre de mil ochocientos sesenta y uno y estás en el castillo de Windsor. El hombre con el que llevas veintiún años casada acaba de morir de fiebre tifoidea." \
+            | piper -m ref.onnx -f ref-larga.wav
+          ffmpeg -y -v error -i ref-larga.wav -t 22 -ar 24000 -ac 1 \
+                 -af "loudnorm=I=-20:TP=-2:LRA=9" ref-piper.wav
+
+      - run: pip install --quiet chatterbox-tts
+
+      - name: Narrar la parte ${{ matrix.parte }}
+        run: |
+          python canal-youtube/narrar-trozos.py "$GUION" \
+                 --parte ${{ matrix.parte }} --de 6
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: trozos-${{ matrix.parte }}
+          path: trozos/
+          retention-days: 1
+
+  unir:
+    needs: narrar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: trozos-*
+          merge-multiple: true
+          path: trozos
+
+      - name: Comprobar que no falta ningún trozo
+        run: |
+          # Los nombres van numerados desde 001, así que un hueco se ve
+          # comparando el total con el número más alto.
+          hay=$(ls trozos/*.wav | wc -l)
+          alto=$(ls trozos/*.wav | sort | tail -1 | tr -dc '0-9' | sed 's/^0*//')
+          echo "$hay trozos, el último es el $alto"
+          if [ "$hay" -ne "$alto" ]; then
+            echo "::error::faltan trozos, el audio saldría con huecos"
+            exit 1
+          fi
+
+      - name: Unir y rematar
+        run: |
+          # Un respiro entre trozos, si no las frases se pisan.
+          ffmpeg -y -v error -f lavfi -t 0.28 -i anullsrc=r=24000:cl=mono \
+                 -ar 24000 -ac 1 silencio.wav
+          : > lista.txt
+          for f in $(ls trozos/*.wav | sort); do
+            echo "file '$PWD/$f'"           >> lista.txt
+            echo "file '$PWD/silencio.wav'" >> lista.txt
+          done
+          ffmpeg -y -v error -f concat -safe 0 -i lista.txt \
+                 -af "$ACABADO" -codec:a libmp3lame -qscale:a 2 audio.mp3
+          echo "duración: $(ffprobe -v error -show_entries format=duration -of csv=p=0 audio.mp3) s"
+
+      - name: Devolver el audio a la rama
+        run: |
+          # audio.mp3 está en .gitignore, va con -f a propósito.
+          mv audio.mp3 "$DESTINO/audio.mp3"
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO/audio.mp3"
+          git commit -q -m 'Narracion completa del video siete' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 4))
+          done
+          exit 1

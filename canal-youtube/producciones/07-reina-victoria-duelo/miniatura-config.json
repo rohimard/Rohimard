@@ -1,0 +1,11 @@
+{
+  "image": "base.jpg",
+  "font": "../../kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura",
+  "number": "40",
+  "line1": "AÑOS VESTIDA",
+  "line2": "DE LUTO",
+  "side": "right",
+  "accent": "#FFD400",
+  "alarm": "#E10600"
+}

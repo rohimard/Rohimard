@@ -1,0 +1,450 @@
+1
+00:00:00,000 --> 00:00:01,609
+Imagina que tienes seis años y
+
+2
+00:00:01,609 --> 00:00:02,682
+vives en un orfanato.
+
+3
+00:00:02,682 --> 00:00:07,242
+Un día te sientan frente a una mujer joven
+que dice ser tu nueva profesora de conversación.
+
+4
+00:00:07,242 --> 00:00:09,119
+Te pide que le cuentes tu día.
+
+5
+00:00:09,119 --> 00:00:10,460
+Cada vez que te trabas,
+
+6
+00:00:10,460 --> 00:00:11,533
+aunque sea un poco,
+
+7
+00:00:11,533 --> 00:00:13,142
+ella te corrige, te llama tartamudo,
+
+8
+00:00:13,142 --> 00:00:17,418
+te dice que hables mejor si no quieres que
+la gente se ría de ti.
+
+9
+00:00:17,418 --> 00:00:20,117
+No sabes que esa mujer no es tu profesora.
+
+10
+00:00:20,117 --> 00:00:23,114
+No sabes que estás dentro de un
+experimento científico y
+
+11
+00:00:23,114 --> 00:00:27,012
+que nadie te va a decir la verdad durante
+los próximos sesenta años.
+
+12
+00:00:27,012 --> 00:00:28,211
+Esto pasó de verdad,
+
+13
+00:00:28,211 --> 00:00:28,911
+en mil novecientos treinta y nueve,
+
+14
+00:00:28,911 --> 00:00:30,384
+en un orfanato de Davenport,
+
+15
+00:00:30,384 --> 00:00:32,258
+en el estado de Iowa.
+
+16
+00:00:32,258 --> 00:00:35,350
+El responsable fue un psicólogo llamado
+Wendell Johnson, y
+
+17
+00:00:35,350 --> 00:00:40,129
+la razón por la que le obsesionaba la
+tartamudez no era solo académica.
+
+18
+00:00:40,129 --> 00:00:42,752
+Él mismo había tartamudeado desde niño, y
+
+19
+00:00:42,752 --> 00:00:47,441
+quería demostrar algo muy concreto: que la
+tartamudez no nace en la garganta,
+
+20
+00:00:47,441 --> 00:00:50,229
+nace en la cabeza de quien te escucha.
+
+21
+00:00:50,229 --> 00:00:51,972
+Para probarlo necesitaba niños sanos,
+
+22
+00:00:51,972 --> 00:00:53,367
+que hablaran con normalidad,
+
+23
+00:00:53,367 --> 00:00:56,852
+y ver si podía convertirlos en tartamudos
+solo con palabras.
+
+24
+00:00:56,852 --> 00:00:59,981
+Johnson no hizo el experimento con su
+propia mano.
+
+25
+00:00:59,981 --> 00:01:02,493
+Se lo encargó a una estudiante de
+posgrado,
+
+26
+00:01:02,493 --> 00:01:03,433
+Mary Tudor, y
+
+27
+00:01:03,433 --> 00:01:05,935
+eligió al orfanato de Davenport porque
+esos niños
+
+28
+00:01:05,935 --> 00:01:08,751
+no tenían padres que preguntaran qué les
+estaban haciendo.
+
+29
+00:01:08,751 --> 00:01:10,942
+Veintidós niños fueron divididos en dos
+grupos,
+
+30
+00:01:10,942 --> 00:01:13,446
+sin que ninguno supiera que participaba en
+nada.
+
+31
+00:01:13,446 --> 00:01:14,385
+Al primer grupo,
+
+32
+00:01:14,385 --> 00:01:16,540
+Tudor lo trataba con elogios constantes,
+
+33
+00:01:16,540 --> 00:01:19,599
+les decía que hablaban de maravilla pasara
+lo que pasara.
+
+34
+00:01:19,599 --> 00:01:22,964
+Al segundo grupo lo sometía a lo
+contrario: cada palabra dudada,
+
+35
+00:01:22,964 --> 00:01:25,717
+cada pausa normal de un niño de seis años,
+
+36
+00:01:25,717 --> 00:01:27,247
+se convertía en una humillación.
+
+37
+00:01:27,247 --> 00:01:29,388
+Los llamaba tartamudos una y otra vez,
+
+38
+00:01:29,388 --> 00:01:31,470
+aunque casi ninguno lo fuera de verdad.
+
+39
+00:01:31,470 --> 00:01:32,939
+Los resultados llegaron rápido, y
+
+40
+00:01:32,939 --> 00:01:34,997
+fueron peores de lo que Johnson esperaba.
+
+41
+00:01:34,997 --> 00:01:39,406
+Varios de los niños del segundo grupo
+empezaron a hablar menos por miedo a equivocarse.
+
+42
+00:01:39,406 --> 00:01:41,169
+Algunos dejaron de participar en clase.
+
+43
+00:01:41,169 --> 00:01:44,402
+Uno se negaba a decir su propio nombre en
+voz alta.
+
+44
+00:01:44,402 --> 00:01:47,597
+No estaban actuando un papel para un
+experimento que entendieran.
+
+45
+00:01:47,597 --> 00:01:49,552
+Estaban aprendiendo, a los seis años,
+
+46
+00:01:49,552 --> 00:01:52,485
+que su forma de hablar era motivo de
+vergüenza,
+
+47
+00:01:52,485 --> 00:01:57,373
+y esa idea se les quedó pegada mucho
+después de que Tudor dejara de visitarlos.
+
+48
+00:01:57,373 --> 00:02:00,321
+Johnson nunca publicó estos resultados en
+una revista científica.
+
+49
+00:02:00,321 --> 00:02:02,364
+Sabía exactamente lo que había hecho,
+
+50
+00:02:02,364 --> 00:02:04,749
+y sabía que no se podía defender.
+
+51
+00:02:04,749 --> 00:02:08,838
+El estudio quedó guardado en un cajón
+durante más de sesenta años,
+
+52
+00:02:08,838 --> 00:02:11,564
+mencionado solo por encima en algún
+trabajo posterior,
+
+53
+00:02:11,564 --> 00:02:14,975
+hasta que un periodista del estado de Iowa
+consiguió acceso
+
+54
+00:02:14,975 --> 00:02:18,278
+a los archivos originales de la
+universidad en dos mil uno.
+
+55
+00:02:18,278 --> 00:02:19,619
+Cuando la noticia salió,
+
+56
+00:02:19,619 --> 00:02:21,765
+ya no había forma de esconderla.
+
+57
+00:02:21,765 --> 00:02:23,911
+Varios de aquellos niños, entonces
+ancianos,
+
+58
+00:02:23,911 --> 00:02:26,056
+seguían arrastrando problemas de habla y
+
+59
+00:02:26,056 --> 00:02:27,844
+de autoestima seis décadas después.
+
+60
+00:02:27,844 --> 00:02:31,431
+La Universidad de Iowa tuvo que pedir
+perdón en público, y
+
+61
+00:02:31,431 --> 00:02:35,467
+terminó pagando una indemnización a los
+supervivientes por un daño que nunca debió existir.
+
+62
+00:02:35,467 --> 00:02:38,061
+Aquí está la parte que de verdad importa,
+y
+
+63
+00:02:38,061 --> 00:02:41,233
+no es solo que un científico se pasara de
+la raya.
+
+64
+00:02:41,233 --> 00:02:42,962
+Es que la hipótesis de Johnson,
+
+65
+00:02:42,962 --> 00:02:44,404
+en el fondo, tenía razón,
+
+66
+00:02:44,404 --> 00:02:48,727
+solo que la usó para hacer daño en vez de
+para entender algo real.
+
+67
+00:02:48,727 --> 00:02:51,226
+Una persona no necesita tener ningún
+problema de
+
+68
+00:02:51,226 --> 00:02:54,036
+verdad para empezar a comportarse como si
+lo tuviera.
+
+69
+00:02:54,036 --> 00:02:55,910
+Basta con que alguien con autoridad,
+
+70
+00:02:55,910 --> 00:02:57,784
+un profesor, un padre, un jefe,
+
+71
+00:02:57,784 --> 00:03:00,270
+te repita las veces suficientes que eres
+torpe,
+
+72
+00:03:00,270 --> 00:03:02,069
+que eres lento, que hablas mal,
+
+73
+00:03:02,069 --> 00:03:06,865
+para que tu cerebro deje de confiar en lo
+que hacía bien de forma natural y
+
+74
+00:03:06,865 --> 00:03:09,564
+empiece a vigilarse a sí mismo todo el
+rato.
+
+75
+00:03:09,564 --> 00:03:14,360
+Esa vigilancia constante es precisamente
+lo que produce el tropiezo que se supone que estabas evitando.
+
+76
+00:03:14,360 --> 00:03:17,742
+Esto no se quedó en un orfanato de Iowa en
+mil novecientos treinta y nueve.
+
+77
+00:03:17,742 --> 00:03:20,300
+Te sigue pasando cada vez que alguien con
+
+78
+00:03:20,300 --> 00:03:22,971
+poder sobre ti decide qué etiqueta llevas
+puesta.
+
+79
+00:03:22,971 --> 00:03:25,975
+El niño al que un profesor le dice que
+
+80
+00:03:25,975 --> 00:03:28,979
+es malo en matemáticas deja de intentarlo
+en serio,
+
+81
+00:03:28,979 --> 00:03:32,851
+y años después sigue creyendo que
+simplemente no se le dan los números.
+
+82
+00:03:32,851 --> 00:03:36,040
+El empleado al que un jefe le repite que
+es
+
+83
+00:03:36,040 --> 00:03:39,230
+desorganizado empieza a olvidar cosas que
+antes recordaba sin esfuerzo.
+
+84
+00:03:39,230 --> 00:03:42,418
+No es que la etiqueta describa lo que ya
+eras.
+
+85
+00:03:42,418 --> 00:03:45,276
+Es que, repetida lo suficiente por la
+persona equivocada,
+
+86
+00:03:45,276 --> 00:03:46,500
+la etiqueta te construye.
+
+87
+00:03:46,500 --> 00:03:49,253
+Saber esto no borra las etiquetas que ya
+cargas.
+
+88
+00:03:49,253 --> 00:03:52,924
+Pero sí cambia la pregunta que te tienes
+que hacer la próxima
+
+89
+00:03:52,924 --> 00:03:56,595
+vez que sientas que algo se te da mal de
+forma innata.
+
+90
+00:03:56,595 --> 00:03:58,430
+Pregúntate quién te lo dijo primero,
+
+91
+00:03:58,430 --> 00:04:00,279
+cuántas veces te lo repitió, y
+
+92
+00:04:00,279 --> 00:04:04,425
+si alguna vez comprobaste si era verdad o
+si simplemente dejaste de intentarlo.
+
+93
+00:04:04,425 --> 00:04:08,891
+En el próximo video vas a conocer un
+experimento todavía más difícil de creer,
+
+94
+00:04:08,891 --> 00:04:11,760
+el de un profesor universitario que pidió
+a sus
+
+95
+00:04:11,760 --> 00:04:14,965
+alumnos que decapitaran una rata viva
+delante de una cámara,
+
+96
+00:04:14,965 --> 00:04:17,594
+solo para fotografiar la cara que ponían.
+
+97
+00:04:17,594 --> 00:04:20,238
+Suscríbete si quieres seguir entendiendo
+hasta dónde
+
+98
+00:04:20,238 --> 00:04:22,881
+llega la traición de tu propio cerebro.
+
+99
+00:04:22,881 --> 00:04:24,830
+Nos vemos en el siguiente.
+

@@ -1,0 +1,184 @@
+# Primera prueba de gemini-3.1-flash-tts-preview: modelo mas nuevo que el
+# 2.5-flash que se ha usado todo este tiempo, encontrado buscando "voces de
+# Gemini" mas a fondo. Mismo endpoint, misma clave, solo cambia el modelo en
+# la URL -- verificado por busqueda antes de escribir nada, no supuesto.
+#
+# LO QUE LO HACE DISTINTO Y POR QUE IMPORTA
+# Trae mas de 200 etiquetas de interpretacion QUE SE PONEN DENTRO DEL TEXTO,
+# en el punto exacto donde hacen falta: [short pause], [slow], [fast],
+# [whispers]... Esto es categoricamente distinto de la "direccion" que se
+# usaba con 2.5-flash, que era una instruccion para el parrafo entero. Es
+# la respuesta directa al hallazgo de hoy: la puntuacion entrecortada rompia
+# la prosodia porque el modelo no tenia forma de saber CUANTO pausar en cada
+# punto. Aqui se le dice, punto por punto.
+#
+# Como no se ha probado nunca en este repo, la semantica de las etiquetas no
+# esta verificada de primera mano (solo por documentacion de terceros): este
+# es justo el experimento que lo comprueba.
+#
+# PRUEBA CONTROLADA: dos peticiones, MISMO TEXTO BASE, mismo voz. La unica
+# diferencia es que "con-etiquetas" añade tres marcas de interpretacion en
+# los puntos exactos donde ayer se vio el problema (los dos "cortes duros").
+# Si suena mejor, confirma que el problema de fondo no era la voz: era no
+# tener una forma de dirigir CADA pausa por separado.
+name: voz-gemini-31
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - canal-youtube/.gemini-31-disparo
+
+permissions:
+  contents: write
+
+env:
+  DESTINO: canal-youtube/muestras-voz/gemini-31
+  MODELO: gemini-3.1-flash-tts-preview
+  VOZ: Achird
+  DIRECCION: >-
+    Habla en español latinoamericano neutro. Eres un hombre de unos cuarenta
+    y cinco años contandole esto a un amigo sentado enfrente. Registro medio,
+    conversacional, sin ánimo de locutor.
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - clave: sin-etiquetas
+            texto: >-
+              Cada mañana ordenas que suban agua caliente para afeitar a un
+              hombre que está muerto, le preparan la ropa, le dejan la
+              toalla limpia. Llevas años haciéndolo, estás en el castillo de
+              Windsor, y eres la mujer más poderosa del mundo.
+          - clave: con-etiquetas
+            texto: >-
+              Cada mañana ordenas que suban agua caliente para afeitar a un
+              hombre que está muerto. [short pause] Le preparan la ropa, le
+              dejan la toalla limpia. [short pause] [slow] Llevas años
+              haciéndolo, estás en el castillo de Windsor, y eres la mujer
+              más poderosa del mundo.
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/viral-youtube-video-ideas-luqj2m
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Resolver la clave
+        env:
+          CLAVE_OK: ${{ secrets.GOOGLE_API_KEY }}
+          CLAVE_TYPO: ${{ secrets.GOOGLE_API_JEY }}
+        run: |
+          CLAVE="${CLAVE_OK:-$CLAVE_TYPO}"
+          if [ -z "$CLAVE" ]; then
+            echo "::error::no hay clave de Google en los secretos del repo"
+            exit 1
+          fi
+          echo "::add-mask::$CLAVE"
+          echo "CLAVE=$CLAVE" >> "$GITHUB_ENV"
+
+      - name: Sintetizar
+        env:
+          TEXTO: ${{ matrix.texto }}
+        run: |
+          mkdir -p salida
+          python3 - <<'PY'
+          import base64, json, os, re, sys, time, urllib.error, urllib.request, wave
+
+          direccion = " ".join(os.environ["DIRECCION"].split())
+          texto = " ".join(os.environ["TEXTO"].split())
+          prompt = (f"{direccion}\n\nDi exactamente el texto que sigue, y nada "
+                    f"mas. No leas estas instrucciones ni las etiquetas entre "
+                    f"corchetes en voz alta; son marcas de interpretacion, no "
+                    f"texto.\n\n{texto}")
+
+          cuerpo = {
+              "contents": [{"parts": [{"text": prompt}]}],
+              "generationConfig": {
+                  "responseModalities": ["AUDIO"],
+                  "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig":
+                      {"voiceName": os.environ["VOZ"]}}},
+              },
+          }
+          url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+                 f"{os.environ['MODELO']}:generateContent")
+          pet = urllib.request.Request(
+              url, data=json.dumps(cuerpo).encode(),
+              headers={"Content-Type": "application/json",
+                       "x-goog-api-key": os.environ["CLAVE"]},
+              method="POST")
+
+          resp = None
+          for intento in range(1, 5):
+              try:
+                  with urllib.request.urlopen(pet, timeout=300) as r:
+                      resp = json.loads(r.read())
+                  break
+              except urllib.error.HTTPError as e:
+                  d = e.read().decode(errors="replace")
+                  # Primer contacto con este modelo: no se sabe si existe,
+                  # si el proyecto tiene acceso, o si el cupo es propio.
+                  # Cualquier 4xx que no sea 429 se reporta tal cual, sin
+                  # adivinar la causa.
+                  if e.code == 404:
+                      print(f"::error::modelo '{os.environ['MODELO']}' no "
+                            f"encontrado o no disponible para este proyecto. "
+                            f"{d[:400]}")
+                      sys.exit(1)
+                  if e.code == 429 and re.search(r"limit: 0\b", d):
+                      print(f"::error::{os.environ['MODELO']} no esta en el "
+                            f"plan gratuito (limit: 0). {d[:400]}")
+                      sys.exit(1)
+                  if e.code == 429 and re.search(r"PerDay|per day", d):
+                      print(f"::error::cupo DIARIO agotado para este modelo "
+                            f"(bucket propio, distinto del 2.5-flash). {d[:400]}")
+                      sys.exit(1)
+                  if e.code not in (429, 500, 503) or intento == 4:
+                      print(f"::error::Google devolvio {e.code}: {d[:600]}")
+                      sys.exit(1)
+                  espera = 20.0 * intento
+                  m = re.search(r"retry in ([\d.]+)s", d)
+                  if m:
+                      espera = float(m.group(1)) + 5
+                  print(f"{e.code} en el intento {intento}; espero {espera:.0f}s")
+                  time.sleep(espera)
+
+          try:
+              parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
+          except (KeyError, IndexError):
+              print(f"::error::respuesta inesperada: {json.dumps(resp)[:600]}")
+              sys.exit(1)
+
+          crudo = base64.b64decode(parte["data"])
+          m = re.search(r"rate=(\d+)", parte.get("mimeType", ""))
+          sr = int(m.group(1)) if m else 24000
+          print(f"{len(crudo)} bytes a {sr} Hz = {len(crudo)/(sr*2):.1f}s")
+
+          with wave.open("salida/voz.wav", "wb") as w:
+              w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
+              w.writeframes(crudo)
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/${{ matrix.clave }}.mp3"
+          rm salida/voz.wav
+          DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 \
+                "salida/${{ matrix.clave }}.mp3")
+          echo "duracion: ${DUR}s"
+          python3 -c "import sys; sys.exit(0 if float('$DUR')>5 else 1)" \
+            || { echo "::error::solo ${DUR}s; el modelo no leyo el texto"; exit 1; }
+
+      - uses: ./.github/actions/devolver
+        if: always()
+        with:
+          destino: canal-youtube/muestras-voz/gemini-31
+          mensaje: Voz Gemini 3.1 ${{ matrix.clave }}

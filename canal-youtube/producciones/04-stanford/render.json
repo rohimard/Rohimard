@@ -1,0 +1,10 @@
+{
+  "hoja": "hoja-montaje.csv",
+  "imagenes": "imagenes",
+  "audio": "audio.mp3",
+  "srt": "subtitulos.srt",
+  "salida": "video-final.mp4",
+  "resolucion": "1920x1080",
+  "fps": 25,
+  "crf": 20
+}

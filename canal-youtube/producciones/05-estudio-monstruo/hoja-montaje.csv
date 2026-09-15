@@ -1,0 +1,100 @@
+﻿Plano;Bloque;Entra;Sale;Duracion (s);Escena
+1;GANCHO;0:00;0:02;2;Dormitorio del orfanato, amanecer
+2;GANCHO;0:02;0:03;1;Zapatos gastados junto a la cama
+3;GANCHO;0:03;0:07;4;La 'profesora' te espera
+4;GANCHO;0:07;0:09;2;Manos nerviosas del niño
+5;GANCHO;0:09;0:10;1;El niño intenta hablar
+6;GANCHO;0:10;0:11;1;Una pequeña duda al hablar
+7;GANCHO;0:11;0:13;2;Corrección: 'tartamudo'
+8;GANCHO;0:13;0:17;4;Humillación en voz baja
+9;GANCHO;0:17;0:20;3;No es tu profesora
+10;GANCHO;0:20;0:23;3;Un experimento científico
+11;GANCHO;0:23;0:27;4;Sesenta años de silencio
+12;CONTEXTO;0:27;0:28;1;Esto pasó de verdad
+13;CONTEXTO;0:28;0:29;1;Mil novecientos treinta y nueve
+14;CONTEXTO;0:29;0:30;1;Orfanato de Davenport
+15;CONTEXTO;0:30;0:32;2;Estado de Iowa
+16;CONTEXTO;0:32;0:35;3;Retrato de Wendell Johnson
+17;CONTEXTO;0:35;0:39;4;Concentración, no solo ciencia
+18;CONTEXTO;0:39;0:42;3;Johnson de niño, tartamudo
+19;CONTEXTO;0:42;0:47;5;La hipótesis: no nace en la garganta
+20;CONTEXTO;0:47;0:50;3;Nace en quien escucha
+21;CONTEXTO;0:50;0:52;2;Niños sanos
+22;CONTEXTO;0:52;0:53;1;Que hablaran con normalidad
+23;CONTEXTO;0:53;0:56;3;Convertirlos con palabras
+24;EL EXPERIMENTO;0:56;0:59;3;Johnson no lo hizo con su mano
+25;EL EXPERIMENTO;0:59;1:02;3;Mary Tudor recibe el encargo
+26;EL EXPERIMENTO;1:02;1:03;1;El orfanato, sin padres que pregunten
+27;EL EXPERIMENTO;1:03;1:06;3;Eligió Davenport
+28;EL EXPERIMENTO;1:06;1:09;3;Sin nadie que preguntara
+29;EL EXPERIMENTO;1:09;1:11;2;Sin saber que participaban
+30;EL EXPERIMENTO;1:11;1:14;3;Al primer grupo
+31;EL EXPERIMENTO;1:14;1:15;1;Elogios constantes
+32;EL EXPERIMENTO;1:15;1:17;2;Hablaban de maravilla
+33;EL EXPERIMENTO;1:17;1:20;3;El grupo contrario
+34;EL EXPERIMENTO;1:20;1:23;3;Cada pausa de un niño de seis años
+35;EL EXPERIMENTO;1:23;1:26;3;Se convertía en humillación
+36;EL EXPERIMENTO;1:26;1:28;2;Los llamaba tartamudos
+37;EL EXPERIMENTO;1:28;1:30;2;Sin serlo de verdad
+38;EL EXPERIMENTO;1:30;1:32;2;Resultados rápidos
+39;LAS CONSECUENCIAS;1:32;1:33;1;Peor de lo esperado
+40;LAS CONSECUENCIAS;1:33;1:35;2;Hablar menos por miedo
+41;LAS CONSECUENCIAS;1:35;1:39;4;Dejar de participar
+42;LAS CONSECUENCIAS;1:39;1:41;2;No decir su propio nombre
+43;LAS CONSECUENCIAS;1:41;1:44;3;No entendían el experimento
+44;LAS CONSECUENCIAS;1:44;1:47;3;Vergüenza a los seis años
+45;LAS CONSECUENCIAS;1:47;1:49;2;Motivo de vergüenza
+46;LAS CONSECUENCIAS;1:49;1:52;3;Se quedó pegada mucho después
+47;LAS CONSECUENCIAS;1:52;1:57;5;Nunca lo publicó
+48;EL DESCUBRIMIENTO;1:57;2:00;3;Sabía lo que había hecho
+49;EL DESCUBRIMIENTO;2:00;2:02;2;No se podía defender
+50;EL DESCUBRIMIENTO;2:02;2:04;2;Guardado en un cajón sesenta años
+51;EL DESCUBRIMIENTO;2:04;2:08;4;Mencionado solo por encima
+52;EL DESCUBRIMIENTO;2:08;2:11;3;Un periodista, en 2001
+53;EL DESCUBRIMIENTO;2:11;2:14;3;La noticia salió
+54;EL DESCUBRIMIENTO;2:14;2:17;3;Los archivos, al fin abiertos
+55;EL DESCUBRIMIENTO;2:17;2:18;1;Ya no había forma de esconderla
+56;EL DESCUBRIMIENTO;2:18;2:20;2;Aquellos niños, ya ancianos
+57;EL DESCUBRIMIENTO;2:20;2:22;2;Problemas de habla
+58;EL DESCUBRIMIENTO;2:22;2:24;2;Seis décadas después
+59;EL DESCUBRIMIENTO;2:24;2:26;2;La universidad pidió perdón
+60;EL DESCUBRIMIENTO;2:26;2:30;4;Una indemnización, un daño irreparable
+61;EL DESCUBRIMIENTO;2:30;2:34;4;La parte que de verdad importa
+62;LA REVELACION;2:34;2:37;3;No solo un científico cruzó la raya
+63;LA REVELACION;2:37;2:40;3;Su hipótesis
+64;LA REVELACION;2:40;2:42;2;En el fondo, tenía razón
+65;LA REVELACION;2:42;2:43;1;Usada para hacer daño
+66;LA REVELACION;2:43;2:47;4;No hace falta tener el problema
+67;LA REVELACION;2:47;2:49;2;Basta con que te lo repitan
+68;LA REVELACION;2:49;2:52;3;Comportarse como si lo tuviera
+69;LA REVELACION;2:52;2:54;2;Un profesor, un padre, un jefe
+70;LA REVELACION;2:54;2:56;2;Te repita que eres torpe
+71;LA REVELACION;2:56;2:58;2;Que eres lento
+72;LA REVELACION;2:58;3:00;2;Que hablas mal
+73;LA REVELACION;3:00;3:05;5;Tu cerebro deja de confiar
+74;LA REVELACION;3:05;3:08;3;Vigilarse a sí mismo
+75;LA REVELACION;3:08;3:13;5;La vigilancia produce el tropiezo
+76;CONEXION UNIVERSAL;3:13;3:16;3;No se quedó en 1939
+77;CONEXION UNIVERSAL;3:16;3:19;3;Te sigue pasando hoy
+78;CONEXION UNIVERSAL;3:19;3:22;3;Qué etiqueta llevas puesta
+79;CONEXION UNIVERSAL;3:22;3:25;3;El profesor y las matemáticas
+80;CONEXION UNIVERSAL;3:25;3:28;3;Deja de intentarlo
+81;CONEXION UNIVERSAL;3:28;3:32;4;Cree que no se le dan los números
+82;CONEXION UNIVERSAL;3:32;3:35;3;El jefe y el desorden
+83;CONEXION UNIVERSAL;3:35;3:38;3;Olvida sin esfuerzo
+84;CONEXION UNIVERSAL;3:38;3:41;3;La etiqueta no describe lo que eras
+85;CONEXION UNIVERSAL;3:41;3:44;3;Repetida por la persona equivocada
+86;CONEXION UNIVERSAL;3:44;3:45;1;La etiqueta te construye
+87;CIERRE;3:45;3:48;3;No borra lo que ya cargas
+88;CIERRE;3:48;3:52;4;La pregunta correcta
+89;CIERRE;3:52;3:56;4;Algo que 'no se te da bien'
+90;CIERRE;3:56;3:58;2;Quién te lo dijo primero
+91;CIERRE;3:58;4:00;2;Cuántas veces te lo repitió
+92;CIERRE;4:00;4:04;4;Si alguna vez lo comprobaste
+93;CIERRE;4:04;4:08;4;El próximo experimento
+94;CIERRE;4:08;4:11;3;Decapitar una rata
+95;CIERRE;4:11;4:14;3;Delante de la cámara
+96;CIERRE;4:14;4:17;3;La cara que ponían
+97;CIERRE;4:17;4:20;3;Suscríbete
+98;CIERRE;4:20;4:23;3;La traición de tu cerebro
+99;CIERRE;4:23;4:25;2;Cierre del canal

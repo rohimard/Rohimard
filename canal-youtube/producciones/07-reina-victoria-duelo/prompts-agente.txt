@@ -1,0 +1,111 @@
+Genera 89 imágenes, una por cada escena numerada de la lista.
+Cada imagen en formato horizontal 16:9 y SIN NINGÚN TEXTO dentro de la imagen.
+
+ESTILO, aplícalo a las 89 sin excepción:
+fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+PERSONAJES RECURRENTES. Donde una escena diga VICTORIA, ALBERTO o HOMBRE,
+usa exactamente esta descripción, sin variarla, para que sea siempre la
+misma persona en todas las imágenes donde aparezca:
+VICTORIA = la reina Victoria del Reino Unido, mujer de unos cuarenta y dos años, rostro ovalado y pálido, cabello oscuro con raya al medio recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido.
+ALBERTO = el príncipe Alberto de Sajonia-Coburgo-Gota, hombre de unos cuarenta y dos años, bigote y patillas discretas, uniforme militar victoriano oscuro con condecoraciones.
+HOMBRE = un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre.
+
+ÉPOCA, es importante y no la deduzcas de la escena:
+Las escenas 1 a 28 son victorianas de mil ochocientos sesenta,
+sin ningún objeto moderno en el encuadre.
+El resto son contemporáneas actuales, sin ningún elemento de época.
+Las escenas 29, 36, 48, 83 son la excepción: contraponen las dos épocas en un
+encuadre partido por la mitad.
+
+ESCENAS
+
+1. detalle macro de unas manos de doncella victoriana sosteniendo una jarra de porcelana blanca con agua humeante, subiendo una escalera de piedra en penumbra, vapor visible en el aire frío de la mañana.
+2. primer plano cenital de un lavabo de porcelana victoriano con una navaja de afeitar abierta, brocha de tejón y jabonera, todo dispuesto con precisión milimétrica, la habitación vacía y oscura al fondo.
+3. detalle de un uniforme militar victoriano oscuro doblado con precisión sobre una silla de madera tallada, junto a una toalla blanca impecable perfectamente alineada, luz de ventana alta, nadie en la habitación.
+4. plano general amplio del castillo de Windsor al amanecer de invierno, silueta de piedra gótica contra un cielo gris, niebla baja sobre el césped, una sola ventana iluminada.
+5. primer plano cerrado de perfil de VICTORIA, mandíbula apretada, mirada fija al frente, luz lateral dura de ventana que deja media cara en sombra, sensación de poder y de encierro a la vez.
+6. plano general de un archivo histórico real, estanterías de documentos encuadernados en piel del siglo diecinueve, luz tenue de lámpara de lectura sobre una mesa de madera.
+7. retrato de estudio victoriano de VICTORIA, erguida y solemne, fondo de cortinaje pesado, iluminación de fotografía de época.
+8. retrato de estudio victoriano de ALBERTO, expresión serena, fondo de cortinaje pesado, iluminación cálida de fotografía de época.
+9. detalle de un calendario de pared victoriano de diciembre, papel amarillento, junto a una vela consumida hasta el final, penumbra.
+10. plano medio de una cama con dosel vacía y deshecha en una habitación de palacio en penumbra, sábanas revueltas, un frasco de medicina sobre la mesilla, luz gris de ventana.
+11. plano general de un pasillo de palacio larguísimo y desierto, suelo de mármol reflejando ventanales, perspectiva que se pierde en el fondo, sensación de tiempo interminable.
+12. plano medio de VICTORIA de espaldas frente a un armario abierto lleno únicamente de vestidos negros idénticos colgados en fila, luz fría de la mañana.
+13. detalle macro de unas manos ancianas con anillos de luto abrochando el último botón de un cuello alto negro, piel arrugada, luz de vela.
+14. plano general de un balcón de palacio vacío con las cortinas cerradas, visto desde abajo, cielo plomizo, ninguna figura asomada.
+15. plano general de una multitud victoriana de clase trabajadora reunida frente a las verjas de un palacio, rostros mirando hacia arriba con expectación y desconcierto, niebla de Londres, luz gris.
+16. detalle de un periódico victoriano arrugado sobre un adoquín mojado, titulares ilegibles y borrosos, gotas de lluvia sobre el papel.
+17. plano general del interior de la Cámara de los Lores victoriana vacía, bancos de cuero rojo desiertos, el trono vacío al fondo iluminado por un haz de luz cenital.
+18. detalle macro de una hoja de papel de carta con un grueso borde negro de luto, pluma estilográfica apoyada encima, tinta fresca, luz lateral rasante que marca la textura del papel.
+19. detalle cenital de un montón de sobres con borde negro apilados y atados con una cinta, el papel amarilleado por los años, polvo.
+20. plano medio de VICTORIA anciana escribiendo en un escritorio, concentrada, rodeada de papel de luto, ventana con lluvia detrás.
+21. plano general de una carroza real victoriana avanzando entre una multitud, vista desde la altura de la calle, gente asomada, luz de tarde nublada.
+22. primer plano de VICTORIA dentro de la carroza, vista a través del cristal de la ventanilla con reflejos de la multitud superpuestos, rostro impasible.
+23. plano secuencia conceptual de cuatro vestidos negros victorianos idénticos colgados en fila, cada uno más gastado y desvaído que el anterior, fondo neutro oscuro, luz de museo.
+24. detalle de una lápida de mármol blanco recién tallada con laureles, sin texto legible, flores blancas marchitas a los pies, luz de invierno.
+25. plano medio de un libro de historia antiguo abierto sobre un atril, ilustración grabada de una pareja victoriana, luz cálida de biblioteca.
+26. pintura al óleo victoriana idealizada de una viuda de luto junto a un retrato de su marido, estilo romántico del siglo diecinueve, marco dorado, iluminación de galería.
+27. plano medio de un cuadro romántico colgado en una pared de museo, visitantes desenfocados delante, luz de sala expositiva.
+28. detalle de una pintura antigua con una grieta o craquelado atravesando el rostro retratado, macro extremo, iluminación rasante.
+29. plano cenital de un expediente clínico moderno abierto sobre una mesa junto a un grabado victoriano, contraste de épocas, luz de escritorio.
+30. detalle macro de una página de manual médico moderno con un término subrayado a mano, texto borroso salvo el subrayado, luz de flexo.
+31. plano medio de un psicólogo contemporáneo tomando notas en una consulta de luz suave, sillón vacío enfrente, ambiente sobrio.
+32. plano general de una biblioteca médica moderna, estanterías de manuales de diagnóstico, una figura pequeña consultando un volumen, luz fría.
+33. detalle de la portada de un manual de diagnóstico psiquiátrico moderno sobre una mesa blanca, sin texto legible, luz clínica cenital.
+34. plano cenital de varias manos de profesionales alrededor de una mesa de reunión con documentos y un manual grueso abierto, luz de oficina.
+35. plano dividido conceptual entre un salón victoriano en penumbra a la izquierda y una consulta moderna iluminada a la derecha, misma composición en ambos lados, transición visual entre épocas.
+36. detalle macro de un diagrama médico dibujado a mano en un cuaderno, líneas y anotaciones ilegibles, luz de escritorio lateral.
+37. plano medio de una pizarra blanca de consulta con una fila de casillas vacías dibujadas a mano, sin texto legible, luz de ventana de despacho.
+38. plano general de una calle contemporánea concurrida a la hora punta, gente caminando con movimiento borroso, luz de tarde.
+39. plano medio de HOMBRE sentada sola en un banco de un parque moderno, mirando al vacío, gente pasando desenfocada alrededor, luz de atardecer.
+40. primer plano cerrado del reflejo parcial de un rostro adulto en la pantalla apagada de un teléfono móvil, mirada directa, penumbra de habitación.
+41. plano cenital limpio de siete objetos cotidianos idénticos alineados sobre una superficie neutra de hormigón, luz suave y uniforme, estética editorial minimalista.
+42. plano medio de HOMBRE de pie frente a una ventana grande de un piso moderno, de espaldas, silueta recortada contra la luz gris del exterior.
+43. primer plano de HOMBRE mirándose en el espejo del baño, un solo reflejo nítido, rostro cansado y sin expresión, luz fría de mañana.
+44. plano medio de una silla vacía en un comedor moderno con la mesa puesta para dos, uno de los platos intacto, luz de lámpara colgante.
+45. detalle macro de una fotografía de dos personas en la que una de las caras está desgastada por el roce de los dedos, papel gastado, luz lateral.
+46. plano cenital de HOMBRE tumbada en el suelo de un salón vacío, brazos extendidos, mirando al techo, luz natural desde una ventana fuera de cuadro.
+47. plano medio de HOMBRE de pie en el umbral de una habitación, con la mano aún en el pomo, sin llegar a entrar, luz cálida dentro y fría fuera.
+48. plano dividido conceptual entre una doncella victoriana dejando un uniforme sobre una silla y una persona actual doblando un jersey ajeno sobre una cama, misma composición en ambos lados.
+49. detalle macro de dos cepillos de dientes juntos en un vaso de baño, uno visiblemente usado y el otro seco e intacto, azulejos modernos desenfocados al fondo, luz suave de espejo.
+50. primer plano de HOMBRE mirando el móvil con una conversación abierta sin respuesta, pantalla iluminando el rostro en la oscuridad.
+51. plano general de un armario abierto con ropa de dos personas mezclada, una de las mitades intacta y sin tocar, habitación en penumbra.
+52. plano medio de HOMBRE cruzando la calle bruscamente para no pasar frente a un local, visto desde el otro lado, luz de tarde urbana.
+53. punto de vista a la altura de los ojos de una acera concreta que se queda atrás, desenfoque de movimiento, farolas encendidas, hora azul.
+54. detalle macro de un dedo suspendido sobre el botón de borrar de una galería de fotos en un móvil, sin llegar a tocarlo, pantalla brillante en la oscuridad.
+55. primer plano cerrado del rostro de HOMBRE con los ojos cerrados y la mandíbula tensa, lágrima contenida, luz lateral dura.
+56. detalle macro de un puño apretado sobre una mesa de madera, nudillos blancos, un vaso de agua vibrando ligeramente al lado.
+57. plano general de una figura pequeña sentada al borde de una cama en una habitación grande y ordenada, luz de ventana que va cayendo, sensación de tiempo detenido.
+58. plano medio de HOMBRE sentado frente a un portátil abierto sin escribir, tazas acumuladas al lado, luz azulada de pantalla.
+59. plano cenital perfectamente perpendicular de un calendario de pared de papel sobre una mesa de madera clara, la rejilla de casillas nítida y vacía pero los números y las palabras deliberadamente ilegibles, impresos muy pequeños en gris claro sobre blanco y ligeramente desenfocados, una sola casilla del centro rodeada a mano con un círculo de bolígrafo rojo y sin ninguna palabra escrita dentro, al lado tres sobres de invitación de papel grueso color crema cerrados y sin abrir apilados sin orden, luz de ventana lateral suave, sombras largas, sensación de mesa a la que nadie se sienta desde hace semanas.
+60. plano medio de HOMBRE en una cena con amigos, sonriendo a destiempo, el resto de la mesa desenfocada y animada, luz cálida de restaurante.
+61. detalle de un móvil sobre una mesa con notificaciones acumuladas sin leer, pantalla encendida, entorno oscuro.
+62. primer plano de HOMBRE con expresión completamente neutra, mirada sin foco, fondo desenfocado de una habitación iluminada.
+63. plano medio de una persona vista a través de una ventana con condensación y gotas de lluvia, rostro parcialmente borroso por el cristal, luz gris del exterior.
+64. plano conceptual de una habitación moderna con los colores casi completamente desaturados salvo un objeto pequeño que conserva color, luz plana.
+65. plano medio de HOMBRE en una fiesta con luces de colores y gente riendo, quieta en el centro, expresión ausente, movimiento borroso alrededor.
+66. plano general amplio de HOMBRE de pie en medio de un espacio urbano enorme y vacío, aparcamiento o plaza, escala que empequeñece a la figura, luz de amanecer.
+67. plano cenital de dos sillas de terraza, una ocupada por un abrigo y la otra vacía, mesa con dos cafés, uno intacto y frío.
+68. primer plano de las manos de HOMBRE sosteniendo una taza fría, sin beber, dedos entrelazados alrededor, luz suave de cocina.
+69. detalle macro de una bombilla apagada en una lámpara de mesa encendida el resto de la habitación, filamento frío, fondo desenfocado.
+70. primer plano de HOMBRE mirando directamente a cámara por primera vez, expresión de reconocimiento, luz frontal suave.
+71. detalle macro de un dedo señalando una línea concreta en un documento impreso, texto ilegible salvo el gesto, luz de flexo.
+72. plano conceptual de una balanza antigua de dos platos en equilibrio desigual sobre una mesa neutra, luz lateral dura, fondo oscuro.
+73. plano medio de un reloj de pared moderno en una habitación vacía, manecillas nítidas, luz cambiando de día a noche en la pared.
+74. plano cenital de doce hojas de calendario arrancadas y esparcidas sobre una mesa oscura, luz rasante.
+75. plano medio de una consulta de psicología con dos sillones enfrentados, uno ocupado por una figura inclinada hacia delante, luz cálida y sobria.
+76. plano medio de HOMBRE llorando abiertamente y sin contención en un sofá, luz natural de tarde, imagen sin dramatismo, humana y normal.
+77. plano medio de dos personas abrazadas en un salón, una consolando a la otra, luz cálida de lámpara, encuadre íntimo.
+78. plano medio de una consulta luminosa con un profesional y un paciente conversando, ambos relajados, luz natural abundante.
+79. plano medio de HOMBRE saliendo por la puerta de un edificio a una calle iluminada, expresión de alivio leve, contraluz de sol.
+80. plano medio de VICTORIA anciana sentada sola en un salón de palacio enorme, rodeada de sillas vacías, luz de ventanal lejano.
+81. plano general de un gabinete médico victoriano con instrumental primitivo sobre una mesa de madera, ninguna figura presente, luz de vela.
+82. plano conceptual de VICTORIA de espaldas frente a una puerta cerrada de palacio, mano apoyada en la madera sin abrirla, penumbra.
+83. plano dividido conceptual entre un salón victoriano en penumbra a la izquierda y una consulta moderna luminosa a la derecha, misma composición, la mitad moderna claramente más iluminada.
+84. detalle macro de una palabra subrayada en un cuaderno moderno escrito a mano, letra clara pero ilegible, luz de ventana.
+85. plano medio de un grupo pequeño de personas sentadas en círculo en una sala luminosa, postura de escucha, luz natural.
+86. primer plano de HOMBRE con expresión serena por primera vez, hombros bajados, luz cálida frontal, fondo desenfocado luminoso.
+87. plano general de una silueta caminando por un pasillo hacia una puerta abierta con luz intensa al fondo, contraluz marcado.
+88. plano medio de una puerta entreabierta a una habitación iluminada, vista desde un pasillo oscuro, invitación visual a entrar.
+89. plano conceptual de una silueta humana de perfil sobre fondo neutro oscuro, con una luz cálida y suave iluminando la zona de la cabeza, estética editorial sobria, sin texto.

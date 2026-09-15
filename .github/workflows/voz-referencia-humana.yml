@@ -1,0 +1,141 @@
+# Chatterbox con una referencia humana de verdad.
+#
+# La cadena anterior usaba una referencia generada por Piper, es decir
+# sintética, y Chatterbox clonó fielmente un robot. El techo de calidad lo
+# pone la referencia, no el modelo: si la voz de partida no es humana, la
+# de salida tampoco lo será.
+#
+# Aquí se prueban voces humanas reales de los corpus de OpenSLR, grabaciones
+# de estudio de hablantes latinoamericanos que Google publicó para construir
+# sistemas de habla (CC-BY-SA 4.0). Y de paso la voz propia de Chatterbox
+# sin referencia ninguna, para saber cuánto aporta realmente clonar.
+name: voz-referencia-humana
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-referencia-humana.yml
+
+permissions:
+  contents: write
+
+env:
+  MUESTRA: Estás en el castillo de Windsor y acabas de dar una orden muy concreta. Que mañana, a la misma hora de siempre, suban el agua caliente para afeitar a tu marido. Tu marido está muerto.
+  ACABADO: highshelf=f=6500:g=2,deesser=i=0.25:m=0.5:f=0.55,equalizer=f=200:t=q:w=1.2:g=1.5,loudnorm=I=-16:TP=-1.5:LRA=11
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - clave: colombiano
+            slr: '72'
+            zip: es_co_male.zip
+          - clave: argentino
+            slr: '61'
+            zip: es_ar_male.zip
+          - clave: chileno
+            slr: '71'
+            zip: es_cl_male.zip
+          - clave: sin-referencia
+            slr: ''
+            zip: ''
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg unzip
+
+      - name: Referencia humana de OpenSLR
+        if: matrix.slr != ''
+        run: |
+          curl -sSL -o corpus.zip \
+            "https://www.openslr.org/resources/${{ matrix.slr }}/${{ matrix.zip }}"
+          mkdir -p corpus && unzip -q -o corpus.zip -d corpus
+          python - <<'PY'
+          import collections, glob, subprocess, os
+
+          # Los nombres traen el identificador del hablante en medio. Nos
+          # quedamos con quien más frases grabó, que es quien da la
+          # referencia más consistente.
+          wavs = glob.glob("corpus/**/*.wav", recursive=True)
+          por_hablante = collections.defaultdict(list)
+          for w in wavs:
+              partes = os.path.basename(w).split("_")
+              if len(partes) >= 2:
+                  por_hablante[partes[1]].append(w)
+          hablante, suyos = max(por_hablante.items(), key=lambda kv: len(kv[1]))
+          print(f"{len(wavs)} grabaciones, {len(por_hablante)} hablantes; "
+                f"elegido {hablante} con {len(suyos)}")
+
+          # Encadenamos frases sueltas hasta llegar a unos veinte segundos.
+          with open("lista.txt", "w") as f:
+              for w in sorted(suyos)[:14]:
+                  f.write(f"file '{os.path.abspath(w)}'\n")
+          subprocess.run([
+              "ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0",
+              "-i", "lista.txt", "-t", "22", "-ar", "24000", "-ac", "1",
+              "-af", "loudnorm=I=-20:TP=-2:LRA=9", "referencia.wav",
+          ], check=True)
+          PY
+          ffmpeg -y -v error -i referencia.wav -codec:a libmp3lame -qscale:a 2 \
+                 muestra-referencia.mp3
+
+      - run: pip install --quiet chatterbox-tts
+
+      - name: Narrar
+        run: |
+          mkdir -p salida
+          python - <<'PY'
+          import os
+          import torch
+          import torchaudio as ta
+          from chatterbox.mtl_tts import ChatterboxMultilingualTTS
+
+          modelo = ChatterboxMultilingualTTS.from_pretrained(device="cpu")
+          extra = {}
+          if os.path.exists("referencia.wav"):
+              extra["audio_prompt_path"] = "referencia.wav"
+
+          torch.manual_seed(1861)
+          wav = modelo.generate(
+              os.environ["MUESTRA"],
+              language_id="es",
+              exaggeration=0.4,
+              cfg_weight=0.5,
+              **extra,
+          )
+          ta.save("salida/voz.wav", wav, modelo.sr)
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "$ACABADO" \
+                 -codec:a libmp3lame -qscale:a 2 "salida/${{ matrix.clave }}.mp3"
+          rm salida/voz.wav
+          # La referencia original también viaja, para poder comparar cuánto
+          # se parece el resultado a la persona de partida.
+          if [ -f muestra-referencia.mp3 ]; then
+            mv muestra-referencia.mp3 "salida/${{ matrix.clave }}-referencia.mp3"
+          fi
+
+      - name: Devolver el audio a la rama
+        env:
+          DESTINO: canal-youtube/muestras-voz/humana
+        run: |
+          mkdir -p "$DESTINO" && mv salida/*.mp3 "$DESTINO"/
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Muestra con referencia humana ${{ matrix.clave }}' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

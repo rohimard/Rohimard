@@ -1,0 +1,114 @@
+SEO — Vídeo 8 v2 (Kaczynski y el experimento de Harvard)
+
+===================================================================
+TÍTULO
+===================================================================
+
+RECOMENDADO (58 caracteres, no se corta en móvil):
+Harvard destrozó a 22 chicos. Uno acabó siendo el Unabomber
+
+  "destrozó" y no "hizo esto": el segundo es vago y huele a cebo
+  generico, que en este nicho sobra. "Destrozo" es el verbo que usa el
+  propio guion ("usarlas para destrozar al chico lo mas rapido y lo mas
+  hondo posible") y es defendible -- Murray lo escribio de su puno:
+  "vehemente y personalmente abusivo". NO usar "torturo": eso ya es
+  pasarse, y este canal vive de no pasarse.
+
+  "22 chicos" promete escala, no anecdota. Es lo que cambio en el guion:
+  ya no va de un chico de dieciseis anos, va de veintidos.
+
+Alternativas:
+Tenía 16 años cuando lo sentaron en esa silla. Después fue el Unabomber
+El experimento de Harvard que duró 3 años y nadie pagó por él  <- sin la
+  palabra clave: el giro del 3:23 pasa a ser sorpresa real, pero se
+  renuncia al pico de busqueda del estreno. No recomendado esta vez.
+
+DECISIÓN DE FONDO, Y ES TUYA:
+El guion esconde la identidad hasta el 3:23. El título la regala.
+Parece una contradicción y no lo es, pero conviene que sepas por qué:
+
+  - "unabomber" tenía 115.704 búsquedas/mes con +263,8% de crecimiento
+    (medido con vidIQ el 12/09), y Netflix estrena el 25/09. Renunciar a
+    esa palabra en el título es renunciar al pico de búsqueda entero.
+  - Saber por el título NO es lo mismo que saber por el guion. El título
+    da una etiqueta abstracta ("esto va del Unabomber"). El arranque no
+    se la recuerda: lo mete en una silla sin nombres. Cuando llega el
+    3:23, el pago no es información nueva, es RECONOCIMIENTO: "ah, era
+    él". Eso sigue funcionando.
+  - Si prefieres el golpe limpio, usa la tercera alternativa (sin la
+    palabra) y pierdes volumen de búsqueda a cambio de sorpresa real.
+
+Mi recomendación es el primero: con el estreno encima, el volumen manda.
+
+===================================================================
+MINIATURA
+===================================================================
+
+La miniatura actual (figura de espaldas en la silla + bloque rojo con
+"16 AÑOS") sigue sirviendo: el arranque nuevo ES esa silla, así que
+miniatura y primer plano ahora coinciden mejor que antes.
+
+Único cambio que propongo: el texto.
+  "16 AÑOS"  ->  "22 CHICOS"
+Razón: el gancho del guion ya no es la edad de uno, es el número de
+víctimas. "22 CHICOS" promete escala; "16 AÑOS" promete un caso.
+Si prefieres mantener "16 AÑOS", no la rehagas: funciona igual.
+
+===================================================================
+CAPÍTULOS (pegar en la descripción)
+===================================================================
+
+0:00 La silla
+0:22 Harvard, 1959
+0:40 Quién era Henry Murray
+1:07 La redacción
+1:38 Era la munición
+1:50 El debate era mentira
+2:25 Lo que grababan
+2:39 Obligados a verse
+2:59 Lawful
+3:24 Unabomber
+3:44 ¿Harvard creó a un asesino?
+4:06 Lo que queda si quitas a Kaczynski
+4:41 Por qué existen las normas de hoy
+
+(Duración del guion: 5:08. Los minutos salen del texto a 2,88 palabras/s;
+si el audio de David sale con otro ritmo, se recalculan sobre el SRT real
+antes de publicar.)
+
+===================================================================
+DESCRIPCIÓN
+===================================================================
+
+En 1959, Henry Murray reclutó a 22 estudiantes de Harvard para lo que
+les presentó como un estudio sobre el desarrollo de la personalidad.
+
+Les pidió que escribieran sus principios, su fe, lo que de verdad les
+importaba. Después usó esas páginas contra ellos: focos, electrodos,
+un interrogador entrenado para humillarlos, y una cámara grabándolo
+todo para obligarles a verse después.
+
+Duró tres años. Nadie pagó por ello. Uno de aquellos 22 chicos entró
+con 16 años y salió con 19: su nombre en clave era Lawful.
+
+Este vídeo cuenta qué les hicieron exactamente, quién lo firmó y por
+qué los archivos acabaron cerrados al público.
+
+FUENTES
+- Alston Chase, "Harvard and the Unabomber: The Education of an
+  American Terrorist" (2003)
+- Documentación del estudio de Henry A. Murray, Harvard University
+  Archives (acceso restringido)
+- Informe del FBI sobre el caso UNABOM
+
+Este vídeo no afirma que el experimento causara los atentados. Los
+otros 21 participantes pasaron por lo mismo y ninguno los cometió.
+
+===================================================================
+ETIQUETAS
+===================================================================
+
+unabomber, ted kaczynski, theodore kaczynski, experimento harvard,
+henry murray, experimentos psicologicos, experimentos perturbadores,
+historia incomoda, casos reales, documental espanol, mk ultra,
+experimentos con humanos, harvard, psicologia oscura, historia oculta

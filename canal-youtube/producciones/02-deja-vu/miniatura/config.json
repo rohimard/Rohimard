@@ -1,0 +1,11 @@
+{
+  "image": "base.jpg",
+  "font": "../../../kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura",
+  "number": "ERROR",
+  "line1": "NO ES UNA",
+  "line2": "PREMONICIÓN",
+  "side": "right",
+  "accent": "#FFD400",
+  "alarm": "#E10600"
+}
