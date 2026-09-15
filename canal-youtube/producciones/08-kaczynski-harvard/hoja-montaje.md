@@ -10,7 +10,7 @@ Los tiempos de las frases son **medidos**, no estimados: salen de transcribir
 el audio real y alinear la transcripción con el guion palabra a palabra.
 
 Los planos se reparten sobre esas frases con una alineación global en orden
-(66 de 104 planos coinciden por texto con su frase). No hay anclas
+(68 de 104 planos coinciden por texto con su frase). No hay anclas
 sueltas ni tramos interpolados, que es de donde venía la deriva de la versión
 anterior: cada plano caía dos frases por delante de su narración.
 
@@ -44,11 +44,11 @@ verificar el sincronismo sin abrir el editor.
 | 20 | `020.png` | 0:37.33 | 0:42.83 | 5.50s | El desconocido entra | Y entra un desconocido con tus páginas en la mano y empieza a leerlas en voz … |
 | 21 | `021.png` | 0:42.83 | 0:48.33 | 5.50s | El otro nombre | el FBI le pondrá el nombre que ya conoces: Unabomber. |
 | 22 | `022.png` | 0:48.33 | 0:53.83 | 5.50s | La pregunta | La pregunta que todo el mundo hace es si una cosa llevó a la otra. |
-| 23 | `023.png` | 0:53.83 | 0:59.33 | 5.50s | Murray, antes de Harvard | El profesor se llama Henry Murray. |
+| 23 | `023.png` | 0:53.83 | 0:59.33 | 5.50s | Murray, antes de Harvard | Antes de dar clase en Harvard trabajó para la OSS, |
 | 96 | `096.png` | 0:59.33 | 1:04.83 | 5.50s | La insignia de la OSS | Antes de dar clase en Harvard trabajó para la OSS, |
-| 24 | `024.png` | 1:04.83 | 1:08.49 | 3.66s | La OSS | Antes de dar clase en Harvard trabajó para la OSS, |
-| 97 | `097.png` | 1:08.49 | 1:10.09 | 1.60s | El informe clasificado | Antes de dar clase en Harvard trabajó para la OSS, |
-| 98 | `098.png` | 1:10.09 | 1:13.60 | 3.51s | El cuartel general | el servicio de inteligencia que fue el antecedente directo de la CIA. |
+| 24 | `024.png` | 1:04.83 | 1:08.71 | 3.88s | La OSS | Antes de dar clase en Harvard trabajó para la OSS, |
+| 97 | `097.png` | 1:08.71 | 1:10.31 | 1.60s | El informe clasificado | Antes de dar clase en Harvard trabajó para la OSS, |
+| 98 | `098.png` | 1:10.31 | 1:13.60 | 3.29s | El cuartel general | el servicio de inteligencia que fue el antecedente directo de la CIA. |
 | 25 | `025.png` | 1:13.60 | 1:16.16 | 2.56s | Medir al espía | Su trabajo allí era diseñar pruebas para medir cuánto aguantaba un espía bajo… |
 | 99 | `099.png` | 1:16.16 | 1:19.00 | 2.84s | El maletín de instrumentos | Su trabajo allí era diseñar pruebas para medir cuánto aguantaba un espía bajo… |
 | 26 | `026.png` | 1:19.00 | 1:21.00 | 2.00s | Cambió de sujetos | Cuando llegó a Harvard no cambió de oficio. Cambió de sujetos. |
@@ -87,22 +87,22 @@ verificar el sincronismo sin abrir el editor.
 | 54 | `054.png` | 2:54.42 | 2:56.02 | 1.60s | Entró con dieciséis | Kaczynski entró con dieciséis años y salió con diecinueve. |
 | 55 | `055.png` | 2:56.02 | 3:01.52 | 5.50s | Salió con diecinueve | Kaczynski entró con dieciséis años y salió con diecinueve. |
 | 56 | `056.png` | 3:01.52 | 3:03.76 | 2.24s | Lawful | El de Kaczynski era Lawful. |
-| 57 | `057.png` | 3:03.76 | 3:05.76 | 2.00s | Respetuoso de la ley | Respetuoso de la ley. |
-| 58 | `058.png` | 3:05.76 | 3:09.64 | 3.88s | El expediente | Entre mil novecientos setenta y ocho y mil novecientos noventa y cinco, |
-| 59 | `059.png` | 3:09.64 | 3:12.86 | 3.22s | Diecisiete años después | Theodore Kaczynski envió dieciséis paquetes bomba. |
-| 60 | `060.png` | 3:12.86 | 3:15.52 | 2.66s | El correo | Mató a tres personas e hirió a veintitrés. |
-| 61 | `061.png` | 3:15.52 | 3:18.60 | 3.08s | La saca | Ninguna de ellas tuvo nada que ver con Harvard, ni con Murray, |
-| 62 | `062.png` | 3:18.60 | 3:20.22 | 1.62s | Tres personas | ni con aquella sala. |
-| 63 | `063.png` | 3:20.22 | 3:21.82 | 1.60s | Una tienda de informática | Eran un dueño de una tienda de informática, |
-| 64 | `064.png` | 3:21.82 | 3:23.42 | 1.60s | La cabaña por dentro | Eran un dueño de una tienda de informática, |
-| 65 | `065.png` | 3:23.42 | 3:25.02 | 1.60s | Una oficina de publicidad | un ejecutivo de publicidad, un maderero. |
-| 66 | `066.png` | 3:25.02 | 3:26.62 | 1.60s | Un maderero | un ejecutivo de publicidad, un maderero. |
-| 67 | `067.png` | 3:26.62 | 3:28.32 | 1.70s | Sin saber por qué | Gente que no supo nunca por qué le había tocado. |
+| 57 | `057.png` | 3:03.76 | 3:05.36 | 1.60s | Respetuoso de la ley | Respetuoso de la ley. |
+| 58 | `058.png` | 3:05.36 | 3:06.96 | 1.60s | El expediente | Respetuoso de la ley. |
+| 59 | `059.png` | 3:06.96 | 3:09.64 | 2.68s | Diecisiete años después | Entre mil novecientos setenta y ocho y mil novecientos noventa y cinco, |
+| 60 | `060.png` | 3:09.64 | 3:12.86 | 3.22s | El correo | Theodore Kaczynski envió dieciséis paquetes bomba. |
+| 61 | `061.png` | 3:12.86 | 3:14.46 | 1.60s | La saca | Mató a tres personas e hirió a veintitrés. |
+| 62 | `062.png` | 3:14.46 | 3:19.96 | 5.50s | Tres personas | Mató a tres personas e hirió a veintitrés. |
+| 63 | `063.png` | 3:19.96 | 3:21.56 | 1.60s | Una tienda de informática | Eran un dueño de una tienda de informática, |
+| 64 | `064.png` | 3:21.56 | 3:23.16 | 1.60s | La cabaña por dentro | Eran un dueño de una tienda de informática, |
+| 65 | `065.png` | 3:23.16 | 3:24.76 | 1.60s | Una oficina de publicidad | un ejecutivo de publicidad, un maderero. |
+| 66 | `066.png` | 3:24.76 | 3:26.36 | 1.60s | Un maderero | un ejecutivo de publicidad, un maderero. |
+| 67 | `067.png` | 3:26.36 | 3:28.32 | 1.96s | Sin saber por qué | Gente que no supo nunca por qué le había tocado. |
 | 68 | `068.png` | 3:28.32 | 3:30.36 | 2.04s | Veintitrés heridos | Y aquí es donde hay que tener cuidado, |
-| 69 | `069.png` | 3:30.36 | 3:33.72 | 3.36s | La historia fácil | porque la historia fácil es decir que Harvard fabricó a un asesino. |
-| 70 | `070.png` | 3:33.72 | 3:35.52 | 1.80s | Los otros veintiuno | Eso no se sostiene. |
-| 71 | `071.png` | 3:35.52 | 3:38.66 | 3.14s | Nadie vio venir nada | Los otros veintiún estudiantes pasaron por exactamente lo mismo, |
-| 72 | `072.png` | 3:38.66 | 3:40.98 | 2.32s | Ninguno hizo lo mismo | y ninguno hizo lo que hizo él. |
+| 69 | `069.png` | 3:30.36 | 3:35.52 | 5.16s | La historia fácil | porque la historia fácil es decir que Harvard fabricó a un asesino. |
+| 70 | `070.png` | 3:35.52 | 3:37.12 | 1.60s | Los otros veintiuno | Los otros veintiún estudiantes pasaron por exactamente lo mismo, |
+| 71 | `071.png` | 3:37.12 | 3:38.72 | 1.60s | Nadie vio venir nada | Los otros veintiún estudiantes pasaron por exactamente lo mismo, |
+| 72 | `072.png` | 3:38.72 | 3:40.98 | 2.26s | Ninguno hizo lo mismo | y ninguno hizo lo que hizo él. |
 | 73 | `073.png` | 3:40.98 | 3:46.08 | 5.10s | Un experimento no aprieta un gatillo | Un experimento no aprieta un gatillo. |
 | 74 | `074.png` | 3:46.08 | 3:51.58 | 5.50s | Cincuenta años | y hay tres familias que llevan cincuenta años viviendo con esa decisión. |
 | 75 | `075.png` | 3:51.58 | 3:56.24 | 4.66s | Ocurrió igual | Lo incómodo es que el experimento ocurrió igual. |

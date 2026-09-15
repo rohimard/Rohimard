@@ -66,6 +66,34 @@ MIN, MAX = 1.6, 5.5
 # viendo el paquete mientras se decia "recien entrado a Harvard".
 MIN_PAL = 4
 
+# Anclas manuales: casos donde la similitud de palabras por si sola no basta.
+# Se detectaron auditando el documento entero contra su narracion, buscando
+# para cada plano si ALGUNA clausula cercana (a <=5 de la actual) encajaba
+# mucho mejor que la asignada. Dos casos reales, confirmados a mano:
+#
+#   62 "Tres personas" (tres sillas vacias) caia sobre "ni con aquella sala."
+#      -- comparte "tres" y "personas" LITERALMENTE con "Mato a tres personas
+#      e hirio a veintitres.", que es donde tenia que caer (similitud 1.0).
+#   70 "Los otros veintiuno" (21 alumnos de espaldas) caia sobre "Eso no se
+#      sostiene." -- el titulo es literalmente sobre los otros 21 alumnos,
+#      que es la frase siguiente: "Los otros veintiun estudiantes pasaron
+#      por exactamente lo mismo,".
+#
+# El resto de candidatos que salieron en la auditoria (3, 23, 42, 59, 64, 68,
+# 89) se revisaron y se dejaron como estan: o la clausula "mejor" solo
+# coincide por una palabra reciclada lejos en el guion (falso positivo del
+# detector), o el plano ya esta generado y no hay una clausula mejor
+# ALCANZABLE sin romper el orden de los planos vecinos que ya tienen su
+# propio encaje correcto.
+ANCLAS_MANUALES = {
+    62: "Mató a tres personas e hirió a veintitrés.",
+    70: "Los otros veintiún estudiantes pasaron por exactamente lo mismo,",
+    # El titulo promete "antes de Harvard" pero caia sobre la frase que solo
+    # presenta a Murray por su nombre, no sobre la que dice que antes de
+    # Harvard trabajo en la OSS -- que es literalmente el titulo del plano.
+    23: "Antes de dar clase en Harvard trabajó para la OSS,",
+}
+
 
 def norm(s):
     s = unicodedata.normalize("NFD", s.lower())
@@ -119,12 +147,38 @@ def main() -> None:
             if tn:
                 sim[i][j] = len(tn & nf[j]) / len(tn)
 
+    # Aplicar las anclas manuales.
+    #
+    # PRIMER INTENTO, QUE NO FUNCIONO: subir sim[i][j] a 1.0 y bajar el resto
+    # de la fila a 0. Se probo y el plano 62 se quedo exactamente donde
+    # estaba, como si el ancla no existiera. La razon: 1.0 es solo un empujon
+    # dentro del mismo calculo de coste que ya paga SALTO por cada paso que no
+    # avance una clausula exacta -- incluido QUEDARSE, que cuesta lo mismo que
+    # saltarse una (es "abs(j-k-1)", no "max(0, j-k-1)": quedarse en la misma
+    # clausula que el plano anterior tambien cuesta). Si desviar los vecinos
+    # para alcanzar esa clausula sale mas caro que 1.0, la programacion
+    # dinamica prefiere ignorar el ancla y de hecho eso es lo que hacia.
+    #
+    # LA QUE FUNCIONA: convertir la clausula ancla en la UNICA opcion posible
+    # para ese plano. Las demas quedan a -infinito, asi que no es un empujon,
+    # es una obligacion: el mejor camino global TIENE que pasar por ahi.
+    anclas_idx = {}
+    for n, texto_ancla in ANCLAS_MANUALES.items():
+        i = next((k for k, (pn, _, _) in enumerate(planos) if pn == n), None)
+        assert i is not None, f"ancla manual para un plano que no existe: {n}"
+        j = next((k for k, f in enumerate(frases) if texto_ancla in f), None)
+        assert j is not None, f"no encontré la cláusula del ancla de {n}: {texto_ancla!r}"
+        anclas_idx[i] = j
+        sim[i][j] = max(sim[i][j], 1.0)
+
     # Programacion dinamica: cada plano toma una frase, sin retroceder nunca.
     NEG = float("-inf")
     D = [[NEG] * M for _ in range(N)]
     DE = [[0] * M for _ in range(N)]
     for i in range(N):
         for j in range(M):
+            if i in anclas_idx and j != anclas_idx[i]:
+                continue  # ancla: esta fila SOLO puede resolver en su j
             if i == 0:
                 # El primer plano abre el video: empezar tarde tambien cuesta.
                 base, origen = -SALTO * j, 0

@@ -23,9 +23,9 @@ plano;bloque;entra;sale;duración;escena
 22;MURRAY;0:48.33;0:53.83;5.50;La pregunta
 23;MURRAY;0:53.83;0:59.33;5.50;Murray, antes de Harvard
 96;MURRAY;0:59.33;1:04.83;5.50;La insignia de la OSS
-24;MURRAY;1:04.83;1:08.49;3.66;La OSS
-97;MURRAY;1:08.49;1:10.09;1.60;El informe clasificado
-98;MURRAY;1:10.09;1:13.60;3.51;El cuartel general
+24;MURRAY;1:04.83;1:08.71;3.88;La OSS
+97;MURRAY;1:08.71;1:10.31;1.60;El informe clasificado
+98;MURRAY;1:10.31;1:13.60;3.29;El cuartel general
 25;MURRAY;1:13.60;1:16.16;2.56;Medir al espía
 99;MURRAY;1:16.16;1:19.00;2.84;El maletín de instrumentos
 26;MURRAY;1:19.00;1:21.00;2.00;Cambió de sujetos
@@ -64,22 +64,22 @@ plano;bloque;entra;sale;duración;escena
 54;LAS GRABACIONES;2:54.42;2:56.02;1.60;Entró con dieciséis
 55;LAS GRABACIONES;2:56.02;3:01.52;5.50;Salió con diecinueve
 56;LAS GRABACIONES;3:01.52;3:03.76;2.24;Lawful
-57;LAS GRABACIONES;3:03.76;3:05.76;2.00;Respetuoso de la ley
-58;LAS GRABACIONES;3:05.76;3:09.64;3.88;El expediente
-59;LAS GRABACIONES;3:09.64;3:12.86;3.22;Diecisiete años después
-60;DESPUÉS;3:12.86;3:15.52;2.66;El correo
-61;DESPUÉS;3:15.52;3:18.60;3.08;La saca
-62;DESPUÉS;3:18.60;3:20.22;1.62;Tres personas
-63;DESPUÉS;3:20.22;3:21.82;1.60;Una tienda de informática
-64;DESPUÉS;3:21.82;3:23.42;1.60;La cabaña por dentro
-65;DESPUÉS;3:23.42;3:25.02;1.60;Una oficina de publicidad
-66;DESPUÉS;3:25.02;3:26.62;1.60;Un maderero
-67;DESPUÉS;3:26.62;3:28.32;1.70;Sin saber por qué
+57;LAS GRABACIONES;3:03.76;3:05.36;1.60;Respetuoso de la ley
+58;LAS GRABACIONES;3:05.36;3:06.96;1.60;El expediente
+59;LAS GRABACIONES;3:06.96;3:09.64;2.68;Diecisiete años después
+60;LAS GRABACIONES;3:09.64;3:12.86;3.22;El correo
+61;DESPUÉS;3:12.86;3:14.46;1.60;La saca
+62;DESPUÉS;3:14.46;3:19.96;5.50;Tres personas
+63;DESPUÉS;3:19.96;3:21.56;1.60;Una tienda de informática
+64;DESPUÉS;3:21.56;3:23.16;1.60;La cabaña por dentro
+65;DESPUÉS;3:23.16;3:24.76;1.60;Una oficina de publicidad
+66;DESPUÉS;3:24.76;3:26.36;1.60;Un maderero
+67;DESPUÉS;3:26.36;3:28.32;1.96;Sin saber por qué
 68;DESPUÉS;3:28.32;3:30.36;2.04;Veintitrés heridos
-69;DESPUÉS;3:30.36;3:33.72;3.36;La historia fácil
-70;DESPUÉS;3:33.72;3:35.52;1.80;Los otros veintiuno
-71;DESPUÉS;3:35.52;3:38.66;3.14;Nadie vio venir nada
-72;DESPUÉS;3:38.66;3:40.98;2.32;Ninguno hizo lo mismo
+69;DESPUÉS;3:30.36;3:35.52;5.16;La historia fácil
+70;DESPUÉS;3:35.52;3:37.12;1.60;Los otros veintiuno
+71;DESPUÉS;3:37.12;3:38.72;1.60;Nadie vio venir nada
+72;DESPUÉS;3:38.72;3:40.98;2.26;Ninguno hizo lo mismo
 73;DESPUÉS;3:40.98;3:46.08;5.10;Un experimento no aprieta un gatillo
 74;DESPUÉS;3:46.08;3:51.58;5.50;Cincuenta años
 75;DESPUÉS;3:51.58;3:56.24;4.66;Ocurrió igual

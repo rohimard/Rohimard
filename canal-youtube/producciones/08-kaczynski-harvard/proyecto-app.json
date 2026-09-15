@@ -173,20 +173,20 @@
    "n": 24,
    "bloque": "MURRAY",
    "entra": 64.83,
-   "sale": 68.49,
+   "sale": 68.71,
    "escena": "La OSS"
   },
   {
    "n": 97,
    "bloque": "MURRAY",
-   "entra": 68.49,
-   "sale": 70.09,
+   "entra": 68.71,
+   "sale": 70.31,
    "escena": "El informe clasificado"
   },
   {
    "n": 98,
    "bloque": "MURRAY",
-   "entra": 70.09,
+   "entra": 70.31,
    "sale": 73.6,
    "escena": "El cuartel general"
   },
@@ -460,76 +460,76 @@
    "n": 57,
    "bloque": "LAS GRABACIONES",
    "entra": 183.76,
-   "sale": 185.76,
+   "sale": 185.36,
    "escena": "Respetuoso de la ley"
   },
   {
    "n": 58,
    "bloque": "LAS GRABACIONES",
-   "entra": 185.76,
-   "sale": 189.64,
+   "entra": 185.36,
+   "sale": 186.96,
    "escena": "El expediente"
   },
   {
    "n": 59,
    "bloque": "LAS GRABACIONES",
-   "entra": 189.64,
-   "sale": 192.86,
+   "entra": 186.96,
+   "sale": 189.64,
    "escena": "Diecisiete años después"
   },
   {
    "n": 60,
-   "bloque": "DESPUÉS",
-   "entra": 192.86,
-   "sale": 195.52,
+   "bloque": "LAS GRABACIONES",
+   "entra": 189.64,
+   "sale": 192.86,
    "escena": "El correo"
   },
   {
    "n": 61,
    "bloque": "DESPUÉS",
-   "entra": 195.52,
-   "sale": 198.6,
+   "entra": 192.86,
+   "sale": 194.46,
    "escena": "La saca"
   },
   {
    "n": 62,
    "bloque": "DESPUÉS",
-   "entra": 198.6,
-   "sale": 200.22,
+   "entra": 194.46,
+   "sale": 199.96,
    "escena": "Tres personas"
   },
   {
    "n": 63,
    "bloque": "DESPUÉS",
-   "entra": 200.22,
-   "sale": 201.82,
+   "entra": 199.96,
+   "sale": 201.56,
    "escena": "Una tienda de informática"
   },
   {
    "n": 64,
    "bloque": "DESPUÉS",
-   "entra": 201.82,
-   "sale": 203.42,
+   "entra": 201.56,
+   "sale": 203.16,
    "escena": "La cabaña por dentro"
   },
   {
    "n": 65,
    "bloque": "DESPUÉS",
-   "entra": 203.42,
-   "sale": 205.02,
+   "entra": 203.16,
+   "sale": 204.76,
    "escena": "Una oficina de publicidad"
   },
   {
    "n": 66,
    "bloque": "DESPUÉS",
-   "entra": 205.02,
-   "sale": 206.62,
+   "entra": 204.76,
+   "sale": 206.36,
    "escena": "Un maderero"
   },
   {
    "n": 67,
    "bloque": "DESPUÉS",
-   "entra": 206.62,
+   "entra": 206.36,
    "sale": 208.32,
    "escena": "Sin saber por qué"
   },
@@ -544,27 +544,27 @@
    "n": 69,
    "bloque": "DESPUÉS",
    "entra": 210.36,
-   "sale": 213.72,
+   "sale": 215.52,
    "escena": "La historia fácil"
   },
   {
    "n": 70,
    "bloque": "DESPUÉS",
-   "entra": 213.72,
-   "sale": 215.52,
+   "entra": 215.52,
+   "sale": 217.12,
    "escena": "Los otros veintiuno"
   },
   {
    "n": 71,
    "bloque": "DESPUÉS",
-   "entra": 215.52,
-   "sale": 218.66,
+   "entra": 217.12,
+   "sale": 218.72,
    "escena": "Nadie vio venir nada"
   },
   {
    "n": 72,
    "bloque": "DESPUÉS",
-   "entra": 218.66,
+   "entra": 218.72,
    "sale": 220.98,
    "escena": "Ninguno hizo lo mismo"
   },
