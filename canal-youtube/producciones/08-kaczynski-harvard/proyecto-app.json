@@ -5,510 +5,510 @@
    "n": 1,
    "bloque": "GANCHO",
    "entra": 0.0,
-   "sale": 2.46,
+   "sale": 5.5,
    "escena": "El paquete"
   },
   {
    "n": 2,
    "bloque": "GANCHO",
-   "entra": 2.46,
-   "sale": 4.77,
+   "entra": 5.5,
+   "sale": 8.92,
    "escena": "La cabaña"
   },
   {
    "n": 3,
    "bloque": "GANCHO",
-   "entra": 4.77,
-   "sale": 6.93,
+   "entra": 8.92,
+   "sale": 10.52,
    "escena": "Harvard al amanecer"
   },
   {
    "n": 4,
    "bloque": "GANCHO",
-   "entra": 6.93,
-   "sale": 8.95,
+   "entra": 10.52,
+   "sale": 12.12,
    "escena": "Demasiado joven"
   },
   {
    "n": 5,
    "bloque": "GANCHO",
-   "entra": 8.95,
-   "sale": 11.26,
+   "entra": 12.12,
+   "sale": 13.72,
    "escena": "El más joven de la clase"
   },
   {
    "n": 6,
    "bloque": "GANCHO",
-   "entra": 11.26,
-   "sale": 13.26,
+   "entra": 13.72,
+   "sale": 17.22,
    "escena": "La matrícula"
   },
   {
    "n": 7,
    "bloque": "GANCHO",
-   "entra": 13.26,
-   "sale": 15.42,
+   "entra": 17.22,
+   "sale": 18.82,
    "escena": "La invitación"
   },
   {
    "n": 8,
    "bloque": "GANCHO",
-   "entra": 15.42,
-   "sale": 17.42,
+   "entra": 18.82,
+   "sale": 20.42,
    "escena": "El aula vacía"
   },
   {
    "n": 9,
    "bloque": "GANCHO",
-   "entra": 17.42,
-   "sale": 19.73,
+   "entra": 20.42,
+   "sale": 22.02,
    "escena": "El papel en blanco"
   },
   {
    "n": 10,
    "bloque": "GANCHO",
-   "entra": 19.73,
-   "sale": 22.04,
+   "entra": 22.02,
+   "sale": 23.62,
    "escena": "La habitación del colegio mayor"
   },
   {
    "n": 11,
    "bloque": "GANCHO",
-   "entra": 22.04,
-   "sale": 24.5,
+   "entra": 23.62,
+   "sale": 25.22,
    "escena": "Escribir lo que crees"
   },
   {
    "n": 12,
    "bloque": "GANCHO",
-   "entra": 24.5,
-   "sale": 25.69,
+   "entra": 25.22,
+   "sale": 26.9,
    "escena": "Páginas y páginas"
   },
   {
    "n": 13,
    "bloque": "GANCHO",
-   "entra": 25.69,
-   "sale": 26.96,
+   "entra": 26.9,
+   "sale": 28.5,
    "escena": "La entrega"
   },
   {
    "n": 14,
    "bloque": "GANCHO",
-   "entra": 26.96,
-   "sale": 28.31,
+   "entra": 28.5,
+   "sale": 30.1,
    "escena": "Lo entregó él mismo"
   },
   {
    "n": 15,
    "bloque": "GANCHO",
-   "entra": 28.31,
-   "sale": 29.42,
+   "entra": 30.1,
+   "sale": 31.7,
    "escena": "El pasillo del sótano"
   },
   {
    "n": 16,
    "bloque": "GANCHO",
-   "entra": 29.42,
-   "sale": 30.86,
+   "entra": 31.7,
+   "sale": 33.3,
    "escena": "La silla"
   },
   {
    "n": 17,
    "bloque": "GANCHO",
-   "entra": 30.86,
-   "sale": 32.21,
+   "entra": 33.3,
+   "sale": 34.9,
    "escena": "El espejo"
   },
   {
    "n": 18,
    "bloque": "GANCHO",
-   "entra": 32.21,
-   "sale": 33.48,
+   "entra": 34.9,
+   "sale": 36.5,
    "escena": "Los electrodos"
   },
   {
    "n": 19,
    "bloque": "GANCHO",
-   "entra": 33.48,
-   "sale": 34.84,
+   "entra": 36.5,
+   "sale": 39.06,
    "escena": "La correa del brazo"
   },
   {
    "n": 20,
    "bloque": "GANCHO",
-   "entra": 34.84,
-   "sale": 40.69,
+   "entra": 39.06,
+   "sale": 44.56,
    "escena": "El desconocido entra"
   },
   {
    "n": 21,
    "bloque": "GANCHO",
-   "entra": 40.69,
-   "sale": 46.91,
+   "entra": 44.56,
+   "sale": 50.06,
    "escena": "El otro nombre"
   },
   {
    "n": 22,
    "bloque": "MURRAY",
-   "entra": 46.91,
-   "sale": 52.4,
+   "entra": 50.06,
+   "sale": 55.56,
    "escena": "La pregunta"
   },
   {
    "n": 23,
    "bloque": "MURRAY",
-   "entra": 52.4,
-   "sale": 57.52,
+   "entra": 55.56,
+   "sale": 61.06,
    "escena": "Murray, antes de Harvard"
   },
   {
    "n": 24,
    "bloque": "MURRAY",
-   "entra": 57.52,
-   "sale": 63.38,
+   "entra": 61.06,
+   "sale": 66.56,
    "escena": "La OSS"
   },
   {
    "n": 25,
    "bloque": "MURRAY",
-   "entra": 63.38,
-   "sale": 68.86,
+   "entra": 66.56,
+   "sale": 72.06,
    "escena": "Medir al espía"
   },
   {
    "n": 26,
    "bloque": "MURRAY",
-   "entra": 68.86,
-   "sale": 73.99,
+   "entra": 72.06,
+   "sale": 77.56,
    "escena": "Cambió de sujetos"
   },
   {
    "n": 27,
    "bloque": "MURRAY",
-   "entra": 73.99,
-   "sale": 79.47,
+   "entra": 77.56,
+   "sale": 83.06,
    "escena": "Veintidós"
   },
   {
    "n": 28,
    "bloque": "MURRAY",
-   "entra": 79.47,
-   "sale": 85.33,
+   "entra": 83.06,
+   "sale": 88.56,
    "escena": "Ninguno preguntó"
   },
   {
    "n": 29,
    "bloque": "LA REDACCIÓN",
-   "entra": 85.33,
-   "sale": 91.18,
+   "entra": 88.56,
+   "sale": 92.14,
    "escena": "Nadie supo para qué"
   },
   {
    "n": 30,
    "bloque": "LA REDACCIÓN",
-   "entra": 91.18,
-   "sale": 94.21,
+   "entra": 92.14,
+   "sale": 95.32,
    "escena": "La redacción"
   },
   {
    "n": 31,
    "bloque": "LA REDACCIÓN",
-   "entra": 94.21,
-   "sale": 97.64,
+   "entra": 95.32,
+   "sale": 100.82,
    "escena": "Lo más íntimo"
   },
   {
    "n": 32,
    "bloque": "LA REDACCIÓN",
-   "entra": 97.64,
-   "sale": 100.67,
+   "entra": 100.82,
+   "sale": 106.32,
    "escena": "Sinceridad enorme"
   },
   {
    "n": 33,
    "bloque": "LA REDACCIÓN",
-   "entra": 100.67,
-   "sale": 103.5,
+   "entra": 106.32,
+   "sale": 111.82,
    "escena": "La munición"
   },
   {
    "n": 34,
    "bloque": "LA REDACCIÓN",
-   "entra": 103.5,
-   "sale": 106.94,
+   "entra": 111.82,
+   "sale": 113.42,
    "escena": "La sala"
   },
   {
    "n": 35,
    "bloque": "LA REDACCIÓN",
-   "entra": 106.94,
-   "sale": 110.17,
+   "entra": 113.42,
+   "sale": 115.02,
    "escena": "La antesala"
   },
   {
    "n": 36,
    "bloque": "LA REDACCIÓN",
-   "entra": 110.17,
-   "sale": 113.2,
+   "entra": 115.02,
+   "sale": 116.62,
    "escena": "Los focos"
   },
   {
    "n": 37,
    "bloque": "LA REDACCIÓN",
-   "entra": 113.2,
-   "sale": 116.43,
+   "entra": 116.62,
+   "sale": 118.22,
    "escena": "El pulso"
   },
   {
    "n": 38,
    "bloque": "LA REDACCIÓN",
-   "entra": 116.43,
-   "sale": 119.97,
+   "entra": 118.22,
+   "sale": 123.28,
    "escena": "La respiración"
   },
   {
    "n": 39,
    "bloque": "LA REDACCIÓN",
-   "entra": 119.97,
-   "sale": 123.74,
+   "entra": 123.28,
+   "sale": 126.52,
    "escena": "No era otro estudiante"
   },
   {
    "n": 40,
    "bloque": "LA REDACCIÓN",
-   "entra": 123.74,
-   "sale": 127.28,
+   "entra": 126.52,
+   "sale": 129.56,
    "escena": "Entrenado de antemano"
   },
   {
    "n": 41,
    "bloque": "LA REDACCIÓN",
-   "entra": 127.28,
-   "sale": 131.28,
+   "entra": 129.56,
+   "sale": 133.0,
    "escena": "El ataque"
   },
   {
    "n": 42,
    "bloque": "LA REDACCIÓN",
-   "entra": 131.28,
-   "sale": 135.05,
+   "entra": 133.0,
+   "sale": 136.24,
    "escena": "El reloj de la sala"
   },
   {
    "n": 43,
    "bloque": "LA REDACCIÓN",
-   "entra": 135.05,
-   "sale": 138.83,
+   "entra": 136.24,
+   "sale": 139.96,
    "escena": "Todo lo furioso posible"
   },
   {
    "n": 44,
    "bloque": "LA REDACCIÓN",
-   "entra": 138.83,
-   "sale": 142.37,
+   "entra": 139.96,
+   "sale": 145.46,
    "escena": "De su puño"
   },
   {
    "n": 45,
    "bloque": "LAS GRABACIONES",
-   "entra": 142.37,
-   "sale": 146.37,
+   "entra": 145.46,
+   "sale": 150.96,
    "escena": "Todo se grababa"
   },
   {
    "n": 46,
    "bloque": "LAS GRABACIONES",
-   "entra": 146.37,
-   "sale": 150.14,
+   "entra": 150.96,
+   "sale": 153.68,
    "escena": "Los que miraban"
   },
   {
    "n": 47,
    "bloque": "LAS GRABACIONES",
-   "entra": 150.14,
-   "sale": 153.68,
+   "entra": 153.68,
+   "sale": 155.44,
    "escena": "Su cara"
   },
   {
    "n": 48,
    "bloque": "LAS GRABACIONES",
-   "entra": 153.68,
-   "sale": 157.16,
+   "entra": 155.44,
+   "sale": 157.32,
    "escena": "El momento exacto"
   },
   {
    "n": 49,
    "bloque": "LAS GRABACIONES",
-   "entra": 157.16,
-   "sale": 160.86,
+   "entra": 157.32,
+   "sale": 161.6,
    "escena": "Obligados a verse"
   },
   {
    "n": 50,
    "bloque": "LAS GRABACIONES",
-   "entra": 160.86,
-   "sale": 164.35,
+   "entra": 161.6,
+   "sale": 165.58,
    "escena": "Más de una vez"
   },
   {
    "n": 51,
    "bloque": "LAS GRABACIONES",
-   "entra": 164.35,
-   "sale": 167.61,
+   "entra": 165.58,
+   "sale": 167.18,
    "escena": "Mirarte siendo humillado"
   },
   {
    "n": 52,
    "bloque": "LAS GRABACIONES",
-   "entra": 167.61,
-   "sale": 171.09,
+   "entra": 167.18,
+   "sale": 168.78,
    "escena": "Otra vez desde el principio"
   },
   {
    "n": 53,
    "bloque": "LAS GRABACIONES",
-   "entra": 171.09,
-   "sale": 174.79,
+   "entra": 168.78,
+   "sale": 174.28,
    "escena": "Tres años"
   },
   {
    "n": 54,
    "bloque": "LAS GRABACIONES",
-   "entra": 174.79,
-   "sale": 178.06,
+   "entra": 174.28,
+   "sale": 175.88,
    "escena": "Entró con dieciséis"
   },
   {
    "n": 55,
    "bloque": "LAS GRABACIONES",
-   "entra": 178.06,
-   "sale": 181.54,
+   "entra": 175.88,
+   "sale": 181.38,
    "escena": "Salió con diecinueve"
   },
   {
    "n": 56,
    "bloque": "LAS GRABACIONES",
-   "entra": 181.54,
-   "sale": 183.92,
+   "entra": 181.38,
+   "sale": 183.76,
    "escena": "Lawful"
   },
   {
    "n": 57,
    "bloque": "LAS GRABACIONES",
-   "entra": 183.92,
-   "sale": 185.92,
+   "entra": 183.76,
+   "sale": 185.36,
    "escena": "Respetuoso de la ley"
   },
   {
    "n": 58,
    "bloque": "LAS GRABACIONES",
-   "entra": 185.92,
-   "sale": 188.03,
+   "entra": 185.36,
+   "sale": 186.96,
    "escena": "El expediente"
   },
   {
    "n": 59,
    "bloque": "LAS GRABACIONES",
-   "entra": 188.03,
-   "sale": 190.15,
+   "entra": 186.96,
+   "sale": 188.56,
    "escena": "Diecisiete años después"
   },
   {
    "n": 60,
-   "bloque": "DESPUÉS",
-   "entra": 190.15,
-   "sale": 192.15,
+   "bloque": "LAS GRABACIONES",
+   "entra": 188.56,
+   "sale": 190.16,
    "escena": "El correo"
   },
   {
    "n": 61,
    "bloque": "DESPUÉS",
-   "entra": 192.15,
-   "sale": 194.26,
+   "entra": 190.16,
+   "sale": 192.86,
    "escena": "La saca"
   },
   {
    "n": 62,
    "bloque": "DESPUÉS",
-   "entra": 194.26,
-   "sale": 196.51,
+   "entra": 192.86,
+   "sale": 198.36,
    "escena": "Tres personas"
   },
   {
    "n": 63,
    "bloque": "DESPUÉS",
-   "entra": 196.51,
-   "sale": 198.51,
+   "entra": 198.36,
+   "sale": 201.14,
    "escena": "Una tienda de informática"
   },
   {
    "n": 64,
    "bloque": "DESPUÉS",
-   "entra": 198.51,
-   "sale": 200.62,
+   "entra": 201.14,
+   "sale": 202.74,
    "escena": "La cabaña por dentro"
   },
   {
    "n": 65,
    "bloque": "DESPUÉS",
-   "entra": 200.62,
-   "sale": 202.62,
+   "entra": 202.74,
+   "sale": 204.34,
    "escena": "Una oficina de publicidad"
   },
   {
    "n": 66,
    "bloque": "DESPUÉS",
-   "entra": 202.62,
-   "sale": 205.03,
+   "entra": 204.34,
+   "sale": 205.94,
    "escena": "Un maderero"
   },
   {
    "n": 67,
    "bloque": "DESPUÉS",
-   "entra": 205.03,
-   "sale": 207.75,
+   "entra": 205.94,
+   "sale": 207.54,
    "escena": "Sin saber por qué"
   },
   {
    "n": 68,
    "bloque": "DESPUÉS",
-   "entra": 207.75,
-   "sale": 210.32,
+   "entra": 207.54,
+   "sale": 209.14,
    "escena": "Veintitrés heridos"
   },
   {
    "n": 69,
    "bloque": "DESPUÉS",
-   "entra": 210.32,
-   "sale": 213.05,
+   "entra": 209.14,
+   "sale": 214.64,
    "escena": "La historia fácil"
   },
   {
    "n": 70,
    "bloque": "DESPUÉS",
-   "entra": 213.05,
-   "sale": 215.62,
+   "entra": 214.64,
+   "sale": 217.26,
    "escena": "Los otros veintiuno"
   },
   {
    "n": 71,
    "bloque": "DESPUÉS",
-   "entra": 215.62,
-   "sale": 218.19,
+   "entra": 217.26,
+   "sale": 219.01,
    "escena": "Nadie vio venir nada"
   },
   {
    "n": 72,
    "bloque": "DESPUÉS",
-   "entra": 218.19,
-   "sale": 220.59,
+   "entra": 219.01,
+   "sale": 220.98,
    "escena": "Ninguno hizo lo mismo"
   },
   {
    "n": 73,
    "bloque": "DESPUÉS",
-   "entra": 220.59,
+   "entra": 220.98,
    "sale": 223.32,
    "escena": "Un experimento no aprieta un gatillo"
   },
@@ -516,153 +516,153 @@
    "n": 74,
    "bloque": "DESPUÉS",
    "entra": 223.32,
-   "sale": 226.7,
+   "sale": 228.82,
    "escena": "Cincuenta años"
   },
   {
    "n": 75,
    "bloque": "DESPUÉS",
-   "entra": 226.7,
-   "sale": 230.29,
+   "entra": 228.82,
+   "sale": 234.32,
    "escena": "Ocurrió igual"
   },
   {
    "n": 76,
    "bloque": "DESPUÉS",
-   "entra": 230.29,
-   "sale": 233.45,
+   "entra": 234.32,
+   "sale": 239.82,
    "escena": "Veintidós chavales"
   },
   {
    "n": 77,
    "bloque": "DESPUÉS",
-   "entra": 233.45,
-   "sale": 236.83,
+   "entra": 239.82,
+   "sale": 242.92,
    "escena": "Sin que nadie lo parara"
   },
   {
    "n": 78,
    "bloque": "DESPUÉS",
-   "entra": 236.83,
-   "sale": 240.0,
+   "entra": 242.92,
+   "sale": 244.75,
    "escena": "La universidad más prestigiosa"
   },
   {
    "n": 79,
    "bloque": "DESPUÉS",
-   "entra": 240.0,
-   "sale": 243.59,
+   "entra": 244.75,
+   "sale": 246.83,
    "escena": "Siguió dando clase"
   },
   {
    "n": 80,
-   "bloque": "DESPUÉS",
-   "entra": 243.59,
-   "sale": 246.97,
+   "bloque": "LO QUE INCOMODA",
+   "entra": 246.83,
+   "sale": 248.79,
    "escena": "Recibiendo premios"
   },
   {
    "n": 81,
    "bloque": "LO QUE INCOMODA",
-   "entra": 246.97,
-   "sale": 250.35,
+   "entra": 248.79,
+   "sale": 250.74,
    "escena": "La silla que quedó vacía"
   },
   {
    "n": 82,
    "bloque": "LO QUE INCOMODA",
-   "entra": 250.35,
-   "sale": 253.07,
+   "entra": 250.74,
+   "sale": 253.08,
    "escena": "Muriendo homenajeado"
   },
   {
    "n": 83,
    "bloque": "LO QUE INCOMODA",
-   "entra": 253.07,
-   "sale": 255.95,
+   "entra": 253.08,
+   "sale": 255.91,
    "escena": "Los archivos se cerraron"
   },
   {
    "n": 84,
    "bloque": "LO QUE INCOMODA",
-   "entra": 255.95,
-   "sale": 258.36,
+   "entra": 255.91,
+   "sale": 258.54,
    "escena": "Cerrados al público"
   },
   {
    "n": 85,
    "bloque": "LO QUE INCOMODA",
-   "entra": 258.36,
-   "sale": 261.08,
+   "entra": 258.54,
+   "sale": 261.73,
    "escena": "Explicarle a una persona"
   },
   {
    "n": 86,
    "bloque": "LO QUE INCOMODA",
-   "entra": 261.08,
-   "sale": 263.49,
+   "entra": 261.73,
+   "sale": 264.55,
    "escena": "Que puede marcharse"
   },
   {
    "n": 87,
    "bloque": "LO QUE INCOMODA",
-   "entra": 263.49,
-   "sale": 266.05,
+   "entra": 264.55,
+   "sale": 267.55,
    "escena": "No mentirle"
   },
   {
    "n": 88,
    "bloque": "LO QUE INCOMODA",
-   "entra": 266.05,
-   "sale": 268.78,
+   "entra": 267.55,
+   "sale": 271.34,
    "escena": "No existían en aquella sala"
   },
   {
    "n": 89,
    "bloque": "LO QUE INCOMODA",
-   "entra": 268.78,
-   "sale": 271.34,
+   "entra": 271.34,
+   "sale": 272.94,
    "escena": "Bajo llave"
   },
   {
    "n": 90,
    "bloque": "LO QUE INCOMODA",
-   "entra": 271.34,
-   "sale": 274.73,
+   "entra": 272.94,
+   "sale": 274.54,
    "escena": "Existen por cosas como esta"
   },
   {
    "n": 91,
    "bloque": "LO QUE INCOMODA",
-   "entra": 274.73,
-   "sale": 277.92,
+   "entra": 274.54,
+   "sale": 278.68,
    "escena": "Terminaron la carrera"
   },
   {
    "n": 92,
    "bloque": "LO QUE INCOMODA",
-   "entra": 277.92,
-   "sale": 281.31,
+   "entra": 278.68,
+   "sale": 281.12,
    "escena": "No volvieron a hablar del tema"
   },
   {
    "n": 93,
    "bloque": "LO QUE INCOMODA",
-   "entra": 281.31,
-   "sale": 284.92,
+   "entra": 281.12,
+   "sale": 284.27,
    "escena": "Tú te habrías ido"
   },
   {
    "n": 94,
    "bloque": "LO QUE INCOMODA",
-   "entra": 284.92,
-   "sale": 288.73,
+   "entra": 284.27,
+   "sale": 289.77,
    "escena": "Ellos también lo pensaban"
   },
   {
    "n": 95,
    "bloque": "LO QUE INCOMODA",
-   "entra": 288.73,
+   "entra": 289.77,
    "sale": 292.34,
    "escena": "Y se lo pedía Harvard"
   }
