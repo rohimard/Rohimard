@@ -50,11 +50,18 @@ env:
   # persona. Y lo que más pesa: la HD no admite estilos, así que un guion
   # sobre un duelo de cuarenta años se leía sin ninguna intención.
   VOZ: es-MX-JorgeNeural
-  # Elegido de oído sobre seis muestras. El grado va aquí para no tocarlo sin
-  # querer: es el que se aprobó escuchando.
-  ESTILO: sad
-  GRADO: '1.4'
-  PAUSA: 700ms
+  # "sad" se eligio para el video de la Reina Victoria (un duelo, luto de
+  # cuarenta anos): ahi encajaba. Para Kaczynski/Harvard es el estilo
+  # equivocado -- el usuario lo probo y salio "muy lento y triste y
+  # aburrido". ESTILO vacio = sin <mstts:express-as>, Jorge en su registro
+  # neutro de base, sin la lentitud ni el tono luctuoso que mete "sad".
+  ESTILO: ''
+  GRADO: '1.0'
+  # 700ms (el valor de Reina Victoria, pensado para dejar respirar el luto)
+  # sumado al estilo "sad" es lo que alargo el guion de Kaczynski a 6:29
+  # cuando el ritmo objetivo del canal son ~2.88 palabras/seg. 400ms es una
+  # pausa de parrafo normal de documental, no de duelo.
+  PAUSA: 400ms
 
 jobs:
   narrar:
@@ -109,9 +116,15 @@ jobs:
           # Azure no da error cuando una voz no admite el estilo pedido: lo
           # ignora en silencio y devuelve el audio plano. Por eso el estilo se
           # comprobó antes con muestras en vez de darlo por bueno aquí.
-          cuerpo = (f'<mstts:express-as style="{os.environ["ESTILO"]}" '
-                    f'styledegree="{os.environ["GRADO"]}">{parrafos}'
-                    "</mstts:express-as>")
+          # ESTILO vacío = sin envoltorio: la voz sale en su registro neutro
+          # de base, sin el <mstts:express-as> que mete tono y ritmo propios.
+          estilo = os.environ.get("ESTILO", "").strip()
+          if estilo:
+              cuerpo = (f'<mstts:express-as style="{estilo}" '
+                        f'styledegree="{os.environ["GRADO"]}">{parrafos}'
+                        "</mstts:express-as>")
+          else:
+              cuerpo = parrafos
           ssml = (
               "<speak version='1.0' "
               "xmlns='http://www.w3.org/2001/10/synthesis' "
