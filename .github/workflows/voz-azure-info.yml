@@ -1,0 +1,76 @@
+# Consulta que estilos y rangos admite de verdad una voz de Azure, sin
+# generar ni un segundo de audio. Es una llamada a voices/list: gratis y
+# no cuenta contra los caracteres mensuales.
+#
+# Por que existe: la vez pasada se puso styledegree=1.4 sobre "sad" sin
+# saber si esa voz admitia otros estilos o que grados eran validos.
+# Azure no avisa cuando un estilo no existe para una voz: lo ignora en
+# silencio y devuelve el audio plano, asi que adivinar a ciegas cuesta
+# una corrida entera por intento. Esto lo evita: se pregunta primero.
+name: voz-azure-info
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-azure-info.yml
+      - canal-youtube/.azure-info-disparo
+
+permissions:
+  contents: write
+
+env:
+  VOZ: es-MX-JorgeNeural
+
+jobs:
+  consultar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Consultar la voz
+        env:
+          CLAVE: ${{ secrets.AZURE_SPEECH_KEY }}
+          REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import urllib.request
+
+          clave = os.environ["CLAVE"]
+          region = (os.environ.get("REGION") or "eastus").strip()
+          base = f"https://{region}.tts.speech.microsoft.com/cognitiveservices"
+
+          req = urllib.request.Request(
+              f"{base}/voices/list",
+              headers={"Ocp-Apim-Subscription-Key": clave},
+          )
+          with urllib.request.urlopen(req, timeout=60) as r:
+              voces = json.load(r)
+
+          objetivo = os.environ["VOZ"]
+          v = next((x for x in voces if x.get("ShortName") == objetivo), None)
+          if v is None:
+              print(f"::error::no se encontro la voz {objetivo} en la cuenta")
+              raise SystemExit(1)
+
+          json.dump(v, open("canal-youtube/muestras-voz/jorge-info.json", "w"),
+                     ensure_ascii=False, indent=2)
+          print(json.dumps(v, ensure_ascii=False, indent=2))
+          PY
+
+      - name: Devolver la info a la rama
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f canal-youtube/muestras-voz/jorge-info.json
+          git commit -q -m 'Info de estilos de es-MX-JorgeNeural' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
