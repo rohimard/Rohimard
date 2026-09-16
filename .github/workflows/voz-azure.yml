@@ -62,6 +62,13 @@ env:
   # cuando el ritmo objetivo del canal son ~2.88 palabras/seg. 400ms es una
   # pausa de parrafo normal de documental, no de duelo.
   PAUSA: 400ms
+  # Quitar "sad" NO cambio el ritmo: se comparo palabra a palabra el
+  # palabras.json de antes y despues y los tiempos de entrada eran casi
+  # identicos (388.8s vs 389.4s). El estilo tiñe la prosodia, pero no
+  # controla la velocidad -- eso es <prosody rate>, que nunca se habia
+  # usado en este workflow. A 388.8s el guion iba a 2.16 palabras/seg
+  # contra el objetivo de 2.88; +32% de tasa apunta ahi.
+  TASA: +32%
 
 jobs:
   narrar:
@@ -125,6 +132,11 @@ jobs:
                         "</mstts:express-as>")
           else:
               cuerpo = parrafos
+          # El estilo tiñe el tono, pero la velocidad de lectura la controla
+          # esto. <break> no se acelera con rate: solo el habla en sí.
+          tasa = os.environ.get("TASA", "").strip()
+          if tasa:
+              cuerpo = f'<prosody rate="{tasa}">{cuerpo}</prosody>'
           ssml = (
               "<speak version='1.0' "
               "xmlns='http://www.w3.org/2001/10/synthesis' "
