@@ -9,8 +9,8 @@ Harvard destrozó a 22 chicos. Uno acabó siendo el Unabomber
 
   "destrozó" y no "hizo esto": el segundo es vago y huele a cebo
   generico, que en este nicho sobra. "Destrozo" es el verbo que usa el
-  propio guion ("usarlas para destrozar al chico lo mas rapido y lo mas
-  hondo posible") y es defendible -- Murray lo escribio de su puno:
+  propio guion ("destrozar al sujeto de la manera mas rapida y mas
+  profunda posible") y es defendible -- Murray lo escribio de su puno:
   "vehemente y personalmente abusivo". NO usar "torturo": eso ya es
   pasarse, y este canal vive de no pasarse.
 
@@ -20,11 +20,11 @@ Harvard destrozó a 22 chicos. Uno acabó siendo el Unabomber
 Alternativas:
 Tenía 16 años cuando lo sentaron en esa silla. Después fue el Unabomber
 El experimento de Harvard que duró 3 años y nadie pagó por él  <- sin la
-  palabra clave: el giro del 3:23 pasa a ser sorpresa real, pero se
+  palabra clave: el giro del 3:32 pasa a ser sorpresa real, pero se
   renuncia al pico de busqueda del estreno. No recomendado esta vez.
 
 DECISIÓN DE FONDO, Y ES TUYA:
-El guion esconde la identidad hasta el 3:23. El título la regala.
+El guion esconde la identidad hasta el 3:32. El título la regala.
 Parece una contradicción y no lo es, pero conviene que sepas por qué:
 
   - "unabomber" tenía 115.704 búsquedas/mes con +263,8% de crecimiento
@@ -33,7 +33,7 @@ Parece una contradicción y no lo es, pero conviene que sepas por qué:
   - Saber por el título NO es lo mismo que saber por el guion. El título
     da una etiqueta abstracta ("esto va del Unabomber"). El arranque no
     se la recuerda: lo mete en una silla sin nombres. Cuando llega el
-    3:23, el pago no es información nueva, es RECONOCIMIENTO: "ah, era
+    3:32, el pago no es información nueva, es RECONOCIMIENTO: "ah, era
     él". Eso sigue funcionando.
   - Si prefieres el golpe limpio, usa la tercera alternativa (sin la
     palabra) y pierdes volumen de búsqueda a cambio de sorpresa real.
@@ -45,8 +45,8 @@ MINIATURA
 ===================================================================
 
 La miniatura actual (figura de espaldas en la silla + bloque rojo con
-"16 AÑOS") sigue sirviendo: el arranque nuevo ES esa silla, así que
-miniatura y primer plano ahora coinciden mejor que antes.
+"16 AÑOS") sigue sirviendo: el guion abre describiendo esa sala y esa
+silla, así que miniatura y primer plano coinciden.
 
 Único cambio que propongo: el texto.
   "16 AÑOS"  ->  "22 CHICOS"
@@ -58,21 +58,21 @@ Si prefieres mantener "16 AÑOS", no la rehagas: funciona igual.
 CAPÍTULOS (pegar en la descripción)
 ===================================================================
 
-0:00 La silla
-0:22 Harvard, 1959
-0:40 Quién era Henry Murray
-1:07 La redacción
-1:38 Era la munición
-1:50 El debate era mentira
-2:25 Lo que grababan
-2:39 Obligados a verse
-2:59 Lawful
-3:24 Unabomber
-3:44 ¿Harvard creó a un asesino?
-4:06 Lo que queda si quitas a Kaczynski
-4:41 Por qué existen las normas de hoy
+0:00 La sala
+0:34 Tres años, veintidós estudiantes
+0:49 Henry Murray
+1:07 La OSS y las pruebas de estrés
+1:27 El anuncio y la redacción
+1:57 El debate que no era un debate
+2:25 Media hora bajo los focos
+2:46 La proyección
+3:06 Lawful
+3:32 Unabomber
+3:53 ¿Harvard fabricó a un asesino?
+4:12 Lo que queda si se retira a Kaczynski
+4:43 Las tres normas que hoy existen
 
-(Duración del guion: 5:08. Los minutos salen del texto a 2,88 palabras/s;
+(Duración del guion: 5:16. Los minutos salen del texto a 2,88 palabras/s;
 si el audio de David sale con otro ritmo, se recalculan sobre el SRT real
 antes de publicar.)
 
