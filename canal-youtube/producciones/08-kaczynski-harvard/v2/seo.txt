@@ -20,11 +20,11 @@ Harvard destrozó a 22 chicos. Uno acabó siendo el Unabomber
 Alternativas:
 Tenía 16 años cuando lo sentaron en esa silla. Después fue el Unabomber
 El experimento de Harvard que duró 3 años y nadie pagó por él  <- sin la
-  palabra clave: el giro del 3:34 pasa a ser sorpresa real, pero se
+  palabra clave: el giro del 3:15 pasa a ser sorpresa real, pero se
   renuncia al pico de busqueda del estreno. No recomendado esta vez.
 
 DECISIÓN DE FONDO, Y ES TUYA:
-El guion esconde la identidad hasta el 3:34. El título la regala.
+El guion esconde la identidad hasta el 3:15. El título la regala.
 Parece una contradicción y no lo es, pero conviene que sepas por qué:
 
   - "unabomber" tenía 115.704 búsquedas/mes con +263,8% de crecimiento
@@ -34,7 +34,7 @@ Parece una contradicción y no lo es, pero conviene que sepas por qué:
     arranque nuevo empieza en presente, dentro de la sala, con un chico
     sin nombre ("Tiene diecisiete años. Cree que va a tener una
     conversación tranquila sobre filosofía. Se equivoca."). El título
-    dice quién. El guion tarda 3:34 en confirmarlo con nombre y
+    dice quién. El guion tarda 3:15 en confirmarlo con nombre y
     apellido. No es ocultar la identidad, es retrasar la CONFIRMACIÓN --
     y eso sigue reteniendo igual, porque el gancho ya no es "quién es"
     sino "qué le hicieron".
@@ -96,6 +96,16 @@ una formula de memoria. vidIQ sigue a 0 creditos hasta el 13/10, asi que
 no pude contrastar esto con retencion medida (solo con vistas totales y
 outlier score), que es una metrica mas debil.
 
+RECORTE POSTERIOR (mismo dia): el tramo 0:55-1:40, la biografia de
+Murray, llegaba justo despues del mejor momento del guion y era el
+tramo con mas nombres y credenciales seguidos de todo el texto -- el
+punto tipico de fuga. Se recorto: menos curriculum, directo al dato que
+engancha (disenaba pruebas de estres para la CIA). Ahorro: 19 segundos,
+guion de 5:11 a 4:52. Tambien se quito una de las tres repeticiones de
+la estructura "no era X, era Y" (quedaban dos, y una tercera ya sonaba
+a muletilla). Esto es lectura de ritmo del guion, no dato de Nexlev ni
+de vidIQ -- no hay herramienta que mida esto sin el video publicado.
+
 ===================================================================
 MINIATURA
 ===================================================================
@@ -115,19 +125,18 @@ CAPÍTULOS (pegar en la descripción)
 ===================================================================
 
 0:00 La silla y el cristal
-0:55 Henry Murray
-1:21 La OSS y las pruebas de estrés
-1:40 El anuncio y la redacción
-2:07 El debate que no era un debate
-2:35 Media hora bajo los focos
-2:53 La proyección
-3:25 Lawful
-3:34 Unabomber
-3:55 ¿Harvard fabricó a un asesino?
-4:11 Lo que queda si se retira a Kaczynski
-4:40 Las tres normas que hoy existen
+0:55 Henry Murray y la CIA
+1:22 El anuncio y la redacción
+1:50 El debate que no era un debate
+2:18 Media hora bajo los focos
+2:35 La proyección
+3:06 Lawful
+3:15 Unabomber
+3:35 ¿Harvard fabricó a un asesino?
+3:52 Lo que queda si se retira a Kaczynski
+4:21 Las tres normas que hoy existen
 
-(Duración del guion: 5:11. Los minutos salen del texto a 2,88 palabras/s;
+(Duración del guion: 4:52. Los minutos salen del texto a 2,88 palabras/s;
 si el audio de David sale con otro ritmo, se recalculan sobre el SRT real
 antes de publicar.)
 
