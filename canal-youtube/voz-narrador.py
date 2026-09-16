@@ -2,15 +2,21 @@
 # Voz definitiva del narrador — Historia Incómoda. Generada por código, sin coste.
 #
 # Pipeline en tres pasos:
-#   1. Kokoro TTS (voz em_santa) genera el español con la pronunciación correcta.
+#   1. Piper TTS (voz es_MX-claude-high, modelo nativo en español) genera la base.
+#      Antes usaba Kokoro (voz em_santa): sonaba a acento americano forzando el
+#      español, porque el soporte multilingüe de Kokoro es un añadido sobre un
+#      modelo entrenado en inglés. Piper es un modelo entrenado de cero en
+#      español, así que la prosodia y la fonética salen nativas de origen.
 #   2. FreeVC24 (conversión de voz zero-shot) le transfiere el timbre de Kevin,
 #      la voz de ElevenLabs que el canal venía usando, a partir de una referencia
 #      de audio real de vídeos anteriores.
 #   3. Acabado en ffmpeg: aire en agudos, cuerpo en graves, de-ess y normalización.
 #
-# Los modelos viven fuera del repo por su peso (ver kokoro-models/ y freevc-models/,
-# ambos en .gitignore). Todos se descargan de releases de GitHub:
-#   Kokoro:  github.com/thewh1teagle/kokoro-onnx  (model-files-v1.1)
+# Los modelos viven fuera del repo por su peso (ver kokoro-models/, piper-models/
+# y freevc-models/, todos en .gitignore):
+#   Kokoro:  github.com/thewh1teagle/kokoro-onnx  (model-files-v1.1) — ya no se usa
+#            en el paso 1, se deja instalado por si hace falta comparar.
+#   Piper:   huggingface.co/rhasspy/piper-voices — es/es_MX/claude/high
 #   FreeVC:  github.com/coqui-ai/TTS             (v0.13.0_models)
 #
 # Uso:
@@ -19,6 +25,7 @@
 import subprocess
 import sys
 import tempfile
+import wave
 from pathlib import Path
 
 import numpy as np
@@ -27,6 +34,7 @@ import soundfile as sf
 BASE = Path(__file__).resolve().parent
 KOKORO_MODEL = BASE / "kokoro-models/kokoro-v1.0.onnx"
 KOKORO_VOICES = BASE / "kokoro-models/voices-v1.0.bin"
+PIPER_MODEL = BASE / "piper-models/es_MX-claude-high.onnx"
 FREEVC_DIR = BASE / "freevc-models/voice_conversion_models--multilingual--vctk--freevc24"
 REFERENCIA_KEVIN = BASE / "freevc-models/kevin-referencia.mp3"
 
@@ -42,13 +50,19 @@ FILTRO_ACABADO = (
 
 
 def generar_base(texto: str, destino: Path) -> int:
-    """Paso 1: el español lo pone Kokoro."""
-    from kokoro_onnx import Kokoro
+    """Paso 1: el español lo pone Piper, con acento nativo."""
+    from piper import PiperVoice
+    from piper.config import SynthesisConfig
 
-    k = Kokoro(str(KOKORO_MODEL), str(KOKORO_VOICES))
-    samples, sr = k.create(texto, voice="em_santa", speed=0.95, lang="es")
-    sf.write(destino, samples, sr)
-    return sr
+    voz = PiperVoice.load(str(PIPER_MODEL))
+    # length_scale > 1 = mas lento, < 1 = mas rapido. Piper a 1.0 sale mas
+    # lento que Kokoro por defecto; 0.84 ajustado a mano para que el ritmo
+    # caiga cerca de las 2.88 palabras/seg que usa el canal para estimar.
+    cfg = SynthesisConfig(length_scale=0.84)
+    with wave.open(str(destino), "wb") as wav_file:
+        voz.synthesize_wav(texto, wav_file, syn_config=cfg)
+    with sf.SoundFile(destino) as f:
+        return f.samplerate
 
 
 def cortar_en_silencios(wav: np.ndarray, sr: int) -> list:
@@ -124,7 +138,7 @@ def main(texto_path: str, salida_path: str):
         base = Path(tmp) / "base.wav"
         convertido = Path(tmp) / "convertido.wav"
 
-        print("Paso 1/3 — generando el español con Kokoro...")
+        print("Paso 1/3 — generando el español con Piper...")
         generar_base(texto, base)
 
         print("Paso 2/3 — transfiriendo el timbre de Kevin con FreeVC...")

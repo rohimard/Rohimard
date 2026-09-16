@@ -45,6 +45,8 @@ canal-cerebro-traidor/producciones/**/*.mp4
 canal-youtube/kokoro-models/
 canal-youtube/freevc-models/*
 !canal-youtube/freevc-models/kevin-referencia.mp3
+# modelo base de Piper (paso 1, sustituye a Kokoro) — se descarga de Hugging Face
+canal-youtube/piper-models/
 
 # clave de la API de voz (nunca al repo)
 canal-youtube/.google-tts-key
