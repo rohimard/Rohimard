@@ -20,21 +20,24 @@ Harvard destrozó a 22 chicos. Uno acabó siendo el Unabomber
 Alternativas:
 Tenía 16 años cuando lo sentaron en esa silla. Después fue el Unabomber
 El experimento de Harvard que duró 3 años y nadie pagó por él  <- sin la
-  palabra clave: el giro del 3:32 pasa a ser sorpresa real, pero se
+  palabra clave: el giro del 3:35 pasa a ser sorpresa real, pero se
   renuncia al pico de busqueda del estreno. No recomendado esta vez.
 
 DECISIÓN DE FONDO, Y ES TUYA:
-El guion esconde la identidad hasta el 3:32. El título la regala.
+El guion esconde la identidad hasta el 3:35. El título la regala.
 Parece una contradicción y no lo es, pero conviene que sepas por qué:
 
   - "unabomber" tenía 115.704 búsquedas/mes con +263,8% de crecimiento
     (medido con vidIQ el 12/09), y Netflix estrena el 25/09. Renunciar a
     esa palabra en el título es renunciar al pico de búsqueda entero.
-  - Saber por el título NO es lo mismo que saber por el guion. El título
-    da una etiqueta abstracta ("esto va del Unabomber"). El arranque no
-    se la recuerda: lo mete en una silla sin nombres. Cuando llega el
-    3:32, el pago no es información nueva, es RECONOCIMIENTO: "ah, era
-    él". Eso sigue funcionando.
+  - Saber por el título NO es lo mismo que saber por el guion. El
+    arranque nuevo, de hecho, juega la misma carta que el título: los
+    primeros quince segundos son un flash-forward a las bombas, sin
+    nombrar a nadie ("un hombre empezará a enviar bombas por correo").
+    El título dice quién. El guion tarda 3:35 en confirmarlo con
+    nombre y apellido. No es ocultar la identidad, es retrasar la
+    CONFIRMACIÓN -- y eso sigue reteniendo igual, porque el gancho ya
+    no es "quién es" sino "cómo se llega de esa silla a esas bombas".
   - Si prefieres el golpe limpio, usa la tercera alternativa (sin la
     palabra) y pierdes volumen de búsqueda a cambio de sorpresa real.
 
@@ -58,21 +61,21 @@ Si prefieres mantener "16 AÑOS", no la rehagas: funciona igual.
 CAPÍTULOS (pegar en la descripción)
 ===================================================================
 
-0:00 La sala
-0:34 Tres años, veintidós estudiantes
+0:00 Diecisiete años antes de saber su nombre
+0:20 La sala
 0:49 Henry Murray
-1:07 La OSS y las pruebas de estrés
-1:27 El anuncio y la redacción
-1:57 El debate que no era un debate
-2:25 Media hora bajo los focos
-2:46 La proyección
-3:06 Lawful
-3:32 Unabomber
-3:53 ¿Harvard fabricó a un asesino?
+1:22 La OSS y las pruebas de estrés
+1:41 El anuncio y la redacción
+2:08 El debate que no era un debate
+2:36 Media hora bajo los focos
+2:54 La proyección
+3:19 Lawful
+3:35 Unabomber
+3:56 ¿Harvard fabricó a un asesino?
 4:12 Lo que queda si se retira a Kaczynski
-4:43 Las tres normas que hoy existen
+4:41 Las tres normas que hoy existen
 
-(Duración del guion: 5:16. Los minutos salen del texto a 2,88 palabras/s;
+(Duración del guion: 5:12. Los minutos salen del texto a 2,88 palabras/s;
 si el audio de David sale con otro ritmo, se recalculan sobre el SRT real
 antes de publicar.)
 
