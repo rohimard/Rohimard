@@ -50,25 +50,17 @@ env:
   # persona. Y lo que más pesa: la HD no admite estilos, así que un guion
   # sobre un duelo de cuarenta años se leía sin ninguna intención.
   VOZ: es-MX-JorgeNeural
-  # "sad" se eligio para el video de la Reina Victoria (un duelo, luto de
-  # cuarenta anos): ahi encajaba. Para Kaczynski/Harvard es el estilo
-  # equivocado -- el usuario lo probo y salio "muy lento y triste y
-  # aburrido". ESTILO vacio = sin <mstts:express-as>, Jorge en su registro
-  # neutro de base, sin la lentitud ni el tono luctuoso que mete "sad".
-  ESTILO: ''
-  GRADO: '1.0'
   # 700ms (el valor de Reina Victoria, pensado para dejar respirar el luto)
-  # sumado al estilo "sad" es lo que alargo el guion de Kaczynski a 6:29
-  # cuando el ritmo objetivo del canal son ~2.88 palabras/seg. 400ms es una
-  # pausa de parrafo normal de documental, no de duelo.
+  # era el de un video de duelo. 400ms es una pausa de parrafo de
+  # documental normal.
   PAUSA: 400ms
-  # Quitar "sad" NO cambio el ritmo: se comparo palabra a palabra el
-  # palabras.json de antes y despues y los tiempos de entrada eran casi
-  # identicos (388.8s vs 389.4s). El estilo tiñe la prosodia, pero no
-  # controla la velocidad -- eso es <prosody rate>, que nunca se habia
-  # usado en este workflow. A 388.8s el guion iba a 2.16 palabras/seg
-  # contra el objetivo de 2.88; +32% de tasa apunta ahi.
-  TASA: +32%
+  # +32% dejo el guion a 2.81 palabras/seg (298.9s) y el usuario lo probo:
+  # "se escucha muy rapido". El original sin tasa daba 2.16 (388.8s) y
+  # sono "lento y aburrido". +15% es el punto intermedio que pidio --
+  # calculado sobre la parte hablada real (descontando las pausas, que
+  # <prosody> no acelera): apunta a ~2.5 palabras/seg, cerca de las 143
+  # palabras/minuto (2.38/seg) que Azure da como ritmo nativo de Jorge.
+  TASA: +15%
 
 jobs:
   narrar:
@@ -113,25 +105,46 @@ jobs:
           import azure.cognitiveservices.speech as speechsdk
 
           texto = open(os.environ["GUION"], encoding="utf-8").read().strip()
+          parrafos_txt = [p.strip() for p in texto.split("\n\n") if p.strip()]
 
-          # Cada párrafo del guión es una pausa larga del montaje. El <break>
-          # entre ellos es el único control de ritmo que deja HD.
-          parrafos = f'<break time="{os.environ["PAUSA"]}"/>'.join(
-              f"<p>{escape(p.strip())}</p>"
-              for p in texto.split("\n\n") if p.strip()
-          )
-          # Azure no da error cuando una voz no admite el estilo pedido: lo
-          # ignora en silencio y devuelve el audio plano. Por eso el estilo se
-          # comprobó antes con muestras en vez de darlo por bueno aquí.
-          # ESTILO vacío = sin envoltorio: la voz sale en su registro neutro
-          # de base, sin el <mstts:express-as> que mete tono y ritmo propios.
-          estilo = os.environ.get("ESTILO", "").strip()
-          if estilo:
-              cuerpo = (f'<mstts:express-as style="{estilo}" '
-                        f'styledegree="{os.environ["GRADO"]}">{parrafos}'
-                        "</mstts:express-as>")
-          else:
-              cuerpo = parrafos
+          # Estilo por parrafo, no global. StyleList real de Jorge
+          # (consultada por voces/list, no de un folleto): cheerful, chat,
+          # whispering, sad, excited -- y solo esos, Azure ignora en
+          # silencio cualquier otro. "cheerful" y "excited" se descartan a
+          # proposito: no hay un solo tramo de este guion sobre un
+          # experimento de humillacion y un terrorista que pida energia
+          # alegre, y forzarlos ahi sonaria peor que no tener estilo.
+          #
+          # "whispering" en los remates cortos que ya funcionan como golpe
+          # de guion (el "no era X, es Y" que se repite en el texto): el
+          # susurro subraya el giro sin cambiar el ritmo general.
+          # "sad" (grado bajo, no el 1.4 de Reina Victoria) solo en el
+          # tramo que de verdad es luto -- las victimas sin nombre, nadie
+          # respondio -- en vez de en las 47 estrofas del guion entero,
+          # que es el error que hizo "aburrido" el intento anterior.
+          #
+          # Los indices son de este guion.txt tal cual esta hoy: si el
+          # guion se reescribe, hay que revisar estos numeros a mano.
+          ESTILOS_PARRAFO = {
+              2: ("whispering", None),   # "Se equivoca."
+              5: ("whispering", None),   # "Esto no era una tortura."
+              29: ("whispering", None),  # "Respetuoso de la ley."
+              38: ("sad", "0.7"),  # "Porque lo que queda son veintiun..."
+              39: ("sad", "0.7"),  # "Nadie respondio jamas por aquella sala."
+          }
+
+          partes = []
+          for i, p in enumerate(parrafos_txt):
+              trozo = f"<p>{escape(p)}</p>"
+              override = ESTILOS_PARRAFO.get(i)
+              if override:
+                  nombre, grado = override
+                  atrib_grado = f' styledegree="{grado}"' if grado else ""
+                  trozo = (f'<mstts:express-as style="{nombre}"{atrib_grado}>'
+                           f"{trozo}</mstts:express-as>")
+              partes.append(trozo)
+
+          cuerpo = f'<break time="{os.environ["PAUSA"]}"/>'.join(partes)
           # El estilo tiñe el tono, pero la velocidad de lectura la controla
           # esto. <break> no se acelera con rate: solo el habla en sí.
           tasa = os.environ.get("TASA", "").strip()
