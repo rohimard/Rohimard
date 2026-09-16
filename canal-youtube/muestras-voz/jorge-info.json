@@ -1,0 +1,43 @@
+{
+  "Name": "Microsoft Server Speech Text to Speech Voice (es-MX, JorgeNeural)",
+  "DisplayName": "Jorge",
+  "LocalName": "Jorge",
+  "ShortName": "es-MX-JorgeNeural",
+  "Gender": "Male",
+  "Locale": "es-MX",
+  "LocaleName": "Spanish (Mexico)",
+  "StyleList": [
+    "cheerful",
+    "chat",
+    "whispering",
+    "sad",
+    "excited"
+  ],
+  "SampleRateHertz": "48000",
+  "VoiceType": "Neural",
+  "Status": "GA",
+  "VoiceTag": {
+    "Capabilities": [
+      "multi-style"
+    ],
+    "ModelSeries": [
+      "Monolingual"
+    ],
+    "PersonaId": [
+      "Jorge"
+    ],
+    "Source": [
+      "Azure"
+    ],
+    "TailoredScenarios": [
+      "Narration",
+      "Chat"
+    ],
+    "VoicePersonalities": [
+      "Curious",
+      "Deep",
+      "Confident"
+    ]
+  },
+  "WordsPerMinute": "143"
+}
