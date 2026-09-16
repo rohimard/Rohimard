@@ -107,31 +107,26 @@ jobs:
           texto = open(os.environ["GUION"], encoding="utf-8").read().strip()
           parrafos_txt = [p.strip() for p in texto.split("\n\n") if p.strip()]
 
-          # Estilo por parrafo, no global. StyleList real de Jorge
-          # (consultada por voces/list, no de un folleto): cheerful, chat,
-          # whispering, sad, excited -- y solo esos, Azure ignora en
-          # silencio cualquier otro. "cheerful" y "excited" se descartan a
-          # proposito: no hay un solo tramo de este guion sobre un
-          # experimento de humillacion y un terrorista que pida energia
-          # alegre, y forzarlos ahi sonaria peor que no tener estilo.
+          # Estilo por parrafo, no global -- pero de momento VACIO.
           #
-          # "whispering" en los remates cortos que ya funcionan como golpe
-          # de guion (el "no era X, es Y" que se repite en el texto): el
-          # susurro subraya el giro sin cambiar el ritmo general.
-          # "sad" (grado bajo, no el 1.4 de Reina Victoria) solo en el
-          # tramo que de verdad es luto -- las victimas sin nombre, nadie
-          # respondio -- en vez de en las 47 estrofas del guion entero,
-          # que es el error que hizo "aburrido" el intento anterior.
+          # La corrida anterior metio "whispering" en tres remates y "sad"
+          # en dos parrafos. El usuario la probo y dijo "no se escucha
+          # bien", sin mas detalle. Hipotesis mas probable: el salto de
+          # tono entrando y saliendo de esos 5 parrafos suena a corte, no a
+          # matiz -- Azure no hace un fundido entre estilos, cambia de
+          # golpe en el limite del tag. Se quita esa variable entera para
+          # aislarla: si esta version (sin tags, mismo TASA que ya
+          # funcionaba) sigue sonando mal, el problema no son los tags.
           #
-          # Los indices son de este guion.txt tal cual esta hoy: si el
-          # guion se reescribe, hay que revisar estos numeros a mano.
-          ESTILOS_PARRAFO = {
-              2: ("whispering", None),   # "Se equivoca."
-              5: ("whispering", None),   # "Esto no era una tortura."
-              29: ("whispering", None),  # "Respetuoso de la ley."
-              38: ("sad", "0.7"),  # "Porque lo que queda son veintiun..."
-              39: ("sad", "0.7"),  # "Nadie respondio jamas por aquella sala."
-          }
+          # Referencia si se reactivan mas adelante, uno a la vez y
+          # probando el corte de tono real, no solo el contenido del
+          # parrafo:
+          #   2: ("whispering", None),   # "Se equivoca."
+          #   5: ("whispering", None),   # "Esto no era una tortura."
+          #   29: ("whispering", None),  # "Respetuoso de la ley."
+          #   38: ("sad", "0.7"),  # "Porque lo que queda son veintiun..."
+          #   39: ("sad", "0.7"),  # "Nadie respondio jamas por aquella sala."
+          ESTILOS_PARRAFO = {}
 
           partes = []
           for i, p in enumerate(parrafos_txt):
