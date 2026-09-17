@@ -55,14 +55,22 @@ jobs:
             fi
           }
 
-          # Natalie Reynolds: el disfraz real moviendose "solo", grabado
-          # en camara en vivo -- el propio hecho, no una foto de el.
+          # TikTok fallo: "Unexpected response from webpage request" es
+          # un bug de yt-dlp contra el nuevo challenge/cookie de TikTok
+          # (issues #17403/#17407/#17604, sin arreglo aun a la fecha),
+          # no algo resoluble desde aqui. Se deja un intento por si se
+          # arregla solo con la version mas nueva, y se pasa a intentar
+          # el reproductor de video embebido de las paginas de noticias.
           bajar natalie-camara-en-vivo "https://www.tiktok.com/@nataliireynoldss/video/7682950319470316830"
-          # Otro angulo/reaccion real sobre el mismo disfraz.
-          bajar natalie-costume-reaccion "https://www.tiktok.com/@mariannenafsu/video/7682633427115314463"
-          # TikTok real hecho en Berwick / St. Mary Parish, Luisiana --
-          # la misma ciudad del arresto de los 4 menores.
           bajar berwick-tiktok-real "https://www.tiktok.com/@fearr_god/video/7680716741458021646"
+
+          # Paginas de noticias con reproductor de video embebido (JW
+          # Player/Brightcove/etc.) -- yt-dlp los extrae directo si el
+          # sitio no bloquea el runner.
+          bajar wbrz-berwick-noticia "https://www.wbrz.com/news/four-juveniles-arrested-in-berwick-following-investigation-into-cat-in-the-hat-trend"
+          bajar cbc-kelowna-noticia "https://www.cbc.ca/news/canada/british-columbia/cat-in-the-hat-prank-west-kelowna-9.7337550"
+          bajar globalnews-kelowna-noticia "https://globalnews.ca/news/12052365/cat-in-the-hat-chase-west-kelowna-rcmp/"
+          bajar nbcct-westhaven-noticia "https://www.nbcconnecticut.com/news/local/west-haven-student-arrested-in-connection-with-cat-in-the-hat-school-threat/3774738/"
 
           ls -la "$DESTINO"
           cat "$DESTINO/FUENTES-VIDEO.txt" 2>/dev/null || true
