@@ -1,8 +1,8 @@
 OK (176471 bytes): moreno-marciniw-nbcnews.jpg <- https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2026-09/260916-moreno-and-marciniw-rs-e4350b.jpg
-OK (86487 bytes): moreno-marciniw-today.jpg <- https://media-cldnry.s-nbcnews.com/image/upload/t_social_share_1200x630_center,f_auto,q_auto:best/rockcms/2026-09/helicopter-crash-victims-28784c.jpg
+OK (73579 bytes): moreno-marciniw-today.jpg <- https://media-cldnry.s-nbcnews.com/image/upload/t_social_share_1200x630_center,f_auto,q_auto:best/rockcms/2026-09/helicopter-crash-victims-me-260917-d7186c.jpg
 OK (1033751 bytes): rios-arresto-abc7.jpg <- https://cdn.abcotvs.com/dip/images/19841818_091626-kabc-valley-wreck-victims-tn-img.jpg?w=1600
 OK (42396 bytes): escena-helicoptero-cnn.jpg <- https://media.cnn.com/api/v1/images/stellar/prod/still-22987944-411758-18700000003-still.jpg?c=16x9&q=w_800,c_fill
-FALLO: escena-helicoptero-mynewsla.jpg <- https://mynewsla.com/hollywood/2026/09/16/ntsb-leads-probe-into-deadly-newschopper4-crash-in-chatsworth/ :: 429 Client Error: Too Many Requests for url: https://mynewsla.com/hollywood/2026/09/16/ntsb-leads-probe-into-deadly-newschopper4-crash-in-chatsworth/
+OK (76255 bytes): escena-helicoptero-mynewsla.jpg <- https://i0.wp.com/mynewsla.com/wp-content/uploads/2021/10/MNLA-Facebook.jpg?fit=640%2C360&ssl=1
 OK (243820 bytes): choque-autobus-pbs.jpg <- https://d3i6fh83elv35t.cloudfront.net/static/2026/09/AP26259549440064-1024x768.jpg
 OK (372660 bytes): choque-autobus-hollywoodreporter.jpg <- https://www.hollywoodreporter.com/wp-content/uploads/2026/09/GettyImages-2295042772.jpg?w=1440&h=810&crop=1
 FALLO: helicoptero-n358tv-real.jpg <- https://www.planespotters.net/photos/reg/N358TV :: 403 Client Error: Forbidden for url: https://www.planespotters.net/photos/reg/N358TV
@@ -18,8 +18,15 @@ OK (218344 bytes): newsroom-evidencia-nbcla.jpg <- https://media.nbclosangeles.c
 FALLO: heli-escena-wgntv.jpg <- https://wgntv.com/news/los-angeles-news-helicopter-crash-what-we-know-about-victims-investigation/ :: 403 Client Error: Forbidden for url: https://wgntv.com/news/los-angeles-news-helicopter-crash-what-we-know-about-victims-investigation/
 OK (76258 bytes): heli-escena-thenightly.jpg <- https://images.thenightly.com.au/publication/C-22882379/c3e21ce8d00c2fbffb65b4121086f74bb2742dec-16x9-x0y10w594h334.webp?imwidth=1200
 OK (463905 bytes): ntsb-investigador-abc7.jpg <- https://cdn.abcotvs.com/dip/images/19839678_091626-kabc-helicopter-down.jpg?w=1600
-FALLO: heli-escena-sanfernandosun.jpg <- https://sanfernandosun.com/2026/09/16/ntsb-leads-probe-into-deadly-newschopper4-crash-in-chatsworth/ :: 429 Client Error: Too Many Requests for url: https://sanfernandosun.com/2026/09/16/ntsb-leads-probe-into-deadly-newschopper4-crash-in-chatsworth/
+OK (301034 bytes): heli-escena-sanfernandosun.jpg <- https://sanfernandosun.com/wp-content/uploads/2026/09/02-Crash-NTSB-scaled-e1789620130193.jpg
 FALLO: bus-escena-abc10.jpg <- https://www.abc10.com/article/news/nation-world/fatal-helicopter-crash-reported-in-chatsworth-california/103-6b0058eb-f55d-4dd2-a8cf-4c6746ef42a6 :: 403 Client Error: Forbidden for url: https://www.abc10.com/article/news/nation-world/fatal-helicopter-crash-reported-in-chatsworth-california/103-6b0058eb-f55d-4dd2-a8cf-4c6746ef42a6
 OK (73359 bytes): heli-escena-cbsla2.jpg <- https://assets2.cbsnewsstatic.com/hub/i/r/2026/09/16/27d5ff2c-5726-4753-8ce5-a715a8477150/thumbnail/1200x630/17726f1d6b36e223e058f094b533e8cd/screenshot-2026-09-15-190812.png
 OK (87012 bytes): heli-escena-foxla-live.jpg <- https://images.foxtv.com/static.foxla.com/www.foxla.com/content/uploads/2026/09/1200/630/george-eliana_chatsworth-crashes.jpg?ve=1&tl=1
 OK (463905 bytes): heli-escena-abc7sf.jpg <- https://cdn.abcotvs.com/dip/images/19839678_091626-kabc-helicopter-down.jpg?w=1600
+OK (71394 bytes): victimas-heli-cnn-perfil.jpg <- https://media.cnn.com/api/v1/images/stellar/prod/ap26259797042577.jpg?c=16x9&q=w_800,c_fill
+OK (779806 bytes): victimas-bus-cbs.jpg <- https://assets3.cbsnewsstatic.com/hub/i/r/2026/09/17/05ba8fc0-dd66-4c11-984b-c16a7804295d/thumbnail/1200x630/746d800db19d067a155c8dbf34600445/screenshot-2026-09-16-at-9-58-57-pm.png
+OK (112653 bytes): helicoptero-n358tv-flightaware.jpg <- https://photos.flightaware.com/photos/retriever/c2f0f9394c8ae92dbc52f4ce0f295185b28379cc
+FALLO: mourn-poynter.jpg <- https://www.poynter.org/commentary/2026/los-angeles-news-helicopter-crash-nbc4/ :: 403 Client Error: Forbidden for url: https://www.poynter.org/commentary/2026/los-angeles-news-helicopter-crash-nbc4/
+OK (888624 bytes): heli-escena-abc7-c.jpg <- https://cdn.abcotvs.com/dip/images/19838328_091626-kabc-helicopter-crash-nbc4-inset-tn-img.jpg?w=1600
+OK (133620 bytes): chapman-tributo-nbcla.jpg <- https://media.nbclosangeles.com/2026/09/51244406931-1080pnbcstations.jpg?quality=85&strip=all&resize=1200%2C675
+OK (255504 bytes): estatuto-nbc4-telemundo.jpg <- https://media.nbclosangeles.com/2023/06/nbc4-t52-nbcla-brokaw-news-center-1-e1789535274869.jpg?quality=85&strip=all&resize=1200%2C675
