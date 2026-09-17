@@ -99,6 +99,20 @@ jobs:
                "https://www.foxla.com/news/deadly-la-news-helicopter-crash-investigatoin-begins"),
               ("heli-escena-abc7sf.jpg",
                "https://abc7news.com/story/los-angeles-helicopter-crash-3rd-victim-identified-nbc4-crashes-chatsworth/19839883/"),
+              ("victimas-heli-cnn-perfil.jpg",
+               "https://www.cnn.com/2026/09/17/us/la-helicopter-crash-victims"),
+              ("victimas-bus-cbs.jpg",
+               "https://www.cbsnews.com/losangeles/news/chatsworth-deadly-metro-bus-crash-victims-identified/"),
+              ("helicoptero-n358tv-flightaware.jpg",
+               "https://www.flightaware.com/photos/view/1485873-65c44cdffa168b5f2574eabfc594b5bda8c78888"),
+              ("mourn-poynter.jpg",
+               "https://www.poynter.org/commentary/2026/los-angeles-news-helicopter-crash-nbc4/"),
+              ("heli-escena-abc7-c.jpg",
+               "https://abc7.com/post/los-angeles-crash-helicopter-crashes-scene-deadly-bus-chatsworth/19837447/"),
+              ("chapman-tributo-nbcla.jpg",
+               "https://www.nbclosangeles.com/video/news/local/such-a-bright-light-chapman-university-remembers-alumna-eliana-moreno/3943596/"),
+              ("estatuto-nbc4-telemundo.jpg",
+               "https://www.nbclosangeles.com/news/local/nbc4-and-telemundo-52-statement-on-chatsworth-helicopter-crash/3942829/"),
           ]
 
           resumen = []
