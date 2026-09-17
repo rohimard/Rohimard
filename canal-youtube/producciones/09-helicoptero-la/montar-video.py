@@ -46,8 +46,20 @@ def main() -> None:
         print(f"::error:: no encuentro el audio: {args.audio}")
         sys.exit(1)
 
-    encaje = (f"scale={W}:{H}:force_original_aspect_ratio=increase,"
-              f"crop={W}:{H},setsar=1")
+    def relleno_difuminado(sufijo=""):
+        # Antes: scale+crop a 1920x1080 rellenaba el cuadro pero recortaba
+        # lo que sobrase -- en una foto vertical de una persona eso se
+        # comia medio cuerpo. Ahora: la imagen entera se ve completa
+        # (scale...decrease, sin recortar) sobre un fondo hecho de la
+        # misma imagen ampliada y difuminada, para no dejar barras negras.
+        bg, fg, bgb, fgf = f"bg{sufijo}", f"fg{sufijo}", f"bgb{sufijo}", f"fgf{sufijo}"
+        return (
+            f"split=2[{bg}][{fg}];"
+            f"[{bg}]scale={W}:{H}:force_original_aspect_ratio=increase,"
+            f"crop={W}:{H},gblur=sigma=20,eq=brightness=-0.08[{bgb}];"
+            f"[{fg}]scale={W}:{H}:force_original_aspect_ratio=decrease,setsar=1[{fgf}];"
+            f"[{bgb}][{fgf}]overlay=(W-w)/2:(H-h)/2,setsar=1"
+        )
 
     quemar = ""
     if args.subtitulos:
@@ -77,7 +89,8 @@ def main() -> None:
             # repetidas no se vean con el mismo movimiento cada vez.
             z = f"1+0.08*on/{fr}" if i % 2 == 0 else f"1.08-0.08*on/{fr}"
             trozos.append(
-                f"[{i}:v]{encaje},zoompan=z='{z}':d={fr}:"
+                f"[{i}:v]{relleno_difuminado(i)},"
+                f"zoompan=z='{z}':d={fr}:"
                 f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':s={W}x{H}:fps={FPS}[v{i}]"
             )
         cadena = ";".join(trozos)
@@ -98,7 +111,7 @@ def main() -> None:
             fh.write(f"file '{os.path.abspath(rutas[-1][0])}'\n")
         cmd = ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", lista,
                "-i", args.audio,
-               "-vf", f"{encaje},fps={FPS}{quemar}", "-r", str(FPS)]
+               "-vf", f"{relleno_difuminado()},fps={FPS}{quemar}", "-r", str(FPS)]
 
     cmd += ["-c:v", "libx264", "-preset", "medium", "-crf", "18",
             "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k",
