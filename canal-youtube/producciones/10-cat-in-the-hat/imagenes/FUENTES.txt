@@ -1,6 +1,6 @@
 OK (968145 bytes): post-ia-police1.jpg <- https://lexipol.brightspotcdn.com/dims4/default/91c2a6e/2147483647/strip/true/crop/1544x869+0+136/resize/1440x810!/quality/90/?url=https%3A%2F%2Fk1-prod-lexipol.s3.us-east-2.amazonaws.com%2Fbrightspot%2F30%2F5c%2F02d6840d4fc58cb0606be3a56a90%2Fscreenshot-2026-09-10-101107.png
 OK (159513 bytes): post-ia-euronews.jpg <- https://images.euronews.com/articles/stories/09/88/62/13/1200x675_cmsv2_ec0326de-c432-5218-9758-76868e955cd6-9886213.jpg
-OK (75367 bytes): post-ia-newsweek.jpg <- https://assets.newsweek.com/wp-content/uploads/2026/09/b3904e14-bb47-4a91-a655-9bd49f9515d1.png?w=1200&crop=1
+OK (204375 bytes): post-ia-newsweek.jpg <- https://assets.newsweek.com/wp-content/uploads/2026/09/b3904e14-bb47-4a91-a655-9bd49f9515d1.png?w=1200&crop=1
 OK (297661 bytes): post-ia-abcnews.jpg <- https://i.abcnewsfe.com/a/8c108961-4adf-4191-8d19-a834fc60e984/teens-phones-1-as-gmh-260901_1788289316071_hpMain_16x9.jpg?w=1600
 OK (34914 bytes): berwick-policia-wbrz.jpg <- https://dcer237tfveol.cloudfront.net/v2/W9UGJm18HOWjCAN6caWU2gu_7kY4bTsOlk4OCU5HUWCBm8LKjRZJF_Ij3531_BObIku-JLo5q8BFmrNaAUhCVQ_eiP-xfkVIaex28sBtms_w
 OK (192531 bytes): westhaven-nbcct.jpg <- https://media.nbcconnecticut.com/2026/09/IMG_5668_3bb92a.jpeg?quality=85&strip=all&resize=1200%2C675
@@ -22,3 +22,15 @@ FALLO: missouri-cameron-fox4kc.jpg <- https://fox4kc.com/news/threatening-cat-in
 FALLO: california-ktla.jpg <- https://ktla.com/news/local-news/police-aware-of-cat-in-the-hat-trend-targeting-southern-california-school-community/ :: 403 Client Error: Forbidden for url: https://ktla.com/news/local-news/police-aware-of-cat-in-the-hat-trend-targeting-southern-california-school-community/
 OK (16239 bytes): kelowna-rcmp-cbc.jpg <- https://i.cbc.ca/ais/42d5e26c-cfbe-4c49-9dd7-6c7edb35cc0b,1788982179182/full/max/0/default.jpg?im=Crop%2Crect%3D%280%2C168%2C613%2C344%29%3BResize%3D620
 OK (262530 bytes): uk-ireland-ladbible.jpg <- https://resizer.ladbiblegroup.com/ogimage/v3/assets/bltcd74acc1d0a99f3a/bltf173bfe8f621657c/6a896b05fc8dd61cc346fbf9/cat_in_the_hat.png
+OK (2034880 bytes): dexerto-disfraz.jpg <- https://www.dexerto.com/cdn-image/wp-content/uploads/2026/09/06/cat-in-the-hat-haunted-costume.jpg
+FALLO: berwick-houmatimes.jpg <- https://houmatimes.com/crime/four-teenage-girls-charged-with-terrorizing-cyberbullying-and-more-following-online-cat-in-the-hat-threats/ :: 403 Client Error: Forbidden for url: https://houmatimes.com/crime/four-teenage-girls-charged-with-terrorizing-cyberbullying-and-more-following-online-cat-in-the-hat-threats/
+OK (560995 bytes): berwick-kqki.jpg <- https://kqkinews.com/wp-content/uploads/2026/09/Screenshot_20260901_162327_Facebook.jpg
+OK (192531 bytes): westhaven-nbcny.jpg <- https://media.nbcnewyork.com/2026/09/IMG_5668_3bb92a.jpeg?quality=85&strip=all&resize=1200%2C675
+FALLO: trend-dailyvoice.jpg <- https://dailyvoice.com/article/creepy-cat-in-the-hat-school-threat-trend-sparks-warnings-teen-arrests-across-us/ :: 403 Client Error: Forbidden for url: https://dailyvoice.com/article/creepy-cat-in-the-hat-school-threat-trend-sparks-warnings-teen-arrests-across-us/
+OK (25654 bytes): hutchinson-hutchpost.jpg <- https://media.eaglewebservices.com/public/2025/1/1736557162027.jpeg
+OK (106726 bytes): hutchinson-adastra.jpg <- https://www.adastraradio.com/wp-content/uploads/2025/12/608285570_1307593044739737_5539522806894795079_n-1.jpg
+FALLO: ukireland-quartz.jpg <- https://qz.com/cat-in-the-hat-ai-trend-police-warnings-uk-ireland-090126 :: 403 Client Error: Forbidden for url: https://qz.com/cat-in-the-hat-ai-trend-police-warnings-uk-ireland-090126
+OK (946434 bytes): kelowna-ibtimes.jpg <- https://d.ibtimes.co.uk/en/full/1830974/cat-hat-trend-spread-through-social-media.png
+OK (107115 bytes): kelowna-tmz.jpg <- https://imagez.tmz.com/image/95/16by9/2026/09/10/95f5f32681884dd195809a07a19fe9e5_xl.jpg
+OK (33616 bytes): nicholasville-wkyt.jpg <- https://gray-wkyt-prod.gtv-cdn.com/resizer/v2/LOA5TEEZOBFCZEXLLULX6KYHOY.jpg?auth=13e0691a3cde14bc892678134fccef506f215399f0c22753b9d6693ee1a395ec&width=1200&height=600&smart=true
+OK (91162 bytes): nicholasville-wkyt2.jpg <- https://gray-wkyt-prod.gtv-cdn.com/resizer/v2/TKR4UJWEHRFQNHI532P5MIVPTE.png?auth=9deff31d5a6075612b863617291e7fc9391b32d2dcad0b13668d63d41e2f8a85&width=1200&height=600&smart=true
