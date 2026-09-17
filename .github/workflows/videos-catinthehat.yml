@@ -29,22 +29,29 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: pip install --quiet yt-dlp
+      - run: pip install --quiet -U yt-dlp
 
       - name: Bajar clips reales (TikTok del propio hecho)
         run: |
           set +e
           mkdir -p "$DESTINO"
+          rm -f "$DESTINO/FUENTES-VIDEO.txt"
+          yt-dlp --version
 
           bajar() {
             nombre="$1"; url="$2"
             echo "-- $nombre <- $url"
-            yt-dlp --no-warnings -f "mp4/bv*+ba/b" --max-filesize 60M \
-              -o "$DESTINO/$nombre.mp4" "$url"
+            salida=$(yt-dlp -f "mp4/bv*+ba/b" --max-filesize 60M \
+              -o "$DESTINO/$nombre.mp4" "$url" 2>&1)
+            echo "$salida"
             if [ -f "$DESTINO/$nombre.mp4" ]; then
               echo "OK: $nombre <- $url" >> "$DESTINO/FUENTES-VIDEO.txt"
             else
-              echo "FALLO: $nombre <- $url" >> "$DESTINO/FUENTES-VIDEO.txt"
+              # Guarda la ultima linea real del error (yt-dlp antepone
+              # "ERROR:") para saber la causa exacta sin bajar el zip
+              # de logs completo.
+              motivo=$(echo "$salida" | grep -i "ERROR" | tail -1)
+              echo "FALLO: $nombre <- $url :: ${motivo:-sin detalle}" >> "$DESTINO/FUENTES-VIDEO.txt"
             fi
           }
 
