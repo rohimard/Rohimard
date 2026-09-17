@@ -7,3 +7,4 @@ OK (192531 bytes): westhaven-nbcct.jpg <- https://media.nbcconnecticut.com/2026/
 OK (39063 bytes): kelowna-globalnews.jpg <- https://globalnews.ca/wp-content/uploads/2026/09/cat-in-the-hat.png?w=285&h=285&crop=1
 FALLO: hutchinson-ksn.jpg <- https://www.ksn.com/news/crime/kansas-student-arrested-in-cat-in-the-hat-threats/ :: 403 Client Error: Forbidden for url: https://www.ksn.com/news/crime/kansas-student-arrested-in-cat-in-the-hat-threats/
 SIN og:image: post-ia-msn.jpg <- https://www.msn.com/en-us/entertainment/general/the-cat-in-the-hat-became-tiktok-s-latest-horror-icon-how-did-we-get-here/ar-AA2bLquN
+OK (73720 bytes): post-ia-fox26.jpg <- https://images.foxtv.com/static.fox26houston.com/www.fox26houston.com/content/uploads/2026/09/1200/630/laredo-pd-cat-in-the-hat-e1788753148782.jpg?ve=1&tl=1
