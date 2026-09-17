@@ -78,10 +78,39 @@ hay una diferencia real entre fuentes:
   antes de decidir plano por plano dónde va imagen real y dónde
   reconstrucción.
 
+## Imágenes reales conseguidas
+
+El usuario confirmó explícitamente (dos veces, tras dos avisos de riesgo)
+que quiere fotos reales de prensa, incluidas las de las dos personas
+fallecidas. Estado a 17/09/2026:
+
+**`imagenes-reales/` — licencia libre (Creative Commons, Wikimedia Commons), riesgo nulo:**
+- `helicoptero-as350.jpg` — mismo modelo (Eurocopter AS350 B2), no la
+  matrícula exacta N358TV.
+- `chatsworth.jpg`, `valle-san-fernando.jpg` — el barrio y la zona.
+- `autobus-metro.jpg` — mismo tipo de autobús de LA Metro.
+
+**`imagenes-noticia/` — fotos de prensa reales, copyright de cada medio (riesgo aceptado explícitamente):**
+- `moreno-marciniw-nbcnews.jpg`, `moreno-marciniw-today.jpg` — las dos
+  personas fallecidas del helicóptero (NBC News / Today).
+- `rios-arresto-abc7.jpg` — escena/víctimas del choque de autobús (ABC7).
+- `escena-helicoptero-cnn.jpg` — la escena de la caída (CNN).
+- `choque-autobus-pbs.jpg` (AP vía PBS), `choque-autobus-hollywoodreporter.jpg`
+  (Getty vía Hollywood Reporter) — el choque del autobús.
+- La URL exacta de cada una está en `imagenes-noticia/FUENTES.txt`, para
+  poder acreditar la fuente en la descripción del vídeo si se decide
+  publicar así.
+- No se consiguió foto de Edy Gutiérrez Mejía, la tercera víctima: no
+  apareció ninguna en la cobertura encontrada. Tampoco se insistió más en
+  buscarla por redes personales: es un civil extranjero sin ninguna
+  proyección pública, a diferencia de los otros dos.
+- KTLA bloqueó el scraping (403) en todos los intentos; se cubrió lo mismo
+  con CNN, PBS/AP y Hollywood Reporter/Getty.
+
 ## Pendiente
 
-- Prompts de imágenes / plan de planos con duración real sobre el audio
-  final.
+- Plan de planos: qué imagen va con qué frase del guion, y su duración
+  real (depende del audio final, todavía no generado).
 - Decidir voz/narración (mismo pipeline que el vídeo 8: Azure vía GitHub
   Actions o ElevenLabs).
 - Título y miniatura.
