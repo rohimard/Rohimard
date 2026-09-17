@@ -107,6 +107,8 @@ jobs:
           }
           bajar_wiki hutchinson-high-wiki.jpg "Hutchinson-High-School.jpg"
           bajar_wiki rcmp-vehiculo.jpg "RCMP_Dodge_Charger_4A67.jpg"
+          bajar_wiki pasillo-escuela.jpg "High_school_hallways.jpg"
+          bajar_wiki libros-editorial.jpg "Library_books_-_Shelving_stacks_(3554627444).jpg"
           ls -la "$DESTINO"
 
       - name: Devolver las imagenes a la rama
