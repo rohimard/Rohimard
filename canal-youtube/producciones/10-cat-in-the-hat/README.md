@@ -42,7 +42,7 @@ noticieros tradicionales.
 
 Fuentes cruzadas: Police1, Euronews, CBC, Global News, Fox News, KWCH,
 KSN, WBRZ, Houma Times, NBC Connecticut, WTNH, Newsweek, ABC News,
-Fox4KC, Spectrum News.
+Fox4KC, Spectrum News, Fox26 Houston, LadBible, Nerdist, Complex.
 
 ## Decisión editorial sobre las imágenes: nada de menores identificables
 
@@ -59,10 +59,26 @@ personaje ficticio generado por IA, no de una persona real), fotos
 genéricas de las escuelas/ciudades mencionadas, fotos de los agentes o
 autos de policía en las ruedas de prensa, y mapas del alcance del caso.
 
+## Imágenes: de 12 a 19 planos, sin el fotograma de la película como apertura
+
+Corrección tras la primera versión: el primer plano usaba un still de la
+película de 2003 (Euronews) en vez de una foto real de alguien
+disfrazado, y el plano de la cuadrícula de TikTok duraba casi 15s. Se
+reemplazó el still por una foto real del disfraz físico (la máscara que
+usó Mike Myers, subastada por Propstore, vía Nerdist), se recortó la
+cuadrícula de Police1 en 7 capturas individuales, y se sumaron 3 fuentes
+más (RCMP vía CBC para West Kelowna, LadBible para el origen en Reino
+Unido/Irlanda). La mayoría de las cadenas Nexstar contactadas (Ohio,
+Tennessee, Misuri, California, Florida) bloquearon la descarga con 403
+-- ver FUENTES.txt. Resultado: 19 planos reales sin ninguna repetición,
+de 4.5s a 13.9s cada uno (no se llegó al tope de 3-4s pedido porque no
+hay suficientes imágenes reales distintas para eso sin repetir).
+
+Dos imágenes reales (la cuadrícula de TikTok y el cartel de la policía
+de Laredo) traen texto en pantalla en inglés; se tradujo con un rótulo
+superpuesto en vez de recortarlo, ver `traduccion.srt`.
+
 ## Pendiente
 
-- Buscar imágenes reales (capturas de los posts, fachadas de escuelas,
-  ruedas de prensa policiales).
-- Narración (misma voz David de ElevenLabs, salvo que se pida otra).
-- Hoja de montaje, subtítulos, miniatura, SEO — mismo proceso que el
-  vídeo 9.
+- Si se consiguen más imágenes reales (fuera de las cadenas bloqueadas),
+  se puede seguir bajando la duración media por plano.

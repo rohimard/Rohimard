@@ -2,651 +2,651 @@
  {
   "palabra": "A",
   "inicio": 0.0,
-  "fin": 0.125
+  "fin": 0.129
  },
  {
   "palabra": "finales",
-  "inicio": 0.125,
-  "fin": 0.623
+  "inicio": 0.129,
+  "fin": 0.646
  },
  {
   "palabra": "de",
-  "inicio": 0.623,
-  "fin": 0.809
+  "inicio": 0.646,
+  "fin": 0.84
  },
  {
   "palabra": "junio",
-  "inicio": 0.809,
-  "fin": 1.183
+  "inicio": 0.84,
+  "fin": 1.227
  },
  {
   "palabra": "de",
-  "inicio": 1.183,
-  "fin": 1.37
+  "inicio": 1.227,
+  "fin": 1.421
  },
  {
   "palabra": "2026,",
-  "inicio": 1.37,
-  "fin": 1.743
+  "inicio": 1.421,
+  "fin": 1.809
  },
  {
   "palabra": "alguien",
-  "inicio": 1.743,
-  "fin": 2.241
+  "inicio": 1.809,
+  "fin": 2.325
  },
  {
   "palabra": "subió",
-  "inicio": 2.241,
-  "fin": 2.615
+  "inicio": 2.325,
+  "fin": 2.713
  },
  {
   "palabra": "a",
-  "inicio": 2.615,
-  "fin": 2.739
+  "inicio": 2.713,
+  "fin": 2.842
  },
  {
   "palabra": "TikTok",
-  "inicio": 2.739,
-  "fin": 3.175
+  "inicio": 2.842,
+  "fin": 3.294
  },
  {
   "palabra": "un",
-  "inicio": 3.175,
-  "fin": 3.362
+  "inicio": 3.294,
+  "fin": 3.488
  },
  {
   "palabra": "video",
-  "inicio": 3.362,
-  "fin": 3.735
+  "inicio": 3.488,
+  "fin": 3.876
  },
  {
   "palabra": "usando",
-  "inicio": 3.735,
-  "fin": 4.171
+  "inicio": 3.876,
+  "fin": 4.328
  },
  {
   "palabra": "una",
-  "inicio": 4.171,
-  "fin": 4.42
+  "inicio": 4.328,
+  "fin": 4.586
  },
  {
   "palabra": "escena",
-  "inicio": 4.42,
-  "fin": 4.856
+  "inicio": 4.586,
+  "fin": 5.039
  },
  {
   "palabra": "de",
-  "inicio": 4.856,
-  "fin": 5.043
+  "inicio": 5.039,
+  "fin": 5.232
  },
  {
   "palabra": "la",
-  "inicio": 5.043,
-  "fin": 5.229
+  "inicio": 5.232,
+  "fin": 5.426
  },
  {
   "palabra": "película",
-  "inicio": 5.229,
-  "fin": 5.79
+  "inicio": 5.426,
+  "fin": 6.007
  },
  {
   "palabra": "de",
-  "inicio": 5.79,
-  "fin": 5.977
+  "inicio": 6.007,
+  "fin": 6.201
  },
  {
   "palabra": "2003",
-  "inicio": 5.977,
-  "fin": 6.288
+  "inicio": 6.201,
+  "fin": 6.524
  },
  {
   "palabra": "del",
-  "inicio": 6.288,
-  "fin": 6.537
+  "inicio": 6.524,
+  "fin": 6.783
  },
  {
   "palabra": "Gato",
-  "inicio": 6.537,
-  "fin": 6.848
+  "inicio": 6.783,
+  "fin": 7.106
  },
  {
   "palabra": "Ensombrerado,",
-  "inicio": 6.848,
-  "fin": 7.72
+  "inicio": 7.106,
+  "fin": 8.01
  },
  {
   "palabra": "el",
-  "inicio": 7.72,
-  "fin": 7.906
+  "inicio": 8.01,
+  "fin": 8.189
  },
  {
   "palabra": "personaje",
-  "inicio": 7.906,
-  "fin": 8.529
+  "inicio": 8.189,
+  "fin": 8.785
  },
  {
   "palabra": "de",
-  "inicio": 8.529,
-  "fin": 8.716
+  "inicio": 8.785,
+  "fin": 8.964
  },
  {
   "palabra": "los",
-  "inicio": 8.716,
-  "fin": 8.965
+  "inicio": 8.964,
+  "fin": 9.203
  },
  {
   "palabra": "libros",
-  "inicio": 8.965,
-  "fin": 9.401
+  "inicio": 9.203,
+  "fin": 9.62
  },
  {
   "palabra": "del",
-  "inicio": 9.401,
-  "fin": 9.65
+  "inicio": 9.62,
+  "fin": 9.859
  },
  {
   "palabra": "Dr.",
-  "inicio": 9.65,
-  "fin": 9.899
+  "inicio": 9.859,
+  "fin": 10.097
  },
  {
   "palabra": "Seuss.",
-  "inicio": 9.899,
-  "fin": 10.334
+  "inicio": 10.097,
+  "fin": 10.515
  },
  {
   "palabra": "En",
-  "inicio": 10.334,
-  "fin": 10.521
+  "inicio": 10.515,
+  "fin": 10.694
  },
  {
   "palabra": "una",
-  "inicio": 10.521,
-  "fin": 10.77
+  "inicio": 10.694,
+  "fin": 10.932
  },
  {
   "palabra": "semana,",
-  "inicio": 10.77,
-  "fin": 11.268
+  "inicio": 10.932,
+  "fin": 11.409
  },
  {
   "palabra": "ese",
-  "inicio": 11.268,
-  "fin": 11.517
+  "inicio": 11.409,
+  "fin": 11.648
  },
  {
   "palabra": "video",
-  "inicio": 11.517,
-  "fin": 11.891
+  "inicio": 11.648,
+  "fin": 12.006
  },
  {
   "palabra": "pasó",
-  "inicio": 11.891,
-  "fin": 12.202
+  "inicio": 12.006,
+  "fin": 12.304
  },
  {
   "palabra": "los",
-  "inicio": 12.202,
-  "fin": 12.451
+  "inicio": 12.304,
+  "fin": 12.543
  },
  {
   "palabra": "cuatro",
-  "inicio": 12.451,
-  "fin": 12.887
+  "inicio": 12.543,
+  "fin": 12.96
  },
  {
   "palabra": "millones",
-  "inicio": 12.887,
-  "fin": 13.447
+  "inicio": 12.96,
+  "fin": 13.497
  },
  {
   "palabra": "de",
-  "inicio": 13.447,
-  "fin": 13.634
+  "inicio": 13.497,
+  "fin": 13.676
  },
  {
   "palabra": "reproducciones.",
-  "inicio": 13.634,
+  "inicio": 13.676,
   "fin": 14.63
  },
  {
   "palabra": "En",
   "inicio": 14.63,
-  "fin": 14.812
+  "fin": 14.802
  },
  {
   "palabra": "agosto,",
-  "inicio": 14.812,
-  "fin": 15.298
+  "inicio": 14.802,
+  "fin": 15.259
  },
  {
   "palabra": "el",
-  "inicio": 15.298,
-  "fin": 15.48
+  "inicio": 15.259,
+  "fin": 15.431
  },
  {
   "palabra": "formato",
-  "inicio": 15.48,
-  "fin": 15.965
+  "inicio": 15.431,
+  "fin": 15.888
  },
  {
   "palabra": "mutó.",
-  "inicio": 15.965,
-  "fin": 16.329
+  "inicio": 15.888,
+  "fin": 16.231
  },
  {
   "palabra": "En",
-  "inicio": 16.329,
-  "fin": 16.511
+  "inicio": 16.231,
+  "fin": 16.403
  },
  {
   "palabra": "Irlanda",
-  "inicio": 16.511,
-  "fin": 16.997
+  "inicio": 16.403,
+  "fin": 16.86
  },
  {
   "palabra": "y",
-  "inicio": 16.997,
-  "fin": 17.118
+  "inicio": 16.86,
+  "fin": 16.975
  },
  {
   "palabra": "el",
-  "inicio": 17.118,
-  "fin": 17.3
+  "inicio": 16.975,
+  "fin": 17.146
  },
  {
   "palabra": "Reino",
-  "inicio": 17.3,
-  "fin": 17.664
+  "inicio": 17.146,
+  "fin": 17.49
  },
  {
   "palabra": "Unido",
-  "inicio": 17.664,
-  "fin": 18.029
+  "inicio": 17.49,
+  "fin": 17.833
  },
  {
   "palabra": "empezaron",
-  "inicio": 18.029,
-  "fin": 18.635
+  "inicio": 17.833,
+  "fin": 18.405
  },
  {
   "palabra": "a",
-  "inicio": 18.635,
-  "fin": 18.757
+  "inicio": 18.405,
+  "fin": 18.519
  },
  {
   "palabra": "circular",
-  "inicio": 18.757,
-  "fin": 19.303
+  "inicio": 18.519,
+  "fin": 19.034
  },
  {
   "palabra": "versiones",
-  "inicio": 19.303,
-  "fin": 19.91
+  "inicio": 19.034,
+  "fin": 19.606
  },
  {
   "palabra": "de",
-  "inicio": 19.91,
-  "fin": 20.092
+  "inicio": 19.606,
+  "fin": 19.777
  },
  {
   "palabra": "terror",
-  "inicio": 20.092,
-  "fin": 20.517
+  "inicio": 19.777,
+  "fin": 20.178
  },
  {
   "palabra": "del",
-  "inicio": 20.517,
-  "fin": 20.759
+  "inicio": 20.178,
+  "fin": 20.406
  },
  {
   "palabra": "mismo",
-  "inicio": 20.759,
-  "fin": 21.124
+  "inicio": 20.406,
+  "fin": 20.75
  },
  {
   "palabra": "personaje,",
-  "inicio": 21.124,
-  "fin": 21.791
+  "inicio": 20.75,
+  "fin": 21.379
  },
  {
   "palabra": "presentado",
-  "inicio": 21.791,
-  "fin": 22.459
+  "inicio": 21.379,
+  "fin": 22.008
  },
  {
   "palabra": "como",
-  "inicio": 22.459,
-  "fin": 22.762
+  "inicio": 22.008,
+  "fin": 22.294
  },
  {
   "palabra": "un",
-  "inicio": 22.762,
-  "fin": 22.944
+  "inicio": 22.294,
+  "fin": 22.465
  },
  {
   "palabra": "asesino.",
-  "inicio": 22.944,
-  "fin": 23.49
+  "inicio": 22.465,
+  "fin": 22.98
  },
  {
   "palabra": "De",
-  "inicio": 23.49,
-  "fin": 23.673
+  "inicio": 22.98,
+  "fin": 23.183
  },
  {
   "palabra": "ahí",
-  "inicio": 23.673,
-  "fin": 23.915
+  "inicio": 23.183,
+  "fin": 23.454
  },
  {
   "palabra": "saltó",
-  "inicio": 23.915,
-  "fin": 24.279
+  "inicio": 23.454,
+  "fin": 23.861
  },
  {
   "palabra": "a",
-  "inicio": 24.279,
-  "fin": 24.401
+  "inicio": 23.861,
+  "fin": 23.997
  },
  {
   "palabra": "Estados",
-  "inicio": 24.401,
-  "fin": 24.886
+  "inicio": 23.997,
+  "fin": 24.539
  },
  {
   "palabra": "Unidos,",
-  "inicio": 24.886,
-  "fin": 25.372
+  "inicio": 24.539,
+  "fin": 25.081
  },
  {
   "palabra": "y",
-  "inicio": 25.372,
-  "fin": 25.493
+  "inicio": 25.081,
+  "fin": 25.217
  },
  {
   "palabra": "en",
-  "inicio": 25.493,
-  "fin": 25.675
+  "inicio": 25.217,
+  "fin": 25.42
  },
  {
   "palabra": "Estados",
-  "inicio": 25.675,
-  "fin": 26.161
+  "inicio": 25.42,
+  "fin": 25.962
  },
  {
   "palabra": "Unidos",
-  "inicio": 26.161,
-  "fin": 26.586
+  "inicio": 25.962,
+  "fin": 26.437
  },
  {
   "palabra": "dejó",
-  "inicio": 26.586,
-  "fin": 26.889
+  "inicio": 26.437,
+  "fin": 26.776
  },
  {
   "palabra": "de",
-  "inicio": 26.889,
-  "fin": 27.071
+  "inicio": 26.776,
+  "fin": 26.979
  },
  {
   "palabra": "ser",
-  "inicio": 27.071,
-  "fin": 27.314
+  "inicio": 26.979,
+  "fin": 27.25
  },
  {
   "palabra": "ficción.",
-  "inicio": 27.314,
+  "inicio": 27.25,
   "fin": 27.86
  },
  {
   "palabra": "Usuarios",
   "inicio": 27.86,
-  "fin": 28.32
+  "fin": 28.281
  },
  {
   "palabra": "anónimos",
-  "inicio": 28.32,
-  "fin": 28.779
+  "inicio": 28.281,
+  "fin": 28.702
  },
  {
   "palabra": "empezaron",
-  "inicio": 28.779,
-  "fin": 29.29
+  "inicio": 28.702,
+  "fin": 29.17
  },
  {
   "palabra": "a",
-  "inicio": 29.29,
-  "fin": 29.392
+  "inicio": 29.17,
+  "fin": 29.263
  },
  {
   "palabra": "generar,",
-  "inicio": 29.392,
-  "fin": 29.851
+  "inicio": 29.263,
+  "fin": 29.684
  },
  {
   "palabra": "con",
-  "inicio": 29.851,
-  "fin": 30.055
+  "inicio": 29.684,
+  "fin": 29.871
  },
  {
   "palabra": "inteligencia",
-  "inicio": 30.055,
-  "fin": 30.719
+  "inicio": 29.871,
+  "fin": 30.479
  },
  {
   "palabra": "artificial,",
-  "inicio": 30.719,
-  "fin": 31.332
+  "inicio": 30.479,
+  "fin": 31.041
  },
  {
   "palabra": "imágenes",
-  "inicio": 31.332,
-  "fin": 31.791
+  "inicio": 31.041,
+  "fin": 31.462
  },
  {
   "palabra": "del",
-  "inicio": 31.791,
-  "fin": 31.996
+  "inicio": 31.462,
+  "fin": 31.649
  },
  {
   "palabra": "Gato",
-  "inicio": 31.996,
-  "fin": 32.251
+  "inicio": 31.649,
+  "fin": 31.883
  },
  {
   "palabra": "Ensombrerado",
-  "inicio": 32.251,
-  "fin": 32.915
+  "inicio": 31.883,
+  "fin": 32.491
  },
  {
   "palabra": "parado",
-  "inicio": 32.915,
-  "fin": 33.272
+  "inicio": 32.491,
+  "fin": 32.818
  },
  {
   "palabra": "afuera",
-  "inicio": 33.272,
-  "fin": 33.629
+  "inicio": 32.818,
+  "fin": 33.145
  },
  {
   "palabra": "de",
-  "inicio": 33.629,
-  "fin": 33.782
+  "inicio": 33.145,
+  "fin": 33.286
  },
  {
   "palabra": "casas",
-  "inicio": 33.782,
-  "fin": 34.089
+  "inicio": 33.286,
+  "fin": 33.566
  },
  {
   "palabra": "y",
-  "inicio": 34.089,
-  "fin": 34.191
+  "inicio": 33.566,
+  "fin": 33.66
  },
  {
   "palabra": "escuelas",
-  "inicio": 34.191,
-  "fin": 34.65
+  "inicio": 33.66,
+  "fin": 34.081
  },
  {
   "palabra": "reales.",
-  "inicio": 34.65,
-  "fin": 35.059
+  "inicio": 34.081,
+  "fin": 34.455
  },
  {
   "palabra": "Algunos",
-  "inicio": 35.059,
-  "fin": 35.467
+  "inicio": 34.455,
+  "fin": 34.829
  },
  {
   "palabra": "posts",
-  "inicio": 35.467,
-  "fin": 35.774
+  "inicio": 34.829,
+  "fin": 35.11
  },
  {
   "palabra": "imitaban",
-  "inicio": 35.774,
-  "fin": 36.233
+  "inicio": 35.11,
+  "fin": 35.531
  },
  {
   "palabra": "cámaras",
-  "inicio": 36.233,
-  "fin": 36.642
+  "inicio": 35.531,
+  "fin": 35.905
  },
  {
   "palabra": "de",
-  "inicio": 36.642,
-  "fin": 36.795
+  "inicio": 35.905,
+  "fin": 36.045
  },
  {
   "palabra": "seguridad.",
-  "inicio": 36.795,
-  "fin": 37.356
+  "inicio": 36.045,
+  "fin": 36.56
  },
  {
   "palabra": "Otros",
-  "inicio": 37.356,
-  "fin": 37.663
+  "inicio": 36.56,
+  "fin": 36.897
  },
  {
   "palabra": "incluían",
-  "inicio": 37.663,
-  "fin": 38.122
+  "inicio": 36.897,
+  "fin": 37.403
  },
  {
   "palabra": "las",
-  "inicio": 38.122,
-  "fin": 38.326
+  "inicio": 37.403,
+  "fin": 37.628
  },
  {
   "palabra": "iniciales",
-  "inicio": 38.326,
-  "fin": 38.837
+  "inicio": 37.628,
+  "fin": 38.19
  },
  {
   "palabra": "de",
-  "inicio": 38.837,
-  "fin": 38.99
+  "inicio": 38.19,
+  "fin": 38.358
  },
  {
   "palabra": "una",
-  "inicio": 38.99,
-  "fin": 39.194
+  "inicio": 38.358,
+  "fin": 38.583
  },
  {
   "palabra": "escuela,",
-  "inicio": 39.194,
-  "fin": 39.654
+  "inicio": 38.583,
+  "fin": 39.089
  },
  {
   "palabra": "o",
-  "inicio": 39.654,
-  "fin": 39.756
+  "inicio": 39.089,
+  "fin": 39.201
  },
  {
   "palabra": "los",
-  "inicio": 39.756,
-  "fin": 39.96
+  "inicio": 39.201,
+  "fin": 39.426
  },
  {
   "palabra": "nombres",
-  "inicio": 39.96,
-  "fin": 40.369
+  "inicio": 39.426,
+  "fin": 39.875
  },
  {
   "palabra": "de",
-  "inicio": 40.369,
-  "fin": 40.522
+  "inicio": 39.875,
+  "fin": 40.044
  },
  {
   "palabra": "pila",
-  "inicio": 40.522,
-  "fin": 40.777
+  "inicio": 40.044,
+  "fin": 40.325
  },
  {
   "palabra": "de",
-  "inicio": 40.777,
-  "fin": 40.93
+  "inicio": 40.325,
+  "fin": 40.494
  },
  {
   "palabra": "estudiantes",
-  "inicio": 40.93,
-  "fin": 41.543
+  "inicio": 40.494,
+  "fin": 41.168
  },
  {
   "palabra": "concretos,",
-  "inicio": 41.543,
-  "fin": 42.105
+  "inicio": 41.168,
+  "fin": 41.786
  },
  {
   "palabra": "superpuestos",
-  "inicio": 42.105,
-  "fin": 42.768
+  "inicio": 41.786,
+  "fin": 42.517
  },
  {
   "palabra": "en",
-  "inicio": 42.768,
-  "fin": 42.921
+  "inicio": 42.517,
+  "fin": 42.685
  },
  {
   "palabra": "pantalla",
-  "inicio": 42.921,
-  "fin": 43.381
+  "inicio": 42.685,
+  "fin": 43.191
  },
  {
   "palabra": "junto",
-  "inicio": 43.381,
-  "fin": 43.687
+  "inicio": 43.191,
+  "fin": 43.528
  },
  {
   "palabra": "a",
-  "inicio": 43.687,
-  "fin": 43.789
+  "inicio": 43.528,
+  "fin": 43.64
  },
  {
   "palabra": "un",
-  "inicio": 43.789,
-  "fin": 43.943
+  "inicio": 43.64,
+  "fin": 43.809
  },
  {
   "palabra": "mensaje:",
-  "inicio": 43.943,
-  "fin": 44.402
+  "inicio": 43.809,
+  "fin": 44.315
  },
  {
   "palabra": "\"voy",
-  "inicio": 44.402,
-  "fin": 44.657
+  "inicio": 44.315,
+  "fin": 44.596
  },
  {
   "palabra": "en",
-  "inicio": 44.657,
-  "fin": 44.81
+  "inicio": 44.596,
+  "fin": 44.764
  },
  {
   "palabra": "camino\".",
-  "inicio": 44.81,
+  "inicio": 44.764,
   "fin": 45.27
  },
  {
@@ -917,671 +917,671 @@
  {
   "palabra": "El",
   "inicio": 63.73,
-  "fin": 63.911
+  "fin": 63.902
  },
  {
   "palabra": "primero",
-  "inicio": 63.911,
-  "fin": 64.392
+  "inicio": 63.902,
+  "fin": 64.36
  },
  {
   "palabra": "de",
-  "inicio": 64.392,
-  "fin": 64.573
+  "inicio": 64.36,
+  "fin": 64.532
  },
  {
   "palabra": "septiembre,",
-  "inicio": 64.573,
-  "fin": 65.295
+  "inicio": 64.532,
+  "fin": 65.22
  },
  {
   "palabra": "en",
-  "inicio": 65.295,
-  "fin": 65.476
+  "inicio": 65.22,
+  "fin": 65.392
  },
  {
   "palabra": "Hutchinson,",
-  "inicio": 65.476,
-  "fin": 66.199
+  "inicio": 65.392,
+  "fin": 66.08
  },
  {
   "palabra": "Kansas,",
-  "inicio": 66.199,
-  "fin": 66.68
+  "inicio": 66.08,
+  "fin": 66.539
  },
  {
   "palabra": "un",
-  "inicio": 66.68,
-  "fin": 66.861
+  "inicio": 66.539,
+  "fin": 66.71
  },
  {
   "palabra": "estudiante",
-  "inicio": 66.861,
-  "fin": 67.523
+  "inicio": 66.71,
+  "fin": 67.341
  },
  {
   "palabra": "de",
-  "inicio": 67.523,
-  "fin": 67.704
+  "inicio": 67.341,
+  "fin": 67.513
  },
  {
   "palabra": "preparatoria",
-  "inicio": 67.704,
+  "inicio": 67.513,
+  "fin": 68.258
+ },
+ {
+  "palabra": "fue",
+  "inicio": 68.258,
   "fin": 68.487
  },
  {
-  "palabra": "fue",
-  "inicio": 68.487,
-  "fin": 68.728
- },
- {
   "palabra": "arrestado",
-  "inicio": 68.728,
-  "fin": 69.33
+  "inicio": 68.487,
+  "fin": 69.06
  },
  {
   "palabra": "y",
-  "inicio": 69.33,
-  "fin": 69.45
+  "inicio": 69.06,
+  "fin": 69.175
  },
  {
   "palabra": "acusado",
-  "inicio": 69.45,
-  "fin": 69.932
+  "inicio": 69.175,
+  "fin": 69.634
  },
  {
   "palabra": "de",
-  "inicio": 69.932,
-  "fin": 70.112
+  "inicio": 69.634,
+  "fin": 69.806
  },
  {
   "palabra": "dos",
-  "inicio": 70.112,
-  "fin": 70.353
+  "inicio": 69.806,
+  "fin": 70.035
  },
  {
   "palabra": "cargos",
-  "inicio": 70.353,
-  "fin": 70.775
+  "inicio": 70.035,
+  "fin": 70.436
  },
  {
   "palabra": "de",
-  "inicio": 70.775,
-  "fin": 70.955
+  "inicio": 70.436,
+  "fin": 70.608
  },
  {
   "palabra": "amenaza",
-  "inicio": 70.955,
-  "fin": 71.437
+  "inicio": 70.608,
+  "fin": 71.067
  },
  {
   "palabra": "criminal",
-  "inicio": 71.437,
-  "fin": 71.979
+  "inicio": 71.067,
+  "fin": 71.582
  },
  {
   "palabra": "por",
-  "inicio": 71.979,
-  "fin": 72.22
+  "inicio": 71.582,
+  "fin": 71.812
  },
  {
   "palabra": "un",
-  "inicio": 72.22,
-  "fin": 72.4
+  "inicio": 71.812,
+  "fin": 71.984
  },
  {
   "palabra": "video",
-  "inicio": 72.4,
-  "fin": 72.762
+  "inicio": 71.984,
+  "fin": 72.328
  },
  {
   "palabra": "de",
-  "inicio": 72.762,
-  "fin": 72.942
+  "inicio": 72.328,
+  "fin": 72.5
  },
  {
   "palabra": "este",
-  "inicio": 72.942,
-  "fin": 73.243
+  "inicio": 72.5,
+  "fin": 72.786
  },
  {
   "palabra": "tipo.",
-  "inicio": 73.243,
-  "fin": 73.605
+  "inicio": 72.786,
+  "fin": 73.13
  },
  {
   "palabra": "La",
-  "inicio": 73.605,
-  "fin": 73.785
+  "inicio": 73.13,
+  "fin": 73.33
  },
  {
   "palabra": "policía",
-  "inicio": 73.785,
-  "fin": 74.267
+  "inicio": 73.33,
+  "fin": 73.864
  },
  {
   "palabra": "fue",
-  "inicio": 74.267,
-  "fin": 74.508
+  "inicio": 73.864,
+  "fin": 74.131
  },
  {
   "palabra": "clara:",
-  "inicio": 74.508,
-  "fin": 74.929
+  "inicio": 74.131,
+  "fin": 74.598
  },
  {
   "palabra": "que",
-  "inicio": 74.929,
-  "fin": 75.17
+  "inicio": 74.598,
+  "fin": 74.865
  },
  {
   "palabra": "la",
-  "inicio": 75.17,
-  "fin": 75.351
+  "inicio": 74.865,
+  "fin": 75.065
  },
  {
   "palabra": "intención",
-  "inicio": 75.351,
-  "fin": 75.953
+  "inicio": 75.065,
+  "fin": 75.732
  },
  {
   "palabra": "fuera",
-  "inicio": 75.953,
-  "fin": 76.314
+  "inicio": 75.732,
+  "fin": 76.132
  },
  {
   "palabra": "una",
-  "inicio": 76.314,
-  "fin": 76.555
+  "inicio": 76.132,
+  "fin": 76.399
  },
  {
   "palabra": "broma",
-  "inicio": 76.555,
-  "fin": 76.916
+  "inicio": 76.399,
+  "fin": 76.799
  },
  {
   "palabra": "no",
-  "inicio": 76.916,
-  "fin": 77.097
+  "inicio": 76.799,
+  "fin": 76.999
  },
  {
   "palabra": "lo",
-  "inicio": 77.097,
-  "fin": 77.277
+  "inicio": 76.999,
+  "fin": 77.199
  },
  {
   "palabra": "hace",
-  "inicio": 77.277,
-  "fin": 77.579
+  "inicio": 77.199,
+  "fin": 77.533
  },
  {
   "palabra": "legal.",
-  "inicio": 77.579,
+  "inicio": 77.533,
   "fin": 78.0
  },
  {
   "palabra": "Días",
   "inicio": 78.0,
-  "fin": 78.296
+  "fin": 78.299
  },
  {
   "palabra": "después,",
-  "inicio": 78.296,
-  "fin": 78.828
+  "inicio": 78.299,
+  "fin": 78.837
  },
  {
   "palabra": "en",
-  "inicio": 78.828,
-  "fin": 79.005
+  "inicio": 78.837,
+  "fin": 79.017
  },
  {
   "palabra": "Berwick,",
-  "inicio": 79.005,
-  "fin": 79.538
+  "inicio": 79.017,
+  "fin": 79.555
  },
  {
   "palabra": "Luisiana,",
-  "inicio": 79.538,
-  "fin": 80.129
+  "inicio": 79.555,
+  "fin": 80.153
  },
  {
   "palabra": "la",
-  "inicio": 80.129,
-  "fin": 80.306
+  "inicio": 80.153,
+  "fin": 80.333
  },
  {
   "palabra": "policía",
-  "inicio": 80.306,
-  "fin": 80.779
+  "inicio": 80.333,
+  "fin": 80.811
  },
  {
   "palabra": "arrestó",
-  "inicio": 80.779,
-  "fin": 81.252
+  "inicio": 80.811,
+  "fin": 81.29
  },
  {
   "palabra": "a",
-  "inicio": 81.252,
-  "fin": 81.371
+  "inicio": 81.29,
+  "fin": 81.41
  },
  {
   "palabra": "cuatro",
-  "inicio": 81.371,
-  "fin": 81.785
+  "inicio": 81.41,
+  "fin": 81.828
  },
  {
   "palabra": "menores:",
-  "inicio": 81.785,
-  "fin": 82.317
+  "inicio": 81.828,
+  "fin": 82.367
  },
  {
   "palabra": "tres",
-  "inicio": 82.317,
-  "fin": 82.613
+  "inicio": 82.367,
+  "fin": 82.666
  },
  {
   "palabra": "de",
-  "inicio": 82.613,
-  "fin": 82.79
+  "inicio": 82.666,
+  "fin": 82.845
  },
  {
   "palabra": "13,",
-  "inicio": 82.79,
-  "fin": 83.027
+  "inicio": 82.845,
+  "fin": 83.084
  },
  {
   "palabra": "14",
-  "inicio": 83.027,
-  "fin": 83.204
+  "inicio": 83.084,
+  "fin": 83.264
  },
  {
   "palabra": "y",
-  "inicio": 83.204,
-  "fin": 83.322
+  "inicio": 83.264,
+  "fin": 83.383
  },
  {
   "palabra": "15",
-  "inicio": 83.322,
-  "fin": 83.5
+  "inicio": 83.383,
+  "fin": 83.563
  },
  {
   "palabra": "años,",
-  "inicio": 83.5,
-  "fin": 83.854
+  "inicio": 83.563,
+  "fin": 83.922
  },
  {
   "palabra": "acusados",
-  "inicio": 83.854,
-  "fin": 84.387
+  "inicio": 83.922,
+  "fin": 84.46
  },
  {
   "palabra": "de",
-  "inicio": 84.387,
-  "fin": 84.564
+  "inicio": 84.46,
+  "fin": 84.64
  },
  {
   "palabra": "aterrorizar:",
-  "inicio": 84.564,
-  "fin": 85.333
+  "inicio": 84.64,
+  "fin": 85.417
  },
  {
   "palabra": "uno",
-  "inicio": 85.333,
-  "fin": 85.569
+  "inicio": 85.417,
+  "fin": 85.656
  },
  {
   "palabra": "más,",
-  "inicio": 85.569,
-  "fin": 85.865
+  "inicio": 85.656,
+  "fin": 85.956
  },
  {
   "palabra": "de",
-  "inicio": 85.865,
-  "fin": 86.042
+  "inicio": 85.956,
+  "fin": 86.135
  },
  {
   "palabra": "14,",
-  "inicio": 86.042,
-  "fin": 86.279
+  "inicio": 86.135,
+  "fin": 86.374
  },
  {
   "palabra": "acusada",
-  "inicio": 86.279,
-  "fin": 86.752
+  "inicio": 86.374,
+  "fin": 86.853
  },
  {
   "palabra": "de",
-  "inicio": 86.752,
-  "fin": 86.93
+  "inicio": 86.853,
+  "fin": 87.032
  },
  {
   "palabra": "ciberacoso.",
-  "inicio": 86.93,
-  "fin": 87.639
+  "inicio": 87.032,
+  "fin": 87.75
  },
  {
   "palabra": "El",
-  "inicio": 87.639,
-  "fin": 87.817
+  "inicio": 87.75,
+  "fin": 87.925
  },
  {
   "palabra": "jefe",
-  "inicio": 87.817,
-  "fin": 88.112
+  "inicio": 87.925,
+  "fin": 88.218
  },
  {
   "palabra": "de",
-  "inicio": 88.112,
-  "fin": 88.29
+  "inicio": 88.218,
+  "fin": 88.393
  },
  {
   "palabra": "policía",
-  "inicio": 88.29,
-  "fin": 88.763
+  "inicio": 88.393,
+  "fin": 88.86
  },
  {
   "palabra": "dijo",
-  "inicio": 88.763,
-  "fin": 89.058
+  "inicio": 88.86,
+  "fin": 89.153
  },
  {
   "palabra": "que",
-  "inicio": 89.058,
-  "fin": 89.295
+  "inicio": 89.153,
+  "fin": 89.387
  },
  {
   "palabra": "este",
-  "inicio": 89.295,
-  "fin": 89.591
+  "inicio": 89.387,
+  "fin": 89.679
  },
  {
   "palabra": "tipo",
-  "inicio": 89.591,
-  "fin": 89.886
+  "inicio": 89.679,
+  "fin": 89.971
  },
  {
   "palabra": "de",
-  "inicio": 89.886,
-  "fin": 90.064
+  "inicio": 89.971,
+  "fin": 90.146
  },
  {
   "palabra": "publicaciones",
-  "inicio": 90.064,
-  "fin": 90.892
+  "inicio": 90.146,
+  "fin": 90.965
  },
  {
   "palabra": "genera",
-  "inicio": 90.892,
-  "fin": 91.306
+  "inicio": 90.965,
+  "fin": 91.374
  },
  {
   "palabra": "miedo",
-  "inicio": 91.306,
-  "fin": 91.66
+  "inicio": 91.374,
+  "fin": 91.724
  },
  {
   "palabra": "real,",
-  "inicio": 91.66,
-  "fin": 92.015
+  "inicio": 91.724,
+  "fin": 92.075
  },
  {
   "palabra": "interrumpe",
-  "inicio": 92.015,
-  "fin": 92.666
+  "inicio": 92.075,
+  "fin": 92.718
  },
  {
   "palabra": "escuelas",
-  "inicio": 92.666,
-  "fin": 93.198
+  "inicio": 92.718,
+  "fin": 93.244
  },
  {
   "palabra": "enteras",
-  "inicio": 93.198,
-  "fin": 93.671
+  "inicio": 93.244,
+  "fin": 93.712
  },
  {
   "palabra": "y",
-  "inicio": 93.671,
-  "fin": 93.789
+  "inicio": 93.712,
+  "fin": 93.829
  },
  {
   "palabra": "obliga",
-  "inicio": 93.789,
-  "fin": 94.203
+  "inicio": 93.829,
+  "fin": 94.238
  },
  {
   "palabra": "a",
-  "inicio": 94.203,
-  "fin": 94.321
+  "inicio": 94.238,
+  "fin": 94.355
  },
  {
   "palabra": "una",
-  "inicio": 94.321,
-  "fin": 94.558
+  "inicio": 94.355,
+  "fin": 94.588
  },
  {
   "palabra": "respuesta",
-  "inicio": 94.558,
-  "fin": 95.149
+  "inicio": 94.588,
+  "fin": 95.173
  },
  {
   "palabra": "policial",
-  "inicio": 95.149,
-  "fin": 95.682
+  "inicio": 95.173,
+  "fin": 95.699
  },
  {
   "palabra": "que",
-  "inicio": 95.682,
-  "fin": 95.918
+  "inicio": 95.699,
+  "fin": 95.933
  },
  {
   "palabra": "no",
-  "inicio": 95.918,
-  "fin": 96.096
+  "inicio": 95.933,
+  "fin": 96.108
  },
  {
   "palabra": "es",
-  "inicio": 96.096,
-  "fin": 96.273
+  "inicio": 96.108,
+  "fin": 96.283
  },
  {
   "palabra": "ninguna",
-  "inicio": 96.273,
-  "fin": 96.746
+  "inicio": 96.283,
+  "fin": 96.751
  },
  {
   "palabra": "broma.",
-  "inicio": 96.746,
+  "inicio": 96.751,
   "fin": 97.16
  },
  {
   "palabra": "Esa",
   "inicio": 97.16,
-  "fin": 97.382
+  "fin": 97.38
  },
  {
   "palabra": "misma",
-  "inicio": 97.382,
-  "fin": 97.716
+  "inicio": 97.38,
+  "fin": 97.711
  },
  {
   "palabra": "semana,",
-  "inicio": 97.716,
-  "fin": 98.161
+  "inicio": 97.711,
+  "fin": 98.151
  },
  {
   "palabra": "en",
-  "inicio": 98.161,
-  "fin": 98.327
+  "inicio": 98.151,
+  "fin": 98.316
  },
  {
   "palabra": "West",
-  "inicio": 98.327,
-  "fin": 98.605
+  "inicio": 98.316,
+  "fin": 98.592
  },
  {
   "palabra": "Haven,",
-  "inicio": 98.605,
-  "fin": 98.994
+  "inicio": 98.592,
+  "fin": 98.977
  },
  {
   "palabra": "Connecticut,",
-  "inicio": 98.994,
-  "fin": 99.717
+  "inicio": 98.977,
+  "fin": 99.693
  },
  {
   "palabra": "un",
-  "inicio": 99.717,
-  "fin": 99.884
+  "inicio": 99.693,
+  "fin": 99.858
  },
  {
   "palabra": "estudiante",
-  "inicio": 99.884,
-  "fin": 100.495
+  "inicio": 99.858,
+  "fin": 100.464
  },
  {
   "palabra": "de",
-  "inicio": 100.495,
-  "fin": 100.662
+  "inicio": 100.464,
+  "fin": 100.629
  },
  {
   "palabra": "octavo",
-  "inicio": 100.662,
-  "fin": 101.051
+  "inicio": 100.629,
+  "fin": 101.014
  },
  {
   "palabra": "grado",
-  "inicio": 101.051,
-  "fin": 101.385
+  "inicio": 101.014,
+  "fin": 101.345
  },
  {
   "palabra": "de",
-  "inicio": 101.385,
-  "fin": 101.551
+  "inicio": 101.345,
+  "fin": 101.51
  },
  {
   "palabra": "la",
-  "inicio": 101.551,
-  "fin": 101.718
+  "inicio": 101.51,
+  "fin": 101.675
  },
  {
   "palabra": "escuela",
-  "inicio": 101.718,
-  "fin": 102.163
+  "inicio": 101.675,
+  "fin": 102.116
  },
  {
   "palabra": "Bailey",
-  "inicio": 102.163,
-  "fin": 102.552
+  "inicio": 102.116,
+  "fin": 102.501
  },
  {
   "palabra": "fue",
-  "inicio": 102.552,
-  "fin": 102.774
+  "inicio": 102.501,
+  "fin": 102.721
  },
  {
   "palabra": "arrestado",
-  "inicio": 102.774,
-  "fin": 103.33
+  "inicio": 102.721,
+  "fin": 103.272
  },
  {
   "palabra": "por",
-  "inicio": 103.33,
-  "fin": 103.553
+  "inicio": 103.272,
+  "fin": 103.492
  },
  {
   "palabra": "una",
-  "inicio": 103.553,
-  "fin": 103.775
+  "inicio": 103.492,
+  "fin": 103.713
  },
  {
   "palabra": "amenaza",
-  "inicio": 103.775,
-  "fin": 104.22
+  "inicio": 103.713,
+  "fin": 104.153
  },
  {
   "palabra": "publicada",
-  "inicio": 104.22,
-  "fin": 104.776
+  "inicio": 104.153,
+  "fin": 104.704
  },
  {
   "palabra": "bajo",
-  "inicio": 104.776,
-  "fin": 105.054
+  "inicio": 104.704,
+  "fin": 104.979
  },
  {
   "palabra": "esta",
-  "inicio": 105.054,
-  "fin": 105.331
+  "inicio": 104.979,
+  "fin": 105.254
  },
  {
   "palabra": "tendencia.",
-  "inicio": 105.331,
-  "fin": 105.943
+  "inicio": 105.254,
+  "fin": 105.86
  },
  {
   "palabra": "Y",
-  "inicio": 105.943,
-  "fin": 106.054
+  "inicio": 105.86,
+  "fin": 105.973
  },
  {
   "palabra": "en",
-  "inicio": 106.054,
-  "fin": 106.221
+  "inicio": 105.973,
+  "fin": 106.143
  },
  {
   "palabra": "Nicholasville,",
-  "inicio": 106.221,
-  "fin": 107.055
+  "inicio": 106.143,
+  "fin": 106.992
  },
  {
   "palabra": "Kentucky,",
-  "inicio": 107.055,
-  "fin": 107.611
+  "inicio": 106.992,
+  "fin": 107.559
  },
  {
   "palabra": "otra",
-  "inicio": 107.611,
-  "fin": 107.889
+  "inicio": 107.559,
+  "fin": 107.842
  },
  {
   "palabra": "persona",
-  "inicio": 107.889,
-  "fin": 108.333
+  "inicio": 107.842,
+  "fin": 108.295
  },
  {
   "palabra": "más",
-  "inicio": 108.333,
-  "fin": 108.556
+  "inicio": 108.295,
+  "fin": 108.521
  },
  {
   "palabra": "fue",
-  "inicio": 108.556,
-  "fin": 108.778
+  "inicio": 108.521,
+  "fin": 108.748
  },
  {
   "palabra": "acusada",
-  "inicio": 108.778,
-  "fin": 109.223
+  "inicio": 108.748,
+  "fin": 109.201
  },
  {
   "palabra": "por",
-  "inicio": 109.223,
-  "fin": 109.445
+  "inicio": 109.201,
+  "fin": 109.427
  },
  {
   "palabra": "el",
-  "inicio": 109.445,
-  "fin": 109.612
+  "inicio": 109.427,
+  "fin": 109.597
  },
  {
   "palabra": "mismo",
-  "inicio": 109.612,
-  "fin": 109.945
+  "inicio": 109.597,
+  "fin": 109.937
  },
  {
   "palabra": "motivo.",
-  "inicio": 109.945,
+  "inicio": 109.937,
   "fin": 110.39
  },
  {
@@ -1822,366 +1822,366 @@
  {
   "palabra": "Lo",
   "inicio": 126.76,
-  "fin": 126.944
+  "fin": 126.949
  },
  {
   "palabra": "incómodo",
-  "inicio": 126.944,
-  "fin": 127.497
+  "inicio": 126.949,
+  "fin": 127.516
  },
  {
   "palabra": "no",
-  "inicio": 127.497,
-  "fin": 127.681
+  "inicio": 127.516,
+  "fin": 127.705
  },
  {
   "palabra": "es",
-  "inicio": 127.681,
-  "fin": 127.865
+  "inicio": 127.705,
+  "fin": 127.895
  },
  {
   "palabra": "que",
-  "inicio": 127.865,
-  "fin": 128.111
+  "inicio": 127.895,
+  "fin": 128.147
  },
  {
   "palabra": "un",
-  "inicio": 128.111,
-  "fin": 128.295
+  "inicio": 128.147,
+  "fin": 128.336
  },
  {
   "palabra": "personaje",
-  "inicio": 128.295,
-  "fin": 128.909
+  "inicio": 128.336,
+  "fin": 128.966
  },
  {
   "palabra": "de",
-  "inicio": 128.909,
-  "fin": 129.093
+  "inicio": 128.966,
+  "fin": 129.155
  },
  {
   "palabra": "libros",
-  "inicio": 129.093,
-  "fin": 129.523
+  "inicio": 129.155,
+  "fin": 129.596
  },
  {
   "palabra": "infantiles",
-  "inicio": 129.523,
-  "fin": 130.198
+  "inicio": 129.596,
+  "fin": 130.29
  },
  {
   "palabra": "se",
-  "inicio": 130.198,
-  "fin": 130.383
+  "inicio": 130.29,
+  "fin": 130.479
  },
  {
   "palabra": "usara",
-  "inicio": 130.383,
-  "fin": 130.751
+  "inicio": 130.479,
+  "fin": 130.857
  },
  {
   "palabra": "para",
-  "inicio": 130.751,
-  "fin": 131.058
+  "inicio": 130.857,
+  "fin": 131.172
  },
  {
   "palabra": "dar",
-  "inicio": 131.058,
-  "fin": 131.304
+  "inicio": 131.172,
+  "fin": 131.424
  },
  {
   "palabra": "miedo.",
-  "inicio": 131.304,
-  "fin": 131.733
+  "inicio": 131.424,
+  "fin": 131.866
  },
  {
   "palabra": "Eso",
-  "inicio": 131.733,
-  "fin": 131.979
+  "inicio": 131.866,
+  "fin": 132.118
  },
  {
   "palabra": "ya",
-  "inicio": 131.979,
-  "fin": 132.163
+  "inicio": 132.118,
+  "fin": 132.307
  },
  {
   "palabra": "había",
-  "inicio": 132.163,
-  "fin": 132.532
+  "inicio": 132.307,
+  "fin": 132.685
  },
  {
   "palabra": "pasado",
-  "inicio": 132.532,
-  "fin": 132.961
+  "inicio": 132.685,
+  "fin": 133.126
  },
  {
   "palabra": "antes",
-  "inicio": 132.961,
-  "fin": 133.33
+  "inicio": 133.126,
+  "fin": 133.504
  },
  {
   "palabra": "con",
-  "inicio": 133.33,
-  "fin": 133.576
+  "inicio": 133.504,
+  "fin": 133.757
  },
  {
   "palabra": "otros",
-  "inicio": 133.576,
-  "fin": 133.944
+  "inicio": 133.757,
+  "fin": 134.135
  },
  {
   "palabra": "personajes.",
-  "inicio": 133.944,
-  "fin": 134.681
+  "inicio": 134.135,
+  "fin": 134.891
  },
  {
   "palabra": "Lo",
-  "inicio": 134.681,
-  "fin": 134.865
+  "inicio": 134.891,
+  "fin": 135.08
  },
  {
   "palabra": "incómodo",
-  "inicio": 134.865,
-  "fin": 135.418
+  "inicio": 135.08,
+  "fin": 135.647
  },
  {
   "palabra": "es",
-  "inicio": 135.418,
-  "fin": 135.602
+  "inicio": 135.647,
+  "fin": 135.837
  },
  {
   "palabra": "esto:",
-  "inicio": 135.602,
-  "fin": 135.97
+  "inicio": 135.837,
+  "fin": 136.215
  },
  {
   "palabra": "la",
-  "inicio": 135.97,
-  "fin": 136.154
+  "inicio": 136.215,
+  "fin": 136.404
  },
  {
   "palabra": "broma",
-  "inicio": 136.154,
-  "fin": 136.523
+  "inicio": 136.404,
+  "fin": 136.782
  },
  {
   "palabra": "y",
-  "inicio": 136.523,
-  "fin": 136.646
+  "inicio": 136.782,
+  "fin": 136.908
  },
  {
   "palabra": "la",
-  "inicio": 136.646,
-  "fin": 136.83
+  "inicio": 136.908,
+  "fin": 137.097
  },
  {
   "palabra": "amenaza",
-  "inicio": 136.83,
-  "fin": 137.321
+  "inicio": 137.097,
+  "fin": 137.601
  },
  {
   "palabra": "real",
-  "inicio": 137.321,
-  "fin": 137.628
+  "inicio": 137.601,
+  "fin": 137.917
  },
  {
   "palabra": "usan",
-  "inicio": 137.628,
-  "fin": 137.935
+  "inicio": 137.917,
+  "fin": 138.232
  },
  {
   "palabra": "exactamente",
-  "inicio": 137.935,
-  "fin": 138.672
+  "inicio": 138.232,
+  "fin": 138.988
  },
  {
   "palabra": "el",
-  "inicio": 138.672,
-  "fin": 138.856
+  "inicio": 138.988,
+  "fin": 139.177
  },
  {
   "palabra": "mismo",
-  "inicio": 138.856,
-  "fin": 139.224
+  "inicio": 139.177,
+  "fin": 139.555
  },
  {
   "palabra": "formato",
-  "inicio": 139.224,
-  "fin": 139.716
+  "inicio": 139.555,
+  "fin": 140.06
  },
  {
   "palabra": "de",
-  "inicio": 139.716,
-  "fin": 139.9
+  "inicio": 140.06,
+  "fin": 140.249
  },
  {
   "palabra": "video,",
-  "inicio": 139.9,
-  "fin": 140.33
+  "inicio": 140.249,
+  "fin": 140.69
  },
  {
   "palabra": "y",
-  "inicio": 140.33,
-  "fin": 140.452
+  "inicio": 140.69,
+  "fin": 140.809
  },
  {
   "palabra": "ni",
-  "inicio": 140.452,
-  "fin": 140.637
+  "inicio": 140.809,
+  "fin": 140.988
  },
  {
   "palabra": "las",
-  "inicio": 140.637,
-  "fin": 140.882
+  "inicio": 140.988,
+  "fin": 141.226
  },
  {
   "palabra": "escuelas",
-  "inicio": 140.882,
-  "fin": 141.435
+  "inicio": 141.226,
+  "fin": 141.762
  },
  {
   "palabra": "ni",
-  "inicio": 141.435,
-  "fin": 141.619
+  "inicio": 141.762,
+  "fin": 141.94
  },
  {
   "palabra": "la",
-  "inicio": 141.619,
-  "fin": 141.803
+  "inicio": 141.94,
+  "fin": 142.119
  },
  {
   "palabra": "policía",
-  "inicio": 141.803,
-  "fin": 142.294
+  "inicio": 142.119,
+  "fin": 142.595
  },
  {
   "palabra": "pueden",
-  "inicio": 142.294,
-  "fin": 142.724
+  "inicio": 142.595,
+  "fin": 143.012
  },
  {
   "palabra": "distinguir",
-  "inicio": 142.724,
-  "fin": 143.4
+  "inicio": 143.012,
+  "fin": 143.667
  },
  {
   "palabra": "una",
-  "inicio": 143.4,
-  "fin": 143.645
+  "inicio": 143.667,
+  "fin": 143.905
  },
  {
   "palabra": "de",
-  "inicio": 143.645,
-  "fin": 143.829
+  "inicio": 143.905,
+  "fin": 144.083
  },
  {
   "palabra": "otra",
-  "inicio": 143.829,
-  "fin": 144.136
+  "inicio": 144.083,
+  "fin": 144.381
  },
  {
   "palabra": "hasta",
-  "inicio": 144.136,
-  "fin": 144.505
+  "inicio": 144.381,
+  "fin": 144.738
  },
  {
   "palabra": "después",
-  "inicio": 144.505,
-  "fin": 144.996
+  "inicio": 144.738,
+  "fin": 145.215
  },
  {
   "palabra": "de",
-  "inicio": 144.996,
-  "fin": 145.18
+  "inicio": 145.215,
+  "fin": 145.393
  },
  {
   "palabra": "investigar.",
-  "inicio": 145.18,
-  "fin": 145.917
+  "inicio": 145.393,
+  "fin": 146.108
  },
  {
   "palabra": "Así",
-  "inicio": 145.917,
-  "fin": 146.163
+  "inicio": 146.108,
+  "fin": 146.346
  },
  {
   "palabra": "que",
-  "inicio": 146.163,
-  "fin": 146.408
+  "inicio": 146.346,
+  "fin": 146.584
  },
  {
   "palabra": "ahora,",
-  "inicio": 146.408,
-  "fin": 146.838
+  "inicio": 146.584,
+  "fin": 147.001
  },
  {
   "palabra": "cada",
-  "inicio": 146.838,
-  "fin": 147.145
+  "inicio": 147.001,
+  "fin": 147.298
  },
  {
   "palabra": "publicación",
-  "inicio": 147.145,
-  "fin": 147.882
+  "inicio": 147.298,
+  "fin": 148.013
  },
  {
   "palabra": "se",
-  "inicio": 147.882,
-  "fin": 148.066
+  "inicio": 148.013,
+  "fin": 148.191
  },
  {
   "palabra": "trata",
-  "inicio": 148.066,
-  "fin": 148.435
+  "inicio": 148.191,
+  "fin": 148.548
  },
  {
   "palabra": "como",
-  "inicio": 148.435,
-  "fin": 148.742
+  "inicio": 148.548,
+  "fin": 148.846
  },
  {
   "palabra": "si",
-  "inicio": 148.742,
-  "fin": 148.926
+  "inicio": 148.846,
+  "fin": 149.025
  },
  {
   "palabra": "fuera",
-  "inicio": 148.926,
-  "fin": 149.294
+  "inicio": 149.025,
+  "fin": 149.382
  },
  {
   "palabra": "real,",
-  "inicio": 149.294,
-  "fin": 149.663
+  "inicio": 149.382,
+  "fin": 149.739
  },
  {
   "palabra": "porque",
-  "inicio": 149.663,
-  "fin": 150.092
+  "inicio": 149.739,
+  "fin": 150.156
  },
  {
   "palabra": "cualquiera",
-  "inicio": 150.092,
-  "fin": 150.768
+  "inicio": 150.156,
+  "fin": 150.811
  },
  {
   "palabra": "de",
-  "inicio": 150.768,
-  "fin": 150.952
+  "inicio": 150.811,
+  "fin": 150.989
  },
  {
   "palabra": "ellas",
-  "inicio": 150.952,
-  "fin": 151.32
+  "inicio": 150.989,
+  "fin": 151.347
  },
  {
   "palabra": "podría",
-  "inicio": 151.32,
-  "fin": 151.75
+  "inicio": 151.347,
+  "fin": 151.763
  },
  {
   "palabra": "serlo.",
-  "inicio": 151.75,
+  "inicio": 151.763,
   "fin": 152.18
  },
  {
