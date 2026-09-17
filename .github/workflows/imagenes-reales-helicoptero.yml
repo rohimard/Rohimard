@@ -54,7 +54,13 @@ jobs:
           bajar helicoptero-as350.jpg "Eurocopter_AS350_B2_Ecureuil_(N145TH).jpg"
 
           # El barrio donde ocurrieron los dos accidentes.
-          bajar chatsworth.jpg "Chatsworth.jpg"
+          #
+          # OJO: "Chatsworth.jpg" a secas en Commons es Chatsworth, Georgia,
+          # un pueblo distinto -- verificado tras notar que la foto mostraba
+          # montañas y una fabrica que no cuadran con el valle de San
+          # Fernando. Este es el nombre de fichero correcto para
+          # Chatsworth, Los Angeles.
+          bajar chatsworth.jpg "Chatsworth,_Los_Angeles,_CA,_USA_-_panoramio_(15).jpg"
 
           # Contexto geografico amplio.
           bajar valle-san-fernando.jpg "San_Fernando_Valley_vista.jpg"
