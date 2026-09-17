@@ -68,6 +68,40 @@ jobs:
                "https://www.msn.com/en-us/entertainment/general/the-cat-in-the-hat-became-tiktok-s-latest-horror-icon-how-did-we-get-here/ar-AA2bLquN"),
               ("post-ia-fox26.jpg",
                "https://www.fox26houston.com/news/viral-cat-hat-trend-sparks-school-safety-concerns-texas"),
+
+              # Segunda tanda: el disfraz FISICO real (Mike Myers, pelicula
+              # de 2003, subastado por Propstore) para el plano de apertura
+              # -- una foto real, no un fotograma de la pelicula ni una
+              # imagen generada -- mas cobertura de mas ciudades/estados
+              # para poder cortar a 3-4s por plano sin repetir imagen.
+              ("disfraz-propstore.jpg",
+               "https://propstoreauction.com/lot-details/index/catalog/525/lot/208755/76-Cat-in-the-Hat-Mike-Myers-Costume-DR-SEUSS-THE-CAT-IN-THE-HAT-2003"),
+              ("disfraz-nerdist.jpg",
+               "https://nerdist.com/article/mike-myers-the-cat-in-the-hat-costume-suit-is-creepy-propstore-auction/"),
+              ("disfraz-complex.jpg",
+               "https://www.complex.com/pop-culture/a/markelibert/cat-hat-suit-auction-mike-myers-propstore"),
+              ("santarosa-wkrg.jpg",
+               "https://www.wkrg.com/news/cat-in-the-hat-trend-prompts-santa-rosa-county-schools-to-increase-law-enforcement-presence/"),
+              ("ohio-wilmington-wdtn.jpg",
+               "https://www.wdtn.com/top-stories/cat-in-the-hat-trend-sparks-police-response-at-wilmington-schools/"),
+              ("ohio-boardman-wkbn.jpg",
+               "https://www.wkbn.com/news/local-news/boardman-news/local-students-face-charges-amid-viral-cat-in-the-hat-tiktok-trend/"),
+              ("ohio-parma-wkyc.jpg",
+               "https://www.wkyc.com/article/news/education/cat-in-the-hat-tiktok-trend-parma-city-schools-statement/95-ee52aee9-85ca-40d9-a9e5-8c3b6b67ff29"),
+              ("kentucky-jessamine-fox56.jpg",
+               "https://fox56news.com/news/local/fbi-identifies-juvenile-to-be-charged-in-cat-in-the-hat-school-threat-targeting-jessamine-county/"),
+              ("kansas-hutchinson-kwch.jpg",
+               "https://www.kwch.com/2026/09/01/hutchinson-teenager-charged-connection-with-cat-hat-trend/"),
+              ("tennessee-memphis.jpg",
+               "https://www.localmemphis.com/article/news/education/state-of-tennessee-warns-of-cat-in-the-hat-social-media-trend/522-db76de88-e41f-4078-8d6a-798eaea5070a"),
+              ("missouri-cameron-fox4kc.jpg",
+               "https://fox4kc.com/news/threatening-cat-in-the-hat-ai-trend-reaches-missouri-school/"),
+              ("california-ktla.jpg",
+               "https://ktla.com/news/local-news/police-aware-of-cat-in-the-hat-trend-targeting-southern-california-school-community/"),
+              ("kelowna-rcmp-cbc.jpg",
+               "https://www.cbc.ca/news/canada/british-columbia/cat-in-the-hat-prank-west-kelowna-9.7337550"),
+              ("uk-ireland-ladbible.jpg",
+               "https://www.ladbible.com/news/uk-news/cat-hat-trend-streets-ireland-uk-viral-tiktok-285492-20260822"),
           ]
 
           resumen = []
