@@ -1,0 +1,9 @@
+OK (968145 bytes): post-ia-police1.jpg <- https://lexipol.brightspotcdn.com/dims4/default/91c2a6e/2147483647/strip/true/crop/1544x869+0+136/resize/1440x810!/quality/90/?url=https%3A%2F%2Fk1-prod-lexipol.s3.us-east-2.amazonaws.com%2Fbrightspot%2F30%2F5c%2F02d6840d4fc58cb0606be3a56a90%2Fscreenshot-2026-09-10-101107.png
+OK (159513 bytes): post-ia-euronews.jpg <- https://images.euronews.com/articles/stories/09/88/62/13/1200x675_cmsv2_ec0326de-c432-5218-9758-76868e955cd6-9886213.jpg
+OK (204375 bytes): post-ia-newsweek.jpg <- https://assets.newsweek.com/wp-content/uploads/2026/09/b3904e14-bb47-4a91-a655-9bd49f9515d1.png?w=1200&crop=1
+OK (297661 bytes): post-ia-abcnews.jpg <- https://i.abcnewsfe.com/a/8c108961-4adf-4191-8d19-a834fc60e984/teens-phones-1-as-gmh-260901_1788289316071_hpMain_16x9.jpg?w=1600
+OK (34914 bytes): berwick-policia-wbrz.jpg <- https://dcer237tfveol.cloudfront.net/v2/W9UGJm18HOWjCAN6caWU2gu_7kY4bTsOlk4OCU5HUWCBm8LKjRZJF_Ij3531_BObIku-JLo5q8BFmrNaAUhCVQ_eiP-xfkVIaex28sBtms_w
+OK (192531 bytes): westhaven-nbcct.jpg <- https://media.nbcconnecticut.com/2026/09/IMG_5668_3bb92a.jpeg?quality=85&strip=all&resize=1200%2C675
+OK (39063 bytes): kelowna-globalnews.jpg <- https://globalnews.ca/wp-content/uploads/2026/09/cat-in-the-hat.png?w=285&h=285&crop=1
+FALLO: hutchinson-ksn.jpg <- https://www.ksn.com/news/crime/kansas-student-arrested-in-cat-in-the-hat-threats/ :: 403 Client Error: Forbidden for url: https://www.ksn.com/news/crime/kansas-student-arrested-in-cat-in-the-hat-threats/
+SIN og:image: post-ia-msn.jpg <- https://www.msn.com/en-us/entertainment/general/the-cat-in-the-hat-became-tiktok-s-latest-horror-icon-how-did-we-get-here/ar-AA2bLquN
