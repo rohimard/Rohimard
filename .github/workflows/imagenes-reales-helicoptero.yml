@@ -1,0 +1,79 @@
+# Baja imagenes reales con licencia libre (Creative Commons / Wikimedia
+# Commons) para el video 9, el helicoptero de NBC/Telemundo caido en
+# Chatsworth.
+#
+# Corre aqui y no en local porque este sandbox tiene bloqueada la salida
+# hacia wikimedia.org/commons.wikimedia.org (confirmado: 403 en el proxy,
+# igual que con fbi.gov en el video anterior).
+#
+# Lo que NO baja este workflow, a proposito: fotos de Eliana Moreno o George
+# Marciniw. Circulan en NBC/Telemundo o en redes personales, no en dominio
+# publico ni con licencia libre -- y son personas privadas fallecidas hace
+# dos dias. Eso se resuelve con tratamiento sin rostro (como los 21
+# estudiantes del video de Kaczynski), no bajando una foto suya de una
+# cuenta personal.
+name: imagenes-reales-helicoptero
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/imagenes-reales-helicoptero.yml
+      - canal-youtube/.imagenes-helicoptero-disparo
+
+permissions:
+  contents: write
+
+env:
+  DESTINO: canal-youtube/producciones/09-helicoptero-la/imagenes-reales
+
+jobs:
+  bajar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bajar las imagenes
+        run: |
+          set -e
+          mkdir -p "$DESTINO"
+          bajar() {
+            nombre="$1"; fichero_wiki="$2"
+            url="https://commons.wikimedia.org/wiki/Special:FilePath/${fichero_wiki}"
+            echo "-- $nombre <- $url"
+            curl -sS -L --fail -A "Mozilla/5.0 (compatible; historia-incomoda-video/1.0)" \
+                 -o "$DESTINO/$nombre" "$url"
+            file "$DESTINO/$nombre"
+          }
+
+          # Modelo exacto del helicoptero (Eurocopter AS350 B2), aunque no
+          # sea la matricula N358TV concreta -- no hay foto libre de esa
+          # unidad.
+          bajar helicoptero-as350.jpg "Eurocopter_AS350_B2_Ecureuil_(N145TH).jpg"
+
+          # El barrio donde ocurrieron los dos accidentes.
+          bajar chatsworth.jpg "Chatsworth.jpg"
+
+          # Contexto geografico amplio.
+          bajar valle-san-fernando.jpg "San_Fernando_Valley_vista.jpg"
+
+          # Mismo tipo de autobus que el de LA Metro implicado en el primer
+          # choque.
+          bajar autobus-metro.jpg "LACMTA_Metro_Bus_New_Flyer_C40LF_5422.jpg"
+
+          ls -la "$DESTINO"
+
+      - name: Devolver las imagenes a la rama
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Imagenes reales con licencia libre para el video del helicoptero' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
