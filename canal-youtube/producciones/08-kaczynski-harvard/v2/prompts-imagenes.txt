@@ -1,0 +1,382 @@
+GUION BASE: v2/guion-voz.txt (registro informativo, 640 palabras, 237.98s
+medidos con ElevenLabs). Este documento sustituye por completo al de la
+carpeta raíz (104 planos, guion narrativo de 950 palabras): con un guion
+tan distinto no tenía sentido remapear los planos viejos, así que se
+renumera desde 1. Ninguna de las imágenes ya generadas para el guion
+anterior sirve aquí salvo que el encuadre coincida literalmente con lo que
+pide un plano de esta lista.
+
+Personajes: NO se representa el rostro de ninguna persona real. Ni Ted
+Kaczynski ni Henry Murray aparecen con cara reconocible en ningún plano. Se
+resuelven siempre por manos, nucas, siluetas, contraluces y objetos. Esto
+se extiende a los otros veintiún estudiantes: el guion nuevo insiste en que
+son "veintiún nombres que nadie conoce", así que ninguno de ellos tiene
+cara reconocible tampoco — es el mismo recurso visual llevado a su lógica
+completa, no una excepción para Kaczynski nada más.
+
+Motivo: son personas reales y fabricar fotorrealismo de alguien real siendo
+maltratado es territorio de deepfake y de aviso de YouTube. Además funciona
+mejor: lo que no se ve asusta más.
+
+El chico (repetir palabra por palabra donde se indique):
+"un chico de dieciséis años, complexión delgada, abrigo de lana oscuro sobre
+camisa blanca y corbata estrecha, pelo corto peinado a un lado, SIEMPRE de
+espaldas o con el rostro fuera de encuadre, nunca se le ve la cara"
+
+TEXTO EN PANTALLA: prohibido en todos los planos MENOS EN UNO. El plano 36
+("Lawful") es el único donde debe leerse una palabra, y es el corazón del
+vídeo — la instrucción de Murray (plano 22) y los gráficos (planos 25 y 26)
+NO llevan texto legible aunque el guion los cite, precisamente porque esta
+regla no tiene una segunda excepción: se resuelven con caligrafía ilegible
+en movimiento o números borrosos, nunca con una palabra que se pueda leer.
+Si tu generador se resiste a escribir texto legible en el plano 36, genéralo
+aparte y, si hace falta, añade la etiqueta en el montaje.
+
+Bloque de estilo base (ya incluido al final de cada prompt):
+"fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9"
+
+Cómo se hizo esta lista: se partió el guion en cláusulas (los mismos cortes
+naturales que usa alinear-planos.py) y se les dio una duración según el
+ritmo real medido del audio (2.69 palabras/seg, no una estimación). Toda
+cláusula que salía por encima de ~5.5s se partió en dos o tres planos para
+que la imagen vaya cambiando al ritmo de lo que se dice, no de lo que dura
+el párrafo — eso es lo que pediste con "dinamismo": el corte de plano seguía
+a la frase completa, ahora sigue a la idea dentro de la frase.
+
+Duración: 65 planos suman 243,0s contra 237,98s de audio real. El margen
+(~2,1%, unos 5s) es más ajustado que en el guion anterior porque este
+texto es más corto y más denso, pero sigue siendo margen a favor: sobra
+material para encajar el corte, no falta.
+
+El plano 65 repite el encuadre del plano 4 (la silla vacía del laboratorio):
+el vídeo empieza y cierra sobre el mismo espacio, ahora vacío de gente y
+lleno de archivo. Se le dio más duración (10s) que a cualquier otro plano a
+propósito: es el plano de cierre, pensado para sostenerse mientras se apaga
+la narración, y el que primero hay que alargar si al montar falta encaje
+fino de un par de segundos.
+
+===================================================================
+
+1   [7.0s]   El experimento
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de un edificio de ladrillo rojo de la Ivy League visto de noche, una sola ventana iluminada en la última planta, el resto del campus a oscuras. ambientación estrictamente universitaria estadounidense de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+2   [3.2s]   Veintidós carpetas
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano cenital de veintidós carpetas de cartulina idénticas apiladas sobre una mesa de madera, sin ninguna etiqueta legible, luz dura de flexo. ambientación de archivo administrativo de los años cincuenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+3   [3.2s]   Un corcho de investigación
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un corcho de sala de investigación con fotografías vueltas de espaldas y trozos de cordel rojo conectándolas, ninguna imagen visible de frente, ambiente en penumbra. ambientación de oficina de investigación de finales de los setenta, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+4   [3.0s]   La sala vacía
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de una silla de madera sola en el centro de una sala pequeña sin ventanas, cables sueltos colgando de un soporte metálico junto a ella, dos focos apagados a los lados, nadie presente. ambientación de laboratorio universitario de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+5   [3.0s]   Nombre y prestigio
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una placa de bronce sin grabado legible sobre la puerta de un despacho universitario de madera oscura, luz cálida filtrándose por debajo de la puerta. ambientación de despacho académico de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+6   [3.0s]   El respeto de una generación
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de espaldas de un hombre mayor con traje de tweed sentado tras un escritorio de despacho universitario, rodeado de estanterías de libros hasta el techo, su rostro fuera de encuadre. ambientación de despacho académico de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+7   [4.8s]   El emblema de la OSS
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una carpeta militar de cartón con un sello de goma sin texto legible en la esquina, sobre un escritorio de oficina de reclutamiento, luz de ventana en diagonal, ninguna persona a la vista. ambientación de oficina de inteligencia militar estadounidense de los años cuarenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+8   [4.3s]   El candidato bajo presión
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de las manos de un hombre joven aferradas al reposabrazos de una silla de madera, nudillos blancos, mientras una lámpara de interrogatorio le apunta desde fuera de encuadre, el resto de la escena a oscuras. ambientación militar estadounidense de los años cuarenta, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+9   [3.7s]   El punto de quiebre
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle extremo de una aguja de polígrafo trazando una línea que se dispara bruscamente sobre papel continuo, sin ningún número ni palabra legible, iluminación fría de laboratorio. ambientación de instrumental de interrogatorio de los años cuarenta, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+10   [3.0s]   La puerta de Harvard
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de una puerta de madera universitaria cerrándose lentamente, vista desde dentro, silueta de un hombre con maletín alejándose al otro lado del cristal esmerilado. ambientación universitaria estadounidense de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+11   [3.0s]   Otro tipo de sujeto
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una placa metálica de identificación militar siendo dejada sobre un escritorio vacío, una mano retirándose del encuadre, luz de oficina apagándose al fondo. ambientación de oficina de reclutamiento de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+12   [0.7s]   Estudiantes, no espías
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano rápido de un grupo de zapatos y libros bajo el brazo cruzando el umbral de un aula universitaria, vistos solo de cintura para abajo. ambientación universitaria estadounidense de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+13   [1.9s]   Tres sillas
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de tres sillas de madera vacías alineadas contra una pared blanca desnuda, luz uniforme y fría, ninguna persona presente. ambientación de sala de espera institucional de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+14   [1.5s]   Papel en blanco
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano cenital de una hoja de papel completamente en blanco sobre un pupitre de madera, una pluma estilográfica reposando a su lado, luz de ventana entrando en diagonal. ambientación universitaria estadounidense de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+15   [4.7s]   Escribir en serio
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una mano joven escribiendo con concentración sobre varias hojas ya cubiertas de escritura ilegible en movimiento, un pequeño crucifijo y una fotografía familiar bocabajo apoyados junto al papel. ambientación universitaria estadounidense de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+16   [4.7s]   El material de la fase siguiente
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano cenital de decenas de hojas manuscritas siendo recogidas y ordenadas por unas manos sobre una mesa, formando una pila gruesa, ninguna palabra legible en el papel. ambientación administrativa universitaria de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+17   [3.7s]   La promesa de un debate
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de espaldas de un chico de dieciséis años, complexión delgada, abrigo de lana oscuro sobre camisa blanca y corbata estrecha, pelo corto peinado a un lado, SIEMPRE de espaldas o con el rostro fuera de encuadre, nunca se le ve la cara, esperando sentado en un pasillo universitario vacío. ambientación universitaria estadounidense de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+18   [3.7s]   Dos sillas enfrentadas
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de dos sillas de madera colocadas una frente a la otra en el centro de una sala pequeña, focos apagados a los lados, ninguna persona sentada todavía. ambientación de laboratorio universitario de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+19   [4.7s]   No era un compañero
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de la silueta de un hombre joven abriendo una puerta a contraluz, un fajo de papeles ajenos en la mano, su rostro completamente a oscuras, postura tensa y agresiva. ambientación universitaria estadounidense de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+20   [4.7s]   Entrenado para destrozar
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de unas manos hojeando con violencia contenida un fajo de páginas manuscritas ajenas, dedos marcando líneas concretas, ninguna palabra legible en el papel. ambientación universitaria estadounidense de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+21   [4.7s]   El apretón final
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de espaldas de un chico de dieciséis años, complexión delgada, abrigo de lana oscuro sobre camisa blanca y corbata estrecha, pelo corto peinado a un lado, SIEMPRE de espaldas o con el rostro fuera de encuadre, nunca se le ve la cara, encogido en la silla mientras la silueta del interrogador se inclina hacia él bajo el foco. ambientación universitaria estadounidense de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+22   [3.2s]   De su puño y letra
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano extremo de una pluma estilográfica trazando con fuerza sobre una hoja de membrete, la escritura completamente ilegible por el movimiento y el desenfoque intencionado, luz de flexo dura. ambientación de despacho académico de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+23   [3.2s]   La orden recibida
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una mano recibiendo una nota doblada de otra mano, en el umbral de una puerta entreabierta, ambos rostros fuera de encuadre. ambientación de despacho académico de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+24   [5.5s]   Media hora bajo los focos
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de dos focos de estudio encendidos apuntando hacia una silla vacía en penumbra, cables tendidos por el suelo hasta un panel de electrodos, ambiente cargado. ambientación de laboratorio universitario de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+25   [3.7s]   La aguja se dispara
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano extremo de una aguja de registro cardíaco trazando un pico brusco sobre papel continuo, sin ningún número legible, iluminación fría de laboratorio. ambientación de instrumental médico universitario de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+26   [3.7s]   El gráfico impreso
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una mano señalando con el dedo un pico concreto en un rollo de papel gráfico ya impreso, líneas onduladas sin ningún número legible, luz de escritorio. ambientación de instrumental médico universitario de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+27   [1.9s]   La cámara sigue
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una cámara de cine de bobina de finales de los años cincuenta, piloto rojo de grabación encendido, lente apuntando fuera de encuadre. ambientación de laboratorio universitario de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+28   [1.5s]   El haz del proyector
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano del haz de luz de un proyector de cine antiguo atravesando una sala en penumbra, motas de polvo suspendidas en el aire. ambientación de sala de proyección universitaria de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+29   [4.5s]   De espaldas a su propio derrumbe
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general desde atrás de una fila de sillas ocupadas por siluetas de espaldas, todas mirando hacia una pantalla en blanco iluminada, ningún rostro visible. ambientación de sala de proyección universitaria de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+30   [4.5s]   El observador que anota
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una mano tomando notas rápidas en una libreta apoyada sobre una rodilla, en la penumbra de una sala de proyección, la luz parpadeante del proyector reflejada de fondo. ambientación de sala de proyección universitaria de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+31   [3.4s]   Otra vez
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una bobina de película siendo rebobinada a mano sobre un proyector, el carrete girando hacia atrás. ambientación de sala de proyección universitaria de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+32   [4.1s]   Tres años
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano fijo de una ventana universitaria mostrando el paso de las cuatro estaciones en una secuencia continua de luz, sin ninguna persona en el encuadre. ambientación universitaria estadounidense de 1959 a 1962, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+33   [5.5s]   Nombres en clave
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano cenital de un archivador abierto con fichas de cartulina idénticas, cada una con una etiqueta emborronada e ilegible, una mano pasando las fichas. ambientación de archivo administrativo universitario de principios de los años sesenta, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+34   [3.4s]   Dieciséis años, el más joven
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de espaldas de un chico de dieciséis años, complexión delgada, abrigo de lana oscuro sobre camisa blanca y corbata estrecha, pelo corto peinado a un lado, SIEMPRE de espaldas o con el rostro fuera de encuadre, nunca se le ve la cara, cruzando solo el patio de Harvard entre estudiantes visiblemente mayores. ambientación universitaria estadounidense de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+35   [3.4s]   Diecinueve años, el mismo encuadre
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: el mismo plano exacto del anterior — mismo patio, mismo encuadre — pero con el chico ahora de dieciocho o diecinueve años, ligeramente más alto, el mismo abrigo algo más ajustado, siempre de espaldas o con el rostro fuera de encuadre. ambientación universitaria estadounidense de principios de los años sesenta, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+36   [3.7s]   Lawful
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9: primer plano de una carpeta de cartulina de archivo con una única etiqueta mecanografiada perfectamente legible que dice "LAWFUL", sobre una mesa de madera oscura, luz dura de flexo. ÚNICO plano de todo el vídeo con texto en pantalla — es intencional. ambientación de archivo administrativo universitario de principios de los años sesenta, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, 16:9.
+
+
+37   [3.7s]   Respetuoso de la ley
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una balanza de la justicia de bronce sobre un escritorio, en perfecto equilibrio, luz fría lateral. ambientación de despacho institucional de principios de los años sesenta, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+38   [3.7s]   Diecisiete años después
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de unas manos hojeando un expediente grueso y desgastado en una oficina federal, luz de fluorescente, ninguna palabra legible en las páginas. ambientación de oficina federal estadounidense de finales de los años setenta, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+39   [0.4s]   Unabomber
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: corte rápido y seco a una cabaña diminuta de madera contrachapada en un claro nevado entre coníferas, sin electricidad ni tendido eléctrico a la vista, cielo plomizo. ambientación rural de Montana de finales de los años setenta, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+40   [3.5s]   La cabaña
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general amplio de la misma cabaña, ahora visto de día, nieve sucia en el suelo, ninguna persona a la vista, aislamiento total. ambientación rural de Montana entre 1978 y 1995, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+41   [3.5s]   El paquete
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de unas manos envolviendo un paquete en papel de estraza atado con cordel sobre una mesa de trabajo de madera, herramientas y cables desenfocados al fondo, dentro de la cabaña, luz de lámpara de queroseno. ambientación rural de Montana entre 1978 y 1995, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+42   [4.1s]   La tienda de informática
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general del escaparate de una pequeña tienda de informática de barrio, letrero genérico sin texto legible, calle tranquila, luz de tarde. ambientación estadounidense de mediados de los años ochenta, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+43   [4.1s]   Un aserradero cualquiera
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de un patio de aserradero con pilas de troncos y tablones, una oficina prefabricada al fondo, ninguna persona identificable, luz de mañana. ambientación estadounidense de mediados de los años ochenta, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+44   [1.5s]   La puerta de Harvard, cerrada
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de la verja de hierro forjado de entrada a un campus de la Ivy League, cerrada, niebla de amanecer, ningún estudiante a la vista. ambientación universitaria estadounidense contemporánea a la escena, sin ningún objeto anacrónico en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+45   [5.0s]   Veintidós siluetas
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de veintidós sillas de madera vacías dispuestas en filas dentro de un aula, luz uniforme, ninguna persona presente, una silla ligeramente adelantada respecto a las demás. ambientación universitaria estadounidense de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+46   [4.1s]   Ninguno cometió un atentado
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general desde atrás de un grupo de siluetas caminando juntas por un pasillo universitario alejándose de cámara, ningún rostro visible, luz de ventanas laterales. ambientación universitaria estadounidense de principios de los años sesenta, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+47   [3.5s]   Una balanza que se inclina
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una balanza de bronce sobre un escritorio con un platillo ligeramente más bajo que el otro, luz dramática lateral, metáfora visual de responsabilidad desigual. ambientación de despacho institucional atemporal, sin ningún objeto moderno reconocible en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+48   [3.5s]   Una puerta entre muchas iguales
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de un largo pasillo universitario con puertas idénticas a ambos lados, todas cerradas, ninguna distinguible de las demás, luz fluorescente fría. ambientación universitaria estadounidense de principios de los años sesenta, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+49   [2.2s]   La decisión de un solo hombre
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un único par de manos cerrándose lentamente en un puño sobre una mesa de madera desnuda, aisladas en el encuadre, luz dura y directa. ambientación rural de Montana entre 1978 y 1995, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+50   [5.5s]   La fachada que sigue en pie
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de la fachada imponente de un edificio universitario de ladrillo rojo con columnas blancas, cielo gris cerrado, ninguna persona a la vista, sensación de permanencia institucional. ambientación universitaria estadounidense contemporánea a la escena, sin ningún objeto anacrónico en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+51   [1.9s]   Cajas de archivo
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de cajas de archivo de cartón apiladas en un sótano institucional, polvo suspendido en el aire, luz de una sola bombilla desnuda. ambientación de archivo universitario atemporal, sin ningún objeto moderno reconocible en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+52   [6.0s]   Sillas vacías, sin explicación
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de una fila larga de sillas de oficina vacías cubiertas de una fina capa de polvo, luz de ventana entrando lateral, ninguna persona presente, sensación de tiempo detenido. ambientación institucional atemporal, sin ningún objeto moderno reconocible en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+53   [3.5s]   El estante de distinciones
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de una mano ajustando un trofeo académico sin grabado legible en un estante de madera junto a placas conmemorativas borrosas, luz cálida de despacho. ambientación de despacho académico de mediados del siglo veinte, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+54   [3.5s]   Un aula que se queda sin él
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de un atril de conferencias vacío en un aula magna universitaria a oscuras, una sola luz cenital iluminándolo, ninguna persona presente. ambientación universitaria estadounidense de mediados del siglo veinte, sin ningún objeto posterior a esa época en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+55   [1.9s]   El mazo que no se usó
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un mazo de juez de madera reposando inmóvil sobre su base, una fina capa de polvo cubriéndolo, luz fría lateral. ambientación institucional atemporal, sin ningún objeto moderno reconocible en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+56   [7.1s]   El archivo cerrado
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un archivador metálico de acero con una cadena gruesa y un candado cerrado atravesando las asas, luz fría de sótano institucional. ambientación de archivo universitario atemporal, sin ningún objeto moderno reconocible en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+57   [1.1s]   Siguen cerrados hoy
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: el mismo archivador con cadena y candado del plano anterior, ahora con una fina telaraña en una esquina y polvo más grueso, sugiriendo el paso de décadas. ambientación de archivo universitario atemporal, sin ningún objeto moderno reconocible en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+58   [4.7s]   Informar antes de empezar
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un formulario en blanco sujeto a una tablilla portapapeles, un bolígrafo apoyado encima, sobre una mesa moderna de oficina clínica, luz natural suave. ambientación de oficina de comité de ética contemporánea, elementos modernos genéricos y anacrónicos respecto al resto del vídeo, permitido por ser una escena del presente. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+59   [4.7s]   Poder irse cuando quiera
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de una puerta de oficina moderna completamente abierta hacia un pasillo iluminado, invitando a salir, ninguna persona en el encuadre. ambientación de oficina contemporánea, elementos modernos genéricos. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+60   [4.7s]   El comité que hoy lo revisa
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de una mesa de reunión ovalada moderna con varias personas sentadas vistas de espaldas o con el rostro fuera de encuadre, carpetas cerradas frente a cada una, luz de oficina contemporánea. ambientación de sala de comité de ética contemporánea, elementos modernos genéricos. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+61   [3.0s]   Ninguna de las tres existía
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de la sala de laboratorio de finales de los años cincuenta ya vista antes — la silla, los cables, los focos apagados — ahora con la puerta cerrada desde fuera. ambientación de laboratorio universitario de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+62   [3.0s]   El equipo de entonces
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano del panel de electrodos y la cámara de bobina apagados, cubiertos de una fina capa de polvo, sin ninguna persona presente. ambientación de laboratorio universitario de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+63   [4.5s]   Latas de película
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de decenas de latas metálicas de película de cine apiladas en estanterías de una bóveda de archivo, sin ninguna etiqueta legible, luz fría uniforme. ambientación de bóveda de archivo universitario atemporal, sin ningún objeto moderno reconocible en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+64   [3.7s]   La puerta de la bóveda
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de una puerta blindada de bóveda de archivo cerrándose lentamente, la luz del pasillo estrechándose hasta desaparecer. ambientación de bóveda de archivo universitario atemporal, sin ningún objeto moderno reconocible en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+
+65   [10.0s]   La silla, otra vez
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de una silla de madera sola en el centro de una sala pequeña sin ventanas, cables sueltos colgando de un soporte metálico junto a ella, dos focos apagados a los lados, nadie presente. ambientación de laboratorio universitario de finales de los años cincuenta, sin ningún objeto posterior a esa década en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
