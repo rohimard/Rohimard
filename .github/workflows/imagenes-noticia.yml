@@ -63,6 +63,14 @@ jobs:
                "https://www.pbs.org/newshour/nation/3-people-killed-in-news-helicopter-crash-while-covering-la-bus-collision"),
               ("choque-autobus-hollywoodreporter.jpg",
                "https://www.hollywoodreporter.com/news/local-news/bus-accident-driver-arrested-murder-helicopter-crash-los-angeles-1236703952/"),
+              ("helicoptero-n358tv-real.jpg",
+               "https://www.planespotters.net/photos/reg/N358TV"),
+              ("choque-bus-cbs.jpg",
+               "https://www.cbsnews.com/losangeles/news/chatsworth-metro-bus-crash-nordhoff-street-los-angeles-fire-police/"),
+              ("choque-bus-nbcla.jpg",
+               "https://www.nbclosangeles.com/news/local/chatsworth-crash-involving-metro-bus/3942678/"),
+              ("choque-bus-abc7-b.jpg",
+               "https://abc7.com/story/least-2-dead-numerous-hurt-suv-slams-side-metro-bus-chatsworth/19837090/"),
           ]
 
           resumen = []
