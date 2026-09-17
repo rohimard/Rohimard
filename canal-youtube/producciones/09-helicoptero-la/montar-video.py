@@ -60,12 +60,13 @@ def main() -> None:
         # BorderStyle=3 dibuja una caja solida, pero el grosor de esa caja lo
         # marca Outline (no un padding aparte) -- con Outline=0 la caja sale
         # con area cero y no se ve nada. Con Outline=8 se ve como un rotulo.
-        # En ASS el canal alfa va al reves de lo intuitivo: &H00 es opaco del
-        # todo y &HFF es invisible. &H20 deja una caja casi solida.
-        estilo = ("FontName=DejaVu Sans,Fontsize=26,Bold=1,"
-                  "PrimaryColour=&H00FFFFFF,OutlineColour=&H20000000,"
-                  "BackColour=&H20000000,BorderStyle=3,Outline=8,Shadow=0,"
-                  "Alignment=2,MarginV=70,MarginL=40,MarginR=40")
+        # La caja solida (BorderStyle=3) se veia demasiado pesada y grande.
+        # Vuelve a contorno simple (BorderStyle=1), letra mas chica: mas
+        # discreto, ocupa menos pantalla.
+        estilo = ("FontName=DejaVu Sans,Fontsize=16,Bold=1,"
+                  "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,"
+                  "BorderStyle=1,Outline=1.6,Shadow=0.8,"
+                  "Alignment=2,MarginV=50,MarginL=60,MarginR=60")
         quemar = f",subtitles={SRT}:force_style='{estilo}'"
 
     if args.zoom:
