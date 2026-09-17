@@ -55,16 +55,22 @@ Tres conclusiones que cambian el título:
 
 TÍTULO
 ======
-El Gato en el Sombrero: La Broma de TikTok que Terminó en Arrestos
+El Gato Ensombrerado: La Broma de TikTok que Terminó en Arrestos
 
-Nombra el personaje con el término real de búsqueda en español (arriba),
-no con el nombre del guion ni con el de la película nueva. "Arrestos" es
-la palabra de consecuencia real que se repite en los títulos con más
-vistas. Se evita la palabra "menores" en el título -- a diferencia del
-resto de las decisiones de SEO, esta es editorial, no de datos: no
-usar la minoría de edad de los detenidos como gancho de clic, aunque
-apareciera en varios títulos de la competencia (ver README.md, la
-misma línea que ya excluye sus fotos).
+Corregido: la primera versión de este título decía "El Gato en el
+Sombrero" -- el término que de verdad mueve búsquedas en español (según
+los datos de arriba) -- pero el guion, ya grabado con esa narración
+específica, dice "Gato Ensombrerado" dos veces. Se prioriza que el
+título y la miniatura digan lo mismo que se oye en el video: "gato en
+el sombrero" queda solo como etiqueta de búsqueda (abajo), no como el
+nombre que usa el título ni la miniatura.
+
+"Arrestos" es la palabra de consecuencia real que se repite en los
+títulos con más vistas. Se evita la palabra "menores" en el título --
+a diferencia del resto de las decisiones de SEO, esta es editorial, no
+de datos: no usar la minoría de edad de los detenidos como gancho de
+clic, aunque apareciera en varios títulos de la competencia (ver
+README.md, la misma línea que ya excluye sus fotos).
 
 DESCRIPCIÓN
 ===========
@@ -107,11 +113,16 @@ Capítulos:
 
 ETIQUETAS
 =========
-el gato en el sombrero, gato ensombrerado, gato con sombrero, tendencia
+gato ensombrerado, el gato en el sombrero, gato con sombrero, tendencia
 tiktok, amenazas por tiktok, ia generativa, imagenes con ia, amenazas
 escolares, arrestos menores, west kelowna, berwick luisiana, hutchinson
 kansas, west haven connecticut, dr seuss enterprises, historia incomoda,
 casos reales, tendencias virales, ciberacoso, seguridad escolar
+
+Nota: "gato ensombrerado" va primero porque es el nombre que usa el
+título y la narración; "el gato en el sombrero" se deja como segunda
+etiqueta solo para capturar las búsquedas que usan el término real de
+los medios (arriba), aunque el video no lo diga en voz.
 
 MINIATURA
 =========
