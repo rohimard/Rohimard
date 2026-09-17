@@ -1,23 +1,23 @@
 1
-00:00:22,980 --> 00:00:27,860
+00:00:22,280 --> 00:00:26,520
 EN PANTALLA (inglés): "Las escuelas están cerrando por esto, por cierto..."
 
 2
-00:00:27,860 --> 00:00:36,560
+00:00:26,520 --> 00:00:34,480
 EN PANTALLA (inglés): "¿Debería visitar escuelas después?"
 
 3
-00:00:36,560 --> 00:00:45,270
+00:00:37,170 --> 00:00:46,060
 EN PANTALLA (inglés): "Contraté a una psíquica para probar que el gato..."
 
 4
-00:01:13,130 --> 00:01:18,000
+00:01:13,880 --> 00:01:18,220
 EN PANTALLA (inglés): "AMENAZA DEL 'GATO CON SOMBRERO'"
 
 5
-00:01:45,860 --> 00:01:50,390
-EN PANTALLA (inglés): "ay, no"
+00:02:09,250 --> 00:02:16,640
+EN PANTALLA (inglés, cartel de la policía de Laredo, TX): "Ser viral no significa ser inofensivo. Y hay consecuencias."
 
 6
-00:02:06,760 --> 00:02:20,690
-EN PANTALLA (inglés, cartel de la policía de Laredo, TX): "Ser viral no significa ser inofensivo. Y hay consecuencias."
+00:02:16,640 --> 00:02:21,760
+EN PANTALLA (inglés): "ay, no"
