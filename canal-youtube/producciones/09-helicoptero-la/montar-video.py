@@ -54,10 +54,18 @@ def main() -> None:
         if not os.path.exists(SRT):
             print(f"::error:: no encuentro los subtítulos: {SRT}")
             sys.exit(1)
-        estilo = ("FontName=DejaVu Sans,Fontsize=22,Bold=1,"
-                  "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,"
-                  "BorderStyle=1,Outline=2,Shadow=1,"
-                  "Alignment=2,MarginV=60")
+        # Estilo noticiero: caja solida (BorderStyle=3) en vez de solo
+        # contorno, como un rotulo de breaking news, con el texto en
+        # mayusculas ya resuelto en el propio SRT.
+        # BorderStyle=3 dibuja una caja solida, pero el grosor de esa caja lo
+        # marca Outline (no un padding aparte) -- con Outline=0 la caja sale
+        # con area cero y no se ve nada. Con Outline=8 se ve como un rotulo.
+        # En ASS el canal alfa va al reves de lo intuitivo: &H00 es opaco del
+        # todo y &HFF es invisible. &H20 deja una caja casi solida.
+        estilo = ("FontName=DejaVu Sans,Fontsize=26,Bold=1,"
+                  "PrimaryColour=&H00FFFFFF,OutlineColour=&H20000000,"
+                  "BackColour=&H20000000,BorderStyle=3,Outline=8,Shadow=0,"
+                  "Alignment=2,MarginV=70,MarginL=40,MarginR=40")
         quemar = f",subtitles={SRT}:force_style='{estilo}'"
 
     if args.zoom:
