@@ -66,6 +66,8 @@ jobs:
                "https://www.ksn.com/news/crime/kansas-student-arrested-in-cat-in-the-hat-threats/"),
               ("post-ia-msn.jpg",
                "https://www.msn.com/en-us/entertainment/general/the-cat-in-the-hat-became-tiktok-s-latest-horror-icon-how-did-we-get-here/ar-AA2bLquN"),
+              ("post-ia-fox26.jpg",
+               "https://www.fox26houston.com/news/viral-cat-hat-trend-sparks-school-safety-concerns-texas"),
           ]
 
           resumen = []
