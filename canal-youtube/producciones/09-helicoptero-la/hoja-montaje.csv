@@ -1,0 +1,21 @@
+plano,archivo,in,out,dur,anclado,titulo
+1,imagenes-reales/valle-san-fernando.jpg,0:00.00,0:07.51,7.51,,Una noche cualquiera en Los Ángeles
+2,imagenes-reales/chatsworth.jpg,0:07.51,0:15.01,7.51,,"Chatsworth, 15 de septiembre"
+3,imagenes-reales/chatsworth.jpg,0:15.01,0:23.20,8.19,,El sentido contrario
+4,imagenes-reales/autobus-metro.jpg,0:23.20,0:31.05,7.85,,El autobús de Metro
+5,imagenes-noticia/choque-bus-escena.jpg,0:31.05,0:44.01,12.96,,"Dos muertos, seis heridos"
+6,imagenes-reales/helicoptero-as350.jpg,0:44.01,0:55.95,11.94,,El helicóptero de siempre
+7,imagenes-noticia/moreno-marciniw-nbcnews.jpg,0:55.95,1:06.87,10.92,,Eli in the Heli y su piloto
+8,imagenes-noticia/moreno-marciniw-today.jpg,1:06.87,1:16.42,9.55,,Un vuelo de rutina
+9,imagenes-noticia/escena-helicoptero-cnn.jpg,1:16.42,1:23.24,6.82,,El giro
+10,imagenes-noticia/choque-autobus-pbs.jpg,1:23.24,1:33.48,10.23,,El impacto
+11,imagenes-reales/chatsworth.jpg,1:33.48,1:42.01,8.53,,La quinta víctima
+12,imagenes-reales/valle-san-fernando.jpg,1:42.01,1:49.86,7.85,,"Cinco muertos, dos sucesos"
+13,imagenes-reales/helicoptero-as350.jpg,1:49.86,1:59.41,9.55,,La NTSB investiga
+14,imagenes-noticia/choque-autobus-hollywoodreporter.jpg,1:59.41,2:08.28,8.87,,El audio de cabina
+15,imagenes-reales/chatsworth.jpg,2:08.28,2:16.47,8.19,,Treinta días de espera
+16,imagenes-noticia/escena-helicoptero-cnn.jpg,2:16.47,2:24.31,7.85,,Sin causa confirmada
+17,imagenes-noticia/moreno-marciniw-nbcnews.jpg,2:24.31,2:35.57,11.26,,Quién era Eliana Moreno
+18,imagenes-noticia/moreno-marciniw-today.jpg,2:35.57,2:46.49,10.92,,Quién era George Marciniw
+19,imagenes-noticia/choque-autobus-pbs.jpg,2:46.49,2:55.70,9.21,,Cubrir la noticia
+20,imagenes-reales/valle-san-fernando.jpg,2:55.70,3:04.23,8.53,,Se convirtió en la noticia
