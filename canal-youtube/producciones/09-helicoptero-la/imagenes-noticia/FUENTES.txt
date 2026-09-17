@@ -9,3 +9,17 @@ FALLO: helicoptero-n358tv-real.jpg <- https://www.planespotters.net/photos/reg/N
 OK (750363 bytes): choque-bus-cbs.jpg <- https://assets2.cbsnewsstatic.com/hub/i/r/2026/09/16/f8ad8ff7-8656-473c-afa0-61f9aa11ea11/thumbnail/1200x630/c04721d5dae80784726bdfa60d5e4c7c/screenshot-2026-09-15-173605.png
 OK (178226 bytes): choque-bus-nbcla.jpg <- https://media.nbclosangeles.com/2026/09/chatsworth-crash-91526.jpg?quality=85&strip=all&resize=1200%2C675
 OK (659371 bytes): choque-bus-abc7-b.jpg <- https://cdn.abcotvs.com/dip/images/19837087_valley-wreck.jpg?w=1600
+OK (145157 bytes): memorial-victimas-nbcla.jpg <- https://media.nbclosangeles.com/2026/09/GettyImages-2295615617_dc6553.jpg?quality=85&strip=all&resize=1200%2C675
+OK (48677 bytes): heli-escena-foxla.jpg <- https://images.foxtv.com/static.foxla.com/www.foxla.com/content/uploads/2026/09/1200/630/cms-1280x-720-7.jpg?ve=1&tl=1
+OK (71979 bytes): bus-escena-foxla.jpg <- https://images.foxtv.com/static.foxla.com/www.foxla.com/content/uploads/2026/09/1200/630/video-4-1.jpg?ve=1&tl=1
+OK (888624 bytes): heli-escena-abc7ny.jpg <- https://cdn.abcotvs.com/dip/images/19838328_091626-kabc-helicopter-crash-nbc4-inset-tn-img.jpg?w=1600
+OK (5728614 bytes): heli-escena-latintimes.jpg <- https://d.latintimes.com/en/full/591565/us-helicopter-crash.jpg
+OK (218344 bytes): newsroom-evidencia-nbcla.jpg <- https://media.nbclosangeles.com/2026/09/GettyImages-2295042978-e1789593819404.jpg?quality=85&strip=all&resize=1200%2C675
+FALLO: heli-escena-wgntv.jpg <- https://wgntv.com/news/los-angeles-news-helicopter-crash-what-we-know-about-victims-investigation/ :: 403 Client Error: Forbidden for url: https://wgntv.com/news/los-angeles-news-helicopter-crash-what-we-know-about-victims-investigation/
+OK (76258 bytes): heli-escena-thenightly.jpg <- https://images.thenightly.com.au/publication/C-22882379/c3e21ce8d00c2fbffb65b4121086f74bb2742dec-16x9-x0y10w594h334.webp?imwidth=1200
+OK (463905 bytes): ntsb-investigador-abc7.jpg <- https://cdn.abcotvs.com/dip/images/19839678_091626-kabc-helicopter-down.jpg?w=1600
+FALLO: heli-escena-sanfernandosun.jpg <- https://sanfernandosun.com/2026/09/16/ntsb-leads-probe-into-deadly-newschopper4-crash-in-chatsworth/ :: 429 Client Error: Too Many Requests for url: https://sanfernandosun.com/2026/09/16/ntsb-leads-probe-into-deadly-newschopper4-crash-in-chatsworth/
+FALLO: bus-escena-abc10.jpg <- https://www.abc10.com/article/news/nation-world/fatal-helicopter-crash-reported-in-chatsworth-california/103-6b0058eb-f55d-4dd2-a8cf-4c6746ef42a6 :: 403 Client Error: Forbidden for url: https://www.abc10.com/article/news/nation-world/fatal-helicopter-crash-reported-in-chatsworth-california/103-6b0058eb-f55d-4dd2-a8cf-4c6746ef42a6
+OK (73359 bytes): heli-escena-cbsla2.jpg <- https://assets2.cbsnewsstatic.com/hub/i/r/2026/09/16/27d5ff2c-5726-4753-8ce5-a715a8477150/thumbnail/1200x630/17726f1d6b36e223e058f094b533e8cd/screenshot-2026-09-15-190812.png
+OK (87012 bytes): heli-escena-foxla-live.jpg <- https://images.foxtv.com/static.foxla.com/www.foxla.com/content/uploads/2026/09/1200/630/george-eliana_chatsworth-crashes.jpg?ve=1&tl=1
+OK (463905 bytes): heli-escena-abc7sf.jpg <- https://cdn.abcotvs.com/dip/images/19839678_091626-kabc-helicopter-down.jpg?w=1600
