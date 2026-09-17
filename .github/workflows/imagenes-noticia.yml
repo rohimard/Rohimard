@@ -53,14 +53,16 @@ jobs:
                "https://www.nbcnews.com/news/us-news/nbcla-news-helicopter-crash-eliana-moreno-george-marciniw-tributes-rcna598071"),
               ("moreno-marciniw-today.jpg",
                "https://www.today.com/news/nbc-la-helicopter-crash-victims-eliana-moreno-george-marciniw-rcna598090"),
-              ("rios-arresto-ktla.jpg",
-               "https://ktla.com/news/local-news/driver-metro-bus-collision-murder-arrest/"),
               ("rios-arresto-abc7.jpg",
                "https://abc7.com/story/chatsworth-bus-crash-woman-arrested-2-victims-idd-violent-involving-suv-slammed-metro/19839637/"),
-              ("escena-helicoptero-ktla.jpg",
-               "https://ktla.com/news/local-news/ntsb-fatal-nbc4-news-helicopter-crash-update/"),
-              ("choque-autobus-ktla.jpg",
-               "https://ktla.com/news/local-news/security-footage-metro-bus-collision/"),
+              ("escena-helicoptero-cnn.jpg",
+               "https://www.cnn.com/2026/09/15/us/helicopter-crash-los-angeles-hnk"),
+              ("escena-helicoptero-mynewsla.jpg",
+               "https://mynewsla.com/hollywood/2026/09/16/ntsb-leads-probe-into-deadly-newschopper4-crash-in-chatsworth/"),
+              ("choque-autobus-pbs.jpg",
+               "https://www.pbs.org/newshour/nation/3-people-killed-in-news-helicopter-crash-while-covering-la-bus-collision"),
+              ("choque-autobus-hollywoodreporter.jpg",
+               "https://www.hollywoodreporter.com/news/local-news/bus-accident-driver-arrested-murder-helicopter-crash-los-angeles-1236703952/"),
           ]
 
           resumen = []
