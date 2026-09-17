@@ -15,9 +15,13 @@ EN PANTALLA (inglés): "Contraté a una psíquica para probar que el gato..."
 EN PANTALLA (inglés): "AMENAZA DEL 'GATO CON SOMBRERO'"
 
 5
+00:01:18,220 --> 00:01:25,820
+EN PANTALLA (inglés, cobertura real de WBRZ): "4 adolescentes arrestados, St. Mary Parish. Cargos de aterrorizar y ciberacoso."
+
+6
 00:02:09,250 --> 00:02:16,640
 EN PANTALLA (inglés, cartel de la policía de Laredo, TX): "Ser viral no significa ser inofensivo. Y hay consecuencias."
 
-6
+7
 00:02:16,640 --> 00:02:21,760
 EN PANTALLA (inglés): "ay, no"

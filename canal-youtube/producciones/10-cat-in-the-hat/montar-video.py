@@ -10,6 +10,7 @@ verticales, subtitulos quemados con estilo minimalista si se piden.
 """
 import argparse
 import csv
+import json
 import os
 import subprocess
 import sys
@@ -19,6 +20,16 @@ SRT = "subtitulos.srt"
 TRADUCCION_SRT = "traduccion.srt"
 AUDIO = "audio.mp3"
 W, H, FPS = 1920, 1080, 30
+EXT_VIDEO = (".mp4", ".mov", ".webm", ".mkv")
+
+
+def duracion_real(ruta: str) -> float:
+    salida = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=noprint_wrappers=1:nokey=1", ruta],
+        capture_output=True, text=True, check=True,
+    ).stdout.strip()
+    return float(salida)
 
 
 def main() -> None:
@@ -84,6 +95,23 @@ def main() -> None:
     if args.zoom:
         trozos = []
         for i, (p, d) in enumerate(rutas):
+            if p.lower().endswith(EXT_VIDEO):
+                # Clip de video real (no una foto): ya trae su propio
+                # movimiento, no se le aplica zoompan. Se recorta a la
+                # duracion del plano; si el clip es mas corto que el
+                # plano, se sostiene el ultimo fotograma (tpad) en vez
+                # de dejar el video mudo/negro o desincronizar el resto
+                # del montaje. El audio propio del clip no se mapea --
+                # se queda mudo, solo se oye la narracion.
+                dur_clip = duracion_real(p)
+                relleno_extra = ""
+                if dur_clip < d:
+                    relleno_extra = f",tpad=stop_mode=clone:stop_duration={d - dur_clip:.3f}"
+                trozos.append(
+                    f"[{i}:v]trim=start=0:end={min(d, dur_clip):.3f},setpts=PTS-STARTPTS,"
+                    f"{relleno_difuminado(i)}{relleno_extra},fps={FPS}[v{i}]"
+                )
+                continue
             fr = max(1, round(d * FPS))
             # Alterna la direccion del zoom (in/out) para que no se vea
             # siempre el mismo movimiento.
