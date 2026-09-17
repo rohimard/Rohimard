@@ -16,6 +16,7 @@ import sys
 
 CSV = "hoja-montaje.csv"
 SRT = "subtitulos.srt"
+TRADUCCION_SRT = "traduccion.srt"
 AUDIO = "audio.mp3"
 W, H, FPS = 1920, 1080, 30
 
@@ -67,6 +68,18 @@ def main() -> None:
                   "BorderStyle=1,Outline=1.6,Shadow=0.8,"
                   "Alignment=2,MarginV=50,MarginL=60,MarginR=60")
         quemar = f",subtitles={SRT}:force_style='{estilo}'"
+
+        # Dos imagenes reales (la cuadricula de posts de TikTok y el
+        # cartel de la policia de Laredo) traen texto en pantalla en
+        # ingles. En vez de recortarlo o dejarlo sin traducir, se quema
+        # un segundo rotulo -- arriba, con caja solida para distinguirlo
+        # claramente del subtitulo de la narracion -- con la traduccion.
+        if os.path.exists(TRADUCCION_SRT):
+            estilo_trad = ("FontName=DejaVu Sans,Fontsize=15,Bold=0,Italic=1,"
+                           "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,"
+                           "BackColour=&H80000000,BorderStyle=3,Outline=6,Shadow=0,"
+                           "Alignment=8,MarginV=40,MarginL=100,MarginR=100")
+            quemar += f",subtitles={TRADUCCION_SRT}:force_style='{estilo_trad}'"
 
     if args.zoom:
         trozos = []
