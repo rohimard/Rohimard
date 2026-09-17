@@ -1,6 +1,7 @@
 OK (176471 bytes): moreno-marciniw-nbcnews.jpg <- https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2026-09/260916-moreno-and-marciniw-rs-e4350b.jpg
 OK (86487 bytes): moreno-marciniw-today.jpg <- https://media-cldnry.s-nbcnews.com/image/upload/t_social_share_1200x630_center,f_auto,q_auto:best/rockcms/2026-09/helicopter-crash-victims-28784c.jpg
-FALLO: rios-arresto-ktla.jpg <- https://ktla.com/news/local-news/driver-metro-bus-collision-murder-arrest/ :: 403 Client Error: Forbidden for url: https://ktla.com/news/local-news/driver-metro-bus-collision-murder-arrest/
 OK (1033751 bytes): rios-arresto-abc7.jpg <- https://cdn.abcotvs.com/dip/images/19841818_091626-kabc-valley-wreck-victims-tn-img.jpg?w=1600
-FALLO: escena-helicoptero-ktla.jpg <- https://ktla.com/news/local-news/ntsb-fatal-nbc4-news-helicopter-crash-update/ :: 403 Client Error: Forbidden for url: https://ktla.com/news/local-news/ntsb-fatal-nbc4-news-helicopter-crash-update/
-FALLO: choque-autobus-ktla.jpg <- https://ktla.com/news/local-news/security-footage-metro-bus-collision/ :: 403 Client Error: Forbidden for url: https://ktla.com/news/local-news/security-footage-metro-bus-collision/
+OK (42396 bytes): escena-helicoptero-cnn.jpg <- https://media.cnn.com/api/v1/images/stellar/prod/still-22987944-411758-18700000003-still.jpg?c=16x9&q=w_800,c_fill
+FALLO: escena-helicoptero-mynewsla.jpg <- https://mynewsla.com/hollywood/2026/09/16/ntsb-leads-probe-into-deadly-newschopper4-crash-in-chatsworth/ :: 429 Client Error: Too Many Requests for url: https://mynewsla.com/hollywood/2026/09/16/ntsb-leads-probe-into-deadly-newschopper4-crash-in-chatsworth/
+OK (243820 bytes): choque-autobus-pbs.jpg <- https://d3i6fh83elv35t.cloudfront.net/static/2026/09/AP26259549440064-1024x768.jpg
+OK (372660 bytes): choque-autobus-hollywoodreporter.jpg <- https://www.hollywoodreporter.com/wp-content/uploads/2026/09/GettyImages-2295042772.jpg?w=1440&h=810&crop=1
