@@ -1,0 +1,74 @@
+# Baja clips reales cortos (no solo capturas fijas) para el video 10
+# (tendencia "Cat in the Hat"): los TikToks reales del propio hecho, en
+# vez de solo la foto de la publicacion.
+#
+# Mismo motivo que el workflow de imagenes: este sandbox tiene bloqueada
+# la salida hacia la mayoria de estos dominios, pero el runner de GitHub
+# Actions no.
+#
+# Nada de video de los detenidos: todos son menores de edad. Ver
+# canal-youtube/producciones/10-cat-in-the-hat/README.md.
+name: videos-catinthehat
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/videos-catinthehat.yml
+
+permissions:
+  contents: write
+
+env:
+  DESTINO: canal-youtube/producciones/10-cat-in-the-hat/videos
+
+jobs:
+  bajar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install --quiet yt-dlp
+
+      - name: Bajar clips reales (TikTok del propio hecho)
+        run: |
+          set +e
+          mkdir -p "$DESTINO"
+
+          bajar() {
+            nombre="$1"; url="$2"
+            echo "-- $nombre <- $url"
+            yt-dlp --no-warnings -f "mp4/bv*+ba/b" --max-filesize 60M \
+              -o "$DESTINO/$nombre.mp4" "$url"
+            if [ -f "$DESTINO/$nombre.mp4" ]; then
+              echo "OK: $nombre <- $url" >> "$DESTINO/FUENTES-VIDEO.txt"
+            else
+              echo "FALLO: $nombre <- $url" >> "$DESTINO/FUENTES-VIDEO.txt"
+            fi
+          }
+
+          # Natalie Reynolds: el disfraz real moviendose "solo", grabado
+          # en camara en vivo -- el propio hecho, no una foto de el.
+          bajar natalie-camara-en-vivo "https://www.tiktok.com/@nataliireynoldss/video/7682950319470316830"
+          # Otro angulo/reaccion real sobre el mismo disfraz.
+          bajar natalie-costume-reaccion "https://www.tiktok.com/@mariannenafsu/video/7682633427115314463"
+          # TikTok real hecho en Berwick / St. Mary Parish, Luisiana --
+          # la misma ciudad del arresto de los 4 menores.
+          bajar berwick-tiktok-real "https://www.tiktok.com/@fearr_god/video/7680716741458021646"
+
+          ls -la "$DESTINO"
+          cat "$DESTINO/FUENTES-VIDEO.txt" 2>/dev/null || true
+
+      - name: Devolver los videos a la rama
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Clips reales para el video de la tendencia Cat in the Hat' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
