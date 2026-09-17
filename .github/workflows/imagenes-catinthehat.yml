@@ -1,0 +1,123 @@
+# Baja imagenes reales para el video 10 (tendencia "Cat in the Hat"):
+# capturas de la propia cobertura de prensa sobre las publicaciones de IA,
+# fotos de las escuelas mencionadas, y material de las policias que
+# investigaron los casos.
+#
+# Mismo motivo que los workflows anteriores: este sandbox tiene bloqueada
+# la salida hacia la mayoria de estos dominios de noticias/Wikimedia, pero
+# el runner de GitHub Actions no.
+#
+# Nada de fotos de los detenidos: todos son menores de edad. Ver
+# canal-youtube/producciones/10-cat-in-the-hat/README.md.
+name: imagenes-catinthehat
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/imagenes-catinthehat.yml
+      - canal-youtube/.catinthehat-disparo
+
+permissions:
+  contents: write
+
+env:
+  DESTINO: canal-youtube/producciones/10-cat-in-the-hat/imagenes
+
+jobs:
+  bajar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install --quiet beautifulsoup4 requests
+
+      - name: Bajar la foto destacada de cada articulo (og:image)
+        run: |
+          set -e
+          mkdir -p "$DESTINO"
+          python3 - <<'PY'
+          import os
+          import requests
+          from bs4 import BeautifulSoup
+
+          DESTINO = os.environ["DESTINO"]
+          CABECERA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                                     "AppleWebKit/537.36 (KHTML, like Gecko) "
+                                     "Chrome/124.0 Safari/537.36"}
+
+          objetivos = [
+              ("post-ia-police1.jpg",
+               "https://www.police1.com/social-media/breaking-down-the-cat-in-the-hat-trend-ai-threats-police-responses-and-juvenile-arrests"),
+              ("post-ia-euronews.jpg",
+               "https://www.euronews.com/culture/2026/08/24/the-cat-in-the-hat-is-terrorising-tiktok-but-how-did-this-horror-trend-get-so-out-of-hand"),
+              ("post-ia-newsweek.jpg",
+               "https://www.newsweek.com/schools-issue-warning-about-viral-cat-in-the-hat-trend-as-teen-arrested-12391002"),
+              ("post-ia-abcnews.jpg",
+               "https://abcnews.com/GMA/Family/parents-cat-hat-social-media-trend-prompting-school/story?id=136120706"),
+              ("berwick-policia-wbrz.jpg",
+               "https://www.wbrz.com/news/four-juveniles-arrested-in-berwick-following-investigation-into-cat-in-the-hat-trend"),
+              ("westhaven-nbcct.jpg",
+               "https://www.nbcconnecticut.com/news/local/west-haven-student-arrested-in-connection-with-cat-in-the-hat-school-threat/3774738/"),
+              ("kelowna-globalnews.jpg",
+               "https://globalnews.ca/news/12052365/cat-in-the-hat-chase-west-kelowna-rcmp/"),
+              ("hutchinson-ksn.jpg",
+               "https://www.ksn.com/news/crime/kansas-student-arrested-in-cat-in-the-hat-threats/"),
+              ("post-ia-msn.jpg",
+               "https://www.msn.com/en-us/entertainment/general/the-cat-in-the-hat-became-tiktok-s-latest-horror-icon-how-did-we-get-here/ar-AA2bLquN"),
+          ]
+
+          resumen = []
+          for nombre, url in objetivos:
+              try:
+                  r = requests.get(url, headers=CABECERA, timeout=30)
+                  r.raise_for_status()
+                  sopa = BeautifulSoup(r.text, "html.parser")
+                  etiqueta = (sopa.find("meta", property="og:image")
+                              or sopa.find("meta", attrs={"name": "og:image"})
+                              or sopa.find("meta", attrs={"name": "twitter:image"}))
+                  imagen_url = etiqueta["content"] if etiqueta and etiqueta.get("content") else None
+                  if not imagen_url:
+                      resumen.append(f"SIN og:image: {nombre} <- {url}")
+                      continue
+                  ir = requests.get(imagen_url, headers=CABECERA, timeout=30)
+                  ir.raise_for_status()
+                  ruta = os.path.join(DESTINO, nombre)
+                  with open(ruta, "wb") as f:
+                      f.write(ir.content)
+                  resumen.append(f"OK ({len(ir.content)} bytes): {nombre} <- {imagen_url}")
+              except Exception as e:
+                  resumen.append(f"FALLO: {nombre} <- {url} :: {e}")
+
+          print("\n".join(resumen))
+          with open(os.path.join(DESTINO, "FUENTES.txt"), "w") as f:
+              f.write("\n".join(resumen) + "\n")
+          PY
+
+      - name: Bajar imagenes de licencia libre (Wikimedia Commons)
+        run: |
+          set -e
+          bajar_wiki() {
+            nombre="$1"; fichero_wiki="$2"
+            url="https://commons.wikimedia.org/wiki/Special:FilePath/${fichero_wiki}"
+            echo "-- $nombre <- $url"
+            curl -sS -L --fail -A "Mozilla/5.0 (compatible; historia-incomoda-video/1.0)" \
+                 -o "$DESTINO/$nombre" "$url" || echo "FALLO wiki: $nombre"
+          }
+          bajar_wiki hutchinson-high-wiki.jpg "Hutchinson-High-School.jpg"
+          bajar_wiki rcmp-vehiculo.jpg "RCMP_Dodge_Charger_4A67.jpg"
+          ls -la "$DESTINO"
+
+      - name: Devolver las imagenes a la rama
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Imagenes reales para el video de la tendencia Cat in the Hat' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1
