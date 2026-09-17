@@ -102,6 +102,34 @@ jobs:
                "https://www.cbc.ca/news/canada/british-columbia/cat-in-the-hat-prank-west-kelowna-9.7337550"),
               ("uk-ireland-ladbible.jpg",
                "https://www.ladbible.com/news/uk-news/cat-hat-trend-streets-ireland-uk-viral-tiktok-285492-20260822"),
+
+              # Tercera tanda: mas fuentes independientes (no Nexstar/Scripps,
+              # que bloquearon todo en la tanda anterior) para poder seguir
+              # bajando la duracion por plano sin repetir imagen.
+              ("dexerto-disfraz.jpg",
+               "https://www.dexerto.com/entertainment/influencer-claims-mike-myers-soul-is-trapped-inside-25k-cat-in-hat-costume-3406222/"),
+              ("berwick-houmatimes.jpg",
+               "https://houmatimes.com/crime/four-teenage-girls-charged-with-terrorizing-cyberbullying-and-more-following-online-cat-in-the-hat-threats/"),
+              ("berwick-kqki.jpg",
+               "https://kqkinews.com/four-juveniles-arrested-following-berwick-police-investigation-into-online-tiktok-threats/"),
+              ("westhaven-nbcny.jpg",
+               "https://www.nbcnewyork.com/news/local/west-haven-student-arrested-in-connection-with-cat-in-the-hat-school-threat/6547565/"),
+              ("trend-dailyvoice.jpg",
+               "https://dailyvoice.com/article/creepy-cat-in-the-hat-school-threat-trend-sparks-warnings-teen-arrests-across-us/"),
+              ("hutchinson-hutchpost.jpg",
+               "https://hutchpost.com/posts/8ecb2c2f-4d68-4c53-af45-f36357f3c902"),
+              ("hutchinson-adastra.jpg",
+               "https://www.adastraradio.com/adastra-news/hutchinson-juvenile-charged-following-cat-in-the-hat-trend/"),
+              ("ukireland-quartz.jpg",
+               "https://qz.com/cat-in-the-hat-ai-trend-police-warnings-uk-ireland-090126"),
+              ("kelowna-ibtimes.jpg",
+               "https://www.ibtimes.co.uk/teenager-allegedly-chased-cat-hat-west-kelowna-1819477"),
+              ("kelowna-tmz.jpg",
+               "https://www.tmz.com/2026/09/10/man-dressed-as-cat-in-the-hat-chased-teen-girl/"),
+              ("nicholasville-wkyt.jpg",
+               "https://www.wkyt.com/2026/09/06/1-person-charged-cat-hat-online-threat-police-say/"),
+              ("nicholasville-wkyt2.jpg",
+               "https://www.wkyt.com/2026/09/07/ai-expert-says-cat-hat-school-threat-trend-is-tip-iceberg/"),
           ]
 
           resumen = []
@@ -145,6 +173,7 @@ jobs:
           bajar_wiki rcmp-vehiculo.jpg "RCMP_Dodge_Charger_4A67.jpg"
           bajar_wiki pasillo-escuela.jpg "High_school_hallways.jpg"
           bajar_wiki libros-editorial.jpg "Library_books_-_Shelving_stacks_(3554627444).jpg"
+          bajar_wiki mapa-usa-wiki.jpg "Blank_map_of_the_United_States.PNG"
           ls -la "$DESTINO"
 
       - name: Devolver las imagenes a la rama
