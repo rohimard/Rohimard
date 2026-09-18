@@ -8,7 +8,9 @@
     "splash": {
       "backgroundColor": "#0B0B0F"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.rohimard.photobrush",
@@ -20,8 +22,9 @@
     "android": {
       "package": "com.rohimard.photobrush",
       "permissions": [
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE"
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.RECORD_AUDIO"
       ]
     },
     "plugins": [
@@ -38,6 +41,12 @@
           "savePhotosPermission": "PhotoBrush guarda las fotos editadas en tu galería."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "4a6ec4ad-c001-496d-b86a-2fc767c6c97c"
+      }
+    },
+    "owner": "rohimards-team"
   }
 }
