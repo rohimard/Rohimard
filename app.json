@@ -2,6 +2,7 @@
   "expo": {
     "name": "PhotoBrush",
     "slug": "photobrush",
+    "scheme": "photobrush",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
@@ -31,7 +32,8 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "PhotoBrush necesita acceso a tus fotos para editarlas."
+          "photosPermission": "PhotoBrush necesita acceso a tus fotos para editarlas.",
+          "cameraPermission": "PhotoBrush necesita acceso a tu cámara para tomar una foto nueva."
         }
       ],
       [
@@ -40,7 +42,9 @@
           "photosPermission": "PhotoBrush necesita acceso a tus fotos para editarlas.",
           "savePhotosPermission": "PhotoBrush guarda las fotos editadas en tu galería."
         }
-      ]
+      ],
+      "expo-router",
+      "expo-font"
     ],
     "extra": {
       "eas": {
