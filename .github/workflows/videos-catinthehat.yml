@@ -47,11 +47,13 @@ jobs:
             #
             # "Sign in to confirm you're not a bot": YouTube bloquea el
             # cliente "web" normal desde IPs de datacenter como las de
-            # GitHub Actions. El cliente movil "android" no pide esa
-            # verificacion -- workaround conocido y documentado del
-            # propio yt-dlp (no requiere cookies ni login real).
+            # GitHub Actions. player_client=android no alcanzo (mismo
+            # error) -- se prueba el cliente "tv" (flujo de autenticacion
+            # de dispositivos de TV, sin webpage check ni PO token), el
+            # workaround que mas sigue funcionando a esta fecha segun los
+            # propios issues de yt-dlp.
             salida=$(yt-dlp -f "bv*[height<=480]+ba/b[height<=480]/mp4" \
-              --extractor-args "youtube:player_client=android,web" \
+              --extractor-args "youtube:player_client=tv,ios,android" \
               --max-filesize 80M -o "$DESTINO/$nombre.mp4" "$url" 2>&1)
             echo "$salida"
             if [ -f "$DESTINO/$nombre.mp4" ]; then
