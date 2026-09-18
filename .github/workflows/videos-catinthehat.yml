@@ -41,12 +41,16 @@ jobs:
           bajar() {
             nombre="$1"; url="$2"
             echo "-- $nombre <- $url"
-            # Tope de resolucion (no de calidad): 480p alcanza de sobra
-            # para el fondo difuminado + primer plano del montaje, y
-            # evita que el video mas largo se pase del limite de tamano.
-            #
-            salida=$(yt-dlp -f "bv*[height<=480]+ba/b[height<=480]/mp4" \
-              --max-filesize 80M -o "$DESTINO/$nombre.mp4" "$url" 2>&1)
+            # --max-filesize no es confiable con streams HLS/DASH
+            # fragmentados (no conoce el tamano total de antemano) --
+            # kwch-hutchinson-1 igual llego a 100.15MB con el tope en
+            # 80M y trabo el push (limite duro de GitHub: 100MB/archivo).
+            # Ahora ademas se recorta a los primeros 60s (de sobra para
+            # cualquier paquete de noticias local) con
+            # --download-sections, que si es un corte real de tiempo.
+            salida=$(yt-dlp -f "bv*[height<=360]+ba/b[height<=360]/mp4" \
+              --download-sections "*0-60" --max-filesize 45M \
+              -o "$DESTINO/$nombre.mp4" "$url" 2>&1)
             echo "$salida"
             if [ -f "$DESTINO/$nombre.mp4" ]; then
               echo "OK: $nombre <- $url" >> "$DESTINO/FUENTES-VIDEO.txt"
@@ -77,16 +81,16 @@ jobs:
           # arreglable sin cookies de una cuenta real. Se abandona esta
           # via y se vuelve a paginas de noticias individuales (el
           # mismo metodo que si funciono con WBRZ).
-          bajar castanet-kelowna-1 "https://www.castanet.net/news/West-Kelowna/630631/West-Kelowna-RCMP-seek-person-dressed-as-Cat-in-the-Hat-after-teen-chased"
-          bajar castanet-kelowna-2 "https://www.castanet.net/news/West-Kelowna/630858/Cat-in-the-Hat-case-remains-unsolved-mirrors-social-media-trend-across-the-globe"
-          bajar wkyt-jessamine-1 "https://www.wkyt.com/2026/09/06/1-person-charged-cat-hat-online-threat-police-say/"
+          # castanet x2, wkyt-jessamine-1, lex18 (redirige a un post de
+          # Facebook borrado), ksn y king5 ya se intentaron y fallaron
+          # por URL no soportada o 403 -- no vale la pena reintentarlos.
+          # Estos 4 SI funcionaron; se repiten aqui solo con el nuevo
+          # tope de tamano (el intento anterior de kwch-hutchinson-1
+          # llego a 100.15MB y trabo el push).
           bajar wkyt-jessamine-2 "https://www.wkyt.com/2026/09/07/ai-expert-says-cat-hat-school-threat-trend-is-tip-iceberg/"
-          bajar lex18-jessamine "https://www.lex18.com/news/covering-kentucky/fbi-helps-id-suspect-cat-in-the-hat-threats-jessamine-county-sept-6-2026"
           bajar kwch-hutchinson-1 "https://www.kwch.com/2026/08/31/hutchinson-school-warns-parents-cat-hat-trend/"
           bajar kwch-hutchinson-2 "https://www.kwch.com/2026/09/01/hutchinson-teenager-charged-connection-with-cat-hat-trend/"
-          bajar ksn-hutchinson-noticia "https://www.ksn.com/news/crime/kansas-student-arrested-in-cat-in-the-hat-threats/"
           bajar kait8-arkansas "https://www.kait8.com/2026/09/02/dr-suess-themed-trend-results-teen-facing-charges/"
-          bajar king5-seattle "https://king5.com/article/news/nation-world/cat-hat-tiktok-trend-prompts-increased-security/507-1b0ee328-bcd3-4955-a81a-c7a5013dc7d5"
           bajar kten-texoma "https://www.kten.com/news/crime/feline-meme-triggers-concern-for-texoma-school-districts/article_8da29459-d231-435b-86e5-35219312303c.html"
 
           ls -la "$DESTINO"
