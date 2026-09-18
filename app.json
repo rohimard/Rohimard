@@ -1,0 +1,43 @@
+{
+  "expo": {
+    "name": "PhotoBrush",
+    "slug": "photobrush",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "backgroundColor": "#0B0B0F"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.rohimard.photobrush",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "PhotoBrush necesita acceso a tus fotos para editarlas.",
+        "NSPhotoLibraryAddUsageDescription": "PhotoBrush guarda las fotos editadas en tu galería."
+      }
+    },
+    "android": {
+      "package": "com.rohimard.photobrush",
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "PhotoBrush necesita acceso a tus fotos para editarlas."
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "PhotoBrush necesita acceso a tus fotos para editarlas.",
+          "savePhotosPermission": "PhotoBrush guarda las fotos editadas en tu galería."
+        }
+      ]
+    ]
+  }
+}

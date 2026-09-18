@@ -1,95 +1,67 @@
-# CotizaPro
+# PhotoBrush
 
-Micro-SaaS para trabajadores independientes y pequeños negocios (electricistas,
-plomeros, técnicos, pintores, fotógrafos, jardineros…) que permite **crear una
-cotización profesional en menos de 60 segundos**, generar un PDF y compartirla
-con el cliente.
+App móvil (iOS/Android) para editar fotos con una **brocha de texto**: eliges
+una foto, escribes una frase y la deslizas con el dedo sobre la imagen — el
+texto sigue exactamente el trazo, repitiéndose a lo largo del recorrido
+(inspirado en la herramienta "Brocha de texto" de la app coreana N×N).
 
-> Flujo del producto: **Crear cotización → Generar PDF → Compartir → Seguimiento**
+## Funcionalidad
 
-## Desplegar en 1 clic
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frohimard%2FRohimard%2Ftree%2Fclaude%2Fcotizapro-initial-phase-lk7k6k&project-name=cotizapro&repository-name=cotizapro)
-
-Pulsa el botón, inicia sesión con GitHub y Vercel clona el proyecto y lo publica
-con una URL pública en ~1 minuto. **No necesitas configurar nada** (arranca en
-modo demo). Detalles en [`DEPLOY.md`](./DEPLOY.md).
-
-## Estado: Fase 2 (datos reales y autenticación)
-
-La app funciona con **usuarios y datos reales** cuando Supabase está configurado,
-y conserva un **modo demo** como fallback cuando no lo está.
-
-- ✅ Landing page (hero, problema, solución, cómo funciona, CTA)
-- ✅ Sistema de diseño (Tailwind + tokens de marca)
-- ✅ **Supabase Auth real** en login y registro (+ modo demo)
-- ✅ **Base de datos PostgreSQL** con RLS (`profiles`, `clients`, `quotes`, `quote_items`)
-- ✅ **Protección de rutas** con middleware (`/dashboard/*` requiere sesión)
-- ✅ Perfil del negocio (`/dashboard/configuracion`)
-- ✅ Clientes: crear, editar, eliminar, buscar (`/dashboard/clientes`)
-- ✅ Cotizaciones reales: crear, guardar, numeración única, listar y ver detalle
-- ✅ Dashboard con estadísticas y cotizaciones **reales** (+ estado vacío)
-- ✅ Responsive (prioridad móvil: 360 / 390 / 412 px, tablet y desktop)
-
-> **Migraciones SQL** en `supabase/migrations/` — ver [`supabase/README.md`](./supabase/README.md).
+- Elegir una foto de la galería.
+- Dibujar sobre la foto deslizando el dedo: el texto sigue el trazo en tiempo real.
+- Cambiar el texto, color y tamaño de fuente antes de dibujar cada trazo.
+- Deshacer el último trazo o borrar todos.
+- Guardar la foto editada en la galería del dispositivo.
 
 ## Tecnología
 
-- [Next.js 14](https://nextjs.org/) (App Router)
-- TypeScript
-- Tailwind CSS
-- Supabase (Auth) — opcional en Fase 1
+- [Expo](https://expo.dev/) + React Native + TypeScript
+- `react-native-svg` — renderiza el texto siguiendo el trazo (`<TextPath>`)
+- `expo-image-picker` — seleccionar foto
+- `expo-media-library` — guardar el resultado
+- `react-native-view-shot` — exportar la vista (foto + texto) como imagen
 
 ## Puesta en marcha
 
 ```bash
 npm install
-npm run dev
+npx expo start
 ```
 
-Abre http://localhost:3000
+Escanea el código QR con la app **Expo Go** (disponible en App Store y Google
+Play) desde tu iPhone o Android para probarla al instante, sin necesidad de
+compilar nada.
 
-### Configurar Supabase (opcional)
+### Generar una app instalable (.ipa / .apk)
 
-Sin credenciales, la app corre en **modo demo**: los formularios de login y
-registro te llevan directo al dashboard de ejemplo.
+Para producir un binario real de tienda se necesita
+[EAS Build](https://docs.expo.dev/build/introduction/) (compila en la nube,
+no requiere Xcode/Android Studio locales):
 
-Para activar el login real:
-
-1. Crea un proyecto en [supabase.com](https://supabase.com).
-2. En _Project Settings → API_ copia la **Project URL** y la **anon public key**.
-3. Copia `.env.local.example` a `.env.local` y rellena:
-
-   ```env
-   NEXT_PUBLIC_SUPABASE_URL=https://xxxxx.supabase.co
-   NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGci...
-   ```
-
-4. Reinicia `npm run dev`.
+```bash
+npm install -g eas-cli
+eas login
+eas build --platform android
+eas build --platform ios
+```
 
 ## Estructura
 
 ```
-app/
-  page.tsx                          Landing page
-  login/  register/                 Autenticación
-  dashboard/
-    layout.tsx                      Shell con navegación responsive
-    page.tsx                        Dashboard (stats + cotizaciones demo)
-    cotizaciones/nueva/page.tsx     Formulario de nueva cotización
-components/
-  site/        Navbar, Footer, QuoteMockup
-  auth/        AuthShell, AuthForm
-  dashboard/   DashboardNav, StatCard, EstadoBadge
-  cotizacion/  NuevaCotizacionForm
-  ui/          Logo, icons
-lib/
-  demo.ts      Datos de demostración
-  format.ts    Formato de moneda
-  supabase/    Clientes de Supabase (browser/server) + config
+App.tsx                          Punto de entrada, navegación simple
+src/
+  screens/
+    HomeScreen.tsx                Selector de foto
+    EditorScreen.tsx              Editor: foto + toolbar + guardado
+  components/
+    TextBrushCanvas.tsx           La brocha de texto (captura el trazo y
+                                   renderiza el texto siguiéndolo con SVG)
 ```
 
-## Fuera de alcance en Fase 1
+## Cómo funciona la brocha de texto
 
-Stripe/pagos, IA, WhatsApp automático, generación real de PDF, CRM, inventario,
-facturación, contabilidad y automatizaciones. Llegarán en fases posteriores.
+`TextBrushCanvas` usa `PanResponder` para capturar los puntos del dedo
+mientras se desliza sobre la foto, arma un `<Path>` de SVG con esos puntos, y
+coloca un `<Text>` con `<TextPath href="#idDelPath">` para que el texto
+recorra exactamente esa curva. La frase se repite varias veces para cubrir
+trazos largos.
