@@ -4,7 +4,12 @@ import { BebasNeue_400Regular } from "@expo-google-fonts/bebas-neue";
 import { Pacifico_400Regular } from "@expo-google-fonts/pacifico";
 import { Anton_400Regular } from "@expo-google-fonts/anton";
 import { Caveat_700Bold } from "@expo-google-fonts/caveat";
+import { Sora_800ExtraBold, Sora_600SemiBold } from "@expo-google-fonts/sora";
 import type { FontId, FontOption } from "../types";
+
+// UI chrome only (titles, headers) — not part of the Text Brush font picker.
+export const BRAND_FONT_BOLD = "Sora_800ExtraBold";
+export const BRAND_FONT_SEMIBOLD = "Sora_600SemiBold";
 
 // System font has no custom family: undefined lets RN/SVG fall back to the
 // platform default (San Francisco / Roboto), which needs no loading.
@@ -27,6 +32,8 @@ export function useAppFonts() {
     Pacifico_400Regular,
     Anton_400Regular,
     Caveat_700Bold,
+    Sora_800ExtraBold,
+    Sora_600SemiBold,
   });
 }
 

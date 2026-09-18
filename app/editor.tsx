@@ -12,6 +12,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import ImageCanvas from "../src/components/ImageCanvas";
+import { BRAND_FONT_BOLD } from "../src/lib/fonts";
 import BrushToolbar from "../src/components/BrushToolbar";
 import BrushSettingsPanel from "../src/components/BrushSettings";
 import ExportCanvas from "../src/components/ExportCanvas";
@@ -175,7 +176,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
   },
-  headerTitle: { color: "#fff", fontSize: 16, fontWeight: "700" },
+  headerTitle: { color: "#fff", fontSize: 16, fontFamily: BRAND_FONT_BOLD },
   headerSpacer: { width: 26 },
   canvasWrapper: { flex: 1, alignItems: "center", justifyContent: "center", overflow: "hidden" },
   bottomPanel: { paddingHorizontal: 16, paddingTop: 12, paddingBottom: 8, gap: 12 },
