@@ -43,9 +43,15 @@ jobs:
             echo "-- $nombre <- $url"
             # Tope de resolucion (no de calidad): 480p alcanza de sobra
             # para el fondo difuminado + primer plano del montaje, y
-            # evita que el video mas largo (penguinz0, 9:20) se pase
-            # del limite de tamano.
+            # evita que el video mas largo se pase del limite de tamano.
+            #
+            # "Sign in to confirm you're not a bot": YouTube bloquea el
+            # cliente "web" normal desde IPs de datacenter como las de
+            # GitHub Actions. El cliente movil "android" no pide esa
+            # verificacion -- workaround conocido y documentado del
+            # propio yt-dlp (no requiere cookies ni login real).
             salida=$(yt-dlp -f "bv*[height<=480]+ba/b[height<=480]/mp4" \
+              --extractor-args "youtube:player_client=android,web" \
               --max-filesize 80M -o "$DESTINO/$nombre.mp4" "$url" 2>&1)
             echo "$salida"
             if [ -f "$DESTINO/$nombre.mp4" ]; then
@@ -64,10 +70,10 @@ jobs:
           # (issues #17403/#17407/#17604, sin arreglo aun a la fecha),
           # no algo resoluble desde aqui.
 
-          # Paginas de noticias con reproductor de video embebido.
-          bajar cbc-kelowna-noticia "https://www.cbc.ca/news/canada/british-columbia/cat-in-the-hat-prank-west-kelowna-9.7337550"
-          bajar globalnews-kelowna-noticia "https://globalnews.ca/news/12052365/cat-in-the-hat-chase-west-kelowna-rcmp/"
-          bajar nbcct-westhaven-noticia "https://www.nbcconnecticut.com/news/local/west-haven-student-arrested-in-connection-with-cat-in-the-hat-school-threat/3774738/"
+          # CBC (404, la nota se movio), Global News (URL no soportada
+          # por el extractor) y NBC Connecticut (sin metadata de video
+          # en la pagina) ya se intentaron y fallaron por motivos que no
+          # son de bloqueo -- no vale la pena reintentarlos igual.
 
           # Los mismos segmentos de noticias, pero subidos a YouTube por
           # el propio canal de cada cadena -- yt-dlp es mucho mas
@@ -89,6 +95,25 @@ jobs:
           bajar wfmj-ohio-yt "https://www.youtube.com/watch?v=-m2aiKwgU4I"
           bajar unsolvedminute-disfraz-yt "https://www.youtube.com/watch?v=WH4idzWOIJQ"
           bajar penguinz0-panico-yt "https://www.youtube.com/watch?v=t5Vba46KNpE"
+
+          # Segunda tanda (via agente de busqueda): Hutchinson KS y
+          # Jessamine County KY no tenian ningun video real todavia.
+          bajar ksn-hutchinson-yt "https://www.youtube.com/watch?v=VLRvtUn7AdU"
+          bajar fox56-jessamine-yt "https://www.youtube.com/watch?v=zMThLVQGiYY"
+          bajar citynews-kelowna-yt "https://www.youtube.com/watch?v=e_MtP69HHx8"
+          bajar juno-kelowna-yt "https://www.youtube.com/watch?v=Ad69AdaETB4"
+          # Repost reales del propio fenomeno (no cobertura de noticias
+          # sino el video de terror con IA en si mismo, tal como
+          # circulo) -- el material mas fiel al guion para los tramos
+          # sobre el origen y las publicaciones de IA.
+          bajar trend-clip-real-1-yt "https://www.youtube.com/watch?v=T1dgOWU3Wfo"
+          bajar trend-clip-real-2-yt "https://www.youtube.com/watch?v=xLhLq-KRdhc"
+          bajar trend-clip-real-3-yt "https://www.youtube.com/watch?v=qj0SyVJROq0"
+          bajar trend-clip-real-4-yt "https://www.youtube.com/watch?v=-KwoDrgx91s"
+          # Natalie Reynolds: video real del disfraz moviendose, no solo
+          # la foto.
+          bajar natalie-costume-oficial-yt "https://www.youtube.com/watch?v=pHglbPUxyNQ"
+          bajar natalie-costume-repost-yt "https://www.youtube.com/watch?v=os9AtxtOXtE"
 
           ls -la "$DESTINO"
           cat "$DESTINO/FUENTES-VIDEO.txt" 2>/dev/null || true
