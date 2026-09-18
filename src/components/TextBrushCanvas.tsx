@@ -46,6 +46,12 @@ const TextBrushCanvas = forwardRef<TextBrushCanvasHandle, Props>(
     const [currentD, setCurrentD] = useState("");
     const currentPoints = useRef<Point[]>([]);
 
+    // PanResponder is created once (see below), so its callbacks close over
+    // stale props. Keep the latest phrase/color/fontSize in a ref, updated
+    // on every render, so a stroke always uses what's on screen right now.
+    const latestOptions = useRef({ phrase, color, fontSize });
+    latestOptions.current = { phrase, color, fontSize };
+
     useImperativeHandle(ref, () => ({
       undo: () => setStrokes((prev) => prev.slice(0, -1)),
       clear: () => setStrokes([]),
@@ -72,16 +78,20 @@ const TextBrushCanvas = forwardRef<TextBrushCanvasHandle, Props>(
           setCurrentD(buildPathFromPoints(currentPoints.current));
         },
         onPanResponderRelease: () => {
-          if (currentPoints.current.length > 1) {
+          const points = currentPoints.current;
+          if (points.length > 1) {
+            const d = buildPathFromPoints(points);
+            const { phrase: currentPhrase, color: currentColor, fontSize: currentFontSize } =
+              latestOptions.current;
             strokeCounter += 1;
             setStrokes((prev) => [
               ...prev,
               {
                 id: `stroke-${strokeCounter}`,
-                d: buildPathFromPoints(currentPoints.current),
-                phrase,
-                color,
-                fontSize,
+                d,
+                phrase: currentPhrase,
+                color: currentColor,
+                fontSize: currentFontSize,
               },
             ]);
           }
