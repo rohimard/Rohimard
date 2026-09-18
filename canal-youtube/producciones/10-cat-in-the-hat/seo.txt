@@ -126,11 +126,13 @@ los medios (arriba), aunque el video no lo diga en voz.
 
 MINIATURA
 =========
-Base: still real de la película de 2003 (Euronews, cobertura del origen
-del trend, ya con grano/tinte de terror aplicado por el propio medio).
-Corrección de color: +18% contraste, +30% saturación, viñeta.
+Base: foto real de cerca de la máscara física del disfraz (la que se
+subastó vía Propstore, cobertura de Nerdist) -- no un fotograma de la
+película, corregido tras el mismo señalamiento que llevó a cambiar el
+primer plano del video. Corrección de color: +15% contraste, +20%
+saturación.
 Texto: "PARECE UNA BROMA" (blanco) / "TERMINÓ EN ARRESTO" (caja roja),
-lado derecho (espacio negativo detrás del personaje). No repite el
+lado derecho (espacio negativo del fondo gris). No repite el
 título palabra por palabra -- el título ya dice "arrestos" en plural
 y nombra la tendencia; la miniatura aporta la tensión broma/consecuencia
 real que es la tesis del propio guion.
