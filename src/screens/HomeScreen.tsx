@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
@@ -7,17 +7,27 @@ type Props = {
 };
 
 export default function HomeScreen({ onImagePicked }: Props) {
+  // Evita que el diálogo de permisos de Android dispare el onPress dos veces
+  // y abra el selector de fotos por duplicado.
+  const isPicking = useRef(false);
+
   const pickImage = async () => {
-    const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (!permission.granted) return;
+    if (isPicking.current) return;
+    isPicking.current = true;
+    try {
+      const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (!permission.granted) return;
 
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      quality: 1,
-    });
+      const result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        quality: 1,
+      });
 
-    if (!result.canceled && result.assets[0]) {
-      onImagePicked(result.assets[0].uri);
+      if (!result.canceled && result.assets[0]) {
+        onImagePicked(result.assets[0].uri);
+      }
+    } finally {
+      isPicking.current = false;
     }
   };
 

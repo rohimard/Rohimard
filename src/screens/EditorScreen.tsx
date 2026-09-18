@@ -90,7 +90,7 @@ export default function EditorScreen({ imageUri, onBack }: Props) {
           <View style={{ width: canvasSize.width, height: canvasSize.height }}>
             <Image
               source={{ uri: imageUri }}
-              style={{ width: canvasSize.width, height: canvasSize.height }}
+              style={StyleSheet.absoluteFillObject}
               resizeMode="cover"
             />
             <TextBrushCanvas
