@@ -44,7 +44,12 @@ def main() -> None:
     rutas, faltan = [], []
     for f in filas:
         p = f["archivo"]
-        (rutas.append((p, float(f["dur"]))) if os.path.exists(p) else faltan.append(p))
+        # Para clips de video, "anclado" (si trae un numero) es el
+        # segundo del clip fuente donde empezar a recortar -- el
+        # contenido real casi nunca esta justo al inicio del clip
+        # bajado (suele haber intro del noticiero antes).
+        inicio_fuente = float(f["anclado"]) if f.get("anclado", "").strip() else 0.0
+        (rutas.append((p, float(f["dur"]), inicio_fuente)) if os.path.exists(p) else faltan.append(p))
 
     if faltan:
         print(f"::error:: faltan {len(faltan)} imágenes: {', '.join(faltan)}")
@@ -100,21 +105,26 @@ def main() -> None:
 
     if args.zoom:
         trozos = []
-        for i, (p, d) in enumerate(rutas):
+        for i, (p, d, ini) in enumerate(rutas):
             if p.lower().endswith(EXT_VIDEO):
                 # Clip de video real (no una foto): ya trae su propio
-                # movimiento, no se le aplica zoompan. Se recorta a la
-                # duracion del plano; si el clip es mas corto que el
-                # plano, se sostiene el ultimo fotograma (tpad) en vez
-                # de dejar el video mudo/negro o desincronizar el resto
-                # del montaje. El audio propio del clip no se mapea --
-                # se queda mudo, solo se oye la narracion.
+                # movimiento, no se le aplica zoompan. Se recorta desde
+                # "ini" (el contenido real casi nunca esta justo al
+                # inicio del clip bajado, suele haber intro del
+                # noticiero antes) hasta completar la duracion del
+                # plano; si de ahi al final del clip no alcanza, se
+                # sostiene el ultimo fotograma (tpad) en vez de dejar
+                # el video mudo/negro o desincronizar el resto del
+                # montaje. El audio propio del clip no se mapea -- se
+                # queda mudo, solo se oye la narracion.
                 dur_clip = duracion_real(p)
+                disponible = max(0.0, dur_clip - ini)
+                usar = min(d, disponible)
                 relleno_extra = ""
-                if dur_clip < d:
-                    relleno_extra = f",tpad=stop_mode=clone:stop_duration={d - dur_clip:.3f}"
+                if usar < d:
+                    relleno_extra = f",tpad=stop_mode=clone:stop_duration={d - usar:.3f}"
                 trozos.append(
-                    f"[{i}:v]trim=start=0:end={min(d, dur_clip):.3f},setpts=PTS-STARTPTS,"
+                    f"[{i}:v]trim=start={ini:.3f}:end={ini + usar:.3f},setpts=PTS-STARTPTS,"
                     f"{relleno_difuminado(i)}{relleno_extra},fps={FPS}[v{i}]"
                 )
                 continue
@@ -133,14 +143,14 @@ def main() -> None:
         cadena += f"{quemar}[vid]" if quemar else "[vid]"
 
         cmd = ["ffmpeg", "-y"]
-        for p, _ in rutas:
+        for p, _, _ in rutas:
             cmd += ["-i", p]
         cmd += ["-i", args.audio, "-filter_complex", cadena, "-map", "[vid]",
                 "-map", f"{len(rutas)}:a"]
     else:
         lista = "lista-concat.txt"
         with open(lista, "w", encoding="utf-8") as fh:
-            for p, d in rutas:
+            for p, d, _ in rutas:
                 fh.write(f"file '{os.path.abspath(p)}'\nduration {d:.3f}\n")
             fh.write(f"file '{os.path.abspath(rutas[-1][0])}'\n")
         cmd = ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", lista,
@@ -151,7 +161,7 @@ def main() -> None:
             "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k",
             "-shortest", args.salida]
 
-    total = sum(d for _, d in rutas)
+    total = sum(d for _, d, _ in rutas)
     print(f"{len(rutas)} planos, {total:.2f}s, "
           f"zoom={'sí' if args.zoom else 'no'}, "
           f"subtítulos={'quemados' if args.subtitulos else 'no'}")
