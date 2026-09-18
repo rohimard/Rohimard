@@ -26,6 +26,8 @@ type Props = {
   onClear: () => void;
   onExport: () => void;
   exporting: boolean;
+  canReplay: boolean;
+  onReplay: () => void;
 };
 
 export default function BrushToolbar({
@@ -38,6 +40,8 @@ export default function BrushToolbar({
   onClear,
   onExport,
   exporting,
+  canReplay,
+  onReplay,
 }: Props) {
   return (
     <ScrollView
@@ -60,6 +64,17 @@ export default function BrushToolbar({
       })}
 
       <View style={styles.divider} />
+
+      <TouchableOpacity style={styles.button} onPress={onReplay} disabled={!canReplay}>
+        <Ionicons
+          name="play-circle-outline"
+          size={22}
+          color={canReplay ? ACTIVE_COLOR : "#3A3A44"}
+        />
+        <Text style={[styles.label, canReplay && styles.labelActive, !canReplay && styles.labelDisabled]}>
+          Reproducir
+        </Text>
+      </TouchableOpacity>
 
       <TouchableOpacity style={styles.button} onPress={onUndo} disabled={!canUndo}>
         <Ionicons name="arrow-undo-outline" size={22} color={canUndo ? INACTIVE_COLOR : "#3A3A44"} />

@@ -51,6 +51,13 @@ export interface TextElement {
   fontSize: number;
   fontId: FontId;
   opacity: number;
+  /**
+   * Milliseconds since the stroke started, at the moment this stamp appeared
+   * while the user was drawing. 0 for tap-placed ("Texto") elements. Lets a
+   * brush stroke be replayed at the exact cadence it was drawn — the
+   * MotionBrush prototype's core mechanic (see StrokeReplay).
+   */
+  timeMs: number;
 }
 
 export type StrokeTool = "text" | "brush";

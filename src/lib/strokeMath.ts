@@ -3,6 +3,9 @@ import type { BrushSettings, TextElement } from "../types";
 export interface Point {
   x: number;
   y: number;
+  /** Milliseconds since the gesture started. Optional so callers that don't
+   * care about replay (e.g. the tap tool) can omit it. */
+  t?: number;
 }
 
 function distance(a: Point, b: Point): number {
@@ -17,6 +20,7 @@ function makeElement(
   x: number,
   y: number,
   rotation: number,
+  timeMs: number,
   index: number,
   idPrefix: string,
   settings: BrushSettings
@@ -31,6 +35,7 @@ function makeElement(
     fontSize: settings.fontSize,
     fontId: settings.fontId,
     opacity: settings.opacity,
+    timeMs,
   };
 }
 
@@ -54,7 +59,9 @@ export function buildStampedElements(
   let index = 0;
 
   const firstAngle = angleBetween(points[0], points[1]);
-  elements.push(makeElement(points[0].x, points[0].y, firstAngle, index++, idPrefix, normalizedSettings));
+  elements.push(
+    makeElement(points[0].x, points[0].y, firstAngle, points[0].t ?? 0, index++, idPrefix, normalizedSettings)
+  );
 
   let carry = spacing;
   for (let i = 1; i < points.length; i++) {
@@ -63,14 +70,17 @@ export function buildStampedElements(
     const segmentLength = distance(prev, curr);
     if (segmentLength === 0) continue;
     const angle = angleBetween(prev, curr);
+    const prevT = prev.t ?? 0;
+    const currT = curr.t ?? prevT;
 
     let consumed = 0;
     while (consumed + carry <= segmentLength) {
       consumed += carry;
-      const t = consumed / segmentLength;
-      const x = prev.x + (curr.x - prev.x) * t;
-      const y = prev.y + (curr.y - prev.y) * t;
-      elements.push(makeElement(x, y, angle, index++, idPrefix, normalizedSettings));
+      const frac = consumed / segmentLength;
+      const x = prev.x + (curr.x - prev.x) * frac;
+      const y = prev.y + (curr.y - prev.y) * frac;
+      const timeMs = prevT + (currT - prevT) * frac;
+      elements.push(makeElement(x, y, angle, timeMs, index++, idPrefix, normalizedSettings));
       carry = spacing;
     }
     carry -= segmentLength - consumed;
@@ -104,5 +114,6 @@ export function makeStandaloneElement(
     fontSize: settings.fontSize,
     fontId: settings.fontId,
     opacity: settings.opacity,
+    timeMs: 0,
   };
 }

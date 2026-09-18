@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { Image, StyleSheet } from "react-native";
 import { Gesture, GestureDetector } from "react-native-gesture-handler";
 import Animated, {
@@ -7,7 +7,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import type { ImageDocument } from "../types";
-import TextBrush from "./TextBrush";
+import TextBrush, { type TextBrushHandle } from "./TextBrush";
 
 const MIN_SCALE = 1;
 const MAX_SCALE = 6;
@@ -30,13 +30,10 @@ type Props = {
  * coordinates it reports stay in stable "document space" regardless of the
  * current zoom level.
  */
-export default function ImageCanvas({
-  document,
-  baseWidth,
-  baseHeight,
-  drawingEnabled,
-  drawMode,
-}: Props) {
+const ImageCanvas = forwardRef<TextBrushHandle, Props>(function ImageCanvas(
+  { document, baseWidth, baseHeight, drawingEnabled, drawMode },
+  ref
+) {
   const scale = useSharedValue(1);
   const savedScale = useSharedValue(1);
   const translateX = useSharedValue(0);
@@ -90,8 +87,16 @@ export default function ImageCanvas({
           style={StyleSheet.absoluteFillObject}
           resizeMode="cover"
         />
-        <TextBrush width={baseWidth} height={baseHeight} enabled={drawingEnabled} mode={drawMode} />
+        <TextBrush
+          ref={ref}
+          width={baseWidth}
+          height={baseHeight}
+          enabled={drawingEnabled}
+          mode={drawMode}
+        />
       </Animated.View>
     </GestureDetector>
   );
-}
+});
+
+export default ImageCanvas;

@@ -12,6 +12,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
 import ImageCanvas from "../src/components/ImageCanvas";
+import type { TextBrushHandle } from "../src/components/TextBrush";
 import { BRAND_FONT_BOLD } from "../src/lib/fonts";
 import BrushToolbar from "../src/components/BrushToolbar";
 import BrushSettingsPanel from "../src/components/BrushSettings";
@@ -40,6 +41,9 @@ export default function EditorScreen() {
   } = useEditor();
   const [exporting, setExporting] = useState(false);
   const exportRef = useRef<View>(null);
+  const brushRef = useRef<TextBrushHandle>(null);
+
+  const lastBrushStroke = [...state.strokes].reverse().find((s) => s.tool === "brush");
 
   const nativeWidth = Number(params.width) || 1;
   const nativeHeight = Number(params.height) || 1;
@@ -65,6 +69,10 @@ export default function EditorScreen() {
   const drawMode: "brush" | "tap" = state.activeTool === "text" ? "tap" : "brush";
 
   const handleSelectTool = (tool: ToolId) => setTool(tool);
+
+  const handleReplay = () => {
+    if (lastBrushStroke) brushRef.current?.replayStroke(lastBrushStroke.id);
+  };
 
   const handleClear = () => {
     if (!canUndo) return;
@@ -113,6 +121,7 @@ export default function EditorScreen() {
 
       <View style={styles.canvasWrapper}>
         <ImageCanvas
+          ref={brushRef}
           document={state.document}
           baseWidth={canvasSize.width}
           baseHeight={canvasSize.height}
@@ -159,6 +168,8 @@ export default function EditorScreen() {
           onClear={handleClear}
           onExport={handleExport}
           exporting={exporting}
+          canReplay={Boolean(lastBrushStroke)}
+          onReplay={handleReplay}
         />
       </View>
     </SafeAreaView>
