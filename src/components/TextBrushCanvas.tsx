@@ -121,14 +121,12 @@ const TextBrushCanvas = forwardRef<TextBrushCanvasHandle, Props>(
             </React.Fragment>
           ))}
           {currentD ? (
-            <Path
-              d={currentD}
-              stroke={color}
-              strokeWidth={1}
-              strokeDasharray="4 4"
-              fill="none"
-              opacity={0.6}
-            />
+            <React.Fragment>
+              <Path id="current-stroke" d={currentD} stroke="none" fill="none" />
+              <SvgText fill={color} fontSize={fontSize} fontWeight="700">
+                <TextPath href="#current-stroke">{repeatedText(phrase)}</TextPath>
+              </SvgText>
+            </React.Fragment>
           ) : null}
         </Svg>
       </View>

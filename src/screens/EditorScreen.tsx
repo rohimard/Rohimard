@@ -25,6 +25,8 @@ type Props = {
 const COLORS = ["#FFFFFF", "#000000", "#FF3B6F", "#FFD23F", "#4CC9F0", "#7C3AED"];
 const SCREEN_WIDTH = Dimensions.get("window").width;
 const MAX_CANVAS_HEIGHT = Dimensions.get("window").height * 0.6;
+const MIN_FONT_SIZE = 12;
+const MAX_FONT_SIZE = 48;
 
 export default function EditorScreen({ imageUri, onBack }: Props) {
   const [canvasSize, setCanvasSize] = useState({
@@ -136,13 +138,14 @@ export default function EditorScreen({ imageUri, onBack }: Props) {
           <View style={styles.fontControls}>
             <TouchableOpacity
               style={styles.fontButton}
-              onPress={() => setFontSize((s) => Math.max(12, s - 2))}
+              onPress={() => setFontSize((s) => Math.max(MIN_FONT_SIZE, s - 2))}
             >
               <Text style={styles.fontButtonText}>A-</Text>
             </TouchableOpacity>
+            <Text style={styles.fontSizeLabel}>{fontSize}</Text>
             <TouchableOpacity
               style={styles.fontButton}
-              onPress={() => setFontSize((s) => Math.min(48, s + 2))}
+              onPress={() => setFontSize((s) => Math.min(MAX_FONT_SIZE, s + 2))}
             >
               <Text style={styles.fontButtonText}>A+</Text>
             </TouchableOpacity>
@@ -214,6 +217,13 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   fontButtonText: { color: "#fff", fontWeight: "700" },
+  fontSizeLabel: {
+    color: "#fff",
+    fontWeight: "700",
+    fontSize: 15,
+    minWidth: 28,
+    textAlign: "center",
+  },
   actionButton: {
     flex: 1,
     backgroundColor: "#1A1A22",
