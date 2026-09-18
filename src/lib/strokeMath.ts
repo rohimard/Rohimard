@@ -48,7 +48,7 @@ export function buildStampedElements(
   const phrase = settings.phrase.trim();
   if (points.length < 2 || !phrase) return [];
 
-  const spacing = Math.max(settings.spacing, 4);
+  const spacing = Math.max(settings.spacing, 2);
   const normalizedSettings: BrushSettings = { ...settings, phrase };
   const elements: TextElement[] = [];
   let index = 0;
