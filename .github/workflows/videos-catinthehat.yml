@@ -30,6 +30,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: pip install --quiet -U yt-dlp
+      # --download-sections (recorte a los primeros 60s) necesita
+      # ffmpeg instalado en el runner -- sin el, yt-dlp aborta antes de
+      # bajar nada ("downloading the video partially, but ffmpeg is
+      # not installed").
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
 
       - name: Bajar clips reales (TikTok del propio hecho)
         run: |
