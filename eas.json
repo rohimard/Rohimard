@@ -14,14 +14,12 @@
       "android": {
         "buildType": "apk"
       },
-      "distribution": "internal",
-      "channel": "production"
+      "distribution": "internal"
     },
     "play-store": {
       "android": {
         "buildType": "app-bundle"
-      },
-      "channel": "production"
+      }
     }
   },
   "submit": {
