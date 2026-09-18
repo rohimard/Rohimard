@@ -22,7 +22,7 @@ export default function BrushSettingsPanel({ activeTool, settings, onChange }: P
         <SteppedControl
           label="Tamaño"
           value={settings.fontSize}
-          min={4}
+          min={0}
           max={72}
           step={1}
           onChange={(fontSize) => onChange({ fontSize })}
@@ -33,7 +33,7 @@ export default function BrushSettingsPanel({ activeTool, settings, onChange }: P
         <SteppedControl
           label="Espaciado"
           value={settings.spacing}
-          min={2}
+          min={0}
           max={220}
           step={2}
           onChange={(spacing) => onChange({ spacing })}
