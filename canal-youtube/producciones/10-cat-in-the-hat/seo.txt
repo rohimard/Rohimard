@@ -126,13 +126,22 @@ los medios (arriba), aunque el video no lo diga en voz.
 
 MINIATURA
 =========
-Base: foto real de cerca de la máscara física del disfraz (la que se
-subastó vía Propstore, cobertura de Nerdist) -- no un fotograma de la
-película, corregido tras el mismo señalamiento que llevó a cambiar el
-primer plano del video. Corrección de color: +15% contraste, +20%
-saturación.
+Base: foto real de cerca de la máscara física del disfraz, de Dexerto
+(dexerto-disfraz.jpg) -- no un fotograma de la película. La primera
+versión usaba una foto de la misma máscara vía Nerdist
+(disfraz-nerdist.jpg), pero al validarla cruzándola contra esta otra
+foto real del mismo objeto físico se confirmó que la de Nerdist salía
+con la cara estirada/deformada (mal recorte del CDN de origen) -- se
+descartó y se borró del repo. La foto de Dexerto trae también a
+Natalie Reynolds junto a la máscara (sin espacio negativo limpio para
+el texto ni forma de usarla entera sin poner a una persona real de
+fondo), así que la miniatura usa un recorte de solo la máscara: nítido
+como sujeto principal a la izquierda, y ese mismo recorte ampliado y
+difuminado como relleno de fondo a la derecha (nunca la foto completa
+con Reynolds). Corrección de color sobre ese recorte: +15% contraste,
++20% saturación.
 Texto: "PARECE UNA BROMA" (blanco) / "TERMINÓ EN ARRESTO" (caja roja),
-lado derecho (espacio negativo del fondo gris). No repite el
+lado derecho (espacio negativo del fondo difuminado). No repite el
 título palabra por palabra -- el título ya dice "arrestos" en plural
 y nombra la tendencia; la miniatura aporta la tensión broma/consecuencia
 real que es la tesis del propio guion.
