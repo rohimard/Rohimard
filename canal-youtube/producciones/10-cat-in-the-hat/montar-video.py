@@ -86,10 +86,16 @@ def main() -> None:
         # un segundo rotulo -- arriba, con caja solida para distinguirlo
         # claramente del subtitulo de la narracion -- con la traduccion.
         if os.path.exists(TRADUCCION_SRT):
-            estilo_trad = ("FontName=DejaVu Sans,Fontsize=15,Bold=0,Italic=1,"
+            # Version anterior (Fontsize=15, Outline=6 de caja,
+            # margenes de 100px) tapaba casi toda la imagen en formato
+            # vertical/cuadrado. Ahora: letra mas chica, caja mas
+            # angosta (menos padding), y mas ancho de linea (margenes
+            # de 30px) para que el texto entre en una sola linea y la
+            # caja sea lo mas baja posible.
+            estilo_trad = ("FontName=DejaVu Sans,Fontsize=11,Bold=0,Italic=1,"
                            "PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,"
-                           "BackColour=&H80000000,BorderStyle=3,Outline=6,Shadow=0,"
-                           "Alignment=8,MarginV=40,MarginL=100,MarginR=100")
+                           "BackColour=&H70000000,BorderStyle=3,Outline=2.5,Shadow=0,"
+                           "Alignment=8,MarginV=18,MarginL=30,MarginR=30")
             quemar += f",subtitles={TRADUCCION_SRT}:force_style='{estilo_trad}'"
 
     if args.zoom:

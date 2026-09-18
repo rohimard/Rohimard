@@ -41,8 +41,12 @@ jobs:
           bajar() {
             nombre="$1"; url="$2"
             echo "-- $nombre <- $url"
-            salida=$(yt-dlp -f "mp4/bv*+ba/b" --max-filesize 60M \
-              -o "$DESTINO/$nombre.mp4" "$url" 2>&1)
+            # Tope de resolucion (no de calidad): 480p alcanza de sobra
+            # para el fondo difuminado + primer plano del montaje, y
+            # evita que el video mas largo (penguinz0, 9:20) se pase
+            # del limite de tamano.
+            salida=$(yt-dlp -f "bv*[height<=480]+ba/b[height<=480]/mp4" \
+              --max-filesize 80M -o "$DESTINO/$nombre.mp4" "$url" 2>&1)
             echo "$salida"
             if [ -f "$DESTINO/$nombre.mp4" ]; then
               echo "OK: $nombre <- $url" >> "$DESTINO/FUENTES-VIDEO.txt"
@@ -58,19 +62,33 @@ jobs:
           # TikTok fallo: "Unexpected response from webpage request" es
           # un bug de yt-dlp contra el nuevo challenge/cookie de TikTok
           # (issues #17403/#17407/#17604, sin arreglo aun a la fecha),
-          # no algo resoluble desde aqui. Se deja un intento por si se
-          # arregla solo con la version mas nueva, y se pasa a intentar
-          # el reproductor de video embebido de las paginas de noticias.
-          bajar natalie-camara-en-vivo "https://www.tiktok.com/@nataliireynoldss/video/7682950319470316830"
-          bajar berwick-tiktok-real "https://www.tiktok.com/@fearr_god/video/7680716741458021646"
+          # no algo resoluble desde aqui.
 
-          # Paginas de noticias con reproductor de video embebido (JW
-          # Player/Brightcove/etc.) -- yt-dlp los extrae directo si el
-          # sitio no bloquea el runner.
-          bajar wbrz-berwick-noticia "https://www.wbrz.com/news/four-juveniles-arrested-in-berwick-following-investigation-into-cat-in-the-hat-trend"
+          # Paginas de noticias con reproductor de video embebido.
           bajar cbc-kelowna-noticia "https://www.cbc.ca/news/canada/british-columbia/cat-in-the-hat-prank-west-kelowna-9.7337550"
           bajar globalnews-kelowna-noticia "https://globalnews.ca/news/12052365/cat-in-the-hat-chase-west-kelowna-rcmp/"
           bajar nbcct-westhaven-noticia "https://www.nbcconnecticut.com/news/local/west-haven-student-arrested-in-connection-with-cat-in-the-hat-school-threat/3774738/"
+
+          # Los mismos segmentos de noticias, pero subidos a YouTube por
+          # el propio canal de cada cadena -- yt-dlp es mucho mas
+          # confiable en YouTube que contra el reproductor propio de
+          # cada sitio de noticias (que a veces bloquea o no expone un
+          # og:video). Encontrados via busqueda real (Nexlev), verificar
+          # contenido real al bajarlos.
+          bajar klfy-berwick-yt "https://www.youtube.com/watch?v=sHMwSvWyVwI"
+          bajar wbrz-berwick-yt "https://www.youtube.com/watch?v=KXu58eXew0w"
+          bajar fox61-westhaven-yt "https://www.youtube.com/watch?v=Ca0xf1oQhUE"
+          bajar wtva-arresto-yt "https://www.youtube.com/watch?v=Ek6aswB5cqI"
+          bajar wlwt-escuelas-yt "https://www.youtube.com/watch?v=MrcxsI4vlZA"
+          bajar morecritical-kentucky-yt "https://www.youtube.com/watch?v=lTeF6l_7bXo"
+          bajar morecritical-arrestos-yt "https://www.youtube.com/watch?v=xxgJQJZXUIk"
+          bajar andysfilms-cierres-yt "https://www.youtube.com/watch?v=FHMiHH1kN_o"
+          bajar pensacola-santarosa-yt "https://www.youtube.com/watch?v=8lKgXKs6-z4"
+          bajar wjhl-tennessee-yt "https://www.youtube.com/watch?v=NSv2J7db3yI"
+          bajar whio-ohio-yt "https://www.youtube.com/watch?v=lTqSWH-hzTc"
+          bajar wfmj-ohio-yt "https://www.youtube.com/watch?v=-m2aiKwgU4I"
+          bajar unsolvedminute-disfraz-yt "https://www.youtube.com/watch?v=WH4idzWOIJQ"
+          bajar penguinz0-panico-yt "https://www.youtube.com/watch?v=t5Vba46KNpE"
 
           ls -la "$DESTINO"
           cat "$DESTINO/FUENTES-VIDEO.txt" 2>/dev/null || true
