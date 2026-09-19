@@ -1,0 +1,17 @@
+FALLO: openai-comunicado.jpg <- https://openai.com/index/hugging-face-incident-and-the-road-ahead/ :: 403 Client Error: Forbidden for url: https://openai.com/index/hugging-face-incident-and-the-road-ahead/
+FALLO: openai-atribucion-axios.jpg <- https://www.axios.com/2026/07/21/openai-says-hugging-face-breach-caused-by-one-its-models :: 403 Client Error: Forbidden for url: https://www.axios.com/2026/07/21/openai-says-hugging-face-breach-caused-by-one-its-models
+OK (10546 bytes): hf-blog-divulgacion.jpg <- https://huggingface.co/blog/assets/security-incident-july-2026/thumbnail.png
+OK (22981 bytes): hf-blog-forense.jpg <- https://huggingface.co/blog/assets/agent-intrusion-technical-timeline/thumbnail.png
+SIN og:image: jfrog-colaboracion.jpg <- https://jfrog.com/blog/jfrog-and-openai-collaboration-on-zero-day-security-findings/
+OK (114377 bytes): infoq-swarm.jpg <- https://res.infoq.com/news/2026/08/openai-huggingface-breach/en/card_header_image/generatedCard-1785823837312.jpg
+OK (87382 bytes): cnbc-informe.jpg <- https://image.cnbcfm.com/api/v1/image/108349720-1786712811754-gettyimages-2287521404-ALTMAN_CAPITOL.jpeg?v=1787088846&w=1920&h=1080
+FALLO: sanders-axios.jpg <- https://www.axios.com/2026/09/03/bernie-sanders-superintelligence-ban-ai-pause :: 403 Client Error: Forbidden for url: https://www.axios.com/2026/09/03/bernie-sanders-superintelligence-ban-ai-pause
+FALLO: sanders-casar-thehill.jpg <- https://thehill.com/policy/technology/6069131-sanders-casar-ai-superintelligence-ban/ :: 403 Client Error: Forbidden for url: https://thehill.com/policy/technology/6069131-sanders-casar-ai-superintelligence-ban/
+SIN og:image: sanders-comunicado.jpg <- https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/
+OK (646000 bytes): delangue-techcrunch.jpg <- https://techcrunch.com/wp-content/uploads/2026/07/Hugging-Face-CEO-Clem-Delangue.png?resize=1200,675
+OK (188400 bytes): openai-techcrunch.jpg <- https://techcrunch.com/wp-content/uploads/2026/05/ai-agents-GettyImages-2229880232.jpg?resize=1200,675
+FALLO: seis-incidentes-axios.jpg <- https://www.axios.com/2026/09/16/openai-testing-safety-incidents-disclosure :: 403 Client Error: Forbidden for url: https://www.axios.com/2026/09/16/openai-testing-safety-incidents-disclosure
+OK (446953 bytes): seis-incidentes-hackernews.jpg <- https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz2xdqQbSjGZGGkNO0hRMgoEWNFpWVp0DDsBvsbQekWezeScq_sLAPfzY-kJenfNHYFnSqDcU93F30gmINBYYobl0Jf1thyPsXm34lbJPqMfZwPXoRy1UvpQcS_eHwF_nVqk-rDBTd83B8iteh4e23r2pnbtUsOgFPmYVRi-IlrW6-9FFUf7-DiZ8yyAOJ/s1600/openai-models.jpg
+OK (98600 bytes): seis-incidentes-nbc.jpg <- https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2026-04/260430-openai-rs-4b7945.jpg
+OK (97893 bytes): yang-yahoo.jpg <- https://s.yimg.com/lo/mysterio/api/5768696081b510a7a4f9688e5b896e3199d868b1ba4d6160d9b750d20f8e367e/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgadget_review_articles_822%2Fdac26cff4815f95facbb43f6f2a36fa2.jpg
+OK (148901 bytes): yang-gadgetreview.jpg <- https://www.gadgetreview.com/wp-content/uploads/OpenAIs-Rogue-Agent-Swarm-Is-Real-scaled.jpg
