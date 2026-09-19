@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Alert,
   Dimensions,
+  PixelRatio,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useLocalSearchParams, useRouter } from "expo-router";
@@ -69,7 +70,10 @@ export default function EditorScreen() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.uri]);
 
-  const drawingEnabled = state.activeTool === "brush" || state.activeTool === "text";
+  // Drawing must stay live regardless of which toolbar option/settings panel
+  // is currently open — the user shouldn't have to re-tap "Text Brush" to
+  // keep drawing after adjusting a setting.
+  const drawingEnabled = true;
   const drawMode: "brush" | "tap" = state.activeTool === "text" ? "tap" : "brush";
 
   const handleSelectTool = (tool: ToolId) => setTool(tool);
@@ -103,11 +107,16 @@ export default function EditorScreen() {
     }
   };
 
+  // Recording at the on-screen display size looks pixelated once played back
+  // full-screen on a real phone — record at the device's pixel density instead
+  // (clamped so very high-density screens don't produce an oversized file).
+  const videoScale = Math.min(Math.max(PixelRatio.get(), 2), 3);
+
   const runVideoExport = async () => {
     if (!lastBrushStroke || exportingVideo) return;
     setExportingVideo(true);
     try {
-      const video = await videoExportRef.current?.recordStroke(lastBrushStroke, canvasSize);
+      const video = await videoExportRef.current?.recordStroke(lastBrushStroke, canvasSize, videoScale);
       if (!video) throw new Error("No se pudo grabar el video");
       const result = await saveRecordedVideoToGallery(video);
       if (result.ok) {

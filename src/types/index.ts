@@ -72,6 +72,13 @@ export interface TextStroke {
   tool: StrokeTool;
   elements: TextElement[];
   createdAt: number;
+  /**
+   * Raw drawn points (brush strokes only). Kept alongside the stamped
+   * `elements` so a later style change (size, spacing, color...) can
+   * regenerate this stroke's elements in place instead of only affecting
+   * strokes drawn after the change.
+   */
+  points?: { x: number; y: number; t?: number }[];
 }
 
 export interface ImageDocument {

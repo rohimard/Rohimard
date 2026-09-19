@@ -1,7 +1,7 @@
 import React, { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { WebView, type WebViewMessageEvent } from "react-native-webview";
-import { buildRecorderHtml } from "../lib/videoExport";
+import { buildRecorderHtml, CHROMA_GREEN } from "../lib/videoExport";
 import type { TextStroke } from "../types";
 
 export type RecordedVideo = { base64: string; mimeType: string };
@@ -10,7 +10,8 @@ export type VideoExportHandle = {
   /** Records the stroke's animation over a chroma background; resolves with the recorded video. */
   recordStroke: (
     stroke: TextStroke,
-    canvasSize: { width: number; height: number }
+    canvasSize: { width: number; height: number },
+    scale?: number
   ) => Promise<RecordedVideo>;
 };
 
@@ -30,14 +31,18 @@ const VideoExportWebView = forwardRef<VideoExportHandle>(function VideoExportWeb
     const pendingRef = useRef<PendingRecording | null>(null);
 
     useImperativeHandle(ref, () => ({
-      recordStroke: (stroke, canvasSize) => {
+      recordStroke: (stroke, canvasSize, scale = 1) => {
         return new Promise<RecordedVideo>((resolve, reject) => {
           if (pendingRef.current) {
             reject(new Error("Ya hay una grabación en curso."));
             return;
           }
           pendingRef.current = { resolve, reject };
-          setJob({ html: buildRecorderHtml(stroke, canvasSize), width: canvasSize.width, height: canvasSize.height });
+          setJob({
+            html: buildRecorderHtml(stroke, canvasSize, CHROMA_GREEN, scale),
+            width: canvasSize.width * scale,
+            height: canvasSize.height * scale,
+          });
         });
       },
     }));

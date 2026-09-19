@@ -109,6 +109,7 @@ const TextBrush = forwardRef<TextBrushHandle, Props>(function TextBrush(
       tool: "brush",
       elements: stamped,
       createdAt: Date.now(),
+      points: [...points],
     };
     commitStroke(stroke);
   };

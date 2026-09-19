@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useMemo, useReducer } from "react";
 import * as History from "./HistoryManager";
+import { buildStampedElements } from "../lib/strokeMath";
 import type {
   BrushSettings,
   EditorState,
@@ -41,8 +42,38 @@ function reducer(state: EditorState, action: Action): EditorState {
       return { ...state, document: action.document, strokes: [], redoStack: [] };
     case "SET_TOOL":
       return { ...state, activeTool: action.tool };
-    case "UPDATE_SETTINGS":
-      return { ...state, settings: { ...state.settings, ...action.settings } };
+    case "UPDATE_SETTINGS": {
+      const mergedSettings = { ...state.settings, ...action.settings };
+
+      // A phrase-only edit (typing in the text field) shouldn't rewrite
+      // text that's already on the canvas — only a style change (size,
+      // spacing, color, font, opacity) should live-edit the last stroke.
+      const touchesStyle = Object.keys(action.settings).some((key) => key !== "phrase");
+      if (!touchesStyle) {
+        return { ...state, settings: mergedSettings };
+      }
+
+      let lastBrushIndex = -1;
+      for (let i = state.strokes.length - 1; i >= 0; i--) {
+        if (state.strokes[i].tool === "brush") {
+          lastBrushIndex = i;
+          break;
+        }
+      }
+      const lastBrushStroke = lastBrushIndex >= 0 ? state.strokes[lastBrushIndex] : undefined;
+      if (!lastBrushStroke?.points || lastBrushStroke.points.length < 2) {
+        return { ...state, settings: mergedSettings };
+      }
+
+      const regenerated = buildStampedElements(lastBrushStroke.points, mergedSettings, lastBrushStroke.id);
+      if (regenerated.length === 0) {
+        return { ...state, settings: mergedSettings };
+      }
+
+      const strokes = [...state.strokes];
+      strokes[lastBrushIndex] = { ...lastBrushStroke, elements: regenerated };
+      return { ...state, settings: mergedSettings, strokes };
+    }
     case "COMMIT_STROKE":
       return { ...state, ...History.pushStroke(state, action.stroke) };
     case "UNDO":

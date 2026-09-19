@@ -38,7 +38,8 @@ const TAIL_MS = 250;
 export function buildRecorderHtml(
   stroke: TextStroke,
   canvasSize: { width: number; height: number },
-  chroma: string = CHROMA_GREEN
+  chroma: string = CHROMA_GREEN,
+  scale: number = 1
 ): string {
   const fontId = stroke.elements[0]?.fontId ?? "system";
   const fontInfo = FONT_WEB_INFO[fontId];
@@ -46,11 +47,11 @@ export function buildRecorderHtml(
 
   const elementsJson = JSON.stringify(
     stroke.elements.map((el) => ({
-      x: el.x,
-      y: el.y,
+      x: el.x * scale,
+      y: el.y * scale,
       rotation: el.rotation,
       color: el.color,
-      fontSize: el.fontSize,
+      fontSize: el.fontSize * scale,
       opacity: el.opacity,
       text: el.text,
       timeMs: el.timeMs,
@@ -69,7 +70,7 @@ ${fontLink}
 <style>html,body{margin:0;padding:0;background:#000;overflow:hidden;}</style>
 </head>
 <body>
-<canvas id="c" width="${Math.round(canvasSize.width)}" height="${Math.round(canvasSize.height)}"></canvas>
+<canvas id="c" width="${Math.round(canvasSize.width * scale)}" height="${Math.round(canvasSize.height * scale)}"></canvas>
 <script>
 (function () {
   var ELEMENTS = ${elementsJson};
