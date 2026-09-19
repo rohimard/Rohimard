@@ -1,0 +1,53 @@
+diff --git a/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewClient.java b/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewClient.java
+index d59e19c..4f4adc4 100644
+--- a/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewClient.java
++++ b/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewClient.java
+@@ -2,6 +2,7 @@ package com.reactnativecommunity.webview;
+ 
+ import android.annotation.TargetApi;
+ import android.graphics.Bitmap;
++import android.net.Uri;
+ import android.net.http.SslError;
+ import android.os.Build;
+ import android.os.SystemClock;
+@@ -17,6 +18,7 @@ import android.webkit.WebViewClient;
+ import androidx.annotation.Nullable;
+ import androidx.annotation.RequiresApi;
+ import androidx.core.util.Pair;
++import androidx.webkit.WebViewAssetLoader;
+ 
+ import com.facebook.common.logging.FLog;
+ import com.facebook.react.bridge.Arguments;
+@@ -51,6 +53,32 @@ public class RNCWebViewClient extends WebViewClient {
+         basicAuthCredential = credential;
+     }
+ 
++    // Serves files from android/app/src/main/assets/ over a real
++    // https://appassets.androidplatform.net/assets/... origin instead of a
++    // file:// or loadDataWithBaseURL-spoofed origin. This is required for
++    // getUserMedia() and other secure-context-gated APIs to work reliably:
++    // Android WebView does not consistently treat loadDataWithBaseURL's
++    // baseUrl as a genuine secure origin, even when it is an https:// URL.
++    private static WebViewAssetLoader ptbLiveRecorderAssetLoader;
++
++    private static WebViewAssetLoader getPtbLiveRecorderAssetLoader(WebView view) {
++        if (ptbLiveRecorderAssetLoader == null) {
++            ptbLiveRecorderAssetLoader = new WebViewAssetLoader.Builder()
++                .addPathHandler("/assets/", new WebViewAssetLoader.AssetsPathHandler(view.getContext().getApplicationContext()))
++                .build();
++        }
++        return ptbLiveRecorderAssetLoader;
++    }
++
++    @Override
++    public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
++        Uri url = request.getUrl();
++        if ("appassets.androidplatform.net".equals(url.getHost())) {
++            return getPtbLiveRecorderAssetLoader(view).shouldInterceptRequest(url);
++        }
++        return super.shouldInterceptRequest(view, request);
++    }
++
+     @Override
+     public void onPageFinished(WebView webView, String url) {
+         super.onPageFinished(webView, url);

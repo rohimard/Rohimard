@@ -1,7 +1,7 @@
 import React, { forwardRef, useImperativeHandle, useRef, useState } from "react";
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 import { WebView, type WebViewMessageEvent } from "react-native-webview";
-import { buildLiveRecorderHtml } from "../lib/liveVideoRecorder";
+import { buildLiveRecorderHtml, buildLiveRecorderUri } from "../lib/liveVideoRecorder";
 import type { BrushSettings } from "../types";
 import type { RecordedVideo } from "./VideoExportWebView";
 
@@ -37,7 +37,16 @@ const LiveVideoCamera = forwardRef<LiveVideoCameraHandle, Props>(function LiveVi
 ) {
   const webviewRef = useRef<WebView>(null);
   const stopResolveRef = useRef<{ resolve: (v: RecordedVideo) => void; reject: (e: Error) => void } | null>(null);
-  const [html] = useState(() => buildLiveRecorderHtml(initialSettings, initialFacing, { width, height }));
+  // Android loads the recorder from a real https://appassets.androidplatform.net
+  // origin (served from a static asset via a patched react-native-webview) so
+  // getUserMedia() sees a genuine secure context — loadDataWithBaseURL's
+  // spoofed https baseUrl isn't reliably recognized as one on-device. iOS
+  // keeps the inline-HTML approach, which doesn't have this issue.
+  const [source] = useState(() =>
+    Platform.OS === "android"
+      ? { uri: buildLiveRecorderUri(initialSettings, initialFacing, { width, height }) }
+      : { html: buildLiveRecorderHtml(initialSettings, initialFacing, { width, height }), baseUrl: "https://localhost" }
+  );
 
   const send = (msg: Record<string, unknown>) => {
     webviewRef.current?.postMessage(JSON.stringify(msg));
@@ -75,11 +84,7 @@ const LiveVideoCamera = forwardRef<LiveVideoCameraHandle, Props>(function LiveVi
     <WebView
       ref={webviewRef}
       originWhitelist={["*"]}
-      // Inline HTML has no real origin, and Android WebView treats that as
-      // insecure — which strips `navigator.mediaDevices` entirely (getUserMedia
-      // undefined) regardless of granted permissions. A fake https:// baseUrl
-      // gives it a secure origin without actually navigating anywhere.
-      source={{ html, baseUrl: "https://localhost" }}
+      source={source}
       onMessage={handleMessage}
       style={[styles.webview, { width, height }]}
       javaScriptEnabled

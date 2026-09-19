@@ -58,7 +58,8 @@
         }
       ],
       "expo-router",
-      "expo-font"
+      "expo-font",
+      "./plugins/withLiveRecorderAsset.js"
     ],
     "extra": {
       "eas": {

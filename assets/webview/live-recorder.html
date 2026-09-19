@@ -1,80 +1,63 @@
-import type { BrushSettings } from "../types";
-import { FONT_WEB_INFO } from "./videoExport";
-
-const MIN_POINT_DISTANCE_SQ = 9;
-const DEFAULT_STICKER_SIZE = 110;
-const DOUBLE_TAP_MS = 320;
-const DOUBLE_TAP_DIST_SQ = 40 * 40;
-
-/**
- * Builds a self-contained HTML page that IS the live "record video with the
- * effect baked in" camera: it opens the device camera and mic directly via
- * getUserMedia (no native camera/video library involved — the same
- * no-native-deps approach already used for chroma-key video export), draws
- * the camera feed plus live Text Brush strokes and draggable stickers onto
- * a canvas every frame, and records that composited canvas with the
- * browser's own MediaRecorder. React Native only sends it settings/sticker/
- * start-stop commands and receives the finished video back as base64 —
- * everything visual happens inside this WebView.
- */
-/**
- * Android-only: URI for the static assets/webview/live-recorder.html file,
- * served over a real https://appassets.androidplatform.net origin via a
- * patched react-native-webview (see patches/react-native-webview+*.patch).
- * Unlike buildLiveRecorderHtml below, this content isn't generated per call
- * — the initial settings/facing/canvas size are passed as URL query params
- * instead, since a static asset can't have per-session values interpolated
- * into it at generation time.
- */
-export function buildLiveRecorderUri(
-  initialSettings: BrushSettings,
-  initialFacing: "front" | "back",
-  canvasSize: { width: number; height: number }
-): string {
-  const params = new URLSearchParams({
-    w: String(Math.round(canvasSize.width)),
-    h: String(Math.round(canvasSize.height)),
-    facing: initialFacing,
-    settings: JSON.stringify(initialSettings),
-  });
-  return `https://appassets.androidplatform.net/assets/live-recorder.html?${params.toString()}`;
-}
-
-export function buildLiveRecorderHtml(
-  initialSettings: BrushSettings,
-  initialFacing: "front" | "back",
-  canvasSize: { width: number; height: number }
-): string {
-  const fontLinks = Object.values(FONT_WEB_INFO)
-    .filter((f) => f.googleFontsParam)
-    .map((f) => `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=${f.googleFontsParam}&display=swap">`)
-    .join("\n");
-
-  const width = Math.round(canvasSize.width);
-  const height = Math.round(canvasSize.height);
-
-  return `<!doctype html>
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-${fontLinks}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap">
 <style>
   html,body{margin:0;padding:0;background:#000;overflow:hidden;touch-action:none;}
   canvas{display:block;}
 </style>
 </head>
 <body>
-<canvas id="c" width="${width}" height="${height}"></canvas>
+<canvas id="c"></canvas>
 <video id="v" autoplay playsinline muted style="display:none"></video>
 <script>
 (function () {
-  var W = ${width}, H = ${height};
-  var FONT_WEB_INFO = ${JSON.stringify(FONT_WEB_INFO)};
-  var settings = ${JSON.stringify(initialSettings)};
-  var facing = ${JSON.stringify(initialFacing)};
+  // This file is served by react-native-webview's patched RNCWebViewClient
+  // (see patches/react-native-webview+*.patch) over a real
+  // https://appassets.androidplatform.net/assets/live-recorder.html origin,
+  // instead of being injected as a string via loadDataWithBaseURL. Android
+  // WebView does not reliably treat a loadDataWithBaseURL baseUrl as a
+  // genuine secure origin, which left navigator.mediaDevices undefined even
+  // with an https:// baseUrl — this real origin fixes that for good.
+  //
+  // Because this is now a static asset (not a per-session generated
+  // string), the initial settings/facing/canvas size arrive as URL query
+  // params instead of being interpolated at generation time. Everything
+  // else (drawing, stroke math, sticker drag, recording, the RN<->WebView
+  // message protocol) is unchanged from the previous generated version.
+  var FONT_WEB_INFO = {
+    system: { cssFamily: 'sans-serif', weight: 700 },
+    poppins: { cssFamily: 'Poppins', weight: 700 },
+    bebasNeue: { cssFamily: 'Bebas Neue', weight: 400 },
+    pacifico: { cssFamily: 'Pacifico', weight: 400 },
+    anton: { cssFamily: 'Anton', weight: 400 },
+    caveat: { cssFamily: 'Caveat', weight: 700 }
+  };
+  var DOUBLE_TAP_MS = 320;
+  var DOUBLE_TAP_DIST_SQ = 1600;
+  var MIN_POINT_DISTANCE_SQ = 9;
+  var DEFAULT_STICKER_SIZE = 110;
+
+  var params = new URLSearchParams(location.search);
+  var W = parseInt(params.get('w'), 10) || 360;
+  var H = parseInt(params.get('h'), 10) || 640;
+  var settings;
+  try {
+    settings = JSON.parse(params.get('settings') || '{}');
+  } catch (e) {
+    settings = {};
+  }
+  var facing = params.get('facing') === 'front' ? 'front' : 'back';
 
   var canvas = document.getElementById('c');
+  canvas.width = W;
+  canvas.height = H;
   var ctx = canvas.getContext('2d');
   var videoEl = document.getElementById('v');
 
@@ -212,7 +195,7 @@ ${fontLinks}
     var now = Date.now();
     var hit = hitSticker(p.x, p.y);
 
-    if (hit && now - lastTap.t < ${DOUBLE_TAP_MS} && distSq(p, lastTap) < ${DOUBLE_TAP_DIST_SQ}) {
+    if (hit && now - lastTap.t < DOUBLE_TAP_MS && distSq(p, lastTap) < DOUBLE_TAP_DIST_SQ) {
       stickers = stickers.filter(function (s) { return s.id !== hit.id; });
       lastTap = { t: 0, x: 0, y: 0 };
       return;
@@ -240,7 +223,7 @@ ${fontLinks}
     if (currentPoints) {
       var last = currentPoints[currentPoints.length - 1];
       var point = { x: p.x, y: p.y, t: Date.now() - strokeStartTime };
-      if (distSq(last, point) < ${MIN_POINT_DISTANCE_SQ}) return;
+      if (distSq(last, point) < MIN_POINT_DISTANCE_SQ) return;
       currentPoints.push(point);
     }
   }
@@ -275,7 +258,7 @@ ${fontLinks}
     var img = new Image();
     img.crossOrigin = 'anonymous';
     img.onload = function () {
-      stickers.push({ id: id, uri: uri, x: W / 2, y: H / 2, size: ${DEFAULT_STICKER_SIZE}, img: img });
+      stickers.push({ id: id, uri: uri, x: W / 2, y: H / 2, size: DEFAULT_STICKER_SIZE, img: img });
     };
     img.onerror = function () {
       fail('No se pudo cargar el sticker.');
@@ -381,5 +364,4 @@ ${fontLinks}
 })();
 </script>
 </body>
-</html>`;
-}
+</html>
