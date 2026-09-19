@@ -75,7 +75,11 @@ const LiveVideoCamera = forwardRef<LiveVideoCameraHandle, Props>(function LiveVi
     <WebView
       ref={webviewRef}
       originWhitelist={["*"]}
-      source={{ html }}
+      // Inline HTML has no real origin, and Android WebView treats that as
+      // insecure — which strips `navigator.mediaDevices` entirely (getUserMedia
+      // undefined) regardless of granted permissions. A fake https:// baseUrl
+      // gives it a secure origin without actually navigating anywhere.
+      source={{ html, baseUrl: "https://localhost" }}
       onMessage={handleMessage}
       style={[styles.webview, { width, height }]}
       javaScriptEnabled
