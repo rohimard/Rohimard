@@ -110,6 +110,32 @@ jobs:
                "https://thehackernews.com/2026/09/attackers-chain-jfrog-artifactory-flaws.html"),
               ("wolf-wef.jpg",
                "https://www.weforum.org/people/thomas-wolf/"),
+
+              # Tercera tanda: mas fuentes independientes para cada hecho,
+              # porque muchas de las anteriores devolvieron fotos de stock
+              # genericas (ilustraciones de robots) en vez de fotos reales
+              # -- hacen falta mas imagenes reales distintas para no
+              # repetir archivo en planos de 4-9s a lo largo de ~4:36.
+              ("metr-informe.jpg",
+               "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/"),
+              ("redwood-informe.jpg",
+               "https://www.redwoodresearch.org/research/hugging-face-incident"),
+              ("time-perdida-control.jpg",
+               "https://time.com/article/2026/07/24/openai-hugging-face-attack/"),
+              ("qz-sondeo-previo.jpg",
+               "https://qz.com/openai-rogue-agents-hugging-face-probe-breach-091626"),
+              ("darkreading-blackhat.jpg",
+               "https://www.darkreading.com/vulnerabilities-threats/bhusa26huggingfacetalk"),
+              ("globalnews-seisincidentes.jpg",
+               "https://globalnews.ca/news/12062854/openai-ai-breaches-hugging-face/"),
+              ("thenextweb-notsolved.jpg",
+               "https://thenextweb.com/news/openai-misalignment-reports-six-incidents-disclosure-framework"),
+              ("eweek-seisincidentes.jpg",
+               "https://www.eweek.com/news/openai-ai-misalignment-cases/"),
+              ("unite-ley-sanders.jpg",
+               "https://www.unite.ai/sanders-and-casar-unveil-bill-to-outlaw-superintelligent-ai-in-the-u-s/"),
+              ("axios80000-hf-warning.jpg",
+               "https://80000hours.org/hugging-face/"),
           ]
 
           resumen = []
