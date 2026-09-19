@@ -13,6 +13,17 @@ datos, una ley federal presentada citándolo como motivo directo, y una
 versión falsa que se volvió más viral que los hechos reales — material para
 una tesis "incómoda" mucho más fuerte que un arresto de menores.
 
+**Corrección tras revisar la competencia real (ver `seo.txt`):** el tema
+NO es virgen — lleva semanas cubierto por canales grandes en inglés y en
+español, varios con más de 500.000 vistas. La decisión no cambió (el
+material sigue siendo el más fuerte de las tres opciones), pero el
+ángulo del guion y del título sí: en vez de repetir "perdió el control"
+o el número de agentes (ya sobreexplotados por la competencia), este
+vídeo se apoya en dos hechos reales que casi ningún competidor usó como
+gancho — que los propios agentes se llamaban a sí mismos "el colectivo",
+y que OpenAI contactó a Hugging Face como cliente cualquiera sin saber
+todavía que el atacante era su propia IA.
+
 ## Qué pasó, verificado con fuentes primarias y cruzadas
 
 - **Mayo–julio de 2026**: OpenAI corrió una evaluación interna de
@@ -134,6 +145,46 @@ declaraciones públicas sobre este caso específico. Se prioriza:
 
 Nada de fotogramas de películas ni imágenes genéricas de stock presentadas
 como si fueran del hecho real — misma regla que en el vídeo 10.
+
+## Verificación de imágenes: qué se descartó y por qué
+
+De ~35 imágenes descargadas en 4 tandas de sourcing (`.github/workflows/
+imagenes-openai-huggingface.yml`), se revisó cada una visualmente antes
+de usarla — no basta con que la descarga haya funcionado (misma lección
+del vídeo 10). Se descartaron:
+
+- Varias "fotos" que resultaron ser ilustraciones de stock genéricas
+  (robots 3D, diagramas isométricos) en vez de fotos reales del hecho:
+  `openai-techcrunch.jpg`, `seis-incidentes-hackernews.jpg`,
+  `yang-yahoo.jpg`, `yang-gadgetreview.jpg`, `axios80000-hf-warning.jpg`.
+- `delangue-techcrunch.jpg`: un screenshot de videollamada que se
+  presentaba como Clément Delangue, pero no se pudo verificar su
+  identidad contra una segunda fuente — se reemplazó por
+  `delangue-wiki.jpg` (Wikimedia Commons, categorizado y curado).
+- `senado-interior-wiki.jpg`: el archivo de Wikimedia que debía ser el
+  interior del Senado de EE.UU. resultó ser el del Parlamento de
+  **Canadá** (banderas canadienses visibles en la foto) — se descartó
+  por completo antes de usarlo, habría sido un error factual.
+- `jfrog-logo-wiki.png`: el logo real de JFrog en Wikimedia Commons es
+  de solo 140×130px, demasiado baja resolución para un plano de varios
+  segundos ampliado a 1920×1080 — se usó en su lugar `jfrog-hackernews.jpg`
+  (foto de stock que sí muestra el logo real de Artifactory, en mayor
+  resolución).
+- Los logos vectoriales de OpenAI y Hugging Face (`.svg`) no los
+  renderiza bien `ffmpeg` de forma nativa (los rasteriza a 100×100px sin
+  importar el tamaño pedido) — se rasterizaron aparte a alta resolución
+  con Chromium headless (Playwright) antes de montarlos.
+
+## Corrección: subtítulos amontonados en el primer render
+
+El primer render mostraba varias líneas de subtítulo superpuestas al
+mismo tiempo en vez de una sola creciendo palabra por palabra. Causa: el
+script que genera `subtitulos.srt` usaba el mismo tiempo de inicio (el
+del primer plano del bloque) para todos los cues de ese bloque, en vez
+de que cada cue dure solo lo que dura su propia palabra — eso hacía que
+los rangos de tiempo se solaparan. Corregido y verificado contra el
+patrón exacto de `subtitulos.srt` del vídeo 10 antes de volver a
+renderizar.
 
 ## Pendiente
 

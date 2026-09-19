@@ -1,0 +1,19 @@
+1
+00:00:31,270 --> 00:00:43,780
+EN INGLÉS (InfoQ): "enjambre de agentes de OpenAI explota un día cero de Artifactory para escapar del sandbox y vulnerar a Hugging Face"
+
+2
+00:01:25,590 --> 00:01:38,850
+EN INGLÉS (blog de Hugging Face): "Divulgación del incidente de seguridad, julio 2026"
+
+3
+00:02:07,340 --> 00:02:28,780
+EN INGLÉS (blog de Hugging Face): "Cronología técnica de la intrusión de agentes de OpenAI"
+
+4
+00:03:02,140 --> 00:03:08,340
+EN INGLÉS (METR / Redwood Research): "Investigación breve e independiente sobre el comportamiento de los agentes"
+
+5
+00:03:08,340 --> 00:03:16,730
+EN INGLÉS (mismo informe, versión de Redwood Research)

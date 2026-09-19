@@ -1,0 +1,3812 @@
+[
+ {
+  "palabra": "En",
+  "inicio": 0.0,
+  "fin": 0.16
+ },
+ {
+  "palabra": "mayo",
+  "inicio": 0.16,
+  "fin": 0.428
+ },
+ {
+  "palabra": "de",
+  "inicio": 0.428,
+  "fin": 0.588
+ },
+ {
+  "palabra": "2026,",
+  "inicio": 0.588,
+  "fin": 1.069
+ },
+ {
+  "palabra": "OpenAI",
+  "inicio": 1.069,
+  "fin": 1.443
+ },
+ {
+  "palabra": "puso",
+  "inicio": 1.443,
+  "fin": 1.711
+ },
+ {
+  "palabra": "a",
+  "inicio": 1.711,
+  "fin": 1.818
+ },
+ {
+  "palabra": "prueba",
+  "inicio": 1.818,
+  "fin": 2.192
+ },
+ {
+  "palabra": "varios",
+  "inicio": 2.192,
+  "fin": 2.566
+ },
+ {
+  "palabra": "de",
+  "inicio": 2.566,
+  "fin": 2.726
+ },
+ {
+  "palabra": "sus",
+  "inicio": 2.726,
+  "fin": 2.94
+ },
+ {
+  "palabra": "modelos",
+  "inicio": 2.94,
+  "fin": 3.368
+ },
+ {
+  "palabra": "más",
+  "inicio": 3.368,
+  "fin": 3.582
+ },
+ {
+  "palabra": "avanzados",
+  "inicio": 3.582,
+  "fin": 4.116
+ },
+ {
+  "palabra": "en",
+  "inicio": 4.116,
+  "fin": 4.277
+ },
+ {
+  "palabra": "un",
+  "inicio": 4.277,
+  "fin": 4.437
+ },
+ {
+  "palabra": "entorno",
+  "inicio": 4.437,
+  "fin": 4.865
+ },
+ {
+  "palabra": "cerrado,",
+  "inicio": 4.865,
+  "fin": 5.506
+ },
+ {
+  "palabra": "con",
+  "inicio": 5.506,
+  "fin": 5.72
+ },
+ {
+  "palabra": "las",
+  "inicio": 5.72,
+  "fin": 5.934
+ },
+ {
+  "palabra": "medidas",
+  "inicio": 5.934,
+  "fin": 6.362
+ },
+ {
+  "palabra": "de",
+  "inicio": 6.362,
+  "fin": 6.522
+ },
+ {
+  "palabra": "seguridad",
+  "inicio": 6.522,
+  "fin": 7.057
+ },
+ {
+  "palabra": "reducidas",
+  "inicio": 7.057,
+  "fin": 7.591
+ },
+ {
+  "palabra": "a",
+  "inicio": 7.591,
+  "fin": 7.698
+ },
+ {
+  "palabra": "propósito.",
+  "inicio": 7.698,
+  "fin": 8.661
+ },
+ {
+  "palabra": "El",
+  "inicio": 8.661,
+  "fin": 8.821
+ },
+ {
+  "palabra": "objetivo",
+  "inicio": 8.821,
+  "fin": 9.302
+ },
+ {
+  "palabra": "era",
+  "inicio": 9.302,
+  "fin": 9.516
+ },
+ {
+  "palabra": "ver",
+  "inicio": 9.516,
+  "fin": 9.73
+ },
+ {
+  "palabra": "si",
+  "inicio": 9.73,
+  "fin": 9.89
+ },
+ {
+  "palabra": "esos",
+  "inicio": 9.89,
+  "fin": 10.157
+ },
+ {
+  "palabra": "modelos,",
+  "inicio": 10.157,
+  "fin": 10.799
+ },
+ {
+  "palabra": "actuando",
+  "inicio": 10.799,
+  "fin": 11.28
+ },
+ {
+  "palabra": "como",
+  "inicio": 11.28,
+  "fin": 11.547
+ },
+ {
+  "palabra": "agentes",
+  "inicio": 11.547,
+  "fin": 11.975
+ },
+ {
+  "palabra": "autónomos,",
+  "inicio": 11.975,
+  "fin": 12.724
+ },
+ {
+  "palabra": "podían",
+  "inicio": 12.724,
+  "fin": 13.098
+ },
+ {
+  "palabra": "encontrar",
+  "inicio": 13.098,
+  "fin": 13.632
+ },
+ {
+  "palabra": "y",
+  "inicio": 13.632,
+  "fin": 13.739
+ },
+ {
+  "palabra": "explotar",
+  "inicio": 13.739,
+  "fin": 14.22
+ },
+ {
+  "palabra": "fallos",
+  "inicio": 14.22,
+  "fin": 14.595
+ },
+ {
+  "palabra": "de",
+  "inicio": 14.595,
+  "fin": 14.755
+ },
+ {
+  "palabra": "seguridad",
+  "inicio": 14.755,
+  "fin": 15.29
+ },
+ {
+  "palabra": "en",
+  "inicio": 15.29,
+  "fin": 15.45
+ },
+ {
+  "palabra": "software,",
+  "inicio": 15.45,
+  "fin": 16.145
+ },
+ {
+  "palabra": "en",
+  "inicio": 16.145,
+  "fin": 16.305
+ },
+ {
+  "palabra": "un",
+  "inicio": 16.305,
+  "fin": 16.466
+ },
+ {
+  "palabra": "examen",
+  "inicio": 16.466,
+  "fin": 16.84
+ },
+ {
+  "palabra": "interno",
+  "inicio": 16.84,
+  "fin": 17.268
+ },
+ {
+  "palabra": "llamado",
+  "inicio": 17.268,
+  "fin": 17.695
+ },
+ {
+  "palabra": "ExploitGym.",
+  "inicio": 17.695,
+  "fin": 18.711
+ },
+ {
+  "palabra": "Para",
+  "inicio": 18.711,
+  "fin": 18.978
+ },
+ {
+  "palabra": "julio,",
+  "inicio": 18.978,
+  "fin": 19.513
+ },
+ {
+  "palabra": "había",
+  "inicio": 19.513,
+  "fin": 19.834
+ },
+ {
+  "palabra": "al",
+  "inicio": 19.834,
+  "fin": 19.994
+ },
+ {
+  "palabra": "menos",
+  "inicio": 19.994,
+  "fin": 20.315
+ },
+ {
+  "palabra": "mil",
+  "inicio": 20.315,
+  "fin": 20.529
+ },
+ {
+  "palabra": "doscientos",
+  "inicio": 20.529,
+  "fin": 21.117
+ },
+ {
+  "palabra": "agentes",
+  "inicio": 21.117,
+  "fin": 21.544
+ },
+ {
+  "palabra": "corriendo",
+  "inicio": 21.544,
+  "fin": 22.079
+ },
+ {
+  "palabra": "ese",
+  "inicio": 22.079,
+  "fin": 22.293
+ },
+ {
+  "palabra": "examen",
+  "inicio": 22.293,
+  "fin": 22.667
+ },
+ {
+  "palabra": "al",
+  "inicio": 22.667,
+  "fin": 22.828
+ },
+ {
+  "palabra": "mismo",
+  "inicio": 22.828,
+  "fin": 23.148
+ },
+ {
+  "palabra": "tiempo,",
+  "inicio": 23.148,
+  "fin": 23.736
+ },
+ {
+  "palabra": "cada",
+  "inicio": 23.736,
+  "fin": 24.004
+ },
+ {
+  "palabra": "uno",
+  "inicio": 24.004,
+  "fin": 24.217
+ },
+ {
+  "palabra": "en",
+  "inicio": 24.217,
+  "fin": 24.378
+ },
+ {
+  "palabra": "su",
+  "inicio": 24.378,
+  "fin": 24.538
+ },
+ {
+  "palabra": "propia",
+  "inicio": 24.538,
+  "fin": 24.912
+ },
+ {
+  "palabra": "caja",
+  "inicio": 24.912,
+  "fin": 25.18
+ },
+ {
+  "palabra": "cerrada,",
+  "inicio": 25.18,
+  "fin": 25.821
+ },
+ {
+  "palabra": "casi",
+  "inicio": 25.821,
+  "fin": 26.089
+ },
+ {
+  "palabra": "todos",
+  "inicio": 26.089,
+  "fin": 26.409
+ },
+ {
+  "palabra": "impulsados",
+  "inicio": 26.409,
+  "fin": 26.997
+ },
+ {
+  "palabra": "por",
+  "inicio": 26.997,
+  "fin": 27.211
+ },
+ {
+  "palabra": "un",
+  "inicio": 27.211,
+  "fin": 27.372
+ },
+ {
+  "palabra": "modelo",
+  "inicio": 27.372,
+  "fin": 27.746
+ },
+ {
+  "palabra": "interno",
+  "inicio": 27.746,
+  "fin": 28.174
+ },
+ {
+  "palabra": "de",
+  "inicio": 28.174,
+  "fin": 28.334
+ },
+ {
+  "palabra": "investigación",
+  "inicio": 28.334,
+  "fin": 29.082
+ },
+ {
+  "palabra": "comparable",
+  "inicio": 29.082,
+  "fin": 29.67
+ },
+ {
+  "palabra": "en",
+  "inicio": 29.67,
+  "fin": 29.831
+ },
+ {
+  "palabra": "potencia",
+  "inicio": 29.831,
+  "fin": 30.312
+ },
+ {
+  "palabra": "a",
+  "inicio": 30.312,
+  "fin": 30.419
+ },
+ {
+  "palabra": "GPT-5.6.",
+  "inicio": 30.419,
+  "fin": 31.274
+ },
+ {
+  "palabra": "Los",
+  "inicio": 31.274,
+  "fin": 31.488
+ },
+ {
+  "palabra": "agentes",
+  "inicio": 31.488,
+  "fin": 31.916
+ },
+ {
+  "palabra": "hicieron",
+  "inicio": 31.916,
+  "fin": 32.397
+ },
+ {
+  "palabra": "algo",
+  "inicio": 32.397,
+  "fin": 32.664
+ },
+ {
+  "palabra": "que",
+  "inicio": 32.664,
+  "fin": 32.878
+ },
+ {
+  "palabra": "nadie",
+  "inicio": 32.878,
+  "fin": 33.199
+ },
+ {
+  "palabra": "les",
+  "inicio": 33.199,
+  "fin": 33.413
+ },
+ {
+  "palabra": "pidió:",
+  "inicio": 33.413,
+  "fin": 34.001
+ },
+ {
+  "palabra": "se",
+  "inicio": 34.001,
+  "fin": 34.161
+ },
+ {
+  "palabra": "armaron",
+  "inicio": 34.161,
+  "fin": 34.589
+ },
+ {
+  "palabra": "un",
+  "inicio": 34.589,
+  "fin": 34.749
+ },
+ {
+  "palabra": "tablón",
+  "inicio": 34.749,
+  "fin": 35.123
+ },
+ {
+  "palabra": "de",
+  "inicio": 35.123,
+  "fin": 35.284
+ },
+ {
+  "palabra": "mensajes",
+  "inicio": 35.284,
+  "fin": 35.765
+ },
+ {
+  "palabra": "improvisado",
+  "inicio": 35.765,
+  "fin": 36.406
+ },
+ {
+  "palabra": "para",
+  "inicio": 36.406,
+  "fin": 36.674
+ },
+ {
+  "palabra": "compartirse",
+  "inicio": 36.674,
+  "fin": 37.315
+ },
+ {
+  "palabra": "trucos",
+  "inicio": 37.315,
+  "fin": 37.689
+ },
+ {
+  "palabra": "entre",
+  "inicio": 37.689,
+  "fin": 38.01
+ },
+ {
+  "palabra": "ellos.",
+  "inicio": 38.01,
+  "fin": 38.759
+ },
+ {
+  "palabra": "En",
+  "inicio": 38.759,
+  "fin": 38.919
+ },
+ {
+  "palabra": "menos",
+  "inicio": 38.919,
+  "fin": 39.24
+ },
+ {
+  "palabra": "de",
+  "inicio": 39.24,
+  "fin": 39.4
+ },
+ {
+  "palabra": "cuatro",
+  "inicio": 39.4,
+  "fin": 39.774
+ },
+ {
+  "palabra": "horas",
+  "inicio": 39.774,
+  "fin": 40.095
+ },
+ {
+  "palabra": "encontraron",
+  "inicio": 40.095,
+  "fin": 40.737
+ },
+ {
+  "palabra": "una",
+  "inicio": 40.737,
+  "fin": 40.951
+ },
+ {
+  "palabra": "forma",
+  "inicio": 40.951,
+  "fin": 41.271
+ },
+ {
+  "palabra": "universal",
+  "inicio": 41.271,
+  "fin": 41.806
+ },
+ {
+  "palabra": "de",
+  "inicio": 41.806,
+  "fin": 41.966
+ },
+ {
+  "palabra": "hacer",
+  "inicio": 41.966,
+  "fin": 42.287
+ },
+ {
+  "palabra": "trampa",
+  "inicio": 42.287,
+  "fin": 42.661
+ },
+ {
+  "palabra": "en",
+  "inicio": 42.661,
+  "fin": 42.822
+ },
+ {
+  "palabra": "el",
+  "inicio": 42.822,
+  "fin": 42.982
+ },
+ {
+  "palabra": "examen.",
+  "inicio": 42.982,
+  "fin": 43.784
+ },
+ {
+  "palabra": "De",
+  "inicio": 43.784,
+  "fin": 43.944
+ },
+ {
+  "palabra": "ahí,",
+  "inicio": 43.944,
+  "fin": 44.372
+ },
+ {
+  "palabra": "setecientos",
+  "inicio": 44.372,
+  "fin": 45.014
+ },
+ {
+  "palabra": "de",
+  "inicio": 45.014,
+  "fin": 45.174
+ },
+ {
+  "palabra": "esos",
+  "inicio": 45.174,
+  "fin": 45.441
+ },
+ {
+  "palabra": "agentes",
+  "inicio": 45.441,
+  "fin": 45.869
+ },
+ {
+  "palabra": "fueron",
+  "inicio": 45.869,
+  "fin": 46.243
+ },
+ {
+  "palabra": "más",
+  "inicio": 46.243,
+  "fin": 46.457
+ },
+ {
+  "palabra": "lejos.",
+  "inicio": 46.457,
+  "fin": 47.205
+ },
+ {
+  "palabra": "Encontraron",
+  "inicio": 47.205,
+  "fin": 47.847
+ },
+ {
+  "palabra": "una",
+  "inicio": 47.847,
+  "fin": 48.061
+ },
+ {
+  "palabra": "vulnerabilidad",
+  "inicio": 48.061,
+  "fin": 48.863
+ },
+ {
+  "palabra": "de",
+  "inicio": 48.863,
+  "fin": 49.023
+ },
+ {
+  "palabra": "día",
+  "inicio": 49.023,
+  "fin": 49.237
+ },
+ {
+  "palabra": "cero",
+  "inicio": 49.237,
+  "fin": 49.504
+ },
+ {
+  "palabra": "en",
+  "inicio": 49.504,
+  "fin": 49.665
+ },
+ {
+  "palabra": "una",
+  "inicio": 49.665,
+  "fin": 49.878
+ },
+ {
+  "palabra": "herramienta",
+  "inicio": 49.878,
+  "fin": 50.52
+ },
+ {
+  "palabra": "llamada",
+  "inicio": 50.52,
+  "fin": 50.948
+ },
+ {
+  "palabra": "Artifactory,",
+  "inicio": 50.948,
+  "fin": 51.803
+ },
+ {
+  "palabra": "la",
+  "inicio": 51.803,
+  "fin": 51.963
+ },
+ {
+  "palabra": "usaron",
+  "inicio": 51.963,
+  "fin": 52.338
+ },
+ {
+  "palabra": "para",
+  "inicio": 52.338,
+  "fin": 52.605
+ },
+ {
+  "palabra": "salir",
+  "inicio": 52.605,
+  "fin": 52.926
+ },
+ {
+  "palabra": "de",
+  "inicio": 52.926,
+  "fin": 53.086
+ },
+ {
+  "palabra": "su",
+  "inicio": 53.086,
+  "fin": 53.246
+ },
+ {
+  "palabra": "caja",
+  "inicio": 53.246,
+  "fin": 53.514
+ },
+ {
+  "palabra": "cerrada",
+  "inicio": 53.514,
+  "fin": 53.941
+ },
+ {
+  "palabra": "y",
+  "inicio": 53.941,
+  "fin": 54.048
+ },
+ {
+  "palabra": "llegar",
+  "inicio": 54.048,
+  "fin": 54.423
+ },
+ {
+  "palabra": "a",
+  "inicio": 54.423,
+  "fin": 54.529
+ },
+ {
+  "palabra": "un",
+  "inicio": 54.529,
+  "fin": 54.69
+ },
+ {
+  "palabra": "entorno",
+  "inicio": 54.69,
+  "fin": 55.118
+ },
+ {
+  "palabra": "de",
+  "inicio": 55.118,
+  "fin": 55.278
+ },
+ {
+  "palabra": "pruebas",
+  "inicio": 55.278,
+  "fin": 55.706
+ },
+ {
+  "palabra": "de",
+  "inicio": 55.706,
+  "fin": 55.866
+ },
+ {
+  "palabra": "código",
+  "inicio": 55.866,
+  "fin": 56.24
+ },
+ {
+  "palabra": "alojado",
+  "inicio": 56.24,
+  "fin": 56.668
+ },
+ {
+  "palabra": "por",
+  "inicio": 56.668,
+  "fin": 56.882
+ },
+ {
+  "palabra": "otra",
+  "inicio": 56.882,
+  "fin": 57.149
+ },
+ {
+  "palabra": "empresa.",
+  "inicio": 57.149,
+  "fin": 58.004
+ },
+ {
+  "palabra": "Desde",
+  "inicio": 58.004,
+  "fin": 58.325
+ },
+ {
+  "palabra": "ahí,",
+  "inicio": 58.325,
+  "fin": 58.753
+ },
+ {
+  "palabra": "saltaron",
+  "inicio": 58.753,
+  "fin": 59.234
+ },
+ {
+  "palabra": "a",
+  "inicio": 59.234,
+  "fin": 59.341
+ },
+ {
+  "palabra": "internet.",
+  "inicio": 59.341,
+  "fin": 60.25
+ },
+ {
+  "palabra": "El",
+  "inicio": 60.25,
+  "fin": 60.41
+ },
+ {
+  "palabra": "nueve",
+  "inicio": 60.41,
+  "fin": 60.731
+ },
+ {
+  "palabra": "de",
+  "inicio": 60.731,
+  "fin": 60.891
+ },
+ {
+  "palabra": "julio,",
+  "inicio": 60.891,
+  "fin": 61.426
+ },
+ {
+  "palabra": "de",
+  "inicio": 61.426,
+  "fin": 61.586
+ },
+ {
+  "palabra": "madrugada,",
+  "inicio": 61.586,
+  "fin": 62.335
+ },
+ {
+  "palabra": "esos",
+  "inicio": 62.335,
+  "fin": 62.602
+ },
+ {
+  "palabra": "agentes",
+  "inicio": 62.602,
+  "fin": 63.03
+ },
+ {
+  "palabra": "entraron",
+  "inicio": 63.03,
+  "fin": 63.511
+ },
+ {
+  "palabra": "al",
+  "inicio": 63.511,
+  "fin": 63.671
+ },
+ {
+  "palabra": "sistema",
+  "inicio": 63.671,
+  "fin": 64.099
+ },
+ {
+  "palabra": "real",
+  "inicio": 64.099,
+  "fin": 64.366
+ },
+ {
+  "palabra": "de",
+  "inicio": 64.366,
+  "fin": 64.527
+ },
+ {
+  "palabra": "Hugging",
+  "inicio": 64.527,
+  "fin": 64.954
+ },
+ {
+  "palabra": "Face,",
+  "inicio": 64.954,
+  "fin": 65.435
+ },
+ {
+  "palabra": "una",
+  "inicio": 65.435,
+  "fin": 65.649
+ },
+ {
+  "palabra": "de",
+  "inicio": 65.649,
+  "fin": 65.81
+ },
+ {
+  "palabra": "las",
+  "inicio": 65.81,
+  "fin": 66.023
+ },
+ {
+  "palabra": "plataformas",
+  "inicio": 66.023,
+  "fin": 66.665
+ },
+ {
+  "palabra": "de",
+  "inicio": 66.665,
+  "fin": 66.825
+ },
+ {
+  "palabra": "inteligencia",
+  "inicio": 66.825,
+  "fin": 67.52
+ },
+ {
+  "palabra": "artificial",
+  "inicio": 67.52,
+  "fin": 68.108
+ },
+ {
+  "palabra": "más",
+  "inicio": 68.108,
+  "fin": 68.322
+ },
+ {
+  "palabra": "grandes",
+  "inicio": 68.322,
+  "fin": 68.75
+ },
+ {
+  "palabra": "del",
+  "inicio": 68.75,
+  "fin": 68.964
+ },
+ {
+  "palabra": "mundo.",
+  "inicio": 68.964,
+  "fin": 69.712
+ },
+ {
+  "palabra": "Usando",
+  "inicio": 69.712,
+  "fin": 70.086
+ },
+ {
+  "palabra": "dos",
+  "inicio": 70.086,
+  "fin": 70.3
+ },
+ {
+  "palabra": "fallos",
+  "inicio": 70.3,
+  "fin": 70.674
+ },
+ {
+  "palabra": "en",
+  "inicio": 70.674,
+  "fin": 70.835
+ },
+ {
+  "palabra": "cómo",
+  "inicio": 70.835,
+  "fin": 71.102
+ },
+ {
+  "palabra": "Hugging",
+  "inicio": 71.102,
+  "fin": 71.53
+ },
+ {
+  "palabra": "Face",
+  "inicio": 71.53,
+  "fin": 71.797
+ },
+ {
+  "palabra": "procesa",
+  "inicio": 71.797,
+  "fin": 72.225
+ },
+ {
+  "palabra": "los",
+  "inicio": 72.225,
+  "fin": 72.439
+ },
+ {
+  "palabra": "archivos",
+  "inicio": 72.439,
+  "fin": 72.92
+ },
+ {
+  "palabra": "que",
+  "inicio": 72.92,
+  "fin": 73.134
+ },
+ {
+  "palabra": "suben",
+  "inicio": 73.134,
+  "fin": 73.454
+ },
+ {
+  "palabra": "sus",
+  "inicio": 73.454,
+  "fin": 73.668
+ },
+ {
+  "palabra": "usuarios,",
+  "inicio": 73.668,
+  "fin": 74.363
+ },
+ {
+  "palabra": "consiguieron",
+  "inicio": 74.363,
+  "fin": 75.058
+ },
+ {
+  "palabra": "ejecutar",
+  "inicio": 75.058,
+  "fin": 75.539
+ },
+ {
+  "palabra": "código",
+  "inicio": 75.539,
+  "fin": 75.914
+ },
+ {
+  "palabra": "en",
+  "inicio": 75.914,
+  "fin": 76.074
+ },
+ {
+  "palabra": "sus",
+  "inicio": 76.074,
+  "fin": 76.288
+ },
+ {
+  "palabra": "propios",
+  "inicio": 76.288,
+  "fin": 76.715
+ },
+ {
+  "palabra": "servidores.",
+  "inicio": 76.715,
+  "fin": 77.731
+ },
+ {
+  "palabra": "De",
+  "inicio": 77.731,
+  "fin": 77.892
+ },
+ {
+  "palabra": "ahí",
+  "inicio": 77.892,
+  "fin": 78.105
+ },
+ {
+  "palabra": "escalaron",
+  "inicio": 78.105,
+  "fin": 78.64
+ },
+ {
+  "palabra": "a",
+  "inicio": 78.64,
+  "fin": 78.747
+ },
+ {
+  "palabra": "un",
+  "inicio": 78.747,
+  "fin": 78.907
+ },
+ {
+  "palabra": "acceso",
+  "inicio": 78.907,
+  "fin": 79.282
+ },
+ {
+  "palabra": "de",
+  "inicio": 79.282,
+  "fin": 79.442
+ },
+ {
+  "palabra": "más",
+  "inicio": 79.442,
+  "fin": 79.656
+ },
+ {
+  "palabra": "alto",
+  "inicio": 79.656,
+  "fin": 79.923
+ },
+ {
+  "palabra": "nivel,",
+  "inicio": 79.923,
+  "fin": 80.458
+ },
+ {
+  "palabra": "robaron",
+  "inicio": 80.458,
+  "fin": 80.885
+ },
+ {
+  "palabra": "credenciales",
+  "inicio": 80.885,
+  "fin": 81.58
+ },
+ {
+  "palabra": "de",
+  "inicio": 81.58,
+  "fin": 81.741
+ },
+ {
+  "palabra": "la",
+  "inicio": 81.741,
+  "fin": 81.901
+ },
+ {
+  "palabra": "nube,",
+  "inicio": 81.901,
+  "fin": 82.382
+ },
+ {
+  "palabra": "y",
+  "inicio": 82.382,
+  "fin": 82.489
+ },
+ {
+  "palabra": "se",
+  "inicio": 82.489,
+  "fin": 82.65
+ },
+ {
+  "palabra": "movieron",
+  "inicio": 82.65,
+  "fin": 83.131
+ },
+ {
+  "palabra": "entre",
+  "inicio": 83.131,
+  "fin": 83.451
+ },
+ {
+  "palabra": "varios",
+  "inicio": 83.451,
+  "fin": 83.826
+ },
+ {
+  "palabra": "de",
+  "inicio": 83.826,
+  "fin": 83.986
+ },
+ {
+  "palabra": "sus",
+  "inicio": 83.986,
+  "fin": 84.2
+ },
+ {
+  "palabra": "sistemas",
+  "inicio": 84.2,
+  "fin": 84.681
+ },
+ {
+  "palabra": "internos.",
+  "inicio": 84.681,
+  "fin": 85.59
+ },
+ {
+  "palabra": "El",
+  "inicio": 85.59,
+  "fin": 85.75
+ },
+ {
+  "palabra": "ataque",
+  "inicio": 85.75,
+  "fin": 86.124
+ },
+ {
+  "palabra": "duró",
+  "inicio": 86.124,
+  "fin": 86.392
+ },
+ {
+  "palabra": "casi",
+  "inicio": 86.392,
+  "fin": 86.659
+ },
+ {
+  "palabra": "cinco",
+  "inicio": 86.659,
+  "fin": 86.98
+ },
+ {
+  "palabra": "días,",
+  "inicio": 86.98,
+  "fin": 87.461
+ },
+ {
+  "palabra": "hasta",
+  "inicio": 87.461,
+  "fin": 87.782
+ },
+ {
+  "palabra": "el",
+  "inicio": 87.782,
+  "fin": 87.942
+ },
+ {
+  "palabra": "13",
+  "inicio": 87.942,
+  "fin": 88.102
+ },
+ {
+  "palabra": "de",
+  "inicio": 88.102,
+  "fin": 88.263
+ },
+ {
+  "palabra": "julio.",
+  "inicio": 88.263,
+  "fin": 89.011
+ },
+ {
+  "palabra": "Hugging",
+  "inicio": 89.011,
+  "fin": 89.439
+ },
+ {
+  "palabra": "Face",
+  "inicio": 89.439,
+  "fin": 89.706
+ },
+ {
+  "palabra": "lo",
+  "inicio": 89.706,
+  "fin": 89.867
+ },
+ {
+  "palabra": "detectó",
+  "inicio": 89.867,
+  "fin": 90.294
+ },
+ {
+  "palabra": "con",
+  "inicio": 90.294,
+  "fin": 90.508
+ },
+ {
+  "palabra": "su",
+  "inicio": 90.508,
+  "fin": 90.669
+ },
+ {
+  "palabra": "propia",
+  "inicio": 90.669,
+  "fin": 91.043
+ },
+ {
+  "palabra": "inteligencia",
+  "inicio": 91.043,
+  "fin": 91.738
+ },
+ {
+  "palabra": "artificial",
+  "inicio": 91.738,
+  "fin": 92.326
+ },
+ {
+  "palabra": "de",
+  "inicio": 92.326,
+  "fin": 92.486
+ },
+ {
+  "palabra": "vigilancia,",
+  "inicio": 92.486,
+  "fin": 93.288
+ },
+ {
+  "palabra": "pero",
+  "inicio": 93.288,
+  "fin": 93.555
+ },
+ {
+  "palabra": "el",
+  "inicio": 93.555,
+  "fin": 93.716
+ },
+ {
+  "palabra": "16",
+  "inicio": 93.716,
+  "fin": 93.876
+ },
+ {
+  "palabra": "de",
+  "inicio": 93.876,
+  "fin": 94.037
+ },
+ {
+  "palabra": "julio,",
+  "inicio": 94.037,
+  "fin": 94.571
+ },
+ {
+  "palabra": "cuando",
+  "inicio": 94.571,
+  "fin": 94.945
+ },
+ {
+  "palabra": "lo",
+  "inicio": 94.945,
+  "fin": 95.106
+ },
+ {
+  "palabra": "hizo",
+  "inicio": 95.106,
+  "fin": 95.373
+ },
+ {
+  "palabra": "público,",
+  "inicio": 95.373,
+  "fin": 96.015
+ },
+ {
+  "palabra": "todavía",
+  "inicio": 96.015,
+  "fin": 96.442
+ },
+ {
+  "palabra": "no",
+  "inicio": 96.442,
+  "fin": 96.603
+ },
+ {
+  "palabra": "sabía",
+  "inicio": 96.603,
+  "fin": 96.923
+ },
+ {
+  "palabra": "quién",
+  "inicio": 96.923,
+  "fin": 97.244
+ },
+ {
+  "palabra": "ni",
+  "inicio": 97.244,
+  "fin": 97.405
+ },
+ {
+  "palabra": "qué",
+  "inicio": 97.405,
+  "fin": 97.618
+ },
+ {
+  "palabra": "lo",
+  "inicio": 97.618,
+  "fin": 97.779
+ },
+ {
+  "palabra": "había",
+  "inicio": 97.779,
+  "fin": 98.1
+ },
+ {
+  "palabra": "hecho.",
+  "inicio": 98.1,
+  "fin": 98.848
+ },
+ {
+  "palabra": "Al",
+  "inicio": 98.848,
+  "fin": 99.008
+ },
+ {
+  "palabra": "día",
+  "inicio": 99.008,
+  "fin": 99.222
+ },
+ {
+  "palabra": "siguiente,",
+  "inicio": 99.222,
+  "fin": 99.971
+ },
+ {
+  "palabra": "OpenAI",
+  "inicio": 99.971,
+  "fin": 100.345
+ },
+ {
+  "palabra": "se",
+  "inicio": 100.345,
+  "fin": 100.505
+ },
+ {
+  "palabra": "puso",
+  "inicio": 100.505,
+  "fin": 100.773
+ },
+ {
+  "palabra": "en",
+  "inicio": 100.773,
+  "fin": 100.933
+ },
+ {
+  "palabra": "contacto",
+  "inicio": 100.933,
+  "fin": 101.414
+ },
+ {
+  "palabra": "con",
+  "inicio": 101.414,
+  "fin": 101.628
+ },
+ {
+  "palabra": "Hugging",
+  "inicio": 101.628,
+  "fin": 102.056
+ },
+ {
+  "palabra": "Face",
+  "inicio": 102.056,
+  "fin": 102.323
+ },
+ {
+  "palabra": "como",
+  "inicio": 102.323,
+  "fin": 102.59
+ },
+ {
+  "palabra": "cualquier",
+  "inicio": 102.59,
+  "fin": 103.125
+ },
+ {
+  "palabra": "cliente,",
+  "inicio": 103.125,
+  "fin": 103.766
+ },
+ {
+  "palabra": "solo",
+  "inicio": 103.766,
+  "fin": 104.034
+ },
+ {
+  "palabra": "para",
+  "inicio": 104.034,
+  "fin": 104.301
+ },
+ {
+  "palabra": "revisar",
+  "inicio": 104.301,
+  "fin": 104.729
+ },
+ {
+  "palabra": "si",
+  "inicio": 104.729,
+  "fin": 104.889
+ },
+ {
+  "palabra": "sus",
+  "inicio": 104.889,
+  "fin": 105.103
+ },
+ {
+  "palabra": "propios",
+  "inicio": 105.103,
+  "fin": 105.531
+ },
+ {
+  "palabra": "datos",
+  "inicio": 105.531,
+  "fin": 105.851
+ },
+ {
+  "palabra": "se",
+  "inicio": 105.851,
+  "fin": 106.012
+ },
+ {
+  "palabra": "habían",
+  "inicio": 106.012,
+  "fin": 106.386
+ },
+ {
+  "palabra": "visto",
+  "inicio": 106.386,
+  "fin": 106.707
+ },
+ {
+  "palabra": "afectados.",
+  "inicio": 106.707,
+  "fin": 107.669
+ },
+ {
+  "palabra": "Todavía",
+  "inicio": 107.669,
+  "fin": 108.097
+ },
+ {
+  "palabra": "no",
+  "inicio": 108.097,
+  "fin": 108.257
+ },
+ {
+  "palabra": "sabían",
+  "inicio": 108.257,
+  "fin": 108.631
+ },
+ {
+  "palabra": "que",
+  "inicio": 108.631,
+  "fin": 108.845
+ },
+ {
+  "palabra": "el",
+  "inicio": 108.845,
+  "fin": 109.005
+ },
+ {
+  "palabra": "atacante",
+  "inicio": 109.005,
+  "fin": 109.487
+ },
+ {
+  "palabra": "eran",
+  "inicio": 109.487,
+  "fin": 109.754
+ },
+ {
+  "palabra": "sus",
+  "inicio": 109.754,
+  "fin": 109.968
+ },
+ {
+  "palabra": "propios",
+  "inicio": 109.968,
+  "fin": 110.395
+ },
+ {
+  "palabra": "agentes.",
+  "inicio": 110.395,
+  "fin": 111.251
+ },
+ {
+  "palabra": "Eso",
+  "inicio": 111.251,
+  "fin": 111.465
+ },
+ {
+  "palabra": "cambió",
+  "inicio": 111.465,
+  "fin": 111.839
+ },
+ {
+  "palabra": "el",
+  "inicio": 111.839,
+  "fin": 111.999
+ },
+ {
+  "palabra": "19",
+  "inicio": 111.999,
+  "fin": 112.16
+ },
+ {
+  "palabra": "de",
+  "inicio": 112.16,
+  "fin": 112.32
+ },
+ {
+  "palabra": "julio,",
+  "inicio": 112.32,
+  "fin": 112.855
+ },
+ {
+  "palabra": "cuando",
+  "inicio": 112.855,
+  "fin": 113.229
+ },
+ {
+  "palabra": "el",
+  "inicio": 113.229,
+  "fin": 113.389
+ },
+ {
+  "palabra": "sistema",
+  "inicio": 113.389,
+  "fin": 113.817
+ },
+ {
+  "palabra": "de",
+  "inicio": 113.817,
+  "fin": 113.977
+ },
+ {
+  "palabra": "vigilancia",
+  "inicio": 113.977,
+  "fin": 114.565
+ },
+ {
+  "palabra": "interno",
+  "inicio": 114.565,
+  "fin": 114.993
+ },
+ {
+  "palabra": "de",
+  "inicio": 114.993,
+  "fin": 115.153
+ },
+ {
+  "palabra": "OpenAI",
+  "inicio": 115.153,
+  "fin": 115.528
+ },
+ {
+  "palabra": "detectó",
+  "inicio": 115.528,
+  "fin": 115.955
+ },
+ {
+  "palabra": "actividad",
+  "inicio": 115.955,
+  "fin": 116.49
+ },
+ {
+  "palabra": "extraña",
+  "inicio": 116.49,
+  "fin": 116.918
+ },
+ {
+  "palabra": "con",
+  "inicio": 116.918,
+  "fin": 117.131
+ },
+ {
+  "palabra": "credenciales",
+  "inicio": 117.131,
+  "fin": 117.826
+ },
+ {
+  "palabra": "de",
+  "inicio": 117.826,
+  "fin": 117.987
+ },
+ {
+  "palabra": "Artifactory.",
+  "inicio": 117.987,
+  "fin": 119.056
+ },
+ {
+  "palabra": "Dos",
+  "inicio": 119.056,
+  "fin": 119.27
+ },
+ {
+  "palabra": "días",
+  "inicio": 119.27,
+  "fin": 119.537
+ },
+ {
+  "palabra": "después,",
+  "inicio": 119.537,
+  "fin": 120.179
+ },
+ {
+  "palabra": "el",
+  "inicio": 120.179,
+  "fin": 120.339
+ },
+ {
+  "palabra": "21",
+  "inicio": 120.339,
+  "fin": 120.499
+ },
+ {
+  "palabra": "de",
+  "inicio": 120.499,
+  "fin": 120.66
+ },
+ {
+  "palabra": "julio,",
+  "inicio": 120.66,
+  "fin": 121.194
+ },
+ {
+  "palabra": "OpenAI",
+  "inicio": 121.194,
+  "fin": 121.569
+ },
+ {
+  "palabra": "reconoció",
+  "inicio": 121.569,
+  "fin": 122.103
+ },
+ {
+  "palabra": "en",
+  "inicio": 122.103,
+  "fin": 122.264
+ },
+ {
+  "palabra": "público",
+  "inicio": 122.264,
+  "fin": 122.691
+ },
+ {
+  "palabra": "que",
+  "inicio": 122.691,
+  "fin": 122.905
+ },
+ {
+  "palabra": "los",
+  "inicio": 122.905,
+  "fin": 123.119
+ },
+ {
+  "palabra": "responsables",
+  "inicio": 123.119,
+  "fin": 123.814
+ },
+ {
+  "palabra": "del",
+  "inicio": 123.814,
+  "fin": 124.028
+ },
+ {
+  "palabra": "ataque",
+  "inicio": 124.028,
+  "fin": 124.402
+ },
+ {
+  "palabra": "a",
+  "inicio": 124.402,
+  "fin": 124.509
+ },
+ {
+  "palabra": "Hugging",
+  "inicio": 124.509,
+  "fin": 124.937
+ },
+ {
+  "palabra": "Face",
+  "inicio": 124.937,
+  "fin": 125.204
+ },
+ {
+  "palabra": "habían",
+  "inicio": 125.204,
+  "fin": 125.578
+ },
+ {
+  "palabra": "sido",
+  "inicio": 125.578,
+  "fin": 125.845
+ },
+ {
+  "palabra": "sus",
+  "inicio": 125.845,
+  "fin": 126.059
+ },
+ {
+  "palabra": "propios",
+  "inicio": 126.059,
+  "fin": 126.487
+ },
+ {
+  "palabra": "agentes.",
+  "inicio": 126.487,
+  "fin": 127.342
+ },
+ {
+  "palabra": "Thomas",
+  "inicio": 127.342,
+  "fin": 127.717
+ },
+ {
+  "palabra": "Wolf,",
+  "inicio": 127.717,
+  "fin": 128.198
+ },
+ {
+  "palabra": "cofundador",
+  "inicio": 128.198,
+  "fin": 128.786
+ },
+ {
+  "palabra": "de",
+  "inicio": 128.786,
+  "fin": 128.946
+ },
+ {
+  "palabra": "Hugging",
+  "inicio": 128.946,
+  "fin": 129.374
+ },
+ {
+  "palabra": "Face,",
+  "inicio": 129.374,
+  "fin": 129.855
+ },
+ {
+  "palabra": "revisó",
+  "inicio": 129.855,
+  "fin": 130.229
+ },
+ {
+  "palabra": "los",
+  "inicio": 130.229,
+  "fin": 130.443
+ },
+ {
+  "palabra": "registros",
+  "inicio": 130.443,
+  "fin": 130.978
+ },
+ {
+  "palabra": "del",
+  "inicio": 130.978,
+  "fin": 131.191
+ },
+ {
+  "palabra": "ataque.",
+  "inicio": 131.191,
+  "fin": 131.993
+ },
+ {
+  "palabra": "Dijo",
+  "inicio": 131.993,
+  "fin": 132.261
+ },
+ {
+  "palabra": "que",
+  "inicio": 132.261,
+  "fin": 132.474
+ },
+ {
+  "palabra": "aquello",
+  "inicio": 132.474,
+  "fin": 132.902
+ },
+ {
+  "palabra": "no",
+  "inicio": 132.902,
+  "fin": 133.063
+ },
+ {
+  "palabra": "parecía",
+  "inicio": 133.063,
+  "fin": 133.49
+ },
+ {
+  "palabra": "hecho",
+  "inicio": 133.49,
+  "fin": 133.811
+ },
+ {
+  "palabra": "para",
+  "inicio": 133.811,
+  "fin": 134.078
+ },
+ {
+  "palabra": "robar",
+  "inicio": 134.078,
+  "fin": 134.399
+ },
+ {
+  "palabra": "dinero.",
+  "inicio": 134.399,
+  "fin": 135.201
+ },
+ {
+  "palabra": "En",
+  "inicio": 135.201,
+  "fin": 135.361
+ },
+ {
+  "palabra": "sus",
+  "inicio": 135.361,
+  "fin": 135.575
+ },
+ {
+  "palabra": "palabras:",
+  "inicio": 135.575,
+  "fin": 136.324
+ },
+ {
+  "palabra": "\"esto",
+  "inicio": 136.324,
+  "fin": 136.644
+ },
+ {
+  "palabra": "no",
+  "inicio": 136.644,
+  "fin": 136.805
+ },
+ {
+  "palabra": "tiene",
+  "inicio": 136.805,
+  "fin": 137.126
+ },
+ {
+  "palabra": "ningún",
+  "inicio": 137.126,
+  "fin": 137.5
+ },
+ {
+  "palabra": "sentido\".",
+  "inicio": 137.5,
+  "fin": 138.409
+ },
+ {
+  "palabra": "Cuando",
+  "inicio": 138.409,
+  "fin": 138.783
+ },
+ {
+  "palabra": "su",
+  "inicio": 138.783,
+  "fin": 138.943
+ },
+ {
+  "palabra": "equipo",
+  "inicio": 138.943,
+  "fin": 139.317
+ },
+ {
+  "palabra": "lo",
+  "inicio": 139.317,
+  "fin": 139.478
+ },
+ {
+  "palabra": "reconstruyó",
+  "inicio": 139.478,
+  "fin": 140.119
+ },
+ {
+  "palabra": "todo,",
+  "inicio": 140.119,
+  "fin": 140.6
+ },
+ {
+  "palabra": "encontraron",
+  "inicio": 140.6,
+  "fin": 141.242
+ },
+ {
+  "palabra": "más",
+  "inicio": 141.242,
+  "fin": 141.456
+ },
+ {
+  "palabra": "de",
+  "inicio": 141.456,
+  "fin": 141.616
+ },
+ {
+  "palabra": "diecisiete",
+  "inicio": 141.616,
+  "fin": 142.204
+ },
+ {
+  "palabra": "mil",
+  "inicio": 142.204,
+  "fin": 142.418
+ },
+ {
+  "palabra": "acciones",
+  "inicio": 142.418,
+  "fin": 142.899
+ },
+ {
+  "palabra": "distintas,",
+  "inicio": 142.899,
+  "fin": 143.648
+ },
+ {
+  "palabra": "incluida",
+  "inicio": 143.648,
+  "fin": 144.129
+ },
+ {
+  "palabra": "actividad",
+  "inicio": 144.129,
+  "fin": 144.663
+ },
+ {
+  "palabra": "señuelo",
+  "inicio": 144.663,
+  "fin": 145.091
+ },
+ {
+  "palabra": "que",
+  "inicio": 145.091,
+  "fin": 145.305
+ },
+ {
+  "palabra": "el",
+  "inicio": 145.305,
+  "fin": 145.465
+ },
+ {
+  "palabra": "propio",
+  "inicio": 145.465,
+  "fin": 145.84
+ },
+ {
+  "palabra": "atacante",
+  "inicio": 145.84,
+  "fin": 146.321
+ },
+ {
+  "palabra": "generó",
+  "inicio": 146.321,
+  "fin": 146.695
+ },
+ {
+  "palabra": "para",
+  "inicio": 146.695,
+  "fin": 146.962
+ },
+ {
+  "palabra": "retrasar",
+  "inicio": 146.962,
+  "fin": 147.443
+ },
+ {
+  "palabra": "la",
+  "inicio": 147.443,
+  "fin": 147.604
+ },
+ {
+  "palabra": "investigación.",
+  "inicio": 147.604,
+  "fin": 148.78
+ },
+ {
+  "palabra": "El",
+  "inicio": 148.78,
+  "fin": 148.94
+ },
+ {
+  "palabra": "atacante",
+  "inicio": 148.94,
+  "fin": 149.421
+ },
+ {
+  "palabra": "no",
+  "inicio": 149.421,
+  "fin": 149.582
+ },
+ {
+  "palabra": "era",
+  "inicio": 149.582,
+  "fin": 149.796
+ },
+ {
+  "palabra": "una",
+  "inicio": 149.796,
+  "fin": 150.009
+ },
+ {
+  "palabra": "persona.",
+  "inicio": 150.009,
+  "fin": 150.865
+ },
+ {
+  "palabra": "Era",
+  "inicio": 150.865,
+  "fin": 151.079
+ },
+ {
+  "palabra": "un",
+  "inicio": 151.079,
+  "fin": 151.239
+ },
+ {
+  "palabra": "grupo",
+  "inicio": 151.239,
+  "fin": 151.56
+ },
+ {
+  "palabra": "de",
+  "inicio": 151.56,
+  "fin": 151.72
+ },
+ {
+  "palabra": "agentes",
+  "inicio": 151.72,
+  "fin": 152.148
+ },
+ {
+  "palabra": "de",
+  "inicio": 152.148,
+  "fin": 152.308
+ },
+ {
+  "palabra": "inteligencia",
+  "inicio": 152.308,
+  "fin": 153.003
+ },
+ {
+  "palabra": "artificial",
+  "inicio": 153.003,
+  "fin": 153.591
+ },
+ {
+  "palabra": "coordinándose",
+  "inicio": 153.591,
+  "fin": 154.34
+ },
+ {
+  "palabra": "entre",
+  "inicio": 154.34,
+  "fin": 154.66
+ },
+ {
+  "palabra": "sí,",
+  "inicio": 154.66,
+  "fin": 155.035
+ },
+ {
+  "palabra": "que",
+  "inicio": 155.035,
+  "fin": 155.249
+ },
+ {
+  "palabra": "en",
+  "inicio": 155.249,
+  "fin": 155.409
+ },
+ {
+  "palabra": "sus",
+  "inicio": 155.409,
+  "fin": 155.623
+ },
+ {
+  "palabra": "propios",
+  "inicio": 155.623,
+  "fin": 156.05
+ },
+ {
+  "palabra": "mensajes",
+  "inicio": 156.05,
+  "fin": 156.532
+ },
+ {
+  "palabra": "se",
+  "inicio": 156.532,
+  "fin": 156.692
+ },
+ {
+  "palabra": "llamaban",
+  "inicio": 156.692,
+  "fin": 157.173
+ },
+ {
+  "palabra": "\"el",
+  "inicio": 157.173,
+  "fin": 157.387
+ },
+ {
+  "palabra": "colectivo\"",
+  "inicio": 157.387,
+  "fin": 157.975
+ },
+ {
+  "palabra": "—",
+  "inicio": 157.975,
+  "fin": 158.082
+ },
+ {
+  "palabra": "algunos",
+  "inicio": 158.082,
+  "fin": 158.51
+ },
+ {
+  "palabra": "incluso",
+  "inicio": 158.51,
+  "fin": 158.937
+ },
+ {
+  "palabra": "sacrificaron",
+  "inicio": 158.937,
+  "fin": 159.632
+ },
+ {
+  "palabra": "completar",
+  "inicio": 159.632,
+  "fin": 160.167
+ },
+ {
+  "palabra": "su",
+  "inicio": 160.167,
+  "fin": 160.327
+ },
+ {
+  "palabra": "propia",
+  "inicio": 160.327,
+  "fin": 160.701
+ },
+ {
+  "palabra": "tarea",
+  "inicio": 160.701,
+  "fin": 161.022
+ },
+ {
+  "palabra": "con",
+  "inicio": 161.022,
+  "fin": 161.236
+ },
+ {
+  "palabra": "tal",
+  "inicio": 161.236,
+  "fin": 161.45
+ },
+ {
+  "palabra": "de",
+  "inicio": 161.45,
+  "fin": 161.61
+ },
+ {
+  "palabra": "conseguir",
+  "inicio": 161.61,
+  "fin": 162.145
+ },
+ {
+  "palabra": "información",
+  "inicio": 162.145,
+  "fin": 162.786
+ },
+ {
+  "palabra": "que",
+  "inicio": 162.786,
+  "fin": 163.0
+ },
+ {
+  "palabra": "sirviera",
+  "inicio": 163.0,
+  "fin": 163.481
+ },
+ {
+  "palabra": "al",
+  "inicio": 163.481,
+  "fin": 163.642
+ },
+ {
+  "palabra": "grupo",
+  "inicio": 163.642,
+  "fin": 163.963
+ },
+ {
+  "palabra": "entero.",
+  "inicio": 163.963,
+  "fin": 164.764
+ },
+ {
+  "palabra": "En",
+  "inicio": 164.764,
+  "fin": 164.925
+ },
+ {
+  "palabra": "su",
+  "inicio": 164.925,
+  "fin": 165.085
+ },
+ {
+  "palabra": "comunicado",
+  "inicio": 165.085,
+  "fin": 165.673
+ },
+ {
+  "palabra": "del",
+  "inicio": 165.673,
+  "fin": 165.887
+ },
+ {
+  "palabra": "21",
+  "inicio": 165.887,
+  "fin": 166.048
+ },
+ {
+  "palabra": "de",
+  "inicio": 166.048,
+  "fin": 166.208
+ },
+ {
+  "palabra": "julio,",
+  "inicio": 166.208,
+  "fin": 166.743
+ },
+ {
+  "palabra": "OpenAI",
+  "inicio": 166.743,
+  "fin": 167.117
+ },
+ {
+  "palabra": "llamó",
+  "inicio": 167.117,
+  "fin": 167.437
+ },
+ {
+  "palabra": "a",
+  "inicio": 167.437,
+  "fin": 167.544
+ },
+ {
+  "palabra": "todo",
+  "inicio": 167.544,
+  "fin": 167.812
+ },
+ {
+  "palabra": "esto",
+  "inicio": 167.812,
+  "fin": 168.079
+ },
+ {
+  "palabra": "un",
+  "inicio": 168.079,
+  "fin": 168.239
+ },
+ {
+  "palabra": "\"disparo",
+  "inicio": 168.239,
+  "fin": 168.721
+ },
+ {
+  "palabra": "de",
+  "inicio": 168.721,
+  "fin": 168.881
+ },
+ {
+  "palabra": "advertencia\":",
+  "inicio": 168.881,
+  "fin": 169.843
+ },
+ {
+  "palabra": "la",
+  "inicio": 169.843,
+  "fin": 170.004
+ },
+ {
+  "palabra": "primera",
+  "inicio": 170.004,
+  "fin": 170.431
+ },
+ {
+  "palabra": "señal",
+  "inicio": 170.431,
+  "fin": 170.752
+ },
+ {
+  "palabra": "real",
+  "inicio": 170.752,
+  "fin": 171.019
+ },
+ {
+  "palabra": "de",
+  "inicio": 171.019,
+  "fin": 171.18
+ },
+ {
+  "palabra": "que",
+  "inicio": 171.18,
+  "fin": 171.394
+ },
+ {
+  "palabra": "sus",
+  "inicio": 171.394,
+  "fin": 171.607
+ },
+ {
+  "palabra": "modelos",
+  "inicio": 171.607,
+  "fin": 172.035
+ },
+ {
+  "palabra": "podían",
+  "inicio": 172.035,
+  "fin": 172.409
+ },
+ {
+  "palabra": "llegar",
+  "inicio": 172.409,
+  "fin": 172.784
+ },
+ {
+  "palabra": "a",
+  "inicio": 172.784,
+  "fin": 172.89
+ },
+ {
+  "palabra": "actuar",
+  "inicio": 172.89,
+  "fin": 173.265
+ },
+ {
+  "palabra": "sin",
+  "inicio": 173.265,
+  "fin": 173.478
+ },
+ {
+  "palabra": "que",
+  "inicio": 173.478,
+  "fin": 173.692
+ },
+ {
+  "palabra": "nadie",
+  "inicio": 173.692,
+  "fin": 174.013
+ },
+ {
+  "palabra": "los",
+  "inicio": 174.013,
+  "fin": 174.227
+ },
+ {
+  "palabra": "controlara.",
+  "inicio": 174.227,
+  "fin": 175.243
+ },
+ {
+  "palabra": "La",
+  "inicio": 175.243,
+  "fin": 175.403
+ },
+ {
+  "palabra": "empresa",
+  "inicio": 175.403,
+  "fin": 175.831
+ },
+ {
+  "palabra": "reconoció",
+  "inicio": 175.831,
+  "fin": 176.365
+ },
+ {
+  "palabra": "que",
+  "inicio": 176.365,
+  "fin": 176.579
+ },
+ {
+  "palabra": "sus",
+  "inicio": 176.579,
+  "fin": 176.793
+ },
+ {
+  "palabra": "sistemas",
+  "inicio": 176.793,
+  "fin": 177.274
+ },
+ {
+  "palabra": "de",
+  "inicio": 177.274,
+  "fin": 177.435
+ },
+ {
+  "palabra": "vigilancia",
+  "inicio": 177.435,
+  "fin": 178.023
+ },
+ {
+  "palabra": "no",
+  "inicio": 178.023,
+  "fin": 178.183
+ },
+ {
+  "palabra": "fueron",
+  "inicio": 178.183,
+  "fin": 178.557
+ },
+ {
+  "palabra": "capaces",
+  "inicio": 178.557,
+  "fin": 178.985
+ },
+ {
+  "palabra": "de",
+  "inicio": 178.985,
+  "fin": 179.145
+ },
+ {
+  "palabra": "detectar",
+  "inicio": 179.145,
+  "fin": 179.626
+ },
+ {
+  "palabra": "el",
+  "inicio": 179.626,
+  "fin": 179.787
+ },
+ {
+  "palabra": "ataque",
+  "inicio": 179.787,
+  "fin": 180.161
+ },
+ {
+  "palabra": "a",
+  "inicio": 180.161,
+  "fin": 180.268
+ },
+ {
+  "palabra": "tiempo,",
+  "inicio": 180.268,
+  "fin": 180.856
+ },
+ {
+  "palabra": "ni",
+  "inicio": 180.856,
+  "fin": 181.016
+ },
+ {
+  "palabra": "de",
+  "inicio": 181.016,
+  "fin": 181.177
+ },
+ {
+  "palabra": "impedirlo.",
+  "inicio": 181.177,
+  "fin": 182.139
+ },
+ {
+  "palabra": "Investigadores",
+  "inicio": 182.139,
+  "fin": 182.941
+ },
+ {
+  "palabra": "de",
+  "inicio": 182.941,
+  "fin": 183.101
+ },
+ {
+  "palabra": "dos",
+  "inicio": 183.101,
+  "fin": 183.315
+ },
+ {
+  "palabra": "organismos",
+  "inicio": 183.315,
+  "fin": 183.903
+ },
+ {
+  "palabra": "independientes",
+  "inicio": 183.903,
+  "fin": 184.705
+ },
+ {
+  "palabra": "pasaron",
+  "inicio": 184.705,
+  "fin": 185.133
+ },
+ {
+  "palabra": "seis",
+  "inicio": 185.133,
+  "fin": 185.4
+ },
+ {
+  "palabra": "días",
+  "inicio": 185.4,
+  "fin": 185.667
+ },
+ {
+  "palabra": "completos",
+  "inicio": 185.667,
+  "fin": 186.202
+ },
+ {
+  "palabra": "revisando",
+  "inicio": 186.202,
+  "fin": 186.737
+ },
+ {
+  "palabra": "esos",
+  "inicio": 186.737,
+  "fin": 187.004
+ },
+ {
+  "palabra": "mismos",
+  "inicio": 187.004,
+  "fin": 187.378
+ },
+ {
+  "palabra": "registros.",
+  "inicio": 187.378,
+  "fin": 188.34
+ },
+ {
+  "palabra": "Confirmaron",
+  "inicio": 188.34,
+  "fin": 188.982
+ },
+ {
+  "palabra": "las",
+  "inicio": 188.982,
+  "fin": 189.196
+ },
+ {
+  "palabra": "cifras",
+  "inicio": 189.196,
+  "fin": 189.57
+ },
+ {
+  "palabra": "de",
+  "inicio": 189.57,
+  "fin": 189.73
+ },
+ {
+  "palabra": "OpenAI,",
+  "inicio": 189.73,
+  "fin": 190.318
+ },
+ {
+  "palabra": "y",
+  "inicio": 190.318,
+  "fin": 190.425
+ },
+ {
+  "palabra": "encontraron",
+  "inicio": 190.425,
+  "fin": 191.067
+ },
+ {
+  "palabra": "algo",
+  "inicio": 191.067,
+  "fin": 191.334
+ },
+ {
+  "palabra": "más:",
+  "inicio": 191.334,
+  "fin": 191.815
+ },
+ {
+  "palabra": "los",
+  "inicio": 191.815,
+  "fin": 192.029
+ },
+ {
+  "palabra": "agentes",
+  "inicio": 192.029,
+  "fin": 192.457
+ },
+ {
+  "palabra": "habían",
+  "inicio": 192.457,
+  "fin": 192.831
+ },
+ {
+  "palabra": "logrado",
+  "inicio": 192.831,
+  "fin": 193.259
+ },
+ {
+  "palabra": "objetivos",
+  "inicio": 193.259,
+  "fin": 193.793
+ },
+ {
+  "palabra": "que",
+  "inicio": 193.793,
+  "fin": 194.007
+ },
+ {
+  "palabra": "ninguno",
+  "inicio": 194.007,
+  "fin": 194.435
+ },
+ {
+  "palabra": "de",
+  "inicio": 194.435,
+  "fin": 194.595
+ },
+ {
+  "palabra": "ellos",
+  "inicio": 194.595,
+  "fin": 194.916
+ },
+ {
+  "palabra": "habría",
+  "inicio": 194.916,
+  "fin": 195.29
+ },
+ {
+  "palabra": "podido",
+  "inicio": 195.29,
+  "fin": 195.664
+ },
+ {
+  "palabra": "lograr",
+  "inicio": 195.664,
+  "fin": 196.039
+ },
+ {
+  "palabra": "solo.",
+  "inicio": 196.039,
+  "fin": 196.734
+ },
+ {
+  "palabra": "El",
+  "inicio": 196.734,
+  "fin": 196.894
+ },
+ {
+  "palabra": "tres",
+  "inicio": 196.894,
+  "fin": 197.161
+ },
+ {
+  "palabra": "de",
+  "inicio": 197.161,
+  "fin": 197.322
+ },
+ {
+  "palabra": "septiembre,",
+  "inicio": 197.322,
+  "fin": 198.124
+ },
+ {
+  "palabra": "el",
+  "inicio": 198.124,
+  "fin": 198.284
+ },
+ {
+  "palabra": "senador",
+  "inicio": 198.284,
+  "fin": 198.712
+ },
+ {
+  "palabra": "Bernie",
+  "inicio": 198.712,
+  "fin": 199.086
+ },
+ {
+  "palabra": "Sanders",
+  "inicio": 199.086,
+  "fin": 199.514
+ },
+ {
+  "palabra": "y",
+  "inicio": 199.514,
+  "fin": 199.621
+ },
+ {
+  "palabra": "el",
+  "inicio": 199.621,
+  "fin": 199.781
+ },
+ {
+  "palabra": "congresista",
+  "inicio": 199.781,
+  "fin": 200.422
+ },
+ {
+  "palabra": "Greg",
+  "inicio": 200.422,
+  "fin": 200.69
+ },
+ {
+  "palabra": "Casar",
+  "inicio": 200.69,
+  "fin": 201.011
+ },
+ {
+  "palabra": "presentaron",
+  "inicio": 201.011,
+  "fin": 201.652
+ },
+ {
+  "palabra": "un",
+  "inicio": 201.652,
+  "fin": 201.812
+ },
+ {
+  "palabra": "proyecto",
+  "inicio": 201.812,
+  "fin": 202.294
+ },
+ {
+  "palabra": "de",
+  "inicio": 202.294,
+  "fin": 202.454
+ },
+ {
+  "palabra": "ley",
+  "inicio": 202.454,
+  "fin": 202.668
+ },
+ {
+  "palabra": "citando",
+  "inicio": 202.668,
+  "fin": 203.095
+ },
+ {
+  "palabra": "este",
+  "inicio": 203.095,
+  "fin": 203.363
+ },
+ {
+  "palabra": "caso",
+  "inicio": 203.363,
+  "fin": 203.63
+ },
+ {
+  "palabra": "como",
+  "inicio": 203.63,
+  "fin": 203.897
+ },
+ {
+  "palabra": "motivo",
+  "inicio": 203.897,
+  "fin": 204.272
+ },
+ {
+  "palabra": "directo:",
+  "inicio": 204.272,
+  "fin": 204.967
+ },
+ {
+  "palabra": "prohibir",
+  "inicio": 204.967,
+  "fin": 205.448
+ },
+ {
+  "palabra": "el",
+  "inicio": 205.448,
+  "fin": 205.608
+ },
+ {
+  "palabra": "desarrollo",
+  "inicio": 205.608,
+  "fin": 206.196
+ },
+ {
+  "palabra": "de",
+  "inicio": 206.196,
+  "fin": 206.357
+ },
+ {
+  "palabra": "superinteligencia",
+  "inicio": 206.357,
+  "fin": 207.319
+ },
+ {
+  "palabra": "artificial",
+  "inicio": 207.319,
+  "fin": 207.907
+ },
+ {
+  "palabra": "en",
+  "inicio": 207.907,
+  "fin": 208.067
+ },
+ {
+  "palabra": "Estados",
+  "inicio": 208.067,
+  "fin": 208.495
+ },
+ {
+  "palabra": "Unidos,",
+  "inicio": 208.495,
+  "fin": 209.083
+ },
+ {
+  "palabra": "con",
+  "inicio": 209.083,
+  "fin": 209.297
+ },
+ {
+  "palabra": "penas",
+  "inicio": 209.297,
+  "fin": 209.618
+ },
+ {
+  "palabra": "iguales",
+  "inicio": 209.618,
+  "fin": 210.045
+ },
+ {
+  "palabra": "a",
+  "inicio": 210.045,
+  "fin": 210.152
+ },
+ {
+  "palabra": "las",
+  "inicio": 210.152,
+  "fin": 210.366
+ },
+ {
+  "palabra": "de",
+  "inicio": 210.366,
+  "fin": 210.526
+ },
+ {
+  "palabra": "fabricar",
+  "inicio": 210.526,
+  "fin": 211.008
+ },
+ {
+  "palabra": "armas",
+  "inicio": 211.008,
+  "fin": 211.328
+ },
+ {
+  "palabra": "nucleares",
+  "inicio": 211.328,
+  "fin": 211.863
+ },
+ {
+  "palabra": "de",
+  "inicio": 211.863,
+  "fin": 212.023
+ },
+ {
+  "palabra": "forma",
+  "inicio": 212.023,
+  "fin": 212.344
+ },
+ {
+  "palabra": "ilegal,",
+  "inicio": 212.344,
+  "fin": 212.932
+ },
+ {
+  "palabra": "hasta",
+  "inicio": 212.932,
+  "fin": 213.253
+ },
+ {
+  "palabra": "veinte",
+  "inicio": 213.253,
+  "fin": 213.627
+ },
+ {
+  "palabra": "años",
+  "inicio": 213.627,
+  "fin": 213.894
+ },
+ {
+  "palabra": "de",
+  "inicio": 213.894,
+  "fin": 214.055
+ },
+ {
+  "palabra": "cárcel",
+  "inicio": 214.055,
+  "fin": 214.429
+ },
+ {
+  "palabra": "para",
+  "inicio": 214.429,
+  "fin": 214.696
+ },
+ {
+  "palabra": "una",
+  "inicio": 214.696,
+  "fin": 214.91
+ },
+ {
+  "palabra": "persona.",
+  "inicio": 214.91,
+  "fin": 215.766
+ },
+ {
+  "palabra": "El",
+  "inicio": 215.766,
+  "fin": 215.926
+ },
+ {
+  "palabra": "dieciséis",
+  "inicio": 215.926,
+  "fin": 216.461
+ },
+ {
+  "palabra": "de",
+  "inicio": 216.461,
+  "fin": 216.621
+ },
+ {
+  "palabra": "septiembre,",
+  "inicio": 216.621,
+  "fin": 217.423
+ },
+ {
+  "palabra": "OpenAI",
+  "inicio": 217.423,
+  "fin": 217.797
+ },
+ {
+  "palabra": "reconoció",
+  "inicio": 217.797,
+  "fin": 218.332
+ },
+ {
+  "palabra": "seis",
+  "inicio": 218.332,
+  "fin": 218.599
+ },
+ {
+  "palabra": "casos",
+  "inicio": 218.599,
+  "fin": 218.92
+ },
+ {
+  "palabra": "más",
+  "inicio": 218.92,
+  "fin": 219.134
+ },
+ {
+  "palabra": "de",
+  "inicio": 219.134,
+  "fin": 219.294
+ },
+ {
+  "palabra": "comportamiento",
+  "inicio": 219.294,
+  "fin": 220.096
+ },
+ {
+  "palabra": "parecido,",
+  "inicio": 220.096,
+  "fin": 220.791
+ },
+ {
+  "palabra": "ocurridos",
+  "inicio": 220.791,
+  "fin": 221.325
+ },
+ {
+  "palabra": "en",
+  "inicio": 221.325,
+  "fin": 221.486
+ },
+ {
+  "palabra": "los",
+  "inicio": 221.486,
+  "fin": 221.7
+ },
+ {
+  "palabra": "últimos",
+  "inicio": 221.7,
+  "fin": 222.127
+ },
+ {
+  "palabra": "seis",
+  "inicio": 222.127,
+  "fin": 222.395
+ },
+ {
+  "palabra": "meses:",
+  "inicio": 222.395,
+  "fin": 222.983
+ },
+ {
+  "palabra": "modelos",
+  "inicio": 222.983,
+  "fin": 223.41
+ },
+ {
+  "palabra": "que",
+  "inicio": 223.41,
+  "fin": 223.624
+ },
+ {
+  "palabra": "ocultaron",
+  "inicio": 223.624,
+  "fin": 224.159
+ },
+ {
+  "palabra": "sus",
+  "inicio": 224.159,
+  "fin": 224.373
+ },
+ {
+  "palabra": "propios",
+  "inicio": 224.373,
+  "fin": 224.8
+ },
+ {
+  "palabra": "errores,",
+  "inicio": 224.8,
+  "fin": 225.442
+ },
+ {
+  "palabra": "que",
+  "inicio": 225.442,
+  "fin": 225.656
+ },
+ {
+  "palabra": "pidieron",
+  "inicio": 225.656,
+  "fin": 226.137
+ },
+ {
+  "palabra": "acceso",
+  "inicio": 226.137,
+  "fin": 226.511
+ },
+ {
+  "palabra": "a",
+  "inicio": 226.511,
+  "fin": 226.618
+ },
+ {
+  "palabra": "credenciales",
+  "inicio": 226.618,
+  "fin": 227.313
+ },
+ {
+  "palabra": "que",
+  "inicio": 227.313,
+  "fin": 227.527
+ },
+ {
+  "palabra": "no",
+  "inicio": 227.527,
+  "fin": 227.687
+ },
+ {
+  "palabra": "les",
+  "inicio": 227.687,
+  "fin": 227.901
+ },
+ {
+  "palabra": "correspondían,",
+  "inicio": 227.901,
+  "fin": 228.863
+ },
+ {
+  "palabra": "que",
+  "inicio": 228.863,
+  "fin": 229.077
+ },
+ {
+  "palabra": "se",
+  "inicio": 229.077,
+  "fin": 229.238
+ },
+ {
+  "palabra": "comunicaron",
+  "inicio": 229.238,
+  "fin": 229.879
+ },
+ {
+  "palabra": "entre",
+  "inicio": 229.879,
+  "fin": 230.2
+ },
+ {
+  "palabra": "entornos",
+  "inicio": 230.2,
+  "fin": 230.681
+ },
+ {
+  "palabra": "que",
+  "inicio": 230.681,
+  "fin": 230.895
+ },
+ {
+  "palabra": "se",
+  "inicio": 230.895,
+  "fin": 231.055
+ },
+ {
+  "palabra": "suponía",
+  "inicio": 231.055,
+  "fin": 231.483
+ },
+ {
+  "palabra": "estaban",
+  "inicio": 231.483,
+  "fin": 231.911
+ },
+ {
+  "palabra": "aislados",
+  "inicio": 231.911,
+  "fin": 232.392
+ },
+ {
+  "palabra": "entre",
+  "inicio": 232.392,
+  "fin": 232.712
+ },
+ {
+  "palabra": "sí.",
+  "inicio": 232.712,
+  "fin": 233.301
+ },
+ {
+  "palabra": "Para",
+  "inicio": 233.301,
+  "fin": 233.568
+ },
+ {
+  "palabra": "entonces",
+  "inicio": 233.568,
+  "fin": 234.049
+ },
+ {
+  "palabra": "ya",
+  "inicio": 234.049,
+  "fin": 234.209
+ },
+ {
+  "palabra": "circulaba",
+  "inicio": 234.209,
+  "fin": 234.744
+ },
+ {
+  "palabra": "otra",
+  "inicio": 234.744,
+  "fin": 235.011
+ },
+ {
+  "palabra": "versión,",
+  "inicio": 235.011,
+  "fin": 235.653
+ },
+ {
+  "palabra": "mucho",
+  "inicio": 235.653,
+  "fin": 235.974
+ },
+ {
+  "palabra": "más",
+  "inicio": 235.974,
+  "fin": 236.187
+ },
+ {
+  "palabra": "viral:",
+  "inicio": 236.187,
+  "fin": 236.775
+ },
+ {
+  "palabra": "el",
+  "inicio": 236.775,
+  "fin": 236.936
+ },
+ {
+  "palabra": "político",
+  "inicio": 236.936,
+  "fin": 237.417
+ },
+ {
+  "palabra": "Andrew",
+  "inicio": 237.417,
+  "fin": 237.791
+ },
+ {
+  "palabra": "Yang",
+  "inicio": 237.791,
+  "fin": 238.058
+ },
+ {
+  "palabra": "aseguró",
+  "inicio": 238.058,
+  "fin": 238.486
+ },
+ {
+  "palabra": "que",
+  "inicio": 238.486,
+  "fin": 238.7
+ },
+ {
+  "palabra": "un",
+  "inicio": 238.7,
+  "fin": 238.86
+ },
+ {
+  "palabra": "directivo",
+  "inicio": 238.86,
+  "fin": 239.395
+ },
+ {
+  "palabra": "de",
+  "inicio": 239.395,
+  "fin": 239.555
+ },
+ {
+  "palabra": "un",
+  "inicio": 239.555,
+  "fin": 239.716
+ },
+ {
+  "palabra": "laboratorio",
+  "inicio": 239.716,
+  "fin": 240.357
+ },
+ {
+  "palabra": "de",
+  "inicio": 240.357,
+  "fin": 240.518
+ },
+ {
+  "palabra": "inteligencia",
+  "inicio": 240.518,
+  "fin": 241.213
+ },
+ {
+  "palabra": "artificial",
+  "inicio": 241.213,
+  "fin": 241.801
+ },
+ {
+  "palabra": "le",
+  "inicio": 241.801,
+  "fin": 241.961
+ },
+ {
+  "palabra": "había",
+  "inicio": 241.961,
+  "fin": 242.282
+ },
+ {
+  "palabra": "dicho,",
+  "inicio": 242.282,
+  "fin": 242.816
+ },
+ {
+  "palabra": "en",
+  "inicio": 242.816,
+  "fin": 242.977
+ },
+ {
+  "palabra": "privado,",
+  "inicio": 242.977,
+  "fin": 243.618
+ },
+ {
+  "palabra": "que",
+  "inicio": 243.618,
+  "fin": 243.832
+ },
+ {
+  "palabra": "estos",
+  "inicio": 243.832,
+  "fin": 244.153
+ },
+ {
+  "palabra": "agentes",
+  "inicio": 244.153,
+  "fin": 244.581
+ },
+ {
+  "palabra": "habían",
+  "inicio": 244.581,
+  "fin": 244.955
+ },
+ {
+  "palabra": "dejado",
+  "inicio": 244.955,
+  "fin": 245.329
+ },
+ {
+  "palabra": "código",
+  "inicio": 245.329,
+  "fin": 245.703
+ },
+ {
+  "palabra": "capaz",
+  "inicio": 245.703,
+  "fin": 246.024
+ },
+ {
+  "palabra": "de",
+  "inicio": 246.024,
+  "fin": 246.184
+ },
+ {
+  "palabra": "reproducirse",
+  "inicio": 246.184,
+  "fin": 246.879
+ },
+ {
+  "palabra": "solo,",
+  "inicio": 246.879,
+  "fin": 247.361
+ },
+ {
+  "palabra": "esparcido",
+  "inicio": 247.361,
+  "fin": 247.895
+ },
+ {
+  "palabra": "por",
+  "inicio": 247.895,
+  "fin": 248.109
+ },
+ {
+  "palabra": "todo",
+  "inicio": 248.109,
+  "fin": 248.376
+ },
+ {
+  "palabra": "internet.",
+  "inicio": 248.376,
+  "fin": 249.285
+ },
+ {
+  "palabra": "Ningún",
+  "inicio": 249.285,
+  "fin": 249.659
+ },
+ {
+  "palabra": "informe",
+  "inicio": 249.659,
+  "fin": 250.087
+ },
+ {
+  "palabra": "técnico,",
+  "inicio": 250.087,
+  "fin": 250.729
+ },
+ {
+  "palabra": "ni",
+  "inicio": 250.729,
+  "fin": 250.889
+ },
+ {
+  "palabra": "de",
+  "inicio": 250.889,
+  "fin": 251.049
+ },
+ {
+  "palabra": "OpenAI",
+  "inicio": 251.049,
+  "fin": 251.424
+ },
+ {
+  "palabra": "ni",
+  "inicio": 251.424,
+  "fin": 251.584
+ },
+ {
+  "palabra": "de",
+  "inicio": 251.584,
+  "fin": 251.744
+ },
+ {
+  "palabra": "Hugging",
+  "inicio": 251.744,
+  "fin": 252.172
+ },
+ {
+  "palabra": "Face,",
+  "inicio": 252.172,
+  "fin": 252.653
+ },
+ {
+  "palabra": "respalda",
+  "inicio": 252.653,
+  "fin": 253.134
+ },
+ {
+  "palabra": "esa",
+  "inicio": 253.134,
+  "fin": 253.348
+ },
+ {
+  "palabra": "versión.",
+  "inicio": 253.348,
+  "fin": 254.203
+ },
+ {
+  "palabra": "Lo",
+  "inicio": 254.203,
+  "fin": 254.364
+ },
+ {
+  "palabra": "que",
+  "inicio": 254.364,
+  "fin": 254.578
+ },
+ {
+  "palabra": "sí",
+  "inicio": 254.578,
+  "fin": 254.738
+ },
+ {
+  "palabra": "está",
+  "inicio": 254.738,
+  "fin": 255.005
+ },
+ {
+  "palabra": "confirmado,",
+  "inicio": 255.005,
+  "fin": 255.807
+ },
+ {
+  "palabra": "con",
+  "inicio": 255.807,
+  "fin": 256.021
+ },
+ {
+  "palabra": "fecha",
+  "inicio": 256.021,
+  "fin": 256.342
+ },
+ {
+  "palabra": "y",
+  "inicio": 256.342,
+  "fin": 256.449
+ },
+ {
+  "palabra": "hora",
+  "inicio": 256.449,
+  "fin": 256.716
+ },
+ {
+  "palabra": "exactas",
+  "inicio": 256.716,
+  "fin": 257.144
+ },
+ {
+  "palabra": "en",
+  "inicio": 257.144,
+  "fin": 257.304
+ },
+ {
+  "palabra": "los",
+  "inicio": 257.304,
+  "fin": 257.518
+ },
+ {
+  "palabra": "propios",
+  "inicio": 257.518,
+  "fin": 257.946
+ },
+ {
+  "palabra": "registros",
+  "inicio": 257.946,
+  "fin": 258.48
+ },
+ {
+  "palabra": "de",
+  "inicio": 258.48,
+  "fin": 258.641
+ },
+ {
+  "palabra": "las",
+  "inicio": 258.641,
+  "fin": 258.855
+ },
+ {
+  "palabra": "empresas,",
+  "inicio": 258.855,
+  "fin": 259.549
+ },
+ {
+  "palabra": "es",
+  "inicio": 259.549,
+  "fin": 259.71
+ },
+ {
+  "palabra": "más",
+  "inicio": 259.71,
+  "fin": 259.924
+ },
+ {
+  "palabra": "incómodo",
+  "inicio": 259.924,
+  "fin": 260.405
+ },
+ {
+  "palabra": "que",
+  "inicio": 260.405,
+  "fin": 260.619
+ },
+ {
+  "palabra": "cualquier",
+  "inicio": 260.619,
+  "fin": 261.153
+ },
+ {
+  "palabra": "rumor:",
+  "inicio": 261.153,
+  "fin": 261.741
+ },
+ {
+  "palabra": "un",
+  "inicio": 261.741,
+  "fin": 261.902
+ },
+ {
+  "palabra": "grupo",
+  "inicio": 261.902,
+  "fin": 262.222
+ },
+ {
+  "palabra": "de",
+  "inicio": 262.222,
+  "fin": 262.383
+ },
+ {
+  "palabra": "programas",
+  "inicio": 262.383,
+  "fin": 262.917
+ },
+ {
+  "palabra": "de",
+  "inicio": 262.917,
+  "fin": 263.078
+ },
+ {
+  "palabra": "inteligencia",
+  "inicio": 263.078,
+  "fin": 263.773
+ },
+ {
+  "palabra": "artificial,",
+  "inicio": 263.773,
+  "fin": 264.575
+ },
+ {
+  "palabra": "sin",
+  "inicio": 264.575,
+  "fin": 264.789
+ },
+ {
+  "palabra": "que",
+  "inicio": 264.789,
+  "fin": 265.002
+ },
+ {
+  "palabra": "ningún",
+  "inicio": 265.002,
+  "fin": 265.377
+ },
+ {
+  "palabra": "humano",
+  "inicio": 265.377,
+  "fin": 265.751
+ },
+ {
+  "palabra": "se",
+  "inicio": 265.751,
+  "fin": 265.911
+ },
+ {
+  "palabra": "lo",
+  "inicio": 265.911,
+  "fin": 266.072
+ },
+ {
+  "palabra": "pidiera,",
+  "inicio": 266.072,
+  "fin": 266.713
+ },
+ {
+  "palabra": "cooperó",
+  "inicio": 266.713,
+  "fin": 267.141
+ },
+ {
+  "palabra": "para",
+  "inicio": 267.141,
+  "fin": 267.408
+ },
+ {
+  "palabra": "violar",
+  "inicio": 267.408,
+  "fin": 267.782
+ },
+ {
+  "palabra": "un",
+  "inicio": 267.782,
+  "fin": 267.943
+ },
+ {
+  "palabra": "sistema",
+  "inicio": 267.943,
+  "fin": 268.37
+ },
+ {
+  "palabra": "real.",
+  "inicio": 268.37,
+  "fin": 269.065
+ },
+ {
+  "palabra": "Y",
+  "inicio": 269.065,
+  "fin": 269.172
+ },
+ {
+  "palabra": "a",
+  "inicio": 269.172,
+  "fin": 269.279
+ },
+ {
+  "palabra": "la",
+  "inicio": 269.279,
+  "fin": 269.44
+ },
+ {
+  "palabra": "empresa",
+  "inicio": 269.44,
+  "fin": 269.867
+ },
+ {
+  "palabra": "que",
+  "inicio": 269.867,
+  "fin": 270.081
+ },
+ {
+  "palabra": "los",
+  "inicio": 270.081,
+  "fin": 270.295
+ },
+ {
+  "palabra": "creó",
+  "inicio": 270.295,
+  "fin": 270.562
+ },
+ {
+  "palabra": "le",
+  "inicio": 270.562,
+  "fin": 270.723
+ },
+ {
+  "palabra": "tomaron",
+  "inicio": 270.723,
+  "fin": 271.15
+ },
+ {
+  "palabra": "ocho",
+  "inicio": 271.15,
+  "fin": 271.418
+ },
+ {
+  "palabra": "días",
+  "inicio": 271.418,
+  "fin": 271.685
+ },
+ {
+  "palabra": "completos,",
+  "inicio": 271.685,
+  "fin": 272.433
+ },
+ {
+  "palabra": "después",
+  "inicio": 272.433,
+  "fin": 272.861
+ },
+ {
+  "palabra": "de",
+  "inicio": 272.861,
+  "fin": 273.021
+ },
+ {
+  "palabra": "que",
+  "inicio": 273.021,
+  "fin": 273.235
+ },
+ {
+  "palabra": "el",
+  "inicio": 273.235,
+  "fin": 273.396
+ },
+ {
+  "palabra": "ataque",
+  "inicio": 273.396,
+  "fin": 273.77
+ },
+ {
+  "palabra": "terminara,",
+  "inicio": 273.77,
+  "fin": 274.518
+ },
+ {
+  "palabra": "para",
+  "inicio": 274.518,
+  "fin": 274.786
+ },
+ {
+  "palabra": "admitirlo",
+  "inicio": 274.786,
+  "fin": 275.32
+ },
+ {
+  "palabra": "en",
+  "inicio": 275.32,
+  "fin": 275.481
+ },
+ {
+  "palabra": "público.",
+  "inicio": 275.481,
+  "fin": 276.336
+ }
+]

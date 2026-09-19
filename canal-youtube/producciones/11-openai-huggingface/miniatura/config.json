@@ -1,0 +1,11 @@
+{
+  "image": "base.jpg",
+  "font": "../../../kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura",
+  "number": "8 DÍAS",
+  "line1": "SIN SABER",
+  "line2": "QUE ERA SU IA",
+  "side": "left",
+  "accent": "#FFD400",
+  "alarm": "#E10600"
+}
