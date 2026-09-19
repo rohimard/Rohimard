@@ -99,6 +99,17 @@ jobs:
                "https://tech.yahoo.com/cybersecurity/articles/andrew-yang-claims-escaped-ai-161121355.html"),
               ("yang-gadgetreview.jpg",
                "https://www.gadgetreview.com/andrew-yang-claims-escaped-ai-agents-polluted-the-web-with-self-replicating-code"),
+
+              # Segunda tanda: openai.com, axios.com y thehill.com bloquearon
+              # el scraper con 403 en la primera tanda -- se prueban fuentes
+              # alternativas para los mismos hechos, y una foto verificada
+              # de Thomas Wolf (no habia en Wikimedia Commons).
+              ("openai-fortune.jpg",
+               "https://fortune.com/2026/08/26/openai-publishes-technical-report-on-how-its-agents-hacked-hugging-face-here-are-the-main-takeaways-and-what-openai-left-out/"),
+              ("jfrog-hackernews.jpg",
+               "https://thehackernews.com/2026/09/attackers-chain-jfrog-artifactory-flaws.html"),
+              ("wolf-wef.jpg",
+               "https://www.weforum.org/people/thomas-wolf/"),
           ]
 
           resumen = []
@@ -156,6 +167,12 @@ jobs:
           # datos real y especifico de Hugging Face).
           bajar_wiki capitolio-wiki.jpg "United_States_Capitol_-_west_front.jpg"
           bajar_wiki datacenter-wiki.jpg "Data_center_1.jpg"
+
+          # Foto real y verificada de Clement Delangue (CEO de Hugging
+          # Face) -- la de TechCrunch (screenshot de videollamada) no se
+          # pudo verificar contra una segunda fuente, asi que se usa esta
+          # en su lugar.
+          bajar_wiki delangue-wiki.jpg "Clément_Delangue_on_SiliconANGLE_theCUBE.jpg"
           ls -la "$DESTINO"
 
       - name: Devolver las imagenes a la rama
