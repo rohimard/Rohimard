@@ -3,7 +3,7 @@ import type { FontId, TextStroke } from "../types";
 /** Pure, saturated green — the color most chroma-key tools default to. */
 export const CHROMA_GREEN = "#00FF00";
 
-const FONT_WEB_INFO: Record<
+export const FONT_WEB_INFO: Record<
   FontId,
   { cssFamily: string; weight: number; googleFontsParam: string | null }
 > = {
@@ -160,7 +160,10 @@ ${fontLink}
       var reader = new FileReader();
       reader.onloadend = function () {
         var result = String(reader.result || '');
-        var base64 = result.split(',')[1] || '';
+        // The mimeType itself can contain a comma (e.g. codec lists), so only
+        // the LAST comma in the data URL reliably marks the base64 payload —
+        // base64's alphabet never contains one.
+        var base64 = result.substring(result.lastIndexOf(',') + 1);
         post({ type: 'done', base64: base64, mimeType: mimeType });
       };
       reader.onerror = function () {

@@ -16,12 +16,16 @@ import TextBrush from "../src/components/TextBrush";
 import StickerLayer from "../src/components/StickerLayer";
 import StickerPicker from "../src/components/StickerPicker";
 import BrushSettingsPanel from "../src/components/BrushSettings";
+import LiveVideoCamera, { type LiveVideoCameraHandle } from "../src/components/LiveVideoCamera";
 import { TOOL_ITEMS, ACTIVE_COLOR, INACTIVE_COLOR } from "../src/components/BrushToolbar";
 import { useEditor } from "../src/state/EditorContext";
 import { fitCanvasSize, SCREEN_WIDTH, SCREEN_HEIGHT, EDITOR_CANVAS_MAX_HEIGHT } from "../src/lib/canvasSize";
 import { addRecentProject } from "../src/lib/storage";
+import { saveRecordedVideoToGallery } from "../src/state/ExportManager";
 import { BRAND_FONT_BOLD } from "../src/lib/fonts";
 import type { ToolId } from "../src/types";
+
+type CaptureMode = "photo" | "video";
 
 // Portrait photo aspect assumed for the live preview (matches the still
 // photo's aspect ratio closely enough on both platforms — Android is told
@@ -52,7 +56,12 @@ export default function CameraScreen() {
   const [capturing, setCapturing] = useState(false);
   const [ready, setReady] = useState(false);
   const [stickerPickerVisible, setStickerPickerVisible] = useState(false);
+  const [mode, setMode] = useState<CaptureMode>("photo");
+  const [videoReady, setVideoReady] = useState(false);
+  const [recording, setRecording] = useState(false);
+  const [savingVideo, setSavingVideo] = useState(false);
   const cameraRef = useRef<CameraView>(null);
+  const liveVideoRef = useRef<LiveVideoCameraHandle>(null);
 
   // Start every camera session with a clean canvas — strokes left over from
   // a previous editor session shouldn't silently appear on a new photo.
@@ -60,6 +69,18 @@ export default function CameraScreen() {
     clearAll();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Video mode's drawing/sticker rendering all happens inside the WebView —
+  // keep it in sync with settings changed from the panel below.
+  useEffect(() => {
+    if (mode === "video" && videoReady) {
+      liveVideoRef.current?.pushSettings(state.settings);
+    }
+  }, [mode, videoReady, state.settings]);
+
+  useEffect(() => {
+    setVideoReady(false);
+  }, [mode]);
 
   const handleCapture = async () => {
     if (!cameraRef.current || capturing || !ready) return;
@@ -97,9 +118,20 @@ export default function CameraScreen() {
     if (tool === "sticker") setStickerPickerVisible(true);
   };
   const handleClose = () => router.back();
-  const handleFlip = () => setFacing((f) => (f === "back" ? "front" : "back"));
+
+  const handleFlip = () => {
+    if (recording) return;
+    const next = facing === "back" ? "front" : "back";
+    setFacing(next);
+    if (mode === "video") liveVideoRef.current?.switchCamera(next);
+  };
 
   const handleSelectSticker = (uri: string) => {
+    if (mode === "video") {
+      liveVideoRef.current?.addSticker(uri);
+      setStickerPickerVisible(false);
+      return;
+    }
     stickerCounter += 1;
     addSticker({
       id: `sticker-${Date.now()}-${stickerCounter}`,
@@ -112,6 +144,33 @@ export default function CameraScreen() {
       createdAt: Date.now(),
     });
     setStickerPickerVisible(false);
+  };
+
+  const handleToggleRecording = async () => {
+    if (!liveVideoRef.current || savingVideo) return;
+    if (!recording) {
+      liveVideoRef.current.startRecording();
+      setRecording(true);
+      return;
+    }
+    setSavingVideo(true);
+    try {
+      const video = await liveVideoRef.current.stopRecording();
+      setRecording(false);
+      const result = await saveRecordedVideoToGallery(video);
+      if (result.ok) {
+        Alert.alert("Video guardado", "Se guardó en tu galería.");
+      } else if (result.reason === "permission") {
+        Alert.alert("Permiso necesario", "Activa el acceso a la galería para guardar el video.");
+      } else {
+        Alert.alert("Error", "No se pudo guardar el video.");
+      }
+    } catch {
+      setRecording(false);
+      Alert.alert("Error", "No se pudo grabar el video.");
+    } finally {
+      setSavingVideo(false);
+    }
   };
 
   if (!permission) {
@@ -152,28 +211,60 @@ export default function CameraScreen() {
         <TouchableOpacity onPress={handleClose} hitSlop={12}>
           <Ionicons name="close" size={26} color="#fff" />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Cámara</Text>
-        <TouchableOpacity onPress={handleFlip} hitSlop={12}>
-          <Ionicons name="camera-reverse-outline" size={26} color="#fff" />
+        <View style={styles.modeToggle}>
+          <TouchableOpacity
+            style={[styles.modeButton, mode === "photo" && styles.modeButtonActive]}
+            onPress={() => !recording && setMode("photo")}
+          >
+            <Text style={[styles.modeButtonText, mode === "photo" && styles.modeButtonTextActive]}>Foto</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[styles.modeButton, mode === "video" && styles.modeButtonActive]}
+            onPress={() => !recording && setMode("video")}
+          >
+            <Text style={[styles.modeButtonText, mode === "video" && styles.modeButtonTextActive]}>Video</Text>
+          </TouchableOpacity>
+        </View>
+        <TouchableOpacity onPress={handleFlip} hitSlop={12} disabled={recording}>
+          <Ionicons name="camera-reverse-outline" size={26} color={recording ? "#3A3A44" : "#fff"} />
         </TouchableOpacity>
       </View>
 
       <View style={styles.previewWrapper}>
         <View style={{ width: previewCanvasSize.width, height: previewCanvasSize.height }}>
-          <CameraView
-            ref={cameraRef}
-            style={StyleSheet.absoluteFillObject}
-            facing={facing}
-            ratio="4:3"
-            onCameraReady={() => setReady(true)}
-          />
-          <TextBrush
-            width={previewCanvasSize.width}
-            height={previewCanvasSize.height}
-            enabled={drawingEnabled}
-            mode={drawMode}
-          />
-          <StickerLayer stickers={stickers} interactive={state.activeTool === "sticker"} />
+          {mode === "photo" ? (
+            <>
+              <CameraView
+                ref={cameraRef}
+                style={StyleSheet.absoluteFillObject}
+                facing={facing}
+                ratio="4:3"
+                onCameraReady={() => setReady(true)}
+              />
+              <TextBrush
+                width={previewCanvasSize.width}
+                height={previewCanvasSize.height}
+                enabled={drawingEnabled}
+                mode={drawMode}
+              />
+              <StickerLayer stickers={stickers} interactive={state.activeTool === "sticker"} />
+            </>
+          ) : (
+            <LiveVideoCamera
+              ref={liveVideoRef}
+              width={previewCanvasSize.width}
+              height={previewCanvasSize.height}
+              initialSettings={state.settings}
+              initialFacing={facing}
+              onReady={() => setVideoReady(true)}
+              onError={(message) => Alert.alert("Error", message)}
+            />
+          )}
+          {!videoReady && mode === "video" && (
+            <View style={styles.videoLoadingOverlay} pointerEvents="none">
+              <ActivityIndicator color={ACTIVE_COLOR} />
+            </View>
+          )}
         </View>
       </View>
 
@@ -224,23 +315,41 @@ export default function CameraScreen() {
               </TouchableOpacity>
             );
           })}
-          <View style={styles.toolDivider} />
-          <TouchableOpacity style={styles.toolButton} onPress={undo} disabled={!canUndo}>
-            <Ionicons name="arrow-undo-outline" size={20} color={canUndo ? INACTIVE_COLOR : "#3A3A44"} />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.toolButton} onPress={clearAll} disabled={!canUndo}>
-            <Ionicons name="trash-outline" size={20} color={canUndo ? INACTIVE_COLOR : "#3A3A44"} />
-          </TouchableOpacity>
+          {mode === "photo" && (
+            <>
+              <View style={styles.toolDivider} />
+              <TouchableOpacity style={styles.toolButton} onPress={undo} disabled={!canUndo}>
+                <Ionicons name="arrow-undo-outline" size={20} color={canUndo ? INACTIVE_COLOR : "#3A3A44"} />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.toolButton} onPress={clearAll} disabled={!canUndo}>
+                <Ionicons name="trash-outline" size={20} color={canUndo ? INACTIVE_COLOR : "#3A3A44"} />
+              </TouchableOpacity>
+            </>
+          )}
         </View>
 
         <View style={styles.shutterRow}>
-          <TouchableOpacity
-            style={[styles.shutterButton, capturing && styles.shutterButtonBusy]}
-            onPress={handleCapture}
-            disabled={capturing || !ready}
-          >
-            {capturing ? <ActivityIndicator color="#0B0B0F" /> : <View style={styles.shutterInner} />}
-          </TouchableOpacity>
+          {mode === "photo" ? (
+            <TouchableOpacity
+              style={[styles.shutterButton, capturing && styles.shutterButtonBusy]}
+              onPress={handleCapture}
+              disabled={capturing || !ready}
+            >
+              {capturing ? <ActivityIndicator color="#0B0B0F" /> : <View style={styles.shutterInner} />}
+            </TouchableOpacity>
+          ) : (
+            <TouchableOpacity
+              style={[styles.shutterButton, savingVideo && styles.shutterButtonBusy]}
+              onPress={handleToggleRecording}
+              disabled={savingVideo || !videoReady}
+            >
+              {savingVideo ? (
+                <ActivityIndicator color="#0B0B0F" />
+              ) : (
+                <View style={[styles.shutterInner, styles.shutterInnerVideo, recording && styles.shutterInnerRecording]} />
+              )}
+            </TouchableOpacity>
+          )}
         </View>
       </View>
 
@@ -279,7 +388,18 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
   },
   headerTitle: { color: "#fff", fontSize: 16, fontFamily: BRAND_FONT_BOLD },
+  modeToggle: { flexDirection: "row", backgroundColor: "#1A1A22", borderRadius: 10, padding: 3, gap: 2 },
+  modeButton: { paddingHorizontal: 14, paddingVertical: 6, borderRadius: 8 },
+  modeButtonActive: { backgroundColor: "#4CC9F0" },
+  modeButtonText: { color: "#9CA3AF", fontSize: 13, fontWeight: "700" },
+  modeButtonTextActive: { color: "#04121a" },
   previewWrapper: { flex: 1, alignItems: "center", justifyContent: "center", overflow: "hidden" },
+  videoLoadingOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "rgba(11,11,15,0.6)",
+  },
   bottomPanel: { paddingHorizontal: 16, paddingTop: 12, paddingBottom: 8, gap: 12 },
   phraseInput: {
     backgroundColor: "#1A1A22",
@@ -346,4 +466,6 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#0B0B0F",
   },
+  shutterInnerVideo: { backgroundColor: "#FF3B3B" },
+  shutterInnerRecording: { borderRadius: 10, width: 32, height: 32 },
 });
