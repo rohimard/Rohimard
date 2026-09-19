@@ -1,0 +1,89 @@
+SEO DEL VÍDEO 9 — El helicóptero de NBC/Telemundo en Chatsworth
+Hecho el 17/09/2026. vidIQ se quedó sin créditos a mitad de sesión, así que
+los datos de competencia son de Nexlev (búsqueda real en YouTube, no
+volumen estimado): qué videos existen ahora mismo sobre esta noticia y
+cuántas vistas tiene cada uno.
+
+DATOS QUE MANDAN SOBRE LAS DECISIONES
+=====================================
+Videos reales sobre esta noticia, con menos de 30 horas de publicados
+(Nexlev, 17/09/2026):
+
+  "Watch the moment anchors announce death... live on air" (ITV News)
+      2.053.665 vistas -- el mayor outlier, ángulo: el momento en que
+      lo confirman en vivo (este vídeo no lo cubre, no se persigue)
+  "3 killed after NBC4 helicopter crashes..." (ABC7) ........ 395.278
+  "New details in fatal Metro bus collision..." (KTLA 5) ..... 358.045
+  "¡Tragedia en vivo! Así fue el accidente..." (El Heraldo) .. 344.751
+  "Full coverage of news helicopter crash" (NBCLA) ........... 469.209
+  "La NTSB analiza el video del desplome..." (N. Telemundo) .. 191.724
+  "While covering a traffic story, helicopter crashes;
+   who were the victims?" (N+ Univision) ...................... 55.062
+
+Patrón en los que más vistas mueven: "en vivo", "se estrella"/"estrelló",
+"tragedia", nombrar "NBC" explícitamente, y el ángulo de "cubriendo algo
+cuando pasó" (el más parecido al ángulo de este vídeo, 55K en un día).
+
+TÍTULO
+======
+Helicóptero de NBC Se Estrella EN VIVO Cubriendo Otra Tragedia en Los Ángeles
+
+Construido con los términos que de verdad mueven vistas en esta noticia
+real (arriba), no a partir de intuición. Nombra el sujeto (NBC,
+helicóptero) en vez de esconderlo detrás de una metáfora -- la primera
+versión ("Se Estrelló En Vivo Cubriendo Otra Tragedia") se corrigió por
+señalarse como demasiado genérica y evasiva del hecho.
+
+Alternativa más corta para no cortarse en móvil:
+  NBC: Su Helicóptero Se Estrella en Vivo Cubriendo Otra Tragedia
+
+DESCRIPCIÓN
+===========
+Un helicóptero de noticias cubría en vivo un choque que ya había matado a
+dos personas. Minutos después, el propio helicóptero cayó del cielo.
+
+El martes 15 de septiembre de 2026, en Chatsworth (Los Ángeles), Bailee
+Lynn Rios condujo en sentido contrario, se saltó un semáforo y se estrelló
+contra un autobús de LA Metro. Murieron Daniel Castillo y Gage Weida.
+
+NBC4 y Telemundo 52 mandaron su helicóptero, NewsChopper 4, a cubrir el
+choque. A bordo iban la periodista aérea Eliana Moreno ("Eli in the Heli")
+y el piloto George Marciniw, con más de treinta años de experiencia.
+Minutos antes de las siete de la tarde, mientras transmitían en vivo, su
+helicóptero cayó del cielo a pocas calles de distancia. Murieron los dos,
+y con ellos una tercera persona en tierra que no tenía ninguna relación
+con ninguno de los dos accidentes: Edy Gutiérrez Mejía, de visita desde
+Guatemala.
+
+Cinco muertos, dos sucesos sin conexión entre sí, en menos de una hora. La
+NTSB investiga ambos accidentes; el informe preliminar sobre el
+helicóptero tardará treinta días. Este vídeo no específula sobre la causa:
+solo cuenta, con fuentes cruzadas, lo que ya está confirmado.
+
+Fuentes: NBC News, NBC Los Ángeles, CNN, KTLA, PBS NewsHour, CBS Los
+Ángeles, ABC7, Hollywood Reporter, Fox 11 Los Ángeles, San Fernando Sun.
+
+Capítulos:
+0:00 Dos tragedias en una noche
+0:15 El choque de autobús en Chatsworth
+0:31 Las víctimas del autobús
+0:44 El helicóptero que iba a cubrirlo
+1:16 El helicóptero cae
+1:49 La investigación de la NTSB
+2:24 Quiénes eran Moreno y Marciniw
+2:46 Cubrir la noticia se convirtió en la noticia
+
+ETIQUETAS
+=========
+helicoptero se estrella, nbc helicoptero, chatsworth, los angeles noticias,
+helicoptero en vivo, eliana moreno, george marciniw, ntsb, accidente
+helicoptero, telemundo, tragedia en vivo, noticias de ultima hora,
+historia incomoda, casos reales, choque autobus los angeles
+
+PENDIENTE
+=========
+- Repetir el chequeo de competencia con vidIQ cuando se recarguen
+  créditos, para comparar contra los datos de Nexlev.
+- Esta es noticia de actualidad: revisar antes de publicar si hay
+  actualización sobre la causa del accidente (informe preliminar de la
+  NTSB, 30 días desde el 15/09).

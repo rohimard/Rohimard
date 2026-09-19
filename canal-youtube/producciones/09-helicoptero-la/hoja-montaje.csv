@@ -1,0 +1,34 @@
+plano,archivo,in,out,dur,anclado,texto
+1,imagenes-reales/valle-san-fernando.jpg,0:00.00,0:05.46,5.46,,"El martes 15 de septiembre de 2026, en Los Ángeles, dos personas murieron en un accidente."
+2,imagenes-noticia/choque-autobus-hollywoodreporter.jpg,0:05.46,0:10.23,4.78,,"Después, mientras un helicóptero de noticias cubría ese accidente en vivo, murieron tres más."
+3,imagenes-noticia/victimas-heli-cnn-perfil.jpg,0:10.23,0:15.01,4.78,,Una de ellas no tenía nada que ver con ninguno de los dos hechos.
+4,imagenes-reales/chatsworth.jpg,0:15.01,0:18.08,3.07,,"Todo empezó al anochecer, en el barrio de Chatsworth."
+5,imagenes-noticia/newsroom-evidencia-nbcla.jpg,0:18.08,0:24.22,6.14,,"Bailee Lynn Rios, de 36 años, conducía su camioneta en sentido contrario por una avenida de tráfico denso."
+6,imagenes-noticia/bus-escena-foxla.jpg,0:24.22,0:31.05,6.82,,"Se saltó un semáforo en rojo, chocó contra un vehículo y, segundos después, se estrelló contra un autobús de Metro."
+7,imagenes-noticia/castillo-retrato.jpg,0:31.05,0:34.80,3.75,,"En el autobús murieron dos personas: Daniel Castillo, de 46 años,"
+8,imagenes-noticia/weida-retrato.jpg,0:34.80,0:36.50,1.71,,"y Gage Weida, de 31."
+9,imagenes-noticia/choque-bus-escena.jpg,0:36.50,0:37.87,1.36,,Otras seis resultaron heridas.
+10,imagenes-noticia/choque-bus-nbcla.jpg,0:37.87,0:44.01,6.14,,Rios fue detenida esa misma noche. La acusación: homicidio. Su fianza se fijó en cuatro millones de dólares.
+11,imagenes-noticia/estatuto-nbc4-telemundo.jpg,0:44.01,0:49.47,5.46,,"Como ocurre con cualquier choque grande en Los Ángeles, las televisoras mandaron un helicóptero a cubrirlo."
+12,imagenes-noticia/helicoptero-n358tv-flightaware.jpg,0:49.47,0:52.88,3.41,,El de NBC4 y Telemundo 52 se llamaba NewsChopper 4.
+13,imagenes-noticia/moreno-marciniw-nbcnews.jpg,0:52.88,1:01.41,8.53,,"A bordo iban dos personas que llevaban tres años volando juntas: la periodista aérea Eliana Moreno, conocida por su público como ""Eli in the Heli"","
+14,imagenes-noticia/heli-escena-foxla-live.jpg,1:01.41,1:06.87,5.46,,"y el piloto George Marciniw, con más de treinta años de experiencia y cerca de jubilarse."
+15,imagenes-reales/helicoptero-as350.jpg,1:06.87,1:16.42,9.55,,"Moreno y Marciniw llegaron a la zona del choque y empezaron a transmitir en vivo. Era un vuelo de rutina, del tipo que habían hecho cientos de veces."
+16,imagenes-noticia/choque-autobus-pbs.jpg,1:16.42,1:23.24,6.82,,"Minutos antes de las siete de la tarde, mientras cubrían el accidente del autobús, su propio helicóptero cayó del cielo."
+17,imagenes-noticia/ntsb-investigador-abc7.jpg,1:23.24,1:27.00,3.75,,Se estrelló en un estacionamiento a pocas calles del primer choque.
+18,imagenes-noticia/llamas-cerca.jpg,1:27.00,1:29.39,2.39,,Moreno y Marciniw murieron en el acto.
+19,imagenes-noticia/incendio-cerca.jpg,1:29.39,1:34.84,5.46,,"En tierra, en ese mismo estacionamiento, murió una tercera persona: Edy Gutiérrez Mejía, de 29 años,"
+20,imagenes-noticia/escena-helicoptero-cnn.jpg,1:34.84,1:42.01,7.16,,que estaba de visita desde Guatemala y no tenía ninguna relación con el accidente que el helicóptero había ido a cubrir.
+21,imagenes-reales/autobus-metro.jpg,1:42.01,1:49.86,7.85,,"En menos de una hora, y a pocas cuadras de distancia, cinco personas murieron en dos sucesos que empezaron sin conexión entre sí."
+22,imagenes-noticia/heli-escena-sanfernandosun.jpg,1:49.86,1:55.31,5.46,,"La Junta Nacional de Seguridad en el Transporte, la NTSB, abrió investigación sobre los dos accidentes."
+23,imagenes-noticia/salazar-cerca.jpg,1:55.31,2:05.21,9.89,,"Sobre el helicóptero, el investigador Fabian Salazar explicó que el audio y el vídeo grabados dentro de la cabina en los segundos previos al impacto son la pieza clave:"
+24,imagenes-noticia/heli-escena-cbsla2.jpg,2:05.21,2:11.35,6.14,,"se oye un cambio en el sonido del motor, y tonos que parecen ser avisos automáticos al piloto."
+25,imagenes-noticia/heli-escena-latintimes.jpg,2:11.35,2:16.47,5.12,,Ese audio se envió a análisis de espectro sonoro. El informe preliminar tardará treinta días.
+26,imagenes-noticia/prensa-alcaldesa.jpg,2:16.47,2:18.51,2.05,,Nadie ha dicho todavía qué falló.
+27,imagenes-noticia/prensa-bombero-jefe.jpg,2:18.51,2:24.31,5.80,,Lo único confirmado es que algo cambió en el motor en los segundos antes de la caída.
+28,imagenes-noticia/chapman-tributo-nbcla.jpg,2:24.31,2:32.16,7.85,,"Eliana Moreno se había graduado en periodismo en la Universidad Chapman en 2010. En 2025 se había comprometido con su pareja, Robert Barrientos."
+29,imagenes-noticia/heli-escena-foxla.jpg,2:32.16,2:39.67,7.51,,"George Marciniw llevaba media vida pilotando helicópteros y esta iba a ser, según sus compañeros, de sus últimas temporadas antes de retirarse."
+30,imagenes-noticia/memorial-victimas-nbcla.jpg,2:39.67,2:46.49,6.82,,Sus colegas en NBC Los Ángeles lo dijeron sin rodeos al aire: los dos murieron haciendo lo que más amaban.
+31,imagenes-noticia/bus-1614-cerca.jpg,2:46.49,2:51.95,5.46,,Pero eso no cambia lo incómodo del hecho. Cubrir la noticia se convirtió en la noticia.
+32,imagenes-noticia/choque-bus-abc7-b.jpg,2:51.95,2:57.07,5.12,,"Y una persona que no tenía nada que ver con ninguno de los dos accidentes,"
+33,imagenes-noticia/choque-bus-cbs-recortada.jpg,2:57.07,3:04.23,7.16,,"que simplemente estaba de visita en la ciudad, terminó siendo la quinta víctima de una noche que empezó como una más."

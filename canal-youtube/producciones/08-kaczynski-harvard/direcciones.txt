@@ -1,0 +1,14 @@
+# Una linea por trozo. Se suma a la direccion base del workflow.
+# Linea en blanco = ese trozo se queda solo con la base.
+# Si cambias una linea, ese trozo (y solo ese) se regenera en la siguiente tanda.
+#
+# Trozo 1 — el gancho: la silla, los focos, el nombre
+Arranca rapido y cerca, como quien empieza a contar algo que le quema. Nada de solemnidad de apertura. Encadena las tres primeras frases casi sin respirar. Frena en seco solo una vez, en "Diecisiete anos despues, el FBI le pondra otro nombre".
+# Trozo 2 — quien era Murray, el reclutamiento
+Mas frio y mas rapido: esto es contexto, no drama. Tono de quien explica un expediente. Acelera en las fechas y en los cargos.
+# Trozo 3 — la redaccion, la sala, el ataque
+Baja el volumen y acercate al microfono, como si contaras algo que no deberia saberse. Sigue rodando sin pausas largas, y para de verdad solo despues de "Era la municion".
+# Trozo 4 — las grabaciones y el nombre en clave
+El tramo mas lento del video, pero solo este. Deja aire despues de "Tenias que mirarte siendo humillado". Y di "Lawful" con calma, sin subrayarlo, dejandolo caer como quien lee una etiqueta.
+# Trozo 5 — las victimas y el cierre
+Plano y seco al nombrar a las victimas, sin ninguna emocion añadida: el respeto aqui es no actuar. Y en el ultimo parrafo cambia: habla directo al espectador, casi como una pregunta, un punto mas rapido y mas cerca.

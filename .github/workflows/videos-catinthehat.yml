@@ -1,0 +1,115 @@
+# Baja clips reales cortos (no solo capturas fijas) para el video 10
+# (tendencia "Cat in the Hat"): los TikToks reales del propio hecho, en
+# vez de solo la foto de la publicacion.
+#
+# Mismo motivo que el workflow de imagenes: este sandbox tiene bloqueada
+# la salida hacia la mayoria de estos dominios, pero el runner de GitHub
+# Actions no.
+#
+# Nada de video de los detenidos: todos son menores de edad. Ver
+# canal-youtube/producciones/10-cat-in-the-hat/README.md.
+name: videos-catinthehat
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/videos-catinthehat.yml
+
+permissions:
+  contents: write
+
+env:
+  DESTINO: canal-youtube/producciones/10-cat-in-the-hat/videos
+
+jobs:
+  bajar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install --quiet -U yt-dlp
+      # --download-sections (recorte a los primeros 60s) necesita
+      # ffmpeg instalado en el runner -- sin el, yt-dlp aborta antes de
+      # bajar nada ("downloading the video partially, but ffmpeg is
+      # not installed").
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Bajar clips reales (TikTok del propio hecho)
+        run: |
+          set +e
+          mkdir -p "$DESTINO"
+          rm -f "$DESTINO/FUENTES-VIDEO.txt"
+          yt-dlp --version
+
+          bajar() {
+            nombre="$1"; url="$2"
+            echo "-- $nombre <- $url"
+            # --max-filesize no es confiable con streams HLS/DASH
+            # fragmentados (no conoce el tamano total de antemano) --
+            # kwch-hutchinson-1 igual llego a 100.15MB con el tope en
+            # 80M y trabo el push (limite duro de GitHub: 100MB/archivo).
+            # Ahora ademas se recorta a los primeros 60s (de sobra para
+            # cualquier paquete de noticias local) con
+            # --download-sections, que si es un corte real de tiempo.
+            salida=$(yt-dlp -f "bv*[height<=360]+ba/b[height<=360]/mp4" \
+              --download-sections "*0-60" --max-filesize 45M \
+              -o "$DESTINO/$nombre.mp4" "$url" 2>&1)
+            echo "$salida"
+            if [ -f "$DESTINO/$nombre.mp4" ]; then
+              echo "OK: $nombre <- $url" >> "$DESTINO/FUENTES-VIDEO.txt"
+            else
+              # Guarda la ultima linea real del error (yt-dlp antepone
+              # "ERROR:") para saber la causa exacta sin bajar el zip
+              # de logs completo.
+              motivo=$(echo "$salida" | grep -i "ERROR" | tail -1)
+              echo "FALLO: $nombre <- $url :: ${motivo:-sin detalle}" >> "$DESTINO/FUENTES-VIDEO.txt"
+            fi
+          }
+
+          # TikTok fallo: "Unexpected response from webpage request" es
+          # un bug de yt-dlp contra el nuevo challenge/cookie de TikTok
+          # (issues #17403/#17407/#17604, sin arreglo aun a la fecha),
+          # no algo resoluble desde aqui.
+
+          # CBC (404, la nota se movio), Global News (URL no soportada
+          # por el extractor) y NBC Connecticut (sin metadata de video
+          # en la pagina) ya se intentaron y fallaron por motivos que no
+          # son de bloqueo -- no vale la pena reintentarlos igual.
+
+          # YouTube: descartado. Los 24 intentos anteriores fallaron
+          # con "Sign in to confirm you're not a bot" incluso probando
+          # los 3 workarounds de cliente conocidos de yt-dlp (web,
+          # android, tv/ios/android) -- bloqueo duro de YouTube contra
+          # las IPs de datacenter de GitHub Actions en esta fecha, no
+          # arreglable sin cookies de una cuenta real. Se abandona esta
+          # via y se vuelve a paginas de noticias individuales (el
+          # mismo metodo que si funciono con WBRZ).
+          # castanet x2, wkyt-jessamine-1, lex18 (redirige a un post de
+          # Facebook borrado), ksn y king5 ya se intentaron y fallaron
+          # por URL no soportada o 403 -- no vale la pena reintentarlos.
+          # Estos 4 SI funcionaron; se repiten aqui solo con el nuevo
+          # tope de tamano (el intento anterior de kwch-hutchinson-1
+          # llego a 100.15MB y trabo el push).
+          bajar wkyt-jessamine-2 "https://www.wkyt.com/2026/09/07/ai-expert-says-cat-hat-school-threat-trend-is-tip-iceberg/"
+          bajar kwch-hutchinson-1 "https://www.kwch.com/2026/08/31/hutchinson-school-warns-parents-cat-hat-trend/"
+          bajar kwch-hutchinson-2 "https://www.kwch.com/2026/09/01/hutchinson-teenager-charged-connection-with-cat-hat-trend/"
+          bajar kait8-arkansas "https://www.kait8.com/2026/09/02/dr-suess-themed-trend-results-teen-facing-charges/"
+          bajar kten-texoma "https://www.kten.com/news/crime/feline-meme-triggers-concern-for-texoma-school-districts/article_8da29459-d231-435b-86e5-35219312303c.html"
+
+          ls -la "$DESTINO"
+          cat "$DESTINO/FUENTES-VIDEO.txt" 2>/dev/null || true
+
+      - name: Devolver los videos a la rama
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Clips reales para el video de la tendencia Cat in the Hat' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

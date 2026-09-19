@@ -1,0 +1,10 @@
+{
+  "image": "base-color.jpg",
+  "font": "../../../kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura",
+  "line1": "PARECE UNA BROMA",
+  "line2": "TERMINÓ EN ARRESTO",
+  "side": "right",
+  "accent": "#FFD400",
+  "alarm": "#E10600"
+}

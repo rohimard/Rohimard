@@ -1,0 +1,179 @@
+# Cinco voces de Gemini nunca probadas, con dos correcciones aprendidas hoy:
+#
+# 1. DIRECCION CON RITMO, no la version monotona original. Misma que se uso
+#    para arreglar el video 8 ("ritmo vivo... CAMBIA DE MARCHA").
+#
+# 2. GANCHO SIN PUNTOS ENTRECORTADOS. El experimento controlado de hoy en
+#    VoxCPM2 (mismas 41 palabras, solo se cambiaron tres puntos por comas)
+#    mostro que el texto original tiene 4 cortes duros a silencio casi total
+#    contra 2 mas suaves en la version con comas, y que el motor acelera
+#    dentro de cada frase corta para compensar el tiempo que pierde parando.
+#    Aunque la prueba fue con otro motor, la causa (frases cortas separadas
+#    por punto) es del TEXTO, no del modelo, asi que aqui se usa directamente
+#    la version fluida.
+#
+# Elegidas por descriptor, las cuatro mas cercanas al perfil "Kevin" (calido,
+# medio, conversacional) que aun no se habian tocado, mas una de contraste:
+#   Sulafat        Warm
+#   Vindemiatrix   Gentle
+#   Achernar       Soft
+#   Schedar        Even
+#   Despina        Smooth
+name: voz-gemini-mas
+
+# Disparo por fichero centinela, NO por push sobre este archivo: corregir una
+# linea de codigo no debe gastar cupo diario, y ya paso tres veces.
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - canal-youtube/.gemini-mas-disparo
+
+permissions:
+  contents: write
+
+env:
+  DESTINO: canal-youtube/muestras-voz/gemini-mas
+  MODELO: gemini-2.5-flash-preview-tts
+  MUESTRA: >-
+    Cada mañana ordenas que suban agua caliente para afeitar a un hombre que
+    está muerto, le preparan la ropa, le dejan la toalla limpia. Llevas años
+    haciéndolo, estás en el castillo de Windsor, y eres la mujer más poderosa
+    del mundo.
+  DIRECCION: >-
+    Habla en español latinoamericano neutro. Eres un hombre de unos cuarenta y
+    cinco años contandole esto a un amigo sentado enfrente. Registro medio,
+    volumen de conversacion, y ritmo vivo: se habla mas rapido de lo que se
+    lee. No eres locutor: no proyectes la voz, no subrayes palabras, no hagas
+    la entonacion cantada de la radio. Baja el tono al final de cada frase,
+    nunca lo subas. CAMBIA DE MARCHA: encadena sin pausa las frases que van
+    juntas y frena solo donde el dato necesita caer. No hagas la misma pausa
+    en todos los puntos, que es lo que convierte una historia en un dictado.
+    No dramatices: el dato ya incomoda solo.
+
+jobs:
+  narrar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      # De una en una: el plan gratuito da 3 peticiones por minuto.
+      max-parallel: 1
+      matrix:
+        include:
+          - clave: 1-sulafat
+            voz: Sulafat
+          - clave: 2-vindemiatrix
+            voz: Vindemiatrix
+          - clave: 3-achernar
+            voz: Achernar
+          - clave: 4-schedar
+            voz: Schedar
+          - clave: 5-despina
+            voz: Despina
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/viral-youtube-video-ideas-luqj2m
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Resolver la clave
+        env:
+          CLAVE_OK: ${{ secrets.GOOGLE_API_KEY }}
+          CLAVE_TYPO: ${{ secrets.GOOGLE_API_JEY }}
+        run: |
+          CLAVE="${CLAVE_OK:-$CLAVE_TYPO}"
+          if [ -z "$CLAVE" ]; then
+            echo "::error::no hay clave de Google en los secretos del repo"
+            exit 1
+          fi
+          echo "::add-mask::$CLAVE"
+          echo "CLAVE=$CLAVE" >> "$GITHUB_ENV"
+
+      - name: Sintetizar
+        env:
+          VOZ: ${{ matrix.voz }}
+        run: |
+          mkdir -p salida
+          python3 - <<'PY'
+          import base64, json, os, re, sys, time, urllib.error, urllib.request, wave
+
+          texto = " ".join(os.environ["MUESTRA"].split())
+          direccion = " ".join(os.environ["DIRECCION"].split())
+          prompt = (f"{direccion}\n\nDi exactamente el texto que sigue, y nada "
+                    f"mas. No leas estas instrucciones.\n\n{texto}")
+
+          cuerpo = {
+              "contents": [{"parts": [{"text": prompt}]}],
+              "generationConfig": {
+                  "responseModalities": ["AUDIO"],
+                  "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig":
+                      {"voiceName": os.environ["VOZ"]}}},
+              },
+          }
+          url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+                 f"{os.environ['MODELO']}:generateContent")
+          pet = urllib.request.Request(
+              url, data=json.dumps(cuerpo).encode(),
+              headers={"Content-Type": "application/json",
+                       "x-goog-api-key": os.environ["CLAVE"]},
+              method="POST")
+
+          resp = None
+          for intento in range(1, 7):
+              try:
+                  with urllib.request.urlopen(pet, timeout=300) as r:
+                      resp = json.loads(r.read())
+                  break
+              except urllib.error.HTTPError as e:
+                  d = e.read().decode(errors="replace")
+                  if e.code == 429 and re.search(r"limit: 0\b", d):
+                      print(f"::error::{os.environ['MODELO']} no esta en el "
+                            f"plan gratuito (limit: 0). {d[:300]}")
+                      sys.exit(1)
+                  if e.code == 429 and re.search(r"PerDay|per day", d):
+                      print(f"::error::cupo DIARIO agotado. {d[:300]}")
+                      sys.exit(1)
+                  if e.code not in (429, 500, 503) or intento == 6:
+                      print(f"::error::Google devolvio {e.code}: {d[:500]}")
+                      sys.exit(1)
+                  espera = 20.0 * intento
+                  m = re.search(r"retry in ([\d.]+)s", d)
+                  if m:
+                      espera = float(m.group(1)) + 5
+                  print(f"{e.code} en el intento {intento}; espero {espera:.0f}s")
+                  time.sleep(espera)
+
+          try:
+              parte = resp["candidates"][0]["content"]["parts"][0]["inlineData"]
+          except (KeyError, IndexError):
+              print(f"::error::respuesta inesperada: {json.dumps(resp)[:600]}")
+              sys.exit(1)
+
+          crudo = base64.b64decode(parte["data"])
+          m = re.search(r"rate=(\d+)", parte.get("mimeType", ""))
+          sr = int(m.group(1)) if m else 24000
+          print(f"{len(crudo)} bytes a {sr} Hz = {len(crudo)/(sr*2):.1f}s")
+
+          with wave.open("salida/voz.wav", "wb") as w:
+              w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
+              w.writeframes(crudo)
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/${{ matrix.clave }}.mp3"
+          rm salida/voz.wav
+          DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 \
+                "salida/${{ matrix.clave }}.mp3")
+          echo "duracion: ${DUR}s"
+          python3 -c "import sys; sys.exit(0 if float('$DUR')>5 else 1)" \
+            || { echo "::error::solo ${DUR}s; el modelo no leyo el texto"; exit 1; }
+
+      - uses: ./.github/actions/devolver
+        with:
+          destino: canal-youtube/muestras-voz/gemini-mas
+          mensaje: Voz Gemini ${{ matrix.clave }}

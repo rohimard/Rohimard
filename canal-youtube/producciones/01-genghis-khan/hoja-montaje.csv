@@ -1,0 +1,79 @@
+﻿Plano;Bloque;Entra;Sale;Duracion (s);Escena
+1;GANCHO;0:00;0:04;4;El error sobre los imperios
+2;GANCHO;0:04;0:07;3;Grandes, brillantes, civilizadores
+3;GANCHO;0:07;0:12;5;No es culpa tuya
+4;GANCHO;0:12;0:18;6;El mayor territorio continuo
+5;GANCHO;0:18;0:24;6;Una de cada diez personas
+6;GANCHO;0:24;0:29;5;Su cara en los billetes
+7;GANCHO;0:29;0:33;4;Temuyín, Gengis Kan
+8;GANCHO;0:33;0:40;7;Quédate con un dato
+9;GANCHO;0:40;0:47;7;Su firma dentro del cuerpo
+10;SAMARCANDA;0:47;0:50;3;Retrocedamos
+11;SAMARCANDA;0:50;0:53;3;Año 1219, Samarcanda
+12;SAMARCANDA;0:53;0:57;4;Azafrán y pergamino
+13;SAMARCANDA;0:57;1:02;5;Bibliotecas y observatorios
+14;SAMARCANDA;1:02;1:07;5;Canales de riego
+15;SAMARCANDA;1:07;1:12;5;El jinete en la estepa
+16;SAMARCANDA;1:12;1:15;3;No grita, no amenaza
+17;SAMARCANDA;1:15;1:18;3;Ya lo ha decidido
+18;EL_SISTEMA;1:18;1:23;5;Guerra por sistema
+19;EL_SISTEMA;1:23;1:26;3;Ciudad que se rinde
+20;EL_SISTEMA;1:26;1:30;4;Ciudad que resiste
+21;EL_SISTEMA;1:30;1:33;3;No era crueldad improvisada
+22;EL_SISTEMA;1:33;1:38;5;Exterminio administrativo
+23;EL_SISTEMA;1:38;1:42;4;El terror viaja más rápido
+24;MERV;1:42;1:45;3;Qué significa en la práctica
+25;MERV;1:45;1:48;3;Merv, Turkmenistán
+26;MERV;1:48;1:53;5;Una de las más grandes del planeta
+27;MERV;1:53;1:56;3;Bibliotecas y observatorios de Merv
+28;MERV;1:56;1:59;3;Canales regando el desierto
+29;MERV;1:59;2:04;5;Más de un millón de muertos
+30;MERV;2:04;2:08;4;Cifra discutida
+31;MERV;2:08;2:11;3;Lo que nadie discute
+32;MERV;2:11;2:14;3;Merv nunca volvió
+33;MERV;2:14;2:17;3;No se reconstruyó
+34;MERV;2:17;2:22;5;Montículos de barro hoy
+35;LA_MAQUINA;2:22;2:25;3;Multiplica esa escena
+36;LA_MAQUINA;2:25;2:32;7;Entre 37 y 60 millones
+37;LA_MAQUINA;2:32;2:35;3;Un mundo de 400 millones
+38;LA_MAQUINA;2:35;2:39;4;Lo que no se cuenta bien
+39;LA_MAQUINA;2:39;2:42;3;Murió en 1227
+40;LA_MAQUINA;2:42;2:45;3;Kiev, 1240
+41;LA_MAQUINA;2:45;2:50;5;Bagdad, 1258
+42;LA_MAQUINA;2:50;2:56;6;El Tigris negro de tinta
+43;LA_MAQUINA;2:56;3:00;4;Trece y treinta y un años después
+44;LA_MAQUINA;3:00;3:03;3;La máquina siguió sola
+45;LA_MAQUINA;3:03;3:06;3;No construyó un ejército
+46;LA_MAQUINA;3:06;3:11;5;Un mecanismo sin creador
+47;LA_MAQUINA;3:11;3:14;3;24 millones de km2
+48;LA_MAQUINA;3:14;3:17;3;Más que EEUU, China e India
+49;POR_QUE;3:17;3:23;6;La pregunta incómoda
+50;POR_QUE;3:23;3:26;3;Tres razones
+51;POR_QUE;3:26;3:31;5;Cronistas al servicio de sus nietos
+52;POR_QUE;3:31;3:36;5;El abuelo del hombre que te paga
+53;POR_QUE;3:36;3:39;3;En Mongolia no es un villano
+54;POR_QUE;3:39;3:44;5;El padre fundador
+55;POR_QUE;3:44;3:47;3;No es historia crítica, es tabú
+56;POR_QUE;3:47;3:53;6;El legado tapó el cadáver
+57;POR_QUE;3:53;3:59;6;La Ruta de la Seda unificada
+58;POR_QUE;3:59;4:04;5;Papel, pólvora, ideas
+59;POR_QUE;4:04;4:10;6;Pax Mongolica
+60;POR_QUE;4:10;4:16;6;Millones bajo tierra
+61;EL_RASTRO;4:16;4:20;4;Volvamos al dato
+62;EL_RASTRO;4:20;4:28;8;El estudio de 2003
+63;EL_RASTRO;4:28;4:33;5;16 millones de personas
+64;EL_RASTRO;4:33;4:38;5;Podría remontarse a él
+65;EL_RASTRO;4:38;4:41;3;Sigue siendo hipótesis
+66;EL_RASTRO;4:41;4:44;3;Piénsalo un segundo
+67;EL_RASTRO;4:44;4:48;4;Los imperios caen
+68;EL_RASTRO;4:48;4:56;8;Un hombre cualquiera
+69;EL_RASTRO;4:56;4:59;3;Llevando el rastro sin saberlo
+70;CIERRE;4:59;5:07;8;Gran conquistador, edad dorada
+71;CIERRE;5:07;5:10;3;El número que falta
+72;CIERRE;5:10;5:13;3;No te vuelve cínico
+73;CIERRE;5:13;5:17;4;Difícil de engañar
+74;CIERRE;5:17;5:20;3;La idea del canal
+75;CIERRE;5:20;5:26;6;Promesa del próximo video
+76;CIERRE;5:26;5:32;6;Suscríbete y comparte
+77;CIERRE;5:32;5:35;3;Te prometo una cosa
+78;CIERRE;5:35;5:40;5;No la vas a escuchar igual

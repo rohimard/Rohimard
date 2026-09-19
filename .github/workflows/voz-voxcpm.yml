@@ -1,0 +1,284 @@
+# Prueba VoxCPM2: diseño de voz por descripcion, gratis, sin cupo diario,
+# corriendo en el runner en vez de por una API de pago.
+#
+# QWEN3-TTS SE DESCARTA ANTES DE EMPEZAR, Y POR QUE
+# Se prometio probar tambien Qwen3-TTS-VoiceDesign. Se investigo primero
+# (WebSearch, no se adivina) y su propio repositorio dice que es CUDA-only:
+# "CPU-only inference is not officially supported... no CPU, MPS or ROCm
+# support in the official repo". Los runners de GitHub no tienen GPU. Montar
+# el job igual habria sido gastar minutos en algo que ya se sabe que falla.
+#
+# VOXCPM2 SI CORRE EN CPU, CONFIRMADO ANTES DE ESCRIBIR CODIGO
+# La documentacion oficial (FAQ de voxcpm.readthedocs.io) da la llamada
+# exacta: device="cpu", optimize=False. "CPU works out of the box, but
+# inference is slow" -- textual. Cuanto de lento, no lo dice nadie: se mide
+# aqui, no se supone.
+#
+# LO QUE YA FALLO UNA VEZ EN ESTE REPO
+# El intento anterior de Zonos (voz-modelos-nuevos.yml) nunca genero audio:
+# canal-youtube/muestras-voz/nuevos/ solo tiene las tres de Kokoro. El
+# patron "pip install git+... || echo FALLO=1" se disparo en silencio y
+# nadie se dio cuenta hasta ahora. Aqui el paso de instalacion no se traga
+# el error: si falla, el job falla visiblemente, con el mensaje de pip en el
+# log. Silencioso es peor que roto.
+#
+# QUE SE PRUEBA
+# Dos variantes de diseño de voz (sin audio de referencia, como Gemini) con
+# el mismo gancho de siempre, y un intento de clonado con la voz propia del
+# usuario, que VoxCPM2 tambien soporta y Zonos nunca llego a demostrar.
+name: voz-voxcpm
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-voxcpm.yml
+
+permissions:
+  contents: write
+
+env:
+  DESTINO: canal-youtube/muestras-voz/voxcpm
+  REFERENCIA: canal-youtube/voz-propia/referencia-video.wav
+  # El mismo gancho de siempre, a proposito: es lo unico que hace comparable
+  # esto contra las mas de cien muestras que ya hay en el repo.
+  MUESTRA: >-
+    Cada mañana ordenas que suban agua caliente para afeitar a un hombre que
+    está muerto. Le preparan la ropa. Le dejan la toalla limpia. Llevas años
+    haciéndolo, estás en el castillo de Windsor, y eres la mujer más poderosa
+    del mundo.
+
+jobs:
+  diseno:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # Descriptor en español, sin verificar si el modelo lo entiende
+          # mejor en ingles (su README solo muestra ejemplos en ingles). Si
+          # el timbre sale raro, ese es el primer sospechoso a probar.
+          - clave: conversacional
+            descriptor: >-
+              hombre de unos cuarenta y cinco años, voz cálida y
+              conversacional, como hablándole a un amigo sentado enfrente,
+              sin ánimo de locutor
+          - clave: documental
+            descriptor: >-
+              hombre de unos cincuenta años, voz grave y contenida, ritmo
+              lento de documental nocturno, autoritario pero cercano
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Instalar VoxCPM2
+        run: |
+          # torch y torchaudio EN LA MISMA LLAMADA, del mismo indice. Instalar
+          # torch solo y dejar que voxcpm arrastre su propio torchaudio
+          # (primer intento) deja versiones de ABI distintas: torchaudio
+          # falla al cargar su .so compilado con "Could not load this
+          # library", un fallo de version, no de codigo.
+          pip install --quiet torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install --quiet voxcpm soundfile
+          python3 -c "import torchaudio; print('torchaudio', torchaudio.__version__, 'carga bien')"
+          # Sin fallback silencioso: si esto falla, el job falla y se ve por
+          # que. El intento anterior de Zonos fallo callado y nadie lo notó.
+
+      - name: Generar
+        env:
+          DESCRIPTOR: ${{ matrix.descriptor }}
+        run: |
+          mkdir -p salida
+          python3 - <<'PY'
+          import os, time
+          import soundfile as sf
+          from voxcpm import VoxCPM
+
+          t0 = time.time()
+          # device="cpu" y optimize=False son la llamada que la propia
+          # documentacion de VoxCPM da para correr sin GPU.
+          modelo = VoxCPM.from_pretrained(
+              "openbmb/VoxCPM2", load_denoiser=False,
+              device="cpu", optimize=False,
+          )
+          print(f"modelo cargado en {time.time()-t0:.0f}s")
+
+          descriptor = " ".join(os.environ["DESCRIPTOR"].split())
+          texto = " ".join(os.environ["MUESTRA"].split())
+          # El descriptor de voz va entre parentesis al inicio, pegado al
+          # texto, tal como documenta el propio modelo.
+          entrada = f"({descriptor}){texto}"
+
+          t0 = time.time()
+          wav = modelo.generate(text=entrada, cfg_value=2.0, inference_timesteps=10)
+          print(f"generado en {time.time()-t0:.0f}s, "
+                f"{len(wav)/modelo.tts_model.sample_rate:.1f}s de audio "
+                f"a {modelo.tts_model.sample_rate} Hz")
+          sf.write("salida/voz.wav", wav, modelo.tts_model.sample_rate)
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/${{ matrix.clave }}.mp3"
+          rm salida/voz.wav
+          # Un audio de menos de 5s es un fallo silencioso del modelo, no
+          # una muestra valida: sin esto se entregaria igual.
+          DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 \
+                "salida/${{ matrix.clave }}.mp3")
+          echo "duracion: ${DUR}s"
+          python3 -c "import sys; sys.exit(0 if float('$DUR')>5 else 1)" \
+            || { echo "::error::solo ${DUR}s; el modelo no genero el texto"; exit 1; }
+
+      - uses: ./.github/actions/devolver
+        with:
+          destino: canal-youtube/muestras-voz/voxcpm
+          mensaje: Voz VoxCPM2 diseño ${{ matrix.clave }}
+
+  # Job aislado para una sola pregunta: ¿la puntuacion entrecortada es lo que
+  # hace sonar la voz rapida y poco natural, o es el motor?
+  #
+  # El texto de siempre tiene tres frases cortas seguidas de punto: "...que
+  # esta muerto. Le preparan la ropa. Le dejan la toalla limpia." Es el mismo
+  # estilo entrecortado que usan varios guiones del canal. La hipotesis es
+  # que VoxCPM2 trata cada punto como un corte duro y reinicia la prosodia
+  # en cada uno, sin dar tiempo a fluir.
+  #
+  # Prueba controlada: MISMAS PALABRAS, solo se cambian los tres puntos que
+  # separan esas frases por comas. Ni una palabra distinta, para que la
+  # comparacion aisle de verdad la puntuacion y no se cuele otra variable.
+  puntuacion:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - clave: entrecortado
+            texto: >-
+              Cada mañana ordenas que suban agua caliente para afeitar a un
+              hombre que está muerto. Le preparan la ropa. Le dejan la
+              toalla limpia. Llevas años haciéndolo, estás en el castillo de
+              Windsor, y eres la mujer más poderosa del mundo.
+          - clave: fluido
+            texto: >-
+              Cada mañana ordenas que suban agua caliente para afeitar a un
+              hombre que está muerto, le preparan la ropa, le dejan la
+              toalla limpia. Llevas años haciéndolo, estás en el castillo de
+              Windsor, y eres la mujer más poderosa del mundo.
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Instalar VoxCPM2
+        run: |
+          pip install --quiet torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install --quiet voxcpm soundfile
+          python3 -c "import torchaudio; print('torchaudio', torchaudio.__version__, 'carga bien')"
+
+      - name: Generar
+        env:
+          TEXTO: ${{ matrix.texto }}
+        run: |
+          mkdir -p salida
+          python3 - <<'PY'
+          import os, time
+          import soundfile as sf
+          from voxcpm import VoxCPM
+
+          modelo = VoxCPM.from_pretrained(
+              "openbmb/VoxCPM2", load_denoiser=False,
+              device="cpu", optimize=False,
+          )
+          # El mismo descriptor "conversacional" que ya se probo, para que
+          # lo unico distinto entre este par y la muestra anterior sea la
+          # puntuacion, no la direccion de voz.
+          descriptor = ("hombre de unos cuarenta y cinco años, voz cálida y "
+                        "conversacional, como hablándole a un amigo sentado "
+                        "enfrente, sin ánimo de locutor")
+          texto = " ".join(os.environ["TEXTO"].split())
+          entrada = f"({descriptor}){texto}"
+
+          t0 = time.time()
+          wav = modelo.generate(text=entrada, cfg_value=2.0, inference_timesteps=10)
+          print(f"generado en {time.time()-t0:.0f}s, "
+                f"{len(wav)/modelo.tts_model.sample_rate:.1f}s de audio")
+          sf.write("salida/voz.wav", wav, modelo.tts_model.sample_rate)
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/${{ matrix.clave }}.mp3"
+          rm salida/voz.wav
+          DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 \
+                "salida/${{ matrix.clave }}.mp3")
+          echo "duracion: ${DUR}s"
+          python3 -c "import sys; sys.exit(0 if float('$DUR')>5 else 1)" \
+            || { echo "::error::solo ${DUR}s; el modelo no genero el texto"; exit 1; }
+
+      - uses: ./.github/actions/devolver
+        with:
+          destino: canal-youtube/muestras-voz/voxcpm-puntuacion
+          mensaje: VoxCPM2 puntuacion ${{ matrix.clave }}
+
+  clonado:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Instalar VoxCPM2
+        run: |
+          # torch y torchaudio EN LA MISMA LLAMADA, del mismo indice. Instalar
+          # torch solo y dejar que voxcpm arrastre su propio torchaudio
+          # (primer intento) deja versiones de ABI distintas: torchaudio
+          # falla al cargar su .so compilado con "Could not load this
+          # library", un fallo de version, no de codigo.
+          pip install --quiet torch torchaudio --index-url https://download.pytorch.org/whl/cpu
+          pip install --quiet voxcpm soundfile
+          python3 -c "import torchaudio; print('torchaudio', torchaudio.__version__, 'carga bien')"
+
+      - name: Generar
+        run: |
+          mkdir -p salida
+          python3 - <<'PY'
+          import os, time
+          import soundfile as sf
+          from voxcpm import VoxCPM
+
+          modelo = VoxCPM.from_pretrained(
+              "openbmb/VoxCPM2", load_denoiser=False,
+              device="cpu", optimize=False,
+          )
+          texto = " ".join(os.environ["MUESTRA"].split())
+
+          t0 = time.time()
+          wav = modelo.generate(
+              text=texto,
+              reference_wav_path=os.environ["REFERENCIA"],
+          )
+          print(f"generado en {time.time()-t0:.0f}s, "
+                f"{len(wav)/modelo.tts_model.sample_rate:.1f}s de audio")
+          sf.write("salida/voz.wav", wav, modelo.tts_model.sample_rate)
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/clon-voxcpm.mp3"
+          rm salida/voz.wav
+          DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 \
+                "salida/clon-voxcpm.mp3")
+          echo "duracion: ${DUR}s"
+          python3 -c "import sys; sys.exit(0 if float('$DUR')>5 else 1)" \
+            || { echo "::error::solo ${DUR}s; el modelo no genero el texto"; exit 1; }
+
+      - uses: ./.github/actions/devolver
+        with:
+          destino: canal-youtube/muestras-voz/voxcpm
+          mensaje: Voz VoxCPM2 clonada de la referencia propia

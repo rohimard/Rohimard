@@ -1,0 +1,302 @@
+"""Alinea los 95 planos con las frases del guion, de una vez y en orden.
+
+POR QUE SE REHIZO
+La version anterior buscaba, para cada titulo de plano, la frase que mas
+palabras compartia, se quedaba solo con unas pocas anclas espaciadas (10 de
+95) y repartia el resto proporcionalmente entre ellas. Entre ancla y ancla la
+deriva se acumulaba: medido en el tramo de Murray, cada plano caia DOS frases
+por delante de su narracion -- "La OSS" sonaba sobre "no se puede demostrar",
+"Medir al espia" sobre "El profesor se llama Henry Murray", y asi todo el
+tramo. El orden de los planos estaba bien; lo que estaba mal era el reparto.
+
+EL METODO
+Es un problema de alineacion de dos secuencias en orden, el mismo que ya se
+resolvio para las palabras del reconocedor: programacion dinamica. A cada
+plano se le asigna una frase, respetando el orden (el plano i+1 nunca cae en
+una frase anterior a la del plano i) y maximizando el parecido total. No hay
+anclas ni tramos: TODOS los planos quedan sujetos a la vez, asi que no hay
+donde acumular deriva.
+
+Los planos que caen en la misma frase se reparten su duracion medida en
+proporcion a la duracion con que se escribieron. Las frases sin ningun plano
+no se pierden: el plano anterior se estira hasta el siguiente, porque el final
+de cada plano es el principio del que viene.
+"""
+import csv
+import json
+import re
+import unicodedata
+
+GUION = "guion-voz.txt"
+PROMPTS = "prompts-imagenes.txt"
+PALABRAS = "palabras-guion.json"
+DURACION = 292.34
+SALIDA_CSV = "hoja-montaje.csv"
+SALIDA_MD = "hoja-montaje.md"
+
+VACIAS = {"de", "la", "el", "los", "las", "un", "una", "que", "y", "en", "a",
+          "se", "su", "del", "al", "lo", "con", "por", "para", "es", "no",
+          "mas", "ya", "te", "tu", "le", "si", "como", "pero", "o"}
+
+# Peso del "no te alejes de donde te tocaria por posicion". Solo desempata
+# entre caminos que la similitud deja igual de buenos; si hay parecido real,
+# manda el parecido.
+DERIVA = 0.35
+
+# Coste de NO avanzar exactamente una oracion entre plano y plano. Se castiga
+# igual saltarse oraciones que quedarse en la misma: hay 95 planos para 98
+# oraciones, asi que lo natural es avanzar de una en una y solo desviarse
+# cuando el texto lo pide. Castigando solo el salto -- como estaba al
+# principio -- quedarse salia gratis y se amontonaban cinco planos en la misma
+# oracion mientras las vecinas quedaban vacias.
+SALTO = 0.30
+
+# Limites de lo que un plano puede durar en pantalla. La alineacion sola deja
+# extremos inservibles -- tres planos de 0,33 s amontonados en la frase
+# "Respetuoso de la ley", que dura un segundo, y 16 s de un plano fijo donde
+# la narracion avanza sin imagenes asignadas.
+MIN, MAX = 1.6, 5.5
+
+# Minimo de palabras para que un trozo de frase valga como unidad propia. Se
+# alinea por ORACIONES PARCIALES, no por frases enteras, porque una frase
+# larga puede girar por la mitad y entonces un solo plano se la come entera.
+# Paso en el arranque: "Antes de ser el Unabomber, Theodore Kaczynski fue
+# esto: un chico de dieciseis anos... recien entrado a Harvard" es UNA frase,
+# y el plano del paquete bomba se quedaba en pantalla los 5,5 s -- seguias
+# viendo el paquete mientras se decia "recien entrado a Harvard".
+MIN_PAL = 4
+
+# Anclas manuales: casos donde la similitud de palabras por si sola no basta.
+# Se detectaron auditando el documento entero contra su narracion, buscando
+# para cada plano si ALGUNA clausula cercana (a <=5 de la actual) encajaba
+# mucho mejor que la asignada. Dos casos reales, confirmados a mano:
+#
+#   62 "Tres personas" (tres sillas vacias) caia sobre "ni con aquella sala."
+#      -- comparte "tres" y "personas" LITERALMENTE con "Mato a tres personas
+#      e hirio a veintitres.", que es donde tenia que caer (similitud 1.0).
+#   70 "Los otros veintiuno" (21 alumnos de espaldas) caia sobre "Eso no se
+#      sostiene." -- el titulo es literalmente sobre los otros 21 alumnos,
+#      que es la frase siguiente: "Los otros veintiun estudiantes pasaron
+#      por exactamente lo mismo,".
+#
+# El resto de candidatos que salieron en la auditoria (3, 23, 42, 59, 64, 68,
+# 89) se revisaron y se dejaron como estan: o la clausula "mejor" solo
+# coincide por una palabra reciclada lejos en el guion (falso positivo del
+# detector), o el plano ya esta generado y no hay una clausula mejor
+# ALCANZABLE sin romper el orden de los planos vecinos que ya tienen su
+# propio encaje correcto.
+ANCLAS_MANUALES = {
+    62: "Mató a tres personas e hirió a veintitrés.",
+    70: "Los otros veintiún estudiantes pasaron por exactamente lo mismo,",
+    # El titulo promete "antes de Harvard" pero caia sobre la frase que solo
+    # presenta a Murray por su nombre, no sobre la que dice que antes de
+    # Harvard trabajo en la OSS -- que es literalmente el titulo del plano.
+    23: "Antes de dar clase en Harvard trabajó para la OSS,",
+}
+
+
+def norm(s):
+    s = unicodedata.normalize("NFD", s.lower())
+    s = "".join(c for c in s if unicodedata.category(c) != "Mn")
+    return set(re.findall(r"[a-z0-9]+", s)) - VACIAS
+
+
+def mmss(s):
+    return f"{int(s // 60)}:{s % 60:05.2f}"
+
+
+def main() -> None:
+    planos = [
+        (int(n), float(d), t.strip())
+        for n, d, t in re.findall(
+            r"(?m)^(\d+)\s+\[([\d.]+)s\]\s+(.+)$",
+            open(PROMPTS, encoding="utf-8").read(),
+        )
+    ]
+    texto = open(GUION, encoding="utf-8").read().strip()
+    # Cortar tambien en comas, dos puntos y punto y coma. Los trozos que se
+    # quedan en nada se pegan al anterior: "Ponte en su lugar" no gana nada
+    # partido, y un plano no puede durar lo que tarda en decirse "y".
+    crudos = [t for t in re.split(r"(?<=[.!?;:,])\s+", texto) if t.strip()]
+    frases = []
+    for t in crudos:
+        if frases and len(t.split()) < MIN_PAL:
+            frases[-1] += " " + t
+        else:
+            frases.append(t)
+    assert " ".join(frases).split() == texto.split(), "el corte perdio palabras"
+
+    # Tiempos MEDIDOS de cada frase, consumiendo las palabras en orden.
+    marcas = json.load(open(PALABRAS, encoding="utf-8"))
+    cursor, ini, fin = 0, [], []
+    for f in frases:
+        k = len(f.split())
+        trozo = marcas[cursor:cursor + k]
+        ini.append(trozo[0]["entra"])
+        fin.append(trozo[-1]["entra"] + trozo[-1]["dura"])
+        cursor += k
+    assert cursor == len(marcas), f"{cursor} palabras contra {len(marcas)} marcas"
+    fin[-1] = DURACION
+
+    N, M = len(planos), len(frases)
+    nf = [norm(f) for f in frases]
+    sim = [[0.0] * M for _ in range(N)]
+    for i, (_, _, tit) in enumerate(planos):
+        tn = norm(tit)
+        for j in range(M):
+            if tn:
+                sim[i][j] = len(tn & nf[j]) / len(tn)
+
+    # Aplicar las anclas manuales.
+    #
+    # PRIMER INTENTO, QUE NO FUNCIONO: subir sim[i][j] a 1.0 y bajar el resto
+    # de la fila a 0. Se probo y el plano 62 se quedo exactamente donde
+    # estaba, como si el ancla no existiera. La razon: 1.0 es solo un empujon
+    # dentro del mismo calculo de coste que ya paga SALTO por cada paso que no
+    # avance una clausula exacta -- incluido QUEDARSE, que cuesta lo mismo que
+    # saltarse una (es "abs(j-k-1)", no "max(0, j-k-1)": quedarse en la misma
+    # clausula que el plano anterior tambien cuesta). Si desviar los vecinos
+    # para alcanzar esa clausula sale mas caro que 1.0, la programacion
+    # dinamica prefiere ignorar el ancla y de hecho eso es lo que hacia.
+    #
+    # LA QUE FUNCIONA: convertir la clausula ancla en la UNICA opcion posible
+    # para ese plano. Las demas quedan a -infinito, asi que no es un empujon,
+    # es una obligacion: el mejor camino global TIENE que pasar por ahi.
+    anclas_idx = {}
+    for n, texto_ancla in ANCLAS_MANUALES.items():
+        i = next((k for k, (pn, _, _) in enumerate(planos) if pn == n), None)
+        assert i is not None, f"ancla manual para un plano que no existe: {n}"
+        j = next((k for k, f in enumerate(frases) if texto_ancla in f), None)
+        assert j is not None, f"no encontré la cláusula del ancla de {n}: {texto_ancla!r}"
+        anclas_idx[i] = j
+        sim[i][j] = max(sim[i][j], 1.0)
+
+    # Programacion dinamica: cada plano toma una frase, sin retroceder nunca.
+    NEG = float("-inf")
+    D = [[NEG] * M for _ in range(N)]
+    DE = [[0] * M for _ in range(N)]
+    for i in range(N):
+        for j in range(M):
+            if i in anclas_idx and j != anclas_idx[i]:
+                continue  # ancla: esta fila SOLO puede resolver en su j
+            if i == 0:
+                # El primer plano abre el video: empezar tarde tambien cuesta.
+                base, origen = -SALTO * j, 0
+            else:
+                base, origen = NEG, 0
+                for k in range(j + 1):
+                    if D[i - 1][k] == NEG:
+                        continue
+                    v = D[i - 1][k] - SALTO * abs(j - k - 1)
+                    if v > base:
+                        base, origen = v, k
+            if base == NEG:
+                continue
+            castigo = DERIVA * abs(j / max(M - 1, 1) - i / max(N - 1, 1))
+            D[i][j] = base + sim[i][j] - castigo
+            DE[i][j] = origen
+
+    j = max(range(M), key=lambda x: D[N - 1][x])
+    asignada = [0] * N
+    for i in range(N - 1, -1, -1):
+        asignada[i] = j
+        j = DE[i][j]
+
+    # Reparto dentro de cada frase, en proporcion a la duracion escrita.
+    porFrase = {}
+    for i, j in enumerate(asignada):
+        porFrase.setdefault(j, []).append(i)
+
+    arranque = [0.0] * N
+    for j, idxs in porFrase.items():
+        tramo = fin[j] - ini[j]
+        pesos = [planos[i][1] for i in idxs]
+        total = sum(pesos)
+        t = ini[j]
+        for i, p in zip(idxs, pesos):
+            arranque[i] = t
+            t += tramo * p / total
+
+    # SUAVIZADO. Los arranques que salen de la alineacion son los DESEADOS; hay
+    # que acercarlos a algo montable sin romper el orden. Se proyectan sobre el
+    # conjunto de tiempos validos (cada hueco entre MIN y MAX, extremos fijos)
+    # alternando una pasada hacia delante y otra hacia atras hasta que deja de
+    # moverse. Cada plano se aparta lo justo de donde lo puso la alineacion.
+    arranque.append(DURACION)
+    for _ in range(60):
+        antes = list(arranque)
+        arranque[0] = 0.0
+        for i in range(1, N + 1):
+            arranque[i] = min(max(arranque[i], arranque[i - 1] + MIN),
+                              arranque[i - 1] + MAX)
+        arranque[N] = DURACION
+        for i in range(N - 1, 0, -1):
+            arranque[i] = min(max(arranque[i], arranque[i + 1] - MAX),
+                              arranque[i + 1] - MIN)
+        if max(abs(a - b) for a, b in zip(antes, arranque)) < 0.001:
+            break
+    arranque = arranque[:N]
+
+    # El final de cada plano es el principio del siguiente: asi las frases sin
+    # plano propio no dejan hueco.
+    filas = []
+    for i, (n, _, titulo) in enumerate(planos):
+        a = arranque[i]
+        b = arranque[i + 1] if i + 1 < N else DURACION
+        filas.append({
+            "plano": n,
+            "archivo": f"{n:03d}.png",
+            "in": mmss(a),
+            "out": mmss(b),
+            "dur": f"{b - a:.2f}",
+            "anclado": "sí" if sim[i][asignada[i]] > 0 else "",
+            "titulo": titulo,
+            "narracion": frases[asignada[i]],
+        })
+
+    assert all(filas[i]["in"] <= filas[i + 1]["in"] for i in range(N - 1))
+    with open(SALIDA_CSV, "w", encoding="utf-8", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(filas[0]))
+        w.writeheader(); w.writerows(filas)
+
+    dur = [float(f["dur"]) for f in filas]
+    conMatch = sum(1 for f in filas if f["anclado"])
+
+    md = [f"""# Hoja de montaje — Vídeo 8 (Kaczynski y el experimento de Harvard)
+
+**Audio:** `david-elevenlabs/david-narracion.mp3` · {DURACION:.2f}s ({mmss(DURACION)})
+**Imágenes:** 95, nombradas `001` … `095`
+**Duración por plano:** {min(dur):.2f}s la más corta, {max(dur):.2f}s la más larga, {sum(dur)/N:.2f}s de media
+
+## Cómo están calculados los tiempos
+
+Los tiempos de las frases son **medidos**, no estimados: salen de transcribir
+el audio real y alinear la transcripción con el guion palabra a palabra.
+
+Los planos se reparten sobre esas frases con una alineación global en orden
+({conMatch} de {N} planos coinciden por texto con su frase). No hay anclas
+sueltas ni tramos interpolados, que es de donde venía la deriva de la versión
+anterior: cada plano caía dos frases por delante de su narración.
+
+Después se acotan las duraciones entre {MIN}s y {MAX}s, porque la alineación
+sola dejaba planos de 0,3s y de 16s.
+
+La columna **Narración** es la frase que suena sobre cada plano: sirve para
+verificar el sincronismo sin abrir el editor.
+
+| # | Archivo | IN | OUT | Dur | Plano | Narración |
+|---:|---|---|---|---:|---|---|"""]
+    for f in filas:
+        narr = f["narracion"]
+        if len(narr) > 80:
+            narr = narr[:77] + "…"
+        md.append(f"| {f['plano']} | `{f['archivo']}` | {f['in']} | {f['out']} | "
+                  f"{f['dur']}s | {f['titulo']} | {narr} |")
+    open(SALIDA_MD, "w", encoding="utf-8").write("\n".join(md) + "\n")
+    print(f"{N} planos sobre {M} frases · {conMatch} con coincidencia de texto")
+    print(f"duraciones: {min(dur):.2f}s a {max(dur):.2f}s, media {sum(dur)/N:.2f}s")
+    print(f"cierra en {float(filas[-1]['out'].split(':')[0])*60 + float(filas[-1]['out'].split(':')[1]):.2f}s")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,383 @@
+Personaje histórico (repetir palabra por palabra en cada plano donde aparece):
+"la reina Victoria del Reino Unido, mujer de unos cuarenta y dos años, rostro ovalado y pálido, cabello oscuro con raya al medio recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido"
+
+Personaje secundario (solo donde se indica):
+"el príncipe Alberto de Sajonia-Coburgo-Gota, hombre de unos cuarenta y dos años, bigote y patillas discretas, uniforme militar victoriano oscuro con condecoraciones"
+
+Personaje moderno (repetir palabra por palabra en los planos del bloque de autodiagnóstico):
+"un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre"
+
+Bloque de estilo base (ya incluido al final de cada prompt):
+"fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9"
+
+Nota de ritmo: ningún plano pasa de cuatro segundos. El tipo de plano
+alterna a propósito para que el montaje no se sienta plano.
+
+IMPORTANTE para que los planos casen entre sí:
+- El hombre moderno es SIEMPRE el mismo. Si tu generador tiene función de
+  personajes (en Flow se llama "Caracteres"), créalo una vez con esa
+  descripción y reutilízalo; sale mucho más consistente que repetir el
+  texto en cada prompt.
+- Cada prompt dice ya de qué época es. No quites esa parte: sin ella el
+  generador mezcla atrezo victoriano y actual en el mismo encuadre.
+- Los planos 29, 36, 48 y 83 son los únicos que contraponen las dos épocas
+  en un encuadre partido. Son los más difíciles de acertar; si alguno sale
+  raro, genera las dos mitades por separado y júntalas en el montaje.
+
+===================================================================
+
+1   [3.7s]   El agua caliente sube
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle macro de unas manos de doncella victoriana sosteniendo una jarra de porcelana blanca con agua humeante, subiendo una escalera de piedra en penumbra, vapor visible en el aire frío de la mañana. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+2   [2.7s]   La navaja de un muerto
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano cenital de un lavabo de porcelana victoriano con una navaja de afeitar abierta, brocha de tejón y jabonera, todo dispuesto con precisión milimétrica, la habitación vacía y oscura al fondo. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+3   [2.7s]   La ropa y la toalla
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle de un uniforme militar victoriano oscuro doblado con precisión sobre una silla de madera tallada, junto a una toalla blanca impecable perfectamente alineada, luz de ventana alta, nadie en la habitación. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+4   [2.0s]   El castillo de Windsor
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general amplio del castillo de Windsor al amanecer de invierno, silueta de piedra gótica contra un cielo gris, niebla baja sobre el césped, una sola ventana iluminada. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+5   [2.7s]   La mujer más poderosa del mundo
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano cerrado de perfil de la reina Victoria del Reino Unido, mujer de unos cuarenta y dos años, rostro ovalado y pálido, cabello oscuro con raya al medio recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido, mandíbula apretada, mirada fija al frente, luz lateral dura de ventana que deja media cara en sombra, sensación de poder y de encierro a la vez. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+6   [1.3s]   Esto pasó de verdad
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de un archivo histórico real, estanterías de documentos encuadernados en piel del siglo diecinueve, luz tenue de lámpara de lectura sobre una mesa de madera. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+7   [2.7s]   La reina Victoria
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: retrato de estudio victoriano de la reina Victoria del Reino Unido, mujer de unos cuarenta y dos años, rostro ovalado y pálido, cabello oscuro con raya al medio recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido, erguida y solemne, fondo de cortinaje pesado, iluminación de fotografía de época. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+8   [3.7s]   El príncipe Alberto
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: retrato de estudio victoriano de el príncipe Alberto de Sajonia-Coburgo-Gota, hombre de unos cuarenta y dos años, bigote y patillas discretas, uniforme militar victoriano oscuro con condecoraciones, expresión serena, fondo de cortinaje pesado, iluminación cálida de fotografía de época. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+9   [2.7s]   Diciembre de mil ochocientos sesenta y uno
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle de un calendario de pared victoriano de diciembre, papel amarillento, junto a una vela consumida hasta el final, penumbra. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+10   [3.7s]   Cuarenta y dos años
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de una cama con dosel vacía y deshecha en una habitación de palacio en penumbra, sábanas revueltas, un frasco de medicina sobre la mesilla, luz gris de ventana. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+11   [2.0s]   Cuarenta años por delante
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de un pasillo de palacio larguísimo y desierto, suelo de mármol reflejando ventanales, perspectiva que se pierde en el fondo, sensación de tiempo interminable. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+12   [3.7s]   Vestida de negro cada día
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de la reina Victoria del Reino Unido, mujer de unos cuarenta y dos años, rostro ovalado y pálido, cabello oscuro con raya al medio recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido de espaldas frente a un armario abierto lleno únicamente de vestidos negros idénticos colgados en fila, luz fría de la mañana. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+13   [2.3s]   Hasta su propia muerte
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle macro de unas manos ancianas con anillos de luto abrochando el último botón de un cuello alto negro, piel arrugada, luz de vela. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+14   [3.7s]   Una década sin aparecer
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de un balcón de palacio vacío con las cortinas cerradas, visto desde abajo, cielo plomizo, ninguna figura asomada. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+15   [3.7s]   El pueblo empieza a preguntar
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de una multitud victoriana de clase trabajadora reunida frente a las verjas de un palacio, rostros mirando hacia arriba con expectación y desconcierto, niebla de Londres, luz gris. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+16   [3.7s]   ¿Sigue gobernando su reina?
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle de un periódico victoriano arrugado sobre un adoquín mojado, titulares ilegibles y borrosos, gotas de lluvia sobre el papel. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+17   [3.7s]   El Parlamento sin abrir
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general del interior de la Cámara de los Lores victoriana vacía, bancos de cuero rojo desiertos, el trono vacío al fondo iluminado por un haz de luz cenital. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+18   [3.7s]   Papel con borde negro
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle macro de una hoja de papel de carta con un grueso borde negro de luto, pluma estilográfica apoyada encima, tinta fresca, luz lateral rasante que marca la textura del papel. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+19   [3.7s]   Décadas de luto en el papel
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle cenital de un montón de sobres con borde negro apilados y atados con una cinta, el papel amarilleado por los años, polvo. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+20   [2.0s]   Cartas que nada tenían que ver
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de la reina Victoria del Reino Unido, mujer de unos cuarenta y dos años, rostro ovalado y pálido, cabello oscuro con raya al medio recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido anciana escribiendo en un escritorio, concentrada, rodeada de papel de luto, ventana con lluvia detrás. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+21   [2.7s]   Vuelve a mostrarse
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de una carroza real victoriana avanzando entre una multitud, vista desde la altura de la calle, gente asomada, luz de tarde nublada. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+22   [1.3s]   Seguía de negro
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de la reina Victoria del Reino Unido, mujer de unos cuarenta y dos años, rostro ovalado y pálido, cabello oscuro con raya al medio recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido dentro de la carroza, vista a través del cristal de la ventanilla con reflejos de la multitud superpuestos, rostro impasible. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+23   [3.0s]   Treinta años más
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano secuencia conceptual de cuatro vestidos negros victorianos idénticos colgados en fila, cada uno más gastado y desvaído que el anterior, fondo neutro oscuro, luz de museo. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+24   [2.3s]   Mil novecientos uno
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle de una lápida de mármol blanco recién tallada con laureles, sin texto legible, flores blancas marchitas a los pies, luz de invierno. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+25   [3.7s]   La historia lo contó como amor
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un libro de historia antiguo abierto sobre un atril, ilustración grabada de una pareja victoriana, luz cálida de biblioteca. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+26   [3.7s]   La viuda fiel
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: pintura al óleo victoriana idealizada de una viuda de luto junto a un retrato de su marido, estilo romántico del siglo diecinueve, marco dorado, iluminación de galería. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+27   [2.3s]   Es una versión bonita
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un cuadro romántico colgado en una pared de museo, visitantes desenfocados delante, luz de sala expositiva. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+28   [2.0s]   Pero no es la completa
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle de una pintura antigua con una grieta o craquelado atravesando el rostro retratado, macro extremo, iluminación rasante. ambientación estrictamente victoriana de mil ochocientos sesenta, sin ningún objeto moderno en el encuadre. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+29   [2.7s]   Y la completa es más incómoda
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano cenital de un expediente clínico moderno abierto sobre una mesa junto a un grabado victoriano, contraste de épocas, luz de escritorio. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+30   [3.7s]   Tiene nombre clínico
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle macro de una página de manual médico moderno con un término subrayado a mano, texto borroso salvo el subrayado, luz de flexo. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+31   [3.7s]   Duelo prolongado
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un psicólogo contemporáneo tomando notas en una consulta de luz suave, sillón vacío enfrente, ambiente sobrio. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+32   [3.7s]   No se reconoció hasta hace poco
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de una biblioteca médica moderna, estanterías de manuales de diagnóstico, una figura pequeña consultando un volumen, luz fría. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+33   [3.7s]   El año dos mil veintidós
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle de la portada de un manual de diagnóstico psiquiátrico moderno sobre una mesa blanca, sin texto legible, luz clínica cenital. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+34   [3.7s]   El manual que usan los psicólogos
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano cenital de varias manos de profesionales alrededor de una mesa de reunión con documentos y un manual grueso abierto, luz de oficina. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+35   [3.3s]   Siglo y medio llamándolo amor
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano dividido conceptual entre un salón victoriano en penumbra a la izquierda y una consulta moderna iluminada a la derecha, misma composición en ambos lados, transición visual entre épocas. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+36   [2.7s]   Una condición identificable
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle macro de un diagrama médico dibujado a mano en un cuaderno, líneas y anotaciones ilegibles, luz de escritorio lateral. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+37   [2.3s]   Señales concretas, nombre propio
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de una pizarra blanca de consulta con una fila de casillas vacías dibujadas a mano, sin texto legible, luz de ventana de despacho. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+38   [4.0s]   No solo una reina del diecinueve
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de una calle contemporánea concurrida a la hora punta, gente caminando con movimiento borroso, luz de tarde. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+39   [3.0s]   Están pasando ahora mismo
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre sentada sola en un banco de un parque moderno, mirando al vacío, gente pasando desenfocada alrededor, luz de atardecer. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+40   [2.0s]   Puede que también en ti
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano cerrado del reflejo parcial de un rostro adulto en la pantalla apagada de un teléfono móvil, mirada directa, penumbra de habitación. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+41   [3.7s]   Siete señales
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano cenital limpio de siete objetos cotidianos idénticos alineados sobre una superficie neutra de hormigón, luz suave y uniforme, estética editorial minimalista. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+42   [4.0s]   Un duelo sin terminar de procesar
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre de pie frente a una ventana grande de un piso moderno, de espaldas, silueta recortada contra la luz gris del exterior. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+43   [4.0s]   Una parte de ti murió
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre mirándose en el espejo del baño, un solo reflejo nítido, rostro cansado y sin expresión, luz fría de mañana. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+44   [3.7s]   No es una metáfora bonita
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de una silla vacía en un comedor moderno con la mesa puesta para dos, uno de los platos intacto, luz de lámpara colgante. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+45   [2.3s]   Perdió su propia identidad
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle macro de una fotografía de dos personas en la que una de las caras está desgastada por el roce de los dedos, papel gastado, luz lateral. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+46   [2.0s]   No solo a la otra persona
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano cenital de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre tumbada en el suelo de un salón vacío, brazos extendidos, mirando al techo, luz natural desde una ventana fuera de cuadro. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+47   [3.7s]   Cuesta creer que pasó
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre de pie en el umbral de una habitación, con la mano aún en el pomo, sin llegar a entrar, luz cálida dentro y fría fuera. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+48   [3.7s]   La ropa de Alberto, otra vez
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano dividido conceptual entre una doncella victoriana dejando un uniforme sobre una silla y una persona actual doblando un jersey ajeno sobre una cama, misma composición en ambos lados. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+49   [3.7s]   Sigues actuando como si volviera
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle macro de dos cepillos de dientes juntos en un vaso de baño, uno visiblemente usado y el otro seco e intacto, azulejos modernos desenfocados al fondo, luz suave de espejo. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+50   [3.7s]   Aunque sepas que no
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre mirando el móvil con una conversación abierta sin respuesta, pantalla iluminando el rostro en la oscuridad. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+51   [2.7s]   No es negación pasajera
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de un armario abierto con ropa de dos personas mezclada, una de las mitades intacta y sin tocar, habitación en penumbra. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+52   [3.7s]   Evitas lo que te lo recuerde
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre cruzando la calle bruscamente para no pasar frente a un local, visto desde el otro lado, luz de tarde urbana. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+53   [4.0s]   Cambias de acera
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: punto de vista a la altura de los ojos de una acera concreta que se queda atrás, desenfoque de movimiento, farolas encendidas, hora azul. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+54   [3.7s]   Borras fotos, o no puedes
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle macro de un dedo suspendido sobre el botón de borrar de una galería de fotos en un móvil, sin llegar a tocarlo, pantalla brillante en la oscuridad. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+55   [4.3s]   Duele como si fuera ayer
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano cerrado del rostro de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre con los ojos cerrados y la mandíbula tensa, lágrima contenida, luz lateral dura. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+56   [3.7s]   Rabia y amargura
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle macro de un puño apretado sobre una mesa de madera, nudillos blancos, un vaso de agua vibrando ligeramente al lado. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+57   [3.0s]   Una tristeza que no se suaviza
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de una figura pequeña sentada al borde de una cama en una habitación grande y ordenada, luz de ventana que va cayendo, sensación de tiempo detenido. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+58   [3.3s]   No te reenganchas con tu vida
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre sentado frente a un portátil abierto sin escribir, tazas acumuladas al lado, luz azulada de pantalla. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+59   [3.7s]   Planes, relaciones, proyectos
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano cenital perfectamente perpendicular de un calendario de pared de papel sobre una mesa de madera clara, la rejilla de casillas nítida y vacía pero los números y las palabras deliberadamente ilegibles, impresos muy pequeños en gris claro sobre blanco y ligeramente desenfocados, una sola casilla del centro rodeada a mano con un círculo de bolígrafo rojo y sin ninguna palabra escrita dentro, al lado tres sobres de invitación de papel grueso color crema cerrados y sin abrir apilados sin orden, luz de ventana lateral suave, sombras largas, sensación de mesa a la que nadie se sienta desde hace semanas. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+60   [1.3s]   Se siente como una traición
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre en una cena con amigos, sonriendo a destiempo, el resto de la mesa desenfocada y animada, luz cálida de restaurante. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+61   [2.7s]   Ya no consigues que importen
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle de un móvil sobre una mesa con notificaciones acumuladas sin leer, pantalla encendida, entorno oscuro. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+62   [2.0s]   Una insensibilidad extraña
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre con expresión completamente neutra, mirada sin foco, fondo desenfocado de una habitación iluminada. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+63   [2.3s]   Detrás de un cristal
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de una persona vista a través de una ventana con condensación y gotas de lluvia, rostro parcialmente borroso por el cristal, luz gris del exterior. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+64   [3.0s]   Sin la intensidad de antes
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano conceptual de una habitación moderna con los colores casi completamente desaturados salvo un objeto pequeño que conserva color, luz plana. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+65   [1.3s]   Ni siquiera lo bueno
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre en una fiesta con luces de colores y gente riendo, quieta en el centro, expresión ausente, movimiento borroso alrededor. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+66   [3.0s]   Tu vida ya no tiene el mismo sentido
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general amplio de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre de pie en medio de un espacio urbano enorme y vacío, aparcamiento o plaza, escala que empequeñece a la figura, luz de amanecer. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+67   [3.0s]   Sin esa persona
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano cenital de dos sillas de terraza, una ocupada por un abrigo y la otra vacía, mesa con dos cafés, uno intacto y frío. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+68   [2.0s]   No es que quieras hacerte daño
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de las manos de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre sosteniendo una taza fría, sin beber, dedos entrelazados alrededor, luz suave de cocina. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+69   [3.3s]   El para qué se apagó
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle macro de una bombilla apagada en una lámpara de mesa encendida el resto de la habitación, filamento frío, fondo desenfocado. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+70   [2.0s]   Si algo de esto te suena
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre mirando directamente a cámara por primera vez, expresión de reconocimiento, luz frontal suave. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+71   [3.7s]   La clave es un solo dato
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle macro de un dedo señalando una línea concreta en un documento impreso, texto ilegible salvo el gesto, luz de flexo. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+72   [3.0s]   No es cuánto sufres
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano conceptual de una balanza antigua de dos platos en equilibrio desigual sobre una mesa neutra, luz lateral dura, fondo oscuro. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+73   [3.3s]   Es cuánto tiempo sigue igual
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un reloj de pared moderno en una habitación vacía, manecillas nítidas, luz cambiando de día a noche en la pared. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+74   [2.7s]   Doce meses, en adultos
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano cenital de doce hojas de calendario arrancadas y esparcidas sobre una mesa oscura, luz rasante. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+75   [3.7s]   La señal de alarma
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de una consulta de psicología con dos sillones enfrentados, uno ocupado por una figura inclinada hacia delante, luz cálida y sobria. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+76   [1.3s]   Antes de esa fecha
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre llorando abiertamente y sin contención en un sofá, luz natural de tarde, imagen sin dramatismo, humana y normal. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+77   [2.7s]   Es normal que duela así
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de dos personas abrazadas en un salón, una consolando a la otra, luz cálida de lámpara, encuadre íntimo. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+78   [3.7s]   Existe tratamiento específico
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de una consulta luminosa con un profesional y un paciente conversando, ambos relajados, luz natural abundante. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+79   [1.3s]   Y funciona de verdad
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre saliendo por la puerta de un edificio a una calle iluminada, expresión de alivio leve, contraluz de sol. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+80   [3.0s]   A ella nadie se lo ofreció
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de la reina Victoria del Reino Unido, mujer de unos cuarenta y dos años, rostro ovalado y pálido, cabello oscuro con raya al medio recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido anciana sentada sola en un salón de palacio enorme, rodeada de sillas vacías, luz de ventanal lejano. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+81   [3.7s]   Porque todavía no existía
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de un gabinete médico victoriano con instrumental primitivo sobre una mesa de madera, ninguna figura presente, luz de vela. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+82   [3.0s]   Cuarenta años atrapada
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano conceptual de la reina Victoria del Reino Unido, mujer de unos cuarenta y dos años, rostro ovalado y pálido, cabello oscuro con raya al medio recogido en un moño bajo, vestido negro victoriano de luto de cuello alto y mangas largas, expresión de dolor contenido de espaldas frente a una puerta cerrada de palacio, mano apoyada en la madera sin abrirla, penumbra. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+83   [2.3s]   Tú tienes algo que ella no tuvo
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano dividido conceptual entre un salón victoriano en penumbra a la izquierda y una consulta moderna luminosa a la derecha, misma composición, la mitad moderna claramente más iluminada. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+84   [3.0s]   La palabra exacta
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: detalle macro de una palabra subrayada en un cuaderno moderno escrito a mano, letra clara pero ilegible, luz de ventana. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+85   [3.0s]   Gente preparada para ayudarte
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de un grupo pequeño de personas sentadas en círculo en una sala luminosa, postura de escucha, luz natural. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+86   [3.3s]   No para juzgarte
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: primer plano de un hombre de treinta y cinco años, pelo castaño corto y liso, barba corta de tres días, complexión media, jersey de lana gris de cuello redondo sobre camisa blanca, vaqueros oscuros, sin gafas, siempre el mismo hombre con expresión serena por primera vez, hombros bajados, luz cálida frontal, fondo desenfocado luminoso. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+87   [3.7s]   Alguien que sí encontró la salida
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano general de una silueta caminando por un pasillo hacia una puerta abierta con luz intensa al fondo, contraluz marcado. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+88   [3.7s]   Y cómo lo hizo
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano medio de una puerta entreabierta a una habitación iluminada, vista desde un pasillo oscuro, invitación visual a entrar. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.
+
+89   [4.3s]   Lo que pasa dentro de tu cabeza
+
+Crea una imagen fotorrealista cinematográfica en formato horizontal 16:9, sin ningún texto: plano conceptual de una silueta humana de perfil sobre fondo neutro oscuro, con una luz cálida y suave iluminando la zona de la cabeza, estética editorial sobria, sin texto. ambientación estrictamente contemporánea actual, mobiliario y ropa de hoy, sin ningún elemento de época. fotografía cinematográfica hiperrealista, full frame treinta y cinco milímetros, luz natural, colorimetría sobria y ligeramente desaturada, profundidad de campo real, grano fílmico sutil, estilo documental contemporáneo, máximo detalle, 8K, sin texto en pantalla, 16:9.

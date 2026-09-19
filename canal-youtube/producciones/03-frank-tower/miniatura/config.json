@@ -1,0 +1,13 @@
+{
+  "image": "base.jpg",
+  "font": "../../../kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura",
+  "sello": "FALSO",
+  "selloColor": "#C40800",
+  "selloAngulo": -13,
+  "selloY": 300,
+  "numero": "8",
+  "numeroSize": 380,
+  "leyenda": "CATÁSTROFES",
+  "accent": "#FFD400"
+}

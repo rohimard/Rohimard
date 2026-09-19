@@ -1,0 +1,11 @@
+{
+  "image": "imagenes/01.jpg",
+  "font": "../../../kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura-short",
+  "number": "ACTUABA",
+  "numberSize": 150,
+  "line1": "EL GUARDIA MÁS CRUEL",
+  "line2": "LO CONFESÓ DESPUÉS",
+  "accent": "#FFD400",
+  "alarm": "#E10600"
+}

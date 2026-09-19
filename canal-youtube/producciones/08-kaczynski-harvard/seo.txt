@@ -1,0 +1,108 @@
+SEO DEL VÍDEO 8 — Kaczynski y el experimento de Harvard
+Hecho el 2026-09-13 con datos de vidIQ, no a ojo.
+
+DATOS QUE MANDAN SOBRE LAS DECISIONES
+=====================================
+Búsquedas mensuales (vidIQ, 12-13/09/2026, mercado MX):
+
+  unabomber ................. 115.704   crec. +263,8 %   comp. 62,5   MX 2.847
+  unabomber trailer .......... 72.070                    comp. 47,5
+  ted kaczynski .............. 66.734   crec. +210,6 %   comp. 55,5   MX 3.197
+  unabomber documentary ...... 14.722   crec. +240,6 %   comp. 45,5
+  the unabomber .............. 14.150                    comp. 60
+  unabomber manifesto ......... 4.059                    comp. 37,5
+
+  experimentos psicologicos ... 4.596                    comp. 50,5
+  experimento de milgram ...... 7.927                    comp. 35,9
+  philip zimbardo ............ 16.233   crec. +240,6 %
+  misterios ................. 199.658                    MX 23.644
+  psicologia ................ 807.049                    MX 52.491
+
+  "who was the unabomber", "unabomber case",
+  "how did the unabomber get caught" .......... todos <750
+
+DOS CONCLUSIONES QUE CAMBIAN EL TÍTULO
+--------------------------------------
+1. El GÉNERO no vende. "experimentos psicologicos" son 4.596 búsquedas y
+   todas sus variantes largas están por debajo de 750. Los NOMBRES sí venden:
+   "unabomber" son 115.704. El título va sobre las personas, no sobre el tema.
+
+2. "ted kaczynski" tiene MENOS competencia (55,5 frente a 62,5) y MÁS volumen
+   en México (3.197 frente a 2.847) que "unabomber", pese a buscarse menos en
+   global. Va delante en el título; "unabomber" cierra como remate.
+
+Las variantes de cola larga no valen nada aquí. No construir el título con
+ellas, al contrario de lo que suele recomendarse.
+
+VENTANA TEMPORAL
+----------------
+Netflix estrena película sobre el caso el 25/09/2026. Los crecimientos de
++263 % y +210 % son esa ola empezando. PUBLICAR ANTES DEL 25. Después se
+compite contra todo lo que suba ese día.
+
+TÍTULO
+======
+Harvard torturó a Ted Kaczynski durante 3 años. Después fue el Unabomber
+
+Puntuación vidIQ de CTR: 86/100. Alternativas medidas:
+  85  El experimento de Harvard con Ted Kaczynski: 3 años de abuso a un niño de 16
+  82  Unabomber: lo que Harvard le hizo a Ted Kaczynski a los 16 años
+  82  Le hicieron esto en Harvard a los 16 años. Hoy lo conoces como el Unabomber
+  82  Harvard torturó al Unabomber durante 3 años y tenía solo 16 años
+  74  Unabomber: Harvard lo torturó 3 años cuando tenía 16
+
+Sobre el corte en móvil: "Unabomber" cae fuera de los primeros ~60 caracteres
+y se corta en pantalla pequeña. Se acepta a propósito, por dos razones: el
+término que de verdad interesa ("ted kaczynski") sí entra, y el índice de
+búsqueda de YouTube lee el título completo aunque se muestre truncado.
+Adelantar "Unabomber" costaba doce puntos de CTR (86 -> 74).
+
+Sobre "torturó": es defendible, no adorno. El propio Murray describió los
+interrogatorios como "vehementes" y "personalmente abusivos", y la prensa en
+español ya usa "torturaron psicológicamente". Aun así, el guion nunca dice
+que aquello explique los asesinatos.
+
+DESCRIPCIÓN
+===========
+En 1959, Harvard reclutó a 22 estudiantes para un estudio sobre la
+personalidad. A uno de ellos le faltaban dos años para cumplir la mayoría de
+edad. Se llamaba Theodore Kaczynski.
+
+Les pidieron que escribieran en qué creían. Con detalle. Lo más íntimo que
+tuvieran. Y después usaron esas páginas en su contra, bajo focos, con
+electrodos en el pecho, mientras una cámara grababa sus caras para que
+tuvieran que verse después.
+
+Duró tres años. El hombre que lo dirigía venía del servicio de inteligencia
+que fue el antecedente de la CIA. Nunca respondió por ello.
+
+Este vídeo no dice que Harvard creara al Unabomber. Los otros 21 estudiantes
+pasaron por lo mismo y ninguno hizo lo que hizo él. Lo incómodo es otra cosa:
+que aquello ocurrió igual, y que a cada chico le pusieron un nombre en clave.
+El de Kaczynski era "Lawful". Respetuoso de la ley.
+
+Fuentes: CBS News, Crime+Investigation UK, Alliance for Human Research
+Protection, The Harvard Crimson.
+
+Capítulos:
+0:00 Dieciséis años y una silla con focos
+0:45 Quién era Henry Murray
+1:25 La redacción que era munición
+2:20 Las grabaciones
+3:10 Lo que vino después
+4:05 Lo que de verdad incomoda
+
+ETIQUETAS
+=========
+ted kaczynski, unabomber, experimento harvard, henry murray, experimentos
+psicologicos, psicologia, misterios, historia incomoda, casos reales,
+experimento social, cia, mkultra, true crime español, documental en español,
+historia oscura, experimentos con humanos, harvard, asesinos reales
+
+PENDIENTE
+=========
+- Miniatura. Idea: la silla vacía bajo los dos focos, en negro, con la
+  etiqueta LAWFUL como único texto. Sin cara.
+- El gancho no está validado contra retención real. La pieza de datos que
+  sigue faltando es la curva del vídeo 7, que necesita conectar el canal
+  correcto a vidIQ.

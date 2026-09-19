@@ -1,0 +1,127 @@
+# Saca una muestra de cada voz masculina latinoamericana de Azure.
+#
+# El catálogo no se escribe a mano: se le pregunta a la propia cuenta qué
+# voces tiene disponibles, se filtran las latinas masculinas y se genera la
+# misma frase con todas. Así la lista nunca se queda anticuada cuando
+# Microsoft añade o retira voces.
+#
+# Son frases cortas, unos trescientos caracteres por voz, así que veinte
+# voces gastan seis mil de los quinientos mil mensuales.
+name: voz-azure-catalogo
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/voz-azure-catalogo.yml
+      - canal-youtube/.catalogo-disparo
+
+permissions:
+  contents: write
+
+env:
+  # El arranque del guión, que es donde se decide si una voz sirve o no.
+  MUESTRA: Estás en el castillo de Windsor y acabas de dar una orden muy concreta. Que mañana, a la misma hora de siempre, suban el agua caliente para afeitar a tu marido. Tu marido está muerto.
+  ACABADO: highshelf=f=6500:g=2,deesser=i=0.25:m=0.5:f=0.55,equalizer=f=200:t=q:w=1.2:g=1.5,loudnorm=I=-16:TP=-1.5:LRA=11
+  DESTINO: canal-youtube/muestras-voz/azure-catalogo
+
+jobs:
+  catalogo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Generar una muestra por voz
+        env:
+          CLAVE: ${{ secrets.AZURE_SPEECH_KEY }}
+          REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+        run: |
+          mkdir -p crudo
+          python3 - <<'PY'
+          import json
+          import os
+          import urllib.request
+          from xml.sax.saxutils import escape
+
+          clave = os.environ["CLAVE"]
+          region = (os.environ.get("REGION") or "eastus").strip()
+          base = f"https://{region}.tts.speech.microsoft.com/cognitiveservices"
+
+          # España queda fuera a propósito: el canal es para público latino.
+          LATAM = {
+              "es-MX", "es-AR", "es-CO", "es-CL", "es-PE", "es-US", "es-VE",
+              "es-EC", "es-UY", "es-BO", "es-CR", "es-GT", "es-HN", "es-NI",
+              "es-PA", "es-PY", "es-DO", "es-SV", "es-PR", "es-CU",
+          }
+
+          req = urllib.request.Request(
+              f"{base}/voices/list",
+              headers={"Ocp-Apim-Subscription-Key": clave},
+          )
+          with urllib.request.urlopen(req, timeout=60) as r:
+              voces = json.load(r)
+
+          elegidas = [
+              v for v in voces
+              if v.get("Locale") in LATAM and v.get("Gender") == "Male"
+          ]
+          elegidas.sort(key=lambda v: (v["Locale"], v["ShortName"]))
+          print(f"{len(voces)} voces en la cuenta, {len(elegidas)} latinas masculinas\n")
+
+          texto = escape(os.environ["MUESTRA"])
+          for v in elegidas:
+              nombre = v["ShortName"]
+              estilos = ",".join(v.get("StyleList") or []) or "-"
+              print(f"  {nombre:<28} {v.get('LocalName','')}  estilos: {estilos}")
+
+              ssml = (
+                  "<speak version='1.0' "
+                  "xmlns='http://www.w3.org/2001/10/synthesis' "
+                  f"xml:lang='{v['Locale']}'>"
+                  f"<voice name='{nombre}'>{texto}</voice></speak>"
+              )
+              peticion = urllib.request.Request(
+                  f"{base}/v1",
+                  data=ssml.encode("utf-8"),
+                  headers={
+                      "Ocp-Apim-Subscription-Key": clave,
+                      "Content-Type": "application/ssml+xml",
+                      "X-Microsoft-OutputFormat":
+                          "audio-24khz-160kbitrate-mono-mp3",
+                      "User-Agent": "historia-incomoda",
+                  },
+                  method="POST",
+              )
+              try:
+                  with urllib.request.urlopen(peticion, timeout=120) as r:
+                      open(f"crudo/{nombre}.mp3", "wb").write(r.read())
+              except Exception as e:
+                  # Una voz que falle no debe tumbar el catálogo entero.
+                  print(f"    falló: {e}")
+          PY
+
+      - name: Acabado
+        run: |
+          mkdir -p salida
+          for f in crudo/*.mp3; do
+            ffmpeg -y -v error -i "$f" -af "$ACABADO" \
+                   -codec:a libmp3lame -qscale:a 2 "salida/$(basename "$f")"
+          done
+          ls salida | wc -l
+
+      - name: Devolver el audio a la rama
+        run: |
+          rm -rf "$DESTINO" && mkdir -p "$DESTINO" && mv salida/*.mp3 "$DESTINO"/
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Catalogo de voces latinas de Azure' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

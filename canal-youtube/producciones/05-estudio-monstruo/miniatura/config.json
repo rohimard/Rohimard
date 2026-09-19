@@ -1,0 +1,12 @@
+{
+  "image": "base.jpg",
+  "font": "../../../kit-produccion/assets/Anton-Regular.woff2",
+  "out": "miniatura",
+  "number": "MONSTRUO",
+  "numberSize": 165,
+  "line1": "EXPERIMENTO CON NIÑOS",
+  "line2": "OCULTO 62 AÑOS",
+  "side": "left",
+  "accent": "#FFD400",
+  "alarm": "#E10600"
+}

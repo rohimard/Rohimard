@@ -1,0 +1,389 @@
+# Narra el GUION ENTERO con Gemini TTS, POR TROZOS.
+#
+# LO QUE SE APRENDIO A LA MALA
+# La primera version pedia los 287 segundos en una sola peticion. Cabian: el
+# audio volvia entero y la transcripcion del final coincidia con el guion.
+# Pero la voz se DEGRADA segun avanza, y eso no lo ve un ffprobe:
+#
+#   t=10s   agudos -6,7 dB   graves -1,3 dB   eco a 150 ms +0,19
+#   t=275s  agudos -3,6 dB   graves -3,4 dB   eco a 150 ms +0,33
+#
+# Es decir: pierde cuerpo, gana siseo, y hacia el final aparece una repeticion
+# a 150 ms que se oye como eco. El transcriptor de Fish llego a escribir
+# "[eco]" en mitad del texto. El quiebre esta entre el segundo 60 y el 120.
+#
+# Causa: el modelo es autorregresivo, cada tramo se genera condicionado por lo
+# que el mismo acaba de producir, y el error se acumula. La cura no es cambiar
+# de voz sino no dejarle correr tanto seguido.
+#
+# POR ESO SE TROCEA
+# Trozos de unas 160 palabras (~60 s), cortados SOLO en final de frase, una
+# peticion por trozo. Cinco peticiones de las diez diarias gratuitas para un
+# video entero: sigue saliendo gratis, y sin degradacion.
+#
+# Los trozos se igualan en nivel antes de pegarlos (si no, se oye el salto en
+# cada costura) y se comprueba que la duracion total se parece al patron.
+#
+# SE PUEDE REANUDAR, Y HACE FALTA
+# El cupo diario NO se reinicia a medianoche UTC sino a medianoche del
+# Pacifico. La primera tanda troceada murio en el trozo 2 por cuota, con el
+# trozo 1 ya generado y tirado a la basura. Ahora cada trozo se guarda en la
+# rama segun sale, con el hash de su texto al lado; al relanzar se reutiliza
+# lo que ya existe y solo se piden los que faltan. Si cambia el guion, el
+# hash deja de cuadrar y ese trozo se regenera solo.
+name: voz-gemini-guion
+
+# workflow_dispatch no sirve aqui: la API solo lo acepta si el workflow esta
+# en la rama por defecto, y este vive en la rama de trabajo. Asi que se
+# dispara tocando un fichero centinela, igual que voz-guion-completo.
+#
+# El disparador es .gemini-disparo y NO el propio workflow, a proposito:
+# corregir una linea de codigo no debe gastar una de las diez peticiones
+# diarias. Eso ya paso dos veces.
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - canal-youtube/.gemini-disparo
+
+permissions:
+  contents: write
+
+# GUION, DESTINO, CLAVE y ESPERADO no estan aqui: se leen de
+# canal-youtube/.gemini-disparo, una linea cada uno. Asi el mismo commit
+# que configura el objetivo es el que dispara, y cambiar de video no obliga
+# a tocar el workflow (que ademas ya no se auto-dispara).
+env:
+  # gemini-2.5-flash-preview-tts se probo primero (ver historial de este
+  # fichero) y llego a 2,44 palabras/s incluso tras arreglar la direccion:
+  # lento y aburrido, dijo el usuario. gemini-3.1-flash-tts-preview, probado
+  # aparte sobre el trozo 1 real del guion (canal-youtube/producciones/
+  # 08-kaczynski-harvard/prueba-31), dio 2,91 palabras/s con la misma voz y
+  # una direccion mas suave -- el usuario lo aprobo. Cupo diario aparte del
+  # de 2.5-flash, mismo endpoint y forma de peticion.
+  MODELO: gemini-3.1-flash-tts-preview
+  # Achird es "Friendly" en el catalogo de Google, la mas cercana al perfil
+  # Kevin que pidio el usuario. Si se cambia la voz, cambia tambien CLAVE.
+  VOZ: Achird
+  CLAVE: achird-guion-completo
+  # Palabras por trozo. 160 son unos 57 s a 2,8 palabras/s, por debajo
+  # del minuto en que empieza a degradarse.
+  PALABRAS: '160'
+  # La direccion que dio 2,91 palabras/s en la prueba real (ver
+  # prueba-31/trozo1-equilibrado.mp3). Un unico empujon de velocidad
+  # ("cierta urgencia"); la version con [fast] en el texto ademas de esto
+  # se paso a 3,48 palabras/s y el usuario la marco como demasiado rapida.
+  DIRECCION: >-
+    Habla en español latinoamericano neutro. Eres un hombre de unos cuarenta y
+    cinco años que tiene poco tiempo para contarle esto a un amigo antes de
+    que llegue alguien mas, asi que hablas con cierta urgencia, sin arrastrar
+    ninguna palabra, sin proyectar la voz de locutor. Ve al grano en cada
+    frase. Registro medio, volumen de conversacion. Baja el tono al final de
+    cada frase, nunca lo subas. No dramatices: el dato ya incomoda solo.
+
+jobs:
+  narrar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/viral-youtube-video-ideas-luqj2m
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Leer el objetivo
+        run: |
+          OBJ=canal-youtube/.gemini-disparo
+          # Linea 1 guion, 2 destino, 3 clave del fichero, 4 duracion patron.
+          # Se ignora todo lo que venga a partir de la quinta (comentarios).
+          for n in 1:GUION 2:DESTINO 3:CLAVE 4:ESPERADO; do
+            i=${n%%:*}; k=${n##*:}
+            v=$(sed -n "${i}p" "$OBJ" | tr -d '[:space:]')
+            if [ -z "$v" ]; then
+              echo "::error::falta la linea $i ($k) en $OBJ"
+              exit 1
+            fi
+            echo "$k=$v" >> "$GITHUB_ENV"
+            echo "$k = $v"
+          done
+
+      - name: Resolver la clave de Google
+        env:
+          CLAVE_OK: ${{ secrets.GOOGLE_API_KEY }}
+          CLAVE_TYPO: ${{ secrets.GOOGLE_API_JEY }}
+        run: |
+          G="${CLAVE_OK:-$CLAVE_TYPO}"
+          if [ -z "$G" ]; then
+            echo "::error::no hay clave de Google en los secretos del repo"
+            exit 1
+          fi
+          echo "::add-mask::$G"
+          echo "GOOGLE=$G" >> "$GITHUB_ENV"
+
+      - name: Sintetizar por trozos
+        run: |
+          mkdir -p salida trozos
+          # Recuperar los trozos que ya se generaron en tandas anteriores.
+          cp -f "$DESTINO"/trozos/*.flac trozos/ 2>/dev/null || true
+          cp -f "$DESTINO"/trozos/manifiesto.json trozos/ 2>/dev/null || true
+          python3 - <<'PY'
+          import base64, hashlib, json, math, os, re, subprocess, sys, time
+          import urllib.error, urllib.request, wave, array
+
+          texto = open(os.environ["GUION"], encoding="utf-8").read().strip()
+          base = " ".join(os.environ["DIRECCION"].split())
+          tope = int(os.environ["PALABRAS"])
+
+          # Direccion POR TROZO, que es la palanca que ningun otro motor da.
+          # Un narrador de verdad no lee cinco minutos con el mismo tono: baja
+          # en el giro, acelera en el contexto, se para en la frase que mata.
+          # Fichero opcional junto al guion, una linea por trozo; una linea en
+          # blanco deja ese trozo con la direccion base.
+          ruta_dir = os.path.join(os.path.dirname(os.environ["GUION"]),
+                                  "direcciones.txt")
+          porTrozo = []
+          if os.path.exists(ruta_dir):
+              porTrozo = [" ".join(l.split())
+                          for l in open(ruta_dir, encoding="utf-8")
+                          if not l.lstrip().startswith("#")]
+              print(f"direcciones por trozo: {len(porTrozo)} lineas")
+
+          # Cortar SOLO en final de frase: partir a mitad deja el trozo
+          # siguiente empezando sin entonacion de arranque, y se nota.
+          frases = re.findall(r"[^.!?]+[.!?]+(?:\s|$)|[^.!?]+$", texto)
+          frases = [f.strip() for f in frases if f.strip()]
+          trozos, actual = [], []
+          for f in frases:
+              actual.append(f)
+              if sum(len(x.split()) for x in actual) >= tope:
+                  trozos.append(" ".join(actual)); actual = []
+          if actual:
+              # Una cola muy corta se pega al trozo anterior en vez de gastar
+              # una peticion entera en diez palabras.
+              if trozos and sum(len(x.split()) for x in actual) < tope // 3:
+                  trozos[-1] += " " + " ".join(actual)
+              else:
+                  trozos.append(" ".join(actual))
+
+          print(f"{len(texto.split())} palabras -> {len(trozos)} trozos")
+          if len(trozos) > 10:
+              print(f"::error::{len(trozos)} trozos pasan del cupo diario")
+              sys.exit(1)
+
+          def dirDe(i):
+              """Direccion del trozo i (1-based); cae a la base si no hay."""
+              if i <= len(porTrozo) and porTrozo[i - 1]:
+                  return base + " " + porTrozo[i - 1]
+              return base
+
+          def huella(i, t):
+              # La direccion y el modelo entran en el hash: si cualquiera
+              # cambia, ese trozo se regenera solo y no se reutiliza una
+              # toma con el tono o el modelo viejo.
+              return hashlib.sha256(
+                  (os.environ["MODELO"] + "|" + os.environ["VOZ"] + "|" +
+                   dirDe(i) + "|" + t).encode()
+              ).hexdigest()[:16]
+
+          try:
+              manif = json.load(open("trozos/manifiesto.json"))
+          except Exception:
+              manif = {}
+
+          url = ("https://generativelanguage.googleapis.com/v1beta/models/"
+                 f"{os.environ['MODELO']}:generateContent")
+
+          def pedir(txt, direccion):
+              cuerpo = {
+                  "contents": [{"parts": [{"text":
+                      f"{direccion}\n\nDi exactamente el texto que sigue, "
+                      f"entero y sin resumir, y nada mas. No leas estas "
+                      f"instrucciones.\n\n{txt}"}]}],
+                  "generationConfig": {
+                      "responseModalities": ["AUDIO"],
+                      "speechConfig": {"voiceConfig": {"prebuiltVoiceConfig":
+                          {"voiceName": os.environ["VOZ"]}}},
+                  },
+              }
+              pet = urllib.request.Request(
+                  url, data=json.dumps(cuerpo).encode(),
+                  headers={"Content-Type": "application/json",
+                           "x-goog-api-key": os.environ["GOOGLE"]},
+                  method="POST")
+              for intento in range(1, 7):
+                  try:
+                      with urllib.request.urlopen(pet, timeout=600) as r:
+                          return json.loads(r.read())
+                  except urllib.error.HTTPError as e:
+                      d = e.read().decode(errors="replace")
+                      if e.code == 429 and re.search(r"limit: 0\b", d):
+                          raise SystemExit(
+                              f"::error::{os.environ['MODELO']} no esta en el "
+                              f"plan gratuito (limit: 0)")
+                      if e.code == 429 and re.search(r"PerDay|per day", d):
+                          # No es un fallo del codigo: se guarda lo hecho y se
+                          # reanuda tras el reinicio (medianoche del Pacifico).
+                          raise SystemExit("CUOTA_DIARIA")
+                      if e.code not in (429, 500, 503) or intento == 6:
+                          raise SystemExit(
+                              f"::error::Google devolvio {e.code}: {d[:400]}")
+                      espera = 20.0 * intento
+                      m = re.search(r"retry in ([\d.]+)s", d)
+                      if m:
+                          espera = float(m.group(1)) + 5
+                      print(f"  {e.code}, espero {espera:.0f}s")
+                      time.sleep(espera)
+
+          def intentar(txt, direccion):
+              """Pide un trozo y reintenta si el propio filtro de seguridad
+              de Google bloquea el audio: un 200 OK con finishReason=SAFETY
+              no es un error HTTP (el modelo genero texto internamente,
+              pero su filtro corto el audio), y se ha visto intermitente
+              sobre el mismo texto en pruebas anteriores de este guion."""
+              resp = pedir(txt, direccion)
+              for intento_seguridad in range(1, 4):
+                  try:
+                      return resp["candidates"][0]["content"]["parts"][0]["inlineData"]
+                  except (KeyError, IndexError):
+                      razon = resp.get("candidates", [{}])[0].get("finishReason", "?")
+                      if razon == "SAFETY" and intento_seguridad < 3:
+                          print(f"   bloqueo de seguridad, reintento "
+                                f"{intento_seguridad}")
+                          time.sleep(10)
+                          resp = pedir(txt, direccion)
+                          continue
+                      raise SystemExit(
+                          f"::error::respuesta inesperada (finishReason="
+                          f"{razon}): {json.dumps(resp)[:400]}")
+
+          def guardar(i, crudo, sr):
+              w = f"trozos/{i:02d}.wav"
+              with wave.open(w, "wb") as f:
+                  f.setnchannels(1); f.setsampwidth(2); f.setframerate(sr)
+                  f.writeframes(crudo)
+              # FLAC: sin perdida, la mitad de bytes en la rama. Volver a
+              # codificar un mp3 en cada tanda degradaria el trozo.
+              subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", w,
+                              f"trozos/{i:02d}.flac"], check=True)
+              os.remove(w)
+
+          def leer(i):
+              b = subprocess.run(
+                  ["ffmpeg", "-v", "error", "-i", f"trozos/{i:02d}.flac",
+                   "-f", "s16le", "-ac", "1", "-ar", "24000", "-"],
+                  check=True, stdout=subprocess.PIPE).stdout
+              return b, 24000
+
+          piezas, sr, pedidos, corte = [], 24000, 0, None
+          for i, t in enumerate(trozos, 1):
+              h = huella(i, t)
+              if manif.get(str(i)) == h and os.path.exists(f"trozos/{i:02d}.flac"):
+                  crudo, sr = leer(i)
+                  print(f"trozo {i}/{len(trozos)}: reutilizado "
+                        f"({len(crudo)/(sr*2):.1f}s)")
+                  piezas.append(crudo)
+                  continue
+              if pedidos:
+                  # 25s de margen entre peticiones. El limite de 3/min era el
+                  # de 2.5-flash; el de este modelo en preview no esta
+                  # documentado, asi que se mantiene el mismo margen por
+                  # prudencia.
+                  time.sleep(25)
+              print(f"trozo {i}/{len(trozos)}: pidiendo a Gemini")
+              try:
+                  parte = intentar(t, dirDe(i))
+              except SystemExit as e:
+                  if str(e) == "CUOTA_DIARIA":
+                      corte = i
+                      break
+                  raise
+              pedidos += 1
+              crudo = base64.b64decode(parte["data"])
+              m = re.search(r"rate=(\d+)", parte.get("mimeType", ""))
+              sr = int(m.group(1)) if m else 24000
+              dur = len(crudo) / (sr * 2)
+              esp = len(t.split()) / 2.8
+              print(f"   {dur:.1f}s (esperaba ~{esp:.0f}s)")
+              # Un trozo a menos de la mitad es texto comido, y pegado entre
+              # otros cuatro no se nota al oido.
+              if dur < esp * 0.5:
+                  print(f"::error::trozo {i} truncado: {dur:.1f}s de ~{esp:.0f}s")
+                  sys.exit(1)
+              guardar(i, crudo, sr)
+              manif[str(i)] = h
+              json.dump(manif, open("trozos/manifiesto.json", "w"), indent=1)
+              piezas.append(crudo)
+
+          json.dump(manif, open("trozos/manifiesto.json", "w"), indent=1)
+          if corte:
+              print(f"::warning::cupo diario agotado en el trozo {corte} de "
+                    f"{len(trozos)}. Los {corte-1} ya generados quedan "
+                    f"guardados en la rama; al relanzar tras el reinicio "
+                    f"(medianoche del Pacifico) solo se piden los que faltan.")
+              sys.exit(1)
+
+          def rms(b):
+              a = array.array("h"); a.frombytes(b)
+              return math.sqrt(sum(x * x for x in a) / len(a)) if a else 0.0
+
+          def escalar(b, k):
+              a = array.array("h"); a.frombytes(b)
+              for i in range(len(a)):
+                  a[i] = max(-32768, min(32767, int(a[i] * k)))
+              return a.tobytes()
+
+          # Igualar niveles al primer trozo: sin esto se oye un salto de
+          # volumen en cada costura, peor que la degradacion original.
+          base = rms(piezas[0]) or 1.0
+          silencio = b"\x00\x00" * int(sr * 0.15)
+          salida = b""
+          for i, p in enumerate(piezas):
+              k = base / (rms(p) or base)
+              if i:
+                  salida += silencio
+              print(f"   trozo {i+1}: ganancia x{k:.2f}")
+              salida += escalar(p, k) if abs(k - 1) > 0.02 else p
+
+          with wave.open("salida/voz.wav", "wb") as w:
+              w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
+              w.writeframes(salida)
+          total = len(salida) / (sr * 2)
+          esperado = float(os.environ["ESPERADO"])
+          print(f"::notice::{len(trozos)} trozos, {total:.1f}s "
+                f"({100 * total / esperado:.0f}% del patron de Azure); "
+                f"{pedidos} peticiones gastadas")
+          if total < esperado * 0.75:
+              print(f"::error::solo {total:.1f}s de {esperado:.1f}s esperados")
+              sys.exit(1)
+          PY
+          ffmpeg -y -v error -i salida/voz.wav -af "loudnorm=I=-16:TP=-1.5:LRA=11" \
+                 -c:a libmp3lame -b:a 256k "salida/${CLAVE}.mp3"
+          rm -f salida/voz.wav
+          ls -la salida/ trozos/
+
+      - name: Guardar los trozos hechos
+        # Corre aunque el paso anterior falle: si el cupo se agota a mitad,
+        # lo ya generado tiene que llegar a la rama o se pierde.
+        if: always()
+        run: |
+          mkdir -p "$DESTINO/trozos"
+          cp -f trozos/*.flac "$DESTINO/trozos/" 2>/dev/null || true
+          cp -f trozos/manifiesto.json "$DESTINO/trozos/" 2>/dev/null || true
+          cp -f salida/*.mp3 "$DESTINO/" 2>/dev/null || true
+          ls -la "$DESTINO" "$DESTINO/trozos" 2>/dev/null || true
+
+      - uses: ./.github/actions/devolver
+        # TAMBIEN con always(). Guardar los trozos en el disco del runner no
+        # sirve de nada si el paso que los empuja a la rama se salta: el
+        # runner se destruye y el audio se pierde igual. Paso ya dos veces.
+        if: always()
+        with:
+          destino: ${{ env.DESTINO }}
+          mensaje: Narracion completa con Gemini

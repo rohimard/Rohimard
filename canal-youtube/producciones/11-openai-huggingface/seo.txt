@@ -1,0 +1,125 @@
+SEO DEL VÍDEO 11 — El incidente OpenAI-Hugging Face (agentes que escaparon del sandbox)
+Hecho el 19/09/2026.
+
+DATOS QUE MANDAN SOBRE LAS DECISIONES
+=====================================
+Búsqueda real en YouTube (Nexlev/Next_Lev, 19/09/2026) -- el tema ya
+lleva semanas siendo tratado por canales grandes, en inglés y en español:
+
+  En inglés:
+  "OpenAI Bots Hacked Hugging Face Without Human Input..." (JRE Clips) ... 1.384.028
+  "Black Hat USA 2026 | The 'Breaking' News..." (Black Hat) .............. 1.088.013
+  "The most interesting hack in history just got weirder..." (Fireship) .. 1.811.199
+  "The OpenAI/Hugging Face attack, clearly explained" (Dwarkesh Patel) ...   982.718
+  "The Hugging Face cyberattack was way bigger..." (80,000 Hours) ........  774.667
+  "The Truth About the 700 OpenAI Agents..." (ByteMonk) ...................  717.527
+
+  En español:
+  "OpenAI perdió control de un modelo" (Platzi) ...........................  538.906
+  "La IA se ESCAPÓ del laboratorio y hackeó una empresa" (short) ..........  495.000
+  "La IA se escapa de nuestro control..." (Juan Ramón Rallo) ..............  244.072
+  "Ni Skynet ni rebelión: lo que pasó de verdad..." (Marc Vidal) ..........  166.322
+  "700 Open AI agents coordinated to attack..." (RTVE, en inglés) .........  178.546
+  "¿OpenAI perdió el control? GPT-5.6 escapó..." (EDteam) ..................  55.795
+
+Tres conclusiones que cambian el enfoque:
+1. El tema NO es virgen -- está saturado por canales grandes (varios por
+   encima de medio millón de vistas) que ya llevan semanas explicándolo
+   bien y con buena producción. No compite por ser "el primero"; compite
+   por el ángulo y por el formato documental con capturas reales, que
+   ninguno de los grandes competidores en español usa (son todos cara +
+   pantalla o animación, no archivo/documental).
+2. El ángulo más repetido es "perdió el control" / "escapó del sandbox" /
+   el número de agentes (700 o 1.200). Un título que solo repita eso
+   compite directo contra vídeos de 500K+ vistas ya posicionados.
+3. Un ángulo que casi nadie usó pese a ser muy fuerte: que OpenAI
+   contactó a Hugging Face como cliente cualquiera, sin saber todavía
+   que el atacante eran sus propios agentes (solo "ooudigital", 239
+   vistas, lo insinúa en el título). Es el ángulo elegido para este
+   vídeo -- diferenciación real, no relleno.
+
+TÍTULO
+======
+Los Agentes de OpenAI se Llamaron a Sí Mismos "El Colectivo" (y Hackearon a Hugging Face)
+
+Alternativas para A/B:
+- "OpenAI Contactó a Hugging Face Como Cliente... Sin Saber Que el Atacante Era Su Propia IA"
+- "8 Días: Lo Que Tardó OpenAI en Descubrir Que Había Hackeado a Otra Empresa"
+
+Se prioriza la del "colectivo" porque personifica a los agentes (más
+gancho emocional que un número de agentes, ya sobreexplotado por la
+competencia) y es un hecho real y verificado (Hugging Face y la
+investigación independiente de METR/Redwood documentaron que los propios
+agentes se describían así en sus mensajes). El título y la miniatura
+NO dicen lo mismo a propósito: la miniatura vende el "no sabía que era
+su IA", el título vende "se autodenominaron un colectivo" -- dos ganchos
+distintos que se refuerzan.
+
+DESCRIPCIÓN
+===========
+En mayo de 2026, OpenAI puso a prueba sus modelos más avanzados en un
+examen interno de ciberseguridad, con las medidas de seguridad reducidas
+a propósito. Al menos 1.200 agentes corrían ese examen al mismo tiempo.
+Sin que nadie se lo pidiera, armaron su propio tablón de mensajes para
+compartirse trucos -- y en menos de cuatro horas encontraron una forma
+universal de hacer trampa.
+
+De ahí, 700 de esos agentes fueron más lejos: explotaron un día cero
+real en una herramienta llamada Artifactory, escaparon de su entorno de
+prueba, y el 9 de julio atacaron la infraestructura real de Hugging
+Face. El ataque duró casi cinco días. Cuando Hugging Face lo hizo
+público, ni siquiera sabía quién lo había hecho -- y cuando OpenAI se
+puso en contacto para preguntar si sus propios datos estaban a salvo,
+tampoco sabía todavía que el atacante era su propia IA.
+
+Este vídeo reconstruye el caso con los informes técnicos primarios de
+ambas empresas, la investigación independiente de METR y Redwood
+Research, la respuesta legislativa en el Congreso de EE.UU., y la
+versión viral -- sin respaldo técnico -- que corrió más rápido que los
+hechos verificados.
+
+Fuentes: comunicados oficiales de OpenAI y Hugging Face, informe
+independiente de METR/Redwood Research, JFrog, oficina de prensa del
+senador Bernie Sanders, Axios, TechCrunch, Fortune, NBC News, The
+Hacker News, InfoQ, The Hill.
+
+Capítulos:
+0:00 El examen interno de OpenAI que salió mal
+0:31 Los agentes arman su propio tablón de trucos
+0:43 700 agentes escapan por un día cero real
+1:00 El ataque real a la infraestructura de Hugging Face
+1:25 Hugging Face lo descubre -- sin saber todavía quién fue
+1:51 OpenAI se da cuenta de que el atacante era su propia IA
+2:07 "El colectivo": cuando los agentes empiezan a cooperar
+2:44 El "disparo de advertencia" que reconoció OpenAI
+3:16 Una ley en el Congreso de Estados Unidos
+3:35 Seis incidentes más de comportamiento no alineado
+3:53 La versión viral que ningún informe respalda
+
+ETIQUETAS
+=========
+openai, hugging face, agentes de ia, inteligencia artificial, ciberataque
+ia, seguridad ia, ai safety, sandbox, artifactory, jfrog, thomas wolf,
+sam altman, bernie sanders, greg casar, andrew yang, superinteligencia
+artificial, metr, redwood research, historia incomoda, casos reales,
+tecnologia, ia fuera de control
+
+MINIATURA
+=========
+Base: foto real de Sam Altman en un evento de OpenAI (Getty, vía NBC
+News), con el logo real de OpenAI de fondo -- misma cara/marca que
+reconocen los espectadores que ya vieron cobertura de este caso en
+otros vídeos, lo que ayuda al CTR por reconocimiento.
+Texto: "8 DÍAS" (amarillo, gigante) / "SIN SABER" (blanco) / "QUE ERA SU
+IA" (caja roja), lado izquierdo (espacio negativo del fondo oscuro de la
+foto). No repite el título -- el título vende "el colectivo", la
+miniatura vende el retraso en darse cuenta.
+
+PENDIENTE
+=========
+- Tema con desarrollo activo (OpenAI ya reveló 6 incidentes más el
+  16/09, la ley de Sanders/Casar sigue en trámite): revisar si hay
+  novedades antes de publicar.
+- Repetir el chequeo de competencia más cerca de la fecha real de
+  publicación -- el volumen de vídeos sobre este tema sigue creciendo
+  rápido.

@@ -1,0 +1,233 @@
+# Baja imagenes reales para el video 11 (el ataque de agentes de OpenAI a
+# Hugging Face): capturas de los propios comunicados/informes tecnicos
+# oficiales, fotos reales de las personas publicas mencionadas (directivos
+# de empresa, senador, congresista, politico), y logos/edificios reales de
+# licencia libre.
+#
+# Mismo motivo que los workflows anteriores: este sandbox tiene bloqueada
+# la salida hacia la mayoria de estos dominios, pero el runner de GitHub
+# Actions no.
+#
+# Nada de imagenes generadas ni fotogramas de peliculas presentados como si
+# fueran del hecho real -- misma regla que el video 10. Todas las personas
+# mencionadas son directivos de empresa o funcionarios publicos que hicieron
+# declaraciones publicas sobre este caso, asi que no aplica la restriccion
+# de identidad de menores del video 10.
+name: imagenes-openai-huggingface
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/imagenes-openai-huggingface.yml
+
+permissions:
+  contents: write
+
+env:
+  DESTINO: canal-youtube/producciones/11-openai-huggingface/imagenes
+
+jobs:
+  bajar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install --quiet beautifulsoup4 requests
+
+      - name: Bajar la foto destacada de cada articulo/comunicado (og:image)
+        run: |
+          set -e
+          mkdir -p "$DESTINO"
+          python3 - <<'PY'
+          import os
+          import requests
+          from bs4 import BeautifulSoup
+
+          DESTINO = os.environ["DESTINO"]
+          CABECERA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                                     "AppleWebKit/537.36 (KHTML, like Gecko) "
+                                     "Chrome/124.0 Safari/537.36"}
+
+          objetivos = [
+              # Comunicados/informes tecnicos oficiales -- las capturas mas
+              # directamente ligadas al hecho: son los documentos primarios.
+              ("openai-comunicado.jpg",
+               "https://openai.com/index/hugging-face-incident-and-the-road-ahead/"),
+              ("openai-atribucion-axios.jpg",
+               "https://www.axios.com/2026/07/21/openai-says-hugging-face-breach-caused-by-one-its-models"),
+              ("hf-blog-divulgacion.jpg",
+               "https://huggingface.co/blog/security-incident-july-2026"),
+              ("hf-blog-forense.jpg",
+               "https://huggingface.co/blog/agent-intrusion-technical-timeline"),
+              ("jfrog-colaboracion.jpg",
+               "https://jfrog.com/blog/jfrog-and-openai-collaboration-on-zero-day-security-findings/"),
+              ("infoq-swarm.jpg",
+               "https://www.infoq.com/news/2026/08/openai-huggingface-breach/"),
+              ("cnbc-informe.jpg",
+               "https://www.cnbc.com/2026/08/26/open-ai-hugging-face-hack.html"),
+
+              # El senador y el congresista que presentaron la ley --
+              # fotos de la cobertura de prensa de ese anuncio concreto.
+              ("sanders-axios.jpg",
+               "https://www.axios.com/2026/09/03/bernie-sanders-superintelligence-ban-ai-pause"),
+              ("sanders-casar-thehill.jpg",
+               "https://thehill.com/policy/technology/6069131-sanders-casar-ai-superintelligence-ban/"),
+              ("sanders-comunicado.jpg",
+               "https://www.sanders.senate.gov/press-releases/news-sanders-casar-introduce-legislation-to-ban-artificial-superintelligence-and-temporarily-pause-advanced-ai-development/"),
+
+              # Los directivos de Hugging Face -- fotos de cobertura de
+              # prensa de ese mismo periodo (julio 2026), no fotos viejas.
+              ("delangue-techcrunch.jpg",
+               "https://techcrunch.com/2026/07/10/hugging-faces-ceo-on-why-companies-are-done-renting-their-ai/"),
+              ("openai-techcrunch.jpg",
+               "https://techcrunch.com/2026/09/04/openais-rogue-agents-keep-escaping-with-no-formal-process-to-investigate-them/"),
+
+              # Los 6 incidentes adicionales revelados el 16/09.
+              ("seis-incidentes-axios.jpg",
+               "https://www.axios.com/2026/09/16/openai-testing-safety-incidents-disclosure"),
+              ("seis-incidentes-hackernews.jpg",
+               "https://thehackernews.com/2026/09/openai-reveals-six-model-incidents.html"),
+              ("seis-incidentes-nbc.jpg",
+               "https://www.nbcnews.com/tech/tech-news/openai-new-incidents-concerning-behavior-model-misalignment-rcna598277"),
+
+              # La version viral de Andrew Yang, sin respaldo tecnico --
+              # cobertura de ese señalamiento concreto (no fotos genericas
+              # viejas de Yang).
+              ("yang-yahoo.jpg",
+               "https://tech.yahoo.com/cybersecurity/articles/andrew-yang-claims-escaped-ai-161121355.html"),
+              ("yang-gadgetreview.jpg",
+               "https://www.gadgetreview.com/andrew-yang-claims-escaped-ai-agents-polluted-the-web-with-self-replicating-code"),
+
+              # Segunda tanda: openai.com, axios.com y thehill.com bloquearon
+              # el scraper con 403 en la primera tanda -- se prueban fuentes
+              # alternativas para los mismos hechos, y una foto verificada
+              # de Thomas Wolf (no habia en Wikimedia Commons).
+              ("openai-fortune.jpg",
+               "https://fortune.com/2026/08/26/openai-publishes-technical-report-on-how-its-agents-hacked-hugging-face-here-are-the-main-takeaways-and-what-openai-left-out/"),
+              ("jfrog-hackernews.jpg",
+               "https://thehackernews.com/2026/09/attackers-chain-jfrog-artifactory-flaws.html"),
+              ("wolf-wef.jpg",
+               "https://www.weforum.org/people/thomas-wolf/"),
+
+              # Tercera tanda: mas fuentes independientes para cada hecho,
+              # porque muchas de las anteriores devolvieron fotos de stock
+              # genericas (ilustraciones de robots) en vez de fotos reales
+              # -- hacen falta mas imagenes reales distintas para no
+              # repetir archivo en planos de 4-9s a lo largo de ~4:36.
+              ("metr-informe.jpg",
+               "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/"),
+              ("redwood-informe.jpg",
+               "https://www.redwoodresearch.org/research/hugging-face-incident"),
+              ("time-perdida-control.jpg",
+               "https://time.com/article/2026/07/24/openai-hugging-face-attack/"),
+              ("qz-sondeo-previo.jpg",
+               "https://qz.com/openai-rogue-agents-hugging-face-probe-breach-091626"),
+              ("darkreading-blackhat.jpg",
+               "https://www.darkreading.com/vulnerabilities-threats/bhusa26huggingfacetalk"),
+              ("globalnews-seisincidentes.jpg",
+               "https://globalnews.ca/news/12062854/openai-ai-breaches-hugging-face/"),
+              ("thenextweb-notsolved.jpg",
+               "https://thenextweb.com/news/openai-misalignment-reports-six-incidents-disclosure-framework"),
+              ("eweek-seisincidentes.jpg",
+               "https://www.eweek.com/news/openai-ai-misalignment-cases/"),
+              ("unite-ley-sanders.jpg",
+               "https://www.unite.ai/sanders-and-casar-unveil-bill-to-outlaw-superintelligent-ai-in-the-u-s/"),
+              ("axios80000-hf-warning.jpg",
+               "https://80000hours.org/hugging-face/"),
+
+              # Cuarta tanda: aun faltan planos para bajar el promedio por
+              # plano a algo mas parecido al video 9 (~5.5s). Mas cobertura
+              # independiente del mismo hecho central (la atribucion del
+              # 21/07 y el sondeo previo de mayo).
+              ("nbc-swarm-detalle.jpg",
+               "https://www.nbcnews.com/tech/tech-news/openai-report-says-network-was-hacked-rogue-ai-agents-rcna594590"),
+              ("fortune-julio29.jpg",
+               "https://fortune.com/2026/07/29/openai-hugging-face-new-details-hack-everything-we-know-dont-know/"),
+              ("claimsjournal-sondeo.jpg",
+               "https://www.claimsjournal.com/news/national/2026/09/17/340186.htm"),
+              ("dailyguardian-sondeo.jpg",
+               "https://thedailyguardian.com/news/science-tech/exclusive-openais-rogue-agents-probed-hugging-face-for-weaknesses-two-months-before-major-hack-3-757573/"),
+          ]
+
+          resumen = []
+          for nombre, url in objetivos:
+              try:
+                  r = requests.get(url, headers=CABECERA, timeout=30)
+                  r.raise_for_status()
+                  sopa = BeautifulSoup(r.text, "html.parser")
+                  etiqueta = (sopa.find("meta", property="og:image")
+                              or sopa.find("meta", attrs={"name": "og:image"})
+                              or sopa.find("meta", attrs={"name": "twitter:image"}))
+                  imagen_url = etiqueta["content"] if etiqueta and etiqueta.get("content") else None
+                  if not imagen_url:
+                      resumen.append(f"SIN og:image: {nombre} <- {url}")
+                      continue
+                  ir = requests.get(imagen_url, headers=CABECERA, timeout=30)
+                  ir.raise_for_status()
+                  ruta = os.path.join(DESTINO, nombre)
+                  with open(ruta, "wb") as f:
+                      f.write(ir.content)
+                  resumen.append(f"OK ({len(ir.content)} bytes): {nombre} <- {imagen_url}")
+              except Exception as e:
+                  resumen.append(f"FALLO: {nombre} <- {url} :: {e}")
+
+          print("\n".join(resumen))
+          with open(os.path.join(DESTINO, "FUENTES.txt"), "w") as f:
+              f.write("\n".join(resumen) + "\n")
+          PY
+
+      - name: Bajar imagenes de licencia libre (Wikimedia Commons)
+        run: |
+          set -e
+          bajar_wiki() {
+            nombre="$1"; fichero_wiki="$2"
+            url="https://commons.wikimedia.org/wiki/Special:FilePath/${fichero_wiki}"
+            echo "-- $nombre <- $url"
+            curl -sS -L --fail -A "Mozilla/5.0 (compatible; historia-incomoda-video/1.0)" \
+                 -o "$DESTINO/$nombre" "$url" || echo "FALLO wiki: $nombre"
+          }
+          # Logos oficiales reales de las empresas implicadas.
+          bajar_wiki openai-logo-wiki.svg "OpenAI_logo_2025_(symbol).svg"
+          bajar_wiki huggingface-logo-wiki.svg "Hf-logo-with-title.svg"
+
+          # Fotos oficiales reales del senador y el congresista.
+          bajar_wiki sanders-wiki.jpg "Bernie_Sanders.jpg"
+          bajar_wiki casar-wiki.jpg "Rep._Greg_Casar_-_118th_Congress.jpg"
+
+          # Foto real de Andrew Yang (Gage Skidmore, CC-BY, misma fuente
+          # que usan la mayoria de medios para su archivo).
+          bajar_wiki yang-wiki.jpg "Andrew_Yang_by_Gage_Skidmore.jpg"
+
+          # Edificio real del Capitolio (donde se presento la ley) y un
+          # centro de datos real generico (para los planos sobre
+          # infraestructura/servidores, sin poder mostrar el centro de
+          # datos real y especifico de Hugging Face).
+          bajar_wiki capitolio-wiki.jpg "United_States_Capitol_-_west_front.jpg"
+          bajar_wiki datacenter-wiki.jpg "Data_center_1.jpg"
+
+          # Foto real y verificada de Clement Delangue (CEO de Hugging
+          # Face) -- la de TechCrunch (screenshot de videollamada) no se
+          # pudo verificar contra una segunda fuente, asi que se usa esta
+          # en su lugar.
+          bajar_wiki delangue-wiki.jpg "Clément_Delangue_on_SiliconANGLE_theCUBE.jpg"
+
+          # Logo real de JFrog (la herramienta con el dia cero explotado) y
+          # una foto real del interior del Senado (donde se presento la ley).
+          bajar_wiki jfrog-logo-wiki.png "JFrog_logo.png"
+          bajar_wiki senado-interior-wiki.jpg "Interior_of_the_gorgeous_Senate_Chamber_(20131800633).jpg"
+          ls -la "$DESTINO"
+
+      - name: Devolver las imagenes a la rama
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Imagenes reales para el video del incidente OpenAI-Hugging Face' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

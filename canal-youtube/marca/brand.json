@@ -1,0 +1,13 @@
+{
+  "font": "../kit-produccion/assets/Anton-Regular.woff2",
+  "outDir": ".",
+  "bannerName": "banner",
+  "line1": "HISTORIA",
+  "line2": "INCÓMODA",
+  "tagline": "HISTORIAS REALES QUE PARECEN INVENTADAS",
+  "monogram": "HI",
+  "accent": "#FFD400",
+  "alarm": "#E10600",
+  "ink": "#0B0B0C",
+  "guides": false
+}

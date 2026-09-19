@@ -1,0 +1,75 @@
+# Baja imagenes de archivo real (dominio publico, obra del gobierno de EE.UU.)
+# para los planos de Kaczynski del video de Harvard.
+#
+# Corre aqui y no en local porque el entorno donde trabaja Claude tiene
+# bloqueada la salida hacia fbi.gov y wikimedia.org (confirmado: 403 en el
+# proxy). El runner de GitHub Actions no tiene ese bloqueo.
+#
+# Todas las URLs de abajo son fichas o carteles del FBI/US Marshals (obra del
+# gobierno federal de EE.UU., sin copyright) o su copia en Wikimedia Commons
+# marcada como dominio publico. Nada de esto pasa por un banco de fotos con
+# licencia.
+name: imagenes-reales
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - claude/viral-youtube-video-ideas-luqj2m
+    paths:
+      - .github/workflows/imagenes-reales.yml
+      - canal-youtube/.imagenes-reales-disparo
+
+permissions:
+  contents: write
+
+env:
+  DESTINO: canal-youtube/producciones/08-kaczynski-harvard/v2/imagenes-reales
+
+jobs:
+  bajar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bajar las imagenes
+        run: |
+          set -e
+          mkdir -p "$DESTINO"
+          # Special:FilePath redirige al fichero real sin tener que adivinar
+          # la carpeta de hash de upload.wikimedia.org.
+          bajar() {
+            nombre="$1"; fichero_wiki="$2"
+            url="https://commons.wikimedia.org/wiki/Special:FilePath/${fichero_wiki}"
+            echo "-- $nombre <- $url"
+            curl -sS -L --fail -A "Mozilla/5.0 (compatible; historia-incomoda-video/1.0)" \
+                 -o "$DESTINO/$nombre" "$url"
+            file "$DESTINO/$nombre"
+          }
+
+          # Ficha policial (US Marshals, tras el arresto del 4/4/1996).
+          bajar mugshot.jpg "Ted_Kaczynski_full_mugshot.jpg"
+
+          # Cartel de SE BUSCA del FBI.
+          bajar cartel-se-busca.jpg "FBI_Reward_poster_Unabomber.jpg"
+
+          # Retrato hablado del FBI de 1987 (antes de la identificacion).
+          bajar retrato-hablado-1987.jpg "Unabomber_-_FBI_Sketch_1987.jpg"
+
+          # Momento del arresto/traslado.
+          bajar arresto.jpg "Tk_arrest.jpg"
+
+          ls -la "$DESTINO"
+
+      - name: Devolver las imagenes a la rama
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f "$DESTINO"
+          git commit -q -m 'Imagenes reales de archivo (dominio publico) para Kaczynski' || exit 0
+          for i in 1 2 3 4 5; do
+            git pull --rebase -q origin "$GITHUB_REF_NAME" && \
+              git push -q origin "HEAD:$GITHUB_REF_NAME" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

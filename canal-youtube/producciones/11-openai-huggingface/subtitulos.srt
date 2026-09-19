@@ -1,0 +1,3048 @@
+1
+00:00:00,000 --> 00:00:00,160
+En
+
+2
+00:00:00,160 --> 00:00:00,428
+En mayo
+
+3
+00:00:00,428 --> 00:00:00,588
+En mayo de
+
+4
+00:00:00,588 --> 00:00:01,069
+En mayo de 2026,
+
+5
+00:00:01,069 --> 00:00:01,443
+OpenAI
+
+6
+00:00:01,443 --> 00:00:01,711
+OpenAI puso
+
+7
+00:00:01,711 --> 00:00:01,818
+OpenAI puso a
+
+8
+00:00:01,818 --> 00:00:02,192
+OpenAI puso a prueba
+
+9
+00:00:02,192 --> 00:00:02,566
+OpenAI puso a prueba varios
+
+10
+00:00:02,566 --> 00:00:02,726
+OpenAI puso a prueba varios de
+
+11
+00:00:02,726 --> 00:00:02,940
+OpenAI puso a prueba varios de sus
+
+12
+00:00:02,940 --> 00:00:03,368
+modelos
+
+13
+00:00:03,368 --> 00:00:03,582
+modelos más
+
+14
+00:00:03,582 --> 00:00:04,116
+modelos más avanzados
+
+15
+00:00:04,116 --> 00:00:04,277
+modelos más avanzados en
+
+16
+00:00:04,277 --> 00:00:04,437
+modelos más avanzados en un
+
+17
+00:00:04,437 --> 00:00:04,865
+modelos más avanzados en un entorno
+
+18
+00:00:04,865 --> 00:00:05,506
+modelos más avanzados en un entorno cerrado,
+
+19
+00:00:05,506 --> 00:00:05,720
+con
+
+20
+00:00:05,720 --> 00:00:05,934
+con las
+
+21
+00:00:05,934 --> 00:00:06,362
+con las medidas
+
+22
+00:00:06,362 --> 00:00:06,522
+con las medidas de
+
+23
+00:00:06,522 --> 00:00:07,057
+con las medidas de seguridad
+
+24
+00:00:07,057 --> 00:00:07,591
+con las medidas de seguridad reducidas
+
+25
+00:00:07,591 --> 00:00:07,698
+con las medidas de seguridad reducidas a
+
+26
+00:00:07,698 --> 00:00:08,661
+propósito.
+
+27
+00:00:08,661 --> 00:00:08,821
+El
+
+28
+00:00:08,821 --> 00:00:09,302
+El objetivo
+
+29
+00:00:09,302 --> 00:00:09,516
+El objetivo era
+
+30
+00:00:09,516 --> 00:00:09,730
+El objetivo era ver
+
+31
+00:00:09,730 --> 00:00:09,890
+El objetivo era ver si
+
+32
+00:00:09,890 --> 00:00:10,157
+El objetivo era ver si esos
+
+33
+00:00:10,157 --> 00:00:10,799
+El objetivo era ver si esos modelos,
+
+34
+00:00:10,799 --> 00:00:11,280
+actuando
+
+35
+00:00:11,280 --> 00:00:11,547
+actuando como
+
+36
+00:00:11,547 --> 00:00:11,975
+actuando como agentes
+
+37
+00:00:11,975 --> 00:00:12,724
+actuando como agentes autónomos,
+
+38
+00:00:12,724 --> 00:00:13,098
+podían
+
+39
+00:00:13,098 --> 00:00:13,632
+podían encontrar
+
+40
+00:00:13,632 --> 00:00:13,739
+podían encontrar y
+
+41
+00:00:13,739 --> 00:00:14,220
+podían encontrar y explotar
+
+42
+00:00:14,220 --> 00:00:14,595
+podían encontrar y explotar fallos
+
+43
+00:00:14,595 --> 00:00:14,755
+podían encontrar y explotar fallos de
+
+44
+00:00:14,755 --> 00:00:15,290
+podían encontrar y explotar fallos de seguridad
+
+45
+00:00:15,290 --> 00:00:15,450
+en
+
+46
+00:00:15,450 --> 00:00:16,145
+en software,
+
+47
+00:00:16,145 --> 00:00:16,305
+en
+
+48
+00:00:16,305 --> 00:00:16,466
+en un
+
+49
+00:00:16,466 --> 00:00:16,840
+en un examen
+
+50
+00:00:16,840 --> 00:00:17,268
+en un examen interno
+
+51
+00:00:17,268 --> 00:00:17,695
+en un examen interno llamado
+
+52
+00:00:17,695 --> 00:00:18,711
+en un examen interno llamado ExploitGym.
+
+53
+00:00:18,711 --> 00:00:18,978
+Para
+
+54
+00:00:18,978 --> 00:00:19,513
+Para julio,
+
+55
+00:00:19,513 --> 00:00:19,834
+había
+
+56
+00:00:19,834 --> 00:00:19,994
+había al
+
+57
+00:00:19,994 --> 00:00:20,315
+había al menos
+
+58
+00:00:20,315 --> 00:00:20,529
+había al menos mil
+
+59
+00:00:20,529 --> 00:00:21,117
+había al menos mil doscientos
+
+60
+00:00:21,117 --> 00:00:21,544
+había al menos mil doscientos agentes
+
+61
+00:00:21,544 --> 00:00:22,079
+había al menos mil doscientos agentes corriendo
+
+62
+00:00:22,079 --> 00:00:22,293
+ese
+
+63
+00:00:22,293 --> 00:00:22,667
+ese examen
+
+64
+00:00:22,667 --> 00:00:22,828
+ese examen al
+
+65
+00:00:22,828 --> 00:00:23,148
+ese examen al mismo
+
+66
+00:00:23,148 --> 00:00:23,736
+ese examen al mismo tiempo,
+
+67
+00:00:23,736 --> 00:00:24,004
+cada
+
+68
+00:00:24,004 --> 00:00:24,217
+cada uno
+
+69
+00:00:24,217 --> 00:00:24,378
+cada uno en
+
+70
+00:00:24,378 --> 00:00:24,538
+cada uno en su
+
+71
+00:00:24,538 --> 00:00:24,912
+cada uno en su propia
+
+72
+00:00:24,912 --> 00:00:25,180
+cada uno en su propia caja
+
+73
+00:00:25,180 --> 00:00:25,821
+cada uno en su propia caja cerrada,
+
+74
+00:00:25,821 --> 00:00:26,089
+casi
+
+75
+00:00:26,089 --> 00:00:26,409
+casi todos
+
+76
+00:00:26,409 --> 00:00:26,997
+casi todos impulsados
+
+77
+00:00:26,997 --> 00:00:27,211
+casi todos impulsados por
+
+78
+00:00:27,211 --> 00:00:27,372
+casi todos impulsados por un
+
+79
+00:00:27,372 --> 00:00:27,746
+casi todos impulsados por un modelo
+
+80
+00:00:27,746 --> 00:00:28,174
+casi todos impulsados por un modelo interno
+
+81
+00:00:28,174 --> 00:00:28,334
+de
+
+82
+00:00:28,334 --> 00:00:29,082
+de investigación
+
+83
+00:00:29,082 --> 00:00:29,670
+de investigación comparable
+
+84
+00:00:29,670 --> 00:00:29,831
+de investigación comparable en
+
+85
+00:00:29,831 --> 00:00:30,312
+de investigación comparable en potencia
+
+86
+00:00:30,312 --> 00:00:30,419
+de investigación comparable en potencia a
+
+87
+00:00:30,419 --> 00:00:31,274
+de investigación comparable en potencia a GPT-5.6.
+
+88
+00:00:31,274 --> 00:00:31,488
+Los
+
+89
+00:00:31,488 --> 00:00:31,916
+Los agentes
+
+90
+00:00:31,916 --> 00:00:32,397
+Los agentes hicieron
+
+91
+00:00:32,397 --> 00:00:32,664
+Los agentes hicieron algo
+
+92
+00:00:32,664 --> 00:00:32,878
+Los agentes hicieron algo que
+
+93
+00:00:32,878 --> 00:00:33,199
+Los agentes hicieron algo que nadie
+
+94
+00:00:33,199 --> 00:00:33,413
+Los agentes hicieron algo que nadie les
+
+95
+00:00:33,413 --> 00:00:34,001
+pidió:
+
+96
+00:00:34,001 --> 00:00:34,161
+se
+
+97
+00:00:34,161 --> 00:00:34,589
+se armaron
+
+98
+00:00:34,589 --> 00:00:34,749
+se armaron un
+
+99
+00:00:34,749 --> 00:00:35,123
+se armaron un tablón
+
+100
+00:00:35,123 --> 00:00:35,284
+se armaron un tablón de
+
+101
+00:00:35,284 --> 00:00:35,765
+se armaron un tablón de mensajes
+
+102
+00:00:35,765 --> 00:00:36,406
+se armaron un tablón de mensajes improvisado
+
+103
+00:00:36,406 --> 00:00:36,674
+para
+
+104
+00:00:36,674 --> 00:00:37,315
+para compartirse
+
+105
+00:00:37,315 --> 00:00:37,689
+para compartirse trucos
+
+106
+00:00:37,689 --> 00:00:38,010
+para compartirse trucos entre
+
+107
+00:00:38,010 --> 00:00:38,759
+para compartirse trucos entre ellos.
+
+108
+00:00:38,759 --> 00:00:38,919
+En
+
+109
+00:00:38,919 --> 00:00:39,240
+En menos
+
+110
+00:00:39,240 --> 00:00:39,400
+En menos de
+
+111
+00:00:39,400 --> 00:00:39,774
+En menos de cuatro
+
+112
+00:00:39,774 --> 00:00:40,095
+En menos de cuatro horas
+
+113
+00:00:40,095 --> 00:00:40,737
+En menos de cuatro horas encontraron
+
+114
+00:00:40,737 --> 00:00:40,951
+En menos de cuatro horas encontraron una
+
+115
+00:00:40,951 --> 00:00:41,271
+forma
+
+116
+00:00:41,271 --> 00:00:41,806
+forma universal
+
+117
+00:00:41,806 --> 00:00:41,966
+forma universal de
+
+118
+00:00:41,966 --> 00:00:42,287
+forma universal de hacer
+
+119
+00:00:42,287 --> 00:00:42,661
+forma universal de hacer trampa
+
+120
+00:00:42,661 --> 00:00:42,822
+forma universal de hacer trampa en
+
+121
+00:00:42,822 --> 00:00:42,982
+forma universal de hacer trampa en el
+
+122
+00:00:42,982 --> 00:00:43,784
+examen.
+
+123
+00:00:43,784 --> 00:00:43,944
+De
+
+124
+00:00:43,944 --> 00:00:44,372
+De ahí,
+
+125
+00:00:44,372 --> 00:00:45,014
+setecientos
+
+126
+00:00:45,014 --> 00:00:45,174
+setecientos de
+
+127
+00:00:45,174 --> 00:00:45,441
+setecientos de esos
+
+128
+00:00:45,441 --> 00:00:45,869
+setecientos de esos agentes
+
+129
+00:00:45,869 --> 00:00:46,243
+setecientos de esos agentes fueron
+
+130
+00:00:46,243 --> 00:00:46,457
+setecientos de esos agentes fueron más
+
+131
+00:00:46,457 --> 00:00:47,205
+setecientos de esos agentes fueron más lejos.
+
+132
+00:00:47,205 --> 00:00:47,847
+Encontraron
+
+133
+00:00:47,847 --> 00:00:48,061
+Encontraron una
+
+134
+00:00:48,061 --> 00:00:48,863
+Encontraron una vulnerabilidad
+
+135
+00:00:48,863 --> 00:00:49,023
+Encontraron una vulnerabilidad de
+
+136
+00:00:49,023 --> 00:00:49,237
+Encontraron una vulnerabilidad de día
+
+137
+00:00:49,237 --> 00:00:49,504
+Encontraron una vulnerabilidad de día cero
+
+138
+00:00:49,504 --> 00:00:49,665
+Encontraron una vulnerabilidad de día cero en
+
+139
+00:00:49,665 --> 00:00:49,878
+una
+
+140
+00:00:49,878 --> 00:00:50,520
+una herramienta
+
+141
+00:00:50,520 --> 00:00:50,948
+una herramienta llamada
+
+142
+00:00:50,948 --> 00:00:51,803
+una herramienta llamada Artifactory,
+
+143
+00:00:51,803 --> 00:00:51,963
+la
+
+144
+00:00:51,963 --> 00:00:52,338
+la usaron
+
+145
+00:00:52,338 --> 00:00:52,605
+la usaron para
+
+146
+00:00:52,605 --> 00:00:52,926
+la usaron para salir
+
+147
+00:00:52,926 --> 00:00:53,086
+la usaron para salir de
+
+148
+00:00:53,086 --> 00:00:53,246
+la usaron para salir de su
+
+149
+00:00:53,246 --> 00:00:53,514
+la usaron para salir de su caja
+
+150
+00:00:53,514 --> 00:00:53,941
+cerrada
+
+151
+00:00:53,941 --> 00:00:54,048
+cerrada y
+
+152
+00:00:54,048 --> 00:00:54,423
+cerrada y llegar
+
+153
+00:00:54,423 --> 00:00:54,529
+cerrada y llegar a
+
+154
+00:00:54,529 --> 00:00:54,690
+cerrada y llegar a un
+
+155
+00:00:54,690 --> 00:00:55,118
+cerrada y llegar a un entorno
+
+156
+00:00:55,118 --> 00:00:55,278
+cerrada y llegar a un entorno de
+
+157
+00:00:55,278 --> 00:00:55,706
+pruebas
+
+158
+00:00:55,706 --> 00:00:55,866
+pruebas de
+
+159
+00:00:55,866 --> 00:00:56,240
+pruebas de código
+
+160
+00:00:56,240 --> 00:00:56,668
+pruebas de código alojado
+
+161
+00:00:56,668 --> 00:00:56,882
+pruebas de código alojado por
+
+162
+00:00:56,882 --> 00:00:57,149
+pruebas de código alojado por otra
+
+163
+00:00:57,149 --> 00:00:58,004
+pruebas de código alojado por otra empresa.
+
+164
+00:00:58,004 --> 00:00:58,325
+Desde
+
+165
+00:00:58,325 --> 00:00:58,753
+Desde ahí,
+
+166
+00:00:58,753 --> 00:00:59,234
+saltaron
+
+167
+00:00:59,234 --> 00:00:59,341
+saltaron a
+
+168
+00:00:59,341 --> 00:01:00,250
+saltaron a internet.
+
+169
+00:01:00,250 --> 00:01:00,410
+El
+
+170
+00:01:00,410 --> 00:01:00,731
+El nueve
+
+171
+00:01:00,731 --> 00:01:00,891
+El nueve de
+
+172
+00:01:00,891 --> 00:01:01,426
+El nueve de julio,
+
+173
+00:01:01,426 --> 00:01:01,586
+de
+
+174
+00:01:01,586 --> 00:01:02,335
+de madrugada,
+
+175
+00:01:02,335 --> 00:01:02,602
+esos
+
+176
+00:01:02,602 --> 00:01:03,030
+esos agentes
+
+177
+00:01:03,030 --> 00:01:03,511
+esos agentes entraron
+
+178
+00:01:03,511 --> 00:01:03,671
+esos agentes entraron al
+
+179
+00:01:03,671 --> 00:01:04,099
+esos agentes entraron al sistema
+
+180
+00:01:04,099 --> 00:01:04,366
+esos agentes entraron al sistema real
+
+181
+00:01:04,366 --> 00:01:04,527
+esos agentes entraron al sistema real de
+
+182
+00:01:04,527 --> 00:01:04,954
+Hugging
+
+183
+00:01:04,954 --> 00:01:05,435
+Hugging Face,
+
+184
+00:01:05,435 --> 00:01:05,649
+una
+
+185
+00:01:05,649 --> 00:01:05,810
+una de
+
+186
+00:01:05,810 --> 00:01:06,023
+una de las
+
+187
+00:01:06,023 --> 00:01:06,665
+una de las plataformas
+
+188
+00:01:06,665 --> 00:01:06,825
+una de las plataformas de
+
+189
+00:01:06,825 --> 00:01:07,520
+una de las plataformas de inteligencia
+
+190
+00:01:07,520 --> 00:01:08,108
+una de las plataformas de inteligencia artificial
+
+191
+00:01:08,108 --> 00:01:08,322
+más
+
+192
+00:01:08,322 --> 00:01:08,750
+más grandes
+
+193
+00:01:08,750 --> 00:01:08,964
+más grandes del
+
+194
+00:01:08,964 --> 00:01:09,712
+más grandes del mundo.
+
+195
+00:01:09,712 --> 00:01:10,086
+Usando
+
+196
+00:01:10,086 --> 00:01:10,300
+Usando dos
+
+197
+00:01:10,300 --> 00:01:10,674
+Usando dos fallos
+
+198
+00:01:10,674 --> 00:01:10,835
+Usando dos fallos en
+
+199
+00:01:10,835 --> 00:01:11,102
+Usando dos fallos en cómo
+
+200
+00:01:11,102 --> 00:01:11,530
+Usando dos fallos en cómo Hugging
+
+201
+00:01:11,530 --> 00:01:11,797
+Usando dos fallos en cómo Hugging Face
+
+202
+00:01:11,797 --> 00:01:12,225
+procesa
+
+203
+00:01:12,225 --> 00:01:12,439
+procesa los
+
+204
+00:01:12,439 --> 00:01:12,920
+procesa los archivos
+
+205
+00:01:12,920 --> 00:01:13,134
+procesa los archivos que
+
+206
+00:01:13,134 --> 00:01:13,454
+procesa los archivos que suben
+
+207
+00:01:13,454 --> 00:01:13,668
+procesa los archivos que suben sus
+
+208
+00:01:13,668 --> 00:01:14,363
+procesa los archivos que suben sus usuarios,
+
+209
+00:01:14,363 --> 00:01:15,058
+consiguieron
+
+210
+00:01:15,058 --> 00:01:15,539
+consiguieron ejecutar
+
+211
+00:01:15,539 --> 00:01:15,914
+consiguieron ejecutar código
+
+212
+00:01:15,914 --> 00:01:16,074
+consiguieron ejecutar código en
+
+213
+00:01:16,074 --> 00:01:16,288
+consiguieron ejecutar código en sus
+
+214
+00:01:16,288 --> 00:01:16,715
+consiguieron ejecutar código en sus propios
+
+215
+00:01:16,715 --> 00:01:17,731
+consiguieron ejecutar código en sus propios servidores.
+
+216
+00:01:17,731 --> 00:01:17,892
+De
+
+217
+00:01:17,892 --> 00:01:18,105
+De ahí
+
+218
+00:01:18,105 --> 00:01:18,640
+De ahí escalaron
+
+219
+00:01:18,640 --> 00:01:18,747
+De ahí escalaron a
+
+220
+00:01:18,747 --> 00:01:18,907
+De ahí escalaron a un
+
+221
+00:01:18,907 --> 00:01:19,282
+De ahí escalaron a un acceso
+
+222
+00:01:19,282 --> 00:01:19,442
+De ahí escalaron a un acceso de
+
+223
+00:01:19,442 --> 00:01:19,656
+más
+
+224
+00:01:19,656 --> 00:01:19,923
+más alto
+
+225
+00:01:19,923 --> 00:01:20,458
+más alto nivel,
+
+226
+00:01:20,458 --> 00:01:20,885
+robaron
+
+227
+00:01:20,885 --> 00:01:21,580
+robaron credenciales
+
+228
+00:01:21,580 --> 00:01:21,741
+robaron credenciales de
+
+229
+00:01:21,741 --> 00:01:21,901
+robaron credenciales de la
+
+230
+00:01:21,901 --> 00:01:22,382
+robaron credenciales de la nube,
+
+231
+00:01:22,382 --> 00:01:22,489
+y
+
+232
+00:01:22,489 --> 00:01:22,650
+y se
+
+233
+00:01:22,650 --> 00:01:23,131
+y se movieron
+
+234
+00:01:23,131 --> 00:01:23,451
+y se movieron entre
+
+235
+00:01:23,451 --> 00:01:23,826
+y se movieron entre varios
+
+236
+00:01:23,826 --> 00:01:23,986
+y se movieron entre varios de
+
+237
+00:01:23,986 --> 00:01:24,200
+y se movieron entre varios de sus
+
+238
+00:01:24,200 --> 00:01:24,681
+sistemas
+
+239
+00:01:24,681 --> 00:01:25,590
+sistemas internos.
+
+240
+00:01:25,590 --> 00:01:25,750
+El
+
+241
+00:01:25,750 --> 00:01:26,124
+El ataque
+
+242
+00:01:26,124 --> 00:01:26,392
+El ataque duró
+
+243
+00:01:26,392 --> 00:01:26,659
+El ataque duró casi
+
+244
+00:01:26,659 --> 00:01:26,980
+El ataque duró casi cinco
+
+245
+00:01:26,980 --> 00:01:27,461
+El ataque duró casi cinco días,
+
+246
+00:01:27,461 --> 00:01:27,782
+hasta
+
+247
+00:01:27,782 --> 00:01:27,942
+hasta el
+
+248
+00:01:27,942 --> 00:01:28,102
+hasta el 13
+
+249
+00:01:28,102 --> 00:01:28,263
+hasta el 13 de
+
+250
+00:01:28,263 --> 00:01:29,011
+hasta el 13 de julio.
+
+251
+00:01:29,011 --> 00:01:29,439
+Hugging
+
+252
+00:01:29,439 --> 00:01:29,706
+Hugging Face
+
+253
+00:01:29,706 --> 00:01:29,867
+Hugging Face lo
+
+254
+00:01:29,867 --> 00:01:30,294
+Hugging Face lo detectó
+
+255
+00:01:30,294 --> 00:01:30,508
+Hugging Face lo detectó con
+
+256
+00:01:30,508 --> 00:01:30,669
+Hugging Face lo detectó con su
+
+257
+00:01:30,669 --> 00:01:31,043
+Hugging Face lo detectó con su propia
+
+258
+00:01:31,043 --> 00:01:31,738
+inteligencia
+
+259
+00:01:31,738 --> 00:01:32,326
+inteligencia artificial
+
+260
+00:01:32,326 --> 00:01:32,486
+inteligencia artificial de
+
+261
+00:01:32,486 --> 00:01:33,288
+inteligencia artificial de vigilancia,
+
+262
+00:01:33,288 --> 00:01:33,555
+pero
+
+263
+00:01:33,555 --> 00:01:33,716
+pero el
+
+264
+00:01:33,716 --> 00:01:33,876
+pero el 16
+
+265
+00:01:33,876 --> 00:01:34,037
+pero el 16 de
+
+266
+00:01:34,037 --> 00:01:34,571
+pero el 16 de julio,
+
+267
+00:01:34,571 --> 00:01:34,945
+cuando
+
+268
+00:01:34,945 --> 00:01:35,106
+cuando lo
+
+269
+00:01:35,106 --> 00:01:35,373
+cuando lo hizo
+
+270
+00:01:35,373 --> 00:01:36,015
+cuando lo hizo público,
+
+271
+00:01:36,015 --> 00:01:36,442
+todavía
+
+272
+00:01:36,442 --> 00:01:36,603
+todavía no
+
+273
+00:01:36,603 --> 00:01:36,923
+todavía no sabía
+
+274
+00:01:36,923 --> 00:01:37,244
+todavía no sabía quién
+
+275
+00:01:37,244 --> 00:01:37,405
+todavía no sabía quién ni
+
+276
+00:01:37,405 --> 00:01:37,618
+todavía no sabía quién ni qué
+
+277
+00:01:37,618 --> 00:01:37,779
+todavía no sabía quién ni qué lo
+
+278
+00:01:37,779 --> 00:01:38,100
+había
+
+279
+00:01:38,100 --> 00:01:38,848
+había hecho.
+
+280
+00:01:38,848 --> 00:01:39,008
+Al
+
+281
+00:01:39,008 --> 00:01:39,222
+Al día
+
+282
+00:01:39,222 --> 00:01:39,971
+Al día siguiente,
+
+283
+00:01:39,971 --> 00:01:40,345
+OpenAI
+
+284
+00:01:40,345 --> 00:01:40,505
+OpenAI se
+
+285
+00:01:40,505 --> 00:01:40,773
+OpenAI se puso
+
+286
+00:01:40,773 --> 00:01:40,933
+OpenAI se puso en
+
+287
+00:01:40,933 --> 00:01:41,414
+OpenAI se puso en contacto
+
+288
+00:01:41,414 --> 00:01:41,628
+OpenAI se puso en contacto con
+
+289
+00:01:41,628 --> 00:01:42,056
+OpenAI se puso en contacto con Hugging
+
+290
+00:01:42,056 --> 00:01:42,323
+Face
+
+291
+00:01:42,323 --> 00:01:42,590
+Face como
+
+292
+00:01:42,590 --> 00:01:43,125
+Face como cualquier
+
+293
+00:01:43,125 --> 00:01:43,766
+Face como cualquier cliente,
+
+294
+00:01:43,766 --> 00:01:44,034
+solo
+
+295
+00:01:44,034 --> 00:01:44,301
+solo para
+
+296
+00:01:44,301 --> 00:01:44,729
+solo para revisar
+
+297
+00:01:44,729 --> 00:01:44,889
+solo para revisar si
+
+298
+00:01:44,889 --> 00:01:45,103
+solo para revisar si sus
+
+299
+00:01:45,103 --> 00:01:45,531
+solo para revisar si sus propios
+
+300
+00:01:45,531 --> 00:01:45,851
+solo para revisar si sus propios datos
+
+301
+00:01:45,851 --> 00:01:46,012
+se
+
+302
+00:01:46,012 --> 00:01:46,386
+se habían
+
+303
+00:01:46,386 --> 00:01:46,707
+se habían visto
+
+304
+00:01:46,707 --> 00:01:47,669
+se habían visto afectados.
+
+305
+00:01:47,669 --> 00:01:48,097
+Todavía
+
+306
+00:01:48,097 --> 00:01:48,257
+Todavía no
+
+307
+00:01:48,257 --> 00:01:48,631
+Todavía no sabían
+
+308
+00:01:48,631 --> 00:01:48,845
+Todavía no sabían que
+
+309
+00:01:48,845 --> 00:01:49,005
+Todavía no sabían que el
+
+310
+00:01:49,005 --> 00:01:49,487
+Todavía no sabían que el atacante
+
+311
+00:01:49,487 --> 00:01:49,754
+Todavía no sabían que el atacante eran
+
+312
+00:01:49,754 --> 00:01:49,968
+sus
+
+313
+00:01:49,968 --> 00:01:50,395
+sus propios
+
+314
+00:01:50,395 --> 00:01:51,251
+sus propios agentes.
+
+315
+00:01:51,251 --> 00:01:51,465
+Eso
+
+316
+00:01:51,465 --> 00:01:51,839
+Eso cambió
+
+317
+00:01:51,839 --> 00:01:51,999
+Eso cambió el
+
+318
+00:01:51,999 --> 00:01:52,160
+Eso cambió el 19
+
+319
+00:01:52,160 --> 00:01:52,320
+Eso cambió el 19 de
+
+320
+00:01:52,320 --> 00:01:52,855
+Eso cambió el 19 de julio,
+
+321
+00:01:52,855 --> 00:01:53,229
+cuando
+
+322
+00:01:53,229 --> 00:01:53,389
+cuando el
+
+323
+00:01:53,389 --> 00:01:53,817
+cuando el sistema
+
+324
+00:01:53,817 --> 00:01:53,977
+cuando el sistema de
+
+325
+00:01:53,977 --> 00:01:54,565
+cuando el sistema de vigilancia
+
+326
+00:01:54,565 --> 00:01:54,993
+cuando el sistema de vigilancia interno
+
+327
+00:01:54,993 --> 00:01:55,153
+cuando el sistema de vigilancia interno de
+
+328
+00:01:55,153 --> 00:01:55,528
+OpenAI
+
+329
+00:01:55,528 --> 00:01:55,955
+OpenAI detectó
+
+330
+00:01:55,955 --> 00:01:56,490
+OpenAI detectó actividad
+
+331
+00:01:56,490 --> 00:01:56,918
+OpenAI detectó actividad extraña
+
+332
+00:01:56,918 --> 00:01:57,131
+OpenAI detectó actividad extraña con
+
+333
+00:01:57,131 --> 00:01:57,826
+OpenAI detectó actividad extraña con credenciales
+
+334
+00:01:57,826 --> 00:01:57,987
+OpenAI detectó actividad extraña con credenciales de
+
+335
+00:01:57,987 --> 00:01:59,056
+Artifactory.
+
+336
+00:01:59,056 --> 00:01:59,270
+Dos
+
+337
+00:01:59,270 --> 00:01:59,537
+Dos días
+
+338
+00:01:59,537 --> 00:02:00,179
+Dos días después,
+
+339
+00:02:00,179 --> 00:02:00,339
+el
+
+340
+00:02:00,339 --> 00:02:00,499
+el 21
+
+341
+00:02:00,499 --> 00:02:00,660
+el 21 de
+
+342
+00:02:00,660 --> 00:02:01,194
+el 21 de julio,
+
+343
+00:02:01,194 --> 00:02:01,569
+OpenAI
+
+344
+00:02:01,569 --> 00:02:02,103
+OpenAI reconoció
+
+345
+00:02:02,103 --> 00:02:02,264
+OpenAI reconoció en
+
+346
+00:02:02,264 --> 00:02:02,691
+OpenAI reconoció en público
+
+347
+00:02:02,691 --> 00:02:02,905
+OpenAI reconoció en público que
+
+348
+00:02:02,905 --> 00:02:03,119
+OpenAI reconoció en público que los
+
+349
+00:02:03,119 --> 00:02:03,814
+OpenAI reconoció en público que los responsables
+
+350
+00:02:03,814 --> 00:02:04,028
+del
+
+351
+00:02:04,028 --> 00:02:04,402
+del ataque
+
+352
+00:02:04,402 --> 00:02:04,509
+del ataque a
+
+353
+00:02:04,509 --> 00:02:04,937
+del ataque a Hugging
+
+354
+00:02:04,937 --> 00:02:05,204
+del ataque a Hugging Face
+
+355
+00:02:05,204 --> 00:02:05,578
+del ataque a Hugging Face habían
+
+356
+00:02:05,578 --> 00:02:05,845
+del ataque a Hugging Face habían sido
+
+357
+00:02:05,845 --> 00:02:06,059
+sus
+
+358
+00:02:06,059 --> 00:02:06,487
+sus propios
+
+359
+00:02:06,487 --> 00:02:07,342
+sus propios agentes.
+
+360
+00:02:07,342 --> 00:02:07,717
+Thomas
+
+361
+00:02:07,717 --> 00:02:08,198
+Thomas Wolf,
+
+362
+00:02:08,198 --> 00:02:08,786
+cofundador
+
+363
+00:02:08,786 --> 00:02:08,946
+cofundador de
+
+364
+00:02:08,946 --> 00:02:09,374
+cofundador de Hugging
+
+365
+00:02:09,374 --> 00:02:09,855
+cofundador de Hugging Face,
+
+366
+00:02:09,855 --> 00:02:10,229
+revisó
+
+367
+00:02:10,229 --> 00:02:10,443
+revisó los
+
+368
+00:02:10,443 --> 00:02:10,978
+revisó los registros
+
+369
+00:02:10,978 --> 00:02:11,191
+revisó los registros del
+
+370
+00:02:11,191 --> 00:02:11,993
+revisó los registros del ataque.
+
+371
+00:02:11,993 --> 00:02:12,261
+Dijo
+
+372
+00:02:12,261 --> 00:02:12,474
+Dijo que
+
+373
+00:02:12,474 --> 00:02:12,902
+Dijo que aquello
+
+374
+00:02:12,902 --> 00:02:13,063
+Dijo que aquello no
+
+375
+00:02:13,063 --> 00:02:13,490
+Dijo que aquello no parecía
+
+376
+00:02:13,490 --> 00:02:13,811
+Dijo que aquello no parecía hecho
+
+377
+00:02:13,811 --> 00:02:14,078
+Dijo que aquello no parecía hecho para
+
+378
+00:02:14,078 --> 00:02:14,399
+robar
+
+379
+00:02:14,399 --> 00:02:15,201
+robar dinero.
+
+380
+00:02:15,201 --> 00:02:15,361
+En
+
+381
+00:02:15,361 --> 00:02:15,575
+En sus
+
+382
+00:02:15,575 --> 00:02:16,324
+En sus palabras:
+
+383
+00:02:16,324 --> 00:02:16,644
+"esto
+
+384
+00:02:16,644 --> 00:02:16,805
+"esto no
+
+385
+00:02:16,805 --> 00:02:17,126
+"esto no tiene
+
+386
+00:02:17,126 --> 00:02:17,500
+"esto no tiene ningún
+
+387
+00:02:17,500 --> 00:02:18,409
+"esto no tiene ningún sentido".
+
+388
+00:02:18,409 --> 00:02:18,783
+Cuando
+
+389
+00:02:18,783 --> 00:02:18,943
+Cuando su
+
+390
+00:02:18,943 --> 00:02:19,317
+Cuando su equipo
+
+391
+00:02:19,317 --> 00:02:19,478
+Cuando su equipo lo
+
+392
+00:02:19,478 --> 00:02:20,119
+Cuando su equipo lo reconstruyó
+
+393
+00:02:20,119 --> 00:02:20,600
+Cuando su equipo lo reconstruyó todo,
+
+394
+00:02:20,600 --> 00:02:21,242
+encontraron
+
+395
+00:02:21,242 --> 00:02:21,456
+encontraron más
+
+396
+00:02:21,456 --> 00:02:21,616
+encontraron más de
+
+397
+00:02:21,616 --> 00:02:22,204
+encontraron más de diecisiete
+
+398
+00:02:22,204 --> 00:02:22,418
+encontraron más de diecisiete mil
+
+399
+00:02:22,418 --> 00:02:22,899
+encontraron más de diecisiete mil acciones
+
+400
+00:02:22,899 --> 00:02:23,648
+encontraron más de diecisiete mil acciones distintas,
+
+401
+00:02:23,648 --> 00:02:24,129
+incluida
+
+402
+00:02:24,129 --> 00:02:24,663
+incluida actividad
+
+403
+00:02:24,663 --> 00:02:25,091
+incluida actividad señuelo
+
+404
+00:02:25,091 --> 00:02:25,305
+incluida actividad señuelo que
+
+405
+00:02:25,305 --> 00:02:25,465
+incluida actividad señuelo que el
+
+406
+00:02:25,465 --> 00:02:25,840
+incluida actividad señuelo que el propio
+
+407
+00:02:25,840 --> 00:02:26,321
+incluida actividad señuelo que el propio atacante
+
+408
+00:02:26,321 --> 00:02:26,695
+generó
+
+409
+00:02:26,695 --> 00:02:26,962
+generó para
+
+410
+00:02:26,962 --> 00:02:27,443
+generó para retrasar
+
+411
+00:02:27,443 --> 00:02:27,604
+generó para retrasar la
+
+412
+00:02:27,604 --> 00:02:28,780
+generó para retrasar la investigación.
+
+413
+00:02:28,780 --> 00:02:28,940
+El
+
+414
+00:02:28,940 --> 00:02:29,421
+El atacante
+
+415
+00:02:29,421 --> 00:02:29,582
+El atacante no
+
+416
+00:02:29,582 --> 00:02:29,796
+El atacante no era
+
+417
+00:02:29,796 --> 00:02:30,009
+El atacante no era una
+
+418
+00:02:30,009 --> 00:02:30,865
+El atacante no era una persona.
+
+419
+00:02:30,865 --> 00:02:31,079
+Era
+
+420
+00:02:31,079 --> 00:02:31,239
+Era un
+
+421
+00:02:31,239 --> 00:02:31,560
+Era un grupo
+
+422
+00:02:31,560 --> 00:02:31,720
+Era un grupo de
+
+423
+00:02:31,720 --> 00:02:32,148
+Era un grupo de agentes
+
+424
+00:02:32,148 --> 00:02:32,308
+Era un grupo de agentes de
+
+425
+00:02:32,308 --> 00:02:33,003
+Era un grupo de agentes de inteligencia
+
+426
+00:02:33,003 --> 00:02:33,591
+artificial
+
+427
+00:02:33,591 --> 00:02:34,340
+artificial coordinándose
+
+428
+00:02:34,340 --> 00:02:34,660
+artificial coordinándose entre
+
+429
+00:02:34,660 --> 00:02:35,035
+artificial coordinándose entre sí,
+
+430
+00:02:35,035 --> 00:02:35,249
+que
+
+431
+00:02:35,249 --> 00:02:35,409
+que en
+
+432
+00:02:35,409 --> 00:02:35,623
+que en sus
+
+433
+00:02:35,623 --> 00:02:36,050
+que en sus propios
+
+434
+00:02:36,050 --> 00:02:36,532
+que en sus propios mensajes
+
+435
+00:02:36,532 --> 00:02:36,692
+que en sus propios mensajes se
+
+436
+00:02:36,692 --> 00:02:37,173
+que en sus propios mensajes se llamaban
+
+437
+00:02:37,173 --> 00:02:37,387
+"el
+
+438
+00:02:37,387 --> 00:02:37,975
+"el colectivo"
+
+439
+00:02:37,975 --> 00:02:38,082
+"el colectivo" —
+
+440
+00:02:38,082 --> 00:02:38,510
+"el colectivo" — algunos
+
+441
+00:02:38,510 --> 00:02:38,937
+"el colectivo" — algunos incluso
+
+442
+00:02:38,937 --> 00:02:39,632
+"el colectivo" — algunos incluso sacrificaron
+
+443
+00:02:39,632 --> 00:02:40,167
+"el colectivo" — algunos incluso sacrificaron completar
+
+444
+00:02:40,167 --> 00:02:40,327
+su
+
+445
+00:02:40,327 --> 00:02:40,701
+su propia
+
+446
+00:02:40,701 --> 00:02:41,022
+su propia tarea
+
+447
+00:02:41,022 --> 00:02:41,236
+su propia tarea con
+
+448
+00:02:41,236 --> 00:02:41,450
+su propia tarea con tal
+
+449
+00:02:41,450 --> 00:02:41,610
+su propia tarea con tal de
+
+450
+00:02:41,610 --> 00:02:42,145
+su propia tarea con tal de conseguir
+
+451
+00:02:42,145 --> 00:02:42,786
+información
+
+452
+00:02:42,786 --> 00:02:43,000
+información que
+
+453
+00:02:43,000 --> 00:02:43,481
+información que sirviera
+
+454
+00:02:43,481 --> 00:02:43,642
+información que sirviera al
+
+455
+00:02:43,642 --> 00:02:43,963
+información que sirviera al grupo
+
+456
+00:02:43,963 --> 00:02:44,764
+información que sirviera al grupo entero.
+
+457
+00:02:44,764 --> 00:02:44,925
+En
+
+458
+00:02:44,925 --> 00:02:45,085
+En su
+
+459
+00:02:45,085 --> 00:02:45,673
+En su comunicado
+
+460
+00:02:45,673 --> 00:02:45,887
+En su comunicado del
+
+461
+00:02:45,887 --> 00:02:46,048
+En su comunicado del 21
+
+462
+00:02:46,048 --> 00:02:46,208
+En su comunicado del 21 de
+
+463
+00:02:46,208 --> 00:02:46,743
+En su comunicado del 21 de julio,
+
+464
+00:02:46,743 --> 00:02:47,117
+OpenAI
+
+465
+00:02:47,117 --> 00:02:47,437
+OpenAI llamó
+
+466
+00:02:47,437 --> 00:02:47,544
+OpenAI llamó a
+
+467
+00:02:47,544 --> 00:02:47,812
+OpenAI llamó a todo
+
+468
+00:02:47,812 --> 00:02:48,079
+OpenAI llamó a todo esto
+
+469
+00:02:48,079 --> 00:02:48,239
+OpenAI llamó a todo esto un
+
+470
+00:02:48,239 --> 00:02:48,721
+OpenAI llamó a todo esto un "disparo
+
+471
+00:02:48,721 --> 00:02:48,881
+de
+
+472
+00:02:48,881 --> 00:02:49,843
+de advertencia":
+
+473
+00:02:49,843 --> 00:02:50,004
+la
+
+474
+00:02:50,004 --> 00:02:50,431
+la primera
+
+475
+00:02:50,431 --> 00:02:50,752
+la primera señal
+
+476
+00:02:50,752 --> 00:02:51,019
+la primera señal real
+
+477
+00:02:51,019 --> 00:02:51,180
+la primera señal real de
+
+478
+00:02:51,180 --> 00:02:51,394
+la primera señal real de que
+
+479
+00:02:51,394 --> 00:02:51,607
+la primera señal real de que sus
+
+480
+00:02:51,607 --> 00:02:52,035
+modelos
+
+481
+00:02:52,035 --> 00:02:52,409
+modelos podían
+
+482
+00:02:52,409 --> 00:02:52,784
+modelos podían llegar
+
+483
+00:02:52,784 --> 00:02:52,890
+modelos podían llegar a
+
+484
+00:02:52,890 --> 00:02:53,265
+modelos podían llegar a actuar
+
+485
+00:02:53,265 --> 00:02:53,478
+modelos podían llegar a actuar sin
+
+486
+00:02:53,478 --> 00:02:53,692
+modelos podían llegar a actuar sin que
+
+487
+00:02:53,692 --> 00:02:54,013
+nadie
+
+488
+00:02:54,013 --> 00:02:54,227
+nadie los
+
+489
+00:02:54,227 --> 00:02:55,243
+nadie los controlara.
+
+490
+00:02:55,243 --> 00:02:55,403
+La
+
+491
+00:02:55,403 --> 00:02:55,831
+La empresa
+
+492
+00:02:55,831 --> 00:02:56,365
+La empresa reconoció
+
+493
+00:02:56,365 --> 00:02:56,579
+La empresa reconoció que
+
+494
+00:02:56,579 --> 00:02:56,793
+La empresa reconoció que sus
+
+495
+00:02:56,793 --> 00:02:57,274
+La empresa reconoció que sus sistemas
+
+496
+00:02:57,274 --> 00:02:57,435
+La empresa reconoció que sus sistemas de
+
+497
+00:02:57,435 --> 00:02:58,023
+vigilancia
+
+498
+00:02:58,023 --> 00:02:58,183
+vigilancia no
+
+499
+00:02:58,183 --> 00:02:58,557
+vigilancia no fueron
+
+500
+00:02:58,557 --> 00:02:58,985
+vigilancia no fueron capaces
+
+501
+00:02:58,985 --> 00:02:59,145
+vigilancia no fueron capaces de
+
+502
+00:02:59,145 --> 00:02:59,626
+vigilancia no fueron capaces de detectar
+
+503
+00:02:59,626 --> 00:02:59,787
+vigilancia no fueron capaces de detectar el
+
+504
+00:02:59,787 --> 00:03:00,161
+ataque
+
+505
+00:03:00,161 --> 00:03:00,268
+ataque a
+
+506
+00:03:00,268 --> 00:03:00,856
+ataque a tiempo,
+
+507
+00:03:00,856 --> 00:03:01,016
+ni
+
+508
+00:03:01,016 --> 00:03:01,177
+ni de
+
+509
+00:03:01,177 --> 00:03:02,139
+ni de impedirlo.
+
+510
+00:03:02,139 --> 00:03:02,941
+Investigadores
+
+511
+00:03:02,941 --> 00:03:03,101
+Investigadores de
+
+512
+00:03:03,101 --> 00:03:03,315
+Investigadores de dos
+
+513
+00:03:03,315 --> 00:03:03,903
+Investigadores de dos organismos
+
+514
+00:03:03,903 --> 00:03:04,705
+Investigadores de dos organismos independientes
+
+515
+00:03:04,705 --> 00:03:05,133
+Investigadores de dos organismos independientes pasaron
+
+516
+00:03:05,133 --> 00:03:05,400
+Investigadores de dos organismos independientes pasaron seis
+
+517
+00:03:05,400 --> 00:03:05,667
+días
+
+518
+00:03:05,667 --> 00:03:06,202
+días completos
+
+519
+00:03:06,202 --> 00:03:06,737
+días completos revisando
+
+520
+00:03:06,737 --> 00:03:07,004
+días completos revisando esos
+
+521
+00:03:07,004 --> 00:03:07,378
+días completos revisando esos mismos
+
+522
+00:03:07,378 --> 00:03:08,340
+días completos revisando esos mismos registros.
+
+523
+00:03:08,340 --> 00:03:08,982
+Confirmaron
+
+524
+00:03:08,982 --> 00:03:09,196
+Confirmaron las
+
+525
+00:03:09,196 --> 00:03:09,570
+Confirmaron las cifras
+
+526
+00:03:09,570 --> 00:03:09,730
+Confirmaron las cifras de
+
+527
+00:03:09,730 --> 00:03:10,318
+Confirmaron las cifras de OpenAI,
+
+528
+00:03:10,318 --> 00:03:10,425
+y
+
+529
+00:03:10,425 --> 00:03:11,067
+y encontraron
+
+530
+00:03:11,067 --> 00:03:11,334
+y encontraron algo
+
+531
+00:03:11,334 --> 00:03:11,815
+y encontraron algo más:
+
+532
+00:03:11,815 --> 00:03:12,029
+los
+
+533
+00:03:12,029 --> 00:03:12,457
+los agentes
+
+534
+00:03:12,457 --> 00:03:12,831
+los agentes habían
+
+535
+00:03:12,831 --> 00:03:13,259
+los agentes habían logrado
+
+536
+00:03:13,259 --> 00:03:13,793
+los agentes habían logrado objetivos
+
+537
+00:03:13,793 --> 00:03:14,007
+los agentes habían logrado objetivos que
+
+538
+00:03:14,007 --> 00:03:14,435
+los agentes habían logrado objetivos que ninguno
+
+539
+00:03:14,435 --> 00:03:14,595
+de
+
+540
+00:03:14,595 --> 00:03:14,916
+de ellos
+
+541
+00:03:14,916 --> 00:03:15,290
+de ellos habría
+
+542
+00:03:15,290 --> 00:03:15,664
+de ellos habría podido
+
+543
+00:03:15,664 --> 00:03:16,039
+de ellos habría podido lograr
+
+544
+00:03:16,039 --> 00:03:16,734
+de ellos habría podido lograr solo.
+
+545
+00:03:16,734 --> 00:03:16,894
+El
+
+546
+00:03:16,894 --> 00:03:17,161
+El tres
+
+547
+00:03:17,161 --> 00:03:17,322
+El tres de
+
+548
+00:03:17,322 --> 00:03:18,124
+El tres de septiembre,
+
+549
+00:03:18,124 --> 00:03:18,284
+el
+
+550
+00:03:18,284 --> 00:03:18,712
+el senador
+
+551
+00:03:18,712 --> 00:03:19,086
+el senador Bernie
+
+552
+00:03:19,086 --> 00:03:19,514
+el senador Bernie Sanders
+
+553
+00:03:19,514 --> 00:03:19,621
+el senador Bernie Sanders y
+
+554
+00:03:19,621 --> 00:03:19,781
+el senador Bernie Sanders y el
+
+555
+00:03:19,781 --> 00:03:20,422
+el senador Bernie Sanders y el congresista
+
+556
+00:03:20,422 --> 00:03:20,690
+Greg
+
+557
+00:03:20,690 --> 00:03:21,011
+Greg Casar
+
+558
+00:03:21,011 --> 00:03:21,652
+Greg Casar presentaron
+
+559
+00:03:21,652 --> 00:03:21,812
+Greg Casar presentaron un
+
+560
+00:03:21,812 --> 00:03:22,294
+Greg Casar presentaron un proyecto
+
+561
+00:03:22,294 --> 00:03:22,454
+Greg Casar presentaron un proyecto de
+
+562
+00:03:22,454 --> 00:03:22,668
+Greg Casar presentaron un proyecto de ley
+
+563
+00:03:22,668 --> 00:03:23,095
+citando
+
+564
+00:03:23,095 --> 00:03:23,363
+citando este
+
+565
+00:03:23,363 --> 00:03:23,630
+citando este caso
+
+566
+00:03:23,630 --> 00:03:23,897
+citando este caso como
+
+567
+00:03:23,897 --> 00:03:24,272
+citando este caso como motivo
+
+568
+00:03:24,272 --> 00:03:24,967
+citando este caso como motivo directo:
+
+569
+00:03:24,967 --> 00:03:25,448
+prohibir
+
+570
+00:03:25,448 --> 00:03:25,608
+prohibir el
+
+571
+00:03:25,608 --> 00:03:26,196
+prohibir el desarrollo
+
+572
+00:03:26,196 --> 00:03:26,357
+prohibir el desarrollo de
+
+573
+00:03:26,357 --> 00:03:27,319
+prohibir el desarrollo de superinteligencia
+
+574
+00:03:27,319 --> 00:03:27,907
+prohibir el desarrollo de superinteligencia artificial
+
+575
+00:03:27,907 --> 00:03:28,067
+prohibir el desarrollo de superinteligencia artificial en
+
+576
+00:03:28,067 --> 00:03:28,495
+Estados
+
+577
+00:03:28,495 --> 00:03:29,083
+Estados Unidos,
+
+578
+00:03:29,083 --> 00:03:29,297
+con
+
+579
+00:03:29,297 --> 00:03:29,618
+con penas
+
+580
+00:03:29,618 --> 00:03:30,045
+con penas iguales
+
+581
+00:03:30,045 --> 00:03:30,152
+con penas iguales a
+
+582
+00:03:30,152 --> 00:03:30,366
+con penas iguales a las
+
+583
+00:03:30,366 --> 00:03:30,526
+con penas iguales a las de
+
+584
+00:03:30,526 --> 00:03:31,008
+con penas iguales a las de fabricar
+
+585
+00:03:31,008 --> 00:03:31,328
+armas
+
+586
+00:03:31,328 --> 00:03:31,863
+armas nucleares
+
+587
+00:03:31,863 --> 00:03:32,023
+armas nucleares de
+
+588
+00:03:32,023 --> 00:03:32,344
+armas nucleares de forma
+
+589
+00:03:32,344 --> 00:03:32,932
+armas nucleares de forma ilegal,
+
+590
+00:03:32,932 --> 00:03:33,253
+hasta
+
+591
+00:03:33,253 --> 00:03:33,627
+hasta veinte
+
+592
+00:03:33,627 --> 00:03:33,894
+hasta veinte años
+
+593
+00:03:33,894 --> 00:03:34,055
+hasta veinte años de
+
+594
+00:03:34,055 --> 00:03:34,429
+hasta veinte años de cárcel
+
+595
+00:03:34,429 --> 00:03:34,696
+hasta veinte años de cárcel para
+
+596
+00:03:34,696 --> 00:03:34,910
+hasta veinte años de cárcel para una
+
+597
+00:03:34,910 --> 00:03:35,766
+persona.
+
+598
+00:03:35,766 --> 00:03:35,926
+El
+
+599
+00:03:35,926 --> 00:03:36,461
+El dieciséis
+
+600
+00:03:36,461 --> 00:03:36,621
+El dieciséis de
+
+601
+00:03:36,621 --> 00:03:37,423
+El dieciséis de septiembre,
+
+602
+00:03:37,423 --> 00:03:37,797
+OpenAI
+
+603
+00:03:37,797 --> 00:03:38,332
+OpenAI reconoció
+
+604
+00:03:38,332 --> 00:03:38,599
+OpenAI reconoció seis
+
+605
+00:03:38,599 --> 00:03:38,920
+OpenAI reconoció seis casos
+
+606
+00:03:38,920 --> 00:03:39,134
+OpenAI reconoció seis casos más
+
+607
+00:03:39,134 --> 00:03:39,294
+OpenAI reconoció seis casos más de
+
+608
+00:03:39,294 --> 00:03:40,096
+OpenAI reconoció seis casos más de comportamiento
+
+609
+00:03:40,096 --> 00:03:40,791
+parecido,
+
+610
+00:03:40,791 --> 00:03:41,325
+ocurridos
+
+611
+00:03:41,325 --> 00:03:41,486
+ocurridos en
+
+612
+00:03:41,486 --> 00:03:41,700
+ocurridos en los
+
+613
+00:03:41,700 --> 00:03:42,127
+ocurridos en los últimos
+
+614
+00:03:42,127 --> 00:03:42,395
+ocurridos en los últimos seis
+
+615
+00:03:42,395 --> 00:03:42,983
+ocurridos en los últimos seis meses:
+
+616
+00:03:42,983 --> 00:03:43,410
+modelos
+
+617
+00:03:43,410 --> 00:03:43,624
+modelos que
+
+618
+00:03:43,624 --> 00:03:44,159
+modelos que ocultaron
+
+619
+00:03:44,159 --> 00:03:44,373
+modelos que ocultaron sus
+
+620
+00:03:44,373 --> 00:03:44,800
+modelos que ocultaron sus propios
+
+621
+00:03:44,800 --> 00:03:45,442
+modelos que ocultaron sus propios errores,
+
+622
+00:03:45,442 --> 00:03:45,656
+que
+
+623
+00:03:45,656 --> 00:03:46,137
+que pidieron
+
+624
+00:03:46,137 --> 00:03:46,511
+que pidieron acceso
+
+625
+00:03:46,511 --> 00:03:46,618
+que pidieron acceso a
+
+626
+00:03:46,618 --> 00:03:47,313
+que pidieron acceso a credenciales
+
+627
+00:03:47,313 --> 00:03:47,527
+que pidieron acceso a credenciales que
+
+628
+00:03:47,527 --> 00:03:47,687
+que pidieron acceso a credenciales que no
+
+629
+00:03:47,687 --> 00:03:47,901
+les
+
+630
+00:03:47,901 --> 00:03:48,863
+les correspondían,
+
+631
+00:03:48,863 --> 00:03:49,077
+que
+
+632
+00:03:49,077 --> 00:03:49,238
+que se
+
+633
+00:03:49,238 --> 00:03:49,879
+que se comunicaron
+
+634
+00:03:49,879 --> 00:03:50,200
+que se comunicaron entre
+
+635
+00:03:50,200 --> 00:03:50,681
+que se comunicaron entre entornos
+
+636
+00:03:50,681 --> 00:03:50,895
+que se comunicaron entre entornos que
+
+637
+00:03:50,895 --> 00:03:51,055
+que se comunicaron entre entornos que se
+
+638
+00:03:51,055 --> 00:03:51,483
+suponía
+
+639
+00:03:51,483 --> 00:03:51,911
+suponía estaban
+
+640
+00:03:51,911 --> 00:03:52,392
+suponía estaban aislados
+
+641
+00:03:52,392 --> 00:03:52,712
+suponía estaban aislados entre
+
+642
+00:03:52,712 --> 00:03:53,301
+suponía estaban aislados entre sí.
+
+643
+00:03:53,301 --> 00:03:53,568
+Para
+
+644
+00:03:53,568 --> 00:03:54,049
+Para entonces
+
+645
+00:03:54,049 --> 00:03:54,209
+Para entonces ya
+
+646
+00:03:54,209 --> 00:03:54,744
+Para entonces ya circulaba
+
+647
+00:03:54,744 --> 00:03:55,011
+Para entonces ya circulaba otra
+
+648
+00:03:55,011 --> 00:03:55,653
+Para entonces ya circulaba otra versión,
+
+649
+00:03:55,653 --> 00:03:55,974
+mucho
+
+650
+00:03:55,974 --> 00:03:56,187
+mucho más
+
+651
+00:03:56,187 --> 00:03:56,775
+mucho más viral:
+
+652
+00:03:56,775 --> 00:03:56,936
+el
+
+653
+00:03:56,936 --> 00:03:57,417
+el político
+
+654
+00:03:57,417 --> 00:03:57,791
+el político Andrew
+
+655
+00:03:57,791 --> 00:03:58,058
+el político Andrew Yang
+
+656
+00:03:58,058 --> 00:03:58,486
+el político Andrew Yang aseguró
+
+657
+00:03:58,486 --> 00:03:58,700
+el político Andrew Yang aseguró que
+
+658
+00:03:58,700 --> 00:03:58,860
+el político Andrew Yang aseguró que un
+
+659
+00:03:58,860 --> 00:03:59,395
+directivo
+
+660
+00:03:59,395 --> 00:03:59,555
+directivo de
+
+661
+00:03:59,555 --> 00:03:59,716
+directivo de un
+
+662
+00:03:59,716 --> 00:04:00,357
+directivo de un laboratorio
+
+663
+00:04:00,357 --> 00:04:00,518
+directivo de un laboratorio de
+
+664
+00:04:00,518 --> 00:04:01,213
+directivo de un laboratorio de inteligencia
+
+665
+00:04:01,213 --> 00:04:01,801
+directivo de un laboratorio de inteligencia artificial
+
+666
+00:04:01,801 --> 00:04:01,961
+le
+
+667
+00:04:01,961 --> 00:04:02,282
+le había
+
+668
+00:04:02,282 --> 00:04:02,816
+le había dicho,
+
+669
+00:04:02,816 --> 00:04:02,977
+en
+
+670
+00:04:02,977 --> 00:04:03,618
+en privado,
+
+671
+00:04:03,618 --> 00:04:03,832
+que
+
+672
+00:04:03,832 --> 00:04:04,153
+que estos
+
+673
+00:04:04,153 --> 00:04:04,581
+que estos agentes
+
+674
+00:04:04,581 --> 00:04:04,955
+que estos agentes habían
+
+675
+00:04:04,955 --> 00:04:05,329
+que estos agentes habían dejado
+
+676
+00:04:05,329 --> 00:04:05,703
+que estos agentes habían dejado código
+
+677
+00:04:05,703 --> 00:04:06,024
+que estos agentes habían dejado código capaz
+
+678
+00:04:06,024 --> 00:04:06,184
+de
+
+679
+00:04:06,184 --> 00:04:06,879
+de reproducirse
+
+680
+00:04:06,879 --> 00:04:07,361
+de reproducirse solo,
+
+681
+00:04:07,361 --> 00:04:07,895
+esparcido
+
+682
+00:04:07,895 --> 00:04:08,109
+esparcido por
+
+683
+00:04:08,109 --> 00:04:08,376
+esparcido por todo
+
+684
+00:04:08,376 --> 00:04:09,285
+esparcido por todo internet.
+
+685
+00:04:09,285 --> 00:04:09,659
+Ningún
+
+686
+00:04:09,659 --> 00:04:10,087
+Ningún informe
+
+687
+00:04:10,087 --> 00:04:10,729
+Ningún informe técnico,
+
+688
+00:04:10,729 --> 00:04:10,889
+ni
+
+689
+00:04:10,889 --> 00:04:11,049
+ni de
+
+690
+00:04:11,049 --> 00:04:11,424
+ni de OpenAI
+
+691
+00:04:11,424 --> 00:04:11,584
+ni de OpenAI ni
+
+692
+00:04:11,584 --> 00:04:11,744
+ni de OpenAI ni de
+
+693
+00:04:11,744 --> 00:04:12,172
+ni de OpenAI ni de Hugging
+
+694
+00:04:12,172 --> 00:04:12,653
+ni de OpenAI ni de Hugging Face,
+
+695
+00:04:12,653 --> 00:04:13,134
+respalda
+
+696
+00:04:13,134 --> 00:04:13,348
+respalda esa
+
+697
+00:04:13,348 --> 00:04:14,203
+respalda esa versión.
+
+698
+00:04:14,203 --> 00:04:14,364
+Lo
+
+699
+00:04:14,364 --> 00:04:14,578
+Lo que
+
+700
+00:04:14,578 --> 00:04:14,738
+Lo que sí
+
+701
+00:04:14,738 --> 00:04:15,005
+Lo que sí está
+
+702
+00:04:15,005 --> 00:04:15,807
+Lo que sí está confirmado,
+
+703
+00:04:15,807 --> 00:04:16,021
+con
+
+704
+00:04:16,021 --> 00:04:16,342
+con fecha
+
+705
+00:04:16,342 --> 00:04:16,449
+con fecha y
+
+706
+00:04:16,449 --> 00:04:16,716
+con fecha y hora
+
+707
+00:04:16,716 --> 00:04:17,144
+con fecha y hora exactas
+
+708
+00:04:17,144 --> 00:04:17,304
+con fecha y hora exactas en
+
+709
+00:04:17,304 --> 00:04:17,518
+con fecha y hora exactas en los
+
+710
+00:04:17,518 --> 00:04:17,946
+propios
+
+711
+00:04:17,946 --> 00:04:18,480
+propios registros
+
+712
+00:04:18,480 --> 00:04:18,641
+propios registros de
+
+713
+00:04:18,641 --> 00:04:18,855
+propios registros de las
+
+714
+00:04:18,855 --> 00:04:19,549
+propios registros de las empresas,
+
+715
+00:04:19,549 --> 00:04:19,710
+es
+
+716
+00:04:19,710 --> 00:04:19,924
+es más
+
+717
+00:04:19,924 --> 00:04:20,405
+es más incómodo
+
+718
+00:04:20,405 --> 00:04:20,619
+es más incómodo que
+
+719
+00:04:20,619 --> 00:04:21,153
+es más incómodo que cualquier
+
+720
+00:04:21,153 --> 00:04:21,741
+es más incómodo que cualquier rumor:
+
+721
+00:04:21,741 --> 00:04:21,902
+un
+
+722
+00:04:21,902 --> 00:04:22,222
+un grupo
+
+723
+00:04:22,222 --> 00:04:22,383
+un grupo de
+
+724
+00:04:22,383 --> 00:04:22,917
+un grupo de programas
+
+725
+00:04:22,917 --> 00:04:23,078
+un grupo de programas de
+
+726
+00:04:23,078 --> 00:04:23,773
+un grupo de programas de inteligencia
+
+727
+00:04:23,773 --> 00:04:24,575
+un grupo de programas de inteligencia artificial,
+
+728
+00:04:24,575 --> 00:04:24,789
+sin
+
+729
+00:04:24,789 --> 00:04:25,002
+sin que
+
+730
+00:04:25,002 --> 00:04:25,377
+sin que ningún
+
+731
+00:04:25,377 --> 00:04:25,751
+sin que ningún humano
+
+732
+00:04:25,751 --> 00:04:25,911
+sin que ningún humano se
+
+733
+00:04:25,911 --> 00:04:26,072
+sin que ningún humano se lo
+
+734
+00:04:26,072 --> 00:04:26,713
+sin que ningún humano se lo pidiera,
+
+735
+00:04:26,713 --> 00:04:27,141
+cooperó
+
+736
+00:04:27,141 --> 00:04:27,408
+cooperó para
+
+737
+00:04:27,408 --> 00:04:27,782
+cooperó para violar
+
+738
+00:04:27,782 --> 00:04:27,943
+cooperó para violar un
+
+739
+00:04:27,943 --> 00:04:28,370
+cooperó para violar un sistema
+
+740
+00:04:28,370 --> 00:04:29,065
+cooperó para violar un sistema real.
+
+741
+00:04:29,065 --> 00:04:29,172
+Y
+
+742
+00:04:29,172 --> 00:04:29,279
+Y a
+
+743
+00:04:29,279 --> 00:04:29,440
+Y a la
+
+744
+00:04:29,440 --> 00:04:29,867
+Y a la empresa
+
+745
+00:04:29,867 --> 00:04:30,081
+Y a la empresa que
+
+746
+00:04:30,081 --> 00:04:30,295
+Y a la empresa que los
+
+747
+00:04:30,295 --> 00:04:30,562
+Y a la empresa que los creó
+
+748
+00:04:30,562 --> 00:04:30,723
+le
+
+749
+00:04:30,723 --> 00:04:31,150
+le tomaron
+
+750
+00:04:31,150 --> 00:04:31,418
+le tomaron ocho
+
+751
+00:04:31,418 --> 00:04:31,685
+le tomaron ocho días
+
+752
+00:04:31,685 --> 00:04:32,433
+le tomaron ocho días completos,
+
+753
+00:04:32,433 --> 00:04:32,861
+después
+
+754
+00:04:32,861 --> 00:04:33,021
+después de
+
+755
+00:04:33,021 --> 00:04:33,235
+después de que
+
+756
+00:04:33,235 --> 00:04:33,396
+después de que el
+
+757
+00:04:33,396 --> 00:04:33,770
+después de que el ataque
+
+758
+00:04:33,770 --> 00:04:34,518
+después de que el ataque terminara,
+
+759
+00:04:34,518 --> 00:04:34,786
+para
+
+760
+00:04:34,786 --> 00:04:35,320
+para admitirlo
+
+761
+00:04:35,320 --> 00:04:35,481
+para admitirlo en
+
+762
+00:04:35,481 --> 00:04:36,336
+para admitirlo en público.
+

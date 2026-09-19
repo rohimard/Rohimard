@@ -1,0 +1,154 @@
+SEO DEL VÍDEO 10 — La tendencia "El Gato en el Sombrero" / Cat in the Hat
+Hecho el 17/09/2026. vidIQ sigue sin créditos (balance: 0, se recarga
+13/10/2026), así que otra vez los datos de competencia son de Nexlev
+(búsqueda real en YouTube, no volumen estimado).
+
+DATOS QUE MANDAN SOBRE LAS DECISIONES
+=====================================
+Vídeos reales sobre esta tendencia, con vistas reales (Nexlev, 17/09/2026):
+
+  En inglés ("Cat in the Hat trend"):
+  "Scary Cat in the Hat Trend Causing Panic" (penguinz0) ..... 4.599.883
+  "The Cat In The Hat Trend Is Shutting Down Schools…" (short) 2.800.000
+  "Here's The REAL Truth Behind This..." (short) .............. 3.600.000
+  "People Are Getting Arrested Over the Cat in the Hat
+   Trend" (short, MoreCritical) .................................. 923.772
+  "The Cat in The Hat Trend is Getting Worse.." (Luvhilal,
+   19:35, mismo formato explicativo largo) ....................... 427.645
+  "Creepy 'Cat in the Hat' trend targets schools..." (WLWT) ..... 657.435
+  "The Cat In The Hat Trend Is Disturbing" (Lessons in Meme
+   Culture) ....................................................... 391.632
+
+  En español (la traducción real que usan los medios es
+  "El Gato en el Sombrero", NO "Gato Ensombrerado"):
+  "Las autoridades advierten sobre la tendencia viral de 'El
+   Gato en el Sombrero'..." (WBRZ) ................................ 130.454
+  "La tendencia de IA de 'El Gato en el Sombrero' lleva a un
+   arresto" (WTVA, doblado) ....................................... 126.368
+  "El joven de 14 años ARRESTADO por el aterrador Gato en el
+   Sombrero" (Hannah Claire B, 11:27 -- MISMO FORMATO que este
+   canal: un solo narrador, sin cara, explicativo largo) ............ 8.972
+  "La tendencia viral del Gato en el Sombrero que está
+   metiendo a los estudiantes en serios problemas" (Smart
+   Social) ......................................................... 10.822
+  "The Cat in the Hat is TERRORIZING the internet" (Soy
+   Thalas, short en inglés con descripción en español) ............ 283.700
+
+Tres conclusiones que cambian el título:
+1. El nombre real que usan los medios en español es "El Gato en el
+   Sombrero" (WBRZ, WTVA, Smart Social, Hannah Claire B), no "Gato
+   Ensombrerado" ni "Gato con Sombrero" (esta última es el nombre de la
+   nueva película animada de 2026, un producto distinto -- usarlo
+   confundiría la búsqueda). El guion de este vídeo usa "Gato
+   Ensombrerado"; el título usa el nombre que de verdad mueve búsquedas.
+2. El comparable más cercano en formato (narrador único, sin cara,
+   explicativo largo, en español) es el vídeo de Hannah Claire B:
+   "arrestado" en el título y solo 8.972 vistas -- techo bajo comparado
+   con las cadenas de noticias, pero confirma que el ángulo "arresto"
+   funciona en este formato específico.
+3. El patrón que se repite en los vídeos de más vistas (en cualquier
+   idioma): nombrar la tendencia explícitamente, y una palabra de
+   consecuencia real -- "arrestado(s)", "disturbing"/"aterrador",
+   "shutting down schools"/"cerrando escuelas", "causing panic". Nunca
+   un título abstracto sobre "IA" o "redes sociales" sin nombrar el
+   personaje.
+
+TÍTULO
+======
+El Gato Ensombrerado: La Broma de TikTok que Terminó en Arrestos
+
+Corregido: la primera versión de este título decía "El Gato en el
+Sombrero" -- el término que de verdad mueve búsquedas en español (según
+los datos de arriba) -- pero el guion, ya grabado con esa narración
+específica, dice "Gato Ensombrerado" dos veces. Se prioriza que el
+título y la miniatura digan lo mismo que se oye en el video: "gato en
+el sombrero" queda solo como etiqueta de búsqueda (abajo), no como el
+nombre que usa el título ni la miniatura.
+
+"Arrestos" es la palabra de consecuencia real que se repite en los
+títulos con más vistas. Se evita la palabra "menores" en el título --
+a diferencia del resto de las decisiones de SEO, esta es editorial, no
+de datos: no usar la minoría de edad de los detenidos como gancho de
+clic, aunque apareciera en varios títulos de la competencia (ver
+README.md, la misma línea que ya excluye sus fotos).
+
+DESCRIPCIÓN
+===========
+Todo empezó con un video de TikTok usando una escena de la película de
+2003 del Gato Ensombrerado. Cuatro millones de vistas en una semana.
+
+En agosto mutó a terror. Usuarios anónimos empezaron a generar con
+inteligencia artificial imágenes del personaje afuera de casas y
+escuelas reales, algunas con las iniciales de la escuela o el nombre de
+un estudiante concreto superpuesto junto al mensaje "voy en camino".
+
+Desde entonces: una adolescente perseguida de noche en West Kelowna,
+Canadá. Un estudiante arrestado en Hutchinson, Kansas. Cuatro menores
+arrestados en Berwick, Luisiana. Más arrestos en West Haven,
+Connecticut, y Nicholasville, Kentucky. Escuelas y policías de al menos
+siete estados de EE.UU. han emitido alguna alerta.
+
+Dr. Seuss Enterprises, la empresa dueña del personaje, no ha dicho una
+palabra pública sobre todo esto.
+
+Este vídeo no usa ninguna foto real de ningún detenido: todos son
+menores de edad. Sí usa capturas reales de las publicaciones que ya
+circularon en la cobertura de prensa, y material de las policías que
+investigaron los casos.
+
+Fuentes: Police1, Euronews, CBC, Global News, KWCH, KSN, WBRZ, Houma
+Times, NBC Connecticut, WTNH, Newsweek, ABC News, Fox4KC, Spectrum
+News, Fox26 Houston.
+
+Capítulos:
+0:00 El TikTok de una escena de la película de 2003
+0:14 El formato muta a terror en Irlanda y Reino Unido
+0:27 Usuarios generan con IA imágenes falsas afuera de casas y escuelas
+0:45 West Kelowna, Canadá: la persecución real a una adolescente
+1:03 Hutchinson, Kansas: el primer arresto
+1:18 Berwick, Luisiana: cuatro menores arrestados
+1:37 West Haven y Nicholasville: más arrestos
+1:50 Alertas en 7 estados y el silencio de Dr. Seuss Enterprises
+2:32 Menores de 15 años con cargos penales por una broma
+
+ETIQUETAS
+=========
+gato ensombrerado, el gato en el sombrero, gato con sombrero, tendencia
+tiktok, amenazas por tiktok, ia generativa, imagenes con ia, amenazas
+escolares, arrestos menores, west kelowna, berwick luisiana, hutchinson
+kansas, west haven connecticut, dr seuss enterprises, historia incomoda,
+casos reales, tendencias virales, ciberacoso, seguridad escolar
+
+Nota: "gato ensombrerado" va primero porque es el nombre que usa el
+título y la narración; "el gato en el sombrero" se deja como segunda
+etiqueta solo para capturar las búsquedas que usan el término real de
+los medios (arriba), aunque el video no lo diga en voz.
+
+MINIATURA
+=========
+Base: foto real de cerca de la máscara física del disfraz, de Dexerto
+(dexerto-disfraz.jpg) -- no un fotograma de la película. La primera
+versión usaba una foto de la misma máscara vía Nerdist
+(disfraz-nerdist.jpg), pero al validarla cruzándola contra esta otra
+foto real del mismo objeto físico se confirmó que la de Nerdist salía
+con la cara estirada/deformada (mal recorte del CDN de origen) -- se
+descartó y se borró del repo. La foto de Dexerto trae también a
+Natalie Reynolds junto a la máscara (sin espacio negativo limpio para
+el texto ni forma de usarla entera sin poner a una persona real de
+fondo), así que la miniatura usa un recorte de solo la máscara: nítido
+como sujeto principal a la izquierda, y ese mismo recorte ampliado y
+difuminado como relleno de fondo a la derecha (nunca la foto completa
+con Reynolds). Corrección de color sobre ese recorte: +15% contraste,
++20% saturación.
+Texto: "PARECE UNA BROMA" (blanco) / "TERMINÓ EN ARRESTO" (caja roja),
+lado derecho (espacio negativo del fondo difuminado). No repite el
+título palabra por palabra -- el título ya dice "arrestos" en plural
+y nombra la tendencia; la miniatura aporta la tensión broma/consecuencia
+real que es la tesis del propio guion.
+
+PENDIENTE
+=========
+- Repetir el chequeo de competencia con vidIQ cuando se recarguen
+  créditos (13/10/2026), para comparar contra los datos de Nexlev.
+- Esta sigue siendo una tendencia activa: revisar antes de publicar si
+  hay arrestos o alertas nuevas que no estén en el guion.

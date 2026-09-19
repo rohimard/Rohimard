@@ -1,0 +1,183 @@
+SEO — Vídeo 8 v2 (Kaczynski y el experimento de Harvard)
+
+===================================================================
+TÍTULO
+===================================================================
+
+RECOMENDADO (58 caracteres, no se corta en móvil):
+Harvard destrozó a 22 chicos. Uno acabó siendo el Unabomber
+
+  "destrozó" y no "hizo esto": el segundo es vago y huele a cebo
+  generico, que en este nicho sobra. "Destrozo" es el verbo que usa el
+  propio guion ("destrozar al sujeto de la manera mas rapida y mas
+  profunda posible") y es defendible -- Murray lo escribio de su puno:
+  "vehemente y personalmente abusivo". NO usar "torturo": eso ya es
+  pasarse, y este canal vive de no pasarse.
+
+  "22 chicos" promete escala, no anecdota. Es lo que cambio en el guion:
+  ya no va de un chico de dieciseis anos, va de veintidos.
+
+Alternativas:
+Tenía 16 años cuando lo sentaron en esa silla. Después fue el Unabomber
+El experimento de Harvard que duró 3 años y nadie pagó por él  <- sin la
+  palabra clave: el giro del 3:15 pasa a ser sorpresa real, pero se
+  renuncia al pico de busqueda del estreno. No recomendado esta vez.
+
+DECISIÓN DE FONDO, Y ES TUYA:
+El guion esconde la identidad hasta el 3:15. El título la regala.
+Parece una contradicción y no lo es, pero conviene que sepas por qué:
+
+  - "unabomber" tenía 115.704 búsquedas/mes con +263,8% de crecimiento
+    (medido con vidIQ el 12/09), y Netflix estrena el 25/09. Renunciar a
+    esa palabra en el título es renunciar al pico de búsqueda entero.
+  - Saber por el título NO es lo mismo que saber por el guion. El
+    arranque nuevo empieza en presente, dentro de la sala, con un chico
+    sin nombre ("Tiene diecisiete años. Cree que va a tener una
+    conversación tranquila sobre filosofía. Se equivoca."). El título
+    dice quién. El guion tarda 3:15 en confirmarlo con nombre y
+    apellido. No es ocultar la identidad, es retrasar la CONFIRMACIÓN --
+    y eso sigue reteniendo igual, porque el gancho ya no es "quién es"
+    sino "qué le hicieron".
+  - Si prefieres el golpe limpio, usa la tercera alternativa (sin la
+    palabra) y pierdes volumen de búsqueda a cambio de sorpresa real.
+
+Mi recomendación es el primero: con el estreno encima, el volumen manda.
+
+===================================================================
+GANCHO — DE DÓNDE SALE EL ARRANQUE ACTUAL
+===================================================================
+
+Los dos arranques anteriores (registro conversacional y el flash-forward
+de "16 bombas por correo") salieron de formulas que yo tenia en memoria,
+sin contrastarlas con nada. Este arranque no: lo saque de mirar que esta
+funcionando ahora mismo en el nicho, con las herramientas de
+investigacion (Nexlev), el dia 16/09 cuando volvio a haber cuota:
+
+  - Busque los videos reales sobre Kaczynski/Harvard con mas vistas
+    (via Nexlev/youtube_search): "The Hunt for America's Smartest
+    Killer" (fern, 10,9M vistas), "Harvard Ran a Secret Experiment on 22
+    Students. One of Them Was the Unabomber" (Human Nature Lab), "Ted
+    Kinski, alias Unabomber" (Lord Draugr, 1,44M), "Unabomber - El
+    terrorista que humillo a todo el FBI" (Fusgo, 3,58M).
+  - Tambien busque outliers de canales faceless en español en el nicho
+    de experimentos/historia oscura. El que mas destaca: un video sobre
+    el manicomio de Blackwell (canal INFORME PROHIBIDO) con un outlier
+    score de 37,5x su propio promedio -- es decir, revento muy por
+    encima de lo que ese canal suele hacer.
+  - Saque la transcripcion de los primeros 60-90 segundos de los cinco
+    videos y los compare. Patron comun en los que mejor estan hechos
+    (no necesariamente los de mas vistas, que a veces ganan solo por
+    fuerza de marca/canal): tiempo PRESENTE, la camara puesta en un
+    objeto o una persona concreta (una silla, unos cables, un cristal),
+    NUNCA una lista de datos fria de entrada, y una ironia dramatica
+    explicita ("el cree que X. Se equivoca.") en vez de dirigirse al
+    espectador. El remate de esa apertura, en los dos mejores casos, es
+    el nombre oficial/burocratico de la cosa horrible que acaba de
+    describirse -- el contraste entre el lenguaje clinico y lo que en
+    realidad fue, funciona como el verdadero gancho.
+  - El arranque actual del guion aplica exactamente eso: presente,
+    objeto concreto (silla, cristal, cables, camara), ironia dramatica
+    ("Cree que va a tener una conversacion tranquila sobre filosofia.
+    Se equivoca."), y remate con el nombre oficial real del estudio
+    ("Evaluaciones Multiformes del Desarrollo de la Personalidad entre
+    Hombres Universitarios Superdotados"), confirmado en dos fuentes
+    independientes de las que encontre.
+  - Lo que NO cambio: sigue sin nombrar a Kaczynski en el arranque. Eso
+    no salio de investigacion sino de una decision tuya anterior (la
+    identidad se confirma en el titulo, no en el guion), y la mantengo
+    porque nada de lo que vi contradice que funcione -- de hecho el
+    video mejor construido de los cinco (Human Nature Lab) hace lo
+    mismo: su titulo si dice "Unabomber" pero el guion no lo nombra
+    hasta mucho despues.
+
+Sigue siendo criterio, no un A/B test sobre TU video. Es la primera vez
+que ese criterio esta anclado en videos reales del nicho en vez de en
+una formula de memoria. vidIQ sigue a 0 creditos hasta el 13/10, asi que
+no pude contrastar esto con retencion medida (solo con vistas totales y
+outlier score), que es una metrica mas debil.
+
+RECORTE POSTERIOR (mismo dia): el tramo 0:55-1:40, la biografia de
+Murray, llegaba justo despues del mejor momento del guion y era el
+tramo con mas nombres y credenciales seguidos de todo el texto -- el
+punto tipico de fuga. Se recorto: menos curriculum, directo al dato que
+engancha (disenaba pruebas de estres para la CIA). Ahorro: 19 segundos,
+guion de 5:11 a 4:52. Tambien se quito una de las tres repeticiones de
+la estructura "no era X, era Y" (quedaban dos, y una tercera ya sonaba
+a muletilla). Esto es lectura de ritmo del guion, no dato de Nexlev ni
+de vidIQ -- no hay herramienta que mida esto sin el video publicado.
+
+===================================================================
+MINIATURA
+===================================================================
+
+La miniatura actual (figura de espaldas en la silla + bloque rojo con
+"16 AÑOS") sigue sirviendo: el guion abre describiendo esa sala y esa
+silla, así que miniatura y primer plano coinciden.
+
+Único cambio que propongo: el texto.
+  "16 AÑOS"  ->  "22 CHICOS"
+Razón: el gancho del guion ya no es la edad de uno, es el número de
+víctimas. "22 CHICOS" promete escala; "16 AÑOS" promete un caso.
+Si prefieres mantener "16 AÑOS", no la rehagas: funciona igual.
+
+===================================================================
+CAPÍTULOS (pegar en la descripción)
+===================================================================
+
+0:00 La silla y el cristal
+0:55 Henry Murray y la CIA
+1:22 El anuncio y la redacción
+1:50 El debate que no era un debate
+2:18 Media hora bajo los focos
+2:35 La proyección
+3:06 Lawful
+3:15 Unabomber
+3:35 ¿Harvard fabricó a un asesino?
+3:52 Lo que queda si se retira a Kaczynski
+4:21 Las tres normas que hoy existen
+
+(Duración del guion: 4:52. Los minutos salen del texto a 2,88 palabras/s;
+si el audio de David sale con otro ritmo, se recalculan sobre el SRT real
+antes de publicar.)
+
+===================================================================
+DESCRIPCIÓN
+===================================================================
+
+En 1959, Henry Murray reclutó a 22 estudiantes de Harvard para lo que
+les presentó como un estudio sobre el desarrollo de la personalidad.
+
+Les pidió que escribieran sus principios, su fe, lo que de verdad les
+importaba. Después usó esas páginas contra ellos: focos, electrodos,
+un interrogador entrenado para humillarlos, y una cámara grabándolo
+todo para obligarles a verse después.
+
+Duró tres años. Nadie pagó por ello. Uno de aquellos 22 chicos entró
+con 16 años y salió con 19: su nombre en clave era Lawful.
+
+Este vídeo cuenta qué les hicieron exactamente, quién lo firmó y por
+qué los archivos acabaron cerrados al público.
+
+FUENTES
+- Alston Chase, "Harvard and the Unabomber: The Education of an
+  American Terrorist" (2003)
+- Documentación del estudio de Henry A. Murray, Harvard University
+  Archives (acceso restringido)
+- Informe del FBI sobre el caso UNABOM
+- Título oficial del estudio ("Multiform Assessments of Personality
+  Development Among Gifted College Men"), citado de forma independiente
+  en al menos dos documentales/canales sobre el caso -- pendiente de
+  verificar contra el archivo primario de Harvard antes de publicar,
+  dado el acceso restringido
+
+Este vídeo no afirma que el experimento causara los atentados. Los
+otros 21 participantes pasaron por lo mismo y ninguno los cometió.
+
+===================================================================
+ETIQUETAS
+===================================================================
+
+unabomber, ted kaczynski, theodore kaczynski, experimento harvard,
+henry murray, experimentos psicologicos, experimentos perturbadores,
+historia incomoda, casos reales, documental espanol, mk ultra,
+experimentos con humanos, harvard, psicologia oscura, historia oculta

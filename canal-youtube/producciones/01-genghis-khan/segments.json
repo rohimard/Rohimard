@@ -1,0 +1,472 @@
+{
+  "segments": [
+    {
+      "id": 1,
+      "block": "GANCHO",
+      "cue": "El error sobre los imperios",
+      "text": "Hay un error que cometemos casi todos cuando hablamos de imperios."
+    },
+    {
+      "id": 2,
+      "block": "GANCHO",
+      "cue": "Grandes, brillantes, civilizadores",
+      "text": "Los imaginamos grandes. Brillantes. Civilizadores."
+    },
+    {
+      "id": 3,
+      "block": "GANCHO",
+      "cue": "No es culpa tuya",
+      "text": "Y no es culpa tuya. A ti te lo enseñaron así. A mí también."
+    },
+    {
+      "id": 4,
+      "block": "GANCHO",
+      "cue": "El mayor territorio continuo",
+      "text": "Pero existe un imperio que llegó a ser el mayor territorio continuo de la historia,"
+    },
+    {
+      "id": 5,
+      "block": "GANCHO",
+      "cue": "Una de cada diez personas",
+      "text": "y para construirlo borró aproximadamente a una de cada diez personas que respiraban en ese momento."
+    },
+    {
+      "id": 6,
+      "block": "GANCHO",
+      "cue": "Su cara en los billetes",
+      "text": "Su fundador tiene hoy la cara impresa en los billetes de un país."
+    },
+    {
+      "id": 7,
+      "block": "GANCHO",
+      "cue": "Temuyín, Gengis Kan",
+      "text": "Su nombre era Temuyín. Tú lo conoces como Gengis Kan."
+    },
+    {
+      "id": 8,
+      "block": "GANCHO",
+      "cue": "Quédate con un dato",
+      "text": "Y antes de contarte cómo lo hizo, quédate con un dato, porque vamos a volver a él al final:"
+    },
+    {
+      "id": 9,
+      "block": "GANCHO",
+      "cue": "Su firma dentro del cuerpo",
+      "text": "hay millones de hombres vivos ahora mismo que probablemente llevan su firma escrita dentro del cuerpo. Guarda eso."
+    },
+    {
+      "id": 10,
+      "block": "SAMARCANDA",
+      "cue": "Retrocedamos",
+      "text": "Retrocedamos."
+    },
+    {
+      "id": 11,
+      "block": "SAMARCANDA",
+      "cue": "Año 1219, Samarcanda",
+      "text": "Año 1219. Samarcanda."
+    },
+    {
+      "id": 12,
+      "block": "SAMARCANDA",
+      "cue": "Azafrán y pergamino",
+      "text": "Huele a azafrán, a pergamino mojado, a siglos de conocimiento."
+    },
+    {
+      "id": 13,
+      "block": "SAMARCANDA",
+      "cue": "Bibliotecas y observatorios",
+      "text": "Dentro vive una de las poblaciones más grandes de Asia Central. Bibliotecas. Observatorios."
+    },
+    {
+      "id": 14,
+      "block": "SAMARCANDA",
+      "cue": "Canales de riego",
+      "text": "Canales de riego que llevaban funcionando desde antes de que existiera tu país."
+    },
+    {
+      "id": 15,
+      "block": "SAMARCANDA",
+      "cue": "El jinete en la estepa",
+      "text": "Y fuera, en la estepa, hay un hombre a caballo mirando la ciudad."
+    },
+    {
+      "id": 16,
+      "block": "SAMARCANDA",
+      "cue": "No grita, no amenaza",
+      "text": "No grita. No amenaza."
+    },
+    {
+      "id": 17,
+      "block": "SAMARCANDA",
+      "cue": "Ya lo ha decidido",
+      "text": "Ya lo ha decidido."
+    },
+    {
+      "id": 18,
+      "block": "EL_SISTEMA",
+      "cue": "Guerra por sistema",
+      "text": "Porque Gengis Kan no hacía la guerra por furia. La hacía por sistema."
+    },
+    {
+      "id": 19,
+      "block": "EL_SISTEMA",
+      "cue": "Ciudad que se rinde",
+      "text": "Ciudad que se rinde sin luchar: se salva."
+    },
+    {
+      "id": 20,
+      "block": "EL_SISTEMA",
+      "cue": "Ciudad que resiste",
+      "text": "Ciudad que resiste: se borra. Población, templos, pozos, semillas. Todo."
+    },
+    {
+      "id": 21,
+      "block": "EL_SISTEMA",
+      "cue": "No era crueldad improvisada",
+      "text": "No era crueldad improvisada."
+    },
+    {
+      "id": 22,
+      "block": "EL_SISTEMA",
+      "cue": "Exterminio administrativo",
+      "text": "Era exterminio administrativo, con reglas conocidas y aplicadas una y otra vez."
+    },
+    {
+      "id": 23,
+      "block": "EL_SISTEMA",
+      "cue": "El terror viaja más rápido",
+      "text": "Y funcionaba, porque el terror viajaba más rápido que los caballos."
+    },
+    {
+      "id": 24,
+      "block": "MERV",
+      "cue": "Qué significa en la práctica",
+      "text": "¿Quieres saber qué significa eso en la práctica?"
+    },
+    {
+      "id": 25,
+      "block": "MERV",
+      "cue": "Merv, Turkmenistán",
+      "text": "Merv. En la actual Turkmenistán."
+    },
+    {
+      "id": 26,
+      "block": "MERV",
+      "cue": "Una de las más grandes del planeta",
+      "text": "Antes del asedio de 1221 era una de las ciudades más grandes del planeta:"
+    },
+    {
+      "id": 27,
+      "block": "MERV",
+      "cue": "Bibliotecas y observatorios de Merv",
+      "text": "bibliotecas con cientos de miles de volúmenes, observatorios astronómicos,"
+    },
+    {
+      "id": 28,
+      "block": "MERV",
+      "cue": "Canales regando el desierto",
+      "text": "canales que llevaban siglos regando el desierto."
+    },
+    {
+      "id": 29,
+      "block": "MERV",
+      "cue": "Más de un millón de muertos",
+      "text": "Después del asedio, algunos cronistas hablaron de más de un millón de muertos."
+    },
+    {
+      "id": 30,
+      "block": "MERV",
+      "cue": "Cifra discutida",
+      "text": "Los historiadores de hoy discuten esa cifra y probablemente sea exagerada."
+    },
+    {
+      "id": 31,
+      "block": "MERV",
+      "cue": "Lo que nadie discute",
+      "text": "Pero hay algo que nadie discute."
+    },
+    {
+      "id": 32,
+      "block": "MERV",
+      "cue": "Merv nunca volvió",
+      "text": "Merv nunca volvió."
+    },
+    {
+      "id": 33,
+      "block": "MERV",
+      "cue": "No se reconstruyó",
+      "text": "No se reconstruyó."
+    },
+    {
+      "id": 34,
+      "block": "MERV",
+      "cue": "Montículos de barro hoy",
+      "text": "Hoy son montículos de barro erosionado en mitad del desierto que casi nadie visita."
+    },
+    {
+      "id": 35,
+      "block": "LA_MAQUINA",
+      "cue": "Multiplica esa escena",
+      "text": "Ahora multiplica esa escena. Decenas de veces. Durante décadas."
+    },
+    {
+      "id": 36,
+      "block": "LA_MAQUINA",
+      "cue": "Entre 37 y 60 millones",
+      "text": "Los cálculos más citados sitúan las muertes de las conquistas mongolas entre 37 y 60 millones de personas,"
+    },
+    {
+      "id": 37,
+      "block": "LA_MAQUINA",
+      "cue": "Un mundo de 400 millones",
+      "text": "en un mundo de unos 400 millones de habitantes."
+    },
+    {
+      "id": 38,
+      "block": "LA_MAQUINA",
+      "cue": "Lo que no se cuenta bien",
+      "text": "Y aquí viene la parte que casi nunca se cuenta bien."
+    },
+    {
+      "id": 39,
+      "block": "LA_MAQUINA",
+      "cue": "Murió en 1227",
+      "text": "Gengis Kan murió en 1227."
+    },
+    {
+      "id": 40,
+      "block": "LA_MAQUINA",
+      "cue": "Kiev, 1240",
+      "text": "Kiev fue arrasada en 1240."
+    },
+    {
+      "id": 41,
+      "block": "LA_MAQUINA",
+      "cue": "Bagdad, 1258",
+      "text": "Bagdad, la ciudad más culta del mundo islámico, fue destruida en 1258,"
+    },
+    {
+      "id": 42,
+      "block": "LA_MAQUINA",
+      "cue": "El Tigris negro de tinta",
+      "text": "y de ella se cuenta que el Tigris corrió negro por la tinta de las bibliotecas quemadas."
+    },
+    {
+      "id": 43,
+      "block": "LA_MAQUINA",
+      "cue": "Trece y treinta y un años después",
+      "text": "Trece años. Treinta y un años después de su muerte."
+    },
+    {
+      "id": 44,
+      "block": "LA_MAQUINA",
+      "cue": "La máquina siguió sola",
+      "text": "Él ya no estaba. La máquina siguió sola."
+    },
+    {
+      "id": 45,
+      "block": "LA_MAQUINA",
+      "cue": "No construyó un ejército",
+      "text": "Eso es lo escalofriante: no construyó un ejército."
+    },
+    {
+      "id": 46,
+      "block": "LA_MAQUINA",
+      "cue": "Un mecanismo sin creador",
+      "text": "Construyó un mecanismo que no necesitaba a su creador para seguir funcionando."
+    },
+    {
+      "id": 47,
+      "block": "LA_MAQUINA",
+      "cue": "24 millones de km2",
+      "text": "24 millones de kilómetros cuadrados. Más que Rusia."
+    },
+    {
+      "id": 48,
+      "block": "LA_MAQUINA",
+      "cue": "Más que EEUU, China e India",
+      "text": "Más que Estados Unidos, China e India juntos."
+    },
+    {
+      "id": 49,
+      "block": "POR_QUE",
+      "cue": "La pregunta incómoda",
+      "text": "Entonces, ¿por qué no hablamos de él como hablamos de otros responsables de matanzas a esta escala?"
+    },
+    {
+      "id": 50,
+      "block": "POR_QUE",
+      "cue": "Tres razones",
+      "text": "Tres razones."
+    },
+    {
+      "id": 51,
+      "block": "POR_QUE",
+      "cue": "Cronistas al servicio de sus nietos",
+      "text": "Primera: los cronistas que documentaron las conquistas acabaron trabajando para sus nietos."
+    },
+    {
+      "id": 52,
+      "block": "POR_QUE",
+      "cue": "El abuelo del hombre que te paga",
+      "text": "No es fácil escribir con honestidad sobre el abuelo del hombre que te paga."
+    },
+    {
+      "id": 53,
+      "block": "POR_QUE",
+      "cue": "En Mongolia no es un villano",
+      "text": "Segunda: en Mongolia no es un villano."
+    },
+    {
+      "id": 54,
+      "block": "POR_QUE",
+      "cue": "El padre fundador",
+      "text": "Es el padre fundador, el hombre que unió tribus enfrentadas durante siglos."
+    },
+    {
+      "id": 55,
+      "block": "POR_QUE",
+      "cue": "No es historia crítica, es tabú",
+      "text": "Cuestionarlo allí no es historia crítica. Es tabú."
+    },
+    {
+      "id": 56,
+      "block": "POR_QUE",
+      "cue": "El legado tapó el cadáver",
+      "text": "Y tercera, la que de verdad importa: el legado posterior brilló tanto que tapó el cadáver."
+    },
+    {
+      "id": 57,
+      "block": "POR_QUE",
+      "cue": "La Ruta de la Seda unificada",
+      "text": "Bajo el imperio mongol la Ruta de la Seda se unificó de punta a punta."
+    },
+    {
+      "id": 58,
+      "block": "POR_QUE",
+      "cue": "Papel, pólvora, ideas",
+      "text": "El papel, la pólvora, la imprenta, las ideas, viajaron como nunca antes."
+    },
+    {
+      "id": 59,
+      "block": "POR_QUE",
+      "cue": "Pax Mongolica",
+      "text": "A ese periodo los historiadores le pusieron un nombre precioso: Pax Mongolica. La paz mongola."
+    },
+    {
+      "id": 60,
+      "block": "POR_QUE",
+      "cue": "Millones bajo tierra",
+      "text": "Qué manera tan cómoda de nombrar algo que empezó con millones de personas bajo tierra."
+    },
+    {
+      "id": 61,
+      "block": "EL_RASTRO",
+      "cue": "Volvamos al dato",
+      "text": "Y ahora sí, volvamos al dato que te pedí guardar."
+    },
+    {
+      "id": 62,
+      "block": "EL_RASTRO",
+      "cue": "El estudio de 2003",
+      "text": "En 2003, un estudio genético identificó un linaje del cromosoma Y presente en cerca del 8% de los hombres de una enorme región de Asia."
+    },
+    {
+      "id": 63,
+      "block": "EL_RASTRO",
+      "cue": "16 millones de personas",
+      "text": "Unos 16 millones de personas. Cerca del 0,5% de todos los hombres del planeta."
+    },
+    {
+      "id": 64,
+      "block": "EL_RASTRO",
+      "cue": "Podría remontarse a él",
+      "text": "Los investigadores plantearon que ese linaje podría remontarse a él y a su familia."
+    },
+    {
+      "id": 65,
+      "block": "EL_RASTRO",
+      "cue": "Sigue siendo hipótesis",
+      "text": "Sigue siendo una hipótesis discutida, no un hecho cerrado."
+    },
+    {
+      "id": 66,
+      "block": "EL_RASTRO",
+      "cue": "Piénsalo un segundo",
+      "text": "Pero piénsalo un segundo."
+    },
+    {
+      "id": 67,
+      "block": "EL_RASTRO",
+      "cue": "Los imperios caen",
+      "text": "Los imperios caen. Las murallas se derrumban. Los nombres se olvidan."
+    },
+    {
+      "id": 68,
+      "block": "EL_RASTRO",
+      "cue": "Un hombre cualquiera",
+      "text": "Y aun así, es posible que 800 años después un hombre cualquiera camine hoy por una calle de Asia Central"
+    },
+    {
+      "id": 69,
+      "block": "EL_RASTRO",
+      "cue": "Llevando el rastro sin saberlo",
+      "text": "llevando dentro el rastro de todo esto. Sin saberlo."
+    },
+    {
+      "id": 70,
+      "block": "CIERRE",
+      "cue": "Gran conquistador, edad dorada",
+      "text": "Así que la próxima vez que alguien te hable de un gran conquistador o de una edad dorada, hazte una sola pregunta."
+    },
+    {
+      "id": 71,
+      "block": "CIERRE",
+      "cue": "El número que falta",
+      "text": "¿Qué número no están poniendo en el titular?"
+    },
+    {
+      "id": 72,
+      "block": "CIERRE",
+      "cue": "No te vuelve cínico",
+      "text": "Entender eso no te vuelve cínico."
+    },
+    {
+      "id": 73,
+      "block": "CIERRE",
+      "cue": "Difícil de engañar",
+      "text": "Te vuelve mucho más difícil de engañar con una historia bonita."
+    },
+    {
+      "id": 74,
+      "block": "CIERRE",
+      "cue": "La idea del canal",
+      "text": "Y esa es exactamente la idea de este canal."
+    },
+    {
+      "id": 75,
+      "block": "CIERRE",
+      "cue": "Promesa del próximo video",
+      "text": "La semana que viene te cuento cómo un imperio entero desapareció sin dejar un solo cuerpo."
+    },
+    {
+      "id": 76,
+      "block": "CIERRE",
+      "cue": "Suscríbete y comparte",
+      "text": "Suscríbete. Y si conoces a alguien que crea que la historia es aburrida, mándale este video."
+    },
+    {
+      "id": 77,
+      "block": "CIERRE",
+      "cue": "Te prometo una cosa",
+      "text": "Te prometo una cosa."
+    },
+    {
+      "id": 78,
+      "block": "CIERRE",
+      "cue": "No la vas a escuchar igual",
+      "text": "La próxima vez que oigas la palabra imperio, no la vas a escuchar igual."
+    }
+  ]
+}
