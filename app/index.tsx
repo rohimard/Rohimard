@@ -67,29 +67,19 @@ export default function HomeScreen() {
     }
   }, [busy, openEditor]);
 
-  const takePhoto = useCallback(async () => {
+  const openCamera = useCallback(() => {
     if (busy) return;
-    setBusy(true);
-    try {
-      const permission = await ImagePicker.requestCameraPermissionsAsync();
-      if (!permission.granted) return;
-      const result = await ImagePicker.launchCameraAsync({ quality: 1 });
-      if (!result.canceled && result.assets[0]) {
-        openEditor(result.assets[0].uri);
-      }
-    } finally {
-      setBusy(false);
-    }
-  }, [busy, openEditor]);
+    router.push("/camera");
+  }, [busy, router]);
 
   const onNewImage = useCallback(() => {
     if (busy) return;
     Alert.alert("Nueva imagen", "¿De dónde tomamos la foto?", [
-      { text: "Cámara", onPress: takePhoto },
+      { text: "Cámara", onPress: openCamera },
       { text: "Galería", onPress: pickFromLibrary },
       { text: "Cancelar", style: "cancel" },
     ]);
-  }, [busy, takePhoto, pickFromLibrary]);
+  }, [busy, openCamera, pickFromLibrary]);
 
   return (
     <SafeAreaView style={styles.container} edges={["top", "bottom"]}>

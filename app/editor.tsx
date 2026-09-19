@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
-  Dimensions,
   PixelRatio,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -22,10 +21,8 @@ import VideoExportWebView, { type VideoExportHandle } from "../src/components/Vi
 import { useEditor } from "../src/state/EditorContext";
 import { exportToGallery, saveRecordedVideoToGallery } from "../src/state/ExportManager";
 import { isTooCloseToChroma } from "../src/lib/videoExport";
+import { fitCanvasSize, SCREEN_WIDTH, EDITOR_CANVAS_MAX_HEIGHT } from "../src/lib/canvasSize";
 import type { ToolId } from "../src/types";
-
-const SCREEN_WIDTH = Dimensions.get("window").width;
-const MAX_CANVAS_HEIGHT = Dimensions.get("window").height * 0.52;
 
 export default function EditorScreen() {
   const router = useRouter();
@@ -54,16 +51,16 @@ export default function EditorScreen() {
   const nativeHeight = Number(params.height) || 1;
 
   // Base (unzoomed) display size that preserves the photo's aspect ratio.
-  const canvasSize = useMemo(() => {
-    const scaledHeight = (nativeHeight / nativeWidth) * SCREEN_WIDTH;
-    if (scaledHeight <= MAX_CANVAS_HEIGHT) {
-      return { width: SCREEN_WIDTH, height: scaledHeight };
-    }
-    return { width: (nativeWidth / nativeHeight) * MAX_CANVAS_HEIGHT, height: MAX_CANVAS_HEIGHT };
-  }, [nativeWidth, nativeHeight]);
+  const canvasSize = useMemo(
+    () => fitCanvasSize(nativeWidth, nativeHeight, SCREEN_WIDTH, EDITOR_CANVAS_MAX_HEIGHT),
+    [nativeWidth, nativeHeight]
+  );
 
   useEffect(() => {
-    if (params.uri) {
+    // Skip when the document is already this same photo — the camera screen
+    // sets it (with its already-drawn strokes) before navigating here, and
+    // re-running this would wipe those strokes via SET_DOCUMENT's reset.
+    if (params.uri && params.uri !== state.document?.uri) {
       setDocument({ uri: params.uri, width: nativeWidth, height: nativeHeight });
     }
     // Only re-run when a genuinely different photo is opened.

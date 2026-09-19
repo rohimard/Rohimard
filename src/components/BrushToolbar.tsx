@@ -3,10 +3,10 @@ import { View, Text, TouchableOpacity, ScrollView, ActivityIndicator, StyleSheet
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import type { ToolId } from "../types";
 
-const ACTIVE_COLOR = "#4CC9F0";
-const INACTIVE_COLOR = "#9CA3AF";
+export const ACTIVE_COLOR = "#4CC9F0";
+export const INACTIVE_COLOR = "#9CA3AF";
 
-const TOOL_ITEMS: { id: ToolId; label: string; renderIcon: (color: string) => React.ReactNode }[] = [
+export const TOOL_ITEMS: { id: ToolId; label: string; renderIcon: (color: string) => React.ReactNode }[] = [
   { id: "text", label: "Texto", renderIcon: (c) => <Ionicons name="text-outline" size={22} color={c} /> },
   { id: "brush", label: "Text Brush", renderIcon: (c) => <Ionicons name="brush-outline" size={22} color={c} /> },
   { id: "color", label: "Color", renderIcon: (c) => <Ionicons name="color-palette-outline" size={22} color={c} /> },

@@ -28,18 +28,21 @@ const initialState: EditorState = {
 };
 
 type Action =
-  | { type: "SET_DOCUMENT"; document: ImageDocument }
+  | { type: "SET_DOCUMENT"; document: ImageDocument; keepStrokes?: boolean }
   | { type: "SET_TOOL"; tool: ToolId }
   | { type: "UPDATE_SETTINGS"; settings: Partial<BrushSettings> }
   | { type: "COMMIT_STROKE"; stroke: TextStroke }
   | { type: "UNDO" }
   | { type: "REDO" }
-  | { type: "CLEAR_ALL" };
+  | { type: "CLEAR_ALL" }
+  | { type: "RESCALE_STROKES"; scale: number };
 
 function reducer(state: EditorState, action: Action): EditorState {
   switch (action.type) {
     case "SET_DOCUMENT":
-      return { ...state, document: action.document, strokes: [], redoStack: [] };
+      return action.keepStrokes
+        ? { ...state, document: action.document }
+        : { ...state, document: action.document, strokes: [], redoStack: [] };
     case "SET_TOOL":
       return { ...state, activeTool: action.tool };
     case "UPDATE_SETTINGS": {
@@ -82,6 +85,24 @@ function reducer(state: EditorState, action: Action): EditorState {
       return { ...state, ...History.redo(state) };
     case "CLEAR_ALL":
       return { ...state, ...History.clearAll(state) };
+    case "RESCALE_STROKES": {
+      const { scale } = action;
+      const rescale = (stroke: TextStroke): TextStroke => ({
+        ...stroke,
+        elements: stroke.elements.map((el) => ({
+          ...el,
+          x: el.x * scale,
+          y: el.y * scale,
+          fontSize: el.fontSize * scale,
+        })),
+        points: stroke.points?.map((p) => ({ ...p, x: p.x * scale, y: p.y * scale })),
+      });
+      return {
+        ...state,
+        strokes: state.strokes.map(rescale),
+        redoStack: state.redoStack.map(rescale),
+      };
+    }
     default:
       return state;
   }
@@ -92,13 +113,14 @@ interface EditorContextValue {
   elements: TextElement[];
   canUndo: boolean;
   canRedo: boolean;
-  setDocument: (document: ImageDocument) => void;
+  setDocument: (document: ImageDocument, keepStrokes?: boolean) => void;
   setTool: (tool: ToolId) => void;
   updateSettings: (settings: Partial<BrushSettings>) => void;
   commitStroke: (stroke: TextStroke) => void;
   undo: () => void;
   redo: () => void;
   clearAll: () => void;
+  rescaleStrokes: (scale: number) => void;
 }
 
 const EditorContext = createContext<EditorContextValue | null>(null);
@@ -117,13 +139,14 @@ export function EditorProvider({ children }: { children: React.ReactNode }) {
       elements,
       canUndo: state.strokes.length > 0,
       canRedo: state.redoStack.length > 0,
-      setDocument: (document) => dispatch({ type: "SET_DOCUMENT", document }),
+      setDocument: (document, keepStrokes) => dispatch({ type: "SET_DOCUMENT", document, keepStrokes }),
       setTool: (tool) => dispatch({ type: "SET_TOOL", tool }),
       updateSettings: (settings) => dispatch({ type: "UPDATE_SETTINGS", settings }),
       commitStroke: (stroke) => dispatch({ type: "COMMIT_STROKE", stroke }),
       undo: () => dispatch({ type: "UNDO" }),
       redo: () => dispatch({ type: "REDO" }),
       clearAll: () => dispatch({ type: "CLEAR_ALL" }),
+      rescaleStrokes: (scale) => dispatch({ type: "RESCALE_STROKES", scale }),
     }),
     [state, elements]
   );
