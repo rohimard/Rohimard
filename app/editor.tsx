@@ -18,11 +18,15 @@ import BrushToolbar from "../src/components/BrushToolbar";
 import BrushSettingsPanel from "../src/components/BrushSettings";
 import ExportCanvas from "../src/components/ExportCanvas";
 import VideoExportWebView, { type VideoExportHandle } from "../src/components/VideoExportWebView";
+import StickerPicker from "../src/components/StickerPicker";
 import { useEditor } from "../src/state/EditorContext";
 import { exportToGallery, saveRecordedVideoToGallery } from "../src/state/ExportManager";
 import { isTooCloseToChroma } from "../src/lib/videoExport";
 import { fitCanvasSize, SCREEN_WIDTH, EDITOR_CANVAS_MAX_HEIGHT } from "../src/lib/canvasSize";
 import type { ToolId } from "../src/types";
+
+const DEFAULT_STICKER_SIZE = 110;
+let stickerCounter = 0;
 
 export default function EditorScreen() {
   const router = useRouter();
@@ -30,22 +34,28 @@ export default function EditorScreen() {
   const {
     state,
     elements,
+    stickers,
     canUndo,
     canRedo,
     setDocument,
     setTool,
     updateSettings,
+    addSticker,
     undo,
     redo,
     clearAll,
   } = useEditor();
   const [exporting, setExporting] = useState(false);
   const [exportingVideo, setExportingVideo] = useState(false);
+  const [stickerPickerVisible, setStickerPickerVisible] = useState(false);
   const exportRef = useRef<View>(null);
   const brushRef = useRef<TextBrushHandle>(null);
   const videoExportRef = useRef<VideoExportHandle>(null);
 
-  const lastBrushStroke = [...state.strokes].reverse().find((s) => s.tool === "brush");
+  const lastBrushStroke = [...state.items]
+    .reverse()
+    .flatMap((item) => (item.kind === "stroke" ? [item.data] : []))
+    .find((s) => s.tool === "brush");
 
   const nativeWidth = Number(params.width) || 1;
   const nativeHeight = Number(params.height) || 1;
@@ -69,11 +79,30 @@ export default function EditorScreen() {
 
   // Drawing must stay live regardless of which toolbar option/settings panel
   // is currently open — the user shouldn't have to re-tap "Text Brush" to
-  // keep drawing after adjusting a setting.
-  const drawingEnabled = true;
+  // keep drawing after adjusting a setting. The one exception is the sticker
+  // tool, whose taps/drags are for placing and manipulating stickers instead.
+  const drawingEnabled = state.activeTool !== "sticker";
   const drawMode: "brush" | "tap" = state.activeTool === "text" ? "tap" : "brush";
 
-  const handleSelectTool = (tool: ToolId) => setTool(tool);
+  const handleSelectTool = (tool: ToolId) => {
+    setTool(tool);
+    if (tool === "sticker") setStickerPickerVisible(true);
+  };
+
+  const handleSelectSticker = (uri: string) => {
+    stickerCounter += 1;
+    addSticker({
+      id: `sticker-${Date.now()}-${stickerCounter}`,
+      uri,
+      x: canvasSize.width / 2,
+      y: canvasSize.height / 2,
+      scale: 1,
+      rotation: 0,
+      baseSize: DEFAULT_STICKER_SIZE,
+      createdAt: Date.now(),
+    });
+    setStickerPickerVisible(false);
+  };
 
   const handleReplay = () => {
     if (lastBrushStroke) brushRef.current?.replayStroke(lastBrushStroke.id);
@@ -178,6 +207,8 @@ export default function EditorScreen() {
           baseHeight={canvasSize.height}
           drawingEnabled={drawingEnabled}
           drawMode={drawMode}
+          stickers={stickers}
+          stickersInteractive={state.activeTool === "sticker"}
         />
       </View>
 
@@ -188,9 +219,16 @@ export default function EditorScreen() {
         width={canvasSize.width}
         height={canvasSize.height}
         elements={elements}
+        stickers={stickers}
       />
 
       <VideoExportWebView ref={videoExportRef} />
+
+      <StickerPicker
+        visible={stickerPickerVisible}
+        onClose={() => setStickerPickerVisible(false)}
+        onSelect={handleSelectSticker}
+      />
 
       <View style={styles.bottomPanel}>
         <TextInput
@@ -201,14 +239,29 @@ export default function EditorScreen() {
           placeholderTextColor="#6B7280"
         />
 
-        {state.activeTool !== "brush" && state.activeTool !== "text" && (
+        {state.activeTool === "sticker" ? (
           <View style={styles.settingsPanel}>
-            <BrushSettingsPanel
-              activeTool={state.activeTool}
-              settings={state.settings}
-              onChange={updateSettings}
-            />
+            <View style={styles.stickerPanelRow}>
+              <Text style={styles.stickerPanelHint}>
+                Arrastrá, pellizcá o girá el sticker. Doble toque para borrarlo.
+              </Text>
+              <TouchableOpacity style={styles.addStickerButton} onPress={() => setStickerPickerVisible(true)}>
+                <Ionicons name="add" size={18} color="#04121a" />
+                <Text style={styles.addStickerButtonText}>Agregar</Text>
+              </TouchableOpacity>
+            </View>
           </View>
+        ) : (
+          state.activeTool !== "brush" &&
+          state.activeTool !== "text" && (
+            <View style={styles.settingsPanel}>
+              <BrushSettingsPanel
+                activeTool={state.activeTool}
+                settings={state.settings}
+                onChange={updateSettings}
+              />
+            </View>
+          )
         )}
 
         <BrushToolbar
@@ -259,4 +312,16 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     padding: 14,
   },
+  stickerPanelRow: { flexDirection: "row", alignItems: "center", gap: 12 },
+  stickerPanelHint: { flex: 1, color: "#9CA3AF", fontSize: 12.5, lineHeight: 17 },
+  addStickerButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    backgroundColor: "#4CC9F0",
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderRadius: 12,
+  },
+  addStickerButtonText: { color: "#04121a", fontWeight: "700", fontSize: 13 },
 });

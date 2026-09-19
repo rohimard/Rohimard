@@ -6,8 +6,9 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import type { ImageDocument } from "../types";
+import type { ImageDocument, StickerElement } from "../types";
 import TextBrush, { type TextBrushHandle } from "./TextBrush";
+import StickerLayer from "./StickerLayer";
 
 const MIN_SCALE = 1;
 const MAX_SCALE = 6;
@@ -20,6 +21,8 @@ type Props = {
   /** Whether the active tool draws (brush drag or single tap) vs. just navigating. */
   drawingEnabled: boolean;
   drawMode: "brush" | "tap";
+  stickers: StickerElement[];
+  stickersInteractive: boolean;
 };
 
 /**
@@ -31,7 +34,7 @@ type Props = {
  * current zoom level.
  */
 const ImageCanvas = forwardRef<TextBrushHandle, Props>(function ImageCanvas(
-  { document, baseWidth, baseHeight, drawingEnabled, drawMode },
+  { document, baseWidth, baseHeight, drawingEnabled, drawMode, stickers, stickersInteractive },
   ref
 ) {
   const scale = useSharedValue(1);
@@ -94,6 +97,7 @@ const ImageCanvas = forwardRef<TextBrushHandle, Props>(function ImageCanvas(
           enabled={drawingEnabled}
           mode={drawMode}
         />
+        <StickerLayer stickers={stickers} interactive={stickersInteractive} />
       </Animated.View>
     </GestureDetector>
   );

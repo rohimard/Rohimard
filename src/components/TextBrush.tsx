@@ -87,13 +87,14 @@ const TextBrush = forwardRef<TextBrushHandle, Props>(function TextBrush(
     ref,
     () => ({
       replayStroke: (strokeId: string) => {
-        const stroke = state.strokes.find((s) => s.id === strokeId);
+        const item = state.items.find((i) => i.kind === "stroke" && i.data.id === strokeId);
+        const stroke = item?.kind === "stroke" ? item.data : undefined;
         if (!stroke || stroke.elements.length === 0) return;
         const maxTimeMs = Math.max(...stroke.elements.map((el) => el.timeMs));
         setReplay({ strokeId, startedAt: Date.now(), maxTimeMs });
       },
     }),
-    [state.strokes]
+    [state.items]
   );
 
   const finishBrushStroke = () => {
@@ -155,7 +156,9 @@ const TextBrush = forwardRef<TextBrushHandle, Props>(function TextBrush(
   const gesture = Gesture.Race(panGesture, tapGesture);
 
   const now = Date.now();
-  const visibleElements = state.strokes.flatMap((stroke) => {
+  const visibleElements = state.items.flatMap((item) => {
+    if (item.kind !== "stroke") return [];
+    const stroke = item.data;
     if (replay && replay.strokeId === stroke.id) {
       const elapsed = now - replay.startedAt;
       return stroke.elements.filter((el) => el.timeMs <= elapsed);

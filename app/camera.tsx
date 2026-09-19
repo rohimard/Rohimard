@@ -13,6 +13,8 @@ import { useRouter } from "expo-router";
 import { CameraView, useCameraPermissions, type CameraType } from "expo-camera";
 import { Ionicons } from "@expo/vector-icons";
 import TextBrush from "../src/components/TextBrush";
+import StickerLayer from "../src/components/StickerLayer";
+import StickerPicker from "../src/components/StickerPicker";
 import BrushSettingsPanel from "../src/components/BrushSettings";
 import { TOOL_ITEMS, ACTIVE_COLOR, INACTIVE_COLOR } from "../src/components/BrushToolbar";
 import { useEditor } from "../src/state/EditorContext";
@@ -28,14 +30,28 @@ import type { ToolId } from "../src/types";
 // shot and used to rescale the drawn strokes into the editor's own canvas.
 const PREVIEW_MAX_HEIGHT = SCREEN_HEIGHT - 260;
 const previewCanvasSize = fitCanvasSize(3, 4, SCREEN_WIDTH, PREVIEW_MAX_HEIGHT);
+const DEFAULT_STICKER_SIZE = 100;
+let stickerCounter = 0;
 
 export default function CameraScreen() {
   const router = useRouter();
-  const { state, setTool, updateSettings, undo, canUndo, clearAll, rescaleStrokes, setDocument } = useEditor();
+  const {
+    state,
+    stickers,
+    setTool,
+    updateSettings,
+    addSticker,
+    undo,
+    canUndo,
+    clearAll,
+    rescaleItems,
+    setDocument,
+  } = useEditor();
   const [permission, requestPermission] = useCameraPermissions();
   const [facing, setFacing] = useState<CameraType>("back");
   const [capturing, setCapturing] = useState(false);
   const [ready, setReady] = useState(false);
+  const [stickerPickerVisible, setStickerPickerVisible] = useState(false);
   const cameraRef = useRef<CameraView>(null);
 
   // Start every camera session with a clean canvas — strokes left over from
@@ -52,7 +68,7 @@ export default function CameraScreen() {
       const photo = await cameraRef.current.takePictureAsync({ quality: 1 });
       if (!photo) throw new Error("No se pudo capturar la foto");
 
-      if (state.strokes.length > 0) {
+      if (state.items.length > 0) {
         const editorCanvasSize = fitCanvasSize(
           photo.width,
           photo.height,
@@ -60,7 +76,7 @@ export default function CameraScreen() {
           EDITOR_CANVAS_MAX_HEIGHT
         );
         const scale = editorCanvasSize.width / previewCanvasSize.width;
-        rescaleStrokes(scale);
+        rescaleItems(scale);
       }
 
       await addRecentProject({ uri: photo.uri, width: photo.width, height: photo.height });
@@ -76,9 +92,27 @@ export default function CameraScreen() {
     }
   };
 
-  const handleSelectTool = (tool: ToolId) => setTool(tool);
+  const handleSelectTool = (tool: ToolId) => {
+    setTool(tool);
+    if (tool === "sticker") setStickerPickerVisible(true);
+  };
   const handleClose = () => router.back();
   const handleFlip = () => setFacing((f) => (f === "back" ? "front" : "back"));
+
+  const handleSelectSticker = (uri: string) => {
+    stickerCounter += 1;
+    addSticker({
+      id: `sticker-${Date.now()}-${stickerCounter}`,
+      uri,
+      x: previewCanvasSize.width / 2,
+      y: previewCanvasSize.height / 2,
+      scale: 1,
+      rotation: 0,
+      baseSize: DEFAULT_STICKER_SIZE,
+      createdAt: Date.now(),
+    });
+    setStickerPickerVisible(false);
+  };
 
   if (!permission) {
     return (
@@ -110,6 +144,7 @@ export default function CameraScreen() {
   }
 
   const drawMode: "brush" | "tap" = state.activeTool === "text" ? "tap" : "brush";
+  const drawingEnabled = ready && state.activeTool !== "sticker";
 
   return (
     <SafeAreaView style={styles.container} edges={["top", "bottom"]}>
@@ -132,7 +167,13 @@ export default function CameraScreen() {
             ratio="4:3"
             onCameraReady={() => setReady(true)}
           />
-          <TextBrush width={previewCanvasSize.width} height={previewCanvasSize.height} enabled={ready} mode={drawMode} />
+          <TextBrush
+            width={previewCanvasSize.width}
+            height={previewCanvasSize.height}
+            enabled={drawingEnabled}
+            mode={drawMode}
+          />
+          <StickerLayer stickers={stickers} interactive={state.activeTool === "sticker"} />
         </View>
       </View>
 
@@ -145,14 +186,29 @@ export default function CameraScreen() {
           placeholderTextColor="#6B7280"
         />
 
-        {state.activeTool !== "brush" && state.activeTool !== "text" && (
+        {state.activeTool === "sticker" ? (
           <View style={styles.settingsPanel}>
-            <BrushSettingsPanel
-              activeTool={state.activeTool}
-              settings={state.settings}
-              onChange={updateSettings}
-            />
+            <View style={styles.stickerPanelRow}>
+              <Text style={styles.stickerPanelHint}>
+                Arrastrá, pellizcá o girá el sticker. Doble toque para borrarlo.
+              </Text>
+              <TouchableOpacity style={styles.addStickerButton} onPress={() => setStickerPickerVisible(true)}>
+                <Ionicons name="add" size={18} color="#04121a" />
+                <Text style={styles.addStickerButtonText}>Agregar</Text>
+              </TouchableOpacity>
+            </View>
           </View>
+        ) : (
+          state.activeTool !== "brush" &&
+          state.activeTool !== "text" && (
+            <View style={styles.settingsPanel}>
+              <BrushSettingsPanel
+                activeTool={state.activeTool}
+                settings={state.settings}
+                onChange={updateSettings}
+              />
+            </View>
+          )
         )}
 
         <View style={styles.toolRow}>
@@ -187,6 +243,12 @@ export default function CameraScreen() {
           </TouchableOpacity>
         </View>
       </View>
+
+      <StickerPicker
+        visible={stickerPickerVisible}
+        onClose={() => setStickerPickerVisible(false)}
+        onSelect={handleSelectSticker}
+      />
     </SafeAreaView>
   );
 }
@@ -232,6 +294,18 @@ const styles = StyleSheet.create({
     borderRadius: 14,
     padding: 14,
   },
+  stickerPanelRow: { flexDirection: "row", alignItems: "center", gap: 12 },
+  stickerPanelHint: { flex: 1, color: "#9CA3AF", fontSize: 12.5, lineHeight: 17 },
+  addStickerButton: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    backgroundColor: "#4CC9F0",
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+    borderRadius: 12,
+  },
+  addStickerButtonText: { color: "#04121a", fontWeight: "700", fontSize: 13 },
   toolRow: {
     flexDirection: "row",
     alignItems: "center",

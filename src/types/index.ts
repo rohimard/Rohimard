@@ -9,7 +9,8 @@ export type ToolId =
   | "size"
   | "font"
   | "spacing"
-  | "opacity";
+  | "opacity"
+  | "sticker";
 
 export type FontId =
   | "system"
@@ -81,6 +82,34 @@ export interface TextStroke {
   points?: { x: number; y: number; t?: number }[];
 }
 
+/**
+ * A placed sticker — a static or animated (GIF) image the user dragged onto
+ * the canvas, independent of the Text Brush stroke system. React Native's
+ * <Image> animates a .gif source on its own, so no special player is needed.
+ */
+export interface StickerElement {
+  id: string;
+  uri: string;
+  x: number;
+  y: number;
+  /** Uniform scale multiplier applied to baseSize. */
+  scale: number;
+  rotation: number;
+  /** Display size (width == height) in px at scale 1. */
+  baseSize: number;
+  createdAt: number;
+}
+
+/**
+ * One entry in the undo/redo timeline — either a completed text stroke or a
+ * placed sticker. Wrapping both in one discriminated union lets a single
+ * Undo button step back through whichever kind of action happened last,
+ * regardless of order.
+ */
+export type CanvasItem =
+  | { kind: "stroke"; data: TextStroke }
+  | { kind: "sticker"; data: StickerElement };
+
 export interface ImageDocument {
   uri: string;
   /** Native pixel dimensions of the original photo, used to export at full resolution. */
@@ -90,8 +119,8 @@ export interface ImageDocument {
 
 export interface EditorState {
   document: ImageDocument | null;
-  strokes: TextStroke[];
-  redoStack: TextStroke[];
+  items: CanvasItem[];
+  redoStack: CanvasItem[];
   activeTool: ToolId;
   settings: BrushSettings;
 }

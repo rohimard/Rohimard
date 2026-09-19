@@ -9,6 +9,7 @@ export const INACTIVE_COLOR = "#9CA3AF";
 export const TOOL_ITEMS: { id: ToolId; label: string; renderIcon: (color: string) => React.ReactNode }[] = [
   { id: "text", label: "Texto", renderIcon: (c) => <Ionicons name="text-outline" size={22} color={c} /> },
   { id: "brush", label: "Text Brush", renderIcon: (c) => <Ionicons name="brush-outline" size={22} color={c} /> },
+  { id: "sticker", label: "Stickers", renderIcon: (c) => <Ionicons name="happy-outline" size={22} color={c} /> },
   { id: "color", label: "Color", renderIcon: (c) => <Ionicons name="color-palette-outline" size={22} color={c} /> },
   { id: "size", label: "Tamaño", renderIcon: (c) => <Ionicons name="resize-outline" size={22} color={c} /> },
   { id: "font", label: "Fuente", renderIcon: (c) => <MaterialCommunityIcons name="format-font" size={22} color={c} /> },
