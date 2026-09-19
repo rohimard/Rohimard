@@ -17,3 +17,5 @@ yarn-error.*
 .metro-health-check*
 ios/
 android/
+*.apk
+*.aab
