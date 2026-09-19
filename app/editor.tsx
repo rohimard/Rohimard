@@ -17,8 +17,10 @@ import { BRAND_FONT_BOLD } from "../src/lib/fonts";
 import BrushToolbar from "../src/components/BrushToolbar";
 import BrushSettingsPanel from "../src/components/BrushSettings";
 import ExportCanvas from "../src/components/ExportCanvas";
+import VideoExportWebView, { type VideoExportHandle } from "../src/components/VideoExportWebView";
 import { useEditor } from "../src/state/EditorContext";
-import { exportToGallery } from "../src/state/ExportManager";
+import { exportToGallery, saveRecordedVideoToGallery } from "../src/state/ExportManager";
+import { isTooCloseToChroma } from "../src/lib/videoExport";
 import type { ToolId } from "../src/types";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
@@ -40,8 +42,10 @@ export default function EditorScreen() {
     clearAll,
   } = useEditor();
   const [exporting, setExporting] = useState(false);
+  const [exportingVideo, setExportingVideo] = useState(false);
   const exportRef = useRef<View>(null);
   const brushRef = useRef<TextBrushHandle>(null);
+  const videoExportRef = useRef<VideoExportHandle>(null);
 
   const lastBrushStroke = [...state.strokes].reverse().find((s) => s.tool === "brush");
 
@@ -99,6 +103,47 @@ export default function EditorScreen() {
     }
   };
 
+  const runVideoExport = async () => {
+    if (!lastBrushStroke || exportingVideo) return;
+    setExportingVideo(true);
+    try {
+      const video = await videoExportRef.current?.recordStroke(lastBrushStroke, canvasSize);
+      if (!video) throw new Error("No se pudo grabar el video");
+      const result = await saveRecordedVideoToGallery(video);
+      if (result.ok) {
+        Alert.alert(
+          "Video guardado",
+          "Se guardó en tu galería con fondo verde. Aplicá \"Chroma Key\" en tu editor de video para quitar el fondo."
+        );
+      } else if (result.reason === "permission") {
+        Alert.alert("Permiso necesario", "Activa el acceso a la galería para guardar el video.");
+      } else {
+        Alert.alert("Error", "No se pudo guardar el video.");
+      }
+    } catch {
+      Alert.alert("Error", "No se pudo grabar el video.");
+    } finally {
+      setExportingVideo(false);
+    }
+  };
+
+  const handleExportVideo = () => {
+    if (!lastBrushStroke) return;
+    const strokeColor = lastBrushStroke.elements[0]?.color;
+    if (strokeColor && isTooCloseToChroma(strokeColor)) {
+      Alert.alert(
+        "El color es muy parecido al fondo",
+        "Tu texto está en un verde cercano al fondo que se usa para el video — el Chroma Key también lo va a borrar a él. ¿Exportar de todas formas?",
+        [
+          { text: "Cancelar", style: "cancel" },
+          { text: "Exportar igual", onPress: runVideoExport },
+        ]
+      );
+      return;
+    }
+    runVideoExport();
+  };
+
   if (!state.document) {
     return (
       <SafeAreaView style={styles.container}>
@@ -139,6 +184,8 @@ export default function EditorScreen() {
         elements={elements}
       />
 
+      <VideoExportWebView ref={videoExportRef} />
+
       <View style={styles.bottomPanel}>
         <TextInput
           style={styles.phraseInput}
@@ -170,6 +217,8 @@ export default function EditorScreen() {
           exporting={exporting}
           canReplay={Boolean(lastBrushStroke)}
           onReplay={handleReplay}
+          onExportVideo={handleExportVideo}
+          exportingVideo={exportingVideo}
         />
       </View>
     </SafeAreaView>

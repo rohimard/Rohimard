@@ -28,6 +28,8 @@ type Props = {
   exporting: boolean;
   canReplay: boolean;
   onReplay: () => void;
+  onExportVideo: () => void;
+  exportingVideo: boolean;
 };
 
 export default function BrushToolbar({
@@ -42,6 +44,8 @@ export default function BrushToolbar({
   exporting,
   canReplay,
   onReplay,
+  onExportVideo,
+  exportingVideo,
 }: Props) {
   return (
     <ScrollView
@@ -98,6 +102,23 @@ export default function BrushToolbar({
           <Ionicons name="download-outline" size={22} color={INACTIVE_COLOR} />
         )}
         <Text style={styles.label}>Exportar</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={onExportVideo}
+        disabled={exportingVideo || !canReplay}
+      >
+        {exportingVideo ? (
+          <ActivityIndicator size="small" color={ACTIVE_COLOR} />
+        ) : (
+          <Ionicons
+            name="videocam-outline"
+            size={22}
+            color={canReplay ? INACTIVE_COLOR : "#3A3A44"}
+          />
+        )}
+        <Text style={[styles.label, !canReplay && styles.labelDisabled]}>Exportar video</Text>
       </TouchableOpacity>
     </ScrollView>
   );

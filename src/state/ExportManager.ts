@@ -2,6 +2,8 @@ import type { RefObject } from "react";
 import type { View } from "react-native";
 import { captureRef } from "react-native-view-shot";
 import * as MediaLibrary from "expo-media-library";
+import * as FileSystem from "expo-file-system";
+import type { RecordedVideo } from "../components/VideoExportWebView";
 
 export type ExportResult =
   | { ok: true }
@@ -32,6 +34,28 @@ export async function exportToGallery(
     if (!uri) return { ok: false, reason: "capture" };
 
     await MediaLibrary.saveToLibraryAsync(uri);
+    return { ok: true };
+  } catch {
+    return { ok: false, reason: "save" };
+  }
+}
+
+/**
+ * Writes a base64-encoded recording (see VideoExportWebView) to a temp file
+ * and saves it to the device gallery as a video.
+ */
+export async function saveRecordedVideoToGallery(video: RecordedVideo): Promise<ExportResult> {
+  try {
+    const permission = await MediaLibrary.requestPermissionsAsync();
+    if (!permission.granted) return { ok: false, reason: "permission" };
+
+    const extension = video.mimeType.includes("webm") ? "webm" : "mp4";
+    const fileUri = `${FileSystem.cacheDirectory}photobrush-brush-${Date.now()}.${extension}`;
+    await FileSystem.writeAsStringAsync(fileUri, video.base64, {
+      encoding: FileSystem.EncodingType.Base64,
+    });
+
+    await MediaLibrary.saveToLibraryAsync(fileUri);
     return { ok: true };
   } catch {
     return { ok: false, reason: "save" };
