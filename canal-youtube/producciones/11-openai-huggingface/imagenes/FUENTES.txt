@@ -11,10 +11,20 @@ SIN og:image: sanders-comunicado.jpg <- https://www.sanders.senate.gov/press-rel
 OK (646000 bytes): delangue-techcrunch.jpg <- https://techcrunch.com/wp-content/uploads/2026/07/Hugging-Face-CEO-Clem-Delangue.png?resize=1200,675
 OK (188400 bytes): openai-techcrunch.jpg <- https://techcrunch.com/wp-content/uploads/2026/05/ai-agents-GettyImages-2229880232.jpg?resize=1200,675
 FALLO: seis-incidentes-axios.jpg <- https://www.axios.com/2026/09/16/openai-testing-safety-incidents-disclosure :: 403 Client Error: Forbidden for url: https://www.axios.com/2026/09/16/openai-testing-safety-incidents-disclosure
-OK (446887 bytes): seis-incidentes-hackernews.jpg <- https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz2xdqQbSjGZGGkNO0hRMgoEWNFpWVp0DDsBvsbQekWezeScq_sLAPfzY-kJenfNHYFnSqDcU93F30gmINBYYobl0Jf1thyPsXm34lbJPqMfZwPXoRy1UvpQcS_eHwF_nVqk-rDBTd83B8iteh4e23r2pnbtUsOgFPmYVRi-IlrW6-9FFUf7-DiZ8yyAOJ/s1600/openai-models.jpg
+OK (446953 bytes): seis-incidentes-hackernews.jpg <- https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz2xdqQbSjGZGGkNO0hRMgoEWNFpWVp0DDsBvsbQekWezeScq_sLAPfzY-kJenfNHYFnSqDcU93F30gmINBYYobl0Jf1thyPsXm34lbJPqMfZwPXoRy1UvpQcS_eHwF_nVqk-rDBTd83B8iteh4e23r2pnbtUsOgFPmYVRi-IlrW6-9FFUf7-DiZ8yyAOJ/s1600/openai-models.jpg
 OK (98600 bytes): seis-incidentes-nbc.jpg <- https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2026-04/260430-openai-rs-4b7945.jpg
 OK (97893 bytes): yang-yahoo.jpg <- https://s.yimg.com/lo/mysterio/api/5768696081b510a7a4f9688e5b896e3199d868b1ba4d6160d9b750d20f8e367e/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fgadget_review_articles_822%2Fdac26cff4815f95facbb43f6f2a36fa2.jpg
 OK (148901 bytes): yang-gadgetreview.jpg <- https://www.gadgetreview.com/wp-content/uploads/OpenAIs-Rogue-Agent-Swarm-Is-Real-scaled.jpg
 OK (64379 bytes): openai-fortune.jpg <- https://fortune.com/img-assets/wp-content/uploads/2026/08/GettyImages-2279687218-e1787767338576.jpg?resize=1200,600
 OK (357448 bytes): jfrog-hackernews.jpg <- https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgX61WXln9MMGAzqzflpRDt_LZGfB7ZJ_u1fsQhr5FRnml48-E-V-uxtCIF-GERZlt-eBhw3MDT7_6jFgwEDF1ppC7YZlB_CZn-q4_nKD9S3fQTI3kDQFe2Izsq6_NoGnCRtRZckr8Irg9kOJ8Fwghl3qHqwg1zWoN6ff-VsmlCaojw2Divb6L00F34lJk/s1600/jfrog-art.jpg
 FALLO: wolf-wef.jpg <- https://www.weforum.org/people/thomas-wolf/ :: 403 Client Error: Forbidden for url: https://www.weforum.org/people/thomas-wolf/
+OK (166240 bytes): metr-informe.jpg <- https://metr.org/assets/images/openai-hugging-face-incident-investigation/title-logo-og.png
+OK (45519 bytes): redwood-informe.jpg <- https://www.redwoodresearch.org/research/hugging-face-incident/opengraph-image?6e03a040cab32bf4
+OK (41812 bytes): time-perdida-control.jpg <- https://static.time.com/v3/assets/bltea6093859af6183b/blta502002649d83b8d/6a6380b7ec9fa9e3d16c2e4b/GettyImages-2278967101.jpg?branch=production&width=1024&quality=75&auto=webp&crop=16:9
+FALLO: qz-sondeo-previo.jpg <- https://qz.com/openai-rogue-agents-hugging-face-probe-breach-091626 :: 403 Client Error: Forbidden for url: https://qz.com/openai-rogue-agents-hugging-face-probe-breach-091626
+FALLO: darkreading-blackhat.jpg <- https://www.darkreading.com/vulnerabilities-threats/bhusa26huggingfacetalk :: 403 Client Error: Forbidden for url: https://www.darkreading.com/vulnerabilities-threats/bhusa26huggingfacetalk
+OK (24195 bytes): globalnews-seisincidentes.jpg <- https://globalnews.ca/wp-content/uploads/2026/09/OpenAI-Breaches.jpg-e1789653638346.jpg?quality=65&strip=all&w=720&h=379&crop=1
+OK (20445 bytes): thenextweb-notsolved.jpg <- https://media.thenextweb.com/2026/09/openai-logo-smartphone-laptop-zac-wolff-unsplash.jpg
+FALLO: eweek-seisincidentes.jpg <- https://www.eweek.com/news/openai-ai-misalignment-cases/ :: 403 Client Error: Forbidden for url: https://www.eweek.com/news/openai-ai-misalignment-cases/
+OK (355408 bytes): unite-ley-sanders.jpg <- https://www.unite.ai/wp-content/uploads/2026/09/sanders-casar-bill-ban-artificial-superintelligence-pause-advanced-ai.jpg
+OK (1021969 bytes): axios80000-hf-warning.jpg <- https://80000hours.org/wp-content/uploads/2026/09/hero-perimeter-breach.png
