@@ -136,6 +136,19 @@ jobs:
                "https://www.unite.ai/sanders-and-casar-unveil-bill-to-outlaw-superintelligent-ai-in-the-u-s/"),
               ("axios80000-hf-warning.jpg",
                "https://80000hours.org/hugging-face/"),
+
+              # Cuarta tanda: aun faltan planos para bajar el promedio por
+              # plano a algo mas parecido al video 9 (~5.5s). Mas cobertura
+              # independiente del mismo hecho central (la atribucion del
+              # 21/07 y el sondeo previo de mayo).
+              ("nbc-swarm-detalle.jpg",
+               "https://www.nbcnews.com/tech/tech-news/openai-report-says-network-was-hacked-rogue-ai-agents-rcna594590"),
+              ("fortune-julio29.jpg",
+               "https://fortune.com/2026/07/29/openai-hugging-face-new-details-hack-everything-we-know-dont-know/"),
+              ("claimsjournal-sondeo.jpg",
+               "https://www.claimsjournal.com/news/national/2026/09/17/340186.htm"),
+              ("dailyguardian-sondeo.jpg",
+               "https://thedailyguardian.com/news/science-tech/exclusive-openais-rogue-agents-probed-hugging-face-for-weaknesses-two-months-before-major-hack-3-757573/"),
           ]
 
           resumen = []
@@ -199,6 +212,11 @@ jobs:
           # pudo verificar contra una segunda fuente, asi que se usa esta
           # en su lugar.
           bajar_wiki delangue-wiki.jpg "Clément_Delangue_on_SiliconANGLE_theCUBE.jpg"
+
+          # Logo real de JFrog (la herramienta con el dia cero explotado) y
+          # una foto real del interior del Senado (donde se presento la ley).
+          bajar_wiki jfrog-logo-wiki.png "JFrog_logo.png"
+          bajar_wiki senado-interior-wiki.jpg "Interior_of_the_gorgeous_Senate_Chamber_(20131800633).jpg"
           ls -la "$DESTINO"
 
       - name: Devolver las imagenes a la rama
